@@ -3,7 +3,7 @@
 Use our Golang SDK to integrate the Cashfree Payment Gateway into your application.
 
 - API version: 2022-01-01
-- Package version: 0.0.6
+- Package version: 0.1.0
 
 ## Installation and Importing
 
