@@ -32,6 +32,7 @@ type CFOrder struct {
 	Payments *CFPaymentURLObject `json:"payments,omitempty"`
 	Settlements *CFSettlementURLObject `json:"settlements,omitempty"`
 	Refunds *CFRefundURLObject `json:"refunds,omitempty"`
+	PaymentSessionId *string `json:"payment_session_id,omitempty"`
 }
 
 // NewCFOrder instantiates a new CFOrder object

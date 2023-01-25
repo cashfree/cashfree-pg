@@ -216,6 +216,34 @@ func OrderPay(session *CFConfig, header *CFHeader, orderPay CFOrderPayRequest) (
 	return orderPayResponse, &responseHeader, nil
 }
 
+func OrderPaySessionId(session *CFConfig, header *CFHeader, orderPaySessionId CFOrderPaySessionIdRequest) (*CFOrderPayResponse, *CFResponseHeader, *CFError) {
+	apiClient := *NewAPIClient(NewConfiguration())
+	e := checkSession(session)
+	if e != nil {
+		return nil, nil, e
+	}
+	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
+	if invalidEnvironmentError != nil {
+		return nil, nil, invalidEnvironmentError
+	}
+	service := new(OrdersApiService)
+	orderPayRequest := service.OrderPay(ctx)
+	orderPayRequest = orderPayRequest.CFOrderPaySessionIdRequest(orderPaySessionId)
+	orderPayRequest = orderPayRequest.XApiVersion(*session.ApiVersion)
+	if header != nil {
+		if header.RequestID != nil {
+			orderPayRequest = orderPayRequest.XRequestId(*header.RequestID)
+		}
+	}
+	orderPayResponse, response, err := apiClient.OrdersApi.OrderPayExecuteSessionId(orderPayRequest)
+	responseHeader := getHeader(response)
+	if err != nil {
+		cfError := getError(response)
+		return orderPayResponse, &responseHeader, &cfError
+	}
+	return orderPayResponse, &responseHeader, nil
+}
+
 // Get Order API
 func GetOrder(session *CFConfig, header *CFHeader, orderId string) (*CFOrder, *CFResponseHeader, *CFError) {
 	apiClient := *NewAPIClient(NewConfiguration())
