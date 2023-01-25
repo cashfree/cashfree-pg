@@ -22,6 +22,13 @@ type CFOrderPayRequest struct {
 	SaveInstrument *bool `json:"save_instrument,omitempty"`
 }
 
+// CFOrderPayRequest struct for CFOrderPayBySessionIdRequest
+type CFOrderPaySessionIdRequest struct {
+	PaymentSessionId string `json:"payment_session_id"`
+	PaymentMethod CFPaymentMethod `json:"payment_method"`
+	SaveInstrument *bool `json:"save_instrument,omitempty"`
+}
+
 // NewCFOrderPayRequest instantiates a new CFOrderPayRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
@@ -29,6 +36,13 @@ type CFOrderPayRequest struct {
 func NewCFOrderPayRequest(orderToken string, paymentMethod CFPaymentMethod) *CFOrderPayRequest {
 	this := CFOrderPayRequest{}
 	this.OrderToken = orderToken
+	this.PaymentMethod = paymentMethod
+	return &this
+}
+
+func NewCFOrderPaySessionIdRequest(paymentSessionId string, paymentMethod CFPaymentMethod) *CFOrderPaySessionIdRequest {
+	this := CFOrderPaySessionIdRequest{}
+	this.PaymentSessionId = paymentSessionId
 	this.PaymentMethod = paymentMethod
 	return &this
 }

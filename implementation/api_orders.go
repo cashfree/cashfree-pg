@@ -359,6 +359,7 @@ type ApiOrderPayRequest struct {
 	xApiVersion *string
 	xRequestId *string
 	cFOrderPayRequest *CFOrderPayRequest
+	cFOrderPaySessionIdRequest *CFOrderPaySessionIdRequest
 }
 
 func (r ApiOrderPayRequest) XApiVersion(xApiVersion string) ApiOrderPayRequest {
@@ -371,6 +372,10 @@ func (r ApiOrderPayRequest) XRequestId(xRequestId string) ApiOrderPayRequest {
 }
 func (r ApiOrderPayRequest) CFOrderPayRequest(cFOrderPayRequest CFOrderPayRequest) ApiOrderPayRequest {
 	r.cFOrderPayRequest = &cFOrderPayRequest
+	return r
+}
+func (r ApiOrderPayRequest) CFOrderPaySessionIdRequest(cFOrderPaySessionIdRequest CFOrderPaySessionIdRequest) ApiOrderPayRequest {
+	r.cFOrderPaySessionIdRequest = &cFOrderPaySessionIdRequest
 	return r
 }
 
@@ -440,6 +445,95 @@ func (a *OrdersApiService) OrderPayExecute(r ApiOrderPayRequest) (*CFOrderPayRes
 	localVarHeaderParams["x-api-version"] = parameterToString(*r.xApiVersion, "")
 	// body params
 	localVarPostBody = r.cFOrderPayRequest
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+			var v CFError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+func (a *OrdersApiService) OrderPayExecuteSessionId(r ApiOrderPayRequest) (*CFOrderPayResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CFOrderPayResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OrdersApiService.OrderPay")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/orders/sessions"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.xApiVersion == nil {
+		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xRequestId != nil {
+		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
+	}
+	localVarHeaderParams["x-api-version"] = parameterToString(*r.xApiVersion, "")
+	// body params
+	localVarPostBody = r.cFOrderPaySessionIdRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

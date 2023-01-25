@@ -638,15 +638,17 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 					"customer_bank_ifsc": orderCreate.CustomerDetails.CustomerBankIfsc,
 					"customer_bank_code": orderCreate.CustomerDetails.CustomerBankCode,
 				},
-				"order_meta": map[string]interface{} {
-					"notify_url": orderCreate.OrderMeta.NotifyUrl,
-					"return_url": orderCreate.OrderMeta.ReturnUrl,
-					"payment_methods": orderCreate.OrderMeta.PaymentMethods,
-				},
 				"expiry_time": orderCreate.OrderExpiryTime,
 				"order_note": orderCreate.OrderNote,
 				"order_tags": orderCreate.OrderTags,
 				"order_splits": orderCreate.OrderSplits,
+			}
+			if orderCreate.OrderMeta != nil {
+				createOrder["order_meta"] = map[string]interface{} {
+					"notify_url": orderCreate.OrderMeta.NotifyUrl,
+					"return_url": orderCreate.OrderMeta.ReturnUrl,
+					"payment_methods": orderCreate.OrderMeta.PaymentMethods,
+				}
 			}
 			err = json.NewEncoder(bodyBuf).Encode(createOrder)
 		} else {
