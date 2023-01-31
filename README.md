@@ -2,19 +2,19 @@
 
 Use our Golang SDK to integrate the Cashfree Payment Gateway into your application.
 
-- API version: 2022-01-01
-- Package version: 0.1.0
+- API version: 2022-09-01
+- Package version: 2.0.1
 
 ## Installation and Importing
 
 Run the following command in the root level of the project
 
 ```shell
-go get github.com/cashfree/cashfree-pg-sdk-go
+go get github.com/cashfree/cashfree-pg-sdk-go/v2
 ```
 
 ```golang
-import cashfreeSDK "github.com/cashfree/cashfree-pg-sdk-go/implementation"
+import cashfreeSDK "github.com/cashfree/cashfree-pg-sdk-go/v2/implementation"
 ```
 ---
 
@@ -47,7 +47,7 @@ The `CFConfig` type consists of properties that are necessary for every method c
 
 ```
 environment := cashfreeSDK.PRODUCTION // cashfreeSDK.SANDBOX -> for sandbox environment
-xApiVersion := "2022-01-01"
+xApiVersion := "2022-09-01"
 session := cashfreeSDK.CFConfig{
 	Environment:  &environment,
 	ApiVersion:   &xApiVersion,
@@ -80,7 +80,7 @@ header := cashfreeSDK.CFHeader{
 To process any payment on Cashfree PG, the merchant needs to create an order in the cashfree system. An order can be created using the following code snippet :
 
 ```
-returnUrl := "https://merchant.in/pg/process_return?cf_id={order_id}&cf_token={order_token}"
+returnUrl := "https://merchant.in/pg/process_return?cf_id={order_id}"
 orderMeta := cashfreeSDK.CFOrderMeta{
 	ReturnUrl:      returnUrl,
 	NotifyUrl:      returnUrl,
@@ -109,14 +109,14 @@ cfOrder, responseHeader, cfError := cashfreeSDK.CreateOrder(&session, &header, r
 
 ## Pay Order
 
-Once you have created the order, you can use the order to initiate payment. Order creation API returns "order_token" which contains information about the order and that has to be used in payment initiation stage. Cashfree provides multiple payment methods to choose to make payments for an order, namely, UPI, Netbanking, Wallet, Card, Card EMI, Cardless EMI and Pay later.
+Once you have created the order, you can use the order to initiate payment. Order creation API returns "payment_session_id" which contains information about the order and that has to be used in payment initiation stage. Cashfree provides multiple payment methods to choose to make payments for an order, namely, UPI, Netbanking, Wallet, Card, Card EMI, Cardless EMI and Pay later.
 
 ### Pay Order with Card
 
 Below is the code to initiate payment with Card
 
 ```
-returnUrl := "https://merchant.in/pg/process_return?cf_id={order_id}&cf_token={order_token}"
+returnUrl := "https://merchant.in/pg/process_return?cf_id={order_id}"
 orderMeta := cashfreeSDK.CFOrderMeta{
 	ReturnUrl:      returnUrl,
 	NotifyUrl:      returnUrl,
@@ -139,11 +139,11 @@ config := getConfig() // above created config
 header := getHeaders() // above created header, this is optional
 cfOrder, responseHeader, cfError := cashfreeSDK.CreateOrder(&config, &header, request)
 
-// Once the order is created and order_token is generated, that should be used to initiate the payment
+// Once the order is created and "payment_session_id" is generated, that should be used to initiate the payment
 
-card := cashfreeSDK.CFOrderPayRequest{
+card := cashfreeSDK.CFOrderPaySessionIdRequest{
 		SaveInstrument: &save,
-		OrderToken:     *cforder.OrderToken,
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFCardPayment: &cashfreeSDK.CFCardPayment{
 				Card: cashfreeSDK.CFCard{
@@ -161,7 +161,7 @@ card := cashfreeSDK.CFOrderPayRequest{
 orderPayResponse, responseHeader, cfError := cashfreeSDK.OrderPay(&session, &header, opr)
 ```
 
-`Note:` Order has to be created and then the order_token has to be used to make the payments for all the other payment methods as well. This step is covered in the above example and the same step has to be followed for all other payment methods.
+`Note:` Order has to be created and then the "payment_session_id" has to be used to make the payments for all the other payment methods as well. This step is covered in the above example and the same step has to be followed for all other payment methods.
 
 ---
 ### Pay Order with Saved Card
@@ -169,8 +169,8 @@ orderPayResponse, responseHeader, cfError := cashfreeSDK.OrderPay(&session, &hea
 Below is the code to initiate payment with Saved Card
 
 ```
-opr := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+opr := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFCardPayment: &cashfreeSDK.CFCardPayment{
 				Card: cashfreeSDK.CFCard{
@@ -194,8 +194,8 @@ Below is the code to initiate payment with UPI - `Collect`
 
 ```
 upi := "testsuccess@gocash"
-opr := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+opr := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFUPIPayment: &cashfreeSDK.CFUPIPayment{
 				Upi: cashfreeSDK.CFUPI{
@@ -215,8 +215,8 @@ Below is the code to initiate payment with UPI - `Intent`
 
 ```
 upi := "testsuccess@gocash"
-opr := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+opr := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFUPIPayment: &cashfreeSDK.CFUPIPayment{
 				Upi: cashfreeSDK.CFUPI{
@@ -235,8 +235,8 @@ Below is the code to initiate payment with UPI - `QRCode`
 
 ```
 upi := "testsuccess@gocash"
-opr := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+opr := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFUPIPayment: &cashfreeSDK.CFUPIPayment{
 				Upi: cashfreeSDK.CFUPI{
@@ -257,8 +257,8 @@ orderPayResponse, responseHeader, cfError := cashfreeSDK.OrderPay(&config, &head
 Below is the code to initiate payment with Netbanking
 
 ```
-netbanking := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+netbanking := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFNetbankingPayment: &cashfreeSDK.CFNetbankingPayment{
 				Netbanking: cashfreeSDK.CFNetbanking{
@@ -282,8 +282,8 @@ orderPayResponse, responseHeader, cfError := cashfreeSDK.OrderPay(&config, &head
 Below is the code to initiate payment with App (Wallet)
 
 ```
-app := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+app := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFAppPayment: &cashfreeSDK.CFAppPayment{
 				App: cashfreeSDK.CFApp{
@@ -308,8 +308,8 @@ orderPayResponse, responseHeader, cfError := cashfreeSDK.OrderPay(&config, &head
 Below is the code to initiate payment with Paylater
 
 ```
-payLater := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+payLater := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFPaylaterPayment: &cashfreeSDK.CFPaylaterPayment{
 				Paylater: cashfreeSDK.CFPaylater{
@@ -334,8 +334,8 @@ orderPayResponse, responseHeader, cfError := cashfreeSDK.OrderPay(&config, &head
 Below is the code to initiate payment with CardlessEMI
 
 ```
-cardlessEMI := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+cardlessEMI := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFCardlessEMIPayment: &cashfreeSDK.CFCardlessEMIPayment{
 				CardlessEmi: cashfreeSDK.CFCardlessEMI{
@@ -360,8 +360,8 @@ orderPayResponse, responseHeader, cfError := cashfreeSDK.OrderPay(&config, &head
 Below is the code to initiate payment with EMI - Card
 
 ```
-opr := cashfreeSDK.CFOrderPayRequest{
-		OrderToken: order_token_data,
+opr := cashfreeSDK.CFOrderPaySessionIdRequest{
+		PaymentSessionId: *cfOrder.PaymentSessionId,
 		PaymentMethod: cashfreeSDK.CFPaymentMethod{
 			CFEMIPayment: &cashfreeSDK.CFEMIPayment{
 				Emi: &cashfreeSDK.CFCardEMI{
