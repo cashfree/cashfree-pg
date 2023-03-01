@@ -1,4 +1,4 @@
-module cashfree_pg_sdk_go
+module github.com/cashfree/cashfree-pg-sdk-go/v2
 
 go 1.17
 
