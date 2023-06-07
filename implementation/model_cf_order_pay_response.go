@@ -18,7 +18,7 @@ import (
 // CFOrderPayResponse struct for CFOrderPayResponse
 type CFOrderPayResponse struct {
 	// Payment identifier created by Cashfree
-	CfPaymentId *int32 `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
 	// One of [\"upi\", \"netbanking\", \"card\", \"app\", \"cardless_emi\", \"paylater\"] 
 	PaymentMethod *string `json:"payment_method,omitempty"`
 	// One of [\"link\", \"collect\", \"qrcode\"]. In an older version we used to support different channels like 'gpay', 'phonepe' etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as 'link' and provider as 'gpay'
@@ -46,9 +46,9 @@ func NewCFOrderPayResponseWithDefaults() *CFOrderPayResponse {
 }
 
 // GetCfPaymentId returns the CfPaymentId field value if set, zero value otherwise.
-func (o *CFOrderPayResponse) GetCfPaymentId() int32 {
+func (o *CFOrderPayResponse) GetCfPaymentId() int64 {
 	if o == nil || o.CfPaymentId == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CfPaymentId
@@ -56,7 +56,7 @@ func (o *CFOrderPayResponse) GetCfPaymentId() int32 {
 
 // GetCfPaymentIdOk returns a tuple with the CfPaymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CFOrderPayResponse) GetCfPaymentIdOk() (*int32, bool) {
+func (o *CFOrderPayResponse) GetCfPaymentIdOk() (*int64, bool) {
 	if o == nil || o.CfPaymentId == nil {
 		return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *CFOrderPayResponse) HasCfPaymentId() bool {
 }
 
 // SetCfPaymentId gets a reference to the given int32 and assigns it to the CfPaymentId field.
-func (o *CFOrderPayResponse) SetCfPaymentId(v int32) {
+func (o *CFOrderPayResponse) SetCfPaymentId(v int64) {
 	o.CfPaymentId = &v
 }
 

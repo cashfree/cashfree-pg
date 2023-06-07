@@ -150,6 +150,7 @@ func (a *RefundsApiService) CreaterefundExecute(r ApiCreaterefundRequest) (*CFRe
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	// body params
 	localVarPostBody = r.cFRefundRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -317,6 +318,7 @@ func (a *RefundsApiService) GetRefundExecute(r ApiGetRefundRequest) (*CFRefund, 
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -454,6 +456,7 @@ func (a *RefundsApiService) GetallrefundsfororderExecute(r ApiGetallrefundsforor
 	if r.xApiVersion != nil {
 		localVarHeaderParams["x-api-version"] = parameterToString(*r.xApiVersion, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

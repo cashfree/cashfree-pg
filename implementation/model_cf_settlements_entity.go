@@ -27,7 +27,7 @@ type CFSettlementsEntity struct {
 	ServiceCharge *float32 `json:"service_charge,omitempty"`
 	ServiceTax *float32 `json:"service_tax,omitempty"`
 	SettlementAmount *float32 `json:"settlement_amount,omitempty"`
-	SettlementId *int32 `json:"settlement_id,omitempty"`
+	SettlementId *int64 `json:"settlement_id,omitempty"`
 	TransferId *int32 `json:"transfer_id,omitempty"`
 	TransferTime *string `json:"transfer_time,omitempty"`
 	TransferUtr *string `json:"transfer_utr,omitempty"`
@@ -371,9 +371,9 @@ func (o *CFSettlementsEntity) SetSettlementAmount(v float32) {
 }
 
 // GetSettlementId returns the SettlementId field value if set, zero value otherwise.
-func (o *CFSettlementsEntity) GetSettlementId() int32 {
+func (o *CFSettlementsEntity) GetSettlementId() int64 {
 	if o == nil || o.SettlementId == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.SettlementId
@@ -381,7 +381,7 @@ func (o *CFSettlementsEntity) GetSettlementId() int32 {
 
 // GetSettlementIdOk returns a tuple with the SettlementId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CFSettlementsEntity) GetSettlementIdOk() (*int32, bool) {
+func (o *CFSettlementsEntity) GetSettlementIdOk() (*int64, bool) {
 	if o == nil || o.SettlementId == nil {
 		return nil, false
 	}
@@ -398,7 +398,7 @@ func (o *CFSettlementsEntity) HasSettlementId() bool {
 }
 
 // SetSettlementId gets a reference to the given int32 and assigns it to the SettlementId field.
-func (o *CFSettlementsEntity) SetSettlementId(v int32) {
+func (o *CFSettlementsEntity) SetSettlementId(v int64) {
 	o.SettlementId = &v
 }
 

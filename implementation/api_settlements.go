@@ -145,6 +145,7 @@ func (a *SettlementsApiService) GetsettlementsExecute(r ApiGetsettlementsRequest
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

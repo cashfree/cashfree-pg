@@ -17,7 +17,7 @@ import (
 
 // CFLink struct for CFLink
 type CFLink struct {
-	CfLinkId *int32 `json:"cf_link_id,omitempty"`
+	CfLinkId *int64 `json:"cf_link_id,omitempty"`
 	LinkId *string `json:"link_id,omitempty"`
 	LinkStatus *string `json:"link_status,omitempty"`
 	LinkCurrency *string `json:"link_currency,omitempty"`
@@ -55,9 +55,9 @@ func NewCFLinkWithDefaults() *CFLink {
 }
 
 // GetCfLinkId returns the CfLinkId field value if set, zero value otherwise.
-func (o *CFLink) GetCfLinkId() int32 {
+func (o *CFLink) GetCfLinkId() int64 {
 	if o == nil || o.CfLinkId == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CfLinkId
@@ -65,7 +65,7 @@ func (o *CFLink) GetCfLinkId() int32 {
 
 // GetCfLinkIdOk returns a tuple with the CfLinkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CFLink) GetCfLinkIdOk() (*int32, bool) {
+func (o *CFLink) GetCfLinkIdOk() (*int64, bool) {
 	if o == nil || o.CfLinkId == nil {
 		return nil, false
 	}
@@ -82,7 +82,7 @@ func (o *CFLink) HasCfLinkId() bool {
 }
 
 // SetCfLinkId gets a reference to the given int32 and assigns it to the CfLinkId field.
-func (o *CFLink) SetCfLinkId(v int32) {
+func (o *CFLink) SetCfLinkId(v int64) {
 	o.CfLinkId = &v
 }
 

@@ -17,7 +17,7 @@ import (
 
 // CFOrder struct for CFOrder
 type CFOrder struct {
-	CfOrderId *int32 `json:"cf_order_id,omitempty"`
+	CfOrderId *int64 `json:"cf_order_id,omitempty"`
 	OrderId *string `json:"order_id,omitempty"`
 	Entity *string `json:"entity,omitempty"`
 	OrderCurrency *string `json:"order_currency,omitempty"`
@@ -53,9 +53,9 @@ func NewCFOrderWithDefaults() *CFOrder {
 }
 
 // GetCfOrderId returns the CfOrderId field value if set, zero value otherwise.
-func (o *CFOrder) GetCfOrderId() int32 {
+func (o *CFOrder) GetCfOrderId() int64 {
 	if o == nil || o.CfOrderId == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CfOrderId
@@ -63,7 +63,7 @@ func (o *CFOrder) GetCfOrderId() int32 {
 
 // GetCfOrderIdOk returns a tuple with the CfOrderId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CFOrder) GetCfOrderIdOk() (*int32, bool) {
+func (o *CFOrder) GetCfOrderIdOk() (*int64, bool) {
 	if o == nil || o.CfOrderId == nil {
 		return nil, false
 	}
@@ -80,7 +80,7 @@ func (o *CFOrder) HasCfOrderId() bool {
 }
 
 // SetCfOrderId gets a reference to the given int32 and assigns it to the CfOrderId field.
-func (o *CFOrder) SetCfOrderId(v int32) {
+func (o *CFOrder) SetCfOrderId(v int64) {
 	o.CfOrderId = &v
 }
 

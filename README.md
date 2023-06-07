@@ -18,29 +18,6 @@ import cashfreeSDK "github.com/cashfree/cashfree-pg-sdk-go/v2/implementation"
 ```
 ---
 
-# Version <= 0.0.5
-
-## Creating a CFSession instance
-
-The `CFSession` type consists of properties that are necessary for every method call that is exposed by the SDK. The following code snippet can be used to create a CFSession instance :-
-
-```
-environment := cashfreeSDK.PRODUCTION // cashfreeSDK.SANDBOX -> for sandbox environment
-xApiVersion := "2022-01-01"
-session := cashfreeSDK.CFSession{
-	Environment:  &environment,
-	ApiVersion:   &xApiVersion,
-	ClientId:     &xClientId, // Send respective client id depending on the environment set
-	ClientSecret: &xClientSecret, // Send respective secret key depending on the environment set
-}
-```
-
-`NOTE` The environment in CFSession is of type `CFEnvironment` and the values are `PRODUCION` and `SANDBOX`
-
----
-
-# Version >= 0.0.6
-
 ## Creating a CFConfig instance
 
 The `CFConfig` type consists of properties that are necessary for every method call that is exposed by the SDK. The following code snippet can be used to create a CFConfig instance :-
@@ -48,7 +25,7 @@ The `CFConfig` type consists of properties that are necessary for every method c
 ```
 environment := cashfreeSDK.PRODUCTION // cashfreeSDK.SANDBOX -> for sandbox environment
 xApiVersion := "2022-09-01"
-session := cashfreeSDK.CFConfig{
+config := cashfreeSDK.CFConfig{
 	Environment:  &environment,
 	ApiVersion:   &xApiVersion,
 	ClientId:     &xClientId, // Send respective client id depending on the environment set
@@ -56,7 +33,7 @@ session := cashfreeSDK.CFConfig{
 }
 ```
 
-`NOTE` The environment in CFSession is of type `CFEnvironment` and the values are `PRODUCION` and `SANDBOX`
+`NOTE` The environment in CFConfig is of type `CFEnvironment` and the values are `PRODUCION` and `SANDBOX`
 `NOTE` CFConfig also supports setting timeout and proxy.
 
 ---
@@ -99,9 +76,9 @@ request := cashfreeSDK.CFOrderRequest{
 	OrderMeta: &orderMeta,
 }
 
-session := getSession() // above created session
+config := getConfig() // above created config
 header := getHeaders() // above created header, this is optional
-cfOrder, responseHeader, cfError := cashfreeSDK.CreateOrder(&session, &header, request)
+cfOrder, responseHeader, cfError := cashfreeSDK.CreateOrder(&config, &header, request)
 ```
 `Note:` For more information about order properties, visit [here](https://docs.cashfree.com/docs/create-order#curl-request)
 
@@ -395,7 +372,7 @@ The details and status of the order can be fetched using this API. Below is the 
 orderId := "orderId"
 config := getConfig() // above created config
 header := getHeaders() // above created header, this is optional
-cfOrder, responseHeader, cfError := cashfreeSDK.GetOrder(&session, &config, orderId)
+cfOrder, responseHeader, cfError := cashfreeSDK.GetOrder(&config, &header, orderId)
 ```
 
 ---

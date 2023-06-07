@@ -18,7 +18,7 @@ import (
 // CFRefund struct for CFRefund
 type CFRefund struct {
 	// Cashfree Payments ID of the payment for which refund is initiated
-	CfPaymentId *int32 `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
 	// Cashfree Payments ID for a refund
 	CfRefundId *string `json:"cf_refund_id,omitempty"`
 	// Merchant’s order Id of the order for which refund is initiated
@@ -72,9 +72,9 @@ func NewCFRefundWithDefaults() *CFRefund {
 }
 
 // GetCfPaymentId returns the CfPaymentId field value if set, zero value otherwise.
-func (o *CFRefund) GetCfPaymentId() int32 {
+func (o *CFRefund) GetCfPaymentId() int64 {
 	if o == nil || o.CfPaymentId == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CfPaymentId
@@ -82,7 +82,7 @@ func (o *CFRefund) GetCfPaymentId() int32 {
 
 // GetCfPaymentIdOk returns a tuple with the CfPaymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CFRefund) GetCfPaymentIdOk() (*int32, bool) {
+func (o *CFRefund) GetCfPaymentIdOk() (*int64, bool) {
 	if o == nil || o.CfPaymentId == nil {
 		return nil, false
 	}
@@ -99,7 +99,7 @@ func (o *CFRefund) HasCfPaymentId() bool {
 }
 
 // SetCfPaymentId gets a reference to the given int32 and assigns it to the CfPaymentId field.
-func (o *CFRefund) SetCfPaymentId(v int32) {
+func (o *CFRefund) SetCfPaymentId(v int64) {
 	o.CfPaymentId = &v
 }
 
