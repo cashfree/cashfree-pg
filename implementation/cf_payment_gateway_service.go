@@ -152,6 +152,14 @@ func getHeader(r *http.Response) CFResponseHeader {
 	return CFResponseHeader{}
 }
 
+func getEnvironment(session *CFConfig) string {
+	environment := "PRODUCTION"
+	if *session.Environment == SANDBOX {
+		environment = "SANDBOX"
+	}
+	return environment
+}
+
 // Create Order
 func CreateOrder(session *CFConfig, header *CFHeader, order CFOrderRequest) (*CFOrder, *CFResponseHeader, *CFError) {
 	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
@@ -159,6 +167,8 @@ func CreateOrder(session *CFConfig, header *CFHeader, order CFOrderRequest) (*CF
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("CreateOrder")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -194,6 +204,8 @@ func OrderPay(session *CFConfig, header *CFHeader, orderPay CFOrderPayRequest) (
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("OrderPay")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -222,6 +234,8 @@ func OrderPaySessionId(session *CFConfig, header *CFHeader, orderPaySessionId CF
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("OrderPaySessionId")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -251,6 +265,8 @@ func GetOrder(session *CFConfig, header *CFHeader, orderId string) (*CFOrder, *C
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetOrder")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -284,6 +300,8 @@ func CreateLink(session *CFConfig, header *CFHeader, cFLinkRequest CFLinkRequest
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("CreateLink")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -319,6 +337,8 @@ func GetLinkByLinkID(session *CFConfig, header *CFHeader, linkId string) (*CFLin
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetLinkByLinkID")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -352,6 +372,8 @@ func GetOrdersByLinkID(session *CFConfig, header *CFHeader, linkId string) ([]CF
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetOrdersByLinkID")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -385,6 +407,8 @@ func GetPaymentsForOrder(session *CFConfig, header *CFHeader, orderId string) ([
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetPaymentsForOrder")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -419,6 +443,8 @@ func GetPaymentByPaymentID(session *CFConfig, header *CFHeader, orderId string, 
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetPaymentByPaymentID")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -453,6 +479,8 @@ func InitiateRefund(session *CFConfig, header *CFHeader, refundRquest CFRefundRe
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("InitiateRefund")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -487,6 +515,8 @@ func FetchRefundData(session *CFConfig, header *CFHeader, refundId string, order
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("FetchRefundData")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -520,6 +550,8 @@ func SetPreAuthorizationRequest(session *CFConfig, header *CFHeader, authorizati
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("SetPreAuthorizationRequest")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -554,6 +586,8 @@ func Getsettlements(session *CFConfig, header *CFHeader, orderId string) (*CFSet
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("Getsettlements")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -587,6 +621,8 @@ func GetInstrumentsByCustomerID(session *CFConfig, header *CFHeader, customerId 
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetInstrumentsByCustomerID")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -622,6 +658,8 @@ func GetInstrumentsByInstrumentID(session *CFConfig, header *CFHeader, customerI
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetInstrumentsByInstrumentID")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
@@ -655,6 +693,8 @@ func GetInstrumentCryptogramByInstrumentID(session *CFConfig, header *CFHeader, 
 	if e != nil {
 		return nil, nil, e
 	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetInstrumentCryptogramByInstrumentID")
 	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
 	if invalidEnvironmentError != nil {
 		return nil, nil, invalidEnvironmentError
