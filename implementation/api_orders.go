@@ -146,6 +146,7 @@ func (a *OrdersApiService) CreateOrderExecute(r ApiCreateOrderRequest) (*CFOrder
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	// body params
 	localVarPostBody = r.cFOrderRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -309,6 +310,7 @@ func (a *OrdersApiService) GetOrderExecute(r ApiGetOrderRequest) (*CFOrder, *htt
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -443,6 +445,7 @@ func (a *OrdersApiService) OrderPayExecute(r ApiOrderPayRequest) (*CFOrderPayRes
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
 	localVarHeaderParams["x-api-version"] = parameterToString(*r.xApiVersion, "")
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	// body params
 	localVarPostBody = r.cFOrderPayRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -532,6 +535,7 @@ func (a *OrdersApiService) OrderPayExecuteSessionId(r ApiOrderPayRequest) (*CFOr
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
 	localVarHeaderParams["x-api-version"] = parameterToString(*r.xApiVersion, "")
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	// body params
 	localVarPostBody = r.cFOrderPaySessionIdRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
@@ -700,6 +704,7 @@ func (a *OrdersApiService) PreauthorizationExecute(r ApiPreauthorizationRequest)
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	// body params
 	localVarPostBody = r.cFAuthorizationRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)

@@ -34,7 +34,7 @@ type ApiGetPaymentbyIdRequest struct {
 	xClientId *string
 	xClientSecret *string
 	orderId string
-	cfPaymentId int32
+	cfPaymentId int64
 	xApiVersion *string
 	xIdempotencyReplayed *bool
 	xIdempotencyKey *string
@@ -80,7 +80,7 @@ Use this API to view payment details of an order for a payment ID.
  @param cfPaymentId
  @return ApiGetPaymentbyIdRequest
 */
-func (a *PaymentsApiService) GetPaymentbyId(ctx context.Context, orderId string, cfPaymentId int32) ApiGetPaymentbyIdRequest {
+func (a *PaymentsApiService) GetPaymentbyId(ctx context.Context, orderId string, cfPaymentId int64) ApiGetPaymentbyIdRequest {
 	return ApiGetPaymentbyIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -149,6 +149,7 @@ func (a *PaymentsApiService) GetPaymentbyIdExecute(r ApiGetPaymentbyIdRequest) (
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -310,6 +311,7 @@ func (a *PaymentsApiService) GetPaymentsfororderExecute(r ApiGetPaymentsfororder
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

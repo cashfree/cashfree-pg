@@ -413,7 +413,7 @@ func GetPaymentsForOrder(session *CFConfig, header *CFHeader, orderId string) ([
 }
 
 // Get Payment by Payment ID
-func GetPaymentByPaymentID(session *CFConfig, header *CFHeader, orderId string, cfPaymentId int32) (*CFPaymentsEntity, *CFResponseHeader, *CFError) {
+func GetPaymentByPaymentID(session *CFConfig, header *CFHeader, orderId string, cfPaymentId int64) (*CFPaymentsEntity, *CFResponseHeader, *CFError) {
 	apiClient := *NewAPIClient(NewConfiguration())
 	e := checkSession(session)
 	if e != nil {

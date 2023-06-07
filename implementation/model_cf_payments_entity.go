@@ -17,7 +17,7 @@ import (
 
 // CFPaymentsEntity struct for CFPaymentsEntity
 type CFPaymentsEntity struct {
-	CfPaymentId *int32 `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
 	OrderId *string `json:"order_id,omitempty"`
 	Entity *string `json:"entity,omitempty"`
 	IsCaptured *bool `json:"is_captured,omitempty"`
@@ -55,9 +55,9 @@ func NewCFPaymentsEntityWithDefaults() *CFPaymentsEntity {
 }
 
 // GetCfPaymentId returns the CfPaymentId field value if set, zero value otherwise.
-func (o *CFPaymentsEntity) GetCfPaymentId() int32 {
+func (o *CFPaymentsEntity) GetCfPaymentId() int64 {
 	if o == nil || o.CfPaymentId == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CfPaymentId
@@ -65,7 +65,7 @@ func (o *CFPaymentsEntity) GetCfPaymentId() int32 {
 
 // GetCfPaymentIdOk returns a tuple with the CfPaymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CFPaymentsEntity) GetCfPaymentIdOk() (*int32, bool) {
+func (o *CFPaymentsEntity) GetCfPaymentIdOk() (*int64, bool) {
 	if o == nil || o.CfPaymentId == nil {
 		return nil, false
 	}
@@ -82,7 +82,7 @@ func (o *CFPaymentsEntity) HasCfPaymentId() bool {
 }
 
 // SetCfPaymentId gets a reference to the given int32 and assigns it to the CfPaymentId field.
-func (o *CFPaymentsEntity) SetCfPaymentId(v int32) {
+func (o *CFPaymentsEntity) SetCfPaymentId(v int64) {
 	o.CfPaymentId = &v
 }
 

@@ -125,6 +125,7 @@ func (a *TokenVaultApiService) DeleteSpecificSavedInstrumentExecute(r ApiDeleteS
 	if r.xApiVersion != nil {
 		localVarHeaderParams["x-api-version"] = parameterToString(*r.xApiVersion, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -295,6 +296,7 @@ func (a *TokenVaultApiService) FetchAllSavedInstrumentsExecute(r ApiFetchAllSave
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -460,6 +462,7 @@ func (a *TokenVaultApiService) FetchCryptogramExecute(r ApiFetchCryptogramReques
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -625,6 +628,7 @@ func (a *TokenVaultApiService) FetchSpecificSavedInstrumentExecute(r ApiFetchSpe
 	if r.xRequestId != nil {
 		localVarHeaderParams["x-request-id"] = parameterToString(*r.xRequestId, "")
 	}
+	localVarHeaderParams[XPlatform] = XPlatformValue
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
