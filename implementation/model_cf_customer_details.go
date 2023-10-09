@@ -17,6 +17,8 @@ import (
 
 // CFCustomerDetails struct for CFCustomerDetails
 type CFCustomerDetails struct {
+	// Customer Name
+	CustomerName string `json:"customer_name"`
 	// A unique identifier for the customer. Use alphanumeric values only.
 	CustomerId string `json:"customer_id"`
 	// Customer email address.
@@ -35,7 +37,7 @@ type CFCustomerDetails struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCFCustomerDetails(customerId string, customerEmail string, customerPhone string, customerBankAccountNumber string, customerBankIfsc string, customerBankCode int32) *CFCustomerDetails {
+func NewCFCustomerDetails(customerId string, customerEmail string, customerPhone string, customerBankAccountNumber string, customerBankIfsc string, customerBankCode int32, customerName string) *CFCustomerDetails {
 	this := CFCustomerDetails{}
 	this.CustomerId = customerId
 	this.CustomerEmail = customerEmail
@@ -43,6 +45,7 @@ func NewCFCustomerDetails(customerId string, customerEmail string, customerPhone
 	this.CustomerBankAccountNumber = customerBankAccountNumber
 	this.CustomerBankIfsc = customerBankIfsc
 	this.CustomerBankCode = customerBankCode
+	this.CustomerName = customerName
 	return &this
 }
 
@@ -62,6 +65,16 @@ func (o *CFCustomerDetails) GetCustomerId() string {
 	}
 
 	return o.CustomerId
+}
+
+// GetCustomerName returns the CustomerName field value
+func (o *CFCustomerDetails) GetCustomerName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CustomerName
 }
 
 // GetCustomerIdOk returns a tuple with the CustomerId field value
@@ -124,6 +137,11 @@ func (o *CFCustomerDetails) GetCustomerPhoneOk() (*string, bool) {
 // SetCustomerPhone sets field value
 func (o *CFCustomerDetails) SetCustomerPhone(v string) {
 	o.CustomerPhone = v
+}
+
+// SetCustomerName sets field value
+func (o *CFCustomerDetails) SetCustomerName(v string) {
+	o.CustomerName = v
 }
 
 // GetCustomerBankAccountNumber returns the CustomerBankAccountNumber field value
@@ -217,6 +235,9 @@ func (o CFCustomerDetails) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["customer_bank_code"] = o.CustomerBankCode
+	}
+	if true {
+		toSerialize["customer_name"] = o.CustomerName
 	}
 	return json.Marshal(toSerialize)
 }

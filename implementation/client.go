@@ -61,6 +61,10 @@ type APIClient struct {
 	SettlementsApi *SettlementsApiService
 
 	TokenVaultApi *TokenVaultApiService
+
+	OffersApiService *OffersApiService
+
+	EligibilityAPIsApiService *EligibilityAPIsApiService
 }
 
 type service struct {
@@ -85,6 +89,8 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.RefundsApi = (*RefundsApiService)(&c.common)
 	c.SettlementsApi = (*SettlementsApiService)(&c.common)
 	c.TokenVaultApi = (*TokenVaultApiService)(&c.common)
+	c.OffersApiService = (*OffersApiService)(&c.common)
+	c.EligibilityAPIsApiService = (*EligibilityAPIsApiService)(&c.common)
 
 	return c
 }
@@ -631,6 +637,7 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 				"order_amount": orderCreate.OrderAmount,
 				"order_currency": orderCreate.OrderCurrency,
 				"customer_details": map[string]interface{} {
+					"customer_name": orderCreate.CustomerDetails.CustomerName,
 					"customer_id": orderCreate.CustomerDetails.CustomerId,
 					"customer_email": orderCreate.CustomerDetails.CustomerEmail,
 					"customer_phone": orderCreate.CustomerDetails.CustomerPhone,
@@ -638,7 +645,7 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 					"customer_bank_ifsc": orderCreate.CustomerDetails.CustomerBankIfsc,
 					"customer_bank_code": orderCreate.CustomerDetails.CustomerBankCode,
 				},
-				"expiry_time": orderCreate.OrderExpiryTime,
+				"order_expiry_time": orderCreate.OrderExpiryTime,
 				"order_note": orderCreate.OrderNote,
 				"order_tags": orderCreate.OrderTags,
 				"order_splits": orderCreate.OrderSplits,
@@ -651,6 +658,106 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 				}
 			}
 			err = json.NewEncoder(bodyBuf).Encode(createOrder)
+		} else if offer, ok := body.(*CFCreateOfferBackendRequest); ok {
+			createOffer := map[string]interface{} {
+				"offer_meta": map[string]interface{} {
+					"offer_title": offer.OfferMeta.OfferTitle,
+					"offer_description": offer.OfferMeta.OfferDescription,
+					"offer_code": offer.OfferMeta.OfferCode,
+					"offer_start_time": offer.OfferMeta.OfferStartTime,
+					"offer_end_time": offer.OfferMeta.OfferEndTime,
+				},
+				"offer_tnc": map[string]interface{} {
+					"offer_tnc_type": offer.OfferTnc.OfferTncType,
+        			"offer_tnc_value": offer.OfferTnc.OfferTncValue,
+				},
+				"offer_validations": map[string]interface{} {
+					"min_amount": *offer.OfferValidations.MinAmount,
+					"max_allowed": offer.OfferValidations.MaxAllowed,
+				},
+			}
+			if offer.OfferDetails.DiscountDetails != nil && strings.Contains(offer.OfferDetails.OfferType, "DISCOUNT") {
+				createOffer["offer_details"] = map[string]interface{}{
+					"offer_type": offer.OfferDetails.OfferType,
+					"discount_details": map[string]interface{}{
+						"discount_type": offer.OfferDetails.DiscountDetails.DiscountType,
+						"discount_value": offer.OfferDetails.DiscountDetails.DiscountValue,
+						"max_discount_amount": offer.OfferDetails.DiscountDetails.MaxDiscountAmount,
+					},
+				}
+			}
+			if offer.OfferDetails.CashbackDetails != nil && strings.Contains(offer.OfferDetails.OfferType, "CASHBACK") {
+				if o, ok := createOffer["offer_details"].(map[string]interface{}); ok {
+					o["cashback_details"] = map[string]interface{}{
+						"cashback_type": offer.OfferDetails.CashbackDetails.CashbackType,
+						"cashback_value": offer.OfferDetails.CashbackDetails.CashbackValue,
+						"max_cashback_amount": offer.OfferDetails.CashbackDetails.MaxCashbackAmount,
+					}
+					createOffer["offer_details"] = o
+				} else {
+					createOffer["offer_details"] = map[string]interface{} {
+						"offer_type": offer.OfferDetails.OfferType,
+						"cashback_details": map[string]interface{}{
+							"cashback_type": offer.OfferDetails.CashbackDetails.CashbackType,
+							"cashback_value": offer.OfferDetails.CashbackDetails.CashbackValue,
+							"max_cashback_amount": offer.OfferDetails.CashbackDetails.MaxCashbackAmount,
+						},
+					}
+				}
+			}
+			createOffer["offer_validations"].(map[string]interface{})["payment_method"] = map[string]interface{}{}
+			if offer.OfferValidations.PaymentMethod.OfferAll != nil {
+				all := map[string]interface{} {
+					"all": offer.OfferValidations.PaymentMethod.OfferAll.All,
+				}
+				createOffer["offer_validations"].(map[string]interface{})["payment_method"] = all
+			} else if offer.OfferValidations.PaymentMethod.OfferCard != nil {
+				card := map[string]interface{} {
+					"card": map[string]interface{} {
+						"type": offer.OfferValidations.PaymentMethod.OfferCard.Card.Type,
+						"bank_name": offer.OfferValidations.PaymentMethod.OfferCard.Card.BankName,
+						"scheme_name": offer.OfferValidations.PaymentMethod.OfferCard.Card.SchemeName,
+						"bins": offer.OfferValidations.PaymentMethod.OfferCard.Card.Bins,
+					},
+				}
+				createOffer["offer_validations"].(map[string]interface{})["payment_method"] = card
+			} else if offer.OfferValidations.PaymentMethod.OfferNB != nil {
+				netbanking := map[string]interface{} {
+					"netbanking": map[string]interface{} {
+						"bank_name": offer.OfferValidations.PaymentMethod.OfferNB.Netbanking.BankName,
+					},
+				}
+				createOffer["offer_validations"].(map[string]interface{})["payment_method"] = netbanking
+			} else if offer.OfferValidations.PaymentMethod.OfferPaylater != nil {
+				paylater := map[string]interface{} {
+					"paylater": map[string]interface{} {
+						"provider": offer.OfferValidations.PaymentMethod.OfferPaylater.Paylater.Provider,
+					},
+				}
+				createOffer["offer_validations"].(map[string]interface{})["payment_method"] = paylater
+			} else if offer.OfferValidations.PaymentMethod.OfferWallet != nil {
+				app := map[string]interface{} {
+					"app": map[string]interface{} {
+						"provider": *offer.OfferValidations.PaymentMethod.OfferWallet.App.Provider,
+					},
+				}
+				createOffer["offer_validations"].(map[string]interface{})["payment_method"] = app
+			} else if offer.OfferValidations.PaymentMethod.OfferUPI != nil {
+				upi := map[string]interface{} {
+					"upi": offer.OfferValidations.PaymentMethod.OfferUPI.Upi,
+				}
+				createOffer["offer_validations"].(map[string]interface{})["payment_method"] = upi
+			} else if offer.OfferValidations.PaymentMethod.OfferEMI != nil {
+				emi := map[string]interface{} {
+					"emi": map[string]interface{} {
+						"issuer": offer.OfferValidations.PaymentMethod.OfferEMI.Emi.BankName,
+						"type": offer.OfferValidations.PaymentMethod.OfferEMI.Emi.Type,
+						"tenures": offer.OfferValidations.PaymentMethod.OfferEMI.Emi.Tenures,
+					},
+				}
+				createOffer["offer_validations"].(map[string]interface{})["payment_method"] = emi
+			}
+			err = json.NewEncoder(bodyBuf).Encode(createOffer)
 		} else {
 			err = json.NewEncoder(bodyBuf).Encode(body)
 		}
@@ -764,4 +871,104 @@ func (e GenericOpenAPIError) Body() []byte {
 // Model returns the unpacked model of the error
 func (e GenericOpenAPIError) Model() interface{} {
 	return e.model
+}
+
+func parameterAddToHeaderOrQuery(headerOrQueryParams interface{}, keyPrefix string, obj interface{}, collectionType string) {
+	var v = reflect.ValueOf(obj)
+	var value = ""
+	if v == reflect.ValueOf(nil) {
+		value = "null"
+	} else {
+		switch v.Kind() {
+			case reflect.Invalid:
+				value = "invalid"
+
+			case reflect.Struct:
+				if t,ok := obj.(MappedNullable); ok {
+					dataMap,err := t.ToMap()
+					if err != nil {
+						return
+					}
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, dataMap, collectionType)
+					return
+				}
+				if t, ok := obj.(time.Time); ok {
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, t.Format(time.RFC3339), collectionType)
+					return
+				}
+				value = v.Type().String() + " value"
+			case reflect.Slice:
+				var indValue = reflect.ValueOf(obj)
+				if indValue == reflect.ValueOf(nil) {
+					return
+				}
+				var lenIndValue = indValue.Len()
+				for i:=0;i<lenIndValue;i++ {
+					var arrayValue = indValue.Index(i)
+					parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, arrayValue.Interface(), collectionType)
+				}
+				return
+
+			case reflect.Map:
+				var indValue = reflect.ValueOf(obj)
+				if indValue == reflect.ValueOf(nil) {
+					return
+				}
+				iter := indValue.MapRange()
+				for iter.Next() {
+					k,v := iter.Key(), iter.Value()
+					parameterAddToHeaderOrQuery(headerOrQueryParams, fmt.Sprintf("%s[%s]", keyPrefix, k.String()), v.Interface(), collectionType)
+				}
+				return
+
+			case reflect.Interface:
+				fallthrough
+			case reflect.Ptr:
+				parameterAddToHeaderOrQuery(headerOrQueryParams, keyPrefix, v.Elem().Interface(), collectionType)
+				return
+
+			case reflect.Int, reflect.Int8, reflect.Int16,
+				reflect.Int32, reflect.Int64:
+				value = strconv.FormatInt(v.Int(), 10)
+			case reflect.Uint, reflect.Uint8, reflect.Uint16,
+				reflect.Uint32, reflect.Uint64, reflect.Uintptr:
+				value = strconv.FormatUint(v.Uint(), 10)
+			case reflect.Float32, reflect.Float64:
+				value = strconv.FormatFloat(v.Float(), 'g', -1, 32)
+			case reflect.Bool:
+				value = strconv.FormatBool(v.Bool())
+			case reflect.String:
+				value = v.String()
+			default:
+				value = v.Type().String() + " value"
+		}
+	}
+
+	switch valuesMap := headerOrQueryParams.(type) {
+		case url.Values:
+			if collectionType == "csv" && valuesMap.Get(keyPrefix) != "" {
+				valuesMap.Set(keyPrefix, valuesMap.Get(keyPrefix) + "," + value)
+			} else {
+				valuesMap.Add(keyPrefix, value)
+			}
+			break
+		case map[string]string:
+			valuesMap[keyPrefix] = value
+			break
+	}
+}
+
+func parameterValueToString( obj interface{}, key string ) string {
+	if reflect.TypeOf(obj).Kind() != reflect.Ptr {
+		return fmt.Sprintf("%v", obj)
+	}
+	var param,ok = obj.(MappedNullable)
+	if !ok {
+		return ""
+	}
+	dataMap,err := param.ToMap()
+	if err != nil {
+		return ""
+	}
+	return fmt.Sprintf("%v", dataMap[key])
 }

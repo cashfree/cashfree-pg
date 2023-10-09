@@ -199,7 +199,7 @@ func CreateOrder(session *CFConfig, header *CFHeader, order CFOrderRequest) (*CF
 
 // Order Pay UPI
 func OrderPay(session *CFConfig, header *CFHeader, orderPay CFOrderPayRequest) (*CFOrderPayResponse, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -229,7 +229,7 @@ func OrderPay(session *CFConfig, header *CFHeader, orderPay CFOrderPayRequest) (
 }
 
 func OrderPaySessionId(session *CFConfig, header *CFHeader, orderPaySessionId CFOrderPaySessionIdRequest) (*CFOrderPayResponse, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -260,7 +260,7 @@ func OrderPaySessionId(session *CFConfig, header *CFHeader, orderPaySessionId CF
 
 // Get Order API
 func GetOrder(session *CFConfig, header *CFHeader, orderId string) (*CFOrder, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -295,7 +295,7 @@ func GetOrder(session *CFConfig, header *CFHeader, orderId string) (*CFOrder, *C
 
 // Create Link API
 func CreateLink(session *CFConfig, header *CFHeader, cFLinkRequest CFLinkRequest) (*CFLink, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -332,7 +332,7 @@ func CreateLink(session *CFConfig, header *CFHeader, cFLinkRequest CFLinkRequest
 
 // Get Link by LinkId API
 func GetLinkByLinkID(session *CFConfig, header *CFHeader, linkId string) (*CFLink, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -367,7 +367,7 @@ func GetLinkByLinkID(session *CFConfig, header *CFHeader, linkId string) (*CFLin
 
 // Get Orders by Link Id
 func GetOrdersByLinkID(session *CFConfig, header *CFHeader, linkId string) ([]CFLinkOrders, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -402,7 +402,7 @@ func GetOrdersByLinkID(session *CFConfig, header *CFHeader, linkId string) ([]CF
 
 // Get Payments for Order API
 func GetPaymentsForOrder(session *CFConfig, header *CFHeader, orderId string) ([]CFPaymentsEntity, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -438,7 +438,7 @@ func GetPaymentsForOrder(session *CFConfig, header *CFHeader, orderId string) ([
 
 // Get Payment by Payment ID
 func GetPaymentByPaymentID(session *CFConfig, header *CFHeader, orderId string, cfPaymentId int64) (*CFPaymentsEntity, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -474,7 +474,7 @@ func GetPaymentByPaymentID(session *CFConfig, header *CFHeader, orderId string, 
 
 // Initiate Refund
 func InitiateRefund(session *CFConfig, header *CFHeader, refundRquest CFRefundRequest, orderId string) (*CFRefund, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -510,7 +510,7 @@ func InitiateRefund(session *CFConfig, header *CFHeader, refundRquest CFRefundRe
 
 // Fetch Refund Data
 func FetchRefundData(session *CFConfig, header *CFHeader, refundId string, orderId string) (*CFRefund, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -545,7 +545,7 @@ func FetchRefundData(session *CFConfig, header *CFHeader, refundId string, order
 
 // Pre Authorization Request
 func SetPreAuthorizationRequest(session *CFConfig, header *CFHeader, authorizationRequest CFAuthorizationRequest, orderId string) (*CFPaymentsEntity, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -581,7 +581,7 @@ func SetPreAuthorizationRequest(session *CFConfig, header *CFHeader, authorizati
 
 // Get Settlements
 func Getsettlements(session *CFConfig, header *CFHeader, orderId string) (*CFSettlementsEntity, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -616,7 +616,7 @@ func Getsettlements(session *CFConfig, header *CFHeader, orderId string) (*CFSet
 
 // Get Instruments By Customer Id
 func GetInstrumentsByCustomerID(session *CFConfig, header *CFHeader, customerId string, instrumentType string) ([]CFFetchAllSavedInstruments, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -653,7 +653,7 @@ func GetInstrumentsByCustomerID(session *CFConfig, header *CFHeader, customerId 
 
 // Get Instruments By Instrument Id
 func GetInstrumentsByInstrumentID(session *CFConfig, header *CFHeader, customerId string, instrument_id string) (*CFFetchAllSavedInstruments, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -688,7 +688,7 @@ func GetInstrumentsByInstrumentID(session *CFConfig, header *CFHeader, customerI
 
 // Get Instrument CryptoGram By Instrument Id
 func GetInstrumentCryptogramByInstrumentID(session *CFConfig, header *CFHeader, customerId string, instrument_id string) (*CFCryptogram, *CFResponseHeader, *CFError) {
-	apiClient := *NewAPIClient(NewConfiguration())
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
 	e := checkSession(session)
 	if e != nil {
 		return nil, nil, e
@@ -719,4 +719,109 @@ func GetInstrumentCryptogramByInstrumentID(session *CFConfig, header *CFHeader, 
 		return cryptogram, &responseHeader, &cfError
 	}
 	return cryptogram, &responseHeader, nil
+}
+
+func CreateOffer(session *CFConfig, header *CFHeader, createOfferRequest CFCreateOfferBackendRequest) (*CFOfferEntity, *CFResponseHeader, *CFError) {
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
+	e := checkSession(session)
+	if e != nil {
+		return nil, nil, e
+	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("CreateOffer")
+	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
+	if invalidEnvironmentError != nil {
+		return nil, nil, invalidEnvironmentError
+	}
+	service := new(OffersApiService)
+	createOfferRequestApi := service.CreateOffer(ctx)
+
+	createOfferRequestApi = createOfferRequestApi.XClientId(*session.ClientId)
+	createOfferRequestApi = createOfferRequestApi.XClientSecret(*session.ClientSecret)
+	createOfferRequestApi = createOfferRequestApi.XApiVersion(*session.ApiVersion)
+	if header != nil {
+		if header.RequestID != nil {
+			createOfferRequestApi = createOfferRequestApi.XRequestId(*header.RequestID)
+		}
+		if header.IdempotencyKey != nil {
+			createOfferRequestApi = createOfferRequestApi.XIdempotencyKey(*header.IdempotencyKey)
+		}
+	}
+	createOfferRequestApi = createOfferRequestApi.CreateOfferBackendRequest(createOfferRequest)
+	offer, response, err := apiClient.OffersApiService.CreateOfferExecute(createOfferRequestApi)
+	responseHeader := getHeader(response)
+	if err != nil {
+		cfError := getError(response)
+		return offer, &responseHeader, &cfError
+	}
+	return offer, &responseHeader, nil
+}
+
+func GetOffer(session *CFConfig, header *CFHeader, offer_id string) (*CFOfferEntity, *CFResponseHeader, *CFError) {
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
+	e := checkSession(session)
+	if e != nil {
+		return nil, nil, e
+	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetOffer")
+	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
+	if invalidEnvironmentError != nil {
+		return nil, nil, invalidEnvironmentError
+	}
+	service := new(OffersApiService)
+	apiGetOfferRequest := service.GetOffer(ctx, offer_id)
+	apiGetOfferRequest = apiGetOfferRequest.XClientId(*session.ClientId)
+	apiGetOfferRequest = apiGetOfferRequest.XClientSecret(*session.ClientSecret)
+	apiGetOfferRequest = apiGetOfferRequest.XApiVersion(*session.ApiVersion)
+	if header != nil {
+		if header.RequestID != nil {
+			apiGetOfferRequest = apiGetOfferRequest.XRequestId(*header.RequestID)
+		}
+		if header.IdempotencyKey != nil {
+			apiGetOfferRequest = apiGetOfferRequest.XIdempotencyKey(*header.IdempotencyKey)
+		}
+	}
+	offer, response, err := apiClient.OffersApiService.GetOfferExecute(apiGetOfferRequest)
+	responseHeader := getHeader(response)
+	if err != nil {
+		cfError := getError(response)
+		return offer, &responseHeader, &cfError
+	}
+	return offer, &responseHeader, nil
+}
+
+func GetOfferEligibility(session *CFConfig, header *CFHeader, eligibilityOffersRequest CFEligibilityOffersRequest) ([]EligibleOffersEntity, *CFResponseHeader, *CFError) {
+	apiClient := *NewAPIClient(NewConfigurationWithTimeoutAndProxy(session.Timeout, session.Proxy))
+	e := checkSession(session)
+	if e != nil {
+		return nil, nil, e
+	}
+	SetupSentry(getEnvironment(session))
+	defer CaptureError("GetOfferEligibility")
+	ctx, invalidEnvironmentError := setEnvironmentInternal(session)
+	if invalidEnvironmentError != nil {
+		return nil, nil, invalidEnvironmentError
+	}
+	service := new(EligibilityAPIsApiService)
+	apiEligibilityOfferRequest := service.EligibilityOffer(ctx)
+	apiEligibilityOfferRequest = apiEligibilityOfferRequest.XClientId(*session.ClientId)
+	apiEligibilityOfferRequest = apiEligibilityOfferRequest.XClientSecret(*session.ClientSecret)
+	apiEligibilityOfferRequest = apiEligibilityOfferRequest.XApiVersion(*session.ApiVersion)
+	if header != nil {
+		if header.RequestID != nil {
+			apiEligibilityOfferRequest = apiEligibilityOfferRequest.XRequestId(*header.RequestID)
+		}
+		if header.IdempotencyKey != nil {
+			apiEligibilityOfferRequest = apiEligibilityOfferRequest.XIdempotencyKey(*header.IdempotencyKey)
+		}
+	}
+	apiEligibilityOfferRequest = apiEligibilityOfferRequest.EligibilityOffersRequest(eligibilityOffersRequest)
+	eligibilityEntity, response, err := apiClient.EligibilityAPIsApiService.EligibilityOfferExecute(apiEligibilityOfferRequest)
+	responseHeader := getHeader(response)
+	if err != nil {
+		cfError := getError(response)
+		return eligibilityEntity, &responseHeader, &cfError
+	}
+	return eligibilityEntity, &responseHeader, nil
 }
