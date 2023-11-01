@@ -23,7 +23,7 @@ go get github.com/cashfree/cashfree-pg/v3
 
 ```go 
 import (
-    cashfree "github.com/cashfree/cashfree-pg/v3"
+    cashfree "github.com/cashfree/cashfree_pg/v3"
 )
 
 clientId := "<x-client-id>"
