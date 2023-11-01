@@ -1,0 +1,33 @@
+name: Publish Go Module to pkg.go.dev
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.18
+
+      - name: Authenticate with GitHub
+        run: echo "//golang.org/x/oauth2 git https://github.com/golang/oauth2" >> ~/.netrc
+
+      - name: Publish to Go Module Proxy
+        run: |
+          git config --global user.email "developers@cashfree.com"
+          git config --global user.name "Cashfree Payments"
+          go mod tidy
+          git fetch --tags
+          TAG=$(git describe --tags --abbrev=0)
+          GOPROXY=proxy.golang.org go list -m github.com/cashfree/cashfree_pg@"$TAG"
+        env:
+          GOPROXY: proxy.golang.org
