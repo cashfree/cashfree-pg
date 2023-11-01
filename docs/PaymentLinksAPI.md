@@ -28,7 +28,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree_pg"
+    cashfree "github.com/cashfree/cashfree-pg-sdk-go"
 )
 
 func main() {
@@ -109,7 +109,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree_pg"
+    cashfree "github.com/cashfree/cashfree-pg-sdk-go"
 )
 
 func main() {
@@ -186,7 +186,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree_pg"
+    cashfree "github.com/cashfree/cashfree-pg-sdk-go"
 )
 
 func main() {
@@ -267,7 +267,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree_pg"
+    cashfree "github.com/cashfree/cashfree-pg-sdk-go"
 )
 
 func main() {
