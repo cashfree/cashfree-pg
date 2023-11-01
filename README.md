@@ -17,13 +17,13 @@ Try out our interactive guides at [Cashfree Labs](https://labs.cashfree.com/) !
 
 ### Installation
 ```bash
-go get github.com/cashfree/cashfree_pg
+go get github.com/cashfree/cashfree_pg/v3
 ```
 ### Configuration
 
 ```go 
 import (
-    cashfree "github.com/cashfree/cashfree_pg"
+    cashfree "github.com/cashfree/cashfree_pg/v3"
 )
 
 clientId := "<x-client-id>"
@@ -49,7 +49,7 @@ if err != nil {
 ```
 
 Get Order
-```javascript
+```go
 version := "2022-09-01"
 response, httpResponse, err := cashfree.PGFetchOrder(&version, "<order_id>", nil, nil, nil)
 if err != nil {
