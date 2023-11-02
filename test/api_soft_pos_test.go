@@ -14,7 +14,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	cashfree "github.com/cashfree/cashfree_pg"
+	cashfree "github.com/cashfree/cashfree-pg"
 )
 
 func Test_cashfree_pg_SoftPOSAPIService(t *testing.T) {
