@@ -23,7 +23,7 @@ go get github.com/cashfree/cashfree-pg/v3
 
 ```go 
 import (
-    cashfree "github.com/cashfree/cashfree_pg/v3"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 clientId := "<x-client-id>"
@@ -49,7 +49,7 @@ if err != nil {
 ```
 
 Get Order
-```javascript
+```go
 version := "2022-09-01"
 response, httpResponse, err := cashfree.PGFetchOrder(&version, "<order_id>", nil, nil, nil)
 if err != nil {
