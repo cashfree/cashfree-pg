@@ -20,15 +20,16 @@ var _ MappedNullable = &OfferWallet{}
 
 // OfferWallet Offer object for wallet payment method
 type OfferWallet struct {
-	App *WalletOffer `json:"app,omitempty"`
+	App WalletOffer `json:"app"`
 }
 
 // NewOfferWallet instantiates a new OfferWallet object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOfferWallet() *OfferWallet {
+func NewOfferWallet(app WalletOffer) *OfferWallet {
 	this := OfferWallet{}
+	this.App = app
 	return &this
 }
 
@@ -40,36 +41,28 @@ func NewOfferWalletWithDefaults() *OfferWallet {
 	return &this
 }
 
-// GetApp returns the App field value if set, zero value otherwise.
+// GetApp returns the App field value
 func (o *OfferWallet) GetApp() WalletOffer {
-	if o == nil || IsNil(o.App) {
+	if o == nil {
 		var ret WalletOffer
 		return ret
 	}
-	return *o.App
+
+	return o.App
 }
 
-// GetAppOk returns a tuple with the App field value if set, nil otherwise
+// GetAppOk returns a tuple with the App field value
 // and a boolean to check if the value has been set.
 func (o *OfferWallet) GetAppOk() (*WalletOffer, bool) {
-	if o == nil || IsNil(o.App) {
+	if o == nil {
 		return nil, false
 	}
-	return o.App, true
+	return &o.App, true
 }
 
-// HasApp returns a boolean if a field has been set.
-func (o *OfferWallet) HasApp() bool {
-	if o != nil && !IsNil(o.App) {
-		return true
-	}
-
-	return false
-}
-
-// SetApp gets a reference to the given WalletOffer and assigns it to the App field.
+// SetApp sets field value
 func (o *OfferWallet) SetApp(v WalletOffer) {
-	o.App = &v
+	o.App = v
 }
 
 func (o OfferWallet) MarshalJSON() ([]byte, error) {
@@ -82,9 +75,7 @@ func (o OfferWallet) MarshalJSON() ([]byte, error) {
 
 func (o OfferWallet) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.App) {
-		toSerialize["app"] = o.App
-	}
+	toSerialize["app"] = o.App
 	return toSerialize, nil
 }
 

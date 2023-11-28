@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardlessEmi** | Pointer to [**CardlessEMI**](CardlessEMI.md) |  | [optional] 
+**CardlessEmi** | [**CardlessEMI**](CardlessEMI.md) |  | 
 
 ## Methods
 
 ### NewCardlessEMIPaymentMethod
 
-`func NewCardlessEMIPaymentMethod() *CardlessEMIPaymentMethod`
+`func NewCardlessEMIPaymentMethod(cardlessEmi CardlessEMI, ) *CardlessEMIPaymentMethod`
 
 NewCardlessEMIPaymentMethod instantiates a new CardlessEMIPaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetCardlessEmi sets CardlessEmi field to given value.
 
-### HasCardlessEmi
-
-`func (o *CardlessEMIPaymentMethod) HasCardlessEmi() bool`
-
-HasCardlessEmi returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

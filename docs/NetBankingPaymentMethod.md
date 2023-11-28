@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Netbanking** | [**NullableNetbanking**](Netbanking.md) |  | 
+**Netbanking** | [**Netbanking**](Netbanking.md) |  | 
 
 ## Methods
 
 ### NewNetBankingPaymentMethod
 
-`func NewNetBankingPaymentMethod(netbanking NullableNetbanking, ) *NetBankingPaymentMethod`
+`func NewNetBankingPaymentMethod(netbanking Netbanking, ) *NetBankingPaymentMethod`
 
 NewNetBankingPaymentMethod instantiates a new NetBankingPaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -45,16 +45,6 @@ and a boolean to check if the value has been set.
 SetNetbanking sets Netbanking field to given value.
 
 
-### SetNetbankingNil
-
-`func (o *NetBankingPaymentMethod) SetNetbankingNil(b bool)`
-
- SetNetbankingNil sets the value for Netbanking to be an explicit nil
-
-### UnsetNetbanking
-`func (o *NetBankingPaymentMethod) UnsetNetbanking()`
-
-UnsetNetbanking ensures that no value is present for Netbanking, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

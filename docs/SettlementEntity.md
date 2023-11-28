@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfPaymentId** | Pointer to **int64** |  | [optional] 
-**CfSettlementId** | Pointer to **int64** |  | [optional] 
+**CfPaymentId** | Pointer to **int32** |  | [optional] 
+**CfSettlementId** | Pointer to **int32** |  | [optional] 
 **SettlementCurrency** | Pointer to **string** |  | [optional] 
 **OrderId** | Pointer to **string** |  | [optional] 
 **Entity** | Pointer to **string** |  | [optional] 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **ServiceCharge** | Pointer to **float32** |  | [optional] 
 **ServiceTax** | Pointer to **float32** |  | [optional] 
 **SettlementAmount** | Pointer to **float32** |  | [optional] 
-**SettlementId** | Pointer to **int64** |  | [optional] 
-**TransferId** | Pointer to **int64** |  | [optional] 
+**SettlementId** | Pointer to **int32** |  | [optional] 
+**TransferId** | Pointer to **int32** |  | [optional] 
 **TransferTime** | Pointer to **string** |  | [optional] 
 **TransferUtr** | Pointer to **string** |  | [optional] 
 
@@ -40,20 +40,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfPaymentId
 
-`func (o *SettlementEntity) GetCfPaymentId() int64`
+`func (o *SettlementEntity) GetCfPaymentId() int32`
 
 GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
 
 ### GetCfPaymentIdOk
 
-`func (o *SettlementEntity) GetCfPaymentIdOk() (*int64, bool)`
+`func (o *SettlementEntity) GetCfPaymentIdOk() (*int32, bool)`
 
 GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfPaymentId
 
-`func (o *SettlementEntity) SetCfPaymentId(v int64)`
+`func (o *SettlementEntity) SetCfPaymentId(v int32)`
 
 SetCfPaymentId sets CfPaymentId field to given value.
 
@@ -65,20 +65,20 @@ HasCfPaymentId returns a boolean if a field has been set.
 
 ### GetCfSettlementId
 
-`func (o *SettlementEntity) GetCfSettlementId() int64`
+`func (o *SettlementEntity) GetCfSettlementId() int32`
 
 GetCfSettlementId returns the CfSettlementId field if non-nil, zero value otherwise.
 
 ### GetCfSettlementIdOk
 
-`func (o *SettlementEntity) GetCfSettlementIdOk() (*int64, bool)`
+`func (o *SettlementEntity) GetCfSettlementIdOk() (*int32, bool)`
 
 GetCfSettlementIdOk returns a tuple with the CfSettlementId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfSettlementId
 
-`func (o *SettlementEntity) SetCfSettlementId(v int64)`
+`func (o *SettlementEntity) SetCfSettlementId(v int32)`
 
 SetCfSettlementId sets CfSettlementId field to given value.
 
@@ -290,20 +290,20 @@ HasSettlementAmount returns a boolean if a field has been set.
 
 ### GetSettlementId
 
-`func (o *SettlementEntity) GetSettlementId() int64`
+`func (o *SettlementEntity) GetSettlementId() int32`
 
 GetSettlementId returns the SettlementId field if non-nil, zero value otherwise.
 
 ### GetSettlementIdOk
 
-`func (o *SettlementEntity) GetSettlementIdOk() (*int64, bool)`
+`func (o *SettlementEntity) GetSettlementIdOk() (*int32, bool)`
 
 GetSettlementIdOk returns a tuple with the SettlementId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSettlementId
 
-`func (o *SettlementEntity) SetSettlementId(v int64)`
+`func (o *SettlementEntity) SetSettlementId(v int32)`
 
 SetSettlementId sets SettlementId field to given value.
 
@@ -315,20 +315,20 @@ HasSettlementId returns a boolean if a field has been set.
 
 ### GetTransferId
 
-`func (o *SettlementEntity) GetTransferId() int64`
+`func (o *SettlementEntity) GetTransferId() int32`
 
 GetTransferId returns the TransferId field if non-nil, zero value otherwise.
 
 ### GetTransferIdOk
 
-`func (o *SettlementEntity) GetTransferIdOk() (*int64, bool)`
+`func (o *SettlementEntity) GetTransferIdOk() (*int32, bool)`
 
 GetTransferIdOk returns a tuple with the TransferId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTransferId
 
-`func (o *SettlementEntity) SetTransferId(v int64)`
+`func (o *SettlementEntity) SetTransferId(v int32)`
 
 SetTransferId sets TransferId field to given value.
 

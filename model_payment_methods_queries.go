@@ -22,6 +22,8 @@ var _ MappedNullable = &PaymentMethodsQueries{}
 type PaymentMethodsQueries struct {
 	// Amount of the order.
 	Amount *float32 `json:"amount,omitempty"`
+	// OrderId of the order. Either of `order_id` or `order_amount` is mandatory.
+	OrderId *string `json:"order_id,omitempty"`
 }
 
 // NewPaymentMethodsQueries instantiates a new PaymentMethodsQueries object
@@ -73,6 +75,38 @@ func (o *PaymentMethodsQueries) SetAmount(v float32) {
 	o.Amount = &v
 }
 
+// GetOrderId returns the OrderId field value if set, zero value otherwise.
+func (o *PaymentMethodsQueries) GetOrderId() string {
+	if o == nil || IsNil(o.OrderId) {
+		var ret string
+		return ret
+	}
+	return *o.OrderId
+}
+
+// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PaymentMethodsQueries) GetOrderIdOk() (*string, bool) {
+	if o == nil || IsNil(o.OrderId) {
+		return nil, false
+	}
+	return o.OrderId, true
+}
+
+// HasOrderId returns a boolean if a field has been set.
+func (o *PaymentMethodsQueries) HasOrderId() bool {
+	if o != nil && !IsNil(o.OrderId) {
+		return true
+	}
+
+	return false
+}
+
+// SetOrderId gets a reference to the given string and assigns it to the OrderId field.
+func (o *PaymentMethodsQueries) SetOrderId(v string) {
+	o.OrderId = &v
+}
+
 func (o PaymentMethodsQueries) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -85,6 +119,9 @@ func (o PaymentMethodsQueries) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Amount) {
 		toSerialize["amount"] = o.Amount
+	}
+	if !IsNil(o.OrderId) {
+		toSerialize["order_id"] = o.OrderId
 	}
 	return toSerialize, nil
 }

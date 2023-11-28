@@ -21,7 +21,7 @@ var _ MappedNullable = &TerminalEntity{}
 // TerminalEntity Create terminal response object
 type TerminalEntity struct {
 	AddedOn *string `json:"added_on,omitempty"`
-	CfTerminalId *int64 `json:"cf_terminal_id,omitempty"`
+	CfTerminalId *int32 `json:"cf_terminal_id,omitempty"`
 	LastUpdatedOn *string `json:"last_updated_on,omitempty"`
 	TerminalAddress *string `json:"terminal_address,omitempty"`
 	TerminalEmail *string `json:"terminal_email,omitempty"`
@@ -84,9 +84,9 @@ func (o *TerminalEntity) SetAddedOn(v string) {
 }
 
 // GetCfTerminalId returns the CfTerminalId field value if set, zero value otherwise.
-func (o *TerminalEntity) GetCfTerminalId() int64 {
+func (o *TerminalEntity) GetCfTerminalId() int32 {
 	if o == nil || IsNil(o.CfTerminalId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfTerminalId
@@ -94,7 +94,7 @@ func (o *TerminalEntity) GetCfTerminalId() int64 {
 
 // GetCfTerminalIdOk returns a tuple with the CfTerminalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TerminalEntity) GetCfTerminalIdOk() (*int64, bool) {
+func (o *TerminalEntity) GetCfTerminalIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfTerminalId) {
 		return nil, false
 	}
@@ -110,8 +110,8 @@ func (o *TerminalEntity) HasCfTerminalId() bool {
 	return false
 }
 
-// SetCfTerminalId gets a reference to the given int64 and assigns it to the CfTerminalId field.
-func (o *TerminalEntity) SetCfTerminalId(v int64) {
+// SetCfTerminalId gets a reference to the given int32 and assigns it to the CfTerminalId field.
+func (o *TerminalEntity) SetCfTerminalId(v int32) {
 	o.CfTerminalId = &v
 }
 

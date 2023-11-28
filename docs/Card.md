@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | Pointer to **string** | The channel for card payments can be \&quot;link\&quot; or \&quot;post\&quot;. Post is used for seamless OTP payments where merchant captures OTP on their own page. | [optional] 
+**Channel** | **string** | The channel for card payments can be \&quot;link\&quot; or \&quot;post\&quot;. Post is used for seamless OTP payments where merchant captures OTP on their own page. | 
 **CardNumber** | Pointer to **string** | Customer card number for plain card transactions. Token pan number for tokenized card transactions. | [optional] 
 **CardHolderName** | Pointer to **string** | Customer name mentioned on the card. | [optional] 
 **CardExpiryMm** | Pointer to **string** | Card expiry month for plain card transactions. Token expiry month for tokenized card transactions. | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewCard
 
-`func NewCard() *Card`
+`func NewCard(channel string, ) *Card`
 
 NewCard instantiates a new Card object
 This constructor will assign default values to properties that have it defined,
@@ -57,11 +57,6 @@ and a boolean to check if the value has been set.
 
 SetChannel sets Channel field to given value.
 
-### HasChannel
-
-`func (o *Card) HasChannel() bool`
-
-HasChannel returns a boolean if a field has been set.
 
 ### GetCardNumber
 
