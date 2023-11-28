@@ -21,7 +21,7 @@ var _ MappedNullable = &Card{}
 // Card Card Payment method
 type Card struct {
 	// The channel for card payments can be \"link\" or \"post\". Post is used for seamless OTP payments where merchant captures OTP on their own page.
-	Channel *string `json:"channel,omitempty"`
+	Channel string `json:"channel"`
 	// Customer card number for plain card transactions. Token pan number for tokenized card transactions.
 	CardNumber *string `json:"card_number,omitempty"`
 	// Customer name mentioned on the card.
@@ -53,8 +53,9 @@ type Card struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCard() *Card {
+func NewCard(channel string) *Card {
 	this := Card{}
+	this.Channel = channel
 	return &this
 }
 
@@ -66,36 +67,28 @@ func NewCardWithDefaults() *Card {
 	return &this
 }
 
-// GetChannel returns the Channel field value if set, zero value otherwise.
+// GetChannel returns the Channel field value
 func (o *Card) GetChannel() string {
-	if o == nil || IsNil(o.Channel) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Channel
+
+	return o.Channel
 }
 
-// GetChannelOk returns a tuple with the Channel field value if set, nil otherwise
+// GetChannelOk returns a tuple with the Channel field value
 // and a boolean to check if the value has been set.
 func (o *Card) GetChannelOk() (*string, bool) {
-	if o == nil || IsNil(o.Channel) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Channel, true
+	return &o.Channel, true
 }
 
-// HasChannel returns a boolean if a field has been set.
-func (o *Card) HasChannel() bool {
-	if o != nil && !IsNil(o.Channel) {
-		return true
-	}
-
-	return false
-}
-
-// SetChannel gets a reference to the given string and assigns it to the Channel field.
+// SetChannel sets field value
 func (o *Card) SetChannel(v string) {
-	o.Channel = &v
+	o.Channel = v
 }
 
 // GetCardNumber returns the CardNumber field value if set, zero value otherwise.
@@ -524,9 +517,7 @@ func (o Card) MarshalJSON() ([]byte, error) {
 
 func (o Card) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Channel) {
-		toSerialize["channel"] = o.Channel
-	}
+	toSerialize["channel"] = o.Channel
 	if !IsNil(o.CardNumber) {
 		toSerialize["card_number"] = o.CardNumber
 	}

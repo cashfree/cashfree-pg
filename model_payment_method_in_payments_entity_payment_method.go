@@ -72,100 +72,86 @@ func PaymentMethodUPIInPaymentsEntityAsPaymentMethodInPaymentsEntityPaymentMetho
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PaymentMethodInPaymentsEntityPaymentMethod) UnmarshalJSON(data []byte) error {
 	var err error
-	match := 0
-	// try to unmarshal data into PaymentMethodAppInPaymentsEntity
-	err = json.Unmarshal(data, &dst.PaymentMethodAppInPaymentsEntity)
-	if err == nil {
-		jsonPaymentMethodAppInPaymentsEntity, _ := json.Marshal(dst.PaymentMethodAppInPaymentsEntity)
-		if string(jsonPaymentMethodAppInPaymentsEntity) == "{}" { // empty struct
+	// use discriminator value to speed up the lookup
+	var jsonDict map[string]interface{}
+	err = newStrictDecoder(data).Decode(&jsonDict)
+	if err != nil {
+		return fmt.Errorf("failed to unmarshal JSON into map for the discriminator lookup")
+	}
+
+	// check if the discriminator value is 'PaymentMethodAppInPaymentsEntity'
+	if jsonDict["type"] == "PaymentMethodAppInPaymentsEntity" {
+		// try to unmarshal JSON data into PaymentMethodAppInPaymentsEntity
+		err = json.Unmarshal(data, &dst.PaymentMethodAppInPaymentsEntity)
+		if err == nil {
+			return nil // data stored in dst.PaymentMethodAppInPaymentsEntity, return on the first match
+		} else {
 			dst.PaymentMethodAppInPaymentsEntity = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal PaymentMethodInPaymentsEntityPaymentMethod as PaymentMethodAppInPaymentsEntity: %s", err.Error())
 		}
-	} else {
-		dst.PaymentMethodAppInPaymentsEntity = nil
 	}
 
-	// try to unmarshal data into PaymentMethodCardInPaymentsEntity
-	err = json.Unmarshal(data, &dst.PaymentMethodCardInPaymentsEntity)
-	if err == nil {
-		jsonPaymentMethodCardInPaymentsEntity, _ := json.Marshal(dst.PaymentMethodCardInPaymentsEntity)
-		if string(jsonPaymentMethodCardInPaymentsEntity) == "{}" { // empty struct
+	// check if the discriminator value is 'PaymentMethodCardInPaymentsEntity'
+	if jsonDict["type"] == "PaymentMethodCardInPaymentsEntity" {
+		// try to unmarshal JSON data into PaymentMethodCardInPaymentsEntity
+		err = json.Unmarshal(data, &dst.PaymentMethodCardInPaymentsEntity)
+		if err == nil {
+			return nil // data stored in dst.PaymentMethodCardInPaymentsEntity, return on the first match
+		} else {
 			dst.PaymentMethodCardInPaymentsEntity = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal PaymentMethodInPaymentsEntityPaymentMethod as PaymentMethodCardInPaymentsEntity: %s", err.Error())
 		}
-	} else {
-		dst.PaymentMethodCardInPaymentsEntity = nil
 	}
 
-	// try to unmarshal data into PaymentMethodCardlessEMIInPaymentsEntity
-	err = json.Unmarshal(data, &dst.PaymentMethodCardlessEMIInPaymentsEntity)
-	if err == nil {
-		jsonPaymentMethodCardlessEMIInPaymentsEntity, _ := json.Marshal(dst.PaymentMethodCardlessEMIInPaymentsEntity)
-		if string(jsonPaymentMethodCardlessEMIInPaymentsEntity) == "{}" { // empty struct
+	// check if the discriminator value is 'PaymentMethodCardlessEMIInPaymentsEntity'
+	if jsonDict["type"] == "PaymentMethodCardlessEMIInPaymentsEntity" {
+		// try to unmarshal JSON data into PaymentMethodCardlessEMIInPaymentsEntity
+		err = json.Unmarshal(data, &dst.PaymentMethodCardlessEMIInPaymentsEntity)
+		if err == nil {
+			return nil // data stored in dst.PaymentMethodCardlessEMIInPaymentsEntity, return on the first match
+		} else {
 			dst.PaymentMethodCardlessEMIInPaymentsEntity = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal PaymentMethodInPaymentsEntityPaymentMethod as PaymentMethodCardlessEMIInPaymentsEntity: %s", err.Error())
 		}
-	} else {
-		dst.PaymentMethodCardlessEMIInPaymentsEntity = nil
 	}
 
-	// try to unmarshal data into PaymentMethodNetBankingInPaymentsEntity
-	err = json.Unmarshal(data, &dst.PaymentMethodNetBankingInPaymentsEntity)
-	if err == nil {
-		jsonPaymentMethodNetBankingInPaymentsEntity, _ := json.Marshal(dst.PaymentMethodNetBankingInPaymentsEntity)
-		if string(jsonPaymentMethodNetBankingInPaymentsEntity) == "{}" { // empty struct
+	// check if the discriminator value is 'PaymentMethodNetBankingInPaymentsEntity'
+	if jsonDict["type"] == "PaymentMethodNetBankingInPaymentsEntity" {
+		// try to unmarshal JSON data into PaymentMethodNetBankingInPaymentsEntity
+		err = json.Unmarshal(data, &dst.PaymentMethodNetBankingInPaymentsEntity)
+		if err == nil {
+			return nil // data stored in dst.PaymentMethodNetBankingInPaymentsEntity, return on the first match
+		} else {
 			dst.PaymentMethodNetBankingInPaymentsEntity = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal PaymentMethodInPaymentsEntityPaymentMethod as PaymentMethodNetBankingInPaymentsEntity: %s", err.Error())
 		}
-	} else {
-		dst.PaymentMethodNetBankingInPaymentsEntity = nil
 	}
 
-	// try to unmarshal data into PaymentMethodPaylaterInPaymentsEntity
-	err = json.Unmarshal(data, &dst.PaymentMethodPaylaterInPaymentsEntity)
-	if err == nil {
-		jsonPaymentMethodPaylaterInPaymentsEntity, _ := json.Marshal(dst.PaymentMethodPaylaterInPaymentsEntity)
-		if string(jsonPaymentMethodPaylaterInPaymentsEntity) == "{}" { // empty struct
+	// check if the discriminator value is 'PaymentMethodPaylaterInPaymentsEntity'
+	if jsonDict["type"] == "PaymentMethodPaylaterInPaymentsEntity" {
+		// try to unmarshal JSON data into PaymentMethodPaylaterInPaymentsEntity
+		err = json.Unmarshal(data, &dst.PaymentMethodPaylaterInPaymentsEntity)
+		if err == nil {
+			return nil // data stored in dst.PaymentMethodPaylaterInPaymentsEntity, return on the first match
+		} else {
 			dst.PaymentMethodPaylaterInPaymentsEntity = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal PaymentMethodInPaymentsEntityPaymentMethod as PaymentMethodPaylaterInPaymentsEntity: %s", err.Error())
 		}
-	} else {
-		dst.PaymentMethodPaylaterInPaymentsEntity = nil
 	}
 
-	// try to unmarshal data into PaymentMethodUPIInPaymentsEntity
-	err = json.Unmarshal(data, &dst.PaymentMethodUPIInPaymentsEntity)
-	if err == nil {
-		jsonPaymentMethodUPIInPaymentsEntity, _ := json.Marshal(dst.PaymentMethodUPIInPaymentsEntity)
-		if string(jsonPaymentMethodUPIInPaymentsEntity) == "{}" { // empty struct
+	// check if the discriminator value is 'PaymentMethodUPIInPaymentsEntity'
+	if jsonDict["type"] == "PaymentMethodUPIInPaymentsEntity" {
+		// try to unmarshal JSON data into PaymentMethodUPIInPaymentsEntity
+		err = json.Unmarshal(data, &dst.PaymentMethodUPIInPaymentsEntity)
+		if err == nil {
+			return nil // data stored in dst.PaymentMethodUPIInPaymentsEntity, return on the first match
+		} else {
 			dst.PaymentMethodUPIInPaymentsEntity = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal PaymentMethodInPaymentsEntityPaymentMethod as PaymentMethodUPIInPaymentsEntity: %s", err.Error())
 		}
-	} else {
-		dst.PaymentMethodUPIInPaymentsEntity = nil
 	}
 
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.PaymentMethodAppInPaymentsEntity = nil
-		dst.PaymentMethodCardInPaymentsEntity = nil
-		dst.PaymentMethodCardlessEMIInPaymentsEntity = nil
-		dst.PaymentMethodNetBankingInPaymentsEntity = nil
-		dst.PaymentMethodPaylaterInPaymentsEntity = nil
-		dst.PaymentMethodUPIInPaymentsEntity = nil
-
-		return fmt.Errorf("data matches more than one schema in oneOf(PaymentMethodInPaymentsEntityPaymentMethod)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(PaymentMethodInPaymentsEntityPaymentMethod)")
-	}
+	return nil
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON

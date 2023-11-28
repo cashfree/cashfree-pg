@@ -21,14 +21,14 @@ var _ MappedNullable = &SettlementFetchReconRequest{}
 // SettlementFetchReconRequest Recon Request Object
 type SettlementFetchReconRequest struct {
 	Pagination FetchSettlementsRequestPagination `json:"pagination"`
-	Filters SettlementFetchReconRequestFilters `json:"filters"`
+	Filters FetchSettlementsRequestFilters `json:"filters"`
 }
 
 // NewSettlementFetchReconRequest instantiates a new SettlementFetchReconRequest object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSettlementFetchReconRequest(pagination FetchSettlementsRequestPagination, filters SettlementFetchReconRequestFilters) *SettlementFetchReconRequest {
+func NewSettlementFetchReconRequest(pagination FetchSettlementsRequestPagination, filters FetchSettlementsRequestFilters) *SettlementFetchReconRequest {
 	this := SettlementFetchReconRequest{}
 	this.Pagination = pagination
 	this.Filters = filters
@@ -68,9 +68,9 @@ func (o *SettlementFetchReconRequest) SetPagination(v FetchSettlementsRequestPag
 }
 
 // GetFilters returns the Filters field value
-func (o *SettlementFetchReconRequest) GetFilters() SettlementFetchReconRequestFilters {
+func (o *SettlementFetchReconRequest) GetFilters() FetchSettlementsRequestFilters {
 	if o == nil {
-		var ret SettlementFetchReconRequestFilters
+		var ret FetchSettlementsRequestFilters
 		return ret
 	}
 
@@ -79,7 +79,7 @@ func (o *SettlementFetchReconRequest) GetFilters() SettlementFetchReconRequestFi
 
 // GetFiltersOk returns a tuple with the Filters field value
 // and a boolean to check if the value has been set.
-func (o *SettlementFetchReconRequest) GetFiltersOk() (*SettlementFetchReconRequestFilters, bool) {
+func (o *SettlementFetchReconRequest) GetFiltersOk() (*FetchSettlementsRequestFilters, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -87,7 +87,7 @@ func (o *SettlementFetchReconRequest) GetFiltersOk() (*SettlementFetchReconReque
 }
 
 // SetFilters sets field value
-func (o *SettlementFetchReconRequest) SetFilters(v SettlementFetchReconRequestFilters) {
+func (o *SettlementFetchReconRequest) SetFilters(v FetchSettlementsRequestFilters) {
 	o.Filters = v
 }
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **All** | **map[string]interface{}** | All offers applicable | 
 **Card** | [**CardOffer**](CardOffer.md) |  | 
 **Netbanking** | [**OfferNBNetbanking**](OfferNBNetbanking.md) |  | 
-**App** | Pointer to [**WalletOffer**](WalletOffer.md) |  | [optional] 
+**App** | [**WalletOffer**](WalletOffer.md) |  | 
 **Upi** | **map[string]interface{}** |  | 
 **Paylater** | [**PaylaterOffer**](PaylaterOffer.md) |  | 
 **Emi** | [**EMIOffer**](EMIOffer.md) |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewOfferValidationsPaymentMethod
 
-`func NewOfferValidationsPaymentMethod(all map[string]interface{}, card CardOffer, netbanking OfferNBNetbanking, upi map[string]interface{}, paylater PaylaterOffer, emi EMIOffer, ) *OfferValidationsPaymentMethod`
+`func NewOfferValidationsPaymentMethod(all map[string]interface{}, card CardOffer, netbanking OfferNBNetbanking, app WalletOffer, upi map[string]interface{}, paylater PaylaterOffer, emi EMIOffer, ) *OfferValidationsPaymentMethod`
 
 NewOfferValidationsPaymentMethod instantiates a new OfferValidationsPaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -110,11 +110,6 @@ and a boolean to check if the value has been set.
 
 SetApp sets App field to given value.
 
-### HasApp
-
-`func (o *OfferValidationsPaymentMethod) HasApp() bool`
-
-HasApp returns a boolean if a field has been set.
 
 ### GetUpi
 

@@ -21,7 +21,7 @@ var _ MappedNullable = &FetchSettlementsRequestFilters{}
 // FetchSettlementsRequestFilters Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
 type FetchSettlementsRequestFilters struct {
 	// List of settlement IDs for which you want the settlement reconciliation details.
-	CfSettlementIds []int64 `json:"cf_settlement_ids,omitempty"`
+	CfSettlementIds []int32 `json:"cf_settlement_ids,omitempty"`
 	// List of settlement UTRs for which you want the settlement reconciliation details.
 	SettlementUtrs []string `json:"settlement_utrs,omitempty"`
 	// Specify the start date from when you want the settlement reconciliation details.
@@ -48,9 +48,9 @@ func NewFetchSettlementsRequestFiltersWithDefaults() *FetchSettlementsRequestFil
 }
 
 // GetCfSettlementIds returns the CfSettlementIds field value if set, zero value otherwise.
-func (o *FetchSettlementsRequestFilters) GetCfSettlementIds() []int64 {
+func (o *FetchSettlementsRequestFilters) GetCfSettlementIds() []int32 {
 	if o == nil || IsNil(o.CfSettlementIds) {
-		var ret []int64
+		var ret []int32
 		return ret
 	}
 	return o.CfSettlementIds
@@ -58,7 +58,7 @@ func (o *FetchSettlementsRequestFilters) GetCfSettlementIds() []int64 {
 
 // GetCfSettlementIdsOk returns a tuple with the CfSettlementIds field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *FetchSettlementsRequestFilters) GetCfSettlementIdsOk() ([]int64, bool) {
+func (o *FetchSettlementsRequestFilters) GetCfSettlementIdsOk() ([]int32, bool) {
 	if o == nil || IsNil(o.CfSettlementIds) {
 		return nil, false
 	}
@@ -74,8 +74,8 @@ func (o *FetchSettlementsRequestFilters) HasCfSettlementIds() bool {
 	return false
 }
 
-// SetCfSettlementIds gets a reference to the given []int64 and assigns it to the CfSettlementIds field.
-func (o *FetchSettlementsRequestFilters) SetCfSettlementIds(v []int64) {
+// SetCfSettlementIds gets a reference to the given []int32 and assigns it to the CfSettlementIds field.
+func (o *FetchSettlementsRequestFilters) SetCfSettlementIds(v []int32) {
 	o.CfSettlementIds = v
 }
 

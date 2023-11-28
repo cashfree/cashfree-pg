@@ -20,8 +20,8 @@ var _ MappedNullable = &SettlementEntity{}
 
 // SettlementEntity Settlement entity object
 type SettlementEntity struct {
-	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
-	CfSettlementId *int64 `json:"cf_settlement_id,omitempty"`
+	CfPaymentId *int32 `json:"cf_payment_id,omitempty"`
+	CfSettlementId *int32 `json:"cf_settlement_id,omitempty"`
 	SettlementCurrency *string `json:"settlement_currency,omitempty"`
 	OrderId *string `json:"order_id,omitempty"`
 	Entity *string `json:"entity,omitempty"`
@@ -30,8 +30,8 @@ type SettlementEntity struct {
 	ServiceCharge *float32 `json:"service_charge,omitempty"`
 	ServiceTax *float32 `json:"service_tax,omitempty"`
 	SettlementAmount *float32 `json:"settlement_amount,omitempty"`
-	SettlementId *int64 `json:"settlement_id,omitempty"`
-	TransferId *int64 `json:"transfer_id,omitempty"`
+	SettlementId *int32 `json:"settlement_id,omitempty"`
+	TransferId *int32 `json:"transfer_id,omitempty"`
 	TransferTime *string `json:"transfer_time,omitempty"`
 	TransferUtr *string `json:"transfer_utr,omitempty"`
 }
@@ -54,9 +54,9 @@ func NewSettlementEntityWithDefaults() *SettlementEntity {
 }
 
 // GetCfPaymentId returns the CfPaymentId field value if set, zero value otherwise.
-func (o *SettlementEntity) GetCfPaymentId() int64 {
+func (o *SettlementEntity) GetCfPaymentId() int32 {
 	if o == nil || IsNil(o.CfPaymentId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfPaymentId
@@ -64,7 +64,7 @@ func (o *SettlementEntity) GetCfPaymentId() int64 {
 
 // GetCfPaymentIdOk returns a tuple with the CfPaymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SettlementEntity) GetCfPaymentIdOk() (*int64, bool) {
+func (o *SettlementEntity) GetCfPaymentIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfPaymentId) {
 		return nil, false
 	}
@@ -80,15 +80,15 @@ func (o *SettlementEntity) HasCfPaymentId() bool {
 	return false
 }
 
-// SetCfPaymentId gets a reference to the given int64 and assigns it to the CfPaymentId field.
-func (o *SettlementEntity) SetCfPaymentId(v int64) {
+// SetCfPaymentId gets a reference to the given int32 and assigns it to the CfPaymentId field.
+func (o *SettlementEntity) SetCfPaymentId(v int32) {
 	o.CfPaymentId = &v
 }
 
 // GetCfSettlementId returns the CfSettlementId field value if set, zero value otherwise.
-func (o *SettlementEntity) GetCfSettlementId() int64 {
+func (o *SettlementEntity) GetCfSettlementId() int32 {
 	if o == nil || IsNil(o.CfSettlementId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfSettlementId
@@ -96,7 +96,7 @@ func (o *SettlementEntity) GetCfSettlementId() int64 {
 
 // GetCfSettlementIdOk returns a tuple with the CfSettlementId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SettlementEntity) GetCfSettlementIdOk() (*int64, bool) {
+func (o *SettlementEntity) GetCfSettlementIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfSettlementId) {
 		return nil, false
 	}
@@ -112,8 +112,8 @@ func (o *SettlementEntity) HasCfSettlementId() bool {
 	return false
 }
 
-// SetCfSettlementId gets a reference to the given int64 and assigns it to the CfSettlementId field.
-func (o *SettlementEntity) SetCfSettlementId(v int64) {
+// SetCfSettlementId gets a reference to the given int32 and assigns it to the CfSettlementId field.
+func (o *SettlementEntity) SetCfSettlementId(v int32) {
 	o.CfSettlementId = &v
 }
 
@@ -374,9 +374,9 @@ func (o *SettlementEntity) SetSettlementAmount(v float32) {
 }
 
 // GetSettlementId returns the SettlementId field value if set, zero value otherwise.
-func (o *SettlementEntity) GetSettlementId() int64 {
+func (o *SettlementEntity) GetSettlementId() int32 {
 	if o == nil || IsNil(o.SettlementId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.SettlementId
@@ -384,7 +384,7 @@ func (o *SettlementEntity) GetSettlementId() int64 {
 
 // GetSettlementIdOk returns a tuple with the SettlementId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SettlementEntity) GetSettlementIdOk() (*int64, bool) {
+func (o *SettlementEntity) GetSettlementIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.SettlementId) {
 		return nil, false
 	}
@@ -400,15 +400,15 @@ func (o *SettlementEntity) HasSettlementId() bool {
 	return false
 }
 
-// SetSettlementId gets a reference to the given int64 and assigns it to the SettlementId field.
-func (o *SettlementEntity) SetSettlementId(v int64) {
+// SetSettlementId gets a reference to the given int32 and assigns it to the SettlementId field.
+func (o *SettlementEntity) SetSettlementId(v int32) {
 	o.SettlementId = &v
 }
 
 // GetTransferId returns the TransferId field value if set, zero value otherwise.
-func (o *SettlementEntity) GetTransferId() int64 {
+func (o *SettlementEntity) GetTransferId() int32 {
 	if o == nil || IsNil(o.TransferId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.TransferId
@@ -416,7 +416,7 @@ func (o *SettlementEntity) GetTransferId() int64 {
 
 // GetTransferIdOk returns a tuple with the TransferId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SettlementEntity) GetTransferIdOk() (*int64, bool) {
+func (o *SettlementEntity) GetTransferIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.TransferId) {
 		return nil, false
 	}
@@ -432,8 +432,8 @@ func (o *SettlementEntity) HasTransferId() bool {
 	return false
 }
 
-// SetTransferId gets a reference to the given int64 and assigns it to the TransferId field.
-func (o *SettlementEntity) SetTransferId(v int64) {
+// SetTransferId gets a reference to the given int32 and assigns it to the TransferId field.
+func (o *SettlementEntity) SetTransferId(v int32) {
 	o.TransferId = &v
 }
 

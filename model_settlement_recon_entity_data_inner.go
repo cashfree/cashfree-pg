@@ -59,9 +59,9 @@ type SettlementReconEntityDataInner struct {
 	// Service tax applicable on the payment.
 	PaymentServiceTax *float32 `json:"payment_service_tax,omitempty"`
 	// Cashfree Payments unique ID to identify a payment.
-	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int32 `json:"cf_payment_id,omitempty"`
 	// Unique ID to identify the settlement.
-	CfSettlementId *int64 `json:"cf_settlement_id,omitempty"`
+	CfSettlementId *int32 `json:"cf_settlement_id,omitempty"`
 	// Date and time when the settlement was processed.
 	SettlementDate *string `json:"settlement_date,omitempty"`
 	// Unique transaction reference number of the settlement.
@@ -718,9 +718,9 @@ func (o *SettlementReconEntityDataInner) SetPaymentServiceTax(v float32) {
 }
 
 // GetCfPaymentId returns the CfPaymentId field value if set, zero value otherwise.
-func (o *SettlementReconEntityDataInner) GetCfPaymentId() int64 {
+func (o *SettlementReconEntityDataInner) GetCfPaymentId() int32 {
 	if o == nil || IsNil(o.CfPaymentId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfPaymentId
@@ -728,7 +728,7 @@ func (o *SettlementReconEntityDataInner) GetCfPaymentId() int64 {
 
 // GetCfPaymentIdOk returns a tuple with the CfPaymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SettlementReconEntityDataInner) GetCfPaymentIdOk() (*int64, bool) {
+func (o *SettlementReconEntityDataInner) GetCfPaymentIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfPaymentId) {
 		return nil, false
 	}
@@ -744,15 +744,15 @@ func (o *SettlementReconEntityDataInner) HasCfPaymentId() bool {
 	return false
 }
 
-// SetCfPaymentId gets a reference to the given int64 and assigns it to the CfPaymentId field.
-func (o *SettlementReconEntityDataInner) SetCfPaymentId(v int64) {
+// SetCfPaymentId gets a reference to the given int32 and assigns it to the CfPaymentId field.
+func (o *SettlementReconEntityDataInner) SetCfPaymentId(v int32) {
 	o.CfPaymentId = &v
 }
 
 // GetCfSettlementId returns the CfSettlementId field value if set, zero value otherwise.
-func (o *SettlementReconEntityDataInner) GetCfSettlementId() int64 {
+func (o *SettlementReconEntityDataInner) GetCfSettlementId() int32 {
 	if o == nil || IsNil(o.CfSettlementId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfSettlementId
@@ -760,7 +760,7 @@ func (o *SettlementReconEntityDataInner) GetCfSettlementId() int64 {
 
 // GetCfSettlementIdOk returns a tuple with the CfSettlementId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SettlementReconEntityDataInner) GetCfSettlementIdOk() (*int64, bool) {
+func (o *SettlementReconEntityDataInner) GetCfSettlementIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfSettlementId) {
 		return nil, false
 	}
@@ -776,8 +776,8 @@ func (o *SettlementReconEntityDataInner) HasCfSettlementId() bool {
 	return false
 }
 
-// SetCfSettlementId gets a reference to the given int64 and assigns it to the CfSettlementId field.
-func (o *SettlementReconEntityDataInner) SetCfSettlementId(v int64) {
+// SetCfSettlementId gets a reference to the given int32 and assigns it to the CfSettlementId field.
+func (o *SettlementReconEntityDataInner) SetCfSettlementId(v int32) {
 	o.CfSettlementId = &v
 }
 

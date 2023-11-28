@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | Pointer to [**WalletOffer**](WalletOffer.md) |  | [optional] 
+**App** | [**WalletOffer**](WalletOffer.md) |  | 
 
 ## Methods
 
 ### NewOfferWallet
 
-`func NewOfferWallet() *OfferWallet`
+`func NewOfferWallet(app WalletOffer, ) *OfferWallet`
 
 NewOfferWallet instantiates a new OfferWallet object
 This constructor will assign default values to properties that have it defined,
@@ -44,11 +44,6 @@ and a boolean to check if the value has been set.
 
 SetApp sets App field to given value.
 
-### HasApp
-
-`func (o *OfferWallet) HasApp() bool`
-
-HasApp returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

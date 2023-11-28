@@ -80,114 +80,98 @@ func OfferWalletAsOfferValidationsPaymentMethod(v *OfferWallet) OfferValidations
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *OfferValidationsPaymentMethod) UnmarshalJSON(data []byte) error {
 	var err error
-	match := 0
-	// try to unmarshal data into OfferAll
-	err = json.Unmarshal(data, &dst.OfferAll)
-	if err == nil {
-		jsonOfferAll, _ := json.Marshal(dst.OfferAll)
-		if string(jsonOfferAll) == "{}" { // empty struct
+	// use discriminator value to speed up the lookup
+	var jsonDict map[string]interface{}
+	err = newStrictDecoder(data).Decode(&jsonDict)
+	if err != nil {
+		return fmt.Errorf("failed to unmarshal JSON into map for the discriminator lookup")
+	}
+
+	// check if the discriminator value is 'OfferAll'
+	if jsonDict["type"] == "OfferAll" {
+		// try to unmarshal JSON data into OfferAll
+		err = json.Unmarshal(data, &dst.OfferAll)
+		if err == nil {
+			return nil // data stored in dst.OfferAll, return on the first match
+		} else {
 			dst.OfferAll = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal OfferValidationsPaymentMethod as OfferAll: %s", err.Error())
 		}
-	} else {
-		dst.OfferAll = nil
 	}
 
-	// try to unmarshal data into OfferCard
-	err = json.Unmarshal(data, &dst.OfferCard)
-	if err == nil {
-		jsonOfferCard, _ := json.Marshal(dst.OfferCard)
-		if string(jsonOfferCard) == "{}" { // empty struct
+	// check if the discriminator value is 'OfferCard'
+	if jsonDict["type"] == "OfferCard" {
+		// try to unmarshal JSON data into OfferCard
+		err = json.Unmarshal(data, &dst.OfferCard)
+		if err == nil {
+			return nil // data stored in dst.OfferCard, return on the first match
+		} else {
 			dst.OfferCard = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal OfferValidationsPaymentMethod as OfferCard: %s", err.Error())
 		}
-	} else {
-		dst.OfferCard = nil
 	}
 
-	// try to unmarshal data into OfferEMI
-	err = json.Unmarshal(data, &dst.OfferEMI)
-	if err == nil {
-		jsonOfferEMI, _ := json.Marshal(dst.OfferEMI)
-		if string(jsonOfferEMI) == "{}" { // empty struct
+	// check if the discriminator value is 'OfferEMI'
+	if jsonDict["type"] == "OfferEMI" {
+		// try to unmarshal JSON data into OfferEMI
+		err = json.Unmarshal(data, &dst.OfferEMI)
+		if err == nil {
+			return nil // data stored in dst.OfferEMI, return on the first match
+		} else {
 			dst.OfferEMI = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal OfferValidationsPaymentMethod as OfferEMI: %s", err.Error())
 		}
-	} else {
-		dst.OfferEMI = nil
 	}
 
-	// try to unmarshal data into OfferNB
-	err = json.Unmarshal(data, &dst.OfferNB)
-	if err == nil {
-		jsonOfferNB, _ := json.Marshal(dst.OfferNB)
-		if string(jsonOfferNB) == "{}" { // empty struct
+	// check if the discriminator value is 'OfferNB'
+	if jsonDict["type"] == "OfferNB" {
+		// try to unmarshal JSON data into OfferNB
+		err = json.Unmarshal(data, &dst.OfferNB)
+		if err == nil {
+			return nil // data stored in dst.OfferNB, return on the first match
+		} else {
 			dst.OfferNB = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal OfferValidationsPaymentMethod as OfferNB: %s", err.Error())
 		}
-	} else {
-		dst.OfferNB = nil
 	}
 
-	// try to unmarshal data into OfferPaylater
-	err = json.Unmarshal(data, &dst.OfferPaylater)
-	if err == nil {
-		jsonOfferPaylater, _ := json.Marshal(dst.OfferPaylater)
-		if string(jsonOfferPaylater) == "{}" { // empty struct
+	// check if the discriminator value is 'OfferPaylater'
+	if jsonDict["type"] == "OfferPaylater" {
+		// try to unmarshal JSON data into OfferPaylater
+		err = json.Unmarshal(data, &dst.OfferPaylater)
+		if err == nil {
+			return nil // data stored in dst.OfferPaylater, return on the first match
+		} else {
 			dst.OfferPaylater = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal OfferValidationsPaymentMethod as OfferPaylater: %s", err.Error())
 		}
-	} else {
-		dst.OfferPaylater = nil
 	}
 
-	// try to unmarshal data into OfferUPI
-	err = json.Unmarshal(data, &dst.OfferUPI)
-	if err == nil {
-		jsonOfferUPI, _ := json.Marshal(dst.OfferUPI)
-		if string(jsonOfferUPI) == "{}" { // empty struct
+	// check if the discriminator value is 'OfferUPI'
+	if jsonDict["type"] == "OfferUPI" {
+		// try to unmarshal JSON data into OfferUPI
+		err = json.Unmarshal(data, &dst.OfferUPI)
+		if err == nil {
+			return nil // data stored in dst.OfferUPI, return on the first match
+		} else {
 			dst.OfferUPI = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal OfferValidationsPaymentMethod as OfferUPI: %s", err.Error())
 		}
-	} else {
-		dst.OfferUPI = nil
 	}
 
-	// try to unmarshal data into OfferWallet
-	err = json.Unmarshal(data, &dst.OfferWallet)
-	if err == nil {
-		jsonOfferWallet, _ := json.Marshal(dst.OfferWallet)
-		if string(jsonOfferWallet) == "{}" { // empty struct
+	// check if the discriminator value is 'OfferWallet'
+	if jsonDict["type"] == "OfferWallet" {
+		// try to unmarshal JSON data into OfferWallet
+		err = json.Unmarshal(data, &dst.OfferWallet)
+		if err == nil {
+			return nil // data stored in dst.OfferWallet, return on the first match
+		} else {
 			dst.OfferWallet = nil
-		} else {
-			match++
+			return fmt.Errorf("failed to unmarshal OfferValidationsPaymentMethod as OfferWallet: %s", err.Error())
 		}
-	} else {
-		dst.OfferWallet = nil
 	}
 
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.OfferAll = nil
-		dst.OfferCard = nil
-		dst.OfferEMI = nil
-		dst.OfferNB = nil
-		dst.OfferPaylater = nil
-		dst.OfferUPI = nil
-		dst.OfferWallet = nil
-
-		return fmt.Errorf("data matches more than one schema in oneOf(OfferValidationsPaymentMethod)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(OfferValidationsPaymentMethod)")
-	}
+	return nil
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON

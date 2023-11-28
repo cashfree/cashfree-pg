@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfLinkId** | Pointer to **int64** |  | [optional] 
+**CfLinkId** | Pointer to **int32** |  | [optional] 
 **LinkId** | Pointer to **string** |  | [optional] 
 **LinkStatus** | Pointer to **string** |  | [optional] 
 **LinkCurrency** | Pointer to **string** |  | [optional] 
@@ -43,20 +43,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfLinkId
 
-`func (o *LinkEntity) GetCfLinkId() int64`
+`func (o *LinkEntity) GetCfLinkId() int32`
 
 GetCfLinkId returns the CfLinkId field if non-nil, zero value otherwise.
 
 ### GetCfLinkIdOk
 
-`func (o *LinkEntity) GetCfLinkIdOk() (*int64, bool)`
+`func (o *LinkEntity) GetCfLinkIdOk() (*int32, bool)`
 
 GetCfLinkIdOk returns a tuple with the CfLinkId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfLinkId
 
-`func (o *LinkEntity) SetCfLinkId(v int64)`
+`func (o *LinkEntity) SetCfLinkId(v int32)`
 
 SetCfLinkId sets CfLinkId field to given value.
 

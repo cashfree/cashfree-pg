@@ -119,7 +119,7 @@ func main() {
 	cashfree.XEnvironment = cashfree.SANDBOX
 
     xApiVersion := "2022-09-01" 
-    settlementFetchReconRequest := *cashfree.NewSettlementFetchReconRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewSettlementFetchReconRequestFilters()) 
+    settlementFetchReconRequest := *cashfree.NewSettlementFetchReconRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewFetchSettlementsRequestFilters()) 
     contentType := "application/json" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 

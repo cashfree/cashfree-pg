@@ -117,7 +117,7 @@ func main() {
 	cashfree.XEnvironment = cashfree.SANDBOX
 
     xApiVersion := "2022-09-01" 
-    createTerminalTransactionRequest := *cashfree.NewCreateTerminalTransactionRequest(int64(123), "PaymentMethod_example") 
+    createTerminalTransactionRequest := *cashfree.NewCreateTerminalTransactionRequest(int32(123), "PaymentMethod_example") 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
 

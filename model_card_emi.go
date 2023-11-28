@@ -21,31 +21,38 @@ var _ MappedNullable = &CardEMI{}
 // CardEMI Payment method for card emi
 type CardEMI struct {
 	// The channel for card payments will always be \"link\"
-	Channel *string `json:"channel,omitempty"`
+	Channel string `json:"channel"`
 	// Customer card number.
-	CardNumber *string `json:"card_number,omitempty"`
+	CardNumber string `json:"card_number"`
 	// Customer name mentioned on the card.
 	CardHolderName *string `json:"card_holder_name,omitempty"`
 	// Card expiry month.
-	CardExpiryMm *string `json:"card_expiry_mm,omitempty"`
+	CardExpiryMm string `json:"card_expiry_mm"`
 	// Card expiry year.
-	CardExpiryYy *string `json:"card_expiry_yy,omitempty"`
+	CardExpiryYy string `json:"card_expiry_yy"`
 	// CVV mentioned on the card.
-	CardCvv *string `json:"card_cvv,omitempty"`
+	CardCvv string `json:"card_cvv"`
 	// Card alias as returned by Cashfree Vault API
 	CardAlias *string `json:"card_alias,omitempty"`
 	// Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\"hdfc, \"kotak\", \"icici\", \"rbl\", \"bob\", \"standard chartered\", \"axis\", \"au\", \"yes\", \"sbi\", \"fed\", \"hsbc\", \"citi\", \"amex\"]
-	CardBankName *string `json:"card_bank_name,omitempty"`
+	CardBankName string `json:"card_bank_name"`
 	// EMI tenure selected by the user
-	EmiTenure *int32 `json:"emi_tenure,omitempty"`
+	EmiTenure int32 `json:"emi_tenure"`
 }
 
 // NewCardEMI instantiates a new CardEMI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardEMI() *CardEMI {
+func NewCardEMI(channel string, cardNumber string, cardExpiryMm string, cardExpiryYy string, cardCvv string, cardBankName string, emiTenure int32) *CardEMI {
 	this := CardEMI{}
+	this.Channel = channel
+	this.CardNumber = cardNumber
+	this.CardExpiryMm = cardExpiryMm
+	this.CardExpiryYy = cardExpiryYy
+	this.CardCvv = cardCvv
+	this.CardBankName = cardBankName
+	this.EmiTenure = emiTenure
 	return &this
 }
 
@@ -57,68 +64,52 @@ func NewCardEMIWithDefaults() *CardEMI {
 	return &this
 }
 
-// GetChannel returns the Channel field value if set, zero value otherwise.
+// GetChannel returns the Channel field value
 func (o *CardEMI) GetChannel() string {
-	if o == nil || IsNil(o.Channel) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Channel
+
+	return o.Channel
 }
 
-// GetChannelOk returns a tuple with the Channel field value if set, nil otherwise
+// GetChannelOk returns a tuple with the Channel field value
 // and a boolean to check if the value has been set.
 func (o *CardEMI) GetChannelOk() (*string, bool) {
-	if o == nil || IsNil(o.Channel) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Channel, true
+	return &o.Channel, true
 }
 
-// HasChannel returns a boolean if a field has been set.
-func (o *CardEMI) HasChannel() bool {
-	if o != nil && !IsNil(o.Channel) {
-		return true
-	}
-
-	return false
-}
-
-// SetChannel gets a reference to the given string and assigns it to the Channel field.
+// SetChannel sets field value
 func (o *CardEMI) SetChannel(v string) {
-	o.Channel = &v
+	o.Channel = v
 }
 
-// GetCardNumber returns the CardNumber field value if set, zero value otherwise.
+// GetCardNumber returns the CardNumber field value
 func (o *CardEMI) GetCardNumber() string {
-	if o == nil || IsNil(o.CardNumber) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CardNumber
+
+	return o.CardNumber
 }
 
-// GetCardNumberOk returns a tuple with the CardNumber field value if set, nil otherwise
+// GetCardNumberOk returns a tuple with the CardNumber field value
 // and a boolean to check if the value has been set.
 func (o *CardEMI) GetCardNumberOk() (*string, bool) {
-	if o == nil || IsNil(o.CardNumber) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CardNumber, true
+	return &o.CardNumber, true
 }
 
-// HasCardNumber returns a boolean if a field has been set.
-func (o *CardEMI) HasCardNumber() bool {
-	if o != nil && !IsNil(o.CardNumber) {
-		return true
-	}
-
-	return false
-}
-
-// SetCardNumber gets a reference to the given string and assigns it to the CardNumber field.
+// SetCardNumber sets field value
 func (o *CardEMI) SetCardNumber(v string) {
-	o.CardNumber = &v
+	o.CardNumber = v
 }
 
 // GetCardHolderName returns the CardHolderName field value if set, zero value otherwise.
@@ -153,100 +144,76 @@ func (o *CardEMI) SetCardHolderName(v string) {
 	o.CardHolderName = &v
 }
 
-// GetCardExpiryMm returns the CardExpiryMm field value if set, zero value otherwise.
+// GetCardExpiryMm returns the CardExpiryMm field value
 func (o *CardEMI) GetCardExpiryMm() string {
-	if o == nil || IsNil(o.CardExpiryMm) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CardExpiryMm
+
+	return o.CardExpiryMm
 }
 
-// GetCardExpiryMmOk returns a tuple with the CardExpiryMm field value if set, nil otherwise
+// GetCardExpiryMmOk returns a tuple with the CardExpiryMm field value
 // and a boolean to check if the value has been set.
 func (o *CardEMI) GetCardExpiryMmOk() (*string, bool) {
-	if o == nil || IsNil(o.CardExpiryMm) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CardExpiryMm, true
+	return &o.CardExpiryMm, true
 }
 
-// HasCardExpiryMm returns a boolean if a field has been set.
-func (o *CardEMI) HasCardExpiryMm() bool {
-	if o != nil && !IsNil(o.CardExpiryMm) {
-		return true
-	}
-
-	return false
-}
-
-// SetCardExpiryMm gets a reference to the given string and assigns it to the CardExpiryMm field.
+// SetCardExpiryMm sets field value
 func (o *CardEMI) SetCardExpiryMm(v string) {
-	o.CardExpiryMm = &v
+	o.CardExpiryMm = v
 }
 
-// GetCardExpiryYy returns the CardExpiryYy field value if set, zero value otherwise.
+// GetCardExpiryYy returns the CardExpiryYy field value
 func (o *CardEMI) GetCardExpiryYy() string {
-	if o == nil || IsNil(o.CardExpiryYy) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CardExpiryYy
+
+	return o.CardExpiryYy
 }
 
-// GetCardExpiryYyOk returns a tuple with the CardExpiryYy field value if set, nil otherwise
+// GetCardExpiryYyOk returns a tuple with the CardExpiryYy field value
 // and a boolean to check if the value has been set.
 func (o *CardEMI) GetCardExpiryYyOk() (*string, bool) {
-	if o == nil || IsNil(o.CardExpiryYy) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CardExpiryYy, true
+	return &o.CardExpiryYy, true
 }
 
-// HasCardExpiryYy returns a boolean if a field has been set.
-func (o *CardEMI) HasCardExpiryYy() bool {
-	if o != nil && !IsNil(o.CardExpiryYy) {
-		return true
-	}
-
-	return false
-}
-
-// SetCardExpiryYy gets a reference to the given string and assigns it to the CardExpiryYy field.
+// SetCardExpiryYy sets field value
 func (o *CardEMI) SetCardExpiryYy(v string) {
-	o.CardExpiryYy = &v
+	o.CardExpiryYy = v
 }
 
-// GetCardCvv returns the CardCvv field value if set, zero value otherwise.
+// GetCardCvv returns the CardCvv field value
 func (o *CardEMI) GetCardCvv() string {
-	if o == nil || IsNil(o.CardCvv) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CardCvv
+
+	return o.CardCvv
 }
 
-// GetCardCvvOk returns a tuple with the CardCvv field value if set, nil otherwise
+// GetCardCvvOk returns a tuple with the CardCvv field value
 // and a boolean to check if the value has been set.
 func (o *CardEMI) GetCardCvvOk() (*string, bool) {
-	if o == nil || IsNil(o.CardCvv) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CardCvv, true
+	return &o.CardCvv, true
 }
 
-// HasCardCvv returns a boolean if a field has been set.
-func (o *CardEMI) HasCardCvv() bool {
-	if o != nil && !IsNil(o.CardCvv) {
-		return true
-	}
-
-	return false
-}
-
-// SetCardCvv gets a reference to the given string and assigns it to the CardCvv field.
+// SetCardCvv sets field value
 func (o *CardEMI) SetCardCvv(v string) {
-	o.CardCvv = &v
+	o.CardCvv = v
 }
 
 // GetCardAlias returns the CardAlias field value if set, zero value otherwise.
@@ -281,68 +248,52 @@ func (o *CardEMI) SetCardAlias(v string) {
 	o.CardAlias = &v
 }
 
-// GetCardBankName returns the CardBankName field value if set, zero value otherwise.
+// GetCardBankName returns the CardBankName field value
 func (o *CardEMI) GetCardBankName() string {
-	if o == nil || IsNil(o.CardBankName) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.CardBankName
+
+	return o.CardBankName
 }
 
-// GetCardBankNameOk returns a tuple with the CardBankName field value if set, nil otherwise
+// GetCardBankNameOk returns a tuple with the CardBankName field value
 // and a boolean to check if the value has been set.
 func (o *CardEMI) GetCardBankNameOk() (*string, bool) {
-	if o == nil || IsNil(o.CardBankName) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CardBankName, true
+	return &o.CardBankName, true
 }
 
-// HasCardBankName returns a boolean if a field has been set.
-func (o *CardEMI) HasCardBankName() bool {
-	if o != nil && !IsNil(o.CardBankName) {
-		return true
-	}
-
-	return false
-}
-
-// SetCardBankName gets a reference to the given string and assigns it to the CardBankName field.
+// SetCardBankName sets field value
 func (o *CardEMI) SetCardBankName(v string) {
-	o.CardBankName = &v
+	o.CardBankName = v
 }
 
-// GetEmiTenure returns the EmiTenure field value if set, zero value otherwise.
+// GetEmiTenure returns the EmiTenure field value
 func (o *CardEMI) GetEmiTenure() int32 {
-	if o == nil || IsNil(o.EmiTenure) {
+	if o == nil {
 		var ret int32
 		return ret
 	}
-	return *o.EmiTenure
+
+	return o.EmiTenure
 }
 
-// GetEmiTenureOk returns a tuple with the EmiTenure field value if set, nil otherwise
+// GetEmiTenureOk returns a tuple with the EmiTenure field value
 // and a boolean to check if the value has been set.
 func (o *CardEMI) GetEmiTenureOk() (*int32, bool) {
-	if o == nil || IsNil(o.EmiTenure) {
+	if o == nil {
 		return nil, false
 	}
-	return o.EmiTenure, true
+	return &o.EmiTenure, true
 }
 
-// HasEmiTenure returns a boolean if a field has been set.
-func (o *CardEMI) HasEmiTenure() bool {
-	if o != nil && !IsNil(o.EmiTenure) {
-		return true
-	}
-
-	return false
-}
-
-// SetEmiTenure gets a reference to the given int32 and assigns it to the EmiTenure field.
+// SetEmiTenure sets field value
 func (o *CardEMI) SetEmiTenure(v int32) {
-	o.EmiTenure = &v
+	o.EmiTenure = v
 }
 
 func (o CardEMI) MarshalJSON() ([]byte, error) {
@@ -355,33 +306,19 @@ func (o CardEMI) MarshalJSON() ([]byte, error) {
 
 func (o CardEMI) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Channel) {
-		toSerialize["channel"] = o.Channel
-	}
-	if !IsNil(o.CardNumber) {
-		toSerialize["card_number"] = o.CardNumber
-	}
+	toSerialize["channel"] = o.Channel
+	toSerialize["card_number"] = o.CardNumber
 	if !IsNil(o.CardHolderName) {
 		toSerialize["card_holder_name"] = o.CardHolderName
 	}
-	if !IsNil(o.CardExpiryMm) {
-		toSerialize["card_expiry_mm"] = o.CardExpiryMm
-	}
-	if !IsNil(o.CardExpiryYy) {
-		toSerialize["card_expiry_yy"] = o.CardExpiryYy
-	}
-	if !IsNil(o.CardCvv) {
-		toSerialize["card_cvv"] = o.CardCvv
-	}
+	toSerialize["card_expiry_mm"] = o.CardExpiryMm
+	toSerialize["card_expiry_yy"] = o.CardExpiryYy
+	toSerialize["card_cvv"] = o.CardCvv
 	if !IsNil(o.CardAlias) {
 		toSerialize["card_alias"] = o.CardAlias
 	}
-	if !IsNil(o.CardBankName) {
-		toSerialize["card_bank_name"] = o.CardBankName
-	}
-	if !IsNil(o.EmiTenure) {
-		toSerialize["emi_tenure"] = o.EmiTenure
-	}
+	toSerialize["card_bank_name"] = o.CardBankName
+	toSerialize["emi_tenure"] = o.EmiTenure
 	return toSerialize, nil
 }
 

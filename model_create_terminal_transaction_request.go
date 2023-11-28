@@ -21,9 +21,9 @@ var _ MappedNullable = &CreateTerminalTransactionRequest{}
 // CreateTerminalTransactionRequest Request body to create a terminal transaction
 type CreateTerminalTransactionRequest struct {
 	// cashfree order ID that was returned while creating an order.
-	CfOrderId int64 `json:"cf_order_id"`
+	CfOrderId int32 `json:"cf_order_id"`
 	// cashfree terminal id. this is a required parameter when you do not provide the terminal phone number.
-	CfTerminalId *int64 `json:"cf_terminal_id,omitempty"`
+	CfTerminalId *int32 `json:"cf_terminal_id,omitempty"`
 	// mention the payment method used for the transaction. possible values - QR_CODE, LINK.
 	PaymentMethod string `json:"payment_method"`
 	// agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id.
@@ -34,7 +34,7 @@ type CreateTerminalTransactionRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateTerminalTransactionRequest(cfOrderId int64, paymentMethod string) *CreateTerminalTransactionRequest {
+func NewCreateTerminalTransactionRequest(cfOrderId int32, paymentMethod string) *CreateTerminalTransactionRequest {
 	this := CreateTerminalTransactionRequest{}
 	this.CfOrderId = cfOrderId
 	this.PaymentMethod = paymentMethod
@@ -50,9 +50,9 @@ func NewCreateTerminalTransactionRequestWithDefaults() *CreateTerminalTransactio
 }
 
 // GetCfOrderId returns the CfOrderId field value
-func (o *CreateTerminalTransactionRequest) GetCfOrderId() int64 {
+func (o *CreateTerminalTransactionRequest) GetCfOrderId() int32 {
 	if o == nil {
-		var ret int64
+		var ret int32
 		return ret
 	}
 
@@ -61,7 +61,7 @@ func (o *CreateTerminalTransactionRequest) GetCfOrderId() int64 {
 
 // GetCfOrderIdOk returns a tuple with the CfOrderId field value
 // and a boolean to check if the value has been set.
-func (o *CreateTerminalTransactionRequest) GetCfOrderIdOk() (*int64, bool) {
+func (o *CreateTerminalTransactionRequest) GetCfOrderIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -69,14 +69,14 @@ func (o *CreateTerminalTransactionRequest) GetCfOrderIdOk() (*int64, bool) {
 }
 
 // SetCfOrderId sets field value
-func (o *CreateTerminalTransactionRequest) SetCfOrderId(v int64) {
+func (o *CreateTerminalTransactionRequest) SetCfOrderId(v int32) {
 	o.CfOrderId = v
 }
 
 // GetCfTerminalId returns the CfTerminalId field value if set, zero value otherwise.
-func (o *CreateTerminalTransactionRequest) GetCfTerminalId() int64 {
+func (o *CreateTerminalTransactionRequest) GetCfTerminalId() int32 {
 	if o == nil || IsNil(o.CfTerminalId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfTerminalId
@@ -84,7 +84,7 @@ func (o *CreateTerminalTransactionRequest) GetCfTerminalId() int64 {
 
 // GetCfTerminalIdOk returns a tuple with the CfTerminalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateTerminalTransactionRequest) GetCfTerminalIdOk() (*int64, bool) {
+func (o *CreateTerminalTransactionRequest) GetCfTerminalIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfTerminalId) {
 		return nil, false
 	}
@@ -100,8 +100,8 @@ func (o *CreateTerminalTransactionRequest) HasCfTerminalId() bool {
 	return false
 }
 
-// SetCfTerminalId gets a reference to the given int64 and assigns it to the CfTerminalId field.
-func (o *CreateTerminalTransactionRequest) SetCfTerminalId(v int64) {
+// SetCfTerminalId gets a reference to the given int32 and assigns it to the CfTerminalId field.
+func (o *CreateTerminalTransactionRequest) SetCfTerminalId(v int32) {
 	o.CfTerminalId = &v
 }
 

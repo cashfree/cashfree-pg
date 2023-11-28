@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AddedOn** | Pointer to **string** |  | [optional] 
-**CfTerminalId** | Pointer to **int64** |  | [optional] 
+**CfTerminalId** | Pointer to **int32** |  | [optional] 
 **LastUpdatedOn** | Pointer to **string** |  | [optional] 
 **TerminalAddress** | Pointer to **string** |  | [optional] 
 **TerminalEmail** | Pointer to **string** |  | [optional] 
@@ -63,20 +63,20 @@ HasAddedOn returns a boolean if a field has been set.
 
 ### GetCfTerminalId
 
-`func (o *TerminalEntity) GetCfTerminalId() int64`
+`func (o *TerminalEntity) GetCfTerminalId() int32`
 
 GetCfTerminalId returns the CfTerminalId field if non-nil, zero value otherwise.
 
 ### GetCfTerminalIdOk
 
-`func (o *TerminalEntity) GetCfTerminalIdOk() (*int64, bool)`
+`func (o *TerminalEntity) GetCfTerminalIdOk() (*int32, bool)`
 
 GetCfTerminalIdOk returns a tuple with the CfTerminalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfTerminalId
 
-`func (o *TerminalEntity) SetCfTerminalId(v int64)`
+`func (o *TerminalEntity) SetCfTerminalId(v int32)`
 
 SetCfTerminalId sets CfTerminalId field to given value.
 

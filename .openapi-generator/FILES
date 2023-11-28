@@ -135,7 +135,6 @@ docs/RefundsAPI.md
 docs/SavedInstrumentMeta.md
 docs/SettlementEntity.md
 docs/SettlementFetchReconRequest.md
-docs/SettlementFetchReconRequestFilters.md
 docs/SettlementReconEntity.md
 docs/SettlementReconEntityDataInner.md
 docs/SettlementReconciliationAPI.md
@@ -269,7 +268,6 @@ model_refund_url_object.go
 model_saved_instrument_meta.go
 model_settlement_entity.go
 model_settlement_fetch_recon_request.go
-model_settlement_fetch_recon_request_filters.go
 model_settlement_recon_entity.go
 model_settlement_recon_entity_data_inner.go
 model_settlement_url_object.go

@@ -20,7 +20,7 @@ var _ MappedNullable = &LinkEntity{}
 
 // LinkEntity Payment link success creation response object
 type LinkEntity struct {
-	CfLinkId *int64 `json:"cf_link_id,omitempty"`
+	CfLinkId *int32 `json:"cf_link_id,omitempty"`
 	LinkId *string `json:"link_id,omitempty"`
 	LinkStatus *string `json:"link_status,omitempty"`
 	LinkCurrency *string `json:"link_currency,omitempty"`
@@ -58,9 +58,9 @@ func NewLinkEntityWithDefaults() *LinkEntity {
 }
 
 // GetCfLinkId returns the CfLinkId field value if set, zero value otherwise.
-func (o *LinkEntity) GetCfLinkId() int64 {
+func (o *LinkEntity) GetCfLinkId() int32 {
 	if o == nil || IsNil(o.CfLinkId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfLinkId
@@ -68,7 +68,7 @@ func (o *LinkEntity) GetCfLinkId() int64 {
 
 // GetCfLinkIdOk returns a tuple with the CfLinkId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LinkEntity) GetCfLinkIdOk() (*int64, bool) {
+func (o *LinkEntity) GetCfLinkIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfLinkId) {
 		return nil, false
 	}
@@ -84,8 +84,8 @@ func (o *LinkEntity) HasCfLinkId() bool {
 	return false
 }
 
-// SetCfLinkId gets a reference to the given int64 and assigns it to the CfLinkId field.
-func (o *LinkEntity) SetCfLinkId(v int64) {
+// SetCfLinkId gets a reference to the given int32 and assigns it to the CfLinkId field.
+func (o *LinkEntity) SetCfLinkId(v int32) {
 	o.CfLinkId = &v
 }
 
