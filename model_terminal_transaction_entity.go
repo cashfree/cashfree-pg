@@ -20,7 +20,7 @@ var _ MappedNullable = &TerminalTransactionEntity{}
 
 // TerminalTransactionEntity Create terminal response object
 type TerminalTransactionEntity struct {
-	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int32 `json:"cf_payment_id,omitempty"`
 	PaymentAmount *int32 `json:"payment_amount,omitempty"`
 	PaymentMethod *string `json:"payment_method,omitempty"`
 	PaymentUrl *string `json:"payment_url,omitempty"`
@@ -46,9 +46,9 @@ func NewTerminalTransactionEntityWithDefaults() *TerminalTransactionEntity {
 }
 
 // GetCfPaymentId returns the CfPaymentId field value if set, zero value otherwise.
-func (o *TerminalTransactionEntity) GetCfPaymentId() int64 {
+func (o *TerminalTransactionEntity) GetCfPaymentId() int32 {
 	if o == nil || IsNil(o.CfPaymentId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfPaymentId
@@ -56,7 +56,7 @@ func (o *TerminalTransactionEntity) GetCfPaymentId() int64 {
 
 // GetCfPaymentIdOk returns a tuple with the CfPaymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TerminalTransactionEntity) GetCfPaymentIdOk() (*int64, bool) {
+func (o *TerminalTransactionEntity) GetCfPaymentIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfPaymentId) {
 		return nil, false
 	}
@@ -72,8 +72,8 @@ func (o *TerminalTransactionEntity) HasCfPaymentId() bool {
 	return false
 }
 
-// SetCfPaymentId gets a reference to the given int64 and assigns it to the CfPaymentId field.
-func (o *TerminalTransactionEntity) SetCfPaymentId(v int64) {
+// SetCfPaymentId gets a reference to the given int32 and assigns it to the CfPaymentId field.
+func (o *TerminalTransactionEntity) SetCfPaymentId(v int32) {
 	o.CfPaymentId = &v
 }
 

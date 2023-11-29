@@ -20,15 +20,16 @@ var _ MappedNullable = &CardlessEMIPaymentMethod{}
 
 // CardlessEMIPaymentMethod cardless EMI payment method object
 type CardlessEMIPaymentMethod struct {
-	CardlessEmi *CardlessEMI `json:"cardless_emi,omitempty"`
+	CardlessEmi CardlessEMI `json:"cardless_emi"`
 }
 
 // NewCardlessEMIPaymentMethod instantiates a new CardlessEMIPaymentMethod object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCardlessEMIPaymentMethod() *CardlessEMIPaymentMethod {
+func NewCardlessEMIPaymentMethod(cardlessEmi CardlessEMI) *CardlessEMIPaymentMethod {
 	this := CardlessEMIPaymentMethod{}
+	this.CardlessEmi = cardlessEmi
 	return &this
 }
 
@@ -40,36 +41,28 @@ func NewCardlessEMIPaymentMethodWithDefaults() *CardlessEMIPaymentMethod {
 	return &this
 }
 
-// GetCardlessEmi returns the CardlessEmi field value if set, zero value otherwise.
+// GetCardlessEmi returns the CardlessEmi field value
 func (o *CardlessEMIPaymentMethod) GetCardlessEmi() CardlessEMI {
-	if o == nil || IsNil(o.CardlessEmi) {
+	if o == nil {
 		var ret CardlessEMI
 		return ret
 	}
-	return *o.CardlessEmi
+
+	return o.CardlessEmi
 }
 
-// GetCardlessEmiOk returns a tuple with the CardlessEmi field value if set, nil otherwise
+// GetCardlessEmiOk returns a tuple with the CardlessEmi field value
 // and a boolean to check if the value has been set.
 func (o *CardlessEMIPaymentMethod) GetCardlessEmiOk() (*CardlessEMI, bool) {
-	if o == nil || IsNil(o.CardlessEmi) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CardlessEmi, true
+	return &o.CardlessEmi, true
 }
 
-// HasCardlessEmi returns a boolean if a field has been set.
-func (o *CardlessEMIPaymentMethod) HasCardlessEmi() bool {
-	if o != nil && !IsNil(o.CardlessEmi) {
-		return true
-	}
-
-	return false
-}
-
-// SetCardlessEmi gets a reference to the given CardlessEMI and assigns it to the CardlessEmi field.
+// SetCardlessEmi sets field value
 func (o *CardlessEMIPaymentMethod) SetCardlessEmi(v CardlessEMI) {
-	o.CardlessEmi = &v
+	o.CardlessEmi = v
 }
 
 func (o CardlessEMIPaymentMethod) MarshalJSON() ([]byte, error) {
@@ -82,9 +75,7 @@ func (o CardlessEMIPaymentMethod) MarshalJSON() ([]byte, error) {
 
 func (o CardlessEMIPaymentMethod) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CardlessEmi) {
-		toSerialize["cardless_emi"] = o.CardlessEmi
-	}
+	toSerialize["cardless_emi"] = o.CardlessEmi
 	return toSerialize, nil
 }
 

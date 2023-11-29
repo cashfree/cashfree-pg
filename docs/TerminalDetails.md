@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AddedOn** | Pointer to **string** | date time at which terminal is added | [optional] 
-**CfTerminalId** | Pointer to **int64** | cashfree terminal id | [optional] 
+**CfTerminalId** | Pointer to **int32** | cashfree terminal id | [optional] 
 **LastUpdatedOn** | Pointer to **string** | last instant when this terminal was updated | [optional] 
 **TerminalAddress** | Pointer to **string** | location of terminal | [optional] 
 **TerminalId** | **string** | terminal id for merchant reference | 
@@ -61,20 +61,20 @@ HasAddedOn returns a boolean if a field has been set.
 
 ### GetCfTerminalId
 
-`func (o *TerminalDetails) GetCfTerminalId() int64`
+`func (o *TerminalDetails) GetCfTerminalId() int32`
 
 GetCfTerminalId returns the CfTerminalId field if non-nil, zero value otherwise.
 
 ### GetCfTerminalIdOk
 
-`func (o *TerminalDetails) GetCfTerminalIdOk() (*int64, bool)`
+`func (o *TerminalDetails) GetCfTerminalIdOk() (*int32, bool)`
 
 GetCfTerminalIdOk returns a tuple with the CfTerminalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfTerminalId
 
-`func (o *TerminalDetails) SetCfTerminalId(v int64)`
+`func (o *TerminalDetails) SetCfTerminalId(v int32)`
 
 SetCfTerminalId sets CfTerminalId field to given value.
 

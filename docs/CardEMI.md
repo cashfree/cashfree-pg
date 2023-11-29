@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | Pointer to **string** | The channel for card payments will always be \&quot;link\&quot; | [optional] 
-**CardNumber** | Pointer to **string** | Customer card number. | [optional] 
+**Channel** | **string** | The channel for card payments will always be \&quot;link\&quot; | 
+**CardNumber** | **string** | Customer card number. | 
 **CardHolderName** | Pointer to **string** | Customer name mentioned on the card. | [optional] 
-**CardExpiryMm** | Pointer to **string** | Card expiry month. | [optional] 
-**CardExpiryYy** | Pointer to **string** | Card expiry year. | [optional] 
-**CardCvv** | Pointer to **string** | CVV mentioned on the card. | [optional] 
+**CardExpiryMm** | **string** | Card expiry month. | 
+**CardExpiryYy** | **string** | Card expiry year. | 
+**CardCvv** | **string** | CVV mentioned on the card. | 
 **CardAlias** | Pointer to **string** | Card alias as returned by Cashfree Vault API | [optional] 
-**CardBankName** | Pointer to **string** | Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\&quot;hdfc, \&quot;kotak\&quot;, \&quot;icici\&quot;, \&quot;rbl\&quot;, \&quot;bob\&quot;, \&quot;standard chartered\&quot;, \&quot;axis\&quot;, \&quot;au\&quot;, \&quot;yes\&quot;, \&quot;sbi\&quot;, \&quot;fed\&quot;, \&quot;hsbc\&quot;, \&quot;citi\&quot;, \&quot;amex\&quot;] | [optional] 
-**EmiTenure** | Pointer to **int32** | EMI tenure selected by the user | [optional] 
+**CardBankName** | **string** | Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\&quot;hdfc, \&quot;kotak\&quot;, \&quot;icici\&quot;, \&quot;rbl\&quot;, \&quot;bob\&quot;, \&quot;standard chartered\&quot;, \&quot;axis\&quot;, \&quot;au\&quot;, \&quot;yes\&quot;, \&quot;sbi\&quot;, \&quot;fed\&quot;, \&quot;hsbc\&quot;, \&quot;citi\&quot;, \&quot;amex\&quot;] | 
+**EmiTenure** | **int32** | EMI tenure selected by the user | 
 
 ## Methods
 
 ### NewCardEMI
 
-`func NewCardEMI() *CardEMI`
+`func NewCardEMI(channel string, cardNumber string, cardExpiryMm string, cardExpiryYy string, cardCvv string, cardBankName string, emiTenure int32, ) *CardEMI`
 
 NewCardEMI instantiates a new CardEMI object
 This constructor will assign default values to properties that have it defined,
@@ -52,11 +52,6 @@ and a boolean to check if the value has been set.
 
 SetChannel sets Channel field to given value.
 
-### HasChannel
-
-`func (o *CardEMI) HasChannel() bool`
-
-HasChannel returns a boolean if a field has been set.
 
 ### GetCardNumber
 
@@ -77,11 +72,6 @@ and a boolean to check if the value has been set.
 
 SetCardNumber sets CardNumber field to given value.
 
-### HasCardNumber
-
-`func (o *CardEMI) HasCardNumber() bool`
-
-HasCardNumber returns a boolean if a field has been set.
 
 ### GetCardHolderName
 
@@ -127,11 +117,6 @@ and a boolean to check if the value has been set.
 
 SetCardExpiryMm sets CardExpiryMm field to given value.
 
-### HasCardExpiryMm
-
-`func (o *CardEMI) HasCardExpiryMm() bool`
-
-HasCardExpiryMm returns a boolean if a field has been set.
 
 ### GetCardExpiryYy
 
@@ -152,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetCardExpiryYy sets CardExpiryYy field to given value.
 
-### HasCardExpiryYy
-
-`func (o *CardEMI) HasCardExpiryYy() bool`
-
-HasCardExpiryYy returns a boolean if a field has been set.
 
 ### GetCardCvv
 
@@ -177,11 +157,6 @@ and a boolean to check if the value has been set.
 
 SetCardCvv sets CardCvv field to given value.
 
-### HasCardCvv
-
-`func (o *CardEMI) HasCardCvv() bool`
-
-HasCardCvv returns a boolean if a field has been set.
 
 ### GetCardAlias
 
@@ -227,11 +202,6 @@ and a boolean to check if the value has been set.
 
 SetCardBankName sets CardBankName field to given value.
 
-### HasCardBankName
-
-`func (o *CardEMI) HasCardBankName() bool`
-
-HasCardBankName returns a boolean if a field has been set.
 
 ### GetEmiTenure
 
@@ -252,11 +222,6 @@ and a boolean to check if the value has been set.
 
 SetEmiTenure sets EmiTenure field to given value.
 
-### HasEmiTenure
-
-`func (o *CardEMI) HasEmiTenure() bool`
-
-HasEmiTenure returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

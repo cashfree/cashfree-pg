@@ -23,7 +23,7 @@ type CreateOrderRequestTerminal struct {
 	// date time at which terminal is added
 	AddedOn *string `json:"added_on,omitempty"`
 	// cashfree terminal id
-	CfTerminalId *int64 `json:"cf_terminal_id,omitempty"`
+	CfTerminalId *int32 `json:"cf_terminal_id,omitempty"`
 	// last instant when this terminal was updated
 	LastUpdatedOn *string `json:"last_updated_on,omitempty"`
 	// location of terminal
@@ -95,9 +95,9 @@ func (o *CreateOrderRequestTerminal) SetAddedOn(v string) {
 }
 
 // GetCfTerminalId returns the CfTerminalId field value if set, zero value otherwise.
-func (o *CreateOrderRequestTerminal) GetCfTerminalId() int64 {
+func (o *CreateOrderRequestTerminal) GetCfTerminalId() int32 {
 	if o == nil || IsNil(o.CfTerminalId) {
-		var ret int64
+		var ret int32
 		return ret
 	}
 	return *o.CfTerminalId
@@ -105,7 +105,7 @@ func (o *CreateOrderRequestTerminal) GetCfTerminalId() int64 {
 
 // GetCfTerminalIdOk returns a tuple with the CfTerminalId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateOrderRequestTerminal) GetCfTerminalIdOk() (*int64, bool) {
+func (o *CreateOrderRequestTerminal) GetCfTerminalIdOk() (*int32, bool) {
 	if o == nil || IsNil(o.CfTerminalId) {
 		return nil, false
 	}
@@ -121,8 +121,8 @@ func (o *CreateOrderRequestTerminal) HasCfTerminalId() bool {
 	return false
 }
 
-// SetCfTerminalId gets a reference to the given int64 and assigns it to the CfTerminalId field.
-func (o *CreateOrderRequestTerminal) SetCfTerminalId(v int64) {
+// SetCfTerminalId gets a reference to the given int32 and assigns it to the CfTerminalId field.
+func (o *CreateOrderRequestTerminal) SetCfTerminalId(v int32) {
 	o.CfTerminalId = &v
 }
 

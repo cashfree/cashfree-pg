@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Card** | [**Card**](Card.md) |  | 
 **Upi** | [**Upi**](Upi.md) |  | 
-**Netbanking** | [**NullableNetbanking**](Netbanking.md) |  | 
+**Netbanking** | [**Netbanking**](Netbanking.md) |  | 
 **App** | [**App**](App.md) |  | 
 **Emi** | [**CardEMI**](CardEMI.md) |  | 
-**CardlessEmi** | Pointer to [**CardlessEMI**](CardlessEMI.md) |  | [optional] 
-**Paylater** | Pointer to [**Paylater**](Paylater.md) |  | [optional] 
+**CardlessEmi** | [**CardlessEMI**](CardlessEMI.md) |  | 
+**Paylater** | [**Paylater**](Paylater.md) |  | 
 
 ## Methods
 
 ### NewPayOrderRequestPaymentMethod
 
-`func NewPayOrderRequestPaymentMethod(card Card, upi Upi, netbanking NullableNetbanking, app App, emi CardEMI, ) *PayOrderRequestPaymentMethod`
+`func NewPayOrderRequestPaymentMethod(card Card, upi Upi, netbanking Netbanking, app App, emi CardEMI, cardlessEmi CardlessEMI, paylater Paylater, ) *PayOrderRequestPaymentMethod`
 
 NewPayOrderRequestPaymentMethod instantiates a new PayOrderRequestPaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -91,16 +91,6 @@ and a boolean to check if the value has been set.
 SetNetbanking sets Netbanking field to given value.
 
 
-### SetNetbankingNil
-
-`func (o *PayOrderRequestPaymentMethod) SetNetbankingNil(b bool)`
-
- SetNetbankingNil sets the value for Netbanking to be an explicit nil
-
-### UnsetNetbanking
-`func (o *PayOrderRequestPaymentMethod) UnsetNetbanking()`
-
-UnsetNetbanking ensures that no value is present for Netbanking, not even an explicit nil
 ### GetApp
 
 `func (o *PayOrderRequestPaymentMethod) GetApp() App`
@@ -160,11 +150,6 @@ and a boolean to check if the value has been set.
 
 SetCardlessEmi sets CardlessEmi field to given value.
 
-### HasCardlessEmi
-
-`func (o *PayOrderRequestPaymentMethod) HasCardlessEmi() bool`
-
-HasCardlessEmi returns a boolean if a field has been set.
 
 ### GetPaylater
 
@@ -185,11 +170,6 @@ and a boolean to check if the value has been set.
 
 SetPaylater sets Paylater field to given value.
 
-### HasPaylater
-
-`func (o *PayOrderRequestPaymentMethod) HasPaylater() bool`
-
-HasPaylater returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

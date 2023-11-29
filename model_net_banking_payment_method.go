@@ -20,14 +20,14 @@ var _ MappedNullable = &NetBankingPaymentMethod{}
 
 // NetBankingPaymentMethod Payment method for netbanking object
 type NetBankingPaymentMethod struct {
-	Netbanking NullableNetbanking `json:"netbanking"`
+	Netbanking Netbanking `json:"netbanking"`
 }
 
 // NewNetBankingPaymentMethod instantiates a new NetBankingPaymentMethod object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNetBankingPaymentMethod(netbanking NullableNetbanking) *NetBankingPaymentMethod {
+func NewNetBankingPaymentMethod(netbanking Netbanking) *NetBankingPaymentMethod {
 	this := NetBankingPaymentMethod{}
 	this.Netbanking = netbanking
 	return &this
@@ -42,29 +42,27 @@ func NewNetBankingPaymentMethodWithDefaults() *NetBankingPaymentMethod {
 }
 
 // GetNetbanking returns the Netbanking field value
-// If the value is explicit nil, the zero value for Netbanking will be returned
 func (o *NetBankingPaymentMethod) GetNetbanking() Netbanking {
-	if o == nil || o.Netbanking.Get() == nil {
+	if o == nil {
 		var ret Netbanking
 		return ret
 	}
 
-	return *o.Netbanking.Get()
+	return o.Netbanking
 }
 
 // GetNetbankingOk returns a tuple with the Netbanking field value
 // and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *NetBankingPaymentMethod) GetNetbankingOk() (*Netbanking, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Netbanking.Get(), o.Netbanking.IsSet()
+	return &o.Netbanking, true
 }
 
 // SetNetbanking sets field value
 func (o *NetBankingPaymentMethod) SetNetbanking(v Netbanking) {
-	o.Netbanking.Set(&v)
+	o.Netbanking = v
 }
 
 func (o NetBankingPaymentMethod) MarshalJSON() ([]byte, error) {
@@ -77,7 +75,7 @@ func (o NetBankingPaymentMethod) MarshalJSON() ([]byte, error) {
 
 func (o NetBankingPaymentMethod) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["netbanking"] = o.Netbanking.Get()
+	toSerialize["netbanking"] = o.Netbanking
 	return toSerialize, nil
 }
 

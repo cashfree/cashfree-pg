@@ -20,15 +20,16 @@ var _ MappedNullable = &PaylaterPaymentMethod{}
 
 // PaylaterPaymentMethod paylater payment method
 type PaylaterPaymentMethod struct {
-	Paylater *Paylater `json:"paylater,omitempty"`
+	Paylater Paylater `json:"paylater"`
 }
 
 // NewPaylaterPaymentMethod instantiates a new PaylaterPaymentMethod object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPaylaterPaymentMethod() *PaylaterPaymentMethod {
+func NewPaylaterPaymentMethod(paylater Paylater) *PaylaterPaymentMethod {
 	this := PaylaterPaymentMethod{}
+	this.Paylater = paylater
 	return &this
 }
 
@@ -40,36 +41,28 @@ func NewPaylaterPaymentMethodWithDefaults() *PaylaterPaymentMethod {
 	return &this
 }
 
-// GetPaylater returns the Paylater field value if set, zero value otherwise.
+// GetPaylater returns the Paylater field value
 func (o *PaylaterPaymentMethod) GetPaylater() Paylater {
-	if o == nil || IsNil(o.Paylater) {
+	if o == nil {
 		var ret Paylater
 		return ret
 	}
-	return *o.Paylater
+
+	return o.Paylater
 }
 
-// GetPaylaterOk returns a tuple with the Paylater field value if set, nil otherwise
+// GetPaylaterOk returns a tuple with the Paylater field value
 // and a boolean to check if the value has been set.
 func (o *PaylaterPaymentMethod) GetPaylaterOk() (*Paylater, bool) {
-	if o == nil || IsNil(o.Paylater) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Paylater, true
+	return &o.Paylater, true
 }
 
-// HasPaylater returns a boolean if a field has been set.
-func (o *PaylaterPaymentMethod) HasPaylater() bool {
-	if o != nil && !IsNil(o.Paylater) {
-		return true
-	}
-
-	return false
-}
-
-// SetPaylater gets a reference to the given Paylater and assigns it to the Paylater field.
+// SetPaylater sets field value
 func (o *PaylaterPaymentMethod) SetPaylater(v Paylater) {
-	o.Paylater = &v
+	o.Paylater = v
 }
 
 func (o PaylaterPaymentMethod) MarshalJSON() ([]byte, error) {
@@ -82,9 +75,7 @@ func (o PaylaterPaymentMethod) MarshalJSON() ([]byte, error) {
 
 func (o PaylaterPaymentMethod) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Paylater) {
-		toSerialize["paylater"] = o.Paylater
-	}
+	toSerialize["paylater"] = o.Paylater
 	return toSerialize, nil
 }
 

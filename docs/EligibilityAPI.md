@@ -4,10 +4,10 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**PGEligibilityFetchCardlessEMI**](EligibilityAPI.md#PGEligibilityFetchCardlessEMI) | **Post** /eligibility/cardlessemi | Get Eligible Cardless EMI Payment Methods for a customer on an order
-[**PGEligibilityFetchOffers**](EligibilityAPI.md#PGEligibilityFetchOffers) | **Post** /eligibility/offers | Get Eligible Offers for an Order
-[**PGEligibilityFetchPaylater**](EligibilityAPI.md#PGEligibilityFetchPaylater) | **Post** /eligibility/paylater | Get Eligible Paylater for a customer on an order
-[**PGEligibilityFetchPaymentMethods**](EligibilityAPI.md#PGEligibilityFetchPaymentMethods) | **Post** /eligibility/payment_methods | Get eligible Payment Methods
+[**PGEligibilityFetchCardlessEMI**](EligibilityAPI.md#PGEligibilityFetchCardlessEMI) | **Post** /eligibility/cardlessemi | Get Eligible Cardless EMI
+[**PGEligibilityFetchOffers**](EligibilityAPI.md#PGEligibilityFetchOffers) | **Post** /eligibility/offers | Get Eligible Offers
+[**PGEligibilityFetchPaylater**](EligibilityAPI.md#PGEligibilityFetchPaylater) | **Post** /eligibility/paylater | Get Eligible Paylater
+[**PGEligibilityFetchPaymentMethods**](EligibilityAPI.md#PGEligibilityFetchPaymentMethods) | **Post** /eligibility/payment_methods | Get Eligible Payment Methods
 
 
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 > []EligibilityCardlessEMIEntity PGEligibilityFetchCardlessEMI(ctx).XApiVersion(xApiVersion).EligibilityFetchCardlessEMIRequest(eligibilityFetchCardlessEMIRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Get Eligible Cardless EMI Payment Methods for a customer on an order
+Get Eligible Cardless EMI
 
 
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 > []EligibilityOfferEntity PGEligibilityFetchOffers(ctx).XApiVersion(xApiVersion).EligibilityFetchOffersRequest(eligibilityFetchOffersRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Get Eligible Offers for an Order
+Get Eligible Offers
 
 
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 > []EligibilityPaylaterEntity PGEligibilityFetchPaylater(ctx).XApiVersion(xApiVersion).EligibilityFetchPaylaterRequest(eligibilityFetchPaylaterRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Get Eligible Paylater for a customer on an order
+Get Eligible Paylater
 
 
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 > []EligibilityPaymentMethodsEntity PGEligibilityFetchPaymentMethods(ctx).XApiVersion(xApiVersion).EligibilityFetchPaymentMethodsRequest(eligibilityFetchPaymentMethodsRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Get eligible Payment Methods
+Get Eligible Payment Methods
 
 
 
