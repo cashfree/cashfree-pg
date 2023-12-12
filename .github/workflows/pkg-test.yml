@@ -21,7 +21,13 @@ jobs:
         run: go build -v ./...
 
       - name: Test
-        run: clientid=$PG_CLIENT_ID clientsecret=$PG_CLIENT_SECRET go test -v ./... && cd coverage && ls && cd .. && cat coverage/lcov.info | npx coveralls
+        run: clientid=$PG_CLIENT_ID clientsecret=$PG_CLIENT_SECRET go test -race -covermode atomic -coverprofile=covprofile ./...
         env:
           PG_CLIENT_ID: ${{ secrets.CLIENTID }}
           PG_CLIENT_SECRET: ${{ secrets.CLIENTSECRET }}
+      - name: Install goveralls
+        run: go install github.com/mattn/goveralls@latest
+      - name: Send coverage
+        env:
+          COVERALLS_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: goveralls -coverprofile=covprofile -service=github
