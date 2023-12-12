@@ -1,0 +1,33 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.18'
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: clientid=$PG_CLIENT_ID clientsecret=$PG_CLIENT_SECRET go test -race -covermode atomic -coverprofile=covprofile ./...
+        env:
+          PG_CLIENT_ID: ${{ secrets.CLIENTID }}
+          PG_CLIENT_SECRET: ${{ secrets.CLIENTSECRET }}
+      - name: Install goveralls
+        run: go install github.com/mattn/goveralls@latest
+      - name: Send coverage
+        env:
+          COVERALLS_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: goveralls -coverprofile=covprofile

@@ -21,7 +21,7 @@ var _ MappedNullable = &RefundEntity{}
 // RefundEntity The refund entity
 type RefundEntity struct {
 	// Cashfree Payments ID of the payment for which refund is initiated
-	CfPaymentId *int32 `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
 	// Cashfree Payments ID for a refund
 	CfRefundId *string `json:"cf_refund_id,omitempty"`
 	// Merchant’s order Id of the order for which refund is initiated
@@ -76,9 +76,9 @@ func NewRefundEntityWithDefaults() *RefundEntity {
 }
 
 // GetCfPaymentId returns the CfPaymentId field value if set, zero value otherwise.
-func (o *RefundEntity) GetCfPaymentId() int32 {
+func (o *RefundEntity) GetCfPaymentId() int64 {
 	if o == nil || IsNil(o.CfPaymentId) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CfPaymentId
@@ -86,7 +86,7 @@ func (o *RefundEntity) GetCfPaymentId() int32 {
 
 // GetCfPaymentIdOk returns a tuple with the CfPaymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *RefundEntity) GetCfPaymentIdOk() (*int32, bool) {
+func (o *RefundEntity) GetCfPaymentIdOk() (*int64, bool) {
 	if o == nil || IsNil(o.CfPaymentId) {
 		return nil, false
 	}
@@ -103,7 +103,7 @@ func (o *RefundEntity) HasCfPaymentId() bool {
 }
 
 // SetCfPaymentId gets a reference to the given int32 and assigns it to the CfPaymentId field.
-func (o *RefundEntity) SetCfPaymentId(v int32) {
+func (o *RefundEntity) SetCfPaymentId(v int64) {
 	o.CfPaymentId = &v
 }
 
