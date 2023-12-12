@@ -21,4 +21,7 @@ jobs:
         run: go build -v ./...
 
       - name: Test
-        run: go test -v ./...
+        run: clientid=$PG_CLIENT_ID clientsecret=$PG_CLIENT_SECRET go test -v ./... && cd coverage && ls && cd .. && cat coverage/lcov.info | npx coveralls
+        env:
+          PG_CLIENT_ID: ${{ secrets.CLIENTID }}
+          PG_CLIENT_SECRET: ${{ secrets.CLIENTSECRET }}
