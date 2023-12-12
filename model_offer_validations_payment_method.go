@@ -13,7 +13,6 @@ package cashfree_pg
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // OfferValidationsPaymentMethod - struct for OfferValidationsPaymentMethod
@@ -79,115 +78,7 @@ func OfferWalletAsOfferValidationsPaymentMethod(v *OfferWallet) OfferValidations
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *OfferValidationsPaymentMethod) UnmarshalJSON(data []byte) error {
-	var err error
-	match := 0
-	// try to unmarshal data into OfferAll
-	err = json.Unmarshal(data, &dst.OfferAll)
-	if err == nil {
-		jsonOfferAll, _ := json.Marshal(dst.OfferAll)
-		if string(jsonOfferAll) == "{}" { // empty struct
-			dst.OfferAll = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.OfferAll = nil
-	}
-
-	// try to unmarshal data into OfferCard
-	err = json.Unmarshal(data, &dst.OfferCard)
-	if err == nil {
-		jsonOfferCard, _ := json.Marshal(dst.OfferCard)
-		if string(jsonOfferCard) == "{}" { // empty struct
-			dst.OfferCard = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.OfferCard = nil
-	}
-
-	// try to unmarshal data into OfferEMI
-	err = json.Unmarshal(data, &dst.OfferEMI)
-	if err == nil {
-		jsonOfferEMI, _ := json.Marshal(dst.OfferEMI)
-		if string(jsonOfferEMI) == "{}" { // empty struct
-			dst.OfferEMI = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.OfferEMI = nil
-	}
-
-	// try to unmarshal data into OfferNB
-	err = json.Unmarshal(data, &dst.OfferNB)
-	if err == nil {
-		jsonOfferNB, _ := json.Marshal(dst.OfferNB)
-		if string(jsonOfferNB) == "{}" { // empty struct
-			dst.OfferNB = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.OfferNB = nil
-	}
-
-	// try to unmarshal data into OfferPaylater
-	err = json.Unmarshal(data, &dst.OfferPaylater)
-	if err == nil {
-		jsonOfferPaylater, _ := json.Marshal(dst.OfferPaylater)
-		if string(jsonOfferPaylater) == "{}" { // empty struct
-			dst.OfferPaylater = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.OfferPaylater = nil
-	}
-
-	// try to unmarshal data into OfferUPI
-	err = json.Unmarshal(data, &dst.OfferUPI)
-	if err == nil {
-		jsonOfferUPI, _ := json.Marshal(dst.OfferUPI)
-		if string(jsonOfferUPI) == "{}" { // empty struct
-			dst.OfferUPI = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.OfferUPI = nil
-	}
-
-	// try to unmarshal data into OfferWallet
-	err = json.Unmarshal(data, &dst.OfferWallet)
-	if err == nil {
-		jsonOfferWallet, _ := json.Marshal(dst.OfferWallet)
-		if string(jsonOfferWallet) == "{}" { // empty struct
-			dst.OfferWallet = nil
-		} else {
-			match++
-		}
-	} else {
-		dst.OfferWallet = nil
-	}
-
-	if match > 1 { // more than 1 match
-		// reset to nil
-		dst.OfferAll = nil
-		dst.OfferCard = nil
-		dst.OfferEMI = nil
-		dst.OfferNB = nil
-		dst.OfferPaylater = nil
-		dst.OfferUPI = nil
-		dst.OfferWallet = nil
-
-		return fmt.Errorf("data matches more than one schema in oneOf(OfferValidationsPaymentMethod)")
-	} else if match == 1 {
-		return nil // exactly one match
-	} else { // no match
-		return fmt.Errorf("data failed to match schemas in oneOf(OfferValidationsPaymentMethod)")
-	}
+	return nil
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
