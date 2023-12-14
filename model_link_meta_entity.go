@@ -23,7 +23,7 @@ type LinkMetaEntity struct {
 	// Notification URL for server-server communication. It should be an https URL.
 	NotifyUrl *string `json:"notify_url,omitempty"`
 	// If \"true\", link will directly open UPI Intent flow on mobile, and normal link flow elsewhere
-	UpiIntent *string `json:"upi_intent,omitempty"`
+	UpiIntent *bool `json:"upi_intent,omitempty"`
 	// The URL to which user will be redirected to after the payment is done on the link. Maximum length: 250.
 	ReturnUrl *string `json:"return_url,omitempty"`
 	// Allowed payment modes for this link. Pass comma-separated values among following options - \"cc\", \"dc\", \"ccc\", \"ppc\", \"nb\", \"upi\", \"paypal\", \"app\". Leave it blank to show all available payment methods
@@ -80,9 +80,9 @@ func (o *LinkMetaEntity) SetNotifyUrl(v string) {
 }
 
 // GetUpiIntent returns the UpiIntent field value if set, zero value otherwise.
-func (o *LinkMetaEntity) GetUpiIntent() string {
+func (o *LinkMetaEntity) GetUpiIntent() bool {
 	if o == nil || IsNil(o.UpiIntent) {
-		var ret string
+		var ret bool
 		return ret
 	}
 	return *o.UpiIntent
@@ -90,7 +90,7 @@ func (o *LinkMetaEntity) GetUpiIntent() string {
 
 // GetUpiIntentOk returns a tuple with the UpiIntent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LinkMetaEntity) GetUpiIntentOk() (*string, bool) {
+func (o *LinkMetaEntity) GetUpiIntentOk() (*bool, bool) {
 	if o == nil || IsNil(o.UpiIntent) {
 		return nil, false
 	}
@@ -107,7 +107,7 @@ func (o *LinkMetaEntity) HasUpiIntent() bool {
 }
 
 // SetUpiIntent gets a reference to the given bool and assigns it to the UpiIntent field.
-func (o *LinkMetaEntity) SetUpiIntent(v string) {
+func (o *LinkMetaEntity) SetUpiIntent(v bool) {
 	o.UpiIntent = &v
 }
 

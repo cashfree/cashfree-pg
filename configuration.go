@@ -53,11 +53,19 @@ func SetupSentry(environment CFEnvironment) {
 		AttachStacktrace: true,
 		EnableTracing:    true,
 		Environment:      env,
-		Release:          "3.0.5",
+		Release:          "3.0.6",
 		BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
 			delete(event.Contexts, "device")
 			delete(event.Contexts, "os")
-			return event
+			if len(event.Exception) > 0 && event.Exception[0].Stacktrace != nil {
+				frames := event.Exception[0].Stacktrace.Frames
+				for _, v := range frames {
+					if strings.Contains(v.Filename, "cashfree-pg") {
+						return event
+					}
+				}
+			}
+			return nil
 		},
 	})
 	if err != nil {
@@ -145,7 +153,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/3.0.5/go",
+		UserAgent:        "OpenAPI-Generator/3.0.6/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{

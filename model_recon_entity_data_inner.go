@@ -59,7 +59,7 @@ type ReconEntityDataInner struct {
 	// Service tax applicable on the payment.
 	PaymentServiceTax NullableFloat32 `json:"payment_service_tax,omitempty"`
 	// Cashfree Payments unique ID to identify a payment.
-	CfPaymentId NullableInt32 `json:"cf_payment_id,omitempty"`
+	CfPaymentId NullableInt64 `json:"cf_payment_id,omitempty"`
 	// Unique ID to identify the settlement.
 	CfSettlementId NullableInt32 `json:"cf_settlement_id,omitempty"`
 	// Date and time when the settlement was processed.
@@ -872,9 +872,9 @@ func (o *ReconEntityDataInner) UnsetPaymentServiceTax() {
 }
 
 // GetCfPaymentId returns the CfPaymentId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ReconEntityDataInner) GetCfPaymentId() int32 {
+func (o *ReconEntityDataInner) GetCfPaymentId() int64 {
 	if o == nil || IsNil(o.CfPaymentId.Get()) {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.CfPaymentId.Get()
@@ -883,7 +883,7 @@ func (o *ReconEntityDataInner) GetCfPaymentId() int32 {
 // GetCfPaymentIdOk returns a tuple with the CfPaymentId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ReconEntityDataInner) GetCfPaymentIdOk() (*int32, bool) {
+func (o *ReconEntityDataInner) GetCfPaymentIdOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -899,8 +899,8 @@ func (o *ReconEntityDataInner) HasCfPaymentId() bool {
 	return false
 }
 
-// SetCfPaymentId gets a reference to the given NullableInt32 and assigns it to the CfPaymentId field.
-func (o *ReconEntityDataInner) SetCfPaymentId(v int32) {
+// SetCfPaymentId gets a reference to the given NullableInt64 and assigns it to the CfPaymentId field.
+func (o *ReconEntityDataInner) SetCfPaymentId(v int64) {
 	o.CfPaymentId.Set(&v)
 }
 // SetCfPaymentIdNil sets the value for CfPaymentId to be an explicit nil
