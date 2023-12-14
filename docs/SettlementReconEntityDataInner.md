@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **PaymentTime** | Pointer to **string** | Date and time when the payment was initiated. | [optional] 
 **PaymentServiceCharge** | Pointer to **float32** | Service charge applicable for the payment. | [optional] 
 **PaymentServiceTax** | Pointer to **float32** | Service tax applicable on the payment. | [optional] 
-**CfPaymentId** | Pointer to **int32** | Cashfree Payments unique ID to identify a payment. | [optional] 
+**CfPaymentId** | Pointer to **int64** | Cashfree Payments unique ID to identify a payment. | [optional] 
 **CfSettlementId** | Pointer to **int32** | Unique ID to identify the settlement. | [optional] 
 **SettlementDate** | Pointer to **string** | Date and time when the settlement was processed. | [optional] 
 **SettlementUtr** | Pointer to **string** | Unique transaction reference number of the settlement. | [optional] 
@@ -536,20 +536,20 @@ HasPaymentServiceTax returns a boolean if a field has been set.
 
 ### GetCfPaymentId
 
-`func (o *SettlementReconEntityDataInner) GetCfPaymentId() int32`
+`func (o *SettlementReconEntityDataInner) GetCfPaymentId() int64`
 
 GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
 
 ### GetCfPaymentIdOk
 
-`func (o *SettlementReconEntityDataInner) GetCfPaymentIdOk() (*int32, bool)`
+`func (o *SettlementReconEntityDataInner) GetCfPaymentIdOk() (*int64, bool)`
 
 GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfPaymentId
 
-`func (o *SettlementReconEntityDataInner) SetCfPaymentId(v int32)`
+`func (o *SettlementReconEntityDataInner) SetCfPaymentId(v int64)`
 
 SetCfPaymentId sets CfPaymentId field to given value.
 
