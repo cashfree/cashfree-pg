@@ -102,7 +102,7 @@ func (o *RefundEntity) HasCfPaymentId() bool {
 	return false
 }
 
-// SetCfPaymentId gets a reference to the given int32 and assigns it to the CfPaymentId field.
+// SetCfPaymentId gets a reference to the given int64 and assigns it to the CfPaymentId field.
 func (o *RefundEntity) SetCfPaymentId(v int64) {
 	o.CfPaymentId = &v
 }

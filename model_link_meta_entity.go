@@ -106,7 +106,7 @@ func (o *LinkMetaEntity) HasUpiIntent() bool {
 	return false
 }
 
-// SetUpiIntent gets a reference to the given bool and assigns it to the UpiIntent field.
+// SetUpiIntent gets a reference to the given string and assigns it to the UpiIntent field.
 func (o *LinkMetaEntity) SetUpiIntent(v string) {
 	o.UpiIntent = &v
 }

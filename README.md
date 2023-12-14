@@ -11,6 +11,8 @@ Cashfree's PG API Documentation - https://docs.cashfree.com/reference/pg-new-api
 
 Learn and understand payment gateway workflows at Cashfree Payments [here](https://docs.cashfree.com/docs/payment-gateway)
 
+Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com/devstudio) !
+
 ## Getting Started
 
 ### Installation
@@ -36,7 +38,26 @@ Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant D
 ### Basic Usage
 Create Order
 ```go
+notifyUrlString := "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
+notifyUrl := cashfree.NewNullableString(&notifyUrlString)
+orderMetaRequest := cashfree.CreateOrderRequestOrderMeta{
+	NotifyUrl: *notifyUrl,
+}
+
+data := cashfree.NewNullableCreateOrderRequestOrderMeta(&orderMetaRequest)
+
+request := cashfree.CreateOrderRequest{
+	OrderAmount:   1.0,
+	OrderCurrency: "INR",
+	CustomerDetails: cashfree.CustomerDetails{
+		CustomerId:    "walterwNrcMi",
+		CustomerPhone: "9999999999",
+	},
+	OrderMeta: *data,
+}
+
 version := "2022-09-01"
+
 response, httpResponse, err := cashfree.PGCreateOrder(&version, &request, nil, nil, nil)
 if err != nil {
 	fmt.Println(err.Error())
