@@ -17,9 +17,6 @@ jobs:
         with:
           go-version: '1.18'
 
-      - name: Build
-        run: go build -v ./...
-
       - name: Test
         run: clientid=$PG_CLIENT_ID clientsecret=$PG_CLIENT_SECRET go test -race -covermode atomic -coverprofile=covprofile ./...
         env:
