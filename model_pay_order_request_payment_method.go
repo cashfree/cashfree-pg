@@ -13,6 +13,7 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // PayOrderRequestPaymentMethod - struct for PayOrderRequestPaymentMethod
@@ -78,6 +79,7 @@ func UPIPaymentMethodAsPayOrderRequestPaymentMethod(v *UPIPaymentMethod) PayOrde
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
+	fmt.Println("data")
 	return nil
 }
 
