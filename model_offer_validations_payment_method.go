@@ -13,6 +13,7 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // OfferValidationsPaymentMethod - struct for OfferValidationsPaymentMethod
@@ -78,6 +79,7 @@ func OfferWalletAsOfferValidationsPaymentMethod(v *OfferWallet) OfferValidations
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *OfferValidationsPaymentMethod) UnmarshalJSON(data []byte) error {
+	fmt.Println("data")
 	return nil
 }
 
