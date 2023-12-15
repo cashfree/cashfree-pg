@@ -13,7 +13,6 @@ package cashfree_pg
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 // PayOrderRequestPaymentMethod - struct for PayOrderRequestPaymentMethod
