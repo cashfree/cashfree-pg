@@ -38,10 +38,10 @@ Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant D
 ### Basic Usage
 Create Order
 ```go
-notifyUrlString := "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
-notifyUrl := cashfree.NewNullableString(&notifyUrlString)
+returnUrlString := "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
+returnUrl := cashfree.NewNullableString(&returnUrlString)
 orderMetaRequest := cashfree.CreateOrderRequestOrderMeta{
-	NotifyUrl: *notifyUrl,
+	ReturnUrl: *returnUrl,
 }
 
 data := cashfree.NewNullableCreateOrderRequestOrderMeta(&orderMetaRequest)

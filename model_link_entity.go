@@ -31,7 +31,8 @@ type LinkEntity struct {
 	LinkPurpose *string `json:"link_purpose,omitempty"`
 	LinkCreatedAt *string `json:"link_created_at,omitempty"`
 	CustomerDetails *LinkCustomerDetailsEntity `json:"customer_details,omitempty"`
-	LinkMeta *LinkMetaEntity `json:"link_meta,omitempty"`
+	// Payment link meta information object.
+	LinkMeta *map[string]string `json:"link_meta,omitempty"`
 	LinkUrl *string `json:"link_url,omitempty"`
 	LinkExpiryTime *string `json:"link_expiry_time,omitempty"`
 	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
@@ -410,9 +411,9 @@ func (o *LinkEntity) SetCustomerDetails(v LinkCustomerDetailsEntity) {
 }
 
 // GetLinkMeta returns the LinkMeta field value if set, zero value otherwise.
-func (o *LinkEntity) GetLinkMeta() LinkMetaEntity {
+func (o *LinkEntity) GetLinkMeta() map[string]string {
 	if o == nil || IsNil(o.LinkMeta) {
-		var ret LinkMetaEntity
+		var ret map[string]string
 		return ret
 	}
 	return *o.LinkMeta
@@ -420,7 +421,7 @@ func (o *LinkEntity) GetLinkMeta() LinkMetaEntity {
 
 // GetLinkMetaOk returns a tuple with the LinkMeta field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LinkEntity) GetLinkMetaOk() (*LinkMetaEntity, bool) {
+func (o *LinkEntity) GetLinkMetaOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.LinkMeta) {
 		return nil, false
 	}
@@ -436,8 +437,8 @@ func (o *LinkEntity) HasLinkMeta() bool {
 	return false
 }
 
-// SetLinkMeta gets a reference to the given LinkMetaEntity and assigns it to the LinkMeta field.
-func (o *LinkEntity) SetLinkMeta(v LinkMetaEntity) {
+// SetLinkMeta gets a reference to the given map[string]string and assigns it to the LinkMeta field.
+func (o *LinkEntity) SetLinkMeta(v map[string]string) {
 	o.LinkMeta = &v
 }
 
