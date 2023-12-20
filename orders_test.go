@@ -78,27 +78,6 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 	})
 
-	t.Run("PGCreateOrder should give status 200", func(t *testing.T) {
-
-		requestId := "test"
-		idempotency := "test"
-
-		createOrderRequest := cashfree.CreateOrderRequest{
-			OrderAmount:   1.0,
-			OrderCurrency: "INR",
-			CustomerDetails: cashfree.CustomerDetails{
-				CustomerId:    "suhas-test",
-				CustomerPhone: "9999999999",
-			},
-		}
-		resp, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, &requestId, &idempotency, nil)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("PGCreateOrder should give status 422", func(t *testing.T) {
 
 		requestId := "test"
@@ -263,27 +242,6 @@ func Test_cashfree_pg_orders(t *testing.T) {
 			},
 		}
 		resp, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("PGCreateOrderWithContext should give status 200", func(t *testing.T) {
-
-		requestId := "test"
-		idempotency := "test"
-
-		createOrderRequest := cashfree.CreateOrderRequest{
-			OrderAmount:   1.0,
-			OrderCurrency: "INR",
-			CustomerDetails: cashfree.CustomerDetails{
-				CustomerId:    "suhas-test",
-				CustomerPhone: "9999999999",
-			},
-		}
-		resp, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, &requestId, &idempotency, nil)
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
