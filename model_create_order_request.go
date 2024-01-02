@@ -21,381 +21,24 @@ var _ MappedNullable = &CreateOrderRequest{}
 // CreateOrderRequest Request body to create an order at cashfree
 type CreateOrderRequest struct {
 	// Order identifier present in your system. Alphanumeric, '_' and '-' only
-	OrderId NullableString `json:"order_id,omitempty"`
+	OrderId *string `json:"order_id,omitempty"`
 	// Bill amount for the order. Provide upto two decimals. 10.15 means Rs 10 and 15 paisa
 	OrderAmount float64 `json:"order_amount"`
 	// Currency for the order. INR if left empty. Contact care@cashfree.com to enable new currencies.
 	OrderCurrency string `json:"order_currency"`
 	CustomerDetails CustomerDetails `json:"customer_details"`
-	Terminal NullableCreateOrderRequestTerminal `json:"terminal,omitempty"`
-	OrderMeta NullableCreateOrderRequestOrderMeta `json:"order_meta,omitempty"`
+	Terminal *TerminalDetails `json:"terminal,omitempty"`
+	OrderMeta *OrderMeta `json:"order_meta,omitempty"`
 	// Time after which the order expires. Customers will not be able to make the payment beyond the time specified here. We store timestamps in IST, but you can provide them in a valid ISO 8601 time format. Example 2021-07-02T10:20:12+05:30 for IST, 2021-07-02T10:20:12Z for UTC
 	OrderExpiryTime *string `json:"order_expiry_time,omitempty"`
 	// Order note for reference.
-	OrderNote NullableString `json:"order_note,omitempty"`
+	OrderNote *string `json:"order_note,omitempty"`
 	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
-	OrderTags map[string]string `json:"order_tags,omitempty"`
+	OrderTags *map[string]string `json:"order_tags,omitempty"`
 	// If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
 }
 
-// NewCreateOrderRequest instantiates a new CreateOrderRequest object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewCreateOrderRequest(orderAmount float64, orderCurrency string, customerDetails CustomerDetails) *CreateOrderRequest {
-	this := CreateOrderRequest{}
-	this.OrderAmount = orderAmount
-	this.OrderCurrency = orderCurrency
-	this.CustomerDetails = customerDetails
-	return &this
-}
-
-// NewCreateOrderRequestWithDefaults instantiates a new CreateOrderRequest object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewCreateOrderRequestWithDefaults() *CreateOrderRequest {
-	this := CreateOrderRequest{}
-	return &this
-}
-
-// GetOrderId returns the OrderId field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateOrderRequest) GetOrderId() string {
-	if o == nil || IsNil(o.OrderId.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.OrderId.Get()
-}
-
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateOrderRequest) GetOrderIdOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.OrderId.Get(), o.OrderId.IsSet()
-}
-
-// HasOrderId returns a boolean if a field has been set.
-func (o *CreateOrderRequest) HasOrderId() bool {
-	if o != nil && o.OrderId.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given NullableString and assigns it to the OrderId field.
-func (o *CreateOrderRequest) SetOrderId(v string) {
-	o.OrderId.Set(&v)
-}
-// SetOrderIdNil sets the value for OrderId to be an explicit nil
-func (o *CreateOrderRequest) SetOrderIdNil() {
-	o.OrderId.Set(nil)
-}
-
-// UnsetOrderId ensures that no value is present for OrderId, not even an explicit nil
-func (o *CreateOrderRequest) UnsetOrderId() {
-	o.OrderId.Unset()
-}
-
-// GetOrderAmount returns the OrderAmount field value
-func (o *CreateOrderRequest) GetOrderAmount() float64 {
-	if o == nil {
-		var ret float64
-		return ret
-	}
-
-	return o.OrderAmount
-}
-
-// GetOrderAmountOk returns a tuple with the OrderAmount field value
-// and a boolean to check if the value has been set.
-func (o *CreateOrderRequest) GetOrderAmountOk() (*float64, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OrderAmount, true
-}
-
-// SetOrderAmount sets field value
-func (o *CreateOrderRequest) SetOrderAmount(v float64) {
-	o.OrderAmount = v
-}
-
-// GetOrderCurrency returns the OrderCurrency field value
-func (o *CreateOrderRequest) GetOrderCurrency() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.OrderCurrency
-}
-
-// GetOrderCurrencyOk returns a tuple with the OrderCurrency field value
-// and a boolean to check if the value has been set.
-func (o *CreateOrderRequest) GetOrderCurrencyOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OrderCurrency, true
-}
-
-// SetOrderCurrency sets field value
-func (o *CreateOrderRequest) SetOrderCurrency(v string) {
-	o.OrderCurrency = v
-}
-
-// GetCustomerDetails returns the CustomerDetails field value
-func (o *CreateOrderRequest) GetCustomerDetails() CustomerDetails {
-	if o == nil {
-		var ret CustomerDetails
-		return ret
-	}
-
-	return o.CustomerDetails
-}
-
-// GetCustomerDetailsOk returns a tuple with the CustomerDetails field value
-// and a boolean to check if the value has been set.
-func (o *CreateOrderRequest) GetCustomerDetailsOk() (*CustomerDetails, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CustomerDetails, true
-}
-
-// SetCustomerDetails sets field value
-func (o *CreateOrderRequest) SetCustomerDetails(v CustomerDetails) {
-	o.CustomerDetails = v
-}
-
-// GetTerminal returns the Terminal field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateOrderRequest) GetTerminal() CreateOrderRequestTerminal {
-	if o == nil || IsNil(o.Terminal.Get()) {
-		var ret CreateOrderRequestTerminal
-		return ret
-	}
-	return *o.Terminal.Get()
-}
-
-// GetTerminalOk returns a tuple with the Terminal field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateOrderRequest) GetTerminalOk() (*CreateOrderRequestTerminal, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Terminal.Get(), o.Terminal.IsSet()
-}
-
-// HasTerminal returns a boolean if a field has been set.
-func (o *CreateOrderRequest) HasTerminal() bool {
-	if o != nil && o.Terminal.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTerminal gets a reference to the given NullableCreateOrderRequestTerminal and assigns it to the Terminal field.
-func (o *CreateOrderRequest) SetTerminal(v CreateOrderRequestTerminal) {
-	o.Terminal.Set(&v)
-}
-// SetTerminalNil sets the value for Terminal to be an explicit nil
-func (o *CreateOrderRequest) SetTerminalNil() {
-	o.Terminal.Set(nil)
-}
-
-// UnsetTerminal ensures that no value is present for Terminal, not even an explicit nil
-func (o *CreateOrderRequest) UnsetTerminal() {
-	o.Terminal.Unset()
-}
-
-// GetOrderMeta returns the OrderMeta field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateOrderRequest) GetOrderMeta() CreateOrderRequestOrderMeta {
-	if o == nil || IsNil(o.OrderMeta.Get()) {
-		var ret CreateOrderRequestOrderMeta
-		return ret
-	}
-	return *o.OrderMeta.Get()
-}
-
-// GetOrderMetaOk returns a tuple with the OrderMeta field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateOrderRequest) GetOrderMetaOk() (*CreateOrderRequestOrderMeta, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.OrderMeta.Get(), o.OrderMeta.IsSet()
-}
-
-// HasOrderMeta returns a boolean if a field has been set.
-func (o *CreateOrderRequest) HasOrderMeta() bool {
-	if o != nil && o.OrderMeta.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderMeta gets a reference to the given NullableCreateOrderRequestOrderMeta and assigns it to the OrderMeta field.
-func (o *CreateOrderRequest) SetOrderMeta(v CreateOrderRequestOrderMeta) {
-	o.OrderMeta.Set(&v)
-}
-// SetOrderMetaNil sets the value for OrderMeta to be an explicit nil
-func (o *CreateOrderRequest) SetOrderMetaNil() {
-	o.OrderMeta.Set(nil)
-}
-
-// UnsetOrderMeta ensures that no value is present for OrderMeta, not even an explicit nil
-func (o *CreateOrderRequest) UnsetOrderMeta() {
-	o.OrderMeta.Unset()
-}
-
-// GetOrderExpiryTime returns the OrderExpiryTime field value if set, zero value otherwise.
-func (o *CreateOrderRequest) GetOrderExpiryTime() string {
-	if o == nil || IsNil(o.OrderExpiryTime) {
-		var ret string
-		return ret
-	}
-	return *o.OrderExpiryTime
-}
-
-// GetOrderExpiryTimeOk returns a tuple with the OrderExpiryTime field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateOrderRequest) GetOrderExpiryTimeOk() (*string, bool) {
-	if o == nil || IsNil(o.OrderExpiryTime) {
-		return nil, false
-	}
-	return o.OrderExpiryTime, true
-}
-
-// HasOrderExpiryTime returns a boolean if a field has been set.
-func (o *CreateOrderRequest) HasOrderExpiryTime() bool {
-	if o != nil && !IsNil(o.OrderExpiryTime) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderExpiryTime gets a reference to the given string and assigns it to the OrderExpiryTime field.
-func (o *CreateOrderRequest) SetOrderExpiryTime(v string) {
-	o.OrderExpiryTime = &v
-}
-
-// GetOrderNote returns the OrderNote field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateOrderRequest) GetOrderNote() string {
-	if o == nil || IsNil(o.OrderNote.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.OrderNote.Get()
-}
-
-// GetOrderNoteOk returns a tuple with the OrderNote field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateOrderRequest) GetOrderNoteOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.OrderNote.Get(), o.OrderNote.IsSet()
-}
-
-// HasOrderNote returns a boolean if a field has been set.
-func (o *CreateOrderRequest) HasOrderNote() bool {
-	if o != nil && o.OrderNote.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderNote gets a reference to the given NullableString and assigns it to the OrderNote field.
-func (o *CreateOrderRequest) SetOrderNote(v string) {
-	o.OrderNote.Set(&v)
-}
-// SetOrderNoteNil sets the value for OrderNote to be an explicit nil
-func (o *CreateOrderRequest) SetOrderNoteNil() {
-	o.OrderNote.Set(nil)
-}
-
-// UnsetOrderNote ensures that no value is present for OrderNote, not even an explicit nil
-func (o *CreateOrderRequest) UnsetOrderNote() {
-	o.OrderNote.Unset()
-}
-
-// GetOrderTags returns the OrderTags field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateOrderRequest) GetOrderTags() map[string]string {
-	if o == nil {
-		var ret map[string]string
-		return ret
-	}
-	return o.OrderTags
-}
-
-// GetOrderTagsOk returns a tuple with the OrderTags field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateOrderRequest) GetOrderTagsOk() (*map[string]string, bool) {
-	if o == nil || IsNil(o.OrderTags) {
-		return nil, false
-	}
-	return &o.OrderTags, true
-}
-
-// HasOrderTags returns a boolean if a field has been set.
-func (o *CreateOrderRequest) HasOrderTags() bool {
-	if o != nil && IsNil(o.OrderTags) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderTags gets a reference to the given map[string]string and assigns it to the OrderTags field.
-func (o *CreateOrderRequest) SetOrderTags(v map[string]string) {
-	o.OrderTags = v
-}
-
-// GetOrderSplits returns the OrderSplits field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *CreateOrderRequest) GetOrderSplits() []VendorSplit {
-	if o == nil {
-		var ret []VendorSplit
-		return ret
-	}
-	return o.OrderSplits
-}
-
-// GetOrderSplitsOk returns a tuple with the OrderSplits field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *CreateOrderRequest) GetOrderSplitsOk() ([]VendorSplit, bool) {
-	if o == nil || IsNil(o.OrderSplits) {
-		return nil, false
-	}
-	return o.OrderSplits, true
-}
-
-// HasOrderSplits returns a boolean if a field has been set.
-func (o *CreateOrderRequest) HasOrderSplits() bool {
-	if o != nil && IsNil(o.OrderSplits) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderSplits gets a reference to the given []VendorSplit and assigns it to the OrderSplits field.
-func (o *CreateOrderRequest) SetOrderSplits(v []VendorSplit) {
-	o.OrderSplits = v
-}
 
 func (o CreateOrderRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -407,67 +50,32 @@ func (o CreateOrderRequest) MarshalJSON() ([]byte, error) {
 
 func (o CreateOrderRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.OrderId.IsSet() {
-		toSerialize["order_id"] = o.OrderId.Get()
+	if !IsNil(o.OrderId) {
+		toSerialize["order_id"] = o.OrderId
 	}
 	toSerialize["order_amount"] = o.OrderAmount
 	toSerialize["order_currency"] = o.OrderCurrency
 	toSerialize["customer_details"] = o.CustomerDetails
-	if o.Terminal.IsSet() {
-		toSerialize["terminal"] = o.Terminal.Get()
+	if !IsNil(o.Terminal) {
+		toSerialize["terminal"] = o.Terminal
 	}
-	if o.OrderMeta.IsSet() {
-		toSerialize["order_meta"] = o.OrderMeta.Get()
+	if !IsNil(o.OrderMeta) {
+		toSerialize["order_meta"] = o.OrderMeta
 	}
 	if !IsNil(o.OrderExpiryTime) {
 		toSerialize["order_expiry_time"] = o.OrderExpiryTime
 	}
-	if o.OrderNote.IsSet() {
-		toSerialize["order_note"] = o.OrderNote.Get()
+	if !IsNil(o.OrderNote) {
+		toSerialize["order_note"] = o.OrderNote
 	}
-	if o.OrderTags != nil {
+	if !IsNil(o.OrderTags) {
 		toSerialize["order_tags"] = o.OrderTags
 	}
-	if o.OrderSplits != nil {
+	if !IsNil(o.OrderSplits) {
 		toSerialize["order_splits"] = o.OrderSplits
 	}
 	return toSerialize, nil
 }
 
-type NullableCreateOrderRequest struct {
-	value *CreateOrderRequest
-	isSet bool
-}
-
-func (v NullableCreateOrderRequest) Get() *CreateOrderRequest {
-	return v.value
-}
-
-func (v *NullableCreateOrderRequest) Set(val *CreateOrderRequest) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableCreateOrderRequest) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableCreateOrderRequest) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableCreateOrderRequest(val *CreateOrderRequest) *NullableCreateOrderRequest {
-	return &NullableCreateOrderRequest{value: val, isSet: true}
-}
-
-func (v NullableCreateOrderRequest) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableCreateOrderRequest) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

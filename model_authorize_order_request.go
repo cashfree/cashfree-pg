@@ -26,86 +26,6 @@ type AuthorizeOrderRequest struct {
 	Amount *float32 `json:"amount,omitempty"`
 }
 
-// NewAuthorizeOrderRequest instantiates a new AuthorizeOrderRequest object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewAuthorizeOrderRequest() *AuthorizeOrderRequest {
-	this := AuthorizeOrderRequest{}
-	return &this
-}
-
-// NewAuthorizeOrderRequestWithDefaults instantiates a new AuthorizeOrderRequest object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewAuthorizeOrderRequestWithDefaults() *AuthorizeOrderRequest {
-	this := AuthorizeOrderRequest{}
-	return &this
-}
-
-// GetAction returns the Action field value if set, zero value otherwise.
-func (o *AuthorizeOrderRequest) GetAction() string {
-	if o == nil || IsNil(o.Action) {
-		var ret string
-		return ret
-	}
-	return *o.Action
-}
-
-// GetActionOk returns a tuple with the Action field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AuthorizeOrderRequest) GetActionOk() (*string, bool) {
-	if o == nil || IsNil(o.Action) {
-		return nil, false
-	}
-	return o.Action, true
-}
-
-// HasAction returns a boolean if a field has been set.
-func (o *AuthorizeOrderRequest) HasAction() bool {
-	if o != nil && !IsNil(o.Action) {
-		return true
-	}
-
-	return false
-}
-
-// SetAction gets a reference to the given string and assigns it to the Action field.
-func (o *AuthorizeOrderRequest) SetAction(v string) {
-	o.Action = &v
-}
-
-// GetAmount returns the Amount field value if set, zero value otherwise.
-func (o *AuthorizeOrderRequest) GetAmount() float32 {
-	if o == nil || IsNil(o.Amount) {
-		var ret float32
-		return ret
-	}
-	return *o.Amount
-}
-
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AuthorizeOrderRequest) GetAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.Amount) {
-		return nil, false
-	}
-	return o.Amount, true
-}
-
-// HasAmount returns a boolean if a field has been set.
-func (o *AuthorizeOrderRequest) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given float32 and assigns it to the Amount field.
-func (o *AuthorizeOrderRequest) SetAmount(v float32) {
-	o.Amount = &v
-}
 
 func (o AuthorizeOrderRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -126,40 +46,5 @@ func (o AuthorizeOrderRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableAuthorizeOrderRequest struct {
-	value *AuthorizeOrderRequest
-	isSet bool
-}
-
-func (v NullableAuthorizeOrderRequest) Get() *AuthorizeOrderRequest {
-	return v.value
-}
-
-func (v *NullableAuthorizeOrderRequest) Set(val *AuthorizeOrderRequest) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableAuthorizeOrderRequest) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableAuthorizeOrderRequest) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableAuthorizeOrderRequest(val *AuthorizeOrderRequest) *NullableAuthorizeOrderRequest {
-	return &NullableAuthorizeOrderRequest{value: val, isSet: true}
-}
-
-func (v NullableAuthorizeOrderRequest) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableAuthorizeOrderRequest) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

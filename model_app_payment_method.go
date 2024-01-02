@@ -23,47 +23,6 @@ type AppPaymentMethod struct {
 	App App `json:"app"`
 }
 
-// NewAppPaymentMethod instantiates a new AppPaymentMethod object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewAppPaymentMethod(app App) *AppPaymentMethod {
-	this := AppPaymentMethod{}
-	this.App = app
-	return &this
-}
-
-// NewAppPaymentMethodWithDefaults instantiates a new AppPaymentMethod object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewAppPaymentMethodWithDefaults() *AppPaymentMethod {
-	this := AppPaymentMethod{}
-	return &this
-}
-
-// GetApp returns the App field value
-func (o *AppPaymentMethod) GetApp() App {
-	if o == nil {
-		var ret App
-		return ret
-	}
-
-	return o.App
-}
-
-// GetAppOk returns a tuple with the App field value
-// and a boolean to check if the value has been set.
-func (o *AppPaymentMethod) GetAppOk() (*App, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.App, true
-}
-
-// SetApp sets field value
-func (o *AppPaymentMethod) SetApp(v App) {
-	o.App = v
-}
 
 func (o AppPaymentMethod) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o AppPaymentMethod) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableAppPaymentMethod struct {
-	value *AppPaymentMethod
-	isSet bool
-}
-
-func (v NullableAppPaymentMethod) Get() *AppPaymentMethod {
-	return v.value
-}
-
-func (v *NullableAppPaymentMethod) Set(val *AppPaymentMethod) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableAppPaymentMethod) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableAppPaymentMethod) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableAppPaymentMethod(val *AppPaymentMethod) *NullableAppPaymentMethod {
-	return &NullableAppPaymentMethod{value: val, isSet: true}
-}
-
-func (v NullableAppPaymentMethod) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableAppPaymentMethod) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

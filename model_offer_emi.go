@@ -23,47 +23,6 @@ type OfferEMI struct {
 	Emi EMIOffer `json:"emi"`
 }
 
-// NewOfferEMI instantiates a new OfferEMI object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOfferEMI(emi EMIOffer) *OfferEMI {
-	this := OfferEMI{}
-	this.Emi = emi
-	return &this
-}
-
-// NewOfferEMIWithDefaults instantiates a new OfferEMI object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOfferEMIWithDefaults() *OfferEMI {
-	this := OfferEMI{}
-	return &this
-}
-
-// GetEmi returns the Emi field value
-func (o *OfferEMI) GetEmi() EMIOffer {
-	if o == nil {
-		var ret EMIOffer
-		return ret
-	}
-
-	return o.Emi
-}
-
-// GetEmiOk returns a tuple with the Emi field value
-// and a boolean to check if the value has been set.
-func (o *OfferEMI) GetEmiOk() (*EMIOffer, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Emi, true
-}
-
-// SetEmi sets field value
-func (o *OfferEMI) SetEmi(v EMIOffer) {
-	o.Emi = v
-}
 
 func (o OfferEMI) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o OfferEMI) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableOfferEMI struct {
-	value *OfferEMI
-	isSet bool
-}
-
-func (v NullableOfferEMI) Get() *OfferEMI {
-	return v.value
-}
-
-func (v *NullableOfferEMI) Set(val *OfferEMI) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferEMI) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferEMI) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferEMI(val *OfferEMI) *NullableOfferEMI {
-	return &NullableOfferEMI{value: val, isSet: true}
-}
-
-func (v NullableOfferEMI) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferEMI) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

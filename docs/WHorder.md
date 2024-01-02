@@ -128,16 +128,6 @@ SetOrderTags sets OrderTags field to given value.
 
 HasOrderTags returns a boolean if a field has been set.
 
-### SetOrderTagsNil
-
-`func (o *WHorder) SetOrderTagsNil(b bool)`
-
- SetOrderTagsNil sets the value for OrderTags to be an explicit nil
-
-### UnsetOrderTags
-`func (o *WHorder) UnsetOrderTags()`
-
-UnsetOrderTags ensures that no value is present for OrderTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

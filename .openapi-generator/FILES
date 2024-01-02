@@ -39,8 +39,6 @@ docs/CashbackDetails.md
 docs/CreateLinkRequest.md
 docs/CreateOfferRequest.md
 docs/CreateOrderRequest.md
-docs/CreateOrderRequestOrderMeta.md
-docs/CreateOrderRequestTerminal.md
 docs/CreateTerminalRequest.md
 docs/CreateTerminalRequestTerminalMeta.md
 docs/CreateTerminalTransactionRequest.md
@@ -180,8 +178,6 @@ model_cashback_details.go
 model_create_link_request.go
 model_create_offer_request.go
 model_create_order_request.go
-model_create_order_request_order_meta.go
-model_create_order_request_terminal.go
 model_create_terminal_request.go
 model_create_terminal_request_terminal_meta.go
 model_create_terminal_transaction_request.go

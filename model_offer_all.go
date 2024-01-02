@@ -24,47 +24,6 @@ type OfferAll struct {
 	All map[string]interface{} `json:"all"`
 }
 
-// NewOfferAll instantiates a new OfferAll object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOfferAll(all map[string]interface{}) *OfferAll {
-	this := OfferAll{}
-	this.All = all
-	return &this
-}
-
-// NewOfferAllWithDefaults instantiates a new OfferAll object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOfferAllWithDefaults() *OfferAll {
-	this := OfferAll{}
-	return &this
-}
-
-// GetAll returns the All field value
-func (o *OfferAll) GetAll() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-
-	return o.All
-}
-
-// GetAllOk returns a tuple with the All field value
-// and a boolean to check if the value has been set.
-func (o *OfferAll) GetAllOk() (map[string]interface{}, bool) {
-	if o == nil {
-		return map[string]interface{}{}, false
-	}
-	return o.All, true
-}
-
-// SetAll sets field value
-func (o *OfferAll) SetAll(v map[string]interface{}) {
-	o.All = v
-}
 
 func (o OfferAll) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -80,40 +39,5 @@ func (o OfferAll) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableOfferAll struct {
-	value *OfferAll
-	isSet bool
-}
-
-func (v NullableOfferAll) Get() *OfferAll {
-	return v.value
-}
-
-func (v *NullableOfferAll) Set(val *OfferAll) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferAll) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferAll) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferAll(val *OfferAll) *NullableOfferAll {
-	return &NullableOfferAll{value: val, isSet: true}
-}
-
-func (v NullableOfferAll) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferAll) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

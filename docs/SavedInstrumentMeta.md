@@ -154,16 +154,6 @@ SetCardTokenDetails sets CardTokenDetails field to given value.
 
 HasCardTokenDetails returns a boolean if a field has been set.
 
-### SetCardTokenDetailsNil
-
-`func (o *SavedInstrumentMeta) SetCardTokenDetailsNil(b bool)`
-
- SetCardTokenDetailsNil sets the value for CardTokenDetails to be an explicit nil
-
-### UnsetCardTokenDetails
-`func (o *SavedInstrumentMeta) UnsetCardTokenDetails()`
-
-UnsetCardTokenDetails ensures that no value is present for CardTokenDetails, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReturnUrl** | Pointer to **NullableString** | The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. The return_url must contain placeholder {order_id}. When redirecting the customer back to the return url from the bank’s OTP page, Cashfree will replace this placeholder with the actual value for that order. | [optional] 
-**NotifyUrl** | Pointer to **NullableString** | Notification URL for server-server communication. Useful when user&#39;s connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250. | [optional] 
+**ReturnUrl** | Pointer to **string** | The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. The return_url must contain placeholder {order_id}. When redirecting the customer back to the return url from the bank’s OTP page, Cashfree will replace this placeholder with the actual value for that order. | [optional] 
+**NotifyUrl** | Pointer to **string** | Notification URL for server-server communication. Useful when user&#39;s connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250. | [optional] 
 **PaymentMethods** | Pointer to **interface{}** | Allowed payment modes for this order. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;,\&quot;nb\&quot;,\&quot;upi\&quot;,\&quot;paypal\&quot;,\&quot;app\&quot;,\&quot;paylater\&quot;,\&quot;cardlessemi\&quot;,\&quot;dcemi\&quot;,\&quot;ccemi\&quot;,\&quot;banktransfer\&quot;. Leave it blank to show all available payment methods | [optional] 
 
 ## Methods
@@ -52,16 +52,6 @@ SetReturnUrl sets ReturnUrl field to given value.
 
 HasReturnUrl returns a boolean if a field has been set.
 
-### SetReturnUrlNil
-
-`func (o *OrderMeta) SetReturnUrlNil(b bool)`
-
- SetReturnUrlNil sets the value for ReturnUrl to be an explicit nil
-
-### UnsetReturnUrl
-`func (o *OrderMeta) UnsetReturnUrl()`
-
-UnsetReturnUrl ensures that no value is present for ReturnUrl, not even an explicit nil
 ### GetNotifyUrl
 
 `func (o *OrderMeta) GetNotifyUrl() string`
@@ -87,16 +77,6 @@ SetNotifyUrl sets NotifyUrl field to given value.
 
 HasNotifyUrl returns a boolean if a field has been set.
 
-### SetNotifyUrlNil
-
-`func (o *OrderMeta) SetNotifyUrlNil(b bool)`
-
- SetNotifyUrlNil sets the value for NotifyUrl to be an explicit nil
-
-### UnsetNotifyUrl
-`func (o *OrderMeta) UnsetNotifyUrl()`
-
-UnsetNotifyUrl ensures that no value is present for NotifyUrl, not even an explicit nil
 ### GetPaymentMethods
 
 `func (o *OrderMeta) GetPaymentMethods() interface{}`

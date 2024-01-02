@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Cursor** | Pointer to **NullableString** | Specifies from where the next set of settlement details should be fetched. | [optional] 
+**Cursor** | Pointer to **string** | Specifies from where the next set of settlement details should be fetched. | [optional] 
 **Limit** | Pointer to **int32** | Number of settlements you want to fetch in the next iteration. | [optional] 
 **Data** | Pointer to [**[]ReconEntityDataInner**](ReconEntityDataInner.md) |  | [optional] 
 
@@ -52,16 +52,6 @@ SetCursor sets Cursor field to given value.
 
 HasCursor returns a boolean if a field has been set.
 
-### SetCursorNil
-
-`func (o *ReconEntity) SetCursorNil(b bool)`
-
- SetCursorNil sets the value for Cursor to be an explicit nil
-
-### UnsetCursor
-`func (o *ReconEntity) UnsetCursor()`
-
-UnsetCursor ensures that no value is present for Cursor, not even an explicit nil
 ### GetLimit
 
 `func (o *ReconEntity) GetLimit() int32`

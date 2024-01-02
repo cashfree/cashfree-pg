@@ -23,47 +23,6 @@ type CardEMIPaymentMethod struct {
 	Emi CardEMI `json:"emi"`
 }
 
-// NewCardEMIPaymentMethod instantiates a new CardEMIPaymentMethod object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewCardEMIPaymentMethod(emi CardEMI) *CardEMIPaymentMethod {
-	this := CardEMIPaymentMethod{}
-	this.Emi = emi
-	return &this
-}
-
-// NewCardEMIPaymentMethodWithDefaults instantiates a new CardEMIPaymentMethod object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewCardEMIPaymentMethodWithDefaults() *CardEMIPaymentMethod {
-	this := CardEMIPaymentMethod{}
-	return &this
-}
-
-// GetEmi returns the Emi field value
-func (o *CardEMIPaymentMethod) GetEmi() CardEMI {
-	if o == nil {
-		var ret CardEMI
-		return ret
-	}
-
-	return o.Emi
-}
-
-// GetEmiOk returns a tuple with the Emi field value
-// and a boolean to check if the value has been set.
-func (o *CardEMIPaymentMethod) GetEmiOk() (*CardEMI, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Emi, true
-}
-
-// SetEmi sets field value
-func (o *CardEMIPaymentMethod) SetEmi(v CardEMI) {
-	o.Emi = v
-}
 
 func (o CardEMIPaymentMethod) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o CardEMIPaymentMethod) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableCardEMIPaymentMethod struct {
-	value *CardEMIPaymentMethod
-	isSet bool
-}
-
-func (v NullableCardEMIPaymentMethod) Get() *CardEMIPaymentMethod {
-	return v.value
-}
-
-func (v *NullableCardEMIPaymentMethod) Set(val *CardEMIPaymentMethod) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableCardEMIPaymentMethod) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableCardEMIPaymentMethod) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableCardEMIPaymentMethod(val *CardEMIPaymentMethod) *NullableCardEMIPaymentMethod {
-	return &NullableCardEMIPaymentMethod{value: val, isSet: true}
-}
-
-func (v NullableCardEMIPaymentMethod) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableCardEMIPaymentMethod) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

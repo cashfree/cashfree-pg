@@ -23,54 +23,6 @@ type PaymentURLObject struct {
 	Url *string `json:"url,omitempty"`
 }
 
-// NewPaymentURLObject instantiates a new PaymentURLObject object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewPaymentURLObject() *PaymentURLObject {
-	this := PaymentURLObject{}
-	return &this
-}
-
-// NewPaymentURLObjectWithDefaults instantiates a new PaymentURLObject object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewPaymentURLObjectWithDefaults() *PaymentURLObject {
-	this := PaymentURLObject{}
-	return &this
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise.
-func (o *PaymentURLObject) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
-		var ret string
-		return ret
-	}
-	return *o.Url
-}
-
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PaymentURLObject) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
-		return nil, false
-	}
-	return o.Url, true
-}
-
-// HasUrl returns a boolean if a field has been set.
-func (o *PaymentURLObject) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given string and assigns it to the Url field.
-func (o *PaymentURLObject) SetUrl(v string) {
-	o.Url = &v
-}
 
 func (o PaymentURLObject) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -88,40 +40,5 @@ func (o PaymentURLObject) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullablePaymentURLObject struct {
-	value *PaymentURLObject
-	isSet bool
-}
-
-func (v NullablePaymentURLObject) Get() *PaymentURLObject {
-	return v.value
-}
-
-func (v *NullablePaymentURLObject) Set(val *PaymentURLObject) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullablePaymentURLObject) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullablePaymentURLObject) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullablePaymentURLObject(val *PaymentURLObject) *NullablePaymentURLObject {
-	return &NullablePaymentURLObject{value: val, isSet: true}
-}
-
-func (v NullablePaymentURLObject) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullablePaymentURLObject) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 
