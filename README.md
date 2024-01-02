@@ -47,7 +47,7 @@ request := cashfree.CreateOrderRequest{
 		CustomerId:    "walterwNrcMi",
 		CustomerPhone: "9999999999",
 	},
-	OrderMeta: &OrderMeta{
+	OrderMeta: &cashfree.OrderMeta{
 		ReturnUrl: &returnUrl,
 	},
 }
