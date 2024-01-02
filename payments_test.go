@@ -242,7 +242,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 		}
 
 		cardPayOrderRequest := cashfree.PayOrderRequest{
-			PaymentSessionId: resp.GetPaymentSessionId(),
+			PaymentSessionId: *resp.PaymentSessionId,
 			PaymentMethod:    upiPayment,
 		}
 
@@ -335,7 +335,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 		}
 
 		cardPayOrderRequest := cashfree.PayOrderRequest{
-			PaymentSessionId: resp.GetPaymentSessionId(),
+			PaymentSessionId: *resp.PaymentSessionId,
 			PaymentMethod:    upiPayment,
 		}
 

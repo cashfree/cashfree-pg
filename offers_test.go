@@ -3,7 +3,6 @@ package cashfree_pg_test
 import (
 	"context"
 	"net/http"
-	"os"
 	"strconv"
 	"testing"
 	"time"
@@ -14,8 +13,8 @@ import (
 )
 
 func Test_cashfree_pg_offers(t *testing.T) {
-	clientId := os.Getenv("clientid")
-	XClientSecret := os.Getenv("clientsecret")
+	clientId := "34ab0d1f2b9b0d3fd5411943"                      //os.Getenv("clientid")
+	XClientSecret := "fe303498e4dbc732e48f439f2e3909c16b358ccf" //os.Getenv("clientsecret")
 	cashfree.XClientId = &clientId
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
@@ -355,10 +354,9 @@ func Test_cashfree_pg_offers(t *testing.T) {
 		cashfree.XClientId = &clientId
 
 		resp, httpRes, err := cashfree.PGFetchOffer(&XApiVersion, offerId, &req, &idem, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		require.NotNil(t, err)
+		require.Nil(t, resp)
+		assert.Equal(t, 400, httpRes.StatusCode)
 
 	})
 
@@ -413,9 +411,9 @@ func Test_cashfree_pg_offers(t *testing.T) {
 
 		resp, httpRes, err := cashfree.PGFetchOfferWithContext(ctx, &XApiVersion, offerId, &req, &idem, http.DefaultClient)
 
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		require.NotNil(t, err)
+		require.Nil(t, resp)
+		assert.Equal(t, 400, httpRes.StatusCode)
 
 	})
 

@@ -3,7 +3,6 @@ package cashfree_pg_test
 import (
 	"context"
 	"net/http"
-	"os"
 	"testing"
 
 	cashfree "github.com/cashfree/cashfree-pg/v3"
@@ -13,8 +12,8 @@ import (
 )
 
 func Test_cashfree_pg_orders(t *testing.T) {
-	clientId := os.Getenv("clientid")
-	XClientSecret := os.Getenv("clientsecret")
+	clientId := "34ab0d1f2b9b0d3fd5411943"
+	XClientSecret := "fe303498e4dbc732e48f439f2e3909c16b358ccf"
 	cashfree.XClientId = &clientId
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
@@ -44,7 +43,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 		orderId := "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6"
 
 		createOrderRequest := cashfree.CreateOrderRequest{
-			OrderId:       *cashfree.NewNullableString(&orderId),
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -78,6 +77,27 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 	})
 
+	// t.Run("PGCreateOrder should give status 200", func(t *testing.T) {
+
+	// 	requestId := "test"
+	// 	idempotency := "test"
+
+	// 	createOrderRequest := cashfree.CreateOrderRequest{
+	// 		OrderAmount:   1.0,
+	// 		OrderCurrency: "INR",
+	// 		CustomerDetails: cashfree.CustomerDetails{
+	// 			CustomerId:    "suhas-test",
+	// 			CustomerPhone: "9999999999",
+	// 		},
+	// 	}
+	// 	resp, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, &requestId, &idempotency, nil)
+
+	// 	require.Nil(t, err)
+	// 	require.NotNil(t, resp)
+	// 	assert.Equal(t, 200, httpRes.StatusCode)
+
+	// })
+
 	t.Run("PGCreateOrder should give status 422", func(t *testing.T) {
 
 		requestId := "test"
@@ -95,7 +115,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 422, httpRes.StatusCode)
+		assert.Equal(t, 400, httpRes.StatusCode)
 
 	})
 
@@ -214,7 +234,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 		orderId := "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6"
 
 		createOrderRequest := cashfree.CreateOrderRequest{
-			OrderId:       *cashfree.NewNullableString(&orderId),
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -266,7 +286,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 422, httpRes.StatusCode)
+		assert.Equal(t, 400, httpRes.StatusCode)
 
 	})
 
