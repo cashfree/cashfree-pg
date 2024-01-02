@@ -3,6 +3,7 @@ package cashfree_pg_test
 import (
 	"context"
 	"net/http"
+	"os"
 	"testing"
 
 	cashfree "github.com/cashfree/cashfree-pg/v3"
@@ -12,8 +13,8 @@ import (
 )
 
 func Test_cashfree_pg_orders(t *testing.T) {
-	clientId := "34ab0d1f2b9b0d3fd5411943"
-	XClientSecret := "fe303498e4dbc732e48f439f2e3909c16b358ccf"
+	clientId := os.Getenv("clientid")
+	XClientSecret := os.Getenv("clientsecret")
 	cashfree.XClientId = &clientId
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
