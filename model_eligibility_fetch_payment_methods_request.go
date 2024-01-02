@@ -24,79 +24,6 @@ type EligibilityFetchPaymentMethodsRequest struct {
 	Filters *PaymentMethodsFilters `json:"filters,omitempty"`
 }
 
-// NewEligibilityFetchPaymentMethodsRequest instantiates a new EligibilityFetchPaymentMethodsRequest object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewEligibilityFetchPaymentMethodsRequest(queries PaymentMethodsQueries) *EligibilityFetchPaymentMethodsRequest {
-	this := EligibilityFetchPaymentMethodsRequest{}
-	this.Queries = queries
-	return &this
-}
-
-// NewEligibilityFetchPaymentMethodsRequestWithDefaults instantiates a new EligibilityFetchPaymentMethodsRequest object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewEligibilityFetchPaymentMethodsRequestWithDefaults() *EligibilityFetchPaymentMethodsRequest {
-	this := EligibilityFetchPaymentMethodsRequest{}
-	return &this
-}
-
-// GetQueries returns the Queries field value
-func (o *EligibilityFetchPaymentMethodsRequest) GetQueries() PaymentMethodsQueries {
-	if o == nil {
-		var ret PaymentMethodsQueries
-		return ret
-	}
-
-	return o.Queries
-}
-
-// GetQueriesOk returns a tuple with the Queries field value
-// and a boolean to check if the value has been set.
-func (o *EligibilityFetchPaymentMethodsRequest) GetQueriesOk() (*PaymentMethodsQueries, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Queries, true
-}
-
-// SetQueries sets field value
-func (o *EligibilityFetchPaymentMethodsRequest) SetQueries(v PaymentMethodsQueries) {
-	o.Queries = v
-}
-
-// GetFilters returns the Filters field value if set, zero value otherwise.
-func (o *EligibilityFetchPaymentMethodsRequest) GetFilters() PaymentMethodsFilters {
-	if o == nil || IsNil(o.Filters) {
-		var ret PaymentMethodsFilters
-		return ret
-	}
-	return *o.Filters
-}
-
-// GetFiltersOk returns a tuple with the Filters field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *EligibilityFetchPaymentMethodsRequest) GetFiltersOk() (*PaymentMethodsFilters, bool) {
-	if o == nil || IsNil(o.Filters) {
-		return nil, false
-	}
-	return o.Filters, true
-}
-
-// HasFilters returns a boolean if a field has been set.
-func (o *EligibilityFetchPaymentMethodsRequest) HasFilters() bool {
-	if o != nil && !IsNil(o.Filters) {
-		return true
-	}
-
-	return false
-}
-
-// SetFilters gets a reference to the given PaymentMethodsFilters and assigns it to the Filters field.
-func (o *EligibilityFetchPaymentMethodsRequest) SetFilters(v PaymentMethodsFilters) {
-	o.Filters = &v
-}
 
 func (o EligibilityFetchPaymentMethodsRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -115,40 +42,5 @@ func (o EligibilityFetchPaymentMethodsRequest) ToMap() (map[string]interface{}, 
 	return toSerialize, nil
 }
 
-type NullableEligibilityFetchPaymentMethodsRequest struct {
-	value *EligibilityFetchPaymentMethodsRequest
-	isSet bool
-}
-
-func (v NullableEligibilityFetchPaymentMethodsRequest) Get() *EligibilityFetchPaymentMethodsRequest {
-	return v.value
-}
-
-func (v *NullableEligibilityFetchPaymentMethodsRequest) Set(val *EligibilityFetchPaymentMethodsRequest) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableEligibilityFetchPaymentMethodsRequest) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableEligibilityFetchPaymentMethodsRequest) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableEligibilityFetchPaymentMethodsRequest(val *EligibilityFetchPaymentMethodsRequest) *NullableEligibilityFetchPaymentMethodsRequest {
-	return &NullableEligibilityFetchPaymentMethodsRequest{value: val, isSet: true}
-}
-
-func (v NullableEligibilityFetchPaymentMethodsRequest) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableEligibilityFetchPaymentMethodsRequest) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

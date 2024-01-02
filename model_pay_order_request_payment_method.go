@@ -153,40 +153,5 @@ func (obj *PayOrderRequestPaymentMethod) GetActualInstance() (interface{}) {
 	return nil
 }
 
-type NullablePayOrderRequestPaymentMethod struct {
-	value *PayOrderRequestPaymentMethod
-	isSet bool
-}
-
-func (v NullablePayOrderRequestPaymentMethod) Get() *PayOrderRequestPaymentMethod {
-	return v.value
-}
-
-func (v *NullablePayOrderRequestPaymentMethod) Set(val *PayOrderRequestPaymentMethod) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullablePayOrderRequestPaymentMethod) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullablePayOrderRequestPaymentMethod) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullablePayOrderRequestPaymentMethod(val *PayOrderRequestPaymentMethod) *NullablePayOrderRequestPaymentMethod {
-	return &NullablePayOrderRequestPaymentMethod{value: val, isSet: true}
-}
-
-func (v NullablePayOrderRequestPaymentMethod) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullablePayOrderRequestPaymentMethod) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

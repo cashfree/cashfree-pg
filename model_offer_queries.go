@@ -26,86 +26,6 @@ type OfferQueries struct {
 	Amount *float32 `json:"amount,omitempty"`
 }
 
-// NewOfferQueries instantiates a new OfferQueries object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOfferQueries() *OfferQueries {
-	this := OfferQueries{}
-	return &this
-}
-
-// NewOfferQueriesWithDefaults instantiates a new OfferQueries object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOfferQueriesWithDefaults() *OfferQueries {
-	this := OfferQueries{}
-	return &this
-}
-
-// GetOrderId returns the OrderId field value if set, zero value otherwise.
-func (o *OfferQueries) GetOrderId() string {
-	if o == nil || IsNil(o.OrderId) {
-		var ret string
-		return ret
-	}
-	return *o.OrderId
-}
-
-// GetOrderIdOk returns a tuple with the OrderId field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OfferQueries) GetOrderIdOk() (*string, bool) {
-	if o == nil || IsNil(o.OrderId) {
-		return nil, false
-	}
-	return o.OrderId, true
-}
-
-// HasOrderId returns a boolean if a field has been set.
-func (o *OfferQueries) HasOrderId() bool {
-	if o != nil && !IsNil(o.OrderId) {
-		return true
-	}
-
-	return false
-}
-
-// SetOrderId gets a reference to the given string and assigns it to the OrderId field.
-func (o *OfferQueries) SetOrderId(v string) {
-	o.OrderId = &v
-}
-
-// GetAmount returns the Amount field value if set, zero value otherwise.
-func (o *OfferQueries) GetAmount() float32 {
-	if o == nil || IsNil(o.Amount) {
-		var ret float32
-		return ret
-	}
-	return *o.Amount
-}
-
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OfferQueries) GetAmountOk() (*float32, bool) {
-	if o == nil || IsNil(o.Amount) {
-		return nil, false
-	}
-	return o.Amount, true
-}
-
-// HasAmount returns a boolean if a field has been set.
-func (o *OfferQueries) HasAmount() bool {
-	if o != nil && !IsNil(o.Amount) {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given float32 and assigns it to the Amount field.
-func (o *OfferQueries) SetAmount(v float32) {
-	o.Amount = &v
-}
 
 func (o OfferQueries) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -126,40 +46,5 @@ func (o OfferQueries) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableOfferQueries struct {
-	value *OfferQueries
-	isSet bool
-}
-
-func (v NullableOfferQueries) Get() *OfferQueries {
-	return v.value
-}
-
-func (v *NullableOfferQueries) Set(val *OfferQueries) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferQueries) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferQueries) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferQueries(val *OfferQueries) *NullableOfferQueries {
-	return &NullableOfferQueries{value: val, isSet: true}
-}
-
-func (v NullableOfferQueries) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferQueries) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

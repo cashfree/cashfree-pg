@@ -23,47 +23,6 @@ type OfferUPI struct {
 	Upi map[string]interface{} `json:"upi"`
 }
 
-// NewOfferUPI instantiates a new OfferUPI object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOfferUPI(upi map[string]interface{}) *OfferUPI {
-	this := OfferUPI{}
-	this.Upi = upi
-	return &this
-}
-
-// NewOfferUPIWithDefaults instantiates a new OfferUPI object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOfferUPIWithDefaults() *OfferUPI {
-	this := OfferUPI{}
-	return &this
-}
-
-// GetUpi returns the Upi field value
-func (o *OfferUPI) GetUpi() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-
-	return o.Upi
-}
-
-// GetUpiOk returns a tuple with the Upi field value
-// and a boolean to check if the value has been set.
-func (o *OfferUPI) GetUpiOk() (map[string]interface{}, bool) {
-	if o == nil {
-		return map[string]interface{}{}, false
-	}
-	return o.Upi, true
-}
-
-// SetUpi sets field value
-func (o *OfferUPI) SetUpi(v map[string]interface{}) {
-	o.Upi = v
-}
 
 func (o OfferUPI) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o OfferUPI) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableOfferUPI struct {
-	value *OfferUPI
-	isSet bool
-}
-
-func (v NullableOfferUPI) Get() *OfferUPI {
-	return v.value
-}
-
-func (v *NullableOfferUPI) Set(val *OfferUPI) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferUPI) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferUPI) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferUPI(val *OfferUPI) *NullableOfferUPI {
-	return &NullableOfferUPI{value: val, isSet: true}
-}
-
-func (v NullableOfferUPI) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferUPI) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

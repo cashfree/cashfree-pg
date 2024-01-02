@@ -8,49 +8,49 @@ Name | Type | Description | Notes
 **EventType** | Pointer to **string** | The event type can be SETTLEMENT, PAYMENT, REFUND, REFUND_REVERSAL, DISPUTE, DISPUTE_REVERSAL, CHARGEBACK, CHARGEBACK_REVERSAL, OTHER_ADJUSTMENT. | [optional] 
 **EventSettlementAmount** | Pointer to **float32** | Amount that is part of the settlement corresponding to the event. | [optional] 
 **EventAmount** | Pointer to **float32** | Amount of the event. Example, refund amount, dispute amount, payment amount, etc. | [optional] 
-**SaleType** | Pointer to **NullableString** | Indicates if it is CREDIT/DEBIT sale. | [optional] 
-**EventStatus** | Pointer to **NullableString** | Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED. | [optional] 
+**SaleType** | Pointer to **string** | Indicates if it is CREDIT/DEBIT sale. | [optional] 
+**EventStatus** | Pointer to **string** | Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED. | [optional] 
 **Entity** | Pointer to **string** | Recon | [optional] 
 **EventTime** | Pointer to **string** | Time associated with the event. Example, transaction time, dispute initiation time | [optional] 
-**EventCurrency** | Pointer to **NullableString** | Curreny type - INR. | [optional] 
-**OrderId** | Pointer to **NullableString** | Unique order ID. Alphanumeric and only &#39;-&#39; and &#39;_&#39; allowed. | [optional] 
-**OrderAmount** | Pointer to **NullableFloat32** | The amount which was passed at the order creation time. | [optional] 
-**CustomerPhone** | Pointer to **NullableString** | Customer phone number. | [optional] 
-**CustomerEmail** | Pointer to **NullableString** | Customer email. | [optional] 
-**CustomerName** | Pointer to **NullableString** | Customer name. | [optional] 
-**PaymentAmount** | Pointer to **NullableFloat32** | Payment amount captured. | [optional] 
-**PaymentUtr** | Pointer to **NullableString** | Unique transaction reference number of the payment. | [optional] 
-**PaymentTime** | Pointer to **NullableString** | Date and time when the payment was initiated. | [optional] 
-**PaymentServiceCharge** | Pointer to **NullableFloat32** | Service charge applicable for the payment. | [optional] 
-**PaymentServiceTax** | Pointer to **NullableFloat32** | Service tax applicable on the payment. | [optional] 
-**CfPaymentId** | Pointer to **NullableInt64** | Cashfree Payments unique ID to identify a payment. | [optional] 
-**CfSettlementId** | Pointer to **NullableInt32** | Unique ID to identify the settlement. | [optional] 
-**SettlementDate** | Pointer to **NullableString** | Date and time when the settlement was processed. | [optional] 
-**SettlementUtr** | Pointer to **NullableString** | Unique transaction reference number of the settlement. | [optional] 
-**SplitServiceCharge** | Pointer to **NullableFloat32** | Service charge that is applicable for splitting the payment. | [optional] 
-**SplitServiceTax** | Pointer to **NullableFloat32** | Service tax applicable for splitting the amount to vendors. | [optional] 
-**VendorCommission** | Pointer to **NullableFloat32** | Vendor commission applicable for this transaction. | [optional] 
-**ClosedInFavorOf** | Pointer to **NullableString** | Specifies whether the dispute was closed in favor of the merchant or customer. /n Possible values - Merchant, Customer | [optional] 
-**DisputeResolvedOn** | Pointer to **NullableString** | Date and time when the dispute was resolved. | [optional] 
-**DisputeCategory** | Pointer to **NullableString** | Category of the dispute - Dispute code and the reason for dispute is shown. | [optional] 
-**DisputeNote** | Pointer to **NullableString** | Note regarding the dispute. | [optional] 
-**RefundProcessedAt** | Pointer to **NullableString** | Date and time when the refund was processed. | [optional] 
-**RefundArn** | Pointer to **NullableString** | The bank reference number for the refund. | [optional] 
-**RefundNote** | Pointer to **NullableString** | A refund note for your reference. | [optional] 
-**RefundId** | Pointer to **NullableString** | An unique ID to associate the refund with. | [optional] 
-**AdjustmentRemarks** | Pointer to **NullableString** | Other adjustment remarks. | [optional] 
-**Adjustment** | Pointer to **NullableFloat32** | Amount that is adjusted from the settlement amount because of any credit/debit event such as refund, refund_reverse etc. | [optional] 
-**ServiceTax** | Pointer to **NullableFloat32** | Service tax applicable on the settlement amount. | [optional] 
-**ServiceCharge** | Pointer to **NullableFloat32** | Service charge applicable on the settlement amount. | [optional] 
-**AmountSettled** | Pointer to **NullableFloat32** | Net amount that is settled after considering the adjustments, settlement charge and tax. | [optional] 
-**PaymentFrom** | Pointer to **NullableString** | The start time of the time range of the payments considered for the settlement. | [optional] 
-**PaymentTill** | Pointer to **NullableString** | The end time of time range of the payments considered for the settlement. | [optional] 
-**Reason** | Pointer to **NullableString** | Reason for settlement failure. | [optional] 
-**SettlementInitiatedOn** | Pointer to **NullableString** | Date and time when the settlement was initiated. | [optional] 
-**SettlementType** | Pointer to **NullableString** | Type of settlement. Possible values - Standard, Instant, On demand. | [optional] 
-**SettlementCharge** | Pointer to **NullableFloat32** | Settlement charges applicable on the settlement. | [optional] 
-**SettlementTax** | Pointer to **NullableFloat32** | Settlement tax applicable on the settlement. | [optional] 
-**Remarks** | Pointer to **NullableString** | Remarks on the settlement. | [optional] 
+**EventCurrency** | Pointer to **string** | Curreny type - INR. | [optional] 
+**OrderId** | Pointer to **string** | Unique order ID. Alphanumeric and only &#39;-&#39; and &#39;_&#39; allowed. | [optional] 
+**OrderAmount** | Pointer to **float32** | The amount which was passed at the order creation time. | [optional] 
+**CustomerPhone** | Pointer to **string** | Customer phone number. | [optional] 
+**CustomerEmail** | Pointer to **string** | Customer email. | [optional] 
+**CustomerName** | Pointer to **string** | Customer name. | [optional] 
+**PaymentAmount** | Pointer to **float32** | Payment amount captured. | [optional] 
+**PaymentUtr** | Pointer to **string** | Unique transaction reference number of the payment. | [optional] 
+**PaymentTime** | Pointer to **string** | Date and time when the payment was initiated. | [optional] 
+**PaymentServiceCharge** | Pointer to **float32** | Service charge applicable for the payment. | [optional] 
+**PaymentServiceTax** | Pointer to **float32** | Service tax applicable on the payment. | [optional] 
+**CfPaymentId** | Pointer to **int64** | Cashfree Payments unique ID to identify a payment. | [optional] 
+**CfSettlementId** | Pointer to **int32** | Unique ID to identify the settlement. | [optional] 
+**SettlementDate** | Pointer to **string** | Date and time when the settlement was processed. | [optional] 
+**SettlementUtr** | Pointer to **string** | Unique transaction reference number of the settlement. | [optional] 
+**SplitServiceCharge** | Pointer to **float32** | Service charge that is applicable for splitting the payment. | [optional] 
+**SplitServiceTax** | Pointer to **float32** | Service tax applicable for splitting the amount to vendors. | [optional] 
+**VendorCommission** | Pointer to **float32** | Vendor commission applicable for this transaction. | [optional] 
+**ClosedInFavorOf** | Pointer to **string** | Specifies whether the dispute was closed in favor of the merchant or customer. /n Possible values - Merchant, Customer | [optional] 
+**DisputeResolvedOn** | Pointer to **string** | Date and time when the dispute was resolved. | [optional] 
+**DisputeCategory** | Pointer to **string** | Category of the dispute - Dispute code and the reason for dispute is shown. | [optional] 
+**DisputeNote** | Pointer to **string** | Note regarding the dispute. | [optional] 
+**RefundProcessedAt** | Pointer to **string** | Date and time when the refund was processed. | [optional] 
+**RefundArn** | Pointer to **string** | The bank reference number for the refund. | [optional] 
+**RefundNote** | Pointer to **string** | A refund note for your reference. | [optional] 
+**RefundId** | Pointer to **string** | An unique ID to associate the refund with. | [optional] 
+**AdjustmentRemarks** | Pointer to **string** | Other adjustment remarks. | [optional] 
+**Adjustment** | Pointer to **float32** | Amount that is adjusted from the settlement amount because of any credit/debit event such as refund, refund_reverse etc. | [optional] 
+**ServiceTax** | Pointer to **float32** | Service tax applicable on the settlement amount. | [optional] 
+**ServiceCharge** | Pointer to **float32** | Service charge applicable on the settlement amount. | [optional] 
+**AmountSettled** | Pointer to **float32** | Net amount that is settled after considering the adjustments, settlement charge and tax. | [optional] 
+**PaymentFrom** | Pointer to **string** | The start time of the time range of the payments considered for the settlement. | [optional] 
+**PaymentTill** | Pointer to **string** | The end time of time range of the payments considered for the settlement. | [optional] 
+**Reason** | Pointer to **string** | Reason for settlement failure. | [optional] 
+**SettlementInitiatedOn** | Pointer to **string** | Date and time when the settlement was initiated. | [optional] 
+**SettlementType** | Pointer to **string** | Type of settlement. Possible values - Standard, Instant, On demand. | [optional] 
+**SettlementCharge** | Pointer to **float32** | Settlement charges applicable on the settlement. | [optional] 
+**SettlementTax** | Pointer to **float32** | Settlement tax applicable on the settlement. | [optional] 
+**Remarks** | Pointer to **string** | Remarks on the settlement. | [optional] 
 
 ## Methods
 
@@ -196,16 +196,6 @@ SetSaleType sets SaleType field to given value.
 
 HasSaleType returns a boolean if a field has been set.
 
-### SetSaleTypeNil
-
-`func (o *ReconEntityDataInner) SetSaleTypeNil(b bool)`
-
- SetSaleTypeNil sets the value for SaleType to be an explicit nil
-
-### UnsetSaleType
-`func (o *ReconEntityDataInner) UnsetSaleType()`
-
-UnsetSaleType ensures that no value is present for SaleType, not even an explicit nil
 ### GetEventStatus
 
 `func (o *ReconEntityDataInner) GetEventStatus() string`
@@ -231,16 +221,6 @@ SetEventStatus sets EventStatus field to given value.
 
 HasEventStatus returns a boolean if a field has been set.
 
-### SetEventStatusNil
-
-`func (o *ReconEntityDataInner) SetEventStatusNil(b bool)`
-
- SetEventStatusNil sets the value for EventStatus to be an explicit nil
-
-### UnsetEventStatus
-`func (o *ReconEntityDataInner) UnsetEventStatus()`
-
-UnsetEventStatus ensures that no value is present for EventStatus, not even an explicit nil
 ### GetEntity
 
 `func (o *ReconEntityDataInner) GetEntity() string`
@@ -316,16 +296,6 @@ SetEventCurrency sets EventCurrency field to given value.
 
 HasEventCurrency returns a boolean if a field has been set.
 
-### SetEventCurrencyNil
-
-`func (o *ReconEntityDataInner) SetEventCurrencyNil(b bool)`
-
- SetEventCurrencyNil sets the value for EventCurrency to be an explicit nil
-
-### UnsetEventCurrency
-`func (o *ReconEntityDataInner) UnsetEventCurrency()`
-
-UnsetEventCurrency ensures that no value is present for EventCurrency, not even an explicit nil
 ### GetOrderId
 
 `func (o *ReconEntityDataInner) GetOrderId() string`
@@ -351,16 +321,6 @@ SetOrderId sets OrderId field to given value.
 
 HasOrderId returns a boolean if a field has been set.
 
-### SetOrderIdNil
-
-`func (o *ReconEntityDataInner) SetOrderIdNil(b bool)`
-
- SetOrderIdNil sets the value for OrderId to be an explicit nil
-
-### UnsetOrderId
-`func (o *ReconEntityDataInner) UnsetOrderId()`
-
-UnsetOrderId ensures that no value is present for OrderId, not even an explicit nil
 ### GetOrderAmount
 
 `func (o *ReconEntityDataInner) GetOrderAmount() float32`
@@ -386,16 +346,6 @@ SetOrderAmount sets OrderAmount field to given value.
 
 HasOrderAmount returns a boolean if a field has been set.
 
-### SetOrderAmountNil
-
-`func (o *ReconEntityDataInner) SetOrderAmountNil(b bool)`
-
- SetOrderAmountNil sets the value for OrderAmount to be an explicit nil
-
-### UnsetOrderAmount
-`func (o *ReconEntityDataInner) UnsetOrderAmount()`
-
-UnsetOrderAmount ensures that no value is present for OrderAmount, not even an explicit nil
 ### GetCustomerPhone
 
 `func (o *ReconEntityDataInner) GetCustomerPhone() string`
@@ -421,16 +371,6 @@ SetCustomerPhone sets CustomerPhone field to given value.
 
 HasCustomerPhone returns a boolean if a field has been set.
 
-### SetCustomerPhoneNil
-
-`func (o *ReconEntityDataInner) SetCustomerPhoneNil(b bool)`
-
- SetCustomerPhoneNil sets the value for CustomerPhone to be an explicit nil
-
-### UnsetCustomerPhone
-`func (o *ReconEntityDataInner) UnsetCustomerPhone()`
-
-UnsetCustomerPhone ensures that no value is present for CustomerPhone, not even an explicit nil
 ### GetCustomerEmail
 
 `func (o *ReconEntityDataInner) GetCustomerEmail() string`
@@ -456,16 +396,6 @@ SetCustomerEmail sets CustomerEmail field to given value.
 
 HasCustomerEmail returns a boolean if a field has been set.
 
-### SetCustomerEmailNil
-
-`func (o *ReconEntityDataInner) SetCustomerEmailNil(b bool)`
-
- SetCustomerEmailNil sets the value for CustomerEmail to be an explicit nil
-
-### UnsetCustomerEmail
-`func (o *ReconEntityDataInner) UnsetCustomerEmail()`
-
-UnsetCustomerEmail ensures that no value is present for CustomerEmail, not even an explicit nil
 ### GetCustomerName
 
 `func (o *ReconEntityDataInner) GetCustomerName() string`
@@ -491,16 +421,6 @@ SetCustomerName sets CustomerName field to given value.
 
 HasCustomerName returns a boolean if a field has been set.
 
-### SetCustomerNameNil
-
-`func (o *ReconEntityDataInner) SetCustomerNameNil(b bool)`
-
- SetCustomerNameNil sets the value for CustomerName to be an explicit nil
-
-### UnsetCustomerName
-`func (o *ReconEntityDataInner) UnsetCustomerName()`
-
-UnsetCustomerName ensures that no value is present for CustomerName, not even an explicit nil
 ### GetPaymentAmount
 
 `func (o *ReconEntityDataInner) GetPaymentAmount() float32`
@@ -526,16 +446,6 @@ SetPaymentAmount sets PaymentAmount field to given value.
 
 HasPaymentAmount returns a boolean if a field has been set.
 
-### SetPaymentAmountNil
-
-`func (o *ReconEntityDataInner) SetPaymentAmountNil(b bool)`
-
- SetPaymentAmountNil sets the value for PaymentAmount to be an explicit nil
-
-### UnsetPaymentAmount
-`func (o *ReconEntityDataInner) UnsetPaymentAmount()`
-
-UnsetPaymentAmount ensures that no value is present for PaymentAmount, not even an explicit nil
 ### GetPaymentUtr
 
 `func (o *ReconEntityDataInner) GetPaymentUtr() string`
@@ -561,16 +471,6 @@ SetPaymentUtr sets PaymentUtr field to given value.
 
 HasPaymentUtr returns a boolean if a field has been set.
 
-### SetPaymentUtrNil
-
-`func (o *ReconEntityDataInner) SetPaymentUtrNil(b bool)`
-
- SetPaymentUtrNil sets the value for PaymentUtr to be an explicit nil
-
-### UnsetPaymentUtr
-`func (o *ReconEntityDataInner) UnsetPaymentUtr()`
-
-UnsetPaymentUtr ensures that no value is present for PaymentUtr, not even an explicit nil
 ### GetPaymentTime
 
 `func (o *ReconEntityDataInner) GetPaymentTime() string`
@@ -596,16 +496,6 @@ SetPaymentTime sets PaymentTime field to given value.
 
 HasPaymentTime returns a boolean if a field has been set.
 
-### SetPaymentTimeNil
-
-`func (o *ReconEntityDataInner) SetPaymentTimeNil(b bool)`
-
- SetPaymentTimeNil sets the value for PaymentTime to be an explicit nil
-
-### UnsetPaymentTime
-`func (o *ReconEntityDataInner) UnsetPaymentTime()`
-
-UnsetPaymentTime ensures that no value is present for PaymentTime, not even an explicit nil
 ### GetPaymentServiceCharge
 
 `func (o *ReconEntityDataInner) GetPaymentServiceCharge() float32`
@@ -631,16 +521,6 @@ SetPaymentServiceCharge sets PaymentServiceCharge field to given value.
 
 HasPaymentServiceCharge returns a boolean if a field has been set.
 
-### SetPaymentServiceChargeNil
-
-`func (o *ReconEntityDataInner) SetPaymentServiceChargeNil(b bool)`
-
- SetPaymentServiceChargeNil sets the value for PaymentServiceCharge to be an explicit nil
-
-### UnsetPaymentServiceCharge
-`func (o *ReconEntityDataInner) UnsetPaymentServiceCharge()`
-
-UnsetPaymentServiceCharge ensures that no value is present for PaymentServiceCharge, not even an explicit nil
 ### GetPaymentServiceTax
 
 `func (o *ReconEntityDataInner) GetPaymentServiceTax() float32`
@@ -666,16 +546,6 @@ SetPaymentServiceTax sets PaymentServiceTax field to given value.
 
 HasPaymentServiceTax returns a boolean if a field has been set.
 
-### SetPaymentServiceTaxNil
-
-`func (o *ReconEntityDataInner) SetPaymentServiceTaxNil(b bool)`
-
- SetPaymentServiceTaxNil sets the value for PaymentServiceTax to be an explicit nil
-
-### UnsetPaymentServiceTax
-`func (o *ReconEntityDataInner) UnsetPaymentServiceTax()`
-
-UnsetPaymentServiceTax ensures that no value is present for PaymentServiceTax, not even an explicit nil
 ### GetCfPaymentId
 
 `func (o *ReconEntityDataInner) GetCfPaymentId() int64`
@@ -701,16 +571,6 @@ SetCfPaymentId sets CfPaymentId field to given value.
 
 HasCfPaymentId returns a boolean if a field has been set.
 
-### SetCfPaymentIdNil
-
-`func (o *ReconEntityDataInner) SetCfPaymentIdNil(b bool)`
-
- SetCfPaymentIdNil sets the value for CfPaymentId to be an explicit nil
-
-### UnsetCfPaymentId
-`func (o *ReconEntityDataInner) UnsetCfPaymentId()`
-
-UnsetCfPaymentId ensures that no value is present for CfPaymentId, not even an explicit nil
 ### GetCfSettlementId
 
 `func (o *ReconEntityDataInner) GetCfSettlementId() int32`
@@ -736,16 +596,6 @@ SetCfSettlementId sets CfSettlementId field to given value.
 
 HasCfSettlementId returns a boolean if a field has been set.
 
-### SetCfSettlementIdNil
-
-`func (o *ReconEntityDataInner) SetCfSettlementIdNil(b bool)`
-
- SetCfSettlementIdNil sets the value for CfSettlementId to be an explicit nil
-
-### UnsetCfSettlementId
-`func (o *ReconEntityDataInner) UnsetCfSettlementId()`
-
-UnsetCfSettlementId ensures that no value is present for CfSettlementId, not even an explicit nil
 ### GetSettlementDate
 
 `func (o *ReconEntityDataInner) GetSettlementDate() string`
@@ -771,16 +621,6 @@ SetSettlementDate sets SettlementDate field to given value.
 
 HasSettlementDate returns a boolean if a field has been set.
 
-### SetSettlementDateNil
-
-`func (o *ReconEntityDataInner) SetSettlementDateNil(b bool)`
-
- SetSettlementDateNil sets the value for SettlementDate to be an explicit nil
-
-### UnsetSettlementDate
-`func (o *ReconEntityDataInner) UnsetSettlementDate()`
-
-UnsetSettlementDate ensures that no value is present for SettlementDate, not even an explicit nil
 ### GetSettlementUtr
 
 `func (o *ReconEntityDataInner) GetSettlementUtr() string`
@@ -806,16 +646,6 @@ SetSettlementUtr sets SettlementUtr field to given value.
 
 HasSettlementUtr returns a boolean if a field has been set.
 
-### SetSettlementUtrNil
-
-`func (o *ReconEntityDataInner) SetSettlementUtrNil(b bool)`
-
- SetSettlementUtrNil sets the value for SettlementUtr to be an explicit nil
-
-### UnsetSettlementUtr
-`func (o *ReconEntityDataInner) UnsetSettlementUtr()`
-
-UnsetSettlementUtr ensures that no value is present for SettlementUtr, not even an explicit nil
 ### GetSplitServiceCharge
 
 `func (o *ReconEntityDataInner) GetSplitServiceCharge() float32`
@@ -841,16 +671,6 @@ SetSplitServiceCharge sets SplitServiceCharge field to given value.
 
 HasSplitServiceCharge returns a boolean if a field has been set.
 
-### SetSplitServiceChargeNil
-
-`func (o *ReconEntityDataInner) SetSplitServiceChargeNil(b bool)`
-
- SetSplitServiceChargeNil sets the value for SplitServiceCharge to be an explicit nil
-
-### UnsetSplitServiceCharge
-`func (o *ReconEntityDataInner) UnsetSplitServiceCharge()`
-
-UnsetSplitServiceCharge ensures that no value is present for SplitServiceCharge, not even an explicit nil
 ### GetSplitServiceTax
 
 `func (o *ReconEntityDataInner) GetSplitServiceTax() float32`
@@ -876,16 +696,6 @@ SetSplitServiceTax sets SplitServiceTax field to given value.
 
 HasSplitServiceTax returns a boolean if a field has been set.
 
-### SetSplitServiceTaxNil
-
-`func (o *ReconEntityDataInner) SetSplitServiceTaxNil(b bool)`
-
- SetSplitServiceTaxNil sets the value for SplitServiceTax to be an explicit nil
-
-### UnsetSplitServiceTax
-`func (o *ReconEntityDataInner) UnsetSplitServiceTax()`
-
-UnsetSplitServiceTax ensures that no value is present for SplitServiceTax, not even an explicit nil
 ### GetVendorCommission
 
 `func (o *ReconEntityDataInner) GetVendorCommission() float32`
@@ -911,16 +721,6 @@ SetVendorCommission sets VendorCommission field to given value.
 
 HasVendorCommission returns a boolean if a field has been set.
 
-### SetVendorCommissionNil
-
-`func (o *ReconEntityDataInner) SetVendorCommissionNil(b bool)`
-
- SetVendorCommissionNil sets the value for VendorCommission to be an explicit nil
-
-### UnsetVendorCommission
-`func (o *ReconEntityDataInner) UnsetVendorCommission()`
-
-UnsetVendorCommission ensures that no value is present for VendorCommission, not even an explicit nil
 ### GetClosedInFavorOf
 
 `func (o *ReconEntityDataInner) GetClosedInFavorOf() string`
@@ -946,16 +746,6 @@ SetClosedInFavorOf sets ClosedInFavorOf field to given value.
 
 HasClosedInFavorOf returns a boolean if a field has been set.
 
-### SetClosedInFavorOfNil
-
-`func (o *ReconEntityDataInner) SetClosedInFavorOfNil(b bool)`
-
- SetClosedInFavorOfNil sets the value for ClosedInFavorOf to be an explicit nil
-
-### UnsetClosedInFavorOf
-`func (o *ReconEntityDataInner) UnsetClosedInFavorOf()`
-
-UnsetClosedInFavorOf ensures that no value is present for ClosedInFavorOf, not even an explicit nil
 ### GetDisputeResolvedOn
 
 `func (o *ReconEntityDataInner) GetDisputeResolvedOn() string`
@@ -981,16 +771,6 @@ SetDisputeResolvedOn sets DisputeResolvedOn field to given value.
 
 HasDisputeResolvedOn returns a boolean if a field has been set.
 
-### SetDisputeResolvedOnNil
-
-`func (o *ReconEntityDataInner) SetDisputeResolvedOnNil(b bool)`
-
- SetDisputeResolvedOnNil sets the value for DisputeResolvedOn to be an explicit nil
-
-### UnsetDisputeResolvedOn
-`func (o *ReconEntityDataInner) UnsetDisputeResolvedOn()`
-
-UnsetDisputeResolvedOn ensures that no value is present for DisputeResolvedOn, not even an explicit nil
 ### GetDisputeCategory
 
 `func (o *ReconEntityDataInner) GetDisputeCategory() string`
@@ -1016,16 +796,6 @@ SetDisputeCategory sets DisputeCategory field to given value.
 
 HasDisputeCategory returns a boolean if a field has been set.
 
-### SetDisputeCategoryNil
-
-`func (o *ReconEntityDataInner) SetDisputeCategoryNil(b bool)`
-
- SetDisputeCategoryNil sets the value for DisputeCategory to be an explicit nil
-
-### UnsetDisputeCategory
-`func (o *ReconEntityDataInner) UnsetDisputeCategory()`
-
-UnsetDisputeCategory ensures that no value is present for DisputeCategory, not even an explicit nil
 ### GetDisputeNote
 
 `func (o *ReconEntityDataInner) GetDisputeNote() string`
@@ -1051,16 +821,6 @@ SetDisputeNote sets DisputeNote field to given value.
 
 HasDisputeNote returns a boolean if a field has been set.
 
-### SetDisputeNoteNil
-
-`func (o *ReconEntityDataInner) SetDisputeNoteNil(b bool)`
-
- SetDisputeNoteNil sets the value for DisputeNote to be an explicit nil
-
-### UnsetDisputeNote
-`func (o *ReconEntityDataInner) UnsetDisputeNote()`
-
-UnsetDisputeNote ensures that no value is present for DisputeNote, not even an explicit nil
 ### GetRefundProcessedAt
 
 `func (o *ReconEntityDataInner) GetRefundProcessedAt() string`
@@ -1086,16 +846,6 @@ SetRefundProcessedAt sets RefundProcessedAt field to given value.
 
 HasRefundProcessedAt returns a boolean if a field has been set.
 
-### SetRefundProcessedAtNil
-
-`func (o *ReconEntityDataInner) SetRefundProcessedAtNil(b bool)`
-
- SetRefundProcessedAtNil sets the value for RefundProcessedAt to be an explicit nil
-
-### UnsetRefundProcessedAt
-`func (o *ReconEntityDataInner) UnsetRefundProcessedAt()`
-
-UnsetRefundProcessedAt ensures that no value is present for RefundProcessedAt, not even an explicit nil
 ### GetRefundArn
 
 `func (o *ReconEntityDataInner) GetRefundArn() string`
@@ -1121,16 +871,6 @@ SetRefundArn sets RefundArn field to given value.
 
 HasRefundArn returns a boolean if a field has been set.
 
-### SetRefundArnNil
-
-`func (o *ReconEntityDataInner) SetRefundArnNil(b bool)`
-
- SetRefundArnNil sets the value for RefundArn to be an explicit nil
-
-### UnsetRefundArn
-`func (o *ReconEntityDataInner) UnsetRefundArn()`
-
-UnsetRefundArn ensures that no value is present for RefundArn, not even an explicit nil
 ### GetRefundNote
 
 `func (o *ReconEntityDataInner) GetRefundNote() string`
@@ -1156,16 +896,6 @@ SetRefundNote sets RefundNote field to given value.
 
 HasRefundNote returns a boolean if a field has been set.
 
-### SetRefundNoteNil
-
-`func (o *ReconEntityDataInner) SetRefundNoteNil(b bool)`
-
- SetRefundNoteNil sets the value for RefundNote to be an explicit nil
-
-### UnsetRefundNote
-`func (o *ReconEntityDataInner) UnsetRefundNote()`
-
-UnsetRefundNote ensures that no value is present for RefundNote, not even an explicit nil
 ### GetRefundId
 
 `func (o *ReconEntityDataInner) GetRefundId() string`
@@ -1191,16 +921,6 @@ SetRefundId sets RefundId field to given value.
 
 HasRefundId returns a boolean if a field has been set.
 
-### SetRefundIdNil
-
-`func (o *ReconEntityDataInner) SetRefundIdNil(b bool)`
-
- SetRefundIdNil sets the value for RefundId to be an explicit nil
-
-### UnsetRefundId
-`func (o *ReconEntityDataInner) UnsetRefundId()`
-
-UnsetRefundId ensures that no value is present for RefundId, not even an explicit nil
 ### GetAdjustmentRemarks
 
 `func (o *ReconEntityDataInner) GetAdjustmentRemarks() string`
@@ -1226,16 +946,6 @@ SetAdjustmentRemarks sets AdjustmentRemarks field to given value.
 
 HasAdjustmentRemarks returns a boolean if a field has been set.
 
-### SetAdjustmentRemarksNil
-
-`func (o *ReconEntityDataInner) SetAdjustmentRemarksNil(b bool)`
-
- SetAdjustmentRemarksNil sets the value for AdjustmentRemarks to be an explicit nil
-
-### UnsetAdjustmentRemarks
-`func (o *ReconEntityDataInner) UnsetAdjustmentRemarks()`
-
-UnsetAdjustmentRemarks ensures that no value is present for AdjustmentRemarks, not even an explicit nil
 ### GetAdjustment
 
 `func (o *ReconEntityDataInner) GetAdjustment() float32`
@@ -1261,16 +971,6 @@ SetAdjustment sets Adjustment field to given value.
 
 HasAdjustment returns a boolean if a field has been set.
 
-### SetAdjustmentNil
-
-`func (o *ReconEntityDataInner) SetAdjustmentNil(b bool)`
-
- SetAdjustmentNil sets the value for Adjustment to be an explicit nil
-
-### UnsetAdjustment
-`func (o *ReconEntityDataInner) UnsetAdjustment()`
-
-UnsetAdjustment ensures that no value is present for Adjustment, not even an explicit nil
 ### GetServiceTax
 
 `func (o *ReconEntityDataInner) GetServiceTax() float32`
@@ -1296,16 +996,6 @@ SetServiceTax sets ServiceTax field to given value.
 
 HasServiceTax returns a boolean if a field has been set.
 
-### SetServiceTaxNil
-
-`func (o *ReconEntityDataInner) SetServiceTaxNil(b bool)`
-
- SetServiceTaxNil sets the value for ServiceTax to be an explicit nil
-
-### UnsetServiceTax
-`func (o *ReconEntityDataInner) UnsetServiceTax()`
-
-UnsetServiceTax ensures that no value is present for ServiceTax, not even an explicit nil
 ### GetServiceCharge
 
 `func (o *ReconEntityDataInner) GetServiceCharge() float32`
@@ -1331,16 +1021,6 @@ SetServiceCharge sets ServiceCharge field to given value.
 
 HasServiceCharge returns a boolean if a field has been set.
 
-### SetServiceChargeNil
-
-`func (o *ReconEntityDataInner) SetServiceChargeNil(b bool)`
-
- SetServiceChargeNil sets the value for ServiceCharge to be an explicit nil
-
-### UnsetServiceCharge
-`func (o *ReconEntityDataInner) UnsetServiceCharge()`
-
-UnsetServiceCharge ensures that no value is present for ServiceCharge, not even an explicit nil
 ### GetAmountSettled
 
 `func (o *ReconEntityDataInner) GetAmountSettled() float32`
@@ -1366,16 +1046,6 @@ SetAmountSettled sets AmountSettled field to given value.
 
 HasAmountSettled returns a boolean if a field has been set.
 
-### SetAmountSettledNil
-
-`func (o *ReconEntityDataInner) SetAmountSettledNil(b bool)`
-
- SetAmountSettledNil sets the value for AmountSettled to be an explicit nil
-
-### UnsetAmountSettled
-`func (o *ReconEntityDataInner) UnsetAmountSettled()`
-
-UnsetAmountSettled ensures that no value is present for AmountSettled, not even an explicit nil
 ### GetPaymentFrom
 
 `func (o *ReconEntityDataInner) GetPaymentFrom() string`
@@ -1401,16 +1071,6 @@ SetPaymentFrom sets PaymentFrom field to given value.
 
 HasPaymentFrom returns a boolean if a field has been set.
 
-### SetPaymentFromNil
-
-`func (o *ReconEntityDataInner) SetPaymentFromNil(b bool)`
-
- SetPaymentFromNil sets the value for PaymentFrom to be an explicit nil
-
-### UnsetPaymentFrom
-`func (o *ReconEntityDataInner) UnsetPaymentFrom()`
-
-UnsetPaymentFrom ensures that no value is present for PaymentFrom, not even an explicit nil
 ### GetPaymentTill
 
 `func (o *ReconEntityDataInner) GetPaymentTill() string`
@@ -1436,16 +1096,6 @@ SetPaymentTill sets PaymentTill field to given value.
 
 HasPaymentTill returns a boolean if a field has been set.
 
-### SetPaymentTillNil
-
-`func (o *ReconEntityDataInner) SetPaymentTillNil(b bool)`
-
- SetPaymentTillNil sets the value for PaymentTill to be an explicit nil
-
-### UnsetPaymentTill
-`func (o *ReconEntityDataInner) UnsetPaymentTill()`
-
-UnsetPaymentTill ensures that no value is present for PaymentTill, not even an explicit nil
 ### GetReason
 
 `func (o *ReconEntityDataInner) GetReason() string`
@@ -1471,16 +1121,6 @@ SetReason sets Reason field to given value.
 
 HasReason returns a boolean if a field has been set.
 
-### SetReasonNil
-
-`func (o *ReconEntityDataInner) SetReasonNil(b bool)`
-
- SetReasonNil sets the value for Reason to be an explicit nil
-
-### UnsetReason
-`func (o *ReconEntityDataInner) UnsetReason()`
-
-UnsetReason ensures that no value is present for Reason, not even an explicit nil
 ### GetSettlementInitiatedOn
 
 `func (o *ReconEntityDataInner) GetSettlementInitiatedOn() string`
@@ -1506,16 +1146,6 @@ SetSettlementInitiatedOn sets SettlementInitiatedOn field to given value.
 
 HasSettlementInitiatedOn returns a boolean if a field has been set.
 
-### SetSettlementInitiatedOnNil
-
-`func (o *ReconEntityDataInner) SetSettlementInitiatedOnNil(b bool)`
-
- SetSettlementInitiatedOnNil sets the value for SettlementInitiatedOn to be an explicit nil
-
-### UnsetSettlementInitiatedOn
-`func (o *ReconEntityDataInner) UnsetSettlementInitiatedOn()`
-
-UnsetSettlementInitiatedOn ensures that no value is present for SettlementInitiatedOn, not even an explicit nil
 ### GetSettlementType
 
 `func (o *ReconEntityDataInner) GetSettlementType() string`
@@ -1541,16 +1171,6 @@ SetSettlementType sets SettlementType field to given value.
 
 HasSettlementType returns a boolean if a field has been set.
 
-### SetSettlementTypeNil
-
-`func (o *ReconEntityDataInner) SetSettlementTypeNil(b bool)`
-
- SetSettlementTypeNil sets the value for SettlementType to be an explicit nil
-
-### UnsetSettlementType
-`func (o *ReconEntityDataInner) UnsetSettlementType()`
-
-UnsetSettlementType ensures that no value is present for SettlementType, not even an explicit nil
 ### GetSettlementCharge
 
 `func (o *ReconEntityDataInner) GetSettlementCharge() float32`
@@ -1576,16 +1196,6 @@ SetSettlementCharge sets SettlementCharge field to given value.
 
 HasSettlementCharge returns a boolean if a field has been set.
 
-### SetSettlementChargeNil
-
-`func (o *ReconEntityDataInner) SetSettlementChargeNil(b bool)`
-
- SetSettlementChargeNil sets the value for SettlementCharge to be an explicit nil
-
-### UnsetSettlementCharge
-`func (o *ReconEntityDataInner) UnsetSettlementCharge()`
-
-UnsetSettlementCharge ensures that no value is present for SettlementCharge, not even an explicit nil
 ### GetSettlementTax
 
 `func (o *ReconEntityDataInner) GetSettlementTax() float32`
@@ -1611,16 +1221,6 @@ SetSettlementTax sets SettlementTax field to given value.
 
 HasSettlementTax returns a boolean if a field has been set.
 
-### SetSettlementTaxNil
-
-`func (o *ReconEntityDataInner) SetSettlementTaxNil(b bool)`
-
- SetSettlementTaxNil sets the value for SettlementTax to be an explicit nil
-
-### UnsetSettlementTax
-`func (o *ReconEntityDataInner) UnsetSettlementTax()`
-
-UnsetSettlementTax ensures that no value is present for SettlementTax, not even an explicit nil
 ### GetRemarks
 
 `func (o *ReconEntityDataInner) GetRemarks() string`
@@ -1646,16 +1246,6 @@ SetRemarks sets Remarks field to given value.
 
 HasRemarks returns a boolean if a field has been set.
 
-### SetRemarksNil
-
-`func (o *ReconEntityDataInner) SetRemarksNil(b bool)`
-
- SetRemarksNil sets the value for Remarks to be an explicit nil
-
-### UnsetRemarks
-`func (o *ReconEntityDataInner) UnsetRemarks()`
-
-UnsetRemarks ensures that no value is present for Remarks, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

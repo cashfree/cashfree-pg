@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **OrderStatus** | Pointer to **string** | Possible values are  - &#x60;ACTIVE&#x60;: Order does not have a sucessful transaction yet - &#x60;PAID&#x60;: Order is PAID with one successful transaction - &#x60;EXPIRED&#x60;: Order was not PAID and not it has expired. No transaction can be initiated for an EXPIRED order.  | [optional] 
 **PaymentSessionId** | Pointer to **string** |  | [optional] 
 **OrderExpiryTime** | Pointer to **time.Time** |  | [optional] 
-**OrderNote** | Pointer to **NullableString** | Additional note for order | [optional] 
+**OrderNote** | Pointer to **string** | Additional note for order | [optional] 
 **CreatedAt** | Pointer to **time.Time** | When the order was created at cashfree&#39;s server | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**CustomerDetails**](CustomerDetails.md) |  | [optional] 
@@ -266,16 +266,6 @@ SetOrderNote sets OrderNote field to given value.
 
 HasOrderNote returns a boolean if a field has been set.
 
-### SetOrderNoteNil
-
-`func (o *OrderEntity) SetOrderNoteNil(b bool)`
-
- SetOrderNoteNil sets the value for OrderNote to be an explicit nil
-
-### UnsetOrderNote
-`func (o *OrderEntity) UnsetOrderNote()`
-
-UnsetOrderNote ensures that no value is present for OrderNote, not even an explicit nil
 ### GetCreatedAt
 
 `func (o *OrderEntity) GetCreatedAt() time.Time`
@@ -476,16 +466,6 @@ SetOrderTags sets OrderTags field to given value.
 
 HasOrderTags returns a boolean if a field has been set.
 
-### SetOrderTagsNil
-
-`func (o *OrderEntity) SetOrderTagsNil(b bool)`
-
- SetOrderTagsNil sets the value for OrderTags to be an explicit nil
-
-### UnsetOrderTags
-`func (o *OrderEntity) UnsetOrderTags()`
-
-UnsetOrderTags ensures that no value is present for OrderTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

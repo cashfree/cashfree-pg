@@ -24,54 +24,6 @@ type OfferFilters struct {
 	OfferType []OfferType `json:"offer_type,omitempty"`
 }
 
-// NewOfferFilters instantiates a new OfferFilters object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOfferFilters() *OfferFilters {
-	this := OfferFilters{}
-	return &this
-}
-
-// NewOfferFiltersWithDefaults instantiates a new OfferFilters object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOfferFiltersWithDefaults() *OfferFilters {
-	this := OfferFilters{}
-	return &this
-}
-
-// GetOfferType returns the OfferType field value if set, zero value otherwise.
-func (o *OfferFilters) GetOfferType() []OfferType {
-	if o == nil || IsNil(o.OfferType) {
-		var ret []OfferType
-		return ret
-	}
-	return o.OfferType
-}
-
-// GetOfferTypeOk returns a tuple with the OfferType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OfferFilters) GetOfferTypeOk() ([]OfferType, bool) {
-	if o == nil || IsNil(o.OfferType) {
-		return nil, false
-	}
-	return o.OfferType, true
-}
-
-// HasOfferType returns a boolean if a field has been set.
-func (o *OfferFilters) HasOfferType() bool {
-	if o != nil && !IsNil(o.OfferType) {
-		return true
-	}
-
-	return false
-}
-
-// SetOfferType gets a reference to the given []OfferType and assigns it to the OfferType field.
-func (o *OfferFilters) SetOfferType(v []OfferType) {
-	o.OfferType = v
-}
 
 func (o OfferFilters) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -89,40 +41,5 @@ func (o OfferFilters) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableOfferFilters struct {
-	value *OfferFilters
-	isSet bool
-}
-
-func (v NullableOfferFilters) Get() *OfferFilters {
-	return v.value
-}
-
-func (v *NullableOfferFilters) Set(val *OfferFilters) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferFilters) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferFilters) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferFilters(val *OfferFilters) *NullableOfferFilters {
-	return &NullableOfferFilters{value: val, isSet: true}
-}
-
-func (v NullableOfferFilters) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferFilters) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

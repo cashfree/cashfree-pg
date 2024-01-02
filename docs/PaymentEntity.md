@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **PaymentMessage** | Pointer to **string** |  | [optional] 
 **BankReference** | Pointer to **string** |  | [optional] 
 **AuthId** | Pointer to **string** |  | [optional] 
-**Authorization** | Pointer to [**NullableAuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional] 
+**Authorization** | Pointer to [**AuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional] 
 **PaymentMethod** | Pointer to [**PaymentMethodInPaymentsEntity**](PaymentMethodInPaymentsEntity.md) |  | [optional] 
 
 ## Methods
@@ -441,16 +441,6 @@ SetAuthorization sets Authorization field to given value.
 
 HasAuthorization returns a boolean if a field has been set.
 
-### SetAuthorizationNil
-
-`func (o *PaymentEntity) SetAuthorizationNil(b bool)`
-
- SetAuthorizationNil sets the value for Authorization to be an explicit nil
-
-### UnsetAuthorization
-`func (o *PaymentEntity) UnsetAuthorization()`
-
-UnsetAuthorization ensures that no value is present for Authorization, not even an explicit nil
 ### GetPaymentMethod
 
 `func (o *PaymentEntity) GetPaymentMethod() PaymentMethodInPaymentsEntity`

@@ -24,72 +24,6 @@ type FetchSettlementsRequest struct {
 	Filters FetchSettlementsRequestFilters `json:"filters"`
 }
 
-// NewFetchSettlementsRequest instantiates a new FetchSettlementsRequest object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewFetchSettlementsRequest(pagination FetchSettlementsRequestPagination, filters FetchSettlementsRequestFilters) *FetchSettlementsRequest {
-	this := FetchSettlementsRequest{}
-	this.Pagination = pagination
-	this.Filters = filters
-	return &this
-}
-
-// NewFetchSettlementsRequestWithDefaults instantiates a new FetchSettlementsRequest object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewFetchSettlementsRequestWithDefaults() *FetchSettlementsRequest {
-	this := FetchSettlementsRequest{}
-	return &this
-}
-
-// GetPagination returns the Pagination field value
-func (o *FetchSettlementsRequest) GetPagination() FetchSettlementsRequestPagination {
-	if o == nil {
-		var ret FetchSettlementsRequestPagination
-		return ret
-	}
-
-	return o.Pagination
-}
-
-// GetPaginationOk returns a tuple with the Pagination field value
-// and a boolean to check if the value has been set.
-func (o *FetchSettlementsRequest) GetPaginationOk() (*FetchSettlementsRequestPagination, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Pagination, true
-}
-
-// SetPagination sets field value
-func (o *FetchSettlementsRequest) SetPagination(v FetchSettlementsRequestPagination) {
-	o.Pagination = v
-}
-
-// GetFilters returns the Filters field value
-func (o *FetchSettlementsRequest) GetFilters() FetchSettlementsRequestFilters {
-	if o == nil {
-		var ret FetchSettlementsRequestFilters
-		return ret
-	}
-
-	return o.Filters
-}
-
-// GetFiltersOk returns a tuple with the Filters field value
-// and a boolean to check if the value has been set.
-func (o *FetchSettlementsRequest) GetFiltersOk() (*FetchSettlementsRequestFilters, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Filters, true
-}
-
-// SetFilters sets field value
-func (o *FetchSettlementsRequest) SetFilters(v FetchSettlementsRequestFilters) {
-	o.Filters = v
-}
 
 func (o FetchSettlementsRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -106,40 +40,5 @@ func (o FetchSettlementsRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableFetchSettlementsRequest struct {
-	value *FetchSettlementsRequest
-	isSet bool
-}
-
-func (v NullableFetchSettlementsRequest) Get() *FetchSettlementsRequest {
-	return v.value
-}
-
-func (v *NullableFetchSettlementsRequest) Set(val *FetchSettlementsRequest) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableFetchSettlementsRequest) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableFetchSettlementsRequest) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableFetchSettlementsRequest(val *FetchSettlementsRequest) *NullableFetchSettlementsRequest {
-	return &NullableFetchSettlementsRequest{value: val, isSet: true}
-}
-
-func (v NullableFetchSettlementsRequest) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableFetchSettlementsRequest) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CfPaymentId** | Pointer to **int64** | Payment identifier created by Cashfree | [optional] 
 **PaymentMethod** | Pointer to **string** | One of [\&quot;upi\&quot;, \&quot;netbanking\&quot;, \&quot;card\&quot;, \&quot;app\&quot;, \&quot;cardless_emi\&quot;, \&quot;paylater\&quot;, \&quot;banktransfer\&quot;]  | [optional] 
 **Channel** | Pointer to **string** | One of [\&quot;link\&quot;, \&quot;collect\&quot;, \&quot;qrcode\&quot;]. In an older version we used to support different channels like &#39;gpay&#39;, &#39;phonepe&#39; etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as &#39;link&#39; and provider as &#39;gpay&#39; | [optional] 
-**Action** | Pointer to **NullableString** | One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;] | [optional] 
+**Action** | Pointer to **string** | One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;] | [optional] 
 **Data** | Pointer to [**OrderPayData**](OrderPayData.md) |  | [optional] 
 
 ## Methods
@@ -155,16 +155,6 @@ SetAction sets Action field to given value.
 
 HasAction returns a boolean if a field has been set.
 
-### SetActionNil
-
-`func (o *PayOrderEntity) SetActionNil(b bool)`
-
- SetActionNil sets the value for Action to be an explicit nil
-
-### UnsetAction
-`func (o *PayOrderEntity) UnsetAction()`
-
-UnsetAction ensures that no value is present for Action, not even an explicit nil
 ### GetData
 
 `func (o *PayOrderEntity) GetData() OrderPayData`

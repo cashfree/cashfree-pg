@@ -153,40 +153,5 @@ func (obj *OfferValidationsPaymentMethod) GetActualInstance() (interface{}) {
 	return nil
 }
 
-type NullableOfferValidationsPaymentMethod struct {
-	value *OfferValidationsPaymentMethod
-	isSet bool
-}
-
-func (v NullableOfferValidationsPaymentMethod) Get() *OfferValidationsPaymentMethod {
-	return v.value
-}
-
-func (v *NullableOfferValidationsPaymentMethod) Set(val *OfferValidationsPaymentMethod) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferValidationsPaymentMethod) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferValidationsPaymentMethod) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferValidationsPaymentMethod(val *OfferValidationsPaymentMethod) *NullableOfferValidationsPaymentMethod {
-	return &NullableOfferValidationsPaymentMethod{value: val, isSet: true}
-}
-
-func (v NullableOfferValidationsPaymentMethod) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferValidationsPaymentMethod) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

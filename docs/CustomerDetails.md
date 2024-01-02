@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomerId** | **string** | A unique identifier for the customer. Use alphanumeric values only. | 
-**CustomerEmail** | Pointer to **NullableString** | Customer email address. | [optional] 
+**CustomerEmail** | Pointer to **string** | Customer email address. | [optional] 
 **CustomerPhone** | **string** | Customer phone number. | 
-**CustomerName** | Pointer to **NullableString** | Name of the customer. | [optional] 
-**CustomerBankAccountNumber** | Pointer to **NullableString** | Customer bank account. Required if you want to do a bank account check (TPV) | [optional] 
-**CustomerBankIfsc** | Pointer to **NullableString** | Customer bank IFSC. Required if you want to do a bank account check (TPV) | [optional] 
-**CustomerBankCode** | Pointer to **NullableFloat32** | Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV) | [optional] 
+**CustomerName** | Pointer to **string** | Name of the customer. | [optional] 
+**CustomerBankAccountNumber** | Pointer to **string** | Customer bank account. Required if you want to do a bank account check (TPV) | [optional] 
+**CustomerBankIfsc** | Pointer to **string** | Customer bank IFSC. Required if you want to do a bank account check (TPV) | [optional] 
+**CustomerBankCode** | Pointer to **float32** | Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV) | [optional] 
 
 ## Methods
 
@@ -76,16 +76,6 @@ SetCustomerEmail sets CustomerEmail field to given value.
 
 HasCustomerEmail returns a boolean if a field has been set.
 
-### SetCustomerEmailNil
-
-`func (o *CustomerDetails) SetCustomerEmailNil(b bool)`
-
- SetCustomerEmailNil sets the value for CustomerEmail to be an explicit nil
-
-### UnsetCustomerEmail
-`func (o *CustomerDetails) UnsetCustomerEmail()`
-
-UnsetCustomerEmail ensures that no value is present for CustomerEmail, not even an explicit nil
 ### GetCustomerPhone
 
 `func (o *CustomerDetails) GetCustomerPhone() string`
@@ -131,16 +121,6 @@ SetCustomerName sets CustomerName field to given value.
 
 HasCustomerName returns a boolean if a field has been set.
 
-### SetCustomerNameNil
-
-`func (o *CustomerDetails) SetCustomerNameNil(b bool)`
-
- SetCustomerNameNil sets the value for CustomerName to be an explicit nil
-
-### UnsetCustomerName
-`func (o *CustomerDetails) UnsetCustomerName()`
-
-UnsetCustomerName ensures that no value is present for CustomerName, not even an explicit nil
 ### GetCustomerBankAccountNumber
 
 `func (o *CustomerDetails) GetCustomerBankAccountNumber() string`
@@ -166,16 +146,6 @@ SetCustomerBankAccountNumber sets CustomerBankAccountNumber field to given value
 
 HasCustomerBankAccountNumber returns a boolean if a field has been set.
 
-### SetCustomerBankAccountNumberNil
-
-`func (o *CustomerDetails) SetCustomerBankAccountNumberNil(b bool)`
-
- SetCustomerBankAccountNumberNil sets the value for CustomerBankAccountNumber to be an explicit nil
-
-### UnsetCustomerBankAccountNumber
-`func (o *CustomerDetails) UnsetCustomerBankAccountNumber()`
-
-UnsetCustomerBankAccountNumber ensures that no value is present for CustomerBankAccountNumber, not even an explicit nil
 ### GetCustomerBankIfsc
 
 `func (o *CustomerDetails) GetCustomerBankIfsc() string`
@@ -201,16 +171,6 @@ SetCustomerBankIfsc sets CustomerBankIfsc field to given value.
 
 HasCustomerBankIfsc returns a boolean if a field has been set.
 
-### SetCustomerBankIfscNil
-
-`func (o *CustomerDetails) SetCustomerBankIfscNil(b bool)`
-
- SetCustomerBankIfscNil sets the value for CustomerBankIfsc to be an explicit nil
-
-### UnsetCustomerBankIfsc
-`func (o *CustomerDetails) UnsetCustomerBankIfsc()`
-
-UnsetCustomerBankIfsc ensures that no value is present for CustomerBankIfsc, not even an explicit nil
 ### GetCustomerBankCode
 
 `func (o *CustomerDetails) GetCustomerBankCode() float32`
@@ -236,16 +196,6 @@ SetCustomerBankCode sets CustomerBankCode field to given value.
 
 HasCustomerBankCode returns a boolean if a field has been set.
 
-### SetCustomerBankCodeNil
-
-`func (o *CustomerDetails) SetCustomerBankCodeNil(b bool)`
-
- SetCustomerBankCodeNil sets the value for CustomerBankCode to be an explicit nil
-
-### UnsetCustomerBankCode
-`func (o *CustomerDetails) UnsetCustomerBankCode()`
-
-UnsetCustomerBankCode ensures that no value is present for CustomerBankCode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

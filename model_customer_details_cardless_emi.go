@@ -24,47 +24,6 @@ type CustomerDetailsCardlessEMI struct {
 	CustomerPhone string `json:"customer_phone"`
 }
 
-// NewCustomerDetailsCardlessEMI instantiates a new CustomerDetailsCardlessEMI object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewCustomerDetailsCardlessEMI(customerPhone string) *CustomerDetailsCardlessEMI {
-	this := CustomerDetailsCardlessEMI{}
-	this.CustomerPhone = customerPhone
-	return &this
-}
-
-// NewCustomerDetailsCardlessEMIWithDefaults instantiates a new CustomerDetailsCardlessEMI object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewCustomerDetailsCardlessEMIWithDefaults() *CustomerDetailsCardlessEMI {
-	this := CustomerDetailsCardlessEMI{}
-	return &this
-}
-
-// GetCustomerPhone returns the CustomerPhone field value
-func (o *CustomerDetailsCardlessEMI) GetCustomerPhone() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.CustomerPhone
-}
-
-// GetCustomerPhoneOk returns a tuple with the CustomerPhone field value
-// and a boolean to check if the value has been set.
-func (o *CustomerDetailsCardlessEMI) GetCustomerPhoneOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CustomerPhone, true
-}
-
-// SetCustomerPhone sets field value
-func (o *CustomerDetailsCardlessEMI) SetCustomerPhone(v string) {
-	o.CustomerPhone = v
-}
 
 func (o CustomerDetailsCardlessEMI) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -80,40 +39,5 @@ func (o CustomerDetailsCardlessEMI) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableCustomerDetailsCardlessEMI struct {
-	value *CustomerDetailsCardlessEMI
-	isSet bool
-}
-
-func (v NullableCustomerDetailsCardlessEMI) Get() *CustomerDetailsCardlessEMI {
-	return v.value
-}
-
-func (v *NullableCustomerDetailsCardlessEMI) Set(val *CustomerDetailsCardlessEMI) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableCustomerDetailsCardlessEMI) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableCustomerDetailsCardlessEMI) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableCustomerDetailsCardlessEMI(val *CustomerDetailsCardlessEMI) *NullableCustomerDetailsCardlessEMI {
-	return &NullableCustomerDetailsCardlessEMI{value: val, isSet: true}
-}
-
-func (v NullableCustomerDetailsCardlessEMI) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableCustomerDetailsCardlessEMI) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

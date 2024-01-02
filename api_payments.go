@@ -132,7 +132,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -143,7 +147,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -154,7 +162,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -165,7 +177,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -176,7 +192,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -187,7 +207,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -198,7 +222,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -209,7 +237,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -310,7 +342,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.0.8"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.1.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -340,7 +372,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -351,7 +387,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -362,7 +402,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -373,7 +417,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -384,7 +432,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -395,7 +447,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -406,7 +462,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -417,7 +477,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -550,7 +614,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -561,7 +629,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -572,7 +644,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -583,7 +659,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -594,7 +674,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -605,7 +689,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -616,7 +704,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -627,7 +719,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -728,7 +824,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.0.8"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.1.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -758,7 +854,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -769,7 +869,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -780,7 +884,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -791,7 +899,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -802,7 +914,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -813,7 +929,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -824,7 +944,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -835,7 +959,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -964,7 +1092,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -975,7 +1107,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -986,7 +1122,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -997,7 +1137,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1008,7 +1152,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1019,7 +1167,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1030,7 +1182,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1041,7 +1197,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -1138,7 +1298,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.0.8"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.1.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1168,7 +1328,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1179,7 +1343,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1190,7 +1358,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1201,7 +1373,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1212,7 +1388,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1223,7 +1403,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1234,7 +1418,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1245,7 +1433,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -1373,7 +1565,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1384,7 +1580,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1395,7 +1595,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1406,7 +1610,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1417,7 +1625,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1428,7 +1640,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1439,7 +1655,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1450,7 +1670,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -1546,7 +1770,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.0.8"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.1.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1576,7 +1800,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1587,7 +1815,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1598,7 +1830,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1609,7 +1845,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1620,7 +1860,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1631,7 +1875,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1642,7 +1890,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1653,7 +1905,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -1785,7 +2041,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1796,7 +2056,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1807,7 +2071,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1818,7 +2086,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1829,7 +2101,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1840,7 +2116,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1851,7 +2131,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -1862,7 +2146,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
@@ -1962,7 +2250,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.0.8"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.1.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1992,7 +2280,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -2003,7 +2295,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -2014,7 +2310,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -2025,7 +2325,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -2036,7 +2340,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -2047,7 +2355,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -2058,7 +2370,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
@@ -2069,7 +2385,11 @@ if XPartnerApiKey != nil {
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
 					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr

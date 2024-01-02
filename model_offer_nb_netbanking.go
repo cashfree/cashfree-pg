@@ -23,54 +23,6 @@ type OfferNBNetbanking struct {
 	BankName *string `json:"bank_name,omitempty"`
 }
 
-// NewOfferNBNetbanking instantiates a new OfferNBNetbanking object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOfferNBNetbanking() *OfferNBNetbanking {
-	this := OfferNBNetbanking{}
-	return &this
-}
-
-// NewOfferNBNetbankingWithDefaults instantiates a new OfferNBNetbanking object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOfferNBNetbankingWithDefaults() *OfferNBNetbanking {
-	this := OfferNBNetbanking{}
-	return &this
-}
-
-// GetBankName returns the BankName field value if set, zero value otherwise.
-func (o *OfferNBNetbanking) GetBankName() string {
-	if o == nil || IsNil(o.BankName) {
-		var ret string
-		return ret
-	}
-	return *o.BankName
-}
-
-// GetBankNameOk returns a tuple with the BankName field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *OfferNBNetbanking) GetBankNameOk() (*string, bool) {
-	if o == nil || IsNil(o.BankName) {
-		return nil, false
-	}
-	return o.BankName, true
-}
-
-// HasBankName returns a boolean if a field has been set.
-func (o *OfferNBNetbanking) HasBankName() bool {
-	if o != nil && !IsNil(o.BankName) {
-		return true
-	}
-
-	return false
-}
-
-// SetBankName gets a reference to the given string and assigns it to the BankName field.
-func (o *OfferNBNetbanking) SetBankName(v string) {
-	o.BankName = &v
-}
 
 func (o OfferNBNetbanking) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -88,40 +40,5 @@ func (o OfferNBNetbanking) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableOfferNBNetbanking struct {
-	value *OfferNBNetbanking
-	isSet bool
-}
-
-func (v NullableOfferNBNetbanking) Get() *OfferNBNetbanking {
-	return v.value
-}
-
-func (v *NullableOfferNBNetbanking) Set(val *OfferNBNetbanking) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferNBNetbanking) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferNBNetbanking) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferNBNetbanking(val *OfferNBNetbanking) *NullableOfferNBNetbanking {
-	return &NullableOfferNBNetbanking{value: val, isSet: true}
-}
-
-func (v NullableOfferNBNetbanking) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferNBNetbanking) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

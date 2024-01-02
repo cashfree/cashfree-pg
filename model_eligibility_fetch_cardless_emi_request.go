@@ -23,47 +23,6 @@ type EligibilityFetchCardlessEMIRequest struct {
 	Queries CardlessEMIQueries `json:"queries"`
 }
 
-// NewEligibilityFetchCardlessEMIRequest instantiates a new EligibilityFetchCardlessEMIRequest object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewEligibilityFetchCardlessEMIRequest(queries CardlessEMIQueries) *EligibilityFetchCardlessEMIRequest {
-	this := EligibilityFetchCardlessEMIRequest{}
-	this.Queries = queries
-	return &this
-}
-
-// NewEligibilityFetchCardlessEMIRequestWithDefaults instantiates a new EligibilityFetchCardlessEMIRequest object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewEligibilityFetchCardlessEMIRequestWithDefaults() *EligibilityFetchCardlessEMIRequest {
-	this := EligibilityFetchCardlessEMIRequest{}
-	return &this
-}
-
-// GetQueries returns the Queries field value
-func (o *EligibilityFetchCardlessEMIRequest) GetQueries() CardlessEMIQueries {
-	if o == nil {
-		var ret CardlessEMIQueries
-		return ret
-	}
-
-	return o.Queries
-}
-
-// GetQueriesOk returns a tuple with the Queries field value
-// and a boolean to check if the value has been set.
-func (o *EligibilityFetchCardlessEMIRequest) GetQueriesOk() (*CardlessEMIQueries, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Queries, true
-}
-
-// SetQueries sets field value
-func (o *EligibilityFetchCardlessEMIRequest) SetQueries(v CardlessEMIQueries) {
-	o.Queries = v
-}
 
 func (o EligibilityFetchCardlessEMIRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o EligibilityFetchCardlessEMIRequest) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
-type NullableEligibilityFetchCardlessEMIRequest struct {
-	value *EligibilityFetchCardlessEMIRequest
-	isSet bool
-}
-
-func (v NullableEligibilityFetchCardlessEMIRequest) Get() *EligibilityFetchCardlessEMIRequest {
-	return v.value
-}
-
-func (v *NullableEligibilityFetchCardlessEMIRequest) Set(val *EligibilityFetchCardlessEMIRequest) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableEligibilityFetchCardlessEMIRequest) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableEligibilityFetchCardlessEMIRequest) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableEligibilityFetchCardlessEMIRequest(val *EligibilityFetchCardlessEMIRequest) *NullableEligibilityFetchCardlessEMIRequest {
-	return &NullableEligibilityFetchCardlessEMIRequest{value: val, isSet: true}
-}
-
-func (v NullableEligibilityFetchCardlessEMIRequest) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableEligibilityFetchCardlessEMIRequest) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 
