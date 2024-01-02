@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Limit** | **int32** | Number of settlements you want to fetch in the next iteration. Maximum limit is 1000, default value is 10. | 
-**Cursor** | Pointer to **NullableString** | Specifies from where the next set of settlement details should be fetched. | [optional] 
+**Cursor** | Pointer to **string** | Specifies from where the next set of settlement details should be fetched. | [optional] 
 
 ## Methods
 
@@ -71,16 +71,6 @@ SetCursor sets Cursor field to given value.
 
 HasCursor returns a boolean if a field has been set.
 
-### SetCursorNil
-
-`func (o *FetchReconRequestPagination) SetCursorNil(b bool)`
-
- SetCursorNil sets the value for Cursor to be an explicit nil
-
-### UnsetCursor
-`func (o *FetchReconRequestPagination) UnsetCursor()`
-
-UnsetCursor ensures that no value is present for Cursor, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

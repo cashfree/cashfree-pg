@@ -26,72 +26,6 @@ type OfferTnc struct {
 	OfferTncValue string `json:"offer_tnc_value"`
 }
 
-// NewOfferTnc instantiates a new OfferTnc object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOfferTnc(offerTncType string, offerTncValue string) *OfferTnc {
-	this := OfferTnc{}
-	this.OfferTncType = offerTncType
-	this.OfferTncValue = offerTncValue
-	return &this
-}
-
-// NewOfferTncWithDefaults instantiates a new OfferTnc object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOfferTncWithDefaults() *OfferTnc {
-	this := OfferTnc{}
-	return &this
-}
-
-// GetOfferTncType returns the OfferTncType field value
-func (o *OfferTnc) GetOfferTncType() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.OfferTncType
-}
-
-// GetOfferTncTypeOk returns a tuple with the OfferTncType field value
-// and a boolean to check if the value has been set.
-func (o *OfferTnc) GetOfferTncTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OfferTncType, true
-}
-
-// SetOfferTncType sets field value
-func (o *OfferTnc) SetOfferTncType(v string) {
-	o.OfferTncType = v
-}
-
-// GetOfferTncValue returns the OfferTncValue field value
-func (o *OfferTnc) GetOfferTncValue() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.OfferTncValue
-}
-
-// GetOfferTncValueOk returns a tuple with the OfferTncValue field value
-// and a boolean to check if the value has been set.
-func (o *OfferTnc) GetOfferTncValueOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.OfferTncValue, true
-}
-
-// SetOfferTncValue sets field value
-func (o *OfferTnc) SetOfferTncValue(v string) {
-	o.OfferTncValue = v
-}
 
 func (o OfferTnc) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -108,40 +42,5 @@ func (o OfferTnc) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableOfferTnc struct {
-	value *OfferTnc
-	isSet bool
-}
-
-func (v NullableOfferTnc) Get() *OfferTnc {
-	return v.value
-}
-
-func (v *NullableOfferTnc) Set(val *OfferTnc) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferTnc) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferTnc) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferTnc(val *OfferTnc) *NullableOfferTnc {
-	return &NullableOfferTnc{value: val, isSet: true}
-}
-
-func (v NullableOfferTnc) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferTnc) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

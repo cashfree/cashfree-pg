@@ -23,47 +23,6 @@ type EligibilityFetchPaylaterRequest struct {
 	Queries CardlessEMIQueries `json:"queries"`
 }
 
-// NewEligibilityFetchPaylaterRequest instantiates a new EligibilityFetchPaylaterRequest object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewEligibilityFetchPaylaterRequest(queries CardlessEMIQueries) *EligibilityFetchPaylaterRequest {
-	this := EligibilityFetchPaylaterRequest{}
-	this.Queries = queries
-	return &this
-}
-
-// NewEligibilityFetchPaylaterRequestWithDefaults instantiates a new EligibilityFetchPaylaterRequest object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewEligibilityFetchPaylaterRequestWithDefaults() *EligibilityFetchPaylaterRequest {
-	this := EligibilityFetchPaylaterRequest{}
-	return &this
-}
-
-// GetQueries returns the Queries field value
-func (o *EligibilityFetchPaylaterRequest) GetQueries() CardlessEMIQueries {
-	if o == nil {
-		var ret CardlessEMIQueries
-		return ret
-	}
-
-	return o.Queries
-}
-
-// GetQueriesOk returns a tuple with the Queries field value
-// and a boolean to check if the value has been set.
-func (o *EligibilityFetchPaylaterRequest) GetQueriesOk() (*CardlessEMIQueries, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Queries, true
-}
-
-// SetQueries sets field value
-func (o *EligibilityFetchPaylaterRequest) SetQueries(v CardlessEMIQueries) {
-	o.Queries = v
-}
 
 func (o EligibilityFetchPaylaterRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o EligibilityFetchPaylaterRequest) ToMap() (map[string]interface{}, error)
 	return toSerialize, nil
 }
 
-type NullableEligibilityFetchPaylaterRequest struct {
-	value *EligibilityFetchPaylaterRequest
-	isSet bool
-}
-
-func (v NullableEligibilityFetchPaylaterRequest) Get() *EligibilityFetchPaylaterRequest {
-	return v.value
-}
-
-func (v *NullableEligibilityFetchPaylaterRequest) Set(val *EligibilityFetchPaylaterRequest) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableEligibilityFetchPaylaterRequest) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableEligibilityFetchPaylaterRequest) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableEligibilityFetchPaylaterRequest(val *EligibilityFetchPaylaterRequest) *NullableEligibilityFetchPaylaterRequest {
-	return &NullableEligibilityFetchPaylaterRequest{value: val, isSet: true}
-}
-
-func (v NullableEligibilityFetchPaylaterRequest) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableEligibilityFetchPaylaterRequest) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

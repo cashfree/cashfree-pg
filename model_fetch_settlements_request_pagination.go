@@ -26,79 +26,6 @@ type FetchSettlementsRequestPagination struct {
 	Cursor *string `json:"cursor,omitempty"`
 }
 
-// NewFetchSettlementsRequestPagination instantiates a new FetchSettlementsRequestPagination object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewFetchSettlementsRequestPagination(limit int32) *FetchSettlementsRequestPagination {
-	this := FetchSettlementsRequestPagination{}
-	this.Limit = limit
-	return &this
-}
-
-// NewFetchSettlementsRequestPaginationWithDefaults instantiates a new FetchSettlementsRequestPagination object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewFetchSettlementsRequestPaginationWithDefaults() *FetchSettlementsRequestPagination {
-	this := FetchSettlementsRequestPagination{}
-	return &this
-}
-
-// GetLimit returns the Limit field value
-func (o *FetchSettlementsRequestPagination) GetLimit() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Limit
-}
-
-// GetLimitOk returns a tuple with the Limit field value
-// and a boolean to check if the value has been set.
-func (o *FetchSettlementsRequestPagination) GetLimitOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Limit, true
-}
-
-// SetLimit sets field value
-func (o *FetchSettlementsRequestPagination) SetLimit(v int32) {
-	o.Limit = v
-}
-
-// GetCursor returns the Cursor field value if set, zero value otherwise.
-func (o *FetchSettlementsRequestPagination) GetCursor() string {
-	if o == nil || IsNil(o.Cursor) {
-		var ret string
-		return ret
-	}
-	return *o.Cursor
-}
-
-// GetCursorOk returns a tuple with the Cursor field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *FetchSettlementsRequestPagination) GetCursorOk() (*string, bool) {
-	if o == nil || IsNil(o.Cursor) {
-		return nil, false
-	}
-	return o.Cursor, true
-}
-
-// HasCursor returns a boolean if a field has been set.
-func (o *FetchSettlementsRequestPagination) HasCursor() bool {
-	if o != nil && !IsNil(o.Cursor) {
-		return true
-	}
-
-	return false
-}
-
-// SetCursor gets a reference to the given string and assigns it to the Cursor field.
-func (o *FetchSettlementsRequestPagination) SetCursor(v string) {
-	o.Cursor = &v
-}
 
 func (o FetchSettlementsRequestPagination) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -117,40 +44,5 @@ func (o FetchSettlementsRequestPagination) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
-type NullableFetchSettlementsRequestPagination struct {
-	value *FetchSettlementsRequestPagination
-	isSet bool
-}
-
-func (v NullableFetchSettlementsRequestPagination) Get() *FetchSettlementsRequestPagination {
-	return v.value
-}
-
-func (v *NullableFetchSettlementsRequestPagination) Set(val *FetchSettlementsRequestPagination) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableFetchSettlementsRequestPagination) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableFetchSettlementsRequestPagination) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableFetchSettlementsRequestPagination(val *FetchSettlementsRequestPagination) *NullableFetchSettlementsRequestPagination {
-	return &NullableFetchSettlementsRequestPagination{value: val, isSet: true}
-}
-
-func (v NullableFetchSettlementsRequestPagination) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableFetchSettlementsRequestPagination) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

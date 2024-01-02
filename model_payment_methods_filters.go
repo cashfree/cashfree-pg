@@ -24,54 +24,6 @@ type PaymentMethodsFilters struct {
 	PaymentMethods []string `json:"payment_methods,omitempty"`
 }
 
-// NewPaymentMethodsFilters instantiates a new PaymentMethodsFilters object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewPaymentMethodsFilters() *PaymentMethodsFilters {
-	this := PaymentMethodsFilters{}
-	return &this
-}
-
-// NewPaymentMethodsFiltersWithDefaults instantiates a new PaymentMethodsFilters object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewPaymentMethodsFiltersWithDefaults() *PaymentMethodsFilters {
-	this := PaymentMethodsFilters{}
-	return &this
-}
-
-// GetPaymentMethods returns the PaymentMethods field value if set, zero value otherwise.
-func (o *PaymentMethodsFilters) GetPaymentMethods() []string {
-	if o == nil || IsNil(o.PaymentMethods) {
-		var ret []string
-		return ret
-	}
-	return o.PaymentMethods
-}
-
-// GetPaymentMethodsOk returns a tuple with the PaymentMethods field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *PaymentMethodsFilters) GetPaymentMethodsOk() ([]string, bool) {
-	if o == nil || IsNil(o.PaymentMethods) {
-		return nil, false
-	}
-	return o.PaymentMethods, true
-}
-
-// HasPaymentMethods returns a boolean if a field has been set.
-func (o *PaymentMethodsFilters) HasPaymentMethods() bool {
-	if o != nil && !IsNil(o.PaymentMethods) {
-		return true
-	}
-
-	return false
-}
-
-// SetPaymentMethods gets a reference to the given []string and assigns it to the PaymentMethods field.
-func (o *PaymentMethodsFilters) SetPaymentMethods(v []string) {
-	o.PaymentMethods = v
-}
 
 func (o PaymentMethodsFilters) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -89,40 +41,5 @@ func (o PaymentMethodsFilters) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullablePaymentMethodsFilters struct {
-	value *PaymentMethodsFilters
-	isSet bool
-}
-
-func (v NullablePaymentMethodsFilters) Get() *PaymentMethodsFilters {
-	return v.value
-}
-
-func (v *NullablePaymentMethodsFilters) Set(val *PaymentMethodsFilters) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullablePaymentMethodsFilters) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullablePaymentMethodsFilters) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullablePaymentMethodsFilters(val *PaymentMethodsFilters) *NullablePaymentMethodsFilters {
-	return &NullablePaymentMethodsFilters{value: val, isSet: true}
-}
-
-func (v NullablePaymentMethodsFilters) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullablePaymentMethodsFilters) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

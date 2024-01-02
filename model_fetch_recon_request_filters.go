@@ -26,72 +26,6 @@ type FetchReconRequestFilters struct {
 	EndDate string `json:"end_date"`
 }
 
-// NewFetchReconRequestFilters instantiates a new FetchReconRequestFilters object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewFetchReconRequestFilters(startDate string, endDate string) *FetchReconRequestFilters {
-	this := FetchReconRequestFilters{}
-	this.StartDate = startDate
-	this.EndDate = endDate
-	return &this
-}
-
-// NewFetchReconRequestFiltersWithDefaults instantiates a new FetchReconRequestFilters object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewFetchReconRequestFiltersWithDefaults() *FetchReconRequestFilters {
-	this := FetchReconRequestFilters{}
-	return &this
-}
-
-// GetStartDate returns the StartDate field value
-func (o *FetchReconRequestFilters) GetStartDate() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.StartDate
-}
-
-// GetStartDateOk returns a tuple with the StartDate field value
-// and a boolean to check if the value has been set.
-func (o *FetchReconRequestFilters) GetStartDateOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.StartDate, true
-}
-
-// SetStartDate sets field value
-func (o *FetchReconRequestFilters) SetStartDate(v string) {
-	o.StartDate = v
-}
-
-// GetEndDate returns the EndDate field value
-func (o *FetchReconRequestFilters) GetEndDate() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.EndDate
-}
-
-// GetEndDateOk returns a tuple with the EndDate field value
-// and a boolean to check if the value has been set.
-func (o *FetchReconRequestFilters) GetEndDateOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.EndDate, true
-}
-
-// SetEndDate sets field value
-func (o *FetchReconRequestFilters) SetEndDate(v string) {
-	o.EndDate = v
-}
 
 func (o FetchReconRequestFilters) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -108,40 +42,5 @@ func (o FetchReconRequestFilters) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableFetchReconRequestFilters struct {
-	value *FetchReconRequestFilters
-	isSet bool
-}
-
-func (v NullableFetchReconRequestFilters) Get() *FetchReconRequestFilters {
-	return v.value
-}
-
-func (v *NullableFetchReconRequestFilters) Set(val *FetchReconRequestFilters) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableFetchReconRequestFilters) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableFetchReconRequestFilters) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableFetchReconRequestFilters(val *FetchReconRequestFilters) *NullableFetchReconRequestFilters {
-	return &NullableFetchReconRequestFilters{value: val, isSet: true}
-}
-
-func (v NullableFetchReconRequestFilters) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableFetchReconRequestFilters) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

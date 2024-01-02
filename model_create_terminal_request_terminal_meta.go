@@ -24,54 +24,6 @@ type CreateTerminalRequestTerminalMeta struct {
 	TerminalOperator *string `json:"terminal_operator,omitempty"`
 }
 
-// NewCreateTerminalRequestTerminalMeta instantiates a new CreateTerminalRequestTerminalMeta object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewCreateTerminalRequestTerminalMeta() *CreateTerminalRequestTerminalMeta {
-	this := CreateTerminalRequestTerminalMeta{}
-	return &this
-}
-
-// NewCreateTerminalRequestTerminalMetaWithDefaults instantiates a new CreateTerminalRequestTerminalMeta object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewCreateTerminalRequestTerminalMetaWithDefaults() *CreateTerminalRequestTerminalMeta {
-	this := CreateTerminalRequestTerminalMeta{}
-	return &this
-}
-
-// GetTerminalOperator returns the TerminalOperator field value if set, zero value otherwise.
-func (o *CreateTerminalRequestTerminalMeta) GetTerminalOperator() string {
-	if o == nil || IsNil(o.TerminalOperator) {
-		var ret string
-		return ret
-	}
-	return *o.TerminalOperator
-}
-
-// GetTerminalOperatorOk returns a tuple with the TerminalOperator field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateTerminalRequestTerminalMeta) GetTerminalOperatorOk() (*string, bool) {
-	if o == nil || IsNil(o.TerminalOperator) {
-		return nil, false
-	}
-	return o.TerminalOperator, true
-}
-
-// HasTerminalOperator returns a boolean if a field has been set.
-func (o *CreateTerminalRequestTerminalMeta) HasTerminalOperator() bool {
-	if o != nil && !IsNil(o.TerminalOperator) {
-		return true
-	}
-
-	return false
-}
-
-// SetTerminalOperator gets a reference to the given string and assigns it to the TerminalOperator field.
-func (o *CreateTerminalRequestTerminalMeta) SetTerminalOperator(v string) {
-	o.TerminalOperator = &v
-}
 
 func (o CreateTerminalRequestTerminalMeta) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -89,40 +41,5 @@ func (o CreateTerminalRequestTerminalMeta) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
-type NullableCreateTerminalRequestTerminalMeta struct {
-	value *CreateTerminalRequestTerminalMeta
-	isSet bool
-}
-
-func (v NullableCreateTerminalRequestTerminalMeta) Get() *CreateTerminalRequestTerminalMeta {
-	return v.value
-}
-
-func (v *NullableCreateTerminalRequestTerminalMeta) Set(val *CreateTerminalRequestTerminalMeta) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableCreateTerminalRequestTerminalMeta) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableCreateTerminalRequestTerminalMeta) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableCreateTerminalRequestTerminalMeta(val *CreateTerminalRequestTerminalMeta) *NullableCreateTerminalRequestTerminalMeta {
-	return &NullableCreateTerminalRequestTerminalMeta{value: val, isSet: true}
-}
-
-func (v NullableCreateTerminalRequestTerminalMeta) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableCreateTerminalRequestTerminalMeta) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

@@ -23,47 +23,6 @@ type UPIPaymentMethod struct {
 	Upi Upi `json:"upi"`
 }
 
-// NewUPIPaymentMethod instantiates a new UPIPaymentMethod object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewUPIPaymentMethod(upi Upi) *UPIPaymentMethod {
-	this := UPIPaymentMethod{}
-	this.Upi = upi
-	return &this
-}
-
-// NewUPIPaymentMethodWithDefaults instantiates a new UPIPaymentMethod object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewUPIPaymentMethodWithDefaults() *UPIPaymentMethod {
-	this := UPIPaymentMethod{}
-	return &this
-}
-
-// GetUpi returns the Upi field value
-func (o *UPIPaymentMethod) GetUpi() Upi {
-	if o == nil {
-		var ret Upi
-		return ret
-	}
-
-	return o.Upi
-}
-
-// GetUpiOk returns a tuple with the Upi field value
-// and a boolean to check if the value has been set.
-func (o *UPIPaymentMethod) GetUpiOk() (*Upi, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Upi, true
-}
-
-// SetUpi sets field value
-func (o *UPIPaymentMethod) SetUpi(v Upi) {
-	o.Upi = v
-}
 
 func (o UPIPaymentMethod) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o UPIPaymentMethod) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableUPIPaymentMethod struct {
-	value *UPIPaymentMethod
-	isSet bool
-}
-
-func (v NullableUPIPaymentMethod) Get() *UPIPaymentMethod {
-	return v.value
-}
-
-func (v *NullableUPIPaymentMethod) Set(val *UPIPaymentMethod) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableUPIPaymentMethod) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableUPIPaymentMethod) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableUPIPaymentMethod(val *UPIPaymentMethod) *NullableUPIPaymentMethod {
-	return &NullableUPIPaymentMethod{value: val, isSet: true}
-}
-
-func (v NullableUPIPaymentMethod) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableUPIPaymentMethod) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

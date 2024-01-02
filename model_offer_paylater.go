@@ -23,47 +23,6 @@ type OfferPaylater struct {
 	Paylater PaylaterOffer `json:"paylater"`
 }
 
-// NewOfferPaylater instantiates a new OfferPaylater object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOfferPaylater(paylater PaylaterOffer) *OfferPaylater {
-	this := OfferPaylater{}
-	this.Paylater = paylater
-	return &this
-}
-
-// NewOfferPaylaterWithDefaults instantiates a new OfferPaylater object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOfferPaylaterWithDefaults() *OfferPaylater {
-	this := OfferPaylater{}
-	return &this
-}
-
-// GetPaylater returns the Paylater field value
-func (o *OfferPaylater) GetPaylater() PaylaterOffer {
-	if o == nil {
-		var ret PaylaterOffer
-		return ret
-	}
-
-	return o.Paylater
-}
-
-// GetPaylaterOk returns a tuple with the Paylater field value
-// and a boolean to check if the value has been set.
-func (o *OfferPaylater) GetPaylaterOk() (*PaylaterOffer, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Paylater, true
-}
-
-// SetPaylater sets field value
-func (o *OfferPaylater) SetPaylater(v PaylaterOffer) {
-	o.Paylater = v
-}
 
 func (o OfferPaylater) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o OfferPaylater) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableOfferPaylater struct {
-	value *OfferPaylater
-	isSet bool
-}
-
-func (v NullableOfferPaylater) Get() *OfferPaylater {
-	return v.value
-}
-
-func (v *NullableOfferPaylater) Set(val *OfferPaylater) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOfferPaylater) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOfferPaylater) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOfferPaylater(val *OfferPaylater) *NullableOfferPaylater {
-	return &NullableOfferPaylater{value: val, isSet: true}
-}
-
-func (v NullableOfferPaylater) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOfferPaylater) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

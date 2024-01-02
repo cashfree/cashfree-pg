@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Url** | Pointer to **NullableString** |  | [optional] 
+**Url** | Pointer to **string** |  | [optional] 
 **Payload** | Pointer to **map[string]interface{}** |  | [optional] 
-**ContentType** | Pointer to **NullableString** |  | [optional] 
-**Method** | Pointer to **NullableString** |  | [optional] 
+**ContentType** | Pointer to **string** |  | [optional] 
+**Method** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -53,16 +53,6 @@ SetUrl sets Url field to given value.
 
 HasUrl returns a boolean if a field has been set.
 
-### SetUrlNil
-
-`func (o *OrderPayData) SetUrlNil(b bool)`
-
- SetUrlNil sets the value for Url to be an explicit nil
-
-### UnsetUrl
-`func (o *OrderPayData) UnsetUrl()`
-
-UnsetUrl ensures that no value is present for Url, not even an explicit nil
 ### GetPayload
 
 `func (o *OrderPayData) GetPayload() map[string]interface{}`
@@ -88,16 +78,6 @@ SetPayload sets Payload field to given value.
 
 HasPayload returns a boolean if a field has been set.
 
-### SetPayloadNil
-
-`func (o *OrderPayData) SetPayloadNil(b bool)`
-
- SetPayloadNil sets the value for Payload to be an explicit nil
-
-### UnsetPayload
-`func (o *OrderPayData) UnsetPayload()`
-
-UnsetPayload ensures that no value is present for Payload, not even an explicit nil
 ### GetContentType
 
 `func (o *OrderPayData) GetContentType() string`
@@ -123,16 +103,6 @@ SetContentType sets ContentType field to given value.
 
 HasContentType returns a boolean if a field has been set.
 
-### SetContentTypeNil
-
-`func (o *OrderPayData) SetContentTypeNil(b bool)`
-
- SetContentTypeNil sets the value for ContentType to be an explicit nil
-
-### UnsetContentType
-`func (o *OrderPayData) UnsetContentType()`
-
-UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
 ### GetMethod
 
 `func (o *OrderPayData) GetMethod() string`
@@ -158,16 +128,6 @@ SetMethod sets Method field to given value.
 
 HasMethod returns a boolean if a field has been set.
 
-### SetMethodNil
-
-`func (o *OrderPayData) SetMethodNil(b bool)`
-
- SetMethodNil sets the value for Method to be an explicit nil
-
-### UnsetMethod
-`func (o *OrderPayData) UnsetMethod()`
-
-UnsetMethod ensures that no value is present for Method, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

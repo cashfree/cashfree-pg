@@ -1,5 +1,5 @@
 # Cashfree PG Go SDK
-![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg/main) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg) [![Coverage Status](https://coveralls.io/repos/github/cashfree/cashfree-pg/badge.svg?branch=main)](https://coveralls.io/github/cashfree/cashfree-pg?branch=main)
+![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg/main) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg) [![Coverage Status](https://coveralls.io/repos/github/cashfree/cashfree-pg/badge.svg?branch=main)](https://coveralls.io/github/cashfree/cashfree-pg?branch=main) [![GoDoc](https://godoc.org/github.com/cashfree/cashfree-pg/v3?status.svg)](https://godoc.org/github.com/cashfree/cashfree-pg/v3)
 
 The Cashfree PG Go SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side Go  applications. 
 
@@ -38,13 +38,7 @@ Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant D
 ### Basic Usage
 Create Order
 ```go
-returnUrlString := "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
-returnUrl := cashfree.NewNullableString(&returnUrlString)
-orderMetaRequest := cashfree.CreateOrderRequestOrderMeta{
-	ReturnUrl: *returnUrl,
-}
-
-data := cashfree.NewNullableCreateOrderRequestOrderMeta(&orderMetaRequest)
+returnUrl := "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
 
 request := cashfree.CreateOrderRequest{
 	OrderAmount:   1.0,
@@ -53,7 +47,9 @@ request := cashfree.CreateOrderRequest{
 		CustomerId:    "walterwNrcMi",
 		CustomerPhone: "9999999999",
 	},
-	OrderMeta: *data,
+	OrderMeta: &OrderMeta{
+		ReturnUrl: &returnUrl,
+	},
 }
 
 version := "2022-09-01"

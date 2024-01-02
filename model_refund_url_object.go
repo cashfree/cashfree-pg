@@ -23,54 +23,6 @@ type RefundURLObject struct {
 	Url *string `json:"url,omitempty"`
 }
 
-// NewRefundURLObject instantiates a new RefundURLObject object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewRefundURLObject() *RefundURLObject {
-	this := RefundURLObject{}
-	return &this
-}
-
-// NewRefundURLObjectWithDefaults instantiates a new RefundURLObject object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewRefundURLObjectWithDefaults() *RefundURLObject {
-	this := RefundURLObject{}
-	return &this
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise.
-func (o *RefundURLObject) GetUrl() string {
-	if o == nil || IsNil(o.Url) {
-		var ret string
-		return ret
-	}
-	return *o.Url
-}
-
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *RefundURLObject) GetUrlOk() (*string, bool) {
-	if o == nil || IsNil(o.Url) {
-		return nil, false
-	}
-	return o.Url, true
-}
-
-// HasUrl returns a boolean if a field has been set.
-func (o *RefundURLObject) HasUrl() bool {
-	if o != nil && !IsNil(o.Url) {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given string and assigns it to the Url field.
-func (o *RefundURLObject) SetUrl(v string) {
-	o.Url = &v
-}
 
 func (o RefundURLObject) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -88,40 +40,5 @@ func (o RefundURLObject) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableRefundURLObject struct {
-	value *RefundURLObject
-	isSet bool
-}
-
-func (v NullableRefundURLObject) Get() *RefundURLObject {
-	return v.value
-}
-
-func (v *NullableRefundURLObject) Set(val *RefundURLObject) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableRefundURLObject) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableRefundURLObject) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableRefundURLObject(val *RefundURLObject) *NullableRefundURLObject {
-	return &NullableRefundURLObject{value: val, isSet: true}
-}
-
-func (v NullableRefundURLObject) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableRefundURLObject) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

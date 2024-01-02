@@ -23,47 +23,6 @@ type PaylaterPaymentMethod struct {
 	Paylater Paylater `json:"paylater"`
 }
 
-// NewPaylaterPaymentMethod instantiates a new PaylaterPaymentMethod object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewPaylaterPaymentMethod(paylater Paylater) *PaylaterPaymentMethod {
-	this := PaylaterPaymentMethod{}
-	this.Paylater = paylater
-	return &this
-}
-
-// NewPaylaterPaymentMethodWithDefaults instantiates a new PaylaterPaymentMethod object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewPaylaterPaymentMethodWithDefaults() *PaylaterPaymentMethod {
-	this := PaylaterPaymentMethod{}
-	return &this
-}
-
-// GetPaylater returns the Paylater field value
-func (o *PaylaterPaymentMethod) GetPaylater() Paylater {
-	if o == nil {
-		var ret Paylater
-		return ret
-	}
-
-	return o.Paylater
-}
-
-// GetPaylaterOk returns a tuple with the Paylater field value
-// and a boolean to check if the value has been set.
-func (o *PaylaterPaymentMethod) GetPaylaterOk() (*Paylater, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Paylater, true
-}
-
-// SetPaylater sets field value
-func (o *PaylaterPaymentMethod) SetPaylater(v Paylater) {
-	o.Paylater = v
-}
 
 func (o PaylaterPaymentMethod) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -79,40 +38,5 @@ func (o PaylaterPaymentMethod) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullablePaylaterPaymentMethod struct {
-	value *PaylaterPaymentMethod
-	isSet bool
-}
-
-func (v NullablePaylaterPaymentMethod) Get() *PaylaterPaymentMethod {
-	return v.value
-}
-
-func (v *NullablePaylaterPaymentMethod) Set(val *PaylaterPaymentMethod) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullablePaylaterPaymentMethod) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullablePaylaterPaymentMethod) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullablePaylaterPaymentMethod(val *PaylaterPaymentMethod) *NullablePaylaterPaymentMethod {
-	return &NullablePaylaterPaymentMethod{value: val, isSet: true}
-}
-
-func (v NullablePaylaterPaymentMethod) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullablePaylaterPaymentMethod) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 

@@ -20,187 +20,12 @@ var _ MappedNullable = &OrderPayData{}
 
 // OrderPayData the data object pay api
 type OrderPayData struct {
-	Url NullableString `json:"url,omitempty"`
+	Url *string `json:"url,omitempty"`
 	Payload map[string]interface{} `json:"payload,omitempty"`
-	ContentType NullableString `json:"content_type,omitempty"`
-	Method NullableString `json:"method,omitempty"`
+	ContentType *string `json:"content_type,omitempty"`
+	Method *string `json:"method,omitempty"`
 }
 
-// NewOrderPayData instantiates a new OrderPayData object
-// This constructor will assign default values to properties that have it defined,
-// and makes sure properties required by API are set, but the set of arguments
-// will change when the set of required properties is changed
-func NewOrderPayData() *OrderPayData {
-	this := OrderPayData{}
-	return &this
-}
-
-// NewOrderPayDataWithDefaults instantiates a new OrderPayData object
-// This constructor will only assign default values to properties that have it defined,
-// but it doesn't guarantee that properties required by API are set
-func NewOrderPayDataWithDefaults() *OrderPayData {
-	this := OrderPayData{}
-	return &this
-}
-
-// GetUrl returns the Url field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrderPayData) GetUrl() string {
-	if o == nil || IsNil(o.Url.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Url.Get()
-}
-
-// GetUrlOk returns a tuple with the Url field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrderPayData) GetUrlOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Url.Get(), o.Url.IsSet()
-}
-
-// HasUrl returns a boolean if a field has been set.
-func (o *OrderPayData) HasUrl() bool {
-	if o != nil && o.Url.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetUrl gets a reference to the given NullableString and assigns it to the Url field.
-func (o *OrderPayData) SetUrl(v string) {
-	o.Url.Set(&v)
-}
-// SetUrlNil sets the value for Url to be an explicit nil
-func (o *OrderPayData) SetUrlNil() {
-	o.Url.Set(nil)
-}
-
-// UnsetUrl ensures that no value is present for Url, not even an explicit nil
-func (o *OrderPayData) UnsetUrl() {
-	o.Url.Unset()
-}
-
-// GetPayload returns the Payload field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrderPayData) GetPayload() map[string]interface{} {
-	if o == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-	return o.Payload
-}
-
-// GetPayloadOk returns a tuple with the Payload field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrderPayData) GetPayloadOk() (map[string]interface{}, bool) {
-	if o == nil || IsNil(o.Payload) {
-		return map[string]interface{}{}, false
-	}
-	return o.Payload, true
-}
-
-// HasPayload returns a boolean if a field has been set.
-func (o *OrderPayData) HasPayload() bool {
-	if o != nil && IsNil(o.Payload) {
-		return true
-	}
-
-	return false
-}
-
-// SetPayload gets a reference to the given map[string]interface{} and assigns it to the Payload field.
-func (o *OrderPayData) SetPayload(v map[string]interface{}) {
-	o.Payload = v
-}
-
-// GetContentType returns the ContentType field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrderPayData) GetContentType() string {
-	if o == nil || IsNil(o.ContentType.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.ContentType.Get()
-}
-
-// GetContentTypeOk returns a tuple with the ContentType field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrderPayData) GetContentTypeOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.ContentType.Get(), o.ContentType.IsSet()
-}
-
-// HasContentType returns a boolean if a field has been set.
-func (o *OrderPayData) HasContentType() bool {
-	if o != nil && o.ContentType.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetContentType gets a reference to the given NullableString and assigns it to the ContentType field.
-func (o *OrderPayData) SetContentType(v string) {
-	o.ContentType.Set(&v)
-}
-// SetContentTypeNil sets the value for ContentType to be an explicit nil
-func (o *OrderPayData) SetContentTypeNil() {
-	o.ContentType.Set(nil)
-}
-
-// UnsetContentType ensures that no value is present for ContentType, not even an explicit nil
-func (o *OrderPayData) UnsetContentType() {
-	o.ContentType.Unset()
-}
-
-// GetMethod returns the Method field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *OrderPayData) GetMethod() string {
-	if o == nil || IsNil(o.Method.Get()) {
-		var ret string
-		return ret
-	}
-	return *o.Method.Get()
-}
-
-// GetMethodOk returns a tuple with the Method field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *OrderPayData) GetMethodOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.Method.Get(), o.Method.IsSet()
-}
-
-// HasMethod returns a boolean if a field has been set.
-func (o *OrderPayData) HasMethod() bool {
-	if o != nil && o.Method.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetMethod gets a reference to the given NullableString and assigns it to the Method field.
-func (o *OrderPayData) SetMethod(v string) {
-	o.Method.Set(&v)
-}
-// SetMethodNil sets the value for Method to be an explicit nil
-func (o *OrderPayData) SetMethodNil() {
-	o.Method.Set(nil)
-}
-
-// UnsetMethod ensures that no value is present for Method, not even an explicit nil
-func (o *OrderPayData) UnsetMethod() {
-	o.Method.Unset()
-}
 
 func (o OrderPayData) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -212,55 +37,20 @@ func (o OrderPayData) MarshalJSON() ([]byte, error) {
 
 func (o OrderPayData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Url.IsSet() {
-		toSerialize["url"] = o.Url.Get()
+	if !IsNil(o.Url) {
+		toSerialize["url"] = o.Url
 	}
-	if o.Payload != nil {
+	if !IsNil(o.Payload) {
 		toSerialize["payload"] = o.Payload
 	}
-	if o.ContentType.IsSet() {
-		toSerialize["content_type"] = o.ContentType.Get()
+	if !IsNil(o.ContentType) {
+		toSerialize["content_type"] = o.ContentType
 	}
-	if o.Method.IsSet() {
-		toSerialize["method"] = o.Method.Get()
+	if !IsNil(o.Method) {
+		toSerialize["method"] = o.Method
 	}
 	return toSerialize, nil
 }
 
-type NullableOrderPayData struct {
-	value *OrderPayData
-	isSet bool
-}
-
-func (v NullableOrderPayData) Get() *OrderPayData {
-	return v.value
-}
-
-func (v *NullableOrderPayData) Set(val *OrderPayData) {
-	v.value = val
-	v.isSet = true
-}
-
-func (v NullableOrderPayData) IsSet() bool {
-	return v.isSet
-}
-
-func (v *NullableOrderPayData) Unset() {
-	v.value = nil
-	v.isSet = false
-}
-
-func NewNullableOrderPayData(val *OrderPayData) *NullableOrderPayData {
-	return &NullableOrderPayData{value: val, isSet: true}
-}
-
-func (v NullableOrderPayData) MarshalJSON() ([]byte, error) {
-	return json.Marshal(v.value)
-}
-
-func (v *NullableOrderPayData) UnmarshalJSON(src []byte) error {
-	v.isSet = true
-	return json.Unmarshal(src, &v.value)
-}
 
 
