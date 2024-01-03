@@ -19,7 +19,7 @@ func Test_cashfree_pg_offers(t *testing.T) {
 	cashfree.XClientId = &clientId
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
-	XApiVersion := "2022-09-01"
+	XApiVersion := "2023-08-01"
 	offerId := "682beb8e-6a82-4c29-8f37-c2624b1febc9"
 	ctx := context.Background()
 
