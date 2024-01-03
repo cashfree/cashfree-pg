@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Pagination** | [**FetchSettlementsRequestPagination**](FetchSettlementsRequestPagination.md) |  | 
-**Filters** | [**SettlementFetchReconRequestFilters**](SettlementFetchReconRequestFilters.md) |  | 
+**Filters** | [**FetchSettlementsRequestFilters**](FetchSettlementsRequestFilters.md) |  | 
 
 ## Methods
 
 ### NewSettlementFetchReconRequest
 
-`func NewSettlementFetchReconRequest(pagination FetchSettlementsRequestPagination, filters SettlementFetchReconRequestFilters, ) *SettlementFetchReconRequest`
+`func NewSettlementFetchReconRequest(pagination FetchSettlementsRequestPagination, filters FetchSettlementsRequestFilters, ) *SettlementFetchReconRequest`
 
 NewSettlementFetchReconRequest instantiates a new SettlementFetchReconRequest object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetPagination sets Pagination field to given value.
 
 ### GetFilters
 
-`func (o *SettlementFetchReconRequest) GetFilters() SettlementFetchReconRequestFilters`
+`func (o *SettlementFetchReconRequest) GetFilters() FetchSettlementsRequestFilters`
 
 GetFilters returns the Filters field if non-nil, zero value otherwise.
 
 ### GetFiltersOk
 
-`func (o *SettlementFetchReconRequest) GetFiltersOk() (*SettlementFetchReconRequestFilters, bool)`
+`func (o *SettlementFetchReconRequest) GetFiltersOk() (*FetchSettlementsRequestFilters, bool)`
 
 GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilters
 
-`func (o *SettlementFetchReconRequest) SetFilters(v SettlementFetchReconRequestFilters)`
+`func (o *SettlementFetchReconRequest) SetFilters(v FetchSettlementsRequestFilters)`
 
 SetFilters sets Filters field to given value.
 
