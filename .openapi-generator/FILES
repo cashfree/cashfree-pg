@@ -127,7 +127,6 @@ docs/PaymentURLObject.md
 docs/PaymentWebhook.md
 docs/PaymentWebhookCustomerEntity.md
 docs/PaymentWebhookDataEntity.md
-docs/PaymentWebhookDataEntity1.md
 docs/PaymentWebhookErrorEntity.md
 docs/PaymentWebhookGatewayDetailsEntity.md
 docs/PaymentWebhookOrderEntity.md
@@ -139,6 +138,7 @@ docs/RefundEntity.md
 docs/RefundSpeed.md
 docs/RefundURLObject.md
 docs/RefundWebhook.md
+docs/RefundWebhookDataEntity.md
 docs/RefundsAPI.md
 docs/SavedInstrumentMeta.md
 docs/SettlementEntity.md
@@ -270,7 +270,6 @@ model_payment_url_object.go
 model_payment_webhook.go
 model_payment_webhook_customer_entity.go
 model_payment_webhook_data_entity.go
-model_payment_webhook_data_entity_1.go
 model_payment_webhook_error_entity.go
 model_payment_webhook_gateway_details_entity.go
 model_payment_webhook_order_entity.go
@@ -281,6 +280,7 @@ model_refund_entity.go
 model_refund_speed.go
 model_refund_url_object.go
 model_refund_webhook.go
+model_refund_webhook_data_entity.go
 model_saved_instrument_meta.go
 model_settlement_entity.go
 model_settlement_fetch_recon_request.go
