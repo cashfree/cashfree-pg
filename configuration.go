@@ -19,6 +19,11 @@ import (
 	"github.com/getsentry/sentry-go"
 	"log"
 	"time"
+	"crypto/hmac"
+	"crypto/sha256"
+	"encoding/base64"
+	"encoding/json"
+	"errors"
 )
 
 // contextKeys are used to identify the type of value in the context.
@@ -40,7 +45,41 @@ var (
 	XPartnerApiKey *string
 	XEnvironment CFEnvironment = SANDBOX
 	XEnableErrorAnalytics = true
+	XApiVersion = "2022-09-01";
+
+	SANDBOX CFEnvironment = SANDBOX
+	PRODUCTION CFEnvironment = PRODUCTION
 )
+
+type PGWebhookEvent struct {
+	Type   string
+	Raw    string
+	Object interface{}
+}
+
+// Execute executes the request
+// @return PGWebhookEvent
+func PGVerifyWebhookSignature(signature string, rawBody string, timestamp string) (*PGWebhookEvent, error) {
+	signatureString := timestamp + rawBody
+	hmacInstance := hmac.New(sha256.New, []byte(*XClientSecret))
+	hmacInstance.Write([]byte(signatureString))
+	bytesData := hmacInstance.Sum(nil)
+	generatedSignature := base64.StdEncoding.EncodeToString(bytesData)
+	if generatedSignature == signature {
+		var object interface{}
+		err := json.Unmarshal([]byte(rawBody), object)
+		if err != nil {
+			return nil, errors.New("something went wrong when unmarshalling raw body")
+		}
+		if objectAsMapInterface, ok := object.(map[string]interface{}); ok {
+			if webhookType, ok := objectAsMapInterface["type"].(string); ok {
+				return &PGWebhookEvent{Type: webhookType, Raw: rawBody, Object: object}, nil
+			}
+		}
+		return &PGWebhookEvent{Type: "", Raw: rawBody, Object: object}, nil
+	}
+	return nil, errors.New("generated signature and received signature did not match")
+}
 
 func SetupSentry(environment CFEnvironment) {
 	env := "sandbox"
@@ -53,7 +92,7 @@ func SetupSentry(environment CFEnvironment) {
 		AttachStacktrace: true,
 		EnableTracing:    true,
 		Environment:      env,
-		Release:          "3.1.0",
+		Release:          "3.1.1",
 		BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
 			delete(event.Contexts, "device")
 			delete(event.Contexts, "os")
@@ -153,7 +192,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/3.1.0/go",
+		UserAgent:        "OpenAPI-Generator/3.1.1/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
