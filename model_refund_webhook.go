@@ -20,7 +20,7 @@ var _ MappedNullable = &RefundWebhook{}
 
 // RefundWebhook refund webhook object
 type RefundWebhook struct {
-	Data *PaymentWebhookDataEntity1 `json:"data,omitempty"`
+	Data *RefundWebhookDataEntity `json:"data,omitempty"`
 	EventTime *string `json:"event_time,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
