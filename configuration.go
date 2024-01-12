@@ -57,6 +57,9 @@ type PGWebhookEvent struct {
 // Execute executes the request
 // @return PGWebhookEvent
 func PGVerifyWebhookSignature(signature string, rawBody string, timestamp string) (*PGWebhookEvent, error) {
+	if XClientSecret == nil {
+		return nil, errors.New("set your secret key, cashfree.XClientSecret := *secretKey")
+	}
 	signatureString := timestamp + rawBody
 	hmacInstance := hmac.New(sha256.New, []byte(*XClientSecret))
 	hmacInstance.Write([]byte(signatureString))
@@ -64,7 +67,7 @@ func PGVerifyWebhookSignature(signature string, rawBody string, timestamp string
 	generatedSignature := base64.StdEncoding.EncodeToString(bytesData)
 	if generatedSignature == signature {
 		var object interface{}
-		err := json.Unmarshal([]byte(rawBody), object)
+		err := json.Unmarshal([]byte(rawBody), &object)
 		if err != nil {
 			return nil, errors.New("something went wrong when unmarshalling raw body")
 		}
@@ -89,7 +92,7 @@ func SetupSentry(environment CFEnvironment) {
 		AttachStacktrace: true,
 		EnableTracing:    true,
 		Environment:      env,
-		Release:          "3.1.3",
+		Release:          "3.1.4",
 		BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
 			delete(event.Contexts, "device")
 			delete(event.Contexts, "os")
@@ -189,7 +192,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/3.1.3/go",
+		UserAgent:        "OpenAPI-Generator/3.1.4/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
