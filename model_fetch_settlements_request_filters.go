@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &FetchSettlementsRequestFilters{}
 // FetchSettlementsRequestFilters Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
 type FetchSettlementsRequestFilters struct {
 	// List of settlement IDs for which you want the settlement reconciliation details.
-	CfSettlementIds []string `json:"cf_settlement_ids,omitempty"`
+	CfSettlementIds []int64 `json:"cf_settlement_ids,omitempty"`
 	// List of settlement UTRs for which you want the settlement reconciliation details.
 	SettlementUtrs []string `json:"settlement_utrs,omitempty"`
 	// Specify the start date from when you want the settlement reconciliation details.

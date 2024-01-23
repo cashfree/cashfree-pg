@@ -29,7 +29,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -40,7 +40,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     orderId := "your-order-id" 
     authorizeOrderRequest := *cashfree.NewAuthorizeOrderRequest() 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -71,11 +71,11 @@ Other parameters are passed through a pointer to a apiPGAuthorizeOrderRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
 
  **authorizeOrderRequest** | [**AuthorizeOrderRequest**](AuthorizeOrderRequest.md) | Request to Capture or Void Transactions | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 
@@ -112,7 +112,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -123,7 +123,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     cfPaymentId := "121224562" 
     orderAuthenticatePaymentRequest := *cashfree.NewOrderAuthenticatePaymentRequest("Otp_example", "Action_example") 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -154,11 +154,11 @@ Other parameters are passed through a pointer to a apiPGOrderAuthenticatePayment
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
 
  **orderAuthenticatePaymentRequest** | [**OrderAuthenticatePaymentRequest**](OrderAuthenticatePaymentRequest.md) | Request body to submit/resend headless OTP. To use this API make sure you have headless OTP enabled for your account | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 
@@ -195,7 +195,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -206,7 +206,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     orderId := "your-order-id" 
     cfPaymentId := "121224562" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -238,11 +238,11 @@ Other parameters are passed through a pointer to a apiPGOrderFetchPaymentRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
 
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 
@@ -279,7 +279,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -290,7 +290,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     orderId := "your-order-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -320,10 +320,10 @@ Other parameters are passed through a pointer to a apiPGOrderFetchPaymentsReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 
@@ -360,7 +360,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -371,7 +371,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     payOrderRequest := *cashfree.NewPayOrderRequest("session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn", cashfree.PayOrderRequest_payment_method{AppPaymentMethod: cashfree.NewAppPaymentMethod(*cashfree.NewApp("Channel_example", "Provider_example", "Phone_example"))}) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -397,10 +397,10 @@ Other parameters are passed through a pointer to a apiPGPayOrderRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
  **payOrderRequest** | [**PayOrderRequest**](PayOrderRequest.md) | Request body to create a transaction at cashfree using &#x60;payment_session_id&#x60; | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 

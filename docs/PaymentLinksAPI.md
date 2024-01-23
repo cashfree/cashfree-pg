@@ -28,7 +28,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -39,7 +39,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     linkId := "your-link-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -69,10 +69,10 @@ Other parameters are passed through a pointer to a apiPGCancelLinkRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 
@@ -109,7 +109,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -120,7 +120,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     createLinkRequest := *cashfree.NewCreateLinkRequest("LinkId_example", float64(123), "LinkCurrency_example", "LinkPurpose_example", *cashfree.NewLinkCustomerDetailsEntity("CustomerPhone_example")) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -146,10 +146,10 @@ Other parameters are passed through a pointer to a apiPGCreateLinkRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
  **createLinkRequest** | [**CreateLinkRequest**](CreateLinkRequest.md) | Request Body to Create Payment Links | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 
@@ -186,7 +186,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -197,7 +197,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     linkId := "your-link-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -227,10 +227,10 @@ Other parameters are passed through a pointer to a apiPGFetchLinkRequest struct 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ## PGLinkFetchOrders
 
-> []OrderEntity PGLinkFetchOrders(ctx, linkId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+> []PaymentLinkOrderEntity PGLinkFetchOrders(ctx, linkId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
 Get Orders for a Payment Link
 
@@ -267,7 +267,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 func main() {
@@ -278,7 +278,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     linkId := "your-link-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -288,7 +288,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGLinkFetchOrders``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PGLinkFetchOrders`: []OrderEntity
+    // response from `PGLinkFetchOrders`: []PaymentLinkOrderEntity
     fmt.Fprintf(os.Stdout, "Response from `cashfree.PGLinkFetchOrders`: %v\n", resp)
 }
 ```
@@ -308,14 +308,14 @@ Other parameters are passed through a pointer to a apiPGLinkFetchOrdersRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
 
 ### Return type
 
-[**[]OrderEntity**](OrderEntity.md)
+[**[]PaymentLinkOrderEntity**](PaymentLinkOrderEntity.md)
 
 ### Authorization
 

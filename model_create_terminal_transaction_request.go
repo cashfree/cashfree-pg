@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -21,9 +21,9 @@ var _ MappedNullable = &CreateTerminalTransactionRequest{}
 // CreateTerminalTransactionRequest Request body to create a terminal transaction
 type CreateTerminalTransactionRequest struct {
 	// cashfree order ID that was returned while creating an order.
-	CfOrderId string `json:"cf_order_id"`
+	CfOrderId int64 `json:"cf_order_id"`
 	// cashfree terminal id. this is a required parameter when you do not provide the terminal phone number.
-	CfTerminalId *string `json:"cf_terminal_id,omitempty"`
+	CfTerminalId *int64 `json:"cf_terminal_id,omitempty"`
 	// mention the payment method used for the transaction. possible values - QR_CODE, LINK.
 	PaymentMethod string `json:"payment_method"`
 	// agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id.
