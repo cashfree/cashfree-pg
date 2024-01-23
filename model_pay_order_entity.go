@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2022-09-01
+API version: 2023-08-01
 Contact: developers@cashfree.com
 */
 
@@ -23,7 +23,7 @@ type PayOrderEntity struct {
 	// total amount payable
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
 	// Payment identifier created by Cashfree
-	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
+	CfPaymentId *string `json:"cf_payment_id,omitempty"`
 	// One of [\"upi\", \"netbanking\", \"card\", \"app\", \"cardless_emi\", \"paylater\", \"banktransfer\"] 
 	PaymentMethod *string `json:"payment_method,omitempty"`
 	// One of [\"link\", \"collect\", \"qrcode\"]. In an older version we used to support different channels like 'gpay', 'phonepe' etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as 'link' and provider as 'gpay'
