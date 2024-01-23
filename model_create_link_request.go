@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2022-09-01
+API version: 2023-08-01
 Contact: developers@cashfree.com
 */
 
@@ -40,7 +40,7 @@ type CreateLinkRequest struct {
 	LinkAutoReminders *bool `json:"link_auto_reminders,omitempty"`
 	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
 	LinkNotes *map[string]string `json:"link_notes,omitempty"`
-	LinkMeta *LinkMetaEntity `json:"link_meta,omitempty"`
+	LinkMeta *LinkMetaResponseEntity `json:"link_meta,omitempty"`
 }
 
 
