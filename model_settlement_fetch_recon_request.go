@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -21,7 +21,7 @@ var _ MappedNullable = &SettlementFetchReconRequest{}
 // SettlementFetchReconRequest Recon Request Object
 type SettlementFetchReconRequest struct {
 	Pagination FetchSettlementsRequestPagination `json:"pagination"`
-	Filters FetchSettlementsRequestFilters `json:"filters"`
+	Filters SettlementFetchReconRequestFilters `json:"filters"`
 }
 
 

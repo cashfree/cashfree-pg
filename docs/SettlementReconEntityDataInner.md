@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **PaymentTime** | Pointer to **string** | Date and time when the payment was initiated. | [optional] 
 **PaymentServiceCharge** | Pointer to **float32** | Service charge applicable for the payment. | [optional] 
 **PaymentServiceTax** | Pointer to **float32** | Service tax applicable on the payment. | [optional] 
-**CfPaymentId** | Pointer to **string** | Cashfree Payments unique ID to identify a payment. | [optional] 
-**CfSettlementId** | Pointer to **string** | Unique ID to identify the settlement. | [optional] 
+**CfPaymentId** | Pointer to **int64** | Cashfree Payments unique ID to identify a payment. | [optional] 
+**CfSettlementId** | Pointer to **int32** | Unique ID to identify the settlement. | [optional] 
 **SettlementDate** | Pointer to **string** | Date and time when the settlement was processed. | [optional] 
 **SettlementUtr** | Pointer to **string** | Unique transaction reference number of the settlement. | [optional] 
 **SplitServiceCharge** | Pointer to **float32** | Service charge that is applicable for splitting the payment. | [optional] 
@@ -536,20 +536,20 @@ HasPaymentServiceTax returns a boolean if a field has been set.
 
 ### GetCfPaymentId
 
-`func (o *SettlementReconEntityDataInner) GetCfPaymentId() string`
+`func (o *SettlementReconEntityDataInner) GetCfPaymentId() int64`
 
 GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
 
 ### GetCfPaymentIdOk
 
-`func (o *SettlementReconEntityDataInner) GetCfPaymentIdOk() (*string, bool)`
+`func (o *SettlementReconEntityDataInner) GetCfPaymentIdOk() (*int64, bool)`
 
 GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfPaymentId
 
-`func (o *SettlementReconEntityDataInner) SetCfPaymentId(v string)`
+`func (o *SettlementReconEntityDataInner) SetCfPaymentId(v int64)`
 
 SetCfPaymentId sets CfPaymentId field to given value.
 
@@ -561,20 +561,20 @@ HasCfPaymentId returns a boolean if a field has been set.
 
 ### GetCfSettlementId
 
-`func (o *SettlementReconEntityDataInner) GetCfSettlementId() string`
+`func (o *SettlementReconEntityDataInner) GetCfSettlementId() int32`
 
 GetCfSettlementId returns the CfSettlementId field if non-nil, zero value otherwise.
 
 ### GetCfSettlementIdOk
 
-`func (o *SettlementReconEntityDataInner) GetCfSettlementIdOk() (*string, bool)`
+`func (o *SettlementReconEntityDataInner) GetCfSettlementIdOk() (*int32, bool)`
 
 GetCfSettlementIdOk returns a tuple with the CfSettlementId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfSettlementId
 
-`func (o *SettlementReconEntityDataInner) SetCfSettlementId(v string)`
+`func (o *SettlementReconEntityDataInner) SetCfSettlementId(v int32)`
 
 SetCfSettlementId sets CfSettlementId field to given value.
 

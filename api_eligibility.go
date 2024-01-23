@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -339,7 +339,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.1"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -804,7 +804,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.1"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1269,7 +1269,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.1"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1749,7 +1749,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.1"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-3.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
