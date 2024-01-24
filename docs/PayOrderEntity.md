@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PaymentAmount** | Pointer to **float32** | total amount payable | [optional] 
-**CfPaymentId** | Pointer to **string** | Payment identifier created by Cashfree | [optional] 
+**CfPaymentId** | Pointer to **int64** | Payment identifier created by Cashfree | [optional] 
 **PaymentMethod** | Pointer to **string** | One of [\&quot;upi\&quot;, \&quot;netbanking\&quot;, \&quot;card\&quot;, \&quot;app\&quot;, \&quot;cardless_emi\&quot;, \&quot;paylater\&quot;, \&quot;banktransfer\&quot;]  | [optional] 
 **Channel** | Pointer to **string** | One of [\&quot;link\&quot;, \&quot;collect\&quot;, \&quot;qrcode\&quot;]. In an older version we used to support different channels like &#39;gpay&#39;, &#39;phonepe&#39; etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as &#39;link&#39; and provider as &#39;gpay&#39; | [optional] 
 **Action** | Pointer to **string** | One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;] | [optional] 
@@ -57,20 +57,20 @@ HasPaymentAmount returns a boolean if a field has been set.
 
 ### GetCfPaymentId
 
-`func (o *PayOrderEntity) GetCfPaymentId() string`
+`func (o *PayOrderEntity) GetCfPaymentId() int64`
 
 GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
 
 ### GetCfPaymentIdOk
 
-`func (o *PayOrderEntity) GetCfPaymentIdOk() (*string, bool)`
+`func (o *PayOrderEntity) GetCfPaymentIdOk() (*int64, bool)`
 
 GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfPaymentId
 
-`func (o *PayOrderEntity) SetCfPaymentId(v string)`
+`func (o *PayOrderEntity) SetCfPaymentId(v int64)`
 
 SetCfPaymentId sets CfPaymentId field to given value.
 

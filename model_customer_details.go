@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -34,8 +34,6 @@ type CustomerDetails struct {
 	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
 	// Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV)
 	CustomerBankCode *float32 `json:"customer_bank_code,omitempty"`
-	// Customer identifier at Cashfree. You will get this when you create/get customer
-	CustomerUid *string `json:"customer_uid,omitempty"`
 }
 
 
@@ -65,9 +63,6 @@ func (o CustomerDetails) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CustomerBankCode) {
 		toSerialize["customer_bank_code"] = o.CustomerBankCode
-	}
-	if !IsNil(o.CustomerUid) {
-		toSerialize["customer_uid"] = o.CustomerUid
 	}
 	return toSerialize, nil
 }

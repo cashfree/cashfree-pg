@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | Pointer to **string** |  | [optional] 
-**Provider** | Pointer to **string** |  | [optional] 
-**Phone** | Pointer to **string** |  | [optional] 
+**CardlessEmi** | Pointer to [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
 
 ## Methods
 
@@ -27,80 +25,30 @@ NewPaymentMethodCardlessEMIInPaymentsEntityWithDefaults instantiates a new Payme
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetChannel
+### GetCardlessEmi
 
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) GetChannel() string`
+`func (o *PaymentMethodCardlessEMIInPaymentsEntity) GetCardlessEmi() PaymentMethodAppInPaymentsEntityApp`
 
-GetChannel returns the Channel field if non-nil, zero value otherwise.
+GetCardlessEmi returns the CardlessEmi field if non-nil, zero value otherwise.
 
-### GetChannelOk
+### GetCardlessEmiOk
 
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) GetChannelOk() (*string, bool)`
+`func (o *PaymentMethodCardlessEMIInPaymentsEntity) GetCardlessEmiOk() (*PaymentMethodAppInPaymentsEntityApp, bool)`
 
-GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
+GetCardlessEmiOk returns a tuple with the CardlessEmi field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChannel
+### SetCardlessEmi
 
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) SetChannel(v string)`
+`func (o *PaymentMethodCardlessEMIInPaymentsEntity) SetCardlessEmi(v PaymentMethodAppInPaymentsEntityApp)`
 
-SetChannel sets Channel field to given value.
+SetCardlessEmi sets CardlessEmi field to given value.
 
-### HasChannel
+### HasCardlessEmi
 
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) HasChannel() bool`
+`func (o *PaymentMethodCardlessEMIInPaymentsEntity) HasCardlessEmi() bool`
 
-HasChannel returns a boolean if a field has been set.
-
-### GetProvider
-
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) GetProvider() string`
-
-GetProvider returns the Provider field if non-nil, zero value otherwise.
-
-### GetProviderOk
-
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) GetProviderOk() (*string, bool)`
-
-GetProviderOk returns a tuple with the Provider field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProvider
-
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) SetProvider(v string)`
-
-SetProvider sets Provider field to given value.
-
-### HasProvider
-
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) HasProvider() bool`
-
-HasProvider returns a boolean if a field has been set.
-
-### GetPhone
-
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) GetPhone() string`
-
-GetPhone returns the Phone field if non-nil, zero value otherwise.
-
-### GetPhoneOk
-
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) GetPhoneOk() (*string, bool)`
-
-GetPhoneOk returns a tuple with the Phone field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPhone
-
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) SetPhone(v string)`
-
-SetPhone sets Phone field to given value.
-
-### HasPhone
-
-`func (o *PaymentMethodCardlessEMIInPaymentsEntity) HasPhone() bool`
-
-HasPhone returns a boolean if a field has been set.
+HasCardlessEmi returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

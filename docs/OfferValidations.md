@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MinAmount** | Pointer to **float32** | Minimum Amount for Offer to be Applicable | [optional] 
 **PaymentMethod** | [**OfferValidationsPaymentMethod**](OfferValidationsPaymentMethod.md) |  | 
+**MaxAllowed** | **float32** | Maximum amount of Offer that can be availed. | 
 
 ## Methods
 
 ### NewOfferValidations
 
-`func NewOfferValidations(paymentMethod OfferValidationsPaymentMethod, ) *OfferValidations`
+`func NewOfferValidations(paymentMethod OfferValidationsPaymentMethod, maxAllowed float32, ) *OfferValidations`
 
 NewOfferValidations instantiates a new OfferValidations object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +70,26 @@ and a boolean to check if the value has been set.
 `func (o *OfferValidations) SetPaymentMethod(v OfferValidationsPaymentMethod)`
 
 SetPaymentMethod sets PaymentMethod field to given value.
+
+
+### GetMaxAllowed
+
+`func (o *OfferValidations) GetMaxAllowed() float32`
+
+GetMaxAllowed returns the MaxAllowed field if non-nil, zero value otherwise.
+
+### GetMaxAllowedOk
+
+`func (o *OfferValidations) GetMaxAllowedOk() (*float32, bool)`
+
+GetMaxAllowedOk returns a tuple with the MaxAllowed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxAllowed
+
+`func (o *OfferValidations) SetMaxAllowed(v float32)`
+
+SetMaxAllowed sets MaxAllowed field to given value.
 
 
 

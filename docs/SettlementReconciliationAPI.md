@@ -37,7 +37,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2022-09-01" 
     fetchSettlementsRequest := *cashfree.NewFetchSettlementsRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewFetchSettlementsRequestFilters()) 
     contentType := "application/json" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -65,11 +65,11 @@ Other parameters are passed through a pointer to a apiPGFetchSettlementsRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
  **fetchSettlementsRequest** | [**FetchSettlementsRequest**](FetchSettlementsRequest.md) | Request Body to get the settlements | 
  **contentType** | **string** | application/json | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
  **accept** | **string** | application/json | 
 
 ### Return type
@@ -118,8 +118,8 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
-    settlementFetchReconRequest := *cashfree.NewSettlementFetchReconRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewFetchSettlementsRequestFilters()) 
+    xApiVersion := "2022-09-01" 
+    settlementFetchReconRequest := *cashfree.NewSettlementFetchReconRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewSettlementFetchReconRequestFilters()) 
     contentType := "application/json" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -146,11 +146,11 @@ Other parameters are passed through a pointer to a apiPGSettlementFetchReconRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
  **settlementFetchReconRequest** | [**SettlementFetchReconRequest**](SettlementFetchReconRequest.md) | Request Body for the settlement reconciliation | 
  **contentType** | **string** | application/json | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
  **accept** | **string** | application/json | 
 
 ### Return type

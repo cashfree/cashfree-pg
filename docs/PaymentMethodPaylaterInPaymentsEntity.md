@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | Pointer to **string** |  | [optional] 
-**Provider** | Pointer to **string** |  | [optional] 
-**Phone** | Pointer to **string** |  | [optional] 
+**Paylater** | Pointer to [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
 
 ## Methods
 
@@ -27,80 +25,30 @@ NewPaymentMethodPaylaterInPaymentsEntityWithDefaults instantiates a new PaymentM
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetChannel
+### GetPaylater
 
-`func (o *PaymentMethodPaylaterInPaymentsEntity) GetChannel() string`
+`func (o *PaymentMethodPaylaterInPaymentsEntity) GetPaylater() PaymentMethodAppInPaymentsEntityApp`
 
-GetChannel returns the Channel field if non-nil, zero value otherwise.
+GetPaylater returns the Paylater field if non-nil, zero value otherwise.
 
-### GetChannelOk
+### GetPaylaterOk
 
-`func (o *PaymentMethodPaylaterInPaymentsEntity) GetChannelOk() (*string, bool)`
+`func (o *PaymentMethodPaylaterInPaymentsEntity) GetPaylaterOk() (*PaymentMethodAppInPaymentsEntityApp, bool)`
 
-GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
+GetPaylaterOk returns a tuple with the Paylater field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChannel
+### SetPaylater
 
-`func (o *PaymentMethodPaylaterInPaymentsEntity) SetChannel(v string)`
+`func (o *PaymentMethodPaylaterInPaymentsEntity) SetPaylater(v PaymentMethodAppInPaymentsEntityApp)`
 
-SetChannel sets Channel field to given value.
+SetPaylater sets Paylater field to given value.
 
-### HasChannel
+### HasPaylater
 
-`func (o *PaymentMethodPaylaterInPaymentsEntity) HasChannel() bool`
+`func (o *PaymentMethodPaylaterInPaymentsEntity) HasPaylater() bool`
 
-HasChannel returns a boolean if a field has been set.
-
-### GetProvider
-
-`func (o *PaymentMethodPaylaterInPaymentsEntity) GetProvider() string`
-
-GetProvider returns the Provider field if non-nil, zero value otherwise.
-
-### GetProviderOk
-
-`func (o *PaymentMethodPaylaterInPaymentsEntity) GetProviderOk() (*string, bool)`
-
-GetProviderOk returns a tuple with the Provider field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProvider
-
-`func (o *PaymentMethodPaylaterInPaymentsEntity) SetProvider(v string)`
-
-SetProvider sets Provider field to given value.
-
-### HasProvider
-
-`func (o *PaymentMethodPaylaterInPaymentsEntity) HasProvider() bool`
-
-HasProvider returns a boolean if a field has been set.
-
-### GetPhone
-
-`func (o *PaymentMethodPaylaterInPaymentsEntity) GetPhone() string`
-
-GetPhone returns the Phone field if non-nil, zero value otherwise.
-
-### GetPhoneOk
-
-`func (o *PaymentMethodPaylaterInPaymentsEntity) GetPhoneOk() (*string, bool)`
-
-GetPhoneOk returns a tuple with the Phone field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPhone
-
-`func (o *PaymentMethodPaylaterInPaymentsEntity) SetPhone(v string)`
-
-SetPhone sets Phone field to given value.
-
-### HasPhone
-
-`func (o *PaymentMethodPaylaterInPaymentsEntity) HasPhone() bool`
-
-HasPhone returns a boolean if a field has been set.
+HasPaylater returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
