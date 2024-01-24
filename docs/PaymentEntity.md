@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **BankReference** | Pointer to **string** |  | [optional] 
 **AuthId** | Pointer to **string** |  | [optional] 
 **Authorization** | Pointer to [**AuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional] 
-**PaymentMethod** | Pointer to [**PaymentMethodInPaymentsEntity**](PaymentMethodInPaymentsEntity.md) |  | [optional] 
+**PaymentMethod** | Pointer to [**PaymentEntityPaymentMethod**](PaymentEntityPaymentMethod.md) |  | [optional] 
 
 ## Methods
 
@@ -443,20 +443,20 @@ HasAuthorization returns a boolean if a field has been set.
 
 ### GetPaymentMethod
 
-`func (o *PaymentEntity) GetPaymentMethod() PaymentMethodInPaymentsEntity`
+`func (o *PaymentEntity) GetPaymentMethod() PaymentEntityPaymentMethod`
 
 GetPaymentMethod returns the PaymentMethod field if non-nil, zero value otherwise.
 
 ### GetPaymentMethodOk
 
-`func (o *PaymentEntity) GetPaymentMethodOk() (*PaymentMethodInPaymentsEntity, bool)`
+`func (o *PaymentEntity) GetPaymentMethodOk() (*PaymentEntityPaymentMethod, bool)`
 
 GetPaymentMethodOk returns a tuple with the PaymentMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPaymentMethod
 
-`func (o *PaymentEntity) SetPaymentMethod(v PaymentMethodInPaymentsEntity)`
+`func (o *PaymentEntity) SetPaymentMethod(v PaymentEntityPaymentMethod)`
 
 SetPaymentMethod sets PaymentMethod field to given value.
 
