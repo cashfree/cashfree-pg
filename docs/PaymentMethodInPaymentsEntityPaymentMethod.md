@@ -4,24 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | **string** |  | 
-**CardNumber** | Pointer to **string** |  | [optional] 
-**CardNetwork** | Pointer to **string** |  | [optional] 
-**CardType** | Pointer to **string** |  | [optional] 
-**CardCountry** | Pointer to **string** |  | [optional] 
-**CardBankName** | Pointer to **string** |  | [optional] 
-**CardNetworkReferenceId** | Pointer to **string** |  | [optional] 
-**NetbankingBankCode** | **int32** |  | 
-**NetbankingBankName** | **string** |  | 
-**UpiId** | Pointer to **string** |  | [optional] 
-**Provider** | Pointer to **string** |  | [optional] 
-**Phone** | Pointer to **string** |  | [optional] 
+**Card** | Pointer to [**PaymentMethodCardInPaymentsEntityCard**](PaymentMethodCardInPaymentsEntityCard.md) |  | [optional] 
+**Netbanking** | Pointer to [**PaymentMethodNetBankingInPaymentsEntityNetbanking**](PaymentMethodNetBankingInPaymentsEntityNetbanking.md) |  | [optional] 
+**Upi** | Pointer to [**PaymentMethodUPIInPaymentsEntityUpi**](PaymentMethodUPIInPaymentsEntityUpi.md) |  | [optional] 
+**App** | Pointer to [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
+**CardlessEmi** | Pointer to [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
+**Paylater** | Pointer to [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
+**Emi** | Pointer to [**PaymentMethodCardEMIInPaymentsEntityEmi**](PaymentMethodCardEMIInPaymentsEntityEmi.md) |  | [optional] 
 
 ## Methods
 
 ### NewPaymentMethodInPaymentsEntityPaymentMethod
 
-`func NewPaymentMethodInPaymentsEntityPaymentMethod(channel string, netbankingBankCode int32, netbankingBankName string, ) *PaymentMethodInPaymentsEntityPaymentMethod`
+`func NewPaymentMethodInPaymentsEntityPaymentMethod() *PaymentMethodInPaymentsEntityPaymentMethod`
 
 NewPaymentMethodInPaymentsEntityPaymentMethod instantiates a new PaymentMethodInPaymentsEntityPaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -36,290 +31,180 @@ NewPaymentMethodInPaymentsEntityPaymentMethodWithDefaults instantiates a new Pay
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetChannel
+### GetCard
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetChannel() string`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCard() PaymentMethodCardInPaymentsEntityCard`
 
-GetChannel returns the Channel field if non-nil, zero value otherwise.
+GetCard returns the Card field if non-nil, zero value otherwise.
 
-### GetChannelOk
+### GetCardOk
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetChannelOk() (*string, bool)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardOk() (*PaymentMethodCardInPaymentsEntityCard, bool)`
 
-GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
+GetCardOk returns a tuple with the Card field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChannel
+### SetCard
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetChannel(v string)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetCard(v PaymentMethodCardInPaymentsEntityCard)`
 
-SetChannel sets Channel field to given value.
+SetCard sets Card field to given value.
 
+### HasCard
 
-### GetCardNumber
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasCard() bool`
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardNumber() string`
+HasCard returns a boolean if a field has been set.
 
-GetCardNumber returns the CardNumber field if non-nil, zero value otherwise.
+### GetNetbanking
 
-### GetCardNumberOk
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetNetbanking() PaymentMethodNetBankingInPaymentsEntityNetbanking`
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardNumberOk() (*string, bool)`
+GetNetbanking returns the Netbanking field if non-nil, zero value otherwise.
 
-GetCardNumberOk returns a tuple with the CardNumber field if it's non-nil, zero value otherwise
+### GetNetbankingOk
+
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetNetbankingOk() (*PaymentMethodNetBankingInPaymentsEntityNetbanking, bool)`
+
+GetNetbankingOk returns a tuple with the Netbanking field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardNumber
+### SetNetbanking
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetCardNumber(v string)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetNetbanking(v PaymentMethodNetBankingInPaymentsEntityNetbanking)`
 
-SetCardNumber sets CardNumber field to given value.
+SetNetbanking sets Netbanking field to given value.
 
-### HasCardNumber
+### HasNetbanking
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasCardNumber() bool`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasNetbanking() bool`
 
-HasCardNumber returns a boolean if a field has been set.
+HasNetbanking returns a boolean if a field has been set.
 
-### GetCardNetwork
+### GetUpi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardNetwork() string`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetUpi() PaymentMethodUPIInPaymentsEntityUpi`
 
-GetCardNetwork returns the CardNetwork field if non-nil, zero value otherwise.
+GetUpi returns the Upi field if non-nil, zero value otherwise.
 
-### GetCardNetworkOk
+### GetUpiOk
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardNetworkOk() (*string, bool)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetUpiOk() (*PaymentMethodUPIInPaymentsEntityUpi, bool)`
 
-GetCardNetworkOk returns a tuple with the CardNetwork field if it's non-nil, zero value otherwise
+GetUpiOk returns a tuple with the Upi field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardNetwork
+### SetUpi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetCardNetwork(v string)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetUpi(v PaymentMethodUPIInPaymentsEntityUpi)`
 
-SetCardNetwork sets CardNetwork field to given value.
+SetUpi sets Upi field to given value.
 
-### HasCardNetwork
+### HasUpi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasCardNetwork() bool`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasUpi() bool`
 
-HasCardNetwork returns a boolean if a field has been set.
+HasUpi returns a boolean if a field has been set.
 
-### GetCardType
+### GetApp
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardType() string`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetApp() PaymentMethodAppInPaymentsEntityApp`
 
-GetCardType returns the CardType field if non-nil, zero value otherwise.
+GetApp returns the App field if non-nil, zero value otherwise.
 
-### GetCardTypeOk
+### GetAppOk
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardTypeOk() (*string, bool)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetAppOk() (*PaymentMethodAppInPaymentsEntityApp, bool)`
 
-GetCardTypeOk returns a tuple with the CardType field if it's non-nil, zero value otherwise
+GetAppOk returns a tuple with the App field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardType
+### SetApp
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetCardType(v string)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetApp(v PaymentMethodAppInPaymentsEntityApp)`
 
-SetCardType sets CardType field to given value.
+SetApp sets App field to given value.
 
-### HasCardType
+### HasApp
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasCardType() bool`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasApp() bool`
 
-HasCardType returns a boolean if a field has been set.
+HasApp returns a boolean if a field has been set.
 
-### GetCardCountry
+### GetCardlessEmi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardCountry() string`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardlessEmi() PaymentMethodAppInPaymentsEntityApp`
 
-GetCardCountry returns the CardCountry field if non-nil, zero value otherwise.
+GetCardlessEmi returns the CardlessEmi field if non-nil, zero value otherwise.
 
-### GetCardCountryOk
+### GetCardlessEmiOk
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardCountryOk() (*string, bool)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardlessEmiOk() (*PaymentMethodAppInPaymentsEntityApp, bool)`
 
-GetCardCountryOk returns a tuple with the CardCountry field if it's non-nil, zero value otherwise
+GetCardlessEmiOk returns a tuple with the CardlessEmi field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardCountry
+### SetCardlessEmi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetCardCountry(v string)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetCardlessEmi(v PaymentMethodAppInPaymentsEntityApp)`
 
-SetCardCountry sets CardCountry field to given value.
+SetCardlessEmi sets CardlessEmi field to given value.
 
-### HasCardCountry
+### HasCardlessEmi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasCardCountry() bool`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasCardlessEmi() bool`
 
-HasCardCountry returns a boolean if a field has been set.
+HasCardlessEmi returns a boolean if a field has been set.
 
-### GetCardBankName
+### GetPaylater
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardBankName() string`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetPaylater() PaymentMethodAppInPaymentsEntityApp`
 
-GetCardBankName returns the CardBankName field if non-nil, zero value otherwise.
+GetPaylater returns the Paylater field if non-nil, zero value otherwise.
 
-### GetCardBankNameOk
+### GetPaylaterOk
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardBankNameOk() (*string, bool)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetPaylaterOk() (*PaymentMethodAppInPaymentsEntityApp, bool)`
 
-GetCardBankNameOk returns a tuple with the CardBankName field if it's non-nil, zero value otherwise
+GetPaylaterOk returns a tuple with the Paylater field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardBankName
+### SetPaylater
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetCardBankName(v string)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetPaylater(v PaymentMethodAppInPaymentsEntityApp)`
 
-SetCardBankName sets CardBankName field to given value.
+SetPaylater sets Paylater field to given value.
 
-### HasCardBankName
+### HasPaylater
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasCardBankName() bool`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasPaylater() bool`
 
-HasCardBankName returns a boolean if a field has been set.
+HasPaylater returns a boolean if a field has been set.
 
-### GetCardNetworkReferenceId
+### GetEmi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardNetworkReferenceId() string`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetEmi() PaymentMethodCardEMIInPaymentsEntityEmi`
 
-GetCardNetworkReferenceId returns the CardNetworkReferenceId field if non-nil, zero value otherwise.
+GetEmi returns the Emi field if non-nil, zero value otherwise.
 
-### GetCardNetworkReferenceIdOk
+### GetEmiOk
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetCardNetworkReferenceIdOk() (*string, bool)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetEmiOk() (*PaymentMethodCardEMIInPaymentsEntityEmi, bool)`
 
-GetCardNetworkReferenceIdOk returns a tuple with the CardNetworkReferenceId field if it's non-nil, zero value otherwise
+GetEmiOk returns a tuple with the Emi field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardNetworkReferenceId
+### SetEmi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetCardNetworkReferenceId(v string)`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetEmi(v PaymentMethodCardEMIInPaymentsEntityEmi)`
 
-SetCardNetworkReferenceId sets CardNetworkReferenceId field to given value.
+SetEmi sets Emi field to given value.
 
-### HasCardNetworkReferenceId
+### HasEmi
 
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasCardNetworkReferenceId() bool`
+`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasEmi() bool`
 
-HasCardNetworkReferenceId returns a boolean if a field has been set.
-
-### GetNetbankingBankCode
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetNetbankingBankCode() int32`
-
-GetNetbankingBankCode returns the NetbankingBankCode field if non-nil, zero value otherwise.
-
-### GetNetbankingBankCodeOk
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetNetbankingBankCodeOk() (*int32, bool)`
-
-GetNetbankingBankCodeOk returns a tuple with the NetbankingBankCode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNetbankingBankCode
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetNetbankingBankCode(v int32)`
-
-SetNetbankingBankCode sets NetbankingBankCode field to given value.
-
-
-### GetNetbankingBankName
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetNetbankingBankName() string`
-
-GetNetbankingBankName returns the NetbankingBankName field if non-nil, zero value otherwise.
-
-### GetNetbankingBankNameOk
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetNetbankingBankNameOk() (*string, bool)`
-
-GetNetbankingBankNameOk returns a tuple with the NetbankingBankName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNetbankingBankName
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetNetbankingBankName(v string)`
-
-SetNetbankingBankName sets NetbankingBankName field to given value.
-
-
-### GetUpiId
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetUpiId() string`
-
-GetUpiId returns the UpiId field if non-nil, zero value otherwise.
-
-### GetUpiIdOk
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetUpiIdOk() (*string, bool)`
-
-GetUpiIdOk returns a tuple with the UpiId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUpiId
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetUpiId(v string)`
-
-SetUpiId sets UpiId field to given value.
-
-### HasUpiId
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasUpiId() bool`
-
-HasUpiId returns a boolean if a field has been set.
-
-### GetProvider
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetProvider() string`
-
-GetProvider returns the Provider field if non-nil, zero value otherwise.
-
-### GetProviderOk
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetProviderOk() (*string, bool)`
-
-GetProviderOk returns a tuple with the Provider field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetProvider
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetProvider(v string)`
-
-SetProvider sets Provider field to given value.
-
-### HasProvider
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasProvider() bool`
-
-HasProvider returns a boolean if a field has been set.
-
-### GetPhone
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetPhone() string`
-
-GetPhone returns the Phone field if non-nil, zero value otherwise.
-
-### GetPhoneOk
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) GetPhoneOk() (*string, bool)`
-
-GetPhoneOk returns a tuple with the Phone field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPhone
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) SetPhone(v string)`
-
-SetPhone sets Phone field to given value.
-
-### HasPhone
-
-`func (o *PaymentMethodInPaymentsEntityPaymentMethod) HasPhone() bool`
-
-HasPhone returns a boolean if a field has been set.
+HasEmi returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

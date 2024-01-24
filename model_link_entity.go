@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -20,7 +20,7 @@ var _ MappedNullable = &LinkEntity{}
 
 // LinkEntity Payment link success creation response object
 type LinkEntity struct {
-	CfLinkId *string `json:"cf_link_id,omitempty"`
+	CfLinkId *int64 `json:"cf_link_id,omitempty"`
 	LinkId *string `json:"link_id,omitempty"`
 	LinkStatus *string `json:"link_status,omitempty"`
 	LinkCurrency *string `json:"link_currency,omitempty"`
@@ -31,7 +31,8 @@ type LinkEntity struct {
 	LinkPurpose *string `json:"link_purpose,omitempty"`
 	LinkCreatedAt *string `json:"link_created_at,omitempty"`
 	CustomerDetails *LinkCustomerDetailsEntity `json:"customer_details,omitempty"`
-	LinkMeta *LinkMetaResponseEntity `json:"link_meta,omitempty"`
+	// Payment link meta information object.
+	LinkMeta *map[string]string `json:"link_meta,omitempty"`
 	LinkUrl *string `json:"link_url,omitempty"`
 	LinkExpiryTime *string `json:"link_expiry_time,omitempty"`
 	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs

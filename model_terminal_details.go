@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -23,7 +23,7 @@ type TerminalDetails struct {
 	// date time at which terminal is added
 	AddedOn *string `json:"added_on,omitempty"`
 	// cashfree terminal id
-	CfTerminalId *string `json:"cf_terminal_id,omitempty"`
+	CfTerminalId *int32 `json:"cf_terminal_id,omitempty"`
 	// last instant when this terminal was updated
 	LastUpdatedOn *string `json:"last_updated_on,omitempty"`
 	// location of terminal

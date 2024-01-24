@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -19,6 +19,7 @@ import (
 // PaymentMethodInPaymentsEntityPaymentMethod - struct for PaymentMethodInPaymentsEntityPaymentMethod
 type PaymentMethodInPaymentsEntityPaymentMethod struct {
 	PaymentMethodAppInPaymentsEntity *PaymentMethodAppInPaymentsEntity
+	PaymentMethodCardEMIInPaymentsEntity *PaymentMethodCardEMIInPaymentsEntity
 	PaymentMethodCardInPaymentsEntity *PaymentMethodCardInPaymentsEntity
 	PaymentMethodCardlessEMIInPaymentsEntity *PaymentMethodCardlessEMIInPaymentsEntity
 	PaymentMethodNetBankingInPaymentsEntity *PaymentMethodNetBankingInPaymentsEntity
@@ -30,6 +31,13 @@ type PaymentMethodInPaymentsEntityPaymentMethod struct {
 func PaymentMethodAppInPaymentsEntityAsPaymentMethodInPaymentsEntityPaymentMethod(v *PaymentMethodAppInPaymentsEntity) PaymentMethodInPaymentsEntityPaymentMethod {
 	return PaymentMethodInPaymentsEntityPaymentMethod{
 		PaymentMethodAppInPaymentsEntity: v,
+	}
+}
+
+// PaymentMethodCardEMIInPaymentsEntityAsPaymentMethodInPaymentsEntityPaymentMethod is a convenience function that returns PaymentMethodCardEMIInPaymentsEntity wrapped in PaymentMethodInPaymentsEntityPaymentMethod
+func PaymentMethodCardEMIInPaymentsEntityAsPaymentMethodInPaymentsEntityPaymentMethod(v *PaymentMethodCardEMIInPaymentsEntity) PaymentMethodInPaymentsEntityPaymentMethod {
+	return PaymentMethodInPaymentsEntityPaymentMethod{
+		PaymentMethodCardEMIInPaymentsEntity: v,
 	}
 }
 
@@ -81,6 +89,10 @@ func (src PaymentMethodInPaymentsEntityPaymentMethod) MarshalJSON() ([]byte, err
 		return json.Marshal(&src.PaymentMethodAppInPaymentsEntity)
 	}
 
+	if src.PaymentMethodCardEMIInPaymentsEntity != nil {
+		return json.Marshal(&src.PaymentMethodCardEMIInPaymentsEntity)
+	}
+
 	if src.PaymentMethodCardInPaymentsEntity != nil {
 		return json.Marshal(&src.PaymentMethodCardInPaymentsEntity)
 	}
@@ -111,6 +123,10 @@ func (obj *PaymentMethodInPaymentsEntityPaymentMethod) GetActualInstance() (inte
 	}
 	if obj.PaymentMethodAppInPaymentsEntity != nil {
 		return obj.PaymentMethodAppInPaymentsEntity
+	}
+
+	if obj.PaymentMethodCardEMIInPaymentsEntity != nil {
+		return obj.PaymentMethodCardEMIInPaymentsEntity
 	}
 
 	if obj.PaymentMethodCardInPaymentsEntity != nil {

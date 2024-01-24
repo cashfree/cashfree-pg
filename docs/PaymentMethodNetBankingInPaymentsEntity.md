@@ -4,15 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | **string** |  | 
-**NetbankingBankCode** | **int32** |  | 
-**NetbankingBankName** | **string** |  | 
+**Netbanking** | Pointer to [**PaymentMethodNetBankingInPaymentsEntityNetbanking**](PaymentMethodNetBankingInPaymentsEntityNetbanking.md) |  | [optional] 
 
 ## Methods
 
 ### NewPaymentMethodNetBankingInPaymentsEntity
 
-`func NewPaymentMethodNetBankingInPaymentsEntity(channel string, netbankingBankCode int32, netbankingBankName string, ) *PaymentMethodNetBankingInPaymentsEntity`
+`func NewPaymentMethodNetBankingInPaymentsEntity() *PaymentMethodNetBankingInPaymentsEntity`
 
 NewPaymentMethodNetBankingInPaymentsEntity instantiates a new PaymentMethodNetBankingInPaymentsEntity object
 This constructor will assign default values to properties that have it defined,
@@ -27,65 +25,30 @@ NewPaymentMethodNetBankingInPaymentsEntityWithDefaults instantiates a new Paymen
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetChannel
+### GetNetbanking
 
-`func (o *PaymentMethodNetBankingInPaymentsEntity) GetChannel() string`
+`func (o *PaymentMethodNetBankingInPaymentsEntity) GetNetbanking() PaymentMethodNetBankingInPaymentsEntityNetbanking`
 
-GetChannel returns the Channel field if non-nil, zero value otherwise.
+GetNetbanking returns the Netbanking field if non-nil, zero value otherwise.
 
-### GetChannelOk
+### GetNetbankingOk
 
-`func (o *PaymentMethodNetBankingInPaymentsEntity) GetChannelOk() (*string, bool)`
+`func (o *PaymentMethodNetBankingInPaymentsEntity) GetNetbankingOk() (*PaymentMethodNetBankingInPaymentsEntityNetbanking, bool)`
 
-GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
+GetNetbankingOk returns a tuple with the Netbanking field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChannel
+### SetNetbanking
 
-`func (o *PaymentMethodNetBankingInPaymentsEntity) SetChannel(v string)`
+`func (o *PaymentMethodNetBankingInPaymentsEntity) SetNetbanking(v PaymentMethodNetBankingInPaymentsEntityNetbanking)`
 
-SetChannel sets Channel field to given value.
+SetNetbanking sets Netbanking field to given value.
 
+### HasNetbanking
 
-### GetNetbankingBankCode
+`func (o *PaymentMethodNetBankingInPaymentsEntity) HasNetbanking() bool`
 
-`func (o *PaymentMethodNetBankingInPaymentsEntity) GetNetbankingBankCode() int32`
-
-GetNetbankingBankCode returns the NetbankingBankCode field if non-nil, zero value otherwise.
-
-### GetNetbankingBankCodeOk
-
-`func (o *PaymentMethodNetBankingInPaymentsEntity) GetNetbankingBankCodeOk() (*int32, bool)`
-
-GetNetbankingBankCodeOk returns a tuple with the NetbankingBankCode field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNetbankingBankCode
-
-`func (o *PaymentMethodNetBankingInPaymentsEntity) SetNetbankingBankCode(v int32)`
-
-SetNetbankingBankCode sets NetbankingBankCode field to given value.
-
-
-### GetNetbankingBankName
-
-`func (o *PaymentMethodNetBankingInPaymentsEntity) GetNetbankingBankName() string`
-
-GetNetbankingBankName returns the NetbankingBankName field if non-nil, zero value otherwise.
-
-### GetNetbankingBankNameOk
-
-`func (o *PaymentMethodNetBankingInPaymentsEntity) GetNetbankingBankNameOk() (*string, bool)`
-
-GetNetbankingBankNameOk returns a tuple with the NetbankingBankName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNetbankingBankName
-
-`func (o *PaymentMethodNetBankingInPaymentsEntity) SetNetbankingBankName(v string)`
-
-SetNetbankingBankName sets NetbankingBankName field to given value.
-
+HasNetbanking returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

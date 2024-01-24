@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -20,13 +20,7 @@ var _ MappedNullable = &PaymentMethodCardInPaymentsEntity{}
 
 // PaymentMethodCardInPaymentsEntity payment method card object in payment entity
 type PaymentMethodCardInPaymentsEntity struct {
-	Channel *string `json:"channel,omitempty"`
-	CardNumber *string `json:"card_number,omitempty"`
-	CardNetwork *string `json:"card_network,omitempty"`
-	CardType *string `json:"card_type,omitempty"`
-	CardCountry *string `json:"card_country,omitempty"`
-	CardBankName *string `json:"card_bank_name,omitempty"`
-	CardNetworkReferenceId *string `json:"card_network_reference_id,omitempty"`
+	Card *PaymentMethodCardInPaymentsEntityCard `json:"card,omitempty"`
 }
 
 
@@ -40,26 +34,8 @@ func (o PaymentMethodCardInPaymentsEntity) MarshalJSON() ([]byte, error) {
 
 func (o PaymentMethodCardInPaymentsEntity) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Channel) {
-		toSerialize["channel"] = o.Channel
-	}
-	if !IsNil(o.CardNumber) {
-		toSerialize["card_number"] = o.CardNumber
-	}
-	if !IsNil(o.CardNetwork) {
-		toSerialize["card_network"] = o.CardNetwork
-	}
-	if !IsNil(o.CardType) {
-		toSerialize["card_type"] = o.CardType
-	}
-	if !IsNil(o.CardCountry) {
-		toSerialize["card_country"] = o.CardCountry
-	}
-	if !IsNil(o.CardBankName) {
-		toSerialize["card_bank_name"] = o.CardBankName
-	}
-	if !IsNil(o.CardNetworkReferenceId) {
-		toSerialize["card_network_reference_id"] = o.CardNetworkReferenceId
+	if !IsNil(o.Card) {
+		toSerialize["card"] = o.Card
 	}
 	return toSerialize, nil
 }
