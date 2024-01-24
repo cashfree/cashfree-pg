@@ -30,7 +30,7 @@ jobs:
           git config --global user.email "developers@cashfree.com"
           git config --global user.name "Cashfree Payments"
           go mod tidy
-          GOPROXY=proxy.golang.org go list -m github.com/cashfree/cashfree-pg/v4@"${{ steps.get-latest-tag.outputs.tag }}"
+          GOPROXY=proxy.golang.org go list -m github.com/cashfree/cashfree-pg/v3@"${{ steps.get-latest-tag.outputs.tag }}"
           curl --location --request POST 'https://api.github.com/repos/cashfree/cashfree-pg/releases' \
           --header 'Accept: application/vnd.github+json' \
           --header "Authorization: Bearer ${{ secrets.TOKEN_GITHUB }}" \
