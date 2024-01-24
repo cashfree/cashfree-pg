@@ -111,6 +111,7 @@ docs/PaylaterEntity.md
 docs/PaylaterOffer.md
 docs/PaylaterPaymentMethod.md
 docs/PaymentEntity.md
+docs/PaymentEntityPaymentMethod.md
 docs/PaymentLinkCustomerDetails.md
 docs/PaymentLinkOrderEntity.md
 docs/PaymentLinksAPI.md
@@ -122,8 +123,6 @@ docs/PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails.md
 docs/PaymentMethodCardInPaymentsEntity.md
 docs/PaymentMethodCardInPaymentsEntityCard.md
 docs/PaymentMethodCardlessEMIInPaymentsEntity.md
-docs/PaymentMethodInPaymentsEntity.md
-docs/PaymentMethodInPaymentsEntityPaymentMethod.md
 docs/PaymentMethodNetBankingInPaymentsEntity.md
 docs/PaymentMethodNetBankingInPaymentsEntityNetbanking.md
 docs/PaymentMethodPaylaterInPaymentsEntity.md
@@ -264,6 +263,7 @@ model_paylater_entity.go
 model_paylater_offer.go
 model_paylater_payment_method.go
 model_payment_entity.go
+model_payment_entity_payment_method.go
 model_payment_link_customer_details.go
 model_payment_link_order_entity.go
 model_payment_method_app_in_payments_entity.go
@@ -274,8 +274,6 @@ model_payment_method_card_emiin_payments_entity_emi_emi_details.go
 model_payment_method_card_in_payments_entity.go
 model_payment_method_card_in_payments_entity_card.go
 model_payment_method_cardless_emiin_payments_entity.go
-model_payment_method_in_payments_entity.go
-model_payment_method_in_payments_entity_payment_method.go
 model_payment_method_net_banking_in_payments_entity.go
 model_payment_method_net_banking_in_payments_entity_netbanking.go
 model_payment_method_paylater_in_payments_entity.go
