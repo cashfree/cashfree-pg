@@ -41,7 +41,7 @@ type PaymentEntity struct {
 	BankReference *string `json:"bank_reference,omitempty"`
 	AuthId *string `json:"auth_id,omitempty"`
 	Authorization *AuthorizationInPaymentsEntity `json:"authorization,omitempty"`
-	PaymentMethod *PaymentMethodInPaymentsEntity `json:"payment_method,omitempty"`
+	PaymentMethod map[string]interface{} `json:"payment_method,omitempty"`
 }
 
 
