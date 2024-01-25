@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DiscountType** | **string** | Type of discount | 
-**DiscountValue** | **string** | Value of Discount. | 
-**MaxDiscountAmount** | **string** | Maximum Value of Discount allowed. | 
+**DiscountValue** | **float32** | Value of Discount. | 
+**MaxDiscountAmount** | **float32** | Maximum Value of Discount allowed. | 
 
 ## Methods
 
 ### NewDiscountDetails
 
-`func NewDiscountDetails(discountType string, discountValue string, maxDiscountAmount string, ) *DiscountDetails`
+`func NewDiscountDetails(discountType string, discountValue float32, maxDiscountAmount float32, ) *DiscountDetails`
 
 NewDiscountDetails instantiates a new DiscountDetails object
 This constructor will assign default values to properties that have it defined,
@@ -49,40 +49,40 @@ SetDiscountType sets DiscountType field to given value.
 
 ### GetDiscountValue
 
-`func (o *DiscountDetails) GetDiscountValue() string`
+`func (o *DiscountDetails) GetDiscountValue() float32`
 
 GetDiscountValue returns the DiscountValue field if non-nil, zero value otherwise.
 
 ### GetDiscountValueOk
 
-`func (o *DiscountDetails) GetDiscountValueOk() (*string, bool)`
+`func (o *DiscountDetails) GetDiscountValueOk() (*float32, bool)`
 
 GetDiscountValueOk returns a tuple with the DiscountValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDiscountValue
 
-`func (o *DiscountDetails) SetDiscountValue(v string)`
+`func (o *DiscountDetails) SetDiscountValue(v float32)`
 
 SetDiscountValue sets DiscountValue field to given value.
 
 
 ### GetMaxDiscountAmount
 
-`func (o *DiscountDetails) GetMaxDiscountAmount() string`
+`func (o *DiscountDetails) GetMaxDiscountAmount() float32`
 
 GetMaxDiscountAmount returns the MaxDiscountAmount field if non-nil, zero value otherwise.
 
 ### GetMaxDiscountAmountOk
 
-`func (o *DiscountDetails) GetMaxDiscountAmountOk() (*string, bool)`
+`func (o *DiscountDetails) GetMaxDiscountAmountOk() (*float32, bool)`
 
 GetMaxDiscountAmountOk returns a tuple with the MaxDiscountAmount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMaxDiscountAmount
 
-`func (o *DiscountDetails) SetMaxDiscountAmount(v string)`
+`func (o *DiscountDetails) SetMaxDiscountAmount(v float32)`
 
 SetMaxDiscountAmount sets MaxDiscountAmount field to given value.
 

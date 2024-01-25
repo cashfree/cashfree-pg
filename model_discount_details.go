@@ -13,6 +13,7 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"strings"
 )
 
 // checks if the DiscountDetails type satisfies the MappedNullable interface at compile time
@@ -23,9 +24,9 @@ type DiscountDetails struct {
 	// Type of discount
 	DiscountType string `json:"discount_type"`
 	// Value of Discount.
-	DiscountValue string `json:"discount_value"`
+	DiscountValue float32 `json:"discount_value"`
 	// Maximum Value of Discount allowed.
-	MaxDiscountAmount string `json:"max_discount_amount"`
+	MaxDiscountAmount float32 `json:"max_discount_amount"`
 }
 
 
