@@ -13,6 +13,7 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"strings"
 	"fmt"
 )
 
@@ -79,8 +80,230 @@ func OfferWalletAsOfferValidationsPaymentMethod(v *OfferWallet) OfferValidations
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *OfferValidationsPaymentMethod) UnmarshalJSON(data []byte) error {
-	fmt.Println("data")
-	return nil
+		var err error
+
+
+
+
+
+	match := 0
+
+
+	// try to unmarshal data into OfferAll
+
+	err = json.Unmarshal(data, &dst.OfferAll)
+
+	if err == nil {
+
+		jsonOfferAll, _ := json.Marshal(dst.OfferAll)
+
+		if strings.Contains(string(jsonOfferAll), "{}") || strings.Contains(string(jsonOfferAll), "null") { // empty struct
+
+			dst.OfferAll = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.OfferAll = nil
+
+	}
+
+
+	// try to unmarshal data into OfferCard
+
+	err = json.Unmarshal(data, &dst.OfferCard)
+
+	if err == nil {
+
+		jsonOfferCard, _ := json.Marshal(dst.OfferCard)
+
+		if strings.Contains(string(jsonOfferCard), "{}") || strings.Contains(string(jsonOfferCard), "null") { // empty struct
+
+			dst.OfferCard = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.OfferCard = nil
+
+	}
+
+
+	// try to unmarshal data into OfferEMI
+
+	err = json.Unmarshal(data, &dst.OfferEMI)
+
+	if err == nil {
+
+		jsonOfferEMI, _ := json.Marshal(dst.OfferEMI)
+
+		if strings.Contains(string(jsonOfferEMI), "{}") || strings.Contains(string(jsonOfferEMI), "null") { // empty struct
+
+			dst.OfferEMI = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.OfferEMI = nil
+
+	}
+
+
+	// try to unmarshal data into OfferNB
+
+	err = json.Unmarshal(data, &dst.OfferNB)
+
+	if err == nil {
+
+		jsonOfferNB, _ := json.Marshal(dst.OfferNB)
+
+		if strings.Contains(string(jsonOfferNB), "{}") || strings.Contains(string(jsonOfferNB), "null") { // empty struct
+
+			dst.OfferNB = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.OfferNB = nil
+
+	}
+
+
+	// try to unmarshal data into OfferPaylater
+
+	err = json.Unmarshal(data, &dst.OfferPaylater)
+
+	if err == nil {
+
+		jsonOfferPaylater, _ := json.Marshal(dst.OfferPaylater)
+
+		if strings.Contains(string(jsonOfferPaylater), "{}") || strings.Contains(string(jsonOfferPaylater), "null") { // empty struct
+
+			dst.OfferPaylater = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.OfferPaylater = nil
+
+	}
+
+
+	// try to unmarshal data into OfferUPI
+
+	err = json.Unmarshal(data, &dst.OfferUPI)
+
+	if err == nil {
+
+		jsonOfferUPI, _ := json.Marshal(dst.OfferUPI)
+
+		if strings.Contains(string(jsonOfferUPI), "{}") || strings.Contains(string(jsonOfferUPI), "null") { // empty struct
+
+			dst.OfferUPI = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.OfferUPI = nil
+
+	}
+
+
+	// try to unmarshal data into OfferWallet
+
+	err = json.Unmarshal(data, &dst.OfferWallet)
+
+	if err == nil {
+
+		jsonOfferWallet, _ := json.Marshal(dst.OfferWallet)
+
+		if strings.Contains(string(jsonOfferWallet), "{}") || strings.Contains(string(jsonOfferWallet), "null") { // empty struct
+
+			dst.OfferWallet = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.OfferWallet = nil
+
+	}
+
+
+	if match > 1 { // more than 1 match
+
+		// reset to nil
+
+
+		dst.OfferAll = nil
+
+
+		dst.OfferCard = nil
+
+
+		dst.OfferEMI = nil
+
+
+		dst.OfferNB = nil
+
+
+		dst.OfferPaylater = nil
+
+
+		dst.OfferUPI = nil
+
+
+		dst.OfferWallet = nil
+
+
+		return fmt.Errorf("data matches more than one schema in oneOf(OfferValidationsPaymentMethod)")
+
+	} else if match == 1 {
+
+		return nil // exactly one match
+
+	} else { // no match
+
+		return fmt.Errorf("data failed to match schemas in oneOf(OfferValidationsPaymentMethod)")
+
+	}
+
+
+
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON

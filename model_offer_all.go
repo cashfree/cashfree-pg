@@ -13,6 +13,7 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"strings"
 )
 
 // checks if the OfferAll type satisfies the MappedNullable interface at compile time

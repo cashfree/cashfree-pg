@@ -13,6 +13,7 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"strings"
 )
 
 // checks if the CashbackDetails type satisfies the MappedNullable interface at compile time
@@ -23,9 +24,9 @@ type CashbackDetails struct {
 	// Type of discount
 	CashbackType string `json:"cashback_type"`
 	// Value of Discount.
-	CashbackValue string `json:"cashback_value"`
+	CashbackValue float32 `json:"cashback_value"`
 	// Maximum Value of Cashback allowed.
-	MaxCashbackAmount string `json:"max_cashback_amount"`
+	MaxCashbackAmount float32 `json:"max_cashback_amount"`
 }
 
 

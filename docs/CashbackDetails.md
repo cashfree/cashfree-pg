@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CashbackType** | **string** | Type of discount | 
-**CashbackValue** | **string** | Value of Discount. | 
-**MaxCashbackAmount** | **string** | Maximum Value of Cashback allowed. | 
+**CashbackValue** | **float32** | Value of Discount. | 
+**MaxCashbackAmount** | **float32** | Maximum Value of Cashback allowed. | 
 
 ## Methods
 
 ### NewCashbackDetails
 
-`func NewCashbackDetails(cashbackType string, cashbackValue string, maxCashbackAmount string, ) *CashbackDetails`
+`func NewCashbackDetails(cashbackType string, cashbackValue float32, maxCashbackAmount float32, ) *CashbackDetails`
 
 NewCashbackDetails instantiates a new CashbackDetails object
 This constructor will assign default values to properties that have it defined,
@@ -49,40 +49,40 @@ SetCashbackType sets CashbackType field to given value.
 
 ### GetCashbackValue
 
-`func (o *CashbackDetails) GetCashbackValue() string`
+`func (o *CashbackDetails) GetCashbackValue() float32`
 
 GetCashbackValue returns the CashbackValue field if non-nil, zero value otherwise.
 
 ### GetCashbackValueOk
 
-`func (o *CashbackDetails) GetCashbackValueOk() (*string, bool)`
+`func (o *CashbackDetails) GetCashbackValueOk() (*float32, bool)`
 
 GetCashbackValueOk returns a tuple with the CashbackValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCashbackValue
 
-`func (o *CashbackDetails) SetCashbackValue(v string)`
+`func (o *CashbackDetails) SetCashbackValue(v float32)`
 
 SetCashbackValue sets CashbackValue field to given value.
 
 
 ### GetMaxCashbackAmount
 
-`func (o *CashbackDetails) GetMaxCashbackAmount() string`
+`func (o *CashbackDetails) GetMaxCashbackAmount() float32`
 
 GetMaxCashbackAmount returns the MaxCashbackAmount field if non-nil, zero value otherwise.
 
 ### GetMaxCashbackAmountOk
 
-`func (o *CashbackDetails) GetMaxCashbackAmountOk() (*string, bool)`
+`func (o *CashbackDetails) GetMaxCashbackAmountOk() (*float32, bool)`
 
 GetMaxCashbackAmountOk returns a tuple with the MaxCashbackAmount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMaxCashbackAmount
 
-`func (o *CashbackDetails) SetMaxCashbackAmount(v string)`
+`func (o *CashbackDetails) SetMaxCashbackAmount(v float32)`
 
 SetMaxCashbackAmount sets MaxCashbackAmount field to given value.
 

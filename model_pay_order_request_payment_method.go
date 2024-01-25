@@ -13,6 +13,7 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"strings"
 	"fmt"
 )
 
@@ -79,8 +80,230 @@ func UPIPaymentMethodAsPayOrderRequestPaymentMethod(v *UPIPaymentMethod) PayOrde
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
-	fmt.Println("data")
-	return nil
+		var err error
+
+
+
+
+
+	match := 0
+
+
+	// try to unmarshal data into AppPaymentMethod
+
+	err = json.Unmarshal(data, &dst.AppPaymentMethod)
+
+	if err == nil {
+
+		jsonAppPaymentMethod, _ := json.Marshal(dst.AppPaymentMethod)
+
+		if strings.Contains(string(jsonAppPaymentMethod), "{}") || strings.Contains(string(jsonAppPaymentMethod), "null") { // empty struct
+
+			dst.AppPaymentMethod = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.AppPaymentMethod = nil
+
+	}
+
+
+	// try to unmarshal data into CardEMIPaymentMethod
+
+	err = json.Unmarshal(data, &dst.CardEMIPaymentMethod)
+
+	if err == nil {
+
+		jsonCardEMIPaymentMethod, _ := json.Marshal(dst.CardEMIPaymentMethod)
+
+		if strings.Contains(string(jsonCardEMIPaymentMethod), "{}") || strings.Contains(string(jsonCardEMIPaymentMethod), "null") { // empty struct
+
+			dst.CardEMIPaymentMethod = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.CardEMIPaymentMethod = nil
+
+	}
+
+
+	// try to unmarshal data into CardPaymentMethod
+
+	err = json.Unmarshal(data, &dst.CardPaymentMethod)
+
+	if err == nil {
+
+		jsonCardPaymentMethod, _ := json.Marshal(dst.CardPaymentMethod)
+
+		if strings.Contains(string(jsonCardPaymentMethod), "{}") || strings.Contains(string(jsonCardPaymentMethod), "null") { // empty struct
+
+			dst.CardPaymentMethod = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.CardPaymentMethod = nil
+
+	}
+
+
+	// try to unmarshal data into CardlessEMIPaymentMethod
+
+	err = json.Unmarshal(data, &dst.CardlessEMIPaymentMethod)
+
+	if err == nil {
+
+		jsonCardlessEMIPaymentMethod, _ := json.Marshal(dst.CardlessEMIPaymentMethod)
+
+		if strings.Contains(string(jsonCardlessEMIPaymentMethod), "{}") || strings.Contains(string(jsonCardlessEMIPaymentMethod), "null") { // empty struct
+
+			dst.CardlessEMIPaymentMethod = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.CardlessEMIPaymentMethod = nil
+
+	}
+
+
+	// try to unmarshal data into NetBankingPaymentMethod
+
+	err = json.Unmarshal(data, &dst.NetBankingPaymentMethod)
+
+	if err == nil {
+
+		jsonNetBankingPaymentMethod, _ := json.Marshal(dst.NetBankingPaymentMethod)
+
+		if strings.Contains(string(jsonNetBankingPaymentMethod), "{}") || strings.Contains(string(jsonNetBankingPaymentMethod), "null") { // empty struct
+
+			dst.NetBankingPaymentMethod = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.NetBankingPaymentMethod = nil
+
+	}
+
+
+	// try to unmarshal data into PaylaterPaymentMethod
+
+	err = json.Unmarshal(data, &dst.PaylaterPaymentMethod)
+
+	if err == nil {
+
+		jsonPaylaterPaymentMethod, _ := json.Marshal(dst.PaylaterPaymentMethod)
+
+		if strings.Contains(string(jsonPaylaterPaymentMethod), "{}") || strings.Contains(string(jsonPaylaterPaymentMethod), "null") { // empty struct
+
+			dst.PaylaterPaymentMethod = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.PaylaterPaymentMethod = nil
+
+	}
+
+
+	// try to unmarshal data into UPIPaymentMethod
+
+	err = json.Unmarshal(data, &dst.UPIPaymentMethod)
+
+	if err == nil {
+
+		jsonUPIPaymentMethod, _ := json.Marshal(dst.UPIPaymentMethod)
+
+		if strings.Contains(string(jsonUPIPaymentMethod), "{}") || strings.Contains(string(jsonUPIPaymentMethod), "null") { // empty struct
+
+			dst.UPIPaymentMethod = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.UPIPaymentMethod = nil
+
+	}
+
+
+	if match > 1 { // more than 1 match
+
+		// reset to nil
+
+
+		dst.AppPaymentMethod = nil
+
+
+		dst.CardEMIPaymentMethod = nil
+
+
+		dst.CardPaymentMethod = nil
+
+
+		dst.CardlessEMIPaymentMethod = nil
+
+
+		dst.NetBankingPaymentMethod = nil
+
+
+		dst.PaylaterPaymentMethod = nil
+
+
+		dst.UPIPaymentMethod = nil
+
+
+		return fmt.Errorf("data matches more than one schema in oneOf(PayOrderRequestPaymentMethod)")
+
+	} else if match == 1 {
+
+		return nil // exactly one match
+
+	} else { // no match
+
+		return fmt.Errorf("data failed to match schemas in oneOf(PayOrderRequestPaymentMethod)")
+
+	}
+
+
+
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
