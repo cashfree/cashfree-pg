@@ -41,3 +41,7 @@ func (o NetBankingPaymentMethod) ToMap() (map[string]interface{}, error) {
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}

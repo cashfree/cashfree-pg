@@ -53,3 +53,7 @@ func (o ApiError502) ToMap() (map[string]interface{}, error) {
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}

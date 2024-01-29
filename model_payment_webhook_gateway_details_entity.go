@@ -59,3 +59,7 @@ func (o PaymentWebhookGatewayDetailsEntity) ToMap() (map[string]interface{}, err
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}

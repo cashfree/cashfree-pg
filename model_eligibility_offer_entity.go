@@ -55,3 +55,7 @@ func (o EligibilityOfferEntity) ToMap() (map[string]interface{}, error) {
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}

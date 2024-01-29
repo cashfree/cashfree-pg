@@ -43,3 +43,7 @@ func (o PaymentMethodCardEMIInPaymentsEntity) ToMap() (map[string]interface{}, e
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}

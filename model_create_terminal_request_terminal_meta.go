@@ -44,3 +44,7 @@ func (o CreateTerminalRequestTerminalMeta) ToMap() (map[string]interface{}, erro
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}
