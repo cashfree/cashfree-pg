@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -45,7 +45,7 @@ var (
 	XPartnerApiKey *string
 	XEnvironment CFEnvironment = SANDBOX
 	XEnableErrorAnalytics = true
-	XApiVersion = "2023-08-01";
+	XApiVersion = "2022-09-01";
 )
 
 type PGWebhookEvent struct {
@@ -92,7 +92,7 @@ func SetupSentry(environment CFEnvironment) {
 		AttachStacktrace: true,
 		EnableTracing:    true,
 		Environment:      env,
-		Release:          "4.0.5",
+		Release:          "3.2.13",
 		BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
 			delete(event.Contexts, "device")
 			delete(event.Contexts, "os")
@@ -192,7 +192,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/4.0.5/go",
+		UserAgent:        "OpenAPI-Generator/3.2.13/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{

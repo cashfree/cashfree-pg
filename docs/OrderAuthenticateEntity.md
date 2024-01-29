@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfPaymentId** | Pointer to **string** | The payment id for which this request was sent | [optional] 
+**CfPaymentId** | Pointer to **float32** | The payment id for which this request was sent | [optional] 
 **Action** | Pointer to **string** | The action that was invoked for this request. | [optional] 
 **AuthenticateStatus** | Pointer to **string** | Status of the is action. Will be either failed or successful. If the action is successful, you should still call the authorization status to verify the final payment status. | [optional] 
 **PaymentMessage** | Pointer to **string** | Human readable message which describes the status in more detail | [optional] 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfPaymentId
 
-`func (o *OrderAuthenticateEntity) GetCfPaymentId() string`
+`func (o *OrderAuthenticateEntity) GetCfPaymentId() float32`
 
 GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
 
 ### GetCfPaymentIdOk
 
-`func (o *OrderAuthenticateEntity) GetCfPaymentIdOk() (*string, bool)`
+`func (o *OrderAuthenticateEntity) GetCfPaymentIdOk() (*float32, bool)`
 
 GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfPaymentId
 
-`func (o *OrderAuthenticateEntity) SetCfPaymentId(v string)`
+`func (o *OrderAuthenticateEntity) SetCfPaymentId(v float32)`
 
 SetCfPaymentId sets CfPaymentId field to given value.
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ MappedNullable = &OrderAuthenticateEntity{}
 // OrderAuthenticateEntity This is the response shared when merchant inovkes the OTP submit or resend API
 type OrderAuthenticateEntity struct {
 	// The payment id for which this request was sent
-	CfPaymentId *string `json:"cf_payment_id,omitempty"`
+	CfPaymentId *float32 `json:"cf_payment_id,omitempty"`
 	// The action that was invoked for this request.
 	Action *string `json:"action,omitempty"`
 	// Status of the is action. Will be either failed or successful. If the action is successful, you should still call the authorization status to verify the final payment status.

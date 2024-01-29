@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfOrderId** | **string** | cashfree order ID that was returned while creating an order. | 
-**CfTerminalId** | Pointer to **string** | cashfree terminal id. this is a required parameter when you do not provide the terminal phone number. | [optional] 
+**CfOrderId** | **int64** | cashfree order ID that was returned while creating an order. | 
+**CfTerminalId** | Pointer to **int64** | cashfree terminal id. this is a required parameter when you do not provide the terminal phone number. | [optional] 
 **PaymentMethod** | **string** | mention the payment method used for the transaction. possible values - QR_CODE, LINK. | 
 **TerminalPhoneNo** | Pointer to **string** | agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id. | [optional] 
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewCreateTerminalTransactionRequest
 
-`func NewCreateTerminalTransactionRequest(cfOrderId string, paymentMethod string, ) *CreateTerminalTransactionRequest`
+`func NewCreateTerminalTransactionRequest(cfOrderId int64, paymentMethod string, ) *CreateTerminalTransactionRequest`
 
 NewCreateTerminalTransactionRequest instantiates a new CreateTerminalTransactionRequest object
 This constructor will assign default values to properties that have it defined,
@@ -30,40 +30,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfOrderId
 
-`func (o *CreateTerminalTransactionRequest) GetCfOrderId() string`
+`func (o *CreateTerminalTransactionRequest) GetCfOrderId() int64`
 
 GetCfOrderId returns the CfOrderId field if non-nil, zero value otherwise.
 
 ### GetCfOrderIdOk
 
-`func (o *CreateTerminalTransactionRequest) GetCfOrderIdOk() (*string, bool)`
+`func (o *CreateTerminalTransactionRequest) GetCfOrderIdOk() (*int64, bool)`
 
 GetCfOrderIdOk returns a tuple with the CfOrderId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfOrderId
 
-`func (o *CreateTerminalTransactionRequest) SetCfOrderId(v string)`
+`func (o *CreateTerminalTransactionRequest) SetCfOrderId(v int64)`
 
 SetCfOrderId sets CfOrderId field to given value.
 
 
 ### GetCfTerminalId
 
-`func (o *CreateTerminalTransactionRequest) GetCfTerminalId() string`
+`func (o *CreateTerminalTransactionRequest) GetCfTerminalId() int64`
 
 GetCfTerminalId returns the CfTerminalId field if non-nil, zero value otherwise.
 
 ### GetCfTerminalIdOk
 
-`func (o *CreateTerminalTransactionRequest) GetCfTerminalIdOk() (*string, bool)`
+`func (o *CreateTerminalTransactionRequest) GetCfTerminalIdOk() (*int64, bool)`
 
 GetCfTerminalIdOk returns a tuple with the CfTerminalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfTerminalId
 
-`func (o *CreateTerminalTransactionRequest) SetCfTerminalId(v string)`
+`func (o *CreateTerminalTransactionRequest) SetCfTerminalId(v int64)`
 
 SetCfTerminalId sets CfTerminalId field to given value.
 

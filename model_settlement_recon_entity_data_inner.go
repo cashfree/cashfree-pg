@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2022-09-01
 Contact: developers@cashfree.com
 */
 
@@ -60,9 +60,9 @@ type SettlementReconEntityDataInner struct {
 	// Service tax applicable on the payment.
 	PaymentServiceTax *float32 `json:"payment_service_tax,omitempty"`
 	// Cashfree Payments unique ID to identify a payment.
-	CfPaymentId *string `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
 	// Unique ID to identify the settlement.
-	CfSettlementId *string `json:"cf_settlement_id,omitempty"`
+	CfSettlementId *int32 `json:"cf_settlement_id,omitempty"`
 	// Date and time when the settlement was processed.
 	SettlementDate *string `json:"settlement_date,omitempty"`
 	// Unique transaction reference number of the settlement.
