@@ -37,6 +37,7 @@ func (o CreateOfferRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (o CreateOfferRequest) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["offer_meta"] = o.OfferMeta
 	toSerialize["offer_tnc"] = o.OfferTnc
@@ -47,7 +48,3 @@ func (o CreateOfferRequest) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

@@ -103,6 +103,7 @@ func (o SettlementReconEntityDataInner) MarshalJSON() ([]byte, error) {
 }
 
 func (o SettlementReconEntityDataInner) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.EventId) {
 		toSerialize["event_id"] = o.EventId
@@ -214,7 +215,3 @@ func (o SettlementReconEntityDataInner) ToMap() (map[string]interface{}, error) 
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

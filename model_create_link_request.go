@@ -54,6 +54,7 @@ func (o CreateLinkRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (o CreateLinkRequest) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["link_id"] = o.LinkId
 	toSerialize["link_amount"] = o.LinkAmount
@@ -86,7 +87,3 @@ func (o CreateLinkRequest) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

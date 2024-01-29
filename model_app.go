@@ -39,6 +39,7 @@ func (o App) MarshalJSON() ([]byte, error) {
 }
 
 func (o App) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["channel"] = o.Channel
 	toSerialize["provider"] = o.Provider
@@ -48,7 +49,3 @@ func (o App) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

@@ -38,6 +38,7 @@ func (o ReconEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o ReconEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Cursor) {
 		toSerialize["cursor"] = o.Cursor
@@ -53,7 +54,3 @@ func (o ReconEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

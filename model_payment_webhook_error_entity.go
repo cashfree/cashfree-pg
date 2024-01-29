@@ -39,6 +39,7 @@ func (o PaymentWebhookErrorEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o PaymentWebhookErrorEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ErrorCode) {
 		toSerialize["error_code"] = o.ErrorCode
@@ -63,7 +64,3 @@ func (o PaymentWebhookErrorEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

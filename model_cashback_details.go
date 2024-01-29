@@ -39,6 +39,7 @@ func (o CashbackDetails) MarshalJSON() ([]byte, error) {
 }
 
 func (o CashbackDetails) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["cashback_type"] = o.CashbackType
 	toSerialize["cashback_value"] = o.CashbackValue
@@ -48,7 +49,3 @@ func (o CashbackDetails) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

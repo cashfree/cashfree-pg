@@ -47,6 +47,7 @@ func (o CryptogramEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o CryptogramEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.InstrumentId) {
 		toSerialize["instrument_id"] = o.InstrumentId
@@ -74,7 +75,3 @@ func (o CryptogramEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

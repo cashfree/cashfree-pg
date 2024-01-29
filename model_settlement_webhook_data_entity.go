@@ -34,6 +34,7 @@ func (o SettlementWebhookDataEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o SettlementWebhookDataEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Settlement) {
 		toSerialize["settlement"] = o.Settlement
@@ -43,7 +44,3 @@ func (o SettlementWebhookDataEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

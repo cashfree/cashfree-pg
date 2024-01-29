@@ -39,6 +39,7 @@ func (o LinkCustomerDetailsEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o LinkCustomerDetailsEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["customer_phone"] = o.CustomerPhone
 	if !IsNil(o.CustomerEmail) {
@@ -52,7 +53,3 @@ func (o LinkCustomerDetailsEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

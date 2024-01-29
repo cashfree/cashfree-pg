@@ -39,6 +39,7 @@ func (o OfferEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o OfferEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.OfferId) {
 		toSerialize["offer_id"] = o.OfferId
@@ -63,7 +64,3 @@ func (o OfferEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

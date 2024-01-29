@@ -35,6 +35,7 @@ func (o CreateTerminalRequestTerminalMeta) MarshalJSON() ([]byte, error) {
 }
 
 func (o CreateTerminalRequestTerminalMeta) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.TerminalOperator) {
 		toSerialize["terminal_operator"] = o.TerminalOperator
@@ -44,7 +45,3 @@ func (o CreateTerminalRequestTerminalMeta) ToMap() (map[string]interface{}, erro
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

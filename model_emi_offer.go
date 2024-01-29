@@ -38,6 +38,7 @@ func (o EMIOffer) MarshalJSON() ([]byte, error) {
 }
 
 func (o EMIOffer) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["type"] = o.Type
 	toSerialize["issuer"] = o.Issuer
@@ -47,7 +48,3 @@ func (o EMIOffer) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

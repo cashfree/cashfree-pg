@@ -34,6 +34,7 @@ func (o UPIPaymentMethod) MarshalJSON() ([]byte, error) {
 }
 
 func (o UPIPaymentMethod) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["upi"] = o.Upi
 	return toSerialize, nil
@@ -41,7 +42,3 @@ func (o UPIPaymentMethod) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

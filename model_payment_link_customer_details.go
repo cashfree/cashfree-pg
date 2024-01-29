@@ -47,6 +47,7 @@ func (o PaymentLinkCustomerDetails) MarshalJSON() ([]byte, error) {
 }
 
 func (o PaymentLinkCustomerDetails) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CustomerId) {
 		toSerialize["customer_id"] = o.CustomerId
@@ -72,7 +73,3 @@ func (o PaymentLinkCustomerDetails) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

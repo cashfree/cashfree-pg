@@ -34,6 +34,7 @@ func (o EligibilityFetchCardlessEMIRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (o EligibilityFetchCardlessEMIRequest) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["queries"] = o.Queries
 	return toSerialize, nil
@@ -41,7 +42,3 @@ func (o EligibilityFetchCardlessEMIRequest) ToMap() (map[string]interface{}, err
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

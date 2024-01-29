@@ -41,6 +41,7 @@ func (o LinkMetaResponseEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o LinkMetaResponseEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.NotifyUrl) {
 		toSerialize["notify_url"] = o.NotifyUrl
@@ -59,7 +60,3 @@ func (o LinkMetaResponseEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

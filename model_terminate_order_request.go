@@ -35,6 +35,7 @@ func (o TerminateOrderRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (o TerminateOrderRequest) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["order_status"] = o.OrderStatus
 	return toSerialize, nil
@@ -42,7 +43,3 @@ func (o TerminateOrderRequest) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

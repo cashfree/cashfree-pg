@@ -37,6 +37,7 @@ func (o LinkNotifyEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o LinkNotifyEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.SendSms) {
 		toSerialize["send_sms"] = o.SendSms
@@ -49,7 +50,3 @@ func (o LinkNotifyEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

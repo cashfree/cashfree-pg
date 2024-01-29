@@ -41,6 +41,7 @@ func (o OrderAuthenticateEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o OrderAuthenticateEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CfPaymentId) {
 		toSerialize["cf_payment_id"] = o.CfPaymentId
@@ -59,7 +60,3 @@ func (o OrderAuthenticateEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

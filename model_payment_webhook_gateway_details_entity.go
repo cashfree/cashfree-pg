@@ -38,6 +38,7 @@ func (o PaymentWebhookGatewayDetailsEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o PaymentWebhookGatewayDetailsEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.GatewayName) {
 		toSerialize["gateway_name"] = o.GatewayName
@@ -59,7 +60,3 @@ func (o PaymentWebhookGatewayDetailsEntity) ToMap() (map[string]interface{}, err
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

@@ -41,6 +41,7 @@ func (o FetchSettlementsRequestFilters) MarshalJSON() ([]byte, error) {
 }
 
 func (o FetchSettlementsRequestFilters) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CfSettlementIds) {
 		toSerialize["cf_settlement_ids"] = o.CfSettlementIds
@@ -59,7 +60,3 @@ func (o FetchSettlementsRequestFilters) ToMap() (map[string]interface{}, error) 
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

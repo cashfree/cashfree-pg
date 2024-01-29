@@ -37,6 +37,7 @@ func (o PaymentWebhookCustomerEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o PaymentWebhookCustomerEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CustomerName) {
 		toSerialize["customer_name"] = o.CustomerName
@@ -55,7 +56,3 @@ func (o PaymentWebhookCustomerEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

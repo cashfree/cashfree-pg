@@ -74,7 +74,3 @@ func (v OfferType) IsValid() bool {
 	return false
 }
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

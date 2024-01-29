@@ -37,6 +37,7 @@ func (o FetchReconRequestFilters) MarshalJSON() ([]byte, error) {
 }
 
 func (o FetchReconRequestFilters) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["start_date"] = o.StartDate
 	toSerialize["end_date"] = o.EndDate
@@ -45,7 +46,3 @@ func (o FetchReconRequestFilters) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

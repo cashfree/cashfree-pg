@@ -39,6 +39,7 @@ func (o Netbanking) MarshalJSON() ([]byte, error) {
 }
 
 func (o Netbanking) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["channel"] = o.Channel
 	if !IsNil(o.NetbankingBankCode) {
@@ -52,7 +53,3 @@ func (o Netbanking) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

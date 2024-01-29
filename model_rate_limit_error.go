@@ -37,6 +37,7 @@ func (o RateLimitError) MarshalJSON() ([]byte, error) {
 }
 
 func (o RateLimitError) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
@@ -52,7 +53,3 @@ func (o RateLimitError) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

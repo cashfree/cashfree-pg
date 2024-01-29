@@ -36,6 +36,7 @@ func (o OfferValidations) MarshalJSON() ([]byte, error) {
 }
 
 func (o OfferValidations) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.MinAmount) {
 		toSerialize["min_amount"] = o.MinAmount
@@ -46,7 +47,3 @@ func (o OfferValidations) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

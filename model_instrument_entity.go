@@ -50,6 +50,7 @@ func (o InstrumentEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o InstrumentEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CustomerId) {
 		toSerialize["customer_id"] = o.CustomerId
@@ -83,7 +84,3 @@ func (o InstrumentEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

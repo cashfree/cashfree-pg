@@ -42,6 +42,7 @@ func (o OrderCreateRefundRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (o OrderCreateRefundRequest) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["refund_amount"] = o.RefundAmount
 	toSerialize["refund_id"] = o.RefundId
@@ -59,7 +60,3 @@ func (o OrderCreateRefundRequest) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}
