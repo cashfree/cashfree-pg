@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfLinkId** | Pointer to **int64** |  | [optional] 
+**CfLinkId** | Pointer to **string** |  | [optional] 
 **LinkId** | Pointer to **string** |  | [optional] 
 **LinkStatus** | Pointer to **string** |  | [optional] 
 **LinkCurrency** | Pointer to **string** |  | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **LinkPurpose** | Pointer to **string** |  | [optional] 
 **LinkCreatedAt** | Pointer to **string** |  | [optional] 
 **CustomerDetails** | Pointer to [**LinkCustomerDetailsEntity**](LinkCustomerDetailsEntity.md) |  | [optional] 
-**LinkMeta** | Pointer to **map[string]string** | Payment link meta information object. | [optional] 
+**LinkMeta** | Pointer to [**LinkMetaResponseEntity**](LinkMetaResponseEntity.md) |  | [optional] 
 **LinkUrl** | Pointer to **string** |  | [optional] 
 **LinkExpiryTime** | Pointer to **string** |  | [optional] 
 **LinkNotes** | Pointer to **map[string]string** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional] 
@@ -43,20 +43,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfLinkId
 
-`func (o *LinkEntity) GetCfLinkId() int64`
+`func (o *LinkEntity) GetCfLinkId() string`
 
 GetCfLinkId returns the CfLinkId field if non-nil, zero value otherwise.
 
 ### GetCfLinkIdOk
 
-`func (o *LinkEntity) GetCfLinkIdOk() (*int64, bool)`
+`func (o *LinkEntity) GetCfLinkIdOk() (*string, bool)`
 
 GetCfLinkIdOk returns a tuple with the CfLinkId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfLinkId
 
-`func (o *LinkEntity) SetCfLinkId(v int64)`
+`func (o *LinkEntity) SetCfLinkId(v string)`
 
 SetCfLinkId sets CfLinkId field to given value.
 
@@ -318,20 +318,20 @@ HasCustomerDetails returns a boolean if a field has been set.
 
 ### GetLinkMeta
 
-`func (o *LinkEntity) GetLinkMeta() map[string]string`
+`func (o *LinkEntity) GetLinkMeta() LinkMetaResponseEntity`
 
 GetLinkMeta returns the LinkMeta field if non-nil, zero value otherwise.
 
 ### GetLinkMetaOk
 
-`func (o *LinkEntity) GetLinkMetaOk() (*map[string]string, bool)`
+`func (o *LinkEntity) GetLinkMetaOk() (*LinkMetaResponseEntity, bool)`
 
 GetLinkMetaOk returns a tuple with the LinkMeta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinkMeta
 
-`func (o *LinkEntity) SetLinkMeta(v map[string]string)`
+`func (o *LinkEntity) SetLinkMeta(v LinkMetaResponseEntity)`
 
 SetLinkMeta sets LinkMeta field to given value.
 

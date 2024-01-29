@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfSettlementIds** | Pointer to **[]int64** | List of settlement IDs for which you want the settlement reconciliation details. | [optional] 
+**CfSettlementIds** | Pointer to **[]string** | List of settlement IDs for which you want the settlement reconciliation details. | [optional] 
 **SettlementUtrs** | Pointer to **[]string** | List of settlement UTRs for which you want the settlement reconciliation details. | [optional] 
 **StartDate** | Pointer to **string** | Specify the start date from when you want the settlement reconciliation details. | [optional] 
 **EndDate** | Pointer to **string** | Specify the end date till when you want the settlement reconciliation details. | [optional] 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfSettlementIds
 
-`func (o *FetchSettlementsRequestFilters) GetCfSettlementIds() []int64`
+`func (o *FetchSettlementsRequestFilters) GetCfSettlementIds() []string`
 
 GetCfSettlementIds returns the CfSettlementIds field if non-nil, zero value otherwise.
 
 ### GetCfSettlementIdsOk
 
-`func (o *FetchSettlementsRequestFilters) GetCfSettlementIdsOk() (*[]int64, bool)`
+`func (o *FetchSettlementsRequestFilters) GetCfSettlementIdsOk() (*[]string, bool)`
 
 GetCfSettlementIdsOk returns a tuple with the CfSettlementIds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfSettlementIds
 
-`func (o *FetchSettlementsRequestFilters) SetCfSettlementIds(v []int64)`
+`func (o *FetchSettlementsRequestFilters) SetCfSettlementIds(v []string)`
 
 SetCfSettlementIds sets CfSettlementIds field to given value.
 
