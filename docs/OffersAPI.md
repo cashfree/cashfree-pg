@@ -26,7 +26,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v3"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
 )
 
 func main() {
@@ -37,8 +37,8 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2022-09-01" 
-    createOfferRequest := *cashfree.NewCreateOfferRequest(*cashfree.NewOfferMeta("Test Offer", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", "CFTESTOFFER", "2023-03-21T08:09:51Z", "2023-03-29T08:09:51Z"), *cashfree.NewOfferTnc("text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit"), *cashfree.NewOfferDetails("DISCOUNT_AND_CASHBACK"), *cashfree.NewOfferValidations(cashfree.OfferValidations_payment_method{OfferAll: cashfree.NewOfferAll(map[string]interface{}(123))}, float32(10))) 
+    xApiVersion := "2023-08-01" 
+    createOfferRequest := *cashfree.NewCreateOfferRequest(*cashfree.NewOfferMeta("Test Offer", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", "CFTESTOFFER", "2023-03-21T08:09:51Z", "2023-03-29T08:09:51Z"), *cashfree.NewOfferTnc("text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit"), *cashfree.NewOfferDetails("DISCOUNT_AND_CASHBACK"), *cashfree.NewOfferValidations(cashfree.OfferValidations_payment_method{OfferAll: cashfree.NewOfferAll(map[string]interface{}(123))})) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
 
@@ -63,10 +63,10 @@ Other parameters are passed through a pointer to a apiPGCreateOfferRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
  **createOfferRequest** | [**CreateOfferRequest**](CreateOfferRequest.md) | Request body to create an offer at Cashfree | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
 
 ### Return type
 
@@ -103,7 +103,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v3"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
 )
 
 func main() {
@@ -114,7 +114,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2022-09-01" 
+    xApiVersion := "2023-08-01" 
     offerId := "d2b430fb-1afe-455a-af31-66d00377b29a" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -144,10 +144,10 @@ Other parameters are passed through a pointer to a apiPGFetchOfferRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2022-09-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
 
 ### Return type
 

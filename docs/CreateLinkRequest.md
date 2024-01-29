@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **LinkNotify** | Pointer to [**LinkNotifyEntity**](LinkNotifyEntity.md) |  | [optional] 
 **LinkAutoReminders** | Pointer to **bool** | If \&quot;true\&quot;, reminders will be sent to customers for collecting payments. | [optional] 
 **LinkNotes** | Pointer to **map[string]string** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional] 
-**LinkMeta** | Pointer to [**LinkMetaEntity**](LinkMetaEntity.md) |  | [optional] 
+**LinkMeta** | Pointer to [**LinkMetaResponseEntity**](LinkMetaResponseEntity.md) |  | [optional] 
 
 ## Methods
 
@@ -288,20 +288,20 @@ HasLinkNotes returns a boolean if a field has been set.
 
 ### GetLinkMeta
 
-`func (o *CreateLinkRequest) GetLinkMeta() LinkMetaEntity`
+`func (o *CreateLinkRequest) GetLinkMeta() LinkMetaResponseEntity`
 
 GetLinkMeta returns the LinkMeta field if non-nil, zero value otherwise.
 
 ### GetLinkMetaOk
 
-`func (o *CreateLinkRequest) GetLinkMetaOk() (*LinkMetaEntity, bool)`
+`func (o *CreateLinkRequest) GetLinkMetaOk() (*LinkMetaResponseEntity, bool)`
 
 GetLinkMetaOk returns a tuple with the LinkMeta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLinkMeta
 
-`func (o *CreateLinkRequest) SetLinkMeta(v LinkMetaEntity)`
+`func (o *CreateLinkRequest) SetLinkMeta(v LinkMetaResponseEntity)`
 
 SetLinkMeta sets LinkMeta field to given value.
 
