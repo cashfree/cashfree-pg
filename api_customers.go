@@ -324,7 +324,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

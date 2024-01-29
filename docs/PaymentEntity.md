@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfPaymentId** | Pointer to **int64** |  | [optional] 
+**CfPaymentId** | Pointer to **string** |  | [optional] 
 **OrderId** | Pointer to **string** |  | [optional] 
 **Entity** | Pointer to **string** |  | [optional] 
 **ErrorDetails** | Pointer to [**ErrorDetailsInPaymentsEntity**](ErrorDetailsInPaymentsEntity.md) |  | [optional] 
@@ -43,20 +43,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfPaymentId
 
-`func (o *PaymentEntity) GetCfPaymentId() int64`
+`func (o *PaymentEntity) GetCfPaymentId() string`
 
 GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
 
 ### GetCfPaymentIdOk
 
-`func (o *PaymentEntity) GetCfPaymentIdOk() (*int64, bool)`
+`func (o *PaymentEntity) GetCfPaymentIdOk() (*string, bool)`
 
 GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfPaymentId
 
-`func (o *PaymentEntity) SetCfPaymentId(v int64)`
+`func (o *PaymentEntity) SetCfPaymentId(v string)`
 
 SetCfPaymentId sets CfPaymentId field to given value.
 
