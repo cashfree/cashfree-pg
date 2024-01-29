@@ -41,6 +41,7 @@ func (o LinkMetaEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o LinkMetaEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.NotifyUrl) {
 		toSerialize["notify_url"] = o.NotifyUrl

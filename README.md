@@ -1,5 +1,5 @@
 # Cashfree PG Go SDK
-![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg/main) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg) [![Coverage Status](https://coveralls.io/repos/github/cashfree/cashfree-pg/badge.svg?branch=main)](https://coveralls.io/github/cashfree/cashfree-pg?branch=main) [![GoDoc](https://godoc.org/github.com/cashfree/cashfree-pg/v4?status.svg)](https://godoc.org/github.com/cashfree/cashfree-pg/v4)
+![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg/main) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg) [![Coverage Status](https://coveralls.io/repos/github/cashfree/cashfree-pg/badge.svg?branch=main)](https://coveralls.io/github/cashfree/cashfree-pg?branch=main) [![GoDoc](https://godoc.org/github.com/cashfree/cashfree-pg/v3?status.svg)](https://godoc.org/github.com/cashfree/cashfree-pg/v3)
 
 The Cashfree PG Go SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side Go  applications. 
 
@@ -17,13 +17,13 @@ Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com
 
 ### Installation
 ```bash
-go get github.com/cashfree/cashfree-pg/v4
+go get github.com/cashfree/cashfree-pg/v3
 ```
 ### Configuration
 
 ```go 
 import (
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v3"
 )
 
 clientId := "<x-client-id>"

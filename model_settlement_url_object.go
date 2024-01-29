@@ -34,6 +34,7 @@ func (o SettlementURLObject) MarshalJSON() ([]byte, error) {
 }
 
 func (o SettlementURLObject) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Url) {
 		toSerialize["url"] = o.Url
