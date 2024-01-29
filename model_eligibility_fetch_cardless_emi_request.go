@@ -41,3 +41,7 @@ func (o EligibilityFetchCardlessEMIRequest) ToMap() (map[string]interface{}, err
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}

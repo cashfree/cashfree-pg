@@ -83,3 +83,7 @@ func (o TerminalDetails) ToMap() (map[string]interface{}, error) {
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}

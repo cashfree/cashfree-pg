@@ -55,3 +55,7 @@ func (o CreateTerminalTransactionRequest) ToMap() (map[string]interface{}, error
 
 
 
+
+func cashfreeStringTest() {
+	strings.HasPrefix("cf", "cf")
+}
