@@ -34,6 +34,7 @@ func (o WalletOffer) MarshalJSON() ([]byte, error) {
 }
 
 func (o WalletOffer) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Provider) {
 		toSerialize["provider"] = o.Provider
@@ -43,7 +44,3 @@ func (o WalletOffer) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

@@ -49,6 +49,7 @@ func (o CustomerDetails) MarshalJSON() ([]byte, error) {
 }
 
 func (o CustomerDetails) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["customer_id"] = o.CustomerId
 	if !IsNil(o.CustomerEmail) {
@@ -75,7 +76,3 @@ func (o CustomerDetails) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

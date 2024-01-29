@@ -40,6 +40,7 @@ func (o PaymentMethodCardInPaymentsEntityCard) MarshalJSON() ([]byte, error) {
 }
 
 func (o PaymentMethodCardInPaymentsEntityCard) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Channel) {
 		toSerialize["channel"] = o.Channel
@@ -67,7 +68,3 @@ func (o PaymentMethodCardInPaymentsEntityCard) ToMap() (map[string]interface{}, 
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

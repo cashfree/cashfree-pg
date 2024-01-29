@@ -37,6 +37,7 @@ func (o FetchSettlementsRequestPagination) MarshalJSON() ([]byte, error) {
 }
 
 func (o FetchSettlementsRequestPagination) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["limit"] = o.Limit
 	if !IsNil(o.Cursor) {
@@ -47,7 +48,3 @@ func (o FetchSettlementsRequestPagination) ToMap() (map[string]interface{}, erro
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

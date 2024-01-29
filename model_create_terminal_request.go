@@ -48,6 +48,7 @@ func (o CreateTerminalRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (o CreateTerminalRequest) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["terminal_id"] = o.TerminalId
 	toSerialize["terminal_phone_no"] = o.TerminalPhoneNo
@@ -68,7 +69,3 @@ func (o CreateTerminalRequest) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

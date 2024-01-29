@@ -34,6 +34,7 @@ func (o InstrumentWebhookDataEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o InstrumentWebhookDataEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Instrument) {
 		toSerialize["instrument"] = o.Instrument
@@ -43,7 +44,3 @@ func (o InstrumentWebhookDataEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

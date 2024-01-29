@@ -34,6 +34,7 @@ func (o OfferNBNetbanking) MarshalJSON() ([]byte, error) {
 }
 
 func (o OfferNBNetbanking) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.BankName) {
 		toSerialize["bank_name"] = o.BankName
@@ -43,7 +44,3 @@ func (o OfferNBNetbanking) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

@@ -37,6 +37,7 @@ func (o OfferDetails) MarshalJSON() ([]byte, error) {
 }
 
 func (o OfferDetails) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["offer_type"] = o.OfferType
 	if !IsNil(o.DiscountDetails) {
@@ -50,7 +51,3 @@ func (o OfferDetails) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

@@ -378,7 +378,3 @@ func (obj *PayOrderRequestPaymentMethod) GetActualInstance() (interface{}) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

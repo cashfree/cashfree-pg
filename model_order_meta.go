@@ -39,6 +39,7 @@ func (o OrderMeta) MarshalJSON() ([]byte, error) {
 }
 
 func (o OrderMeta) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ReturnUrl) {
 		toSerialize["return_url"] = o.ReturnUrl
@@ -54,7 +55,3 @@ func (o OrderMeta) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

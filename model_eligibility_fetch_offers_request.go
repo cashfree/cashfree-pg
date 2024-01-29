@@ -35,6 +35,7 @@ func (o EligibilityFetchOffersRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (o EligibilityFetchOffersRequest) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["queries"] = o.Queries
 	if !IsNil(o.Filters) {
@@ -45,7 +46,3 @@ func (o EligibilityFetchOffersRequest) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

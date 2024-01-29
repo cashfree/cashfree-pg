@@ -41,6 +41,7 @@ func (o FetchTerminalQRCodesEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o FetchTerminalQRCodesEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Bank) {
 		toSerialize["bank"] = o.Bank
@@ -59,7 +60,3 @@ func (o FetchTerminalQRCodesEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

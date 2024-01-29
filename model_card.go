@@ -60,6 +60,7 @@ func (o Card) MarshalJSON() ([]byte, error) {
 }
 
 func (o Card) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["channel"] = o.Channel
 	if !IsNil(o.CardNumber) {
@@ -106,7 +107,3 @@ func (o Card) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

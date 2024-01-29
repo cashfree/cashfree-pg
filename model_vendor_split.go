@@ -39,6 +39,7 @@ func (o VendorSplit) MarshalJSON() ([]byte, error) {
 }
 
 func (o VendorSplit) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.VendorId) {
 		toSerialize["vendor_id"] = o.VendorId
@@ -54,7 +55,3 @@ func (o VendorSplit) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

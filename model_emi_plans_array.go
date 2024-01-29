@@ -39,6 +39,7 @@ func (o EMIPlansArray) MarshalJSON() ([]byte, error) {
 }
 
 func (o EMIPlansArray) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Tenure) {
 		toSerialize["tenure"] = o.Tenure
@@ -63,7 +64,3 @@ func (o EMIPlansArray) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

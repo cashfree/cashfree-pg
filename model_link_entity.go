@@ -51,6 +51,7 @@ func (o LinkEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o LinkEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CfLinkId) {
 		toSerialize["cf_link_id"] = o.CfLinkId
@@ -108,7 +109,3 @@ func (o LinkEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

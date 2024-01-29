@@ -42,6 +42,7 @@ func (o SavedInstrumentMeta) MarshalJSON() ([]byte, error) {
 }
 
 func (o SavedInstrumentMeta) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.CardNetwork) {
 		toSerialize["card_network"] = o.CardNetwork
@@ -63,7 +64,3 @@ func (o SavedInstrumentMeta) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

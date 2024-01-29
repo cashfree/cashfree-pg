@@ -34,6 +34,7 @@ func (o RefundWebhookDataEntity) MarshalJSON() ([]byte, error) {
 }
 
 func (o RefundWebhookDataEntity) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Refund) {
 		toSerialize["refund"] = o.Refund
@@ -43,7 +44,3 @@ func (o RefundWebhookDataEntity) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

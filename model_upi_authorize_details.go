@@ -39,6 +39,7 @@ func (o UPIAuthorizeDetails) MarshalJSON() ([]byte, error) {
 }
 
 func (o UPIAuthorizeDetails) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ApproveBy) {
 		toSerialize["approve_by"] = o.ApproveBy
@@ -54,7 +55,3 @@ func (o UPIAuthorizeDetails) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

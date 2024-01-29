@@ -53,6 +53,7 @@ func (o TerminalDetails) MarshalJSON() ([]byte, error) {
 }
 
 func (o TerminalDetails) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.AddedOn) {
 		toSerialize["added_on"] = o.AddedOn
@@ -83,7 +84,3 @@ func (o TerminalDetails) ToMap() (map[string]interface{}, error) {
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}

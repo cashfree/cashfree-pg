@@ -41,6 +41,7 @@ func (o CreateTerminalTransactionRequest) MarshalJSON() ([]byte, error) {
 }
 
 func (o CreateTerminalTransactionRequest) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["cf_order_id"] = o.CfOrderId
 	if !IsNil(o.CfTerminalId) {
@@ -55,7 +56,3 @@ func (o CreateTerminalTransactionRequest) ToMap() (map[string]interface{}, error
 
 
 
-
-func cashfreeStringTest() {
-	strings.HasPrefix("cf", "cf")
-}
