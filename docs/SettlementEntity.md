@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfPaymentId** | Pointer to **int64** |  | [optional] 
-**CfSettlementId** | Pointer to **int64** |  | [optional] 
+**CfPaymentId** | Pointer to **string** |  | [optional] 
+**CfSettlementId** | Pointer to **string** |  | [optional] 
 **SettlementCurrency** | Pointer to **string** |  | [optional] 
 **OrderId** | Pointer to **string** |  | [optional] 
 **Entity** | Pointer to **string** |  | [optional] 
@@ -40,20 +40,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfPaymentId
 
-`func (o *SettlementEntity) GetCfPaymentId() int64`
+`func (o *SettlementEntity) GetCfPaymentId() string`
 
 GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
 
 ### GetCfPaymentIdOk
 
-`func (o *SettlementEntity) GetCfPaymentIdOk() (*int64, bool)`
+`func (o *SettlementEntity) GetCfPaymentIdOk() (*string, bool)`
 
 GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfPaymentId
 
-`func (o *SettlementEntity) SetCfPaymentId(v int64)`
+`func (o *SettlementEntity) SetCfPaymentId(v string)`
 
 SetCfPaymentId sets CfPaymentId field to given value.
 
@@ -65,20 +65,20 @@ HasCfPaymentId returns a boolean if a field has been set.
 
 ### GetCfSettlementId
 
-`func (o *SettlementEntity) GetCfSettlementId() int64`
+`func (o *SettlementEntity) GetCfSettlementId() string`
 
 GetCfSettlementId returns the CfSettlementId field if non-nil, zero value otherwise.
 
 ### GetCfSettlementIdOk
 
-`func (o *SettlementEntity) GetCfSettlementIdOk() (*int64, bool)`
+`func (o *SettlementEntity) GetCfSettlementIdOk() (*string, bool)`
 
 GetCfSettlementIdOk returns a tuple with the CfSettlementId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfSettlementId
 
-`func (o *SettlementEntity) SetCfSettlementId(v int64)`
+`func (o *SettlementEntity) SetCfSettlementId(v string)`
 
 SetCfSettlementId sets CfSettlementId field to given value.
 

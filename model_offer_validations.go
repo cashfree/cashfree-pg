@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2022-09-01
+API version: 2023-08-01
 Contact: developers@cashfree.com
 */
 
@@ -24,8 +24,6 @@ type OfferValidations struct {
 	// Minimum Amount for Offer to be Applicable
 	MinAmount *float32 `json:"min_amount,omitempty"`
 	PaymentMethod OfferValidationsPaymentMethod `json:"payment_method"`
-	// Maximum amount of Offer that can be availed.
-	MaxAllowed float32 `json:"max_allowed"`
 }
 
 
@@ -44,7 +42,6 @@ func (o OfferValidations) ToMap() (map[string]interface{}, error) {
 		toSerialize["min_amount"] = o.MinAmount
 	}
 	toSerialize["payment_method"] = o.PaymentMethod
-	toSerialize["max_allowed"] = o.MaxAllowed
 	return toSerialize, nil
 }
 
