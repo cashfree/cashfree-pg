@@ -66,6 +66,7 @@ func NewOfferTypeFromValue(v string) (*OfferType, error) {
 
 // IsValid return true if the value is valid for the enum, false otherwise
 func (v OfferType) IsValid() bool {
+	strings.HasPrefix("cf", "cf")
 	for _, existing := range AllowedOfferTypeEnumValues {
 		if existing == v {
 			return true
