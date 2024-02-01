@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **CustomerBankAccountNumber** | Pointer to **string** | Customer bank account. Required if you want to do a bank account check (TPV) | [optional] 
 **CustomerBankIfsc** | Pointer to **string** | Customer bank IFSC. Required if you want to do a bank account check (TPV) | [optional] 
 **CustomerBankCode** | Pointer to **float32** | Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV) | [optional] 
+**CustomerUid** | Pointer to **string** | Customer identifier at Cashfree. You will get this when you create/get customer | [optional] 
 
 ## Methods
 
@@ -195,6 +196,31 @@ SetCustomerBankCode sets CustomerBankCode field to given value.
 `func (o *CustomerDetails) HasCustomerBankCode() bool`
 
 HasCustomerBankCode returns a boolean if a field has been set.
+
+### GetCustomerUid
+
+`func (o *CustomerDetails) GetCustomerUid() string`
+
+GetCustomerUid returns the CustomerUid field if non-nil, zero value otherwise.
+
+### GetCustomerUidOk
+
+`func (o *CustomerDetails) GetCustomerUidOk() (*string, bool)`
+
+GetCustomerUidOk returns a tuple with the CustomerUid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerUid
+
+`func (o *CustomerDetails) SetCustomerUid(v string)`
+
+SetCustomerUid sets CustomerUid field to given value.
+
+### HasCustomerUid
+
+`func (o *CustomerDetails) HasCustomerUid() bool`
+
+HasCustomerUid returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
