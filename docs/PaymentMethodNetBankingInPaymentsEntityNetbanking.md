@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **Channel** | Pointer to **string** |  | [optional] 
 **NetbankingBankCode** | Pointer to **int32** |  | [optional] 
 **NetbankingBankName** | Pointer to **string** |  | [optional] 
+**NetbankingIfsc** | Pointer to **string** |  | [optional] 
+**NetbankingAccountNumber** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -101,6 +103,56 @@ SetNetbankingBankName sets NetbankingBankName field to given value.
 `func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) HasNetbankingBankName() bool`
 
 HasNetbankingBankName returns a boolean if a field has been set.
+
+### GetNetbankingIfsc
+
+`func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) GetNetbankingIfsc() string`
+
+GetNetbankingIfsc returns the NetbankingIfsc field if non-nil, zero value otherwise.
+
+### GetNetbankingIfscOk
+
+`func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) GetNetbankingIfscOk() (*string, bool)`
+
+GetNetbankingIfscOk returns a tuple with the NetbankingIfsc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetbankingIfsc
+
+`func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) SetNetbankingIfsc(v string)`
+
+SetNetbankingIfsc sets NetbankingIfsc field to given value.
+
+### HasNetbankingIfsc
+
+`func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) HasNetbankingIfsc() bool`
+
+HasNetbankingIfsc returns a boolean if a field has been set.
+
+### GetNetbankingAccountNumber
+
+`func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) GetNetbankingAccountNumber() string`
+
+GetNetbankingAccountNumber returns the NetbankingAccountNumber field if non-nil, zero value otherwise.
+
+### GetNetbankingAccountNumberOk
+
+`func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) GetNetbankingAccountNumberOk() (*string, bool)`
+
+GetNetbankingAccountNumberOk returns a tuple with the NetbankingAccountNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNetbankingAccountNumber
+
+`func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) SetNetbankingAccountNumber(v string)`
+
+SetNetbankingAccountNumber sets NetbankingAccountNumber field to given value.
+
+### HasNetbankingAccountNumber
+
+`func (o *PaymentMethodNetBankingInPaymentsEntityNetbanking) HasNetbankingAccountNumber() bool`
+
+HasNetbankingAccountNumber returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
