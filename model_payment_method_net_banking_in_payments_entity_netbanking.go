@@ -24,6 +24,8 @@ type PaymentMethodNetBankingInPaymentsEntityNetbanking struct {
 	Channel *string `json:"channel,omitempty"`
 	NetbankingBankCode *int32 `json:"netbanking_bank_code,omitempty"`
 	NetbankingBankName *string `json:"netbanking_bank_name,omitempty"`
+	NetbankingIfsc *string `json:"netbanking_ifsc,omitempty"`
+	NetbankingAccountNumber *string `json:"netbanking_account_number,omitempty"`
 }
 
 
@@ -46,6 +48,12 @@ func (o PaymentMethodNetBankingInPaymentsEntityNetbanking) ToMap() (map[string]i
 	}
 	if !IsNil(o.NetbankingBankName) {
 		toSerialize["netbanking_bank_name"] = o.NetbankingBankName
+	}
+	if !IsNil(o.NetbankingIfsc) {
+		toSerialize["netbanking_ifsc"] = o.NetbankingIfsc
+	}
+	if !IsNil(o.NetbankingAccountNumber) {
+		toSerialize["netbanking_account_number"] = o.NetbankingAccountNumber
 	}
 	return toSerialize, nil
 }
