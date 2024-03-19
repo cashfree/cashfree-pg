@@ -8,8 +8,9 @@ Method | HTTP request | Description
 [**SposCreateTerminalTransaction**](SoftPOSAPI.md#SposCreateTerminalTransaction) | **Post** /terminal/transactions | Create Terminal Transaction
 [**SposFetchTerminal**](SoftPOSAPI.md#SposFetchTerminal) | **Get** /terminal/{terminal_phone_no} | Get Terminal Status using Phone Number
 [**SposFetchTerminalQRCodes**](SoftPOSAPI.md#SposFetchTerminalQRCodes) | **Get** /terminal/qrcodes | Fetch Terminal QR Codes
+[**SposFetchTerminalTransaction**](SoftPOSAPI.md#SposFetchTerminalTransaction) | **Get** /terminal/{cf_terminal_id}/payments | Get Terminal Transaction
 [**SposUpdateTerminal**](SoftPOSAPI.md#SposUpdateTerminal) | **Patch** /terminal/{cf_terminal_id} | Update Terminal
-[**SposUpdateTerminalStatus**](SoftPOSAPI.md#SposUpdateTerminalStatus) | **Patch** /terminal/{cf_terminal_id}/status | Update Terminal Sttus
+[**SposUpdateTerminalStatus**](SoftPOSAPI.md#SposUpdateTerminalStatus) | **Patch** /terminal/{cf_terminal_id}/status | Update Terminal Status
 [**SposUploadTerminalDocs**](SoftPOSAPI.md#SposUploadTerminalDocs) | **Post** /terminal/{cf_terminal_id}/docs | Upload Terminal Docs
 
 
@@ -328,6 +329,89 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## SposFetchTerminalTransaction
+
+> TerminalPaymentEntity SposFetchTerminalTransaction(ctx, cfTerminalId).XApiVersion(xApiVersion).Utr(utr).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+
+Get Terminal Transaction
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2023-08-01" 
+    utr := "testUTR001" 
+    cfTerminalId := "123344" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposFetchTerminalTransaction(&xApiVersion, &utr, &cfTerminalId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposFetchTerminalTransaction``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposFetchTerminalTransaction`: TerminalPaymentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposFetchTerminalTransaction`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cfTerminalId** | **string** | Provide the Cashfree terminal ID for which the details have to be updated. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSposFetchTerminalTransactionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **utr** | **string** | Utr of the transaction. | 
+
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+
+### Return type
+
+[**TerminalPaymentEntity**](TerminalPaymentEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## SposUpdateTerminal
 
 > []UpdateTerminalEntity SposUpdateTerminal(ctx, cfTerminalId).XApiVersion(xApiVersion).UpdateTerminalRequest(updateTerminalRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
@@ -415,7 +499,7 @@ Name | Type | Description  | Notes
 
 > []UpdateTerminalEntity SposUpdateTerminalStatus(ctx, cfTerminalId).XApiVersion(xApiVersion).UpdateTerminalStatusRequest(updateTerminalStatusRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Update Terminal Sttus
+Update Terminal Status
 
 
 

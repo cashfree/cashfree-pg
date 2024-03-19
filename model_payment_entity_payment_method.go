@@ -20,6 +20,7 @@ import (
 // PaymentEntityPaymentMethod - struct for PaymentEntityPaymentMethod
 type PaymentEntityPaymentMethod struct {
 	PaymentMethodAppInPaymentsEntity *PaymentMethodAppInPaymentsEntity
+	PaymentMethodBankTransferInPaymentsEntity *PaymentMethodBankTransferInPaymentsEntity
 	PaymentMethodCardEMIInPaymentsEntity *PaymentMethodCardEMIInPaymentsEntity
 	PaymentMethodCardInPaymentsEntity *PaymentMethodCardInPaymentsEntity
 	PaymentMethodCardlessEMIInPaymentsEntity *PaymentMethodCardlessEMIInPaymentsEntity
@@ -32,6 +33,13 @@ type PaymentEntityPaymentMethod struct {
 func PaymentMethodAppInPaymentsEntityAsPaymentEntityPaymentMethod(v *PaymentMethodAppInPaymentsEntity) PaymentEntityPaymentMethod {
 	return PaymentEntityPaymentMethod{
 		PaymentMethodAppInPaymentsEntity: v,
+	}
+}
+
+// PaymentMethodBankTransferInPaymentsEntityAsPaymentEntityPaymentMethod is a convenience function that returns PaymentMethodBankTransferInPaymentsEntity wrapped in PaymentEntityPaymentMethod
+func PaymentMethodBankTransferInPaymentsEntityAsPaymentEntityPaymentMethod(v *PaymentMethodBankTransferInPaymentsEntity) PaymentEntityPaymentMethod {
+	return PaymentEntityPaymentMethod{
+		PaymentMethodBankTransferInPaymentsEntity: v,
 	}
 }
 
@@ -110,6 +118,31 @@ func (dst *PaymentEntityPaymentMethod) UnmarshalJSON(data []byte) error {
 	} else {
 
 		dst.PaymentMethodAppInPaymentsEntity = nil
+
+	}
+
+
+	// try to unmarshal data into PaymentMethodBankTransferInPaymentsEntity
+
+	err = json.Unmarshal(data, &dst.PaymentMethodBankTransferInPaymentsEntity)
+
+	if err == nil {
+
+		jsonPaymentMethodBankTransferInPaymentsEntity, _ := json.Marshal(dst.PaymentMethodBankTransferInPaymentsEntity)
+
+		if strings.Contains(string(jsonPaymentMethodBankTransferInPaymentsEntity), "{}") || strings.Contains(string(jsonPaymentMethodBankTransferInPaymentsEntity), "null") { // empty struct
+
+			dst.PaymentMethodBankTransferInPaymentsEntity = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.PaymentMethodBankTransferInPaymentsEntity = nil
 
 	}
 
@@ -272,6 +305,9 @@ func (dst *PaymentEntityPaymentMethod) UnmarshalJSON(data []byte) error {
 		dst.PaymentMethodAppInPaymentsEntity = nil
 
 
+		dst.PaymentMethodBankTransferInPaymentsEntity = nil
+
+
 		dst.PaymentMethodCardEMIInPaymentsEntity = nil
 
 
@@ -312,6 +348,10 @@ func (src PaymentEntityPaymentMethod) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.PaymentMethodAppInPaymentsEntity)
 	}
 
+	if src.PaymentMethodBankTransferInPaymentsEntity != nil {
+		return json.Marshal(&src.PaymentMethodBankTransferInPaymentsEntity)
+	}
+
 	if src.PaymentMethodCardEMIInPaymentsEntity != nil {
 		return json.Marshal(&src.PaymentMethodCardEMIInPaymentsEntity)
 	}
@@ -346,6 +386,10 @@ func (obj *PaymentEntityPaymentMethod) GetActualInstance() (interface{}) {
 	}
 	if obj.PaymentMethodAppInPaymentsEntity != nil {
 		return obj.PaymentMethodAppInPaymentsEntity
+	}
+
+	if obj.PaymentMethodBankTransferInPaymentsEntity != nil {
+		return obj.PaymentMethodBankTransferInPaymentsEntity
 	}
 
 	if obj.PaymentMethodCardEMIInPaymentsEntity != nil {

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **InstrumentId** | Pointer to **string** | instrument id of saved card. Required only to make payment using saved instrument. | [optional] 
 **Cryptogram** | Pointer to **string** | cryptogram received from card network. Required only for tokenized card transactions. | [optional] 
 **TokenRequestorId** | Pointer to **string** | TRID issued by card networks. Required only for tokenized card transactions. | [optional] 
+**TokenReferenceId** | Pointer to **string** | Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards.  | [optional] 
 **TokenType** | Pointer to **string** |  | [optional] 
 **CardDisplay** | Pointer to **string** | last 4 digits of original card number. Required only for tokenized card transactions. | [optional] 
 **CardAlias** | Pointer to **string** | Card alias as returned by Cashfree Vault API. | [optional] 
@@ -257,6 +258,31 @@ SetTokenRequestorId sets TokenRequestorId field to given value.
 `func (o *Card) HasTokenRequestorId() bool`
 
 HasTokenRequestorId returns a boolean if a field has been set.
+
+### GetTokenReferenceId
+
+`func (o *Card) GetTokenReferenceId() string`
+
+GetTokenReferenceId returns the TokenReferenceId field if non-nil, zero value otherwise.
+
+### GetTokenReferenceIdOk
+
+`func (o *Card) GetTokenReferenceIdOk() (*string, bool)`
+
+GetTokenReferenceIdOk returns a tuple with the TokenReferenceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTokenReferenceId
+
+`func (o *Card) SetTokenReferenceId(v string)`
+
+SetTokenReferenceId sets TokenReferenceId field to given value.
+
+### HasTokenReferenceId
+
+`func (o *Card) HasTokenReferenceId() bool`
+
+HasTokenReferenceId returns a boolean if a field has been set.
 
 ### GetTokenType
 
