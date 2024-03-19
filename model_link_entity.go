@@ -39,6 +39,8 @@ type LinkEntity struct {
 	LinkNotes *map[string]string `json:"link_notes,omitempty"`
 	LinkAutoReminders *bool `json:"link_auto_reminders,omitempty"`
 	LinkNotify *LinkNotifyEntity `json:"link_notify,omitempty"`
+	// Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.
+	LinkQrcode *string `json:"link_qrcode,omitempty"`
 }
 
 
@@ -103,6 +105,9 @@ func (o LinkEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.LinkNotify) {
 		toSerialize["link_notify"] = o.LinkNotify
+	}
+	if !IsNil(o.LinkQrcode) {
+		toSerialize["link_qrcode"] = o.LinkQrcode
 	}
 	return toSerialize, nil
 }

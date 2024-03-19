@@ -38,7 +38,7 @@ func main() {
 	cashfree.XEnvironment = cashfree.SANDBOX
 
     xApiVersion := "2023-08-01" 
-    createOfferRequest := *cashfree.NewCreateOfferRequest(*cashfree.NewOfferMeta("Test Offer", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", "CFTESTOFFER", "2023-03-21T08:09:51Z", "2023-03-29T08:09:51Z"), *cashfree.NewOfferTnc("text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit"), *cashfree.NewOfferDetails("DISCOUNT_AND_CASHBACK"), *cashfree.NewOfferValidations(cashfree.OfferValidations_payment_method{OfferAll: cashfree.NewOfferAll(map[string]interface{}(123))})) 
+    createOfferRequest := *cashfree.NewCreateOfferRequest(*cashfree.NewOfferMeta("Test Offer", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", "CFTESTOFFER", "2023-03-21T08:09:51Z", "2023-03-29T08:09:51Z"), *cashfree.NewOfferTnc("text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit"), *cashfree.NewOfferDetails("DISCOUNT_AND_CASHBACK"), *cashfree.NewOfferValidations(float32(1), cashfree.OfferValidations_payment_method{OfferAll: cashfree.NewOfferAll(map[string]interface{}(123))})) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
 

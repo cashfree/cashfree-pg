@@ -20,6 +20,7 @@ import (
 // PayOrderRequestPaymentMethod - struct for PayOrderRequestPaymentMethod
 type PayOrderRequestPaymentMethod struct {
 	AppPaymentMethod *AppPaymentMethod
+	BanktransferPaymentMethod *BanktransferPaymentMethod
 	CardEMIPaymentMethod *CardEMIPaymentMethod
 	CardPaymentMethod *CardPaymentMethod
 	CardlessEMIPaymentMethod *CardlessEMIPaymentMethod
@@ -32,6 +33,13 @@ type PayOrderRequestPaymentMethod struct {
 func AppPaymentMethodAsPayOrderRequestPaymentMethod(v *AppPaymentMethod) PayOrderRequestPaymentMethod {
 	return PayOrderRequestPaymentMethod{
 		AppPaymentMethod: v,
+	}
+}
+
+// BanktransferPaymentMethodAsPayOrderRequestPaymentMethod is a convenience function that returns BanktransferPaymentMethod wrapped in PayOrderRequestPaymentMethod
+func BanktransferPaymentMethodAsPayOrderRequestPaymentMethod(v *BanktransferPaymentMethod) PayOrderRequestPaymentMethod {
+	return PayOrderRequestPaymentMethod{
+		BanktransferPaymentMethod: v,
 	}
 }
 
@@ -110,6 +118,31 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 	} else {
 
 		dst.AppPaymentMethod = nil
+
+	}
+
+
+	// try to unmarshal data into BanktransferPaymentMethod
+
+	err = json.Unmarshal(data, &dst.BanktransferPaymentMethod)
+
+	if err == nil {
+
+		jsonBanktransferPaymentMethod, _ := json.Marshal(dst.BanktransferPaymentMethod)
+
+		if strings.Contains(string(jsonBanktransferPaymentMethod), "{}") || strings.Contains(string(jsonBanktransferPaymentMethod), "null") { // empty struct
+
+			dst.BanktransferPaymentMethod = nil
+
+		} else {
+
+			match++
+
+		}
+
+	} else {
+
+		dst.BanktransferPaymentMethod = nil
 
 	}
 
@@ -272,6 +305,9 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 		dst.AppPaymentMethod = nil
 
 
+		dst.BanktransferPaymentMethod = nil
+
+
 		dst.CardEMIPaymentMethod = nil
 
 
@@ -312,6 +348,10 @@ func (src PayOrderRequestPaymentMethod) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.AppPaymentMethod)
 	}
 
+	if src.BanktransferPaymentMethod != nil {
+		return json.Marshal(&src.BanktransferPaymentMethod)
+	}
+
 	if src.CardEMIPaymentMethod != nil {
 		return json.Marshal(&src.CardEMIPaymentMethod)
 	}
@@ -346,6 +386,10 @@ func (obj *PayOrderRequestPaymentMethod) GetActualInstance() (interface{}) {
 	}
 	if obj.AppPaymentMethod != nil {
 		return obj.AppPaymentMethod
+	}
+
+	if obj.BanktransferPaymentMethod != nil {
+		return obj.BanktransferPaymentMethod
 	}
 
 	if obj.CardEMIPaymentMethod != nil {
