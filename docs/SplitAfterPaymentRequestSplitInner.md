@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **VendorId** | Pointer to **string** | Specify the merchant vendor ID to split the payment. | [optional] 
 **Amount** | Pointer to **float32** | Specify the amount to be split to the vendor. | [optional] 
 **Percentage** | Pointer to **float32** | Specify the percentage of amount to be split. | [optional] 
-**Tags** | Pointer to [**[]SplitAfterPaymentRequestSplitInnerTagsInner**](SplitAfterPaymentRequestSplitInnerTagsInner.md) | Provide additional data fields using tags. Sample data fields are mentioned below. | [optional] 
+**Tags** | Pointer to **map[string]string** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
 
 ## Methods
 
@@ -105,20 +105,20 @@ HasPercentage returns a boolean if a field has been set.
 
 ### GetTags
 
-`func (o *SplitAfterPaymentRequestSplitInner) GetTags() []SplitAfterPaymentRequestSplitInnerTagsInner`
+`func (o *SplitAfterPaymentRequestSplitInner) GetTags() map[string]string`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *SplitAfterPaymentRequestSplitInner) GetTagsOk() (*[]SplitAfterPaymentRequestSplitInnerTagsInner, bool)`
+`func (o *SplitAfterPaymentRequestSplitInner) GetTagsOk() (*map[string]string, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *SplitAfterPaymentRequestSplitInner) SetTags(v []SplitAfterPaymentRequestSplitInnerTagsInner)`
+`func (o *SplitAfterPaymentRequestSplitInner) SetTags(v map[string]string)`
 
 SetTags sets Tags field to given value.
 

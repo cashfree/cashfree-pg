@@ -27,8 +27,8 @@ type SplitAfterPaymentRequestSplitInner struct {
 	Amount *float32 `json:"amount,omitempty"`
 	// Specify the percentage of amount to be split.
 	Percentage *float32 `json:"percentage,omitempty"`
-	// Provide additional data fields using tags. Sample data fields are mentioned below.
-	Tags []SplitAfterPaymentRequestSplitInnerTagsInner `json:"tags,omitempty"`
+	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
+	Tags *map[string]string `json:"tags,omitempty"`
 }
 
 
