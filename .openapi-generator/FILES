@@ -184,7 +184,6 @@ docs/SettlementsAPI.md
 docs/SoftPOSAPI.md
 docs/SplitAfterPaymentRequest.md
 docs/SplitAfterPaymentRequestSplitInner.md
-docs/SplitAfterPaymentRequestSplitInnerTagsInner.md
 docs/SplitAfterPaymentResponse.md
 docs/StaticSplitRequest.md
 docs/StaticSplitRequestSchemeInner.md
@@ -377,7 +376,6 @@ model_settlement_webhook.go
 model_settlement_webhook_data_entity.go
 model_split_after_payment_request.go
 model_split_after_payment_request_split_inner.go
-model_split_after_payment_request_split_inner_tags_inner.go
 model_split_after_payment_response.go
 model_static_split_request.go
 model_static_split_request_scheme_inner.go
