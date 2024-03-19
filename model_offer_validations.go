@@ -23,6 +23,8 @@ var _ MappedNullable = &OfferValidations{}
 type OfferValidations struct {
 	// Minimum Amount for Offer to be Applicable
 	MinAmount *float32 `json:"min_amount,omitempty"`
+	// Maximum Amount for Offer to be Applicable
+	MaxAllowed float32 `json:"max_allowed"`
 	PaymentMethod OfferValidationsPaymentMethod `json:"payment_method"`
 }
 
@@ -41,6 +43,7 @@ func (o OfferValidations) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.MinAmount) {
 		toSerialize["min_amount"] = o.MinAmount
 	}
+	toSerialize["max_allowed"] = o.MaxAllowed
 	toSerialize["payment_method"] = o.PaymentMethod
 	return toSerialize, nil
 }

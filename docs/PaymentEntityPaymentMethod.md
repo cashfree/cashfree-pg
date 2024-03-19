@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **CardlessEmi** | Pointer to [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
 **Paylater** | Pointer to [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
 **Emi** | Pointer to [**PaymentMethodCardEMIInPaymentsEntityEmi**](PaymentMethodCardEMIInPaymentsEntityEmi.md) |  | [optional] 
+**Banktransfer** | Pointer to [**PaymentMethodBankTransferInPaymentsEntityBanktransfer**](PaymentMethodBankTransferInPaymentsEntityBanktransfer.md) |  | [optional] 
 
 ## Methods
 
@@ -205,6 +206,31 @@ SetEmi sets Emi field to given value.
 `func (o *PaymentEntityPaymentMethod) HasEmi() bool`
 
 HasEmi returns a boolean if a field has been set.
+
+### GetBanktransfer
+
+`func (o *PaymentEntityPaymentMethod) GetBanktransfer() PaymentMethodBankTransferInPaymentsEntityBanktransfer`
+
+GetBanktransfer returns the Banktransfer field if non-nil, zero value otherwise.
+
+### GetBanktransferOk
+
+`func (o *PaymentEntityPaymentMethod) GetBanktransferOk() (*PaymentMethodBankTransferInPaymentsEntityBanktransfer, bool)`
+
+GetBanktransferOk returns a tuple with the Banktransfer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBanktransfer
+
+`func (o *PaymentEntityPaymentMethod) SetBanktransfer(v PaymentMethodBankTransferInPaymentsEntityBanktransfer)`
+
+SetBanktransfer sets Banktransfer field to given value.
+
+### HasBanktransfer
+
+`func (o *PaymentEntityPaymentMethod) HasBanktransfer() bool`
+
+HasBanktransfer returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

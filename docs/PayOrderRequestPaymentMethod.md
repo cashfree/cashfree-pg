@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **Emi** | [**CardEMI**](CardEMI.md) |  | 
 **CardlessEmi** | [**CardlessEMI**](CardlessEMI.md) |  | 
 **Paylater** | [**Paylater**](Paylater.md) |  | 
+**Banktransfer** | [**Banktransfer**](Banktransfer.md) |  | 
 
 ## Methods
 
 ### NewPayOrderRequestPaymentMethod
 
-`func NewPayOrderRequestPaymentMethod(card Card, upi Upi, netbanking Netbanking, app App, emi CardEMI, cardlessEmi CardlessEMI, paylater Paylater, ) *PayOrderRequestPaymentMethod`
+`func NewPayOrderRequestPaymentMethod(card Card, upi Upi, netbanking Netbanking, app App, emi CardEMI, cardlessEmi CardlessEMI, paylater Paylater, banktransfer Banktransfer, ) *PayOrderRequestPaymentMethod`
 
 NewPayOrderRequestPaymentMethod instantiates a new PayOrderRequestPaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -169,6 +170,26 @@ and a boolean to check if the value has been set.
 `func (o *PayOrderRequestPaymentMethod) SetPaylater(v Paylater)`
 
 SetPaylater sets Paylater field to given value.
+
+
+### GetBanktransfer
+
+`func (o *PayOrderRequestPaymentMethod) GetBanktransfer() Banktransfer`
+
+GetBanktransfer returns the Banktransfer field if non-nil, zero value otherwise.
+
+### GetBanktransferOk
+
+`func (o *PayOrderRequestPaymentMethod) GetBanktransferOk() (*Banktransfer, bool)`
+
+GetBanktransferOk returns a tuple with the Banktransfer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBanktransfer
+
+`func (o *PayOrderRequestPaymentMethod) SetBanktransfer(v Banktransfer)`
+
+SetBanktransfer sets Banktransfer field to given value.
 
 
 
