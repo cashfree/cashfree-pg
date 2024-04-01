@@ -21,7 +21,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 	cashfree.XEnvironment = cashfree.SANDBOX
 	orderId := "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6"
 	// amount := float32(1000.0)
-	XApiVersion := "2022-09-01"
+	XApiVersion := "2023-08-01"
 	ctx := context.Background()
 
 	t.Run("PGOrderFetchSettlement should give status code 404", func(t *testing.T) {
