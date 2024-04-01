@@ -21,7 +21,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	cashfree.XEnvironment = cashfree.SANDBOX
 	orderId := "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6"
 	// amount := float32(1000.0)
-	XApiVersion := "2022-09-01"
+	XApiVersion := "2023-08-01"
 	ctx := context.Background()
 
 	t.Run("PGEligibilityFetchPaymentMethods should give status code 200", func(t *testing.T) {
