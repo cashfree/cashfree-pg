@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **LinkAutoReminders** | Pointer to **bool** |  | [optional] 
 **LinkNotify** | Pointer to [**LinkNotifyEntity**](LinkNotifyEntity.md) |  | [optional] 
 **LinkQrcode** | Pointer to **string** | Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment. | [optional] 
+**OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) |  | [optional] 
 
 ## Methods
 
@@ -491,6 +492,31 @@ SetLinkQrcode sets LinkQrcode field to given value.
 `func (o *LinkEntity) HasLinkQrcode() bool`
 
 HasLinkQrcode returns a boolean if a field has been set.
+
+### GetOrderSplits
+
+`func (o *LinkEntity) GetOrderSplits() []VendorSplit`
+
+GetOrderSplits returns the OrderSplits field if non-nil, zero value otherwise.
+
+### GetOrderSplitsOk
+
+`func (o *LinkEntity) GetOrderSplitsOk() (*[]VendorSplit, bool)`
+
+GetOrderSplitsOk returns a tuple with the OrderSplits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderSplits
+
+`func (o *LinkEntity) SetOrderSplits(v []VendorSplit)`
+
+SetOrderSplits sets OrderSplits field to given value.
+
+### HasOrderSplits
+
+`func (o *LinkEntity) HasOrderSplits() bool`
+
+HasOrderSplits returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

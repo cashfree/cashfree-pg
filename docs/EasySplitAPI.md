@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**PGESGetVendorsDocs**](EasySplitAPI.md#PGESGetVendorsDocs) | **Get** /easy-split/vendor-docs/{vendor_id} | Get Vendor All Documents Status
 [**PGESOrderRecon**](EasySplitAPI.md#PGESOrderRecon) | **Post** /split/order/vendor/recon | Get Split and Settlement Details by OrderID v2.0
 [**PGESUpdateVendors**](EasySplitAPI.md#PGESUpdateVendors) | **Patch** /easy-split/vendors/{vendor_id} | Update vendor Details
+[**PGESUploadVendorsDocs**](EasySplitAPI.md#PGESUploadVendorsDocs) | **Post** /easy-split/vendor-docs/{vendor_id} | Upload Vendor Docs
 [**PGOrderSplitAfterPayment**](EasySplitAPI.md#PGOrderSplitAfterPayment) | **Post** /easy-split/orders/{order_id}/split | Split After Payment
 [**PGOrderStaticSplit**](EasySplitAPI.md#PGOrderStaticSplit) | **Post** /easy-split/static-split | Create Static Split Configuration
 
@@ -741,6 +742,93 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PGESUploadVendorsDocs
+
+> UploadVendorDocumentsResponse PGESUploadVendorsDocs(ctx, vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).DocType(docType).DocValue(docValue).File(file).Execute()
+
+Upload Vendor Docs
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2023-08-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    docType := "docType_example" 
+    docValue := "docValue_example" 
+    file := os.NewFile(1234, "some_file") 
+
+    resp, r, err := cashfree.PGESUploadVendorsDocs(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, &docType, &docValue, &file, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESUploadVendorsDocs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESUploadVendorsDocs`: UploadVendorDocumentsResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESUploadVendorsDocs`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**vendorId** | **string** | The id which uniquely identifies your vendor. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPGESUploadVendorsDocsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **docType** | **string** | Mention the type of the document you are uploading. Possible values: UIDAI_FRONT, UIDAI_BACK, UIDAI_NUMBER, DL, DL_NUMBER, PASSPORT_FRONT, PASSPORT_BACK, PASSPORT_NUMBER, VOTER_ID, VOTER_ID_NUMBER, PAN, PAN_NUMBER, GST, GSTIN_NUMBER, CIN, CIN_NUMBER, NBFC_CERTIFICATE. If the doc type ends with a number you should add the doc value else upload the doc file. | 
+ **docValue** | **string** | Enter the display name of the uploaded file. | 
+ **file** | ***os.File** | Select the document that should be uploaded or provide the path of that file. You cannot upload a file that is more than 2MB in size. | 
+
+### Return type
+
+[**UploadVendorDocumentsResponse**](UploadVendorDocumentsResponse.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
