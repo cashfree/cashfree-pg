@@ -41,6 +41,7 @@ type LinkEntity struct {
 	LinkNotify *LinkNotifyEntity `json:"link_notify,omitempty"`
 	// Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.
 	LinkQrcode *string `json:"link_qrcode,omitempty"`
+	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
 }
 
 
@@ -108,6 +109,9 @@ func (o LinkEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.LinkQrcode) {
 		toSerialize["link_qrcode"] = o.LinkQrcode
+	}
+	if !IsNil(o.OrderSplits) {
+		toSerialize["order_splits"] = o.OrderSplits
 	}
 	return toSerialize, nil
 }
