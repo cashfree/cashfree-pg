@@ -18,7 +18,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	cashfree.XClientId = &clientId
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
-	XApiVersion := "2022-09-01"
+	XApiVersion := "2023-08-01"
 	ctx := context.Background()
 
 	t.Run("PGCreateOrder should give status 200", func(t *testing.T) {
