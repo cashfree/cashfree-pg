@@ -209,7 +209,6 @@ docs/Upi.md
 docs/UpiDetails.md
 docs/UploadTerminalDocs.md
 docs/UploadTerminalDocsEntity.md
-docs/UploadVendorDocsRequest.md
 docs/UploadVendorDocumentsResponse.md
 docs/VendorBalance.md
 docs/VendorBalanceTransferCharges.md
@@ -400,7 +399,6 @@ model_upi_details.go
 model_upi_payment_method.go
 model_upload_terminal_docs.go
 model_upload_terminal_docs_entity.go
-model_upload_vendor_docs_request.go
 model_upload_vendor_documents_response.go
 model_vendor_balance.go
 model_vendor_balance_transfer_charges.go

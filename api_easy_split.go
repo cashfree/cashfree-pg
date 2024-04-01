@@ -18,6 +18,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"os"
 )
 
 // Execute executes the request
@@ -231,7 +232,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -495,7 +496,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -745,7 +746,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -993,7 +994,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1255,7 +1256,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1525,7 +1526,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1787,7 +1788,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2081,7 +2082,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2377,7 +2378,315 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v BadRequestError
+			err = client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+// With Context
+
+
+
+// Execute executes the request
+//  @return UploadVendorDocumentsResponse
+func PGESUploadVendorsDocs(xApiVersion *string, vendorId string,  xRequestId *string, xIdempotencyKey *string, docType *string, docValue *string, file *os.File, httpClient *http.Client) (*UploadVendorDocumentsResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UploadVendorDocumentsResponse
+	)
+
+	if XEnableErrorAnalytics {
+		SetupSentry(XEnvironment)
+		defer CaptureError("PGESUploadVendorsDocs")
+	}
+
+	ctx := context.Background()
+
+	client := NewAPIClient(NewConfiguration())
+	if httpClient != nil {
+		client.cfg.HTTPClient = httpClient
+	}
+
+	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+
+	localVarPath := localBasePath + "/easy-split/vendor-docs/{vendor_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"vendor_id"+"}", url.PathEscape(parameterValueToString(vendorId, "vendorId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if xApiVersion == nil {
+		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
+	if xRequestId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
+	}
+	if xIdempotencyKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
+	}
+	if docType != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "doc_type", docType, "")
+	}
+	if docValue != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "doc_value", docValue, "")
+	}
+	var fileLocalVarFormFileName string
+	var fileLocalVarFileName     string
+	var fileLocalVarFileBytes    []byte
+
+	fileLocalVarFormFileName = "file"
+
+
+	fileLocalVarFile := file
+
+	if fileLocalVarFile != nil {
+		fbs, _ := io.ReadAll(fileLocalVarFile)
+
+		fileLocalVarFileBytes = fbs
+		fileLocalVarFileName = fileLocalVarFile.Name()
+		fileLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
+	}
+
+if XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+}
+
+if XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *XClientId
+}
+
+if XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *XClientSignature
+}
+
+if XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *XClientSecret
+}
+
+if XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+}
+	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v BadRequestError
+			err = client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					if v.Message != nil {
+						newErr.error = *v.Message
+					} else {
+						newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					}
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+// With Context
+// Execute executes the request
+//  @return UploadVendorDocumentsResponse
+func PGESUploadVendorsDocsWithContext(ctx context.Context, xApiVersion *string, vendorId string,  xRequestId *string, xIdempotencyKey *string, docType *string, docValue *string, file *os.File, httpClient *http.Client) (*UploadVendorDocumentsResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *UploadVendorDocumentsResponse
+	)
+
+	if XEnableErrorAnalytics {
+		SetupSentry(XEnvironment)
+		defer CaptureError("PGESUploadVendorsDocs")
+	}
+
+	client := NewAPIClient(NewConfiguration())
+	if httpClient != nil {
+		client.cfg.HTTPClient = httpClient
+	}
+
+	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+
+	localVarPath := localBasePath + "/easy-split/vendor-docs/{vendor_id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"vendor_id"+"}", url.PathEscape(parameterValueToString(vendorId, "vendorId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if xApiVersion == nil {
+		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
+	if xRequestId != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
+	}
+	if xIdempotencyKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
+	}
+	if docType != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "doc_type", docType, "")
+	}
+	if docValue != nil {
+		parameterAddToHeaderOrQuery(localVarFormParams, "doc_value", docValue, "")
+	}
+	var fileLocalVarFormFileName string
+	var fileLocalVarFileName     string
+	var fileLocalVarFileBytes    []byte
+
+	fileLocalVarFormFileName = "file"
+
+
+	fileLocalVarFile := file
+
+	if fileLocalVarFile != nil {
+		fbs, _ := io.ReadAll(fileLocalVarFile)
+
+		fileLocalVarFileBytes = fbs
+		fileLocalVarFileName = fileLocalVarFile.Name()
+		fileLocalVarFile.Close()
+		formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
+	}
+
+if XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+}
+
+if XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *XClientId
+}
+
+if XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *XClientSignature
+}
+
+if XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *XClientSecret
+}
+
+if XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+}
+
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2673,7 +2982,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2967,7 +3276,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.0.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

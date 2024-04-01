@@ -42,6 +42,8 @@ type CreateLinkRequest struct {
 	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
 	LinkNotes *map[string]string `json:"link_notes,omitempty"`
 	LinkMeta *LinkMetaResponseEntity `json:"link_meta,omitempty"`
+	// If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.
+	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
 }
 
 
@@ -81,6 +83,9 @@ func (o CreateLinkRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.LinkMeta) {
 		toSerialize["link_meta"] = o.LinkMeta
+	}
+	if !IsNil(o.OrderSplits) {
+		toSerialize["order_splits"] = o.OrderSplits
 	}
 	return toSerialize, nil
 }

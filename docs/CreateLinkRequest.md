@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **LinkAutoReminders** | Pointer to **bool** | If \&quot;true\&quot;, reminders will be sent to customers for collecting payments. | [optional] 
 **LinkNotes** | Pointer to **map[string]string** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional] 
 **LinkMeta** | Pointer to [**LinkMetaResponseEntity**](LinkMetaResponseEntity.md) |  | [optional] 
+**OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) | If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount. | [optional] 
 
 ## Methods
 
@@ -310,6 +311,31 @@ SetLinkMeta sets LinkMeta field to given value.
 `func (o *CreateLinkRequest) HasLinkMeta() bool`
 
 HasLinkMeta returns a boolean if a field has been set.
+
+### GetOrderSplits
+
+`func (o *CreateLinkRequest) GetOrderSplits() []VendorSplit`
+
+GetOrderSplits returns the OrderSplits field if non-nil, zero value otherwise.
+
+### GetOrderSplitsOk
+
+`func (o *CreateLinkRequest) GetOrderSplitsOk() (*[]VendorSplit, bool)`
+
+GetOrderSplitsOk returns a tuple with the OrderSplits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderSplits
+
+`func (o *CreateLinkRequest) SetOrderSplits(v []VendorSplit)`
+
+SetOrderSplits sets OrderSplits field to given value.
+
+### HasOrderSplits
+
+`func (o *CreateLinkRequest) HasOrderSplits() bool`
+
+HasOrderSplits returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

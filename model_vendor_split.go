@@ -22,11 +22,13 @@ var _ MappedNullable = &VendorSplit{}
 // VendorSplit Use to split order when cashfree's Easy Split is enabled for your account.
 type VendorSplit struct {
 	// Vendor id created in Cashfree system
-	VendorId *string `json:"vendor_id,omitempty"`
+	VendorId string `json:"vendor_id"`
 	// Amount which will be associated with this vendor
 	Amount *float32 `json:"amount,omitempty"`
 	// Percentage of order amount which shall get added to vendor account
 	Percentage *float32 `json:"percentage,omitempty"`
+	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
+	Tags map[string]map[string]interface{} `json:"tags,omitempty"`
 }
 
 
@@ -41,14 +43,15 @@ func (o VendorSplit) MarshalJSON() ([]byte, error) {
 func (o VendorSplit) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.VendorId) {
-		toSerialize["vendor_id"] = o.VendorId
-	}
+	toSerialize["vendor_id"] = o.VendorId
 	if !IsNil(o.Amount) {
 		toSerialize["amount"] = o.Amount
 	}
 	if !IsNil(o.Percentage) {
 		toSerialize["percentage"] = o.Percentage
+	}
+	if !IsNil(o.Tags) {
+		toSerialize["tags"] = o.Tags
 	}
 	return toSerialize, nil
 }
