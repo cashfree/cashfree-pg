@@ -20,7 +20,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	cashfree.XClientId = &clientId
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
-	XApiVersion := "2022-09-01"
+	XApiVersion := "2023-08-01"
 	ctx := context.Background()
 	orderId := "order_342Z7qpz85EsLl3nj0DxSchfzzx19"
 	refundId := "gosdktestrefund"
