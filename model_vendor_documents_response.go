@@ -21,7 +21,7 @@ var _ MappedNullable = &VendorDocumentsResponse{}
 
 // VendorDocumentsResponse Get Vendor Documents
 type VendorDocumentsResponse struct {
-	Documents []VendorEntityRelatedDocsInner `json:"documents,omitempty"`
+	Documents []UpdateVendorResponseRelatedDocsInner `json:"documents,omitempty"`
 }
 
 

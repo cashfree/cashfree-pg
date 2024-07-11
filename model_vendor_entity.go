@@ -34,7 +34,8 @@ type VendorEntity struct {
 	VendorType *string `json:"vendor_type,omitempty"`
 	AccountType *string `json:"account_type,omitempty"`
 	BusinessType *string `json:"business_type,omitempty"`
-	RelatedDocs []VendorEntityRelatedDocsInner `json:"related_docs,omitempty"`
+	Remarks *string `json:"remarks,omitempty"`
+	RelatedDocs []UpdateVendorResponseRelatedDocsInner `json:"related_docs,omitempty"`
 }
 
 
@@ -87,6 +88,9 @@ func (o VendorEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.BusinessType) {
 		toSerialize["business_type"] = o.BusinessType
+	}
+	if !IsNil(o.Remarks) {
+		toSerialize["remarks"] = o.Remarks
 	}
 	if !IsNil(o.RelatedDocs) {
 		toSerialize["related_docs"] = o.RelatedDocs

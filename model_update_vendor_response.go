@@ -37,7 +37,7 @@ type UpdateVendorResponse struct {
 	KycDetails []KycDetails `json:"kyc_details,omitempty"`
 	DashboardAccess *bool `json:"dashboard_access,omitempty"`
 	BankDetails *string `json:"bank_details,omitempty"`
-	RelatedDocs []VendorEntityRelatedDocsInner `json:"related_docs,omitempty"`
+	RelatedDocs []UpdateVendorResponseRelatedDocsInner `json:"related_docs,omitempty"`
 }
 
 

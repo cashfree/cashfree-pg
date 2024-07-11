@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **OrderNote** | Pointer to **string** | Additional note for order | [optional] 
 **CreatedAt** | Pointer to **time.Time** | When the order was created at cashfree&#39;s server | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) |  | [optional] 
-**CustomerDetails** | Pointer to [**CustomerDetails**](CustomerDetails.md) |  | [optional] 
+**CustomerDetails** | Pointer to [**CustomerDetailsResponse**](CustomerDetailsResponse.md) |  | [optional] 
 **OrderMeta** | Pointer to [**OrderMeta**](OrderMeta.md) |  | [optional] 
 **OrderTags** | Pointer to **map[string]string** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
 
@@ -315,20 +315,20 @@ HasOrderSplits returns a boolean if a field has been set.
 
 ### GetCustomerDetails
 
-`func (o *OrderEntity) GetCustomerDetails() CustomerDetails`
+`func (o *OrderEntity) GetCustomerDetails() CustomerDetailsResponse`
 
 GetCustomerDetails returns the CustomerDetails field if non-nil, zero value otherwise.
 
 ### GetCustomerDetailsOk
 
-`func (o *OrderEntity) GetCustomerDetailsOk() (*CustomerDetails, bool)`
+`func (o *OrderEntity) GetCustomerDetailsOk() (*CustomerDetailsResponse, bool)`
 
 GetCustomerDetailsOk returns a tuple with the CustomerDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomerDetails
 
-`func (o *OrderEntity) SetCustomerDetails(v CustomerDetails)`
+`func (o *OrderEntity) SetCustomerDetails(v CustomerDetailsResponse)`
 
 SetCustomerDetails sets CustomerDetails field to given value.
 

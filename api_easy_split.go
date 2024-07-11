@@ -232,7 +232,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -496,7 +496,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -746,7 +746,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -994,7 +994,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1256,7 +1256,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1526,7 +1526,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1788,7 +1788,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2082,7 +2082,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2378,7 +2378,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2686,7 +2686,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2982,7 +2982,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3276,7 +3276,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.1.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
