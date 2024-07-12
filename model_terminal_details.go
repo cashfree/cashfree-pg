@@ -30,7 +30,7 @@ type TerminalDetails struct {
 	// location of terminal
 	TerminalAddress *string `json:"terminal_address,omitempty"`
 	// terminal id for merchant reference
-	TerminalId string `json:"terminal_id"`
+	TerminalId *string `json:"terminal_id,omitempty"`
 	// name of terminal/agent/storefront
 	TerminalName *string `json:"terminal_name,omitempty"`
 	// note given by merchant while creating the terminal
@@ -67,7 +67,9 @@ func (o TerminalDetails) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TerminalAddress) {
 		toSerialize["terminal_address"] = o.TerminalAddress
 	}
-	toSerialize["terminal_id"] = o.TerminalId
+	if !IsNil(o.TerminalId) {
+		toSerialize["terminal_id"] = o.TerminalId
+	}
 	if !IsNil(o.TerminalName) {
 		toSerialize["terminal_name"] = o.TerminalName
 	}

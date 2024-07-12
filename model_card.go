@@ -39,7 +39,7 @@ type Card struct {
 	Cryptogram *string `json:"cryptogram,omitempty"`
 	// TRID issued by card networks. Required only for tokenized card transactions.
 	TokenRequestorId *string `json:"token_requestor_id,omitempty"`
-	// Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. 
+	// Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards.
 	TokenReferenceId *string `json:"token_reference_id,omitempty"`
 	TokenType *string `json:"token_type,omitempty"`
 	// last 4 digits of original card number. Required only for tokenized card transactions.
