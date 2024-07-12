@@ -17,7 +17,8 @@ Name | Type | Description | Notes
 **VendorType** | Pointer to **string** |  | [optional] 
 **AccountType** | Pointer to **string** |  | [optional] 
 **BusinessType** | Pointer to **string** |  | [optional] 
-**RelatedDocs** | Pointer to [**[]VendorEntityRelatedDocsInner**](VendorEntityRelatedDocsInner.md) |  | [optional] 
+**Remarks** | Pointer to **string** |  | [optional] 
+**RelatedDocs** | Pointer to [**[]UpdateVendorResponseRelatedDocsInner**](UpdateVendorResponseRelatedDocsInner.md) |  | [optional] 
 
 ## Methods
 
@@ -363,22 +364,47 @@ SetBusinessType sets BusinessType field to given value.
 
 HasBusinessType returns a boolean if a field has been set.
 
+### GetRemarks
+
+`func (o *VendorEntity) GetRemarks() string`
+
+GetRemarks returns the Remarks field if non-nil, zero value otherwise.
+
+### GetRemarksOk
+
+`func (o *VendorEntity) GetRemarksOk() (*string, bool)`
+
+GetRemarksOk returns a tuple with the Remarks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRemarks
+
+`func (o *VendorEntity) SetRemarks(v string)`
+
+SetRemarks sets Remarks field to given value.
+
+### HasRemarks
+
+`func (o *VendorEntity) HasRemarks() bool`
+
+HasRemarks returns a boolean if a field has been set.
+
 ### GetRelatedDocs
 
-`func (o *VendorEntity) GetRelatedDocs() []VendorEntityRelatedDocsInner`
+`func (o *VendorEntity) GetRelatedDocs() []UpdateVendorResponseRelatedDocsInner`
 
 GetRelatedDocs returns the RelatedDocs field if non-nil, zero value otherwise.
 
 ### GetRelatedDocsOk
 
-`func (o *VendorEntity) GetRelatedDocsOk() (*[]VendorEntityRelatedDocsInner, bool)`
+`func (o *VendorEntity) GetRelatedDocsOk() (*[]UpdateVendorResponseRelatedDocsInner, bool)`
 
 GetRelatedDocsOk returns a tuple with the RelatedDocs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelatedDocs
 
-`func (o *VendorEntity) SetRelatedDocs(v []VendorEntityRelatedDocsInner)`
+`func (o *VendorEntity) SetRelatedDocs(v []UpdateVendorResponseRelatedDocsInner)`
 
 SetRelatedDocs sets RelatedDocs field to given value.
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Documents** | Pointer to [**[]VendorEntityRelatedDocsInner**](VendorEntityRelatedDocsInner.md) |  | [optional] 
+**Documents** | Pointer to [**[]UpdateVendorResponseRelatedDocsInner**](UpdateVendorResponseRelatedDocsInner.md) |  | [optional] 
 
 ## Methods
 
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDocuments
 
-`func (o *VendorDocumentsResponse) GetDocuments() []VendorEntityRelatedDocsInner`
+`func (o *VendorDocumentsResponse) GetDocuments() []UpdateVendorResponseRelatedDocsInner`
 
 GetDocuments returns the Documents field if non-nil, zero value otherwise.
 
 ### GetDocumentsOk
 
-`func (o *VendorDocumentsResponse) GetDocumentsOk() (*[]VendorEntityRelatedDocsInner, bool)`
+`func (o *VendorDocumentsResponse) GetDocumentsOk() (*[]UpdateVendorResponseRelatedDocsInner, bool)`
 
 GetDocumentsOk returns a tuple with the Documents field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDocuments
 
-`func (o *VendorDocumentsResponse) SetDocuments(v []VendorEntityRelatedDocsInner)`
+`func (o *VendorDocumentsResponse) SetDocuments(v []UpdateVendorResponseRelatedDocsInner)`
 
 SetDocuments sets Documents field to given value.
 

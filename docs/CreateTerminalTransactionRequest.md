@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **CfTerminalId** | Pointer to **string** | cashfree terminal id. this is a required parameter when you do not provide the terminal phone number. | [optional] 
 **PaymentMethod** | **string** | mention the payment method used for the transaction. possible values - QR_CODE, LINK. | 
 **TerminalPhoneNo** | Pointer to **string** | agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id. | [optional] 
+**AddInvoice** | Pointer to **bool** | make it true to have request be sent to create a Dynamic GST QR Code. | [optional] 
 
 ## Methods
 
@@ -117,6 +118,31 @@ SetTerminalPhoneNo sets TerminalPhoneNo field to given value.
 `func (o *CreateTerminalTransactionRequest) HasTerminalPhoneNo() bool`
 
 HasTerminalPhoneNo returns a boolean if a field has been set.
+
+### GetAddInvoice
+
+`func (o *CreateTerminalTransactionRequest) GetAddInvoice() bool`
+
+GetAddInvoice returns the AddInvoice field if non-nil, zero value otherwise.
+
+### GetAddInvoiceOk
+
+`func (o *CreateTerminalTransactionRequest) GetAddInvoiceOk() (*bool, bool)`
+
+GetAddInvoiceOk returns a tuple with the AddInvoice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddInvoice
+
+`func (o *CreateTerminalTransactionRequest) SetAddInvoice(v bool)`
+
+SetAddInvoice sets AddInvoice field to given value.
+
+### HasAddInvoice
+
+`func (o *CreateTerminalTransactionRequest) HasAddInvoice() bool`
+
+HasAddInvoice returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

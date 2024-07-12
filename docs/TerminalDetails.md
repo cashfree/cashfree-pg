@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CfTerminalId** | Pointer to **string** | cashfree terminal id | [optional] 
 **LastUpdatedOn** | Pointer to **string** | last instant when this terminal was updated | [optional] 
 **TerminalAddress** | Pointer to **string** | location of terminal | [optional] 
-**TerminalId** | **string** | terminal id for merchant reference | 
+**TerminalId** | Pointer to **string** | terminal id for merchant reference | [optional] 
 **TerminalName** | Pointer to **string** | name of terminal/agent/storefront | [optional] 
 **TerminalNote** | Pointer to **string** | note given by merchant while creating the terminal | [optional] 
 **TerminalPhoneNo** | **string** | mobile num of the terminal/agent/storefront | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewTerminalDetails
 
-`func NewTerminalDetails(terminalId string, terminalPhoneNo string, terminalType string, ) *TerminalDetails`
+`func NewTerminalDetails(terminalPhoneNo string, terminalType string, ) *TerminalDetails`
 
 NewTerminalDetails instantiates a new TerminalDetails object
 This constructor will assign default values to properties that have it defined,
@@ -153,6 +153,11 @@ and a boolean to check if the value has been set.
 
 SetTerminalId sets TerminalId field to given value.
 
+### HasTerminalId
+
+`func (o *TerminalDetails) HasTerminalId() bool`
+
+HasTerminalId returns a boolean if a field has been set.
 
 ### GetTerminalName
 

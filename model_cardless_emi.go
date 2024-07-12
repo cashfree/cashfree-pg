@@ -23,7 +23,7 @@ var _ MappedNullable = &CardlessEMI{}
 type CardlessEMI struct {
 	// The channel for cardless EMI is always `link`
 	Channel *string `json:"channel,omitempty"`
-	// One of [`flexmoney`, `zestmoney`, `hdfc`, `icici`, `cashe`, `idfc`, `kotak`]
+	// One of [`flexmoney`, `zestmoney`, `hdfc`, `icici`, `cashe`, `idfc`, `kotak`, `snapmint`, `bharatx`]
 	Provider *string `json:"provider,omitempty"`
 	// Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as 'invalid_request_error' and code as 'invalid_request_error'
 	Phone *string `json:"phone,omitempty"`

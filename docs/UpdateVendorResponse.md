@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **KycDetails** | Pointer to [**[]KycDetails**](KycDetails.md) |  | [optional] 
 **DashboardAccess** | Pointer to **bool** |  | [optional] 
 **BankDetails** | Pointer to **string** |  | [optional] 
-**RelatedDocs** | Pointer to [**[]VendorEntityRelatedDocsInner**](VendorEntityRelatedDocsInner.md) |  | [optional] 
+**RelatedDocs** | Pointer to [**[]UpdateVendorResponseRelatedDocsInner**](UpdateVendorResponseRelatedDocsInner.md) |  | [optional] 
 
 ## Methods
 
@@ -443,20 +443,20 @@ HasBankDetails returns a boolean if a field has been set.
 
 ### GetRelatedDocs
 
-`func (o *UpdateVendorResponse) GetRelatedDocs() []VendorEntityRelatedDocsInner`
+`func (o *UpdateVendorResponse) GetRelatedDocs() []UpdateVendorResponseRelatedDocsInner`
 
 GetRelatedDocs returns the RelatedDocs field if non-nil, zero value otherwise.
 
 ### GetRelatedDocsOk
 
-`func (o *UpdateVendorResponse) GetRelatedDocsOk() (*[]VendorEntityRelatedDocsInner, bool)`
+`func (o *UpdateVendorResponse) GetRelatedDocsOk() (*[]UpdateVendorResponseRelatedDocsInner, bool)`
 
 GetRelatedDocsOk returns a tuple with the RelatedDocs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelatedDocs
 
-`func (o *UpdateVendorResponse) SetRelatedDocs(v []VendorEntityRelatedDocsInner)`
+`func (o *UpdateVendorResponse) SetRelatedDocs(v []UpdateVendorResponseRelatedDocsInner)`
 
 SetRelatedDocs sets RelatedDocs field to given value.
 

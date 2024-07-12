@@ -27,6 +27,12 @@ type LinkCustomerDetailsEntity struct {
 	CustomerEmail *string `json:"customer_email,omitempty"`
 	// Customer name
 	CustomerName *string `json:"customer_name,omitempty"`
+	// Customer Bank Account Number
+	CustomerBankAccountNumber *string `json:"customer_bank_account_number,omitempty"`
+	// Customer Bank Ifsc
+	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
+	// Customer Bank Code
+	CustomerBankCode *int32 `json:"customer_bank_code,omitempty"`
 }
 
 
@@ -47,6 +53,15 @@ func (o LinkCustomerDetailsEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CustomerName) {
 		toSerialize["customer_name"] = o.CustomerName
+	}
+	if !IsNil(o.CustomerBankAccountNumber) {
+		toSerialize["customer_bank_account_number"] = o.CustomerBankAccountNumber
+	}
+	if !IsNil(o.CustomerBankIfsc) {
+		toSerialize["customer_bank_ifsc"] = o.CustomerBankIfsc
+	}
+	if !IsNil(o.CustomerBankCode) {
+		toSerialize["customer_bank_code"] = o.CustomerBankCode
 	}
 	return toSerialize, nil
 }
