@@ -21,7 +21,7 @@ var _ MappedNullable = &OrderMeta{}
 
 // OrderMeta Optional meta details to control how the customer pays and how payment journey completes
 type OrderMeta struct {
-	// The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://example.com/return?order_id=myOrderId
+	// The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://www.cashfree.com/devstudio/thankyou
 	ReturnUrl *string `json:"return_url,omitempty"`
 	// Notification URL for server-server communication. Useful when user's connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250.
 	NotifyUrl *string `json:"notify_url,omitempty"`

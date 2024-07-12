@@ -29,6 +29,8 @@ type CreateTerminalTransactionRequest struct {
 	PaymentMethod string `json:"payment_method"`
 	// agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id.
 	TerminalPhoneNo *string `json:"terminal_phone_no,omitempty"`
+	// make it true to have request be sent to create a Dynamic GST QR Code.
+	AddInvoice *bool `json:"add_invoice,omitempty"`
 }
 
 
@@ -50,6 +52,9 @@ func (o CreateTerminalTransactionRequest) ToMap() (map[string]interface{}, error
 	toSerialize["payment_method"] = o.PaymentMethod
 	if !IsNil(o.TerminalPhoneNo) {
 		toSerialize["terminal_phone_no"] = o.TerminalPhoneNo
+	}
+	if !IsNil(o.AddInvoice) {
+		toSerialize["add_invoice"] = o.AddInvoice
 	}
 	return toSerialize, nil
 }
