@@ -45,7 +45,7 @@ func SubsCreatePayment(xApiVersion *string, createSubscriptionPaymentRequest *Cr
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/pay"
+	localVarPath := localBasePath + "/pg/subscriptions/pay"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -252,7 +252,7 @@ func SubsCreatePaymentWithContext(ctx context.Context, xApiVersion *string, crea
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/pay"
+	localVarPath := localBasePath + "/pg/subscriptions/pay"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -311,7 +311,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -465,7 +465,7 @@ func SubsCreatePlan(xApiVersion *string, createPlanRequest *CreatePlanRequest,  
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/plans"
+	localVarPath := localBasePath + "/pg/plans"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -672,7 +672,7 @@ func SubsCreatePlanWithContext(ctx context.Context, xApiVersion *string, createP
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/plans"
+	localVarPath := localBasePath + "/pg/plans"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -731,7 +731,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -885,7 +885,7 @@ func SubsCreateRefund(xApiVersion *string, subscriptionId string, createSubscrip
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/refunds"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/refunds"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1093,7 +1093,7 @@ func SubsCreateRefundWithContext(ctx context.Context, xApiVersion *string, subsc
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/refunds"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/refunds"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1153,7 +1153,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1307,7 +1307,7 @@ func SubsCreateSubscription(xApiVersion *string, createSubscriptionRequest *Crea
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions"
+	localVarPath := localBasePath + "/pg/subscriptions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1514,7 +1514,7 @@ func SubsCreateSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions"
+	localVarPath := localBasePath + "/pg/subscriptions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1573,7 +1573,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1970,7 +1970,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2109,7 +2109,7 @@ func SubsFetchSubscription(xApiVersion *string, subscriptionId string,  xRequest
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2297,7 +2297,7 @@ func SubsFetchSubscriptionWithContext(ctx context.Context, xApiVersion *string, 
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2352,7 +2352,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2491,7 +2491,7 @@ func SubsFetchSubscriptionPayment(xApiVersion *string, subscriptionId string, pa
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments/{payment_id}"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/payments/{payment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"payment_id"+"}", url.PathEscape(parameterValueToString(paymentId, "paymentId")), -1)
 
@@ -2680,7 +2680,7 @@ func SubsFetchSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *s
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments/{payment_id}"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/payments/{payment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"payment_id"+"}", url.PathEscape(parameterValueToString(paymentId, "paymentId")), -1)
 
@@ -2736,7 +2736,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2875,7 +2875,7 @@ func SubsFetchSubscriptionPayments(xApiVersion *string, subscriptionId string,  
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/payments"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3078,7 +3078,7 @@ func SubsFetchSubscriptionPaymentsWithContext(ctx context.Context, xApiVersion *
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/payments"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3133,7 +3133,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3287,7 +3287,7 @@ func SubsFetchSubscriptionRefund(xApiVersion *string, subscriptionId string, ref
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/refunds/{refund_id}"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/refunds/{refund_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"refund_id"+"}", url.PathEscape(parameterValueToString(refundId, "refundId")), -1)
 
@@ -3476,7 +3476,7 @@ func SubsFetchSubscriptionRefundWithContext(ctx context.Context, xApiVersion *st
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/refunds/{refund_id}"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/refunds/{refund_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"refund_id"+"}", url.PathEscape(parameterValueToString(refundId, "refundId")), -1)
 
@@ -3532,7 +3532,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3671,7 +3671,7 @@ func SubsManageSubscription(xApiVersion *string, subscriptionId string, manageSu
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/manage"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/manage"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3879,7 +3879,7 @@ func SubsManageSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/manage"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/manage"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -3939,7 +3939,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4093,7 +4093,7 @@ func SubsManageSubscriptionPayment(xApiVersion *string, subscriptionId string, p
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments/{payment_id}/manage"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/payments/{payment_id}/manage"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"payment_id"+"}", url.PathEscape(parameterValueToString(paymentId, "paymentId")), -1)
 
@@ -4287,7 +4287,7 @@ func SubsManageSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments/{payment_id}/manage"
+	localVarPath := localBasePath + "/pg/subscriptions/{subscription_id}/payments/{payment_id}/manage"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"payment_id"+"}", url.PathEscape(parameterValueToString(paymentId, "paymentId")), -1)
 
@@ -4348,7 +4348,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4487,7 +4487,7 @@ func SubscriptionDocumentUpload(xApiVersion *string, paymentId string, file *os.
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/pay/documents/{payment_id}"
+	localVarPath := localBasePath + "/pg/subscriptions/pay/documents/{payment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"payment_id"+"}", url.PathEscape(parameterValueToString(paymentId, "paymentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4718,7 +4718,7 @@ func SubscriptionDocumentUploadWithContext(ctx context.Context, xApiVersion *str
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/pay/documents/{payment_id}"
+	localVarPath := localBasePath + "/pg/subscriptions/pay/documents/{payment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"payment_id"+"}", url.PathEscape(parameterValueToString(paymentId, "paymentId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -4801,7 +4801,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4955,7 +4955,7 @@ func SubscriptionEligibility(xApiVersion *string, subscriptionEligibilityRequest
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/eligibility/payment_methods"
+	localVarPath := localBasePath + "/pg/subscriptions/eligibility/payment_methods"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5162,7 +5162,7 @@ func SubscriptionEligibilityWithContext(ctx context.Context, xApiVersion *string
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/subscriptions/eligibility/payment_methods"
+	localVarPath := localBasePath + "/pg/subscriptions/eligibility/payment_methods"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5221,7 +5221,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

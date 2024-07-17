@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **SubscriptionId** | **string** | A unique ID passed by merchant for identifying the subscription. | 
 **SubscriptionSessionId** | Pointer to **string** | Session ID for the subscription. Required only for Auth. | [optional] 
 **PaymentId** | **string** | A unique ID passed by merchant for identifying the subscription payment. | 
-**PaymentAmount** | Pointer to **float32** | The charge amount of the payment. Required in case of charge. | [optional] 
+**PaymentAmount** | Pointer to **float32** | The charge amount of the payment. Requried in case of charge. | [optional] 
 **PaymentScheduleDate** | Pointer to **string** | The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes. | [optional] 
 **PaymentRemarks** | Pointer to **string** | Payment remarks. | [optional] 
 **PaymentType** | **string** | Payment type. Can be AUTH or CHARGE. | 
-**PaymentMethod** | Pointer to **map[string]interface{}** | Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;] | [optional] 
+**PaymentMethod** | Pointer to **string** | Payment method. Can be upi or card or enach or pnach. | [optional] 
 
 ## Methods
 
@@ -194,20 +194,20 @@ SetPaymentType sets PaymentType field to given value.
 
 ### GetPaymentMethod
 
-`func (o *CreateSubscriptionPaymentRequest) GetPaymentMethod() map[string]interface{}`
+`func (o *CreateSubscriptionPaymentRequest) GetPaymentMethod() string`
 
 GetPaymentMethod returns the PaymentMethod field if non-nil, zero value otherwise.
 
 ### GetPaymentMethodOk
 
-`func (o *CreateSubscriptionPaymentRequest) GetPaymentMethodOk() (*map[string]interface{}, bool)`
+`func (o *CreateSubscriptionPaymentRequest) GetPaymentMethodOk() (*string, bool)`
 
 GetPaymentMethodOk returns a tuple with the PaymentMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPaymentMethod
 
-`func (o *CreateSubscriptionPaymentRequest) SetPaymentMethod(v map[string]interface{})`
+`func (o *CreateSubscriptionPaymentRequest) SetPaymentMethod(v string)`
 
 SetPaymentMethod sets PaymentMethod field to given value.
 

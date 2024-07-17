@@ -23,7 +23,7 @@ var _ MappedNullable = &SimulationResponse{}
 type SimulationResponse struct {
 	SimulationId *string `json:"simulation_id,omitempty"`
 	Entity *string `json:"entity,omitempty"`
-	EntityId *string `json:"entity_id,omitempty"`
+	EntityId *int64 `json:"entity_id,omitempty"`
 	EntitySimulation *EntitySimulationResponse `json:"entity_simulation,omitempty"`
 }
 

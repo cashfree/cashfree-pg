@@ -27,7 +27,7 @@ type CreateSubscriptionPaymentRequest struct {
 	SubscriptionSessionId *string `json:"subscription_session_id,omitempty"`
 	// A unique ID passed by merchant for identifying the subscription payment.
 	PaymentId string `json:"payment_id"`
-	// The charge amount of the payment. Required in case of charge.
+	// The charge amount of the payment. Requried in case of charge.
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
 	// The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes.
 	PaymentScheduleDate *string `json:"payment_schedule_date,omitempty"`
@@ -35,8 +35,8 @@ type CreateSubscriptionPaymentRequest struct {
 	PaymentRemarks *string `json:"payment_remarks,omitempty"`
 	// Payment type. Can be AUTH or CHARGE.
 	PaymentType string `json:"payment_type"`
-	// Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]
-	PaymentMethod map[string]interface{} `json:"payment_method,omitempty"`
+	// Payment method. Can be upi or card or enach or pnach.
+	PaymentMethod *string `json:"payment_method,omitempty"`
 }
 
 

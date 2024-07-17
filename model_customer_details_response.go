@@ -35,7 +35,7 @@ type CustomerDetailsResponse struct {
 	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
 	// Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV)
 	CustomerBankCode *float32 `json:"customer_bank_code,omitempty"`
-	// Customer identifier at Cashfree. You will get this when you create/get customer        
+	// Customer identifier at Cashfree. You will get this when you create/get customer
 	CustomerUid *string `json:"customer_uid,omitempty"`
 }
 

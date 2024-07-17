@@ -24,7 +24,7 @@ type SimulateRequest struct {
 	// Entity type should be PAYMENTS only.
 	Entity string `json:"entity"`
 	// In case of Entity type is PAYMENTS, entity_id will be transactionId
-	EntityId string `json:"entity_id"`
+	EntityId int64 `json:"entity_id"`
 	EntitySimulation EntitySimulationRequest `json:"entity_simulation"`
 }
 

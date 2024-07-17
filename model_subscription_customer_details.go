@@ -28,7 +28,7 @@ type SubscriptionCustomerDetails struct {
 	// Phone number of the customer.
 	CustomerPhone string `json:"customer_phone"`
 	// Bank holder name of the customer.
-	CustomerBankAccountHolderName *string `json:"customer_bank_account_holder_name,omitempty"`
+	CustomerBankHolderName *string `json:"customer_bank_holder_name,omitempty"`
 	// Bank account number of the customer.
 	CustomerBankAccountNumber *string `json:"customer_bank_account_number,omitempty"`
 	// IFSC code of the customer.
@@ -56,8 +56,8 @@ func (o SubscriptionCustomerDetails) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["customer_email"] = o.CustomerEmail
 	toSerialize["customer_phone"] = o.CustomerPhone
-	if !IsNil(o.CustomerBankAccountHolderName) {
-		toSerialize["customer_bank_account_holder_name"] = o.CustomerBankAccountHolderName
+	if !IsNil(o.CustomerBankHolderName) {
+		toSerialize["customer_bank_holder_name"] = o.CustomerBankHolderName
 	}
 	if !IsNil(o.CustomerBankAccountNumber) {
 		toSerialize["customer_bank_account_number"] = o.CustomerBankAccountNumber

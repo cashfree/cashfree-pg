@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **CustomerBankAccountNumber** | Pointer to **string** | Customer bank account. Required if you want to do a bank account check (TPV) | [optional] 
 **CustomerBankIfsc** | Pointer to **string** | Customer bank IFSC. Required if you want to do a bank account check (TPV) | [optional] 
 **CustomerBankCode** | Pointer to **float32** | Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV) | [optional] 
-**CustomerUid** | Pointer to **string** | Customer identifier at Cashfree. You will get this when you create/get customer         | [optional] 
+**CustomerUid** | Pointer to **string** | Customer identifier at Cashfree. You will get this when you create/get customer | [optional] 
 
 ## Methods
 
