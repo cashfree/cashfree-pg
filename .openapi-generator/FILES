@@ -72,7 +72,6 @@ docs/CreateVendorResponse.md
 docs/CryptogramEntity.md
 docs/CustomerDetails.md
 docs/CustomerDetailsCardlessEMI.md
-docs/CustomerDetailsResponse.md
 docs/CustomerEntity.md
 docs/CustomersAPI.md
 docs/DiscountDetails.md
@@ -316,7 +315,6 @@ model_create_vendor_response.go
 model_cryptogram_entity.go
 model_customer_details.go
 model_customer_details_cardless_emi.go
-model_customer_details_response.go
 model_customer_entity.go
 model_discount_details.go
 model_eligibility_cardless_emi_entity.go

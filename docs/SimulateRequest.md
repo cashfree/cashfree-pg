@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Entity** | **string** | Entity type should be PAYMENTS only. | 
-**EntityId** | **string** | In case of Entity type is PAYMENTS, entity_id will be transactionId | 
+**EntityId** | **int64** | In case of Entity type is PAYMENTS, entity_id will be transactionId | 
 **EntitySimulation** | [**EntitySimulationRequest**](EntitySimulationRequest.md) |  | 
 
 ## Methods
 
 ### NewSimulateRequest
 
-`func NewSimulateRequest(entity string, entityId string, entitySimulation EntitySimulationRequest, ) *SimulateRequest`
+`func NewSimulateRequest(entity string, entityId int64, entitySimulation EntitySimulationRequest, ) *SimulateRequest`
 
 NewSimulateRequest instantiates a new SimulateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ SetEntity sets Entity field to given value.
 
 ### GetEntityId
 
-`func (o *SimulateRequest) GetEntityId() string`
+`func (o *SimulateRequest) GetEntityId() int64`
 
 GetEntityId returns the EntityId field if non-nil, zero value otherwise.
 
 ### GetEntityIdOk
 
-`func (o *SimulateRequest) GetEntityIdOk() (*string, bool)`
+`func (o *SimulateRequest) GetEntityIdOk() (*int64, bool)`
 
 GetEntityIdOk returns a tuple with the EntityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityId
 
-`func (o *SimulateRequest) SetEntityId(v string)`
+`func (o *SimulateRequest) SetEntityId(v int64)`
 
 SetEntityId sets EntityId field to given value.
 

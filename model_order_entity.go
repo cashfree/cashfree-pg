@@ -40,7 +40,7 @@ type OrderEntity struct {
 	// When the order was created at cashfree's server
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
-	CustomerDetails *CustomerDetailsResponse `json:"customer_details,omitempty"`
+	CustomerDetails *CustomerDetails `json:"customer_details,omitempty"`
 	OrderMeta *OrderMeta `json:"order_meta,omitempty"`
 	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
 	OrderTags *map[string]string `json:"order_tags,omitempty"`

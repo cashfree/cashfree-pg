@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **CustomerName** | Pointer to **string** | Name of the customer. | [optional] 
 **CustomerEmail** | **string** | Email of the customer. | 
 **CustomerPhone** | **string** | Phone number of the customer. | 
-**CustomerBankAccountHolderName** | Pointer to **string** | Bank holder name of the customer. | [optional] 
+**CustomerBankHolderName** | Pointer to **string** | Bank holder name of the customer. | [optional] 
 **CustomerBankAccountNumber** | Pointer to **string** | Bank account number of the customer. | [optional] 
 **CustomerBankIfsc** | Pointer to **string** | IFSC code of the customer. | [optional] 
 **CustomerBankCode** | Pointer to **string** | Bank code of the customer. | [optional] 
@@ -97,30 +97,30 @@ and a boolean to check if the value has been set.
 SetCustomerPhone sets CustomerPhone field to given value.
 
 
-### GetCustomerBankAccountHolderName
+### GetCustomerBankHolderName
 
-`func (o *SubscriptionCustomerDetails) GetCustomerBankAccountHolderName() string`
+`func (o *SubscriptionCustomerDetails) GetCustomerBankHolderName() string`
 
-GetCustomerBankAccountHolderName returns the CustomerBankAccountHolderName field if non-nil, zero value otherwise.
+GetCustomerBankHolderName returns the CustomerBankHolderName field if non-nil, zero value otherwise.
 
-### GetCustomerBankAccountHolderNameOk
+### GetCustomerBankHolderNameOk
 
-`func (o *SubscriptionCustomerDetails) GetCustomerBankAccountHolderNameOk() (*string, bool)`
+`func (o *SubscriptionCustomerDetails) GetCustomerBankHolderNameOk() (*string, bool)`
 
-GetCustomerBankAccountHolderNameOk returns a tuple with the CustomerBankAccountHolderName field if it's non-nil, zero value otherwise
+GetCustomerBankHolderNameOk returns a tuple with the CustomerBankHolderName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCustomerBankAccountHolderName
+### SetCustomerBankHolderName
 
-`func (o *SubscriptionCustomerDetails) SetCustomerBankAccountHolderName(v string)`
+`func (o *SubscriptionCustomerDetails) SetCustomerBankHolderName(v string)`
 
-SetCustomerBankAccountHolderName sets CustomerBankAccountHolderName field to given value.
+SetCustomerBankHolderName sets CustomerBankHolderName field to given value.
 
-### HasCustomerBankAccountHolderName
+### HasCustomerBankHolderName
 
-`func (o *SubscriptionCustomerDetails) HasCustomerBankAccountHolderName() bool`
+`func (o *SubscriptionCustomerDetails) HasCustomerBankHolderName() bool`
 
-HasCustomerBankAccountHolderName returns a boolean if a field has been set.
+HasCustomerBankHolderName returns a boolean if a field has been set.
 
 ### GetCustomerBankAccountNumber
 
