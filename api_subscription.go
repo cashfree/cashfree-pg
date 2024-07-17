@@ -22,13 +22,13 @@ import (
 )
 
 // Execute executes the request
-//  @return SubsCreatePayment200Response
-func SubsCreatePayment(xApiVersion *string, createSubscriptionPaymentRequest *CreateSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubsCreatePayment200Response, *http.Response, error) {
+//  @return CreateSubscriptionPaymentResponse
+func SubsCreatePayment(xApiVersion *string, createSubscriptionPaymentRequest *CreateSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*CreateSubscriptionPaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SubsCreatePayment200Response
+		localVarReturnValue  *CreateSubscriptionPaymentResponse
 	)
 
 	if XEnableErrorAnalytics {
@@ -231,13 +231,13 @@ if XPartnerApiKey != nil {
 
 // With Context
 // Execute executes the request
-//  @return SubsCreatePayment200Response
-func SubsCreatePaymentWithContext(ctx context.Context, xApiVersion *string, createSubscriptionPaymentRequest *CreateSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubsCreatePayment200Response, *http.Response, error) {
+//  @return CreateSubscriptionPaymentResponse
+func SubsCreatePaymentWithContext(ctx context.Context, xApiVersion *string, createSubscriptionPaymentRequest *CreateSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*CreateSubscriptionPaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SubsCreatePayment200Response
+		localVarReturnValue  *CreateSubscriptionPaymentResponse
 	)
 
 	if XEnableErrorAnalytics {
@@ -311,7 +311,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -731,7 +731,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1153,7 +1153,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1573,7 +1573,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1727,7 +1727,7 @@ func SubsFetchPlan(xApiVersion *string, planId string,  xRequestId *string, xIde
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/pg/plans/{plan_id}"
+	localVarPath := localBasePath + "/plans/{plan_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"plan_id"+"}", url.PathEscape(parameterValueToString(planId, "planId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1915,7 +1915,7 @@ func SubsFetchPlanWithContext(ctx context.Context, xApiVersion *string, planId s
 
 	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
 
-	localVarPath := localBasePath + "/pg/plans/{plan_id}"
+	localVarPath := localBasePath + "/plans/{plan_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"plan_id"+"}", url.PathEscape(parameterValueToString(planId, "planId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1970,7 +1970,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2352,7 +2352,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2736,7 +2736,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3133,7 +3133,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3532,7 +3532,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3939,7 +3939,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4348,7 +4348,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4801,7 +4801,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5221,7 +5221,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

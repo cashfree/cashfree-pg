@@ -317,7 +317,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -767,7 +767,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1224,7 +1224,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1386,7 +1386,7 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []PaymentLinkOrderEntity
-func PGLinkFetchOrders(xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]PaymentLinkOrderEntity, *http.Response, error) {
+func PGLinkFetchOrders(xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, status *string, httpClient *http.Client) ([]PaymentLinkOrderEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1418,6 +1418,9 @@ func PGLinkFetchOrders(xApiVersion *string, linkId string,  xRequestId *string, 
 		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
 	}
 
+	if status != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", status, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1606,7 +1609,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []PaymentLinkOrderEntity
-func PGLinkFetchOrdersWithContext(ctx context.Context, xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]PaymentLinkOrderEntity, *http.Response, error) {
+func PGLinkFetchOrdersWithContext(ctx context.Context, xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, status *string, httpClient *http.Client) ([]PaymentLinkOrderEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1636,6 +1639,9 @@ func PGLinkFetchOrdersWithContext(ctx context.Context, xApiVersion *string, link
 		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
 	}
 
+	if status != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "status", status, "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -1681,7 +1687,7 @@ if XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.2.2"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -35,7 +35,7 @@ type VendorEntity struct {
 	AccountType *string `json:"account_type,omitempty"`
 	BusinessType *string `json:"business_type,omitempty"`
 	Remarks *string `json:"remarks,omitempty"`
-	RelatedDocs []UpdateVendorResponseRelatedDocsInner `json:"related_docs,omitempty"`
+	RelatedDocs []VendorEntityRelatedDocsInner `json:"related_docs,omitempty"`
 }
 
 

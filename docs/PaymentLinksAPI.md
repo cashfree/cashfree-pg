@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ## PGLinkFetchOrders
 
-> []PaymentLinkOrderEntity PGLinkFetchOrders(ctx, linkId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+> []PaymentLinkOrderEntity PGLinkFetchOrders(ctx, linkId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Status(status).Execute()
 
 Get Orders for a Payment Link
 
@@ -282,8 +282,9 @@ func main() {
     linkId := "your-link-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    status := "ALL" 
 
-    resp, r, err := cashfree.PGLinkFetchOrders(&xApiVersion, &linkId, &xRequestId, &xIdempotencyKey, nil)
+    resp, r, err := cashfree.PGLinkFetchOrders(&xApiVersion, &linkId, &xRequestId, &xIdempotencyKey, &status, nil)
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGLinkFetchOrders``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -312,6 +313,7 @@ Name | Type | Description  | Notes
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **status** | **string** | Mention What is status of orders you want to fetch, default is PAID. Possible value: ALL, PAID | 
 
 ### Return type
 

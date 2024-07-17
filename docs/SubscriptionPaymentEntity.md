@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **CfSubscriptionId** | Pointer to **string** | Cashfree subscription reference number | [optional] 
 **CfTxnId** | Pointer to **string** | Cashfree subscription payment transaction ID | [optional] 
 **CfOrderId** | Pointer to **string** | Cashfree subscription payment order ID | [optional] 
-**FailureDetails** | Pointer to [**CreateSubscriptionPaymentAuthResponseFailureDetails**](CreateSubscriptionPaymentAuthResponseFailureDetails.md) |  | [optional] 
+**FailureDetails** | Pointer to [**SubscriptionPaymentEntityFailureDetails**](SubscriptionPaymentEntityFailureDetails.md) |  | [optional] 
 **PaymentAmount** | Pointer to **float32** | The charge amount of the payment. | [optional] 
 **PaymentId** | Pointer to **string** | A unique ID passed by merchant for identifying the transaction. | [optional] 
 **PaymentInitiatedDate** | Pointer to **string** | The date on which the payment was initiated. | [optional] 
@@ -166,20 +166,20 @@ HasCfOrderId returns a boolean if a field has been set.
 
 ### GetFailureDetails
 
-`func (o *SubscriptionPaymentEntity) GetFailureDetails() CreateSubscriptionPaymentAuthResponseFailureDetails`
+`func (o *SubscriptionPaymentEntity) GetFailureDetails() SubscriptionPaymentEntityFailureDetails`
 
 GetFailureDetails returns the FailureDetails field if non-nil, zero value otherwise.
 
 ### GetFailureDetailsOk
 
-`func (o *SubscriptionPaymentEntity) GetFailureDetailsOk() (*CreateSubscriptionPaymentAuthResponseFailureDetails, bool)`
+`func (o *SubscriptionPaymentEntity) GetFailureDetailsOk() (*SubscriptionPaymentEntityFailureDetails, bool)`
 
 GetFailureDetailsOk returns a tuple with the FailureDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFailureDetails
 
-`func (o *SubscriptionPaymentEntity) SetFailureDetails(v CreateSubscriptionPaymentAuthResponseFailureDetails)`
+`func (o *SubscriptionPaymentEntity) SetFailureDetails(v SubscriptionPaymentEntityFailureDetails)`
 
 SetFailureDetails sets FailureDetails field to given value.
 

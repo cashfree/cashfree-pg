@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **AccountType** | Pointer to **string** |  | [optional] 
 **BusinessType** | Pointer to **string** |  | [optional] 
 **Remarks** | Pointer to **string** |  | [optional] 
-**RelatedDocs** | Pointer to [**[]UpdateVendorResponseRelatedDocsInner**](UpdateVendorResponseRelatedDocsInner.md) |  | [optional] 
+**RelatedDocs** | Pointer to [**[]VendorEntityRelatedDocsInner**](VendorEntityRelatedDocsInner.md) |  | [optional] 
 
 ## Methods
 
@@ -391,20 +391,20 @@ HasRemarks returns a boolean if a field has been set.
 
 ### GetRelatedDocs
 
-`func (o *VendorEntity) GetRelatedDocs() []UpdateVendorResponseRelatedDocsInner`
+`func (o *VendorEntity) GetRelatedDocs() []VendorEntityRelatedDocsInner`
 
 GetRelatedDocs returns the RelatedDocs field if non-nil, zero value otherwise.
 
 ### GetRelatedDocsOk
 
-`func (o *VendorEntity) GetRelatedDocsOk() (*[]UpdateVendorResponseRelatedDocsInner, bool)`
+`func (o *VendorEntity) GetRelatedDocsOk() (*[]VendorEntityRelatedDocsInner, bool)`
 
 GetRelatedDocsOk returns a tuple with the RelatedDocs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRelatedDocs
 
-`func (o *VendorEntity) SetRelatedDocs(v []UpdateVendorResponseRelatedDocsInner)`
+`func (o *VendorEntity) SetRelatedDocs(v []VendorEntityRelatedDocsInner)`
 
 SetRelatedDocs sets RelatedDocs field to given value.
 
