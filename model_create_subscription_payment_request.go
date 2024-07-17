@@ -35,8 +35,7 @@ type CreateSubscriptionPaymentRequest struct {
 	PaymentRemarks *string `json:"payment_remarks,omitempty"`
 	// Payment type. Can be AUTH or CHARGE.
 	PaymentType string `json:"payment_type"`
-	// Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]
-	PaymentMethod map[string]interface{} `json:"payment_method,omitempty"`
+	PaymentMethod *CreateSubscriptionPaymentRequestPaymentMethod `json:"payment_method,omitempty"`
 }
 
 

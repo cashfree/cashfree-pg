@@ -35,7 +35,7 @@ type CreateVendorRequest struct {
 	VerifyAccount *bool `json:"verify_account,omitempty"`
 	// Update if the vendor will have dashboard access or not. Possible values are: true or false
 	DashboardAccess *bool `json:"dashboard_access,omitempty"`
-	// Specify the settlement cycle to be updated. View the settlement cycle details from the \"Settlement Cycles Supported\" table.  If no schedule option is configured, the settlement cycle ID \"1\" will be in effect. Select \"8\" or \"9\" if you want to schedule instant vendor settlements.
+	// Specify the settlement cycle to be updated. View the settlement cycle details from the \"Settlement Cycles Supported\" table. If no schedule option is configured, the settlement cycle ID \"1\" will be in effect. Select \"8\" or \"9\" if you want to schedule instant vendor settlements.
 	ScheduleOption *float32 `json:"schedule_option,omitempty"`
 	// Specify the vendor bank account details to be updated.
 	Bank []BankDetails `json:"bank,omitempty"`

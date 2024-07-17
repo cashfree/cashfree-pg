@@ -8,21 +8,21 @@ Method | HTTP request | Description
 [**SubsCreatePlan**](SubscriptionAPI.md#SubsCreatePlan) | **Post** /plans | Create a plan.
 [**SubsCreateRefund**](SubscriptionAPI.md#SubsCreateRefund) | **Post** /subscriptions/{subscription_id}/refunds | Create a refund.
 [**SubsCreateSubscription**](SubscriptionAPI.md#SubsCreateSubscription) | **Post** /subscriptions | Create Subscription
-[**SubsFetchPlan**](SubscriptionAPI.md#SubsFetchPlan) | **Get** /pg/plans/{plan_id} | Fetch Plan
+[**SubsFetchPlan**](SubscriptionAPI.md#SubsFetchPlan) | **Get** /plans/{plan_id} | Fetch Plan
 [**SubsFetchSubscription**](SubscriptionAPI.md#SubsFetchSubscription) | **Get** /subscriptions/{subscription_id} | Fetch Subscription
 [**SubsFetchSubscriptionPayment**](SubscriptionAPI.md#SubsFetchSubscriptionPayment) | **Get** /subscriptions/{subscription_id}/payments/{payment_id} | Fetch details of a single payment.
 [**SubsFetchSubscriptionPayments**](SubscriptionAPI.md#SubsFetchSubscriptionPayments) | **Get** /subscriptions/{subscription_id}/payments | Fetch details of all payments of a subscription.
 [**SubsFetchSubscriptionRefund**](SubscriptionAPI.md#SubsFetchSubscriptionRefund) | **Get** /subscriptions/{subscription_id}/refunds/{refund_id} | Fetch details of a refund.
 [**SubsManageSubscription**](SubscriptionAPI.md#SubsManageSubscription) | **Post** /subscriptions/{subscription_id}/manage | Manage a subscription.
 [**SubsManageSubscriptionPayment**](SubscriptionAPI.md#SubsManageSubscriptionPayment) | **Post** /subscriptions/{subscription_id}/payments/{payment_id}/manage | Manage a single payment.
-[**SubscriptionDocumentUpload**](SubscriptionAPI.md#SubscriptionDocumentUpload) | **Post** /subscriptions/pay/documents/{payment_id} | Upload Physical Nach for Physical Nach Authorization.
-[**SubscriptionEligibility**](SubscriptionAPI.md#SubscriptionEligibility) | **Post** /subscriptions/eligibility/payment_methods | Get Eligible payment methods available for a subscription
+[**SubscriptionDocumentUpload**](SubscriptionAPI.md#SubscriptionDocumentUpload) | **Post** /subscriptions/pay/documents/{payment_id} | API to upload Physical Nach for Physical Nach Authorization.
+[**SubscriptionEligibility**](SubscriptionAPI.md#SubscriptionEligibility) | **Post** /subscriptions/eligibility/payment_methods | API to get all the payment method details available for subscription payments.
 
 
 
 ## SubsCreatePayment
 
-> SubsCreatePayment200Response SubsCreatePayment(ctx).XApiVersion(xApiVersion).CreateSubscriptionPaymentRequest(createSubscriptionPaymentRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+> CreateSubscriptionPaymentResponse SubsCreatePayment(ctx).XApiVersion(xApiVersion).CreateSubscriptionPaymentRequest(createSubscriptionPaymentRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
 Raise a charge or create an auth.
 
@@ -58,7 +58,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsCreatePayment``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SubsCreatePayment`: SubsCreatePayment200Response
+    // response from `SubsCreatePayment`: CreateSubscriptionPaymentResponse
     fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsCreatePayment`: %v\n", resp)
 }
 ```
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SubsCreatePayment200Response**](SubsCreatePayment200Response.md)
+[**CreateSubscriptionPaymentResponse**](CreateSubscriptionPaymentResponse.md)
 
 ### Authorization
 
@@ -918,7 +918,7 @@ Name | Type | Description  | Notes
 
 > UploadPnachImageResponse SubscriptionDocumentUpload(ctx, paymentId).XApiVersion(xApiVersion).File(file).PaymentId2(paymentId2).Action(action).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Upload Physical Nach for Physical Nach Authorization.
+API to upload Physical Nach for Physical Nach Authorization.
 
 
 
@@ -1005,7 +1005,7 @@ Name | Type | Description  | Notes
 
 > SubscriptionEligibilityResponse SubscriptionEligibility(ctx).XApiVersion(xApiVersion).SubscriptionEligibilityRequest(subscriptionEligibilityRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Get Eligible payment methods available for a subscription
+API to get all the payment method details available for subscription payments.
 
 
 

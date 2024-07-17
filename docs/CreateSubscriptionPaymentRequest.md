@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **PaymentScheduleDate** | Pointer to **string** | The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes. | [optional] 
 **PaymentRemarks** | Pointer to **string** | Payment remarks. | [optional] 
 **PaymentType** | **string** | Payment type. Can be AUTH or CHARGE. | 
-**PaymentMethod** | Pointer to **map[string]interface{}** | Payment method. Can be one of [\&quot;upi\&quot;, \&quot;enach\&quot;, \&quot;pnach\&quot;, \&quot;card\&quot;] | [optional] 
+**PaymentMethod** | Pointer to [**CreateSubscriptionPaymentRequestPaymentMethod**](CreateSubscriptionPaymentRequestPaymentMethod.md) |  | [optional] 
 
 ## Methods
 
@@ -194,20 +194,20 @@ SetPaymentType sets PaymentType field to given value.
 
 ### GetPaymentMethod
 
-`func (o *CreateSubscriptionPaymentRequest) GetPaymentMethod() map[string]interface{}`
+`func (o *CreateSubscriptionPaymentRequest) GetPaymentMethod() CreateSubscriptionPaymentRequestPaymentMethod`
 
 GetPaymentMethod returns the PaymentMethod field if non-nil, zero value otherwise.
 
 ### GetPaymentMethodOk
 
-`func (o *CreateSubscriptionPaymentRequest) GetPaymentMethodOk() (*map[string]interface{}, bool)`
+`func (o *CreateSubscriptionPaymentRequest) GetPaymentMethodOk() (*CreateSubscriptionPaymentRequestPaymentMethod, bool)`
 
 GetPaymentMethodOk returns a tuple with the PaymentMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPaymentMethod
 
-`func (o *CreateSubscriptionPaymentRequest) SetPaymentMethod(v map[string]interface{})`
+`func (o *CreateSubscriptionPaymentRequest) SetPaymentMethod(v CreateSubscriptionPaymentRequestPaymentMethod)`
 
 SetPaymentMethod sets PaymentMethod field to given value.
 
