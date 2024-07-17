@@ -37,7 +37,6 @@ docs/BalanceDetails.md
 docs/BankDetails.md
 docs/Banktransfer.md
 docs/BanktransferPaymentMethod.md
-docs/CARD.md
 docs/Card.md
 docs/CardEMI.md
 docs/CardEMIPaymentMethod.md
@@ -57,13 +56,17 @@ docs/CreateOrderSettlementRequestBody.md
 docs/CreateOrderSettlementRequestBodyMetaData.md
 docs/CreatePlanRequest.md
 docs/CreateSubscriptionPaymentRequest.md
+docs/CreateSubscriptionPaymentRequestCard.md
+docs/CreateSubscriptionPaymentRequestEnack.md
 docs/CreateSubscriptionPaymentRequestPaymentMethod.md
+docs/CreateSubscriptionPaymentRequestPnach.md
 docs/CreateSubscriptionPaymentResponse.md
 docs/CreateSubscriptionRefundRequest.md
 docs/CreateSubscriptionRequest.md
 docs/CreateSubscriptionRequestAuthorizationDetails.md
 docs/CreateSubscriptionRequestPlanDetails.md
 docs/CreateSubscriptionRequestSubscriptionMeta.md
+docs/CreateSubscriptonPaymentRequestUpi.md
 docs/CreateTerminalRequest.md
 docs/CreateTerminalRequestTerminalMeta.md
 docs/CreateTerminalTransactionRequest.md
@@ -78,7 +81,6 @@ docs/CustomersAPI.md
 docs/DiscountDetails.md
 docs/EMIOffer.md
 docs/EMIPlansArray.md
-docs/ENACH.md
 docs/ESOrderReconRequest.md
 docs/ESOrderReconRequestFilters.md
 docs/ESOrderReconRequestPagination.md
@@ -152,7 +154,6 @@ docs/OrderMeta.md
 docs/OrderPayData.md
 docs/OrdersAPI.md
 docs/PGReconciliationAPI.md
-docs/PNACH.md
 docs/PayOrderEntity.md
 docs/PayOrderRequest.md
 docs/PayOrderRequestPaymentMethod.md
@@ -241,7 +242,6 @@ docs/TerminateOrderRequest.md
 docs/TokenVaultAPI.md
 docs/TransferDetails.md
 docs/TransferDetailsTagsInner.md
-docs/UPI.md
 docs/UPIAuthorizeDetails.md
 docs/UPIPaymentMethod.md
 docs/UpdateTerminalEntity.md
@@ -285,7 +285,6 @@ model_bank_details.go
 model_banktransfer.go
 model_banktransfer_payment_method.go
 model_card.go
-model_card.go
 model_card_emi.go
 model_card_emi_payment_method.go
 model_card_offer.go
@@ -304,13 +303,17 @@ model_create_order_settlement_request_body.go
 model_create_order_settlement_request_body_meta_data.go
 model_create_plan_request.go
 model_create_subscription_payment_request.go
+model_create_subscription_payment_request_card.go
+model_create_subscription_payment_request_enack.go
 model_create_subscription_payment_request_payment_method.go
+model_create_subscription_payment_request_pnach.go
 model_create_subscription_payment_response.go
 model_create_subscription_refund_request.go
 model_create_subscription_request.go
 model_create_subscription_request_authorization_details.go
 model_create_subscription_request_plan_details.go
 model_create_subscription_request_subscription_meta.go
+model_create_subscripton_payment_request_upi.go
 model_create_terminal_request.go
 model_create_terminal_request_terminal_meta.go
 model_create_terminal_transaction_request.go
@@ -336,7 +339,6 @@ model_eligibility_payment_methods_entity.go
 model_eligibility_payment_methods_entity_entity_details.go
 model_emi_offer.go
 model_emi_plans_array.go
-model_enach.go
 model_entity_simulation_request.go
 model_entity_simulation_response.go
 model_error_details_in_payments_entity.go
@@ -429,7 +431,6 @@ model_payment_webhook_error_entity.go
 model_payment_webhook_gateway_details_entity.go
 model_payment_webhook_order_entity.go
 model_plan_entity.go
-model_pnach.go
 model_rate_limit_error.go
 model_recon_entity.go
 model_recon_entity_data_inner.go
@@ -479,7 +480,6 @@ model_update_terminal_request_terminal_meta.go
 model_update_terminal_status_request.go
 model_update_vendor_request.go
 model_update_vendor_response.go
-model_upi.go
 model_upi.go
 model_upi_authorize_details.go
 model_upi_details.go
