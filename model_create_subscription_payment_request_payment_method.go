@@ -19,37 +19,37 @@ import (
 
 // CreateSubscriptionPaymentRequestPaymentMethod - Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]
 type CreateSubscriptionPaymentRequestPaymentMethod struct {
-	CARD *CARD
-	ENACH *ENACH
-	PNACH *PNACH
-	UPI *UPI
+	CreateSubscriptionPaymentRequestCard *CreateSubscriptionPaymentRequestCard
+	CreateSubscriptionPaymentRequestEnack *CreateSubscriptionPaymentRequestEnack
+	CreateSubscriptionPaymentRequestPnach *CreateSubscriptionPaymentRequestPnach
+	CreateSubscriptonPaymentRequestUpi *CreateSubscriptonPaymentRequestUpi
 }
 
-// CARDAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CARD wrapped in CreateSubscriptionPaymentRequestPaymentMethod
-func CARDAsCreateSubscriptionPaymentRequestPaymentMethod(v *CARD) CreateSubscriptionPaymentRequestPaymentMethod {
+// CreateSubscriptionPaymentRequestCardAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptionPaymentRequestCard wrapped in CreateSubscriptionPaymentRequestPaymentMethod
+func CreateSubscriptionPaymentRequestCardAsCreateSubscriptionPaymentRequestPaymentMethod(v *CreateSubscriptionPaymentRequestCard) CreateSubscriptionPaymentRequestPaymentMethod {
 	return CreateSubscriptionPaymentRequestPaymentMethod{
-		CARD: v,
+		CreateSubscriptionPaymentRequestCard: v,
 	}
 }
 
-// ENACHAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns ENACH wrapped in CreateSubscriptionPaymentRequestPaymentMethod
-func ENACHAsCreateSubscriptionPaymentRequestPaymentMethod(v *ENACH) CreateSubscriptionPaymentRequestPaymentMethod {
+// CreateSubscriptionPaymentRequestEnackAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptionPaymentRequestEnack wrapped in CreateSubscriptionPaymentRequestPaymentMethod
+func CreateSubscriptionPaymentRequestEnackAsCreateSubscriptionPaymentRequestPaymentMethod(v *CreateSubscriptionPaymentRequestEnack) CreateSubscriptionPaymentRequestPaymentMethod {
 	return CreateSubscriptionPaymentRequestPaymentMethod{
-		ENACH: v,
+		CreateSubscriptionPaymentRequestEnack: v,
 	}
 }
 
-// PNACHAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns PNACH wrapped in CreateSubscriptionPaymentRequestPaymentMethod
-func PNACHAsCreateSubscriptionPaymentRequestPaymentMethod(v *PNACH) CreateSubscriptionPaymentRequestPaymentMethod {
+// CreateSubscriptionPaymentRequestPnachAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptionPaymentRequestPnach wrapped in CreateSubscriptionPaymentRequestPaymentMethod
+func CreateSubscriptionPaymentRequestPnachAsCreateSubscriptionPaymentRequestPaymentMethod(v *CreateSubscriptionPaymentRequestPnach) CreateSubscriptionPaymentRequestPaymentMethod {
 	return CreateSubscriptionPaymentRequestPaymentMethod{
-		PNACH: v,
+		CreateSubscriptionPaymentRequestPnach: v,
 	}
 }
 
-// UPIAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns UPI wrapped in CreateSubscriptionPaymentRequestPaymentMethod
-func UPIAsCreateSubscriptionPaymentRequestPaymentMethod(v *UPI) CreateSubscriptionPaymentRequestPaymentMethod {
+// CreateSubscriptonPaymentRequestUpiAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptonPaymentRequestUpi wrapped in CreateSubscriptionPaymentRequestPaymentMethod
+func CreateSubscriptonPaymentRequestUpiAsCreateSubscriptionPaymentRequestPaymentMethod(v *CreateSubscriptonPaymentRequestUpi) CreateSubscriptionPaymentRequestPaymentMethod {
 	return CreateSubscriptionPaymentRequestPaymentMethod{
-		UPI: v,
+		CreateSubscriptonPaymentRequestUpi: v,
 	}
 }
 
@@ -65,17 +65,17 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 	match := 0
 
 
-	// try to unmarshal data into CARD
+	// try to unmarshal data into CreateSubscriptionPaymentRequestCard
 
-	err = json.Unmarshal(data, &dst.CARD)
+	err = json.Unmarshal(data, &dst.CreateSubscriptionPaymentRequestCard)
 
 	if err == nil {
 
-		jsonCARD, _ := json.Marshal(dst.CARD)
+		jsonCreateSubscriptionPaymentRequestCard, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestCard)
 
-		if strings.Contains(string(jsonCARD), "{}") || strings.Contains(string(jsonCARD), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestCard), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestCard), "null") { // empty struct
 
-			dst.CARD = nil
+			dst.CreateSubscriptionPaymentRequestCard = nil
 
 		} else {
 
@@ -85,22 +85,22 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 	} else {
 
-		dst.CARD = nil
+		dst.CreateSubscriptionPaymentRequestCard = nil
 
 	}
 
 
-	// try to unmarshal data into ENACH
+	// try to unmarshal data into CreateSubscriptionPaymentRequestEnack
 
-	err = json.Unmarshal(data, &dst.ENACH)
+	err = json.Unmarshal(data, &dst.CreateSubscriptionPaymentRequestEnack)
 
 	if err == nil {
 
-		jsonENACH, _ := json.Marshal(dst.ENACH)
+		jsonCreateSubscriptionPaymentRequestEnack, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestEnack)
 
-		if strings.Contains(string(jsonENACH), "{}") || strings.Contains(string(jsonENACH), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnack), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnack), "null") { // empty struct
 
-			dst.ENACH = nil
+			dst.CreateSubscriptionPaymentRequestEnack = nil
 
 		} else {
 
@@ -110,22 +110,22 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 	} else {
 
-		dst.ENACH = nil
+		dst.CreateSubscriptionPaymentRequestEnack = nil
 
 	}
 
 
-	// try to unmarshal data into PNACH
+	// try to unmarshal data into CreateSubscriptionPaymentRequestPnach
 
-	err = json.Unmarshal(data, &dst.PNACH)
+	err = json.Unmarshal(data, &dst.CreateSubscriptionPaymentRequestPnach)
 
 	if err == nil {
 
-		jsonPNACH, _ := json.Marshal(dst.PNACH)
+		jsonCreateSubscriptionPaymentRequestPnach, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestPnach)
 
-		if strings.Contains(string(jsonPNACH), "{}") || strings.Contains(string(jsonPNACH), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestPnach), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestPnach), "null") { // empty struct
 
-			dst.PNACH = nil
+			dst.CreateSubscriptionPaymentRequestPnach = nil
 
 		} else {
 
@@ -135,22 +135,22 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 	} else {
 
-		dst.PNACH = nil
+		dst.CreateSubscriptionPaymentRequestPnach = nil
 
 	}
 
 
-	// try to unmarshal data into UPI
+	// try to unmarshal data into CreateSubscriptonPaymentRequestUpi
 
-	err = json.Unmarshal(data, &dst.UPI)
+	err = json.Unmarshal(data, &dst.CreateSubscriptonPaymentRequestUpi)
 
 	if err == nil {
 
-		jsonUPI, _ := json.Marshal(dst.UPI)
+		jsonCreateSubscriptonPaymentRequestUpi, _ := json.Marshal(dst.CreateSubscriptonPaymentRequestUpi)
 
-		if strings.Contains(string(jsonUPI), "{}") || strings.Contains(string(jsonUPI), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptonPaymentRequestUpi), "{}") || strings.Contains(string(jsonCreateSubscriptonPaymentRequestUpi), "null") { // empty struct
 
-			dst.UPI = nil
+			dst.CreateSubscriptonPaymentRequestUpi = nil
 
 		} else {
 
@@ -160,7 +160,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 	} else {
 
-		dst.UPI = nil
+		dst.CreateSubscriptonPaymentRequestUpi = nil
 
 	}
 
@@ -170,16 +170,16 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 		// reset to nil
 
 
-		dst.CARD = nil
+		dst.CreateSubscriptionPaymentRequestCard = nil
 
 
-		dst.ENACH = nil
+		dst.CreateSubscriptionPaymentRequestEnack = nil
 
 
-		dst.PNACH = nil
+		dst.CreateSubscriptionPaymentRequestPnach = nil
 
 
-		dst.UPI = nil
+		dst.CreateSubscriptonPaymentRequestUpi = nil
 
 
 		return fmt.Errorf("data matches more than one schema in oneOf(CreateSubscriptionPaymentRequestPaymentMethod)")
@@ -200,20 +200,20 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src CreateSubscriptionPaymentRequestPaymentMethod) MarshalJSON() ([]byte, error) {
-	if src.CARD != nil {
-		return json.Marshal(&src.CARD)
+	if src.CreateSubscriptionPaymentRequestCard != nil {
+		return json.Marshal(&src.CreateSubscriptionPaymentRequestCard)
 	}
 
-	if src.ENACH != nil {
-		return json.Marshal(&src.ENACH)
+	if src.CreateSubscriptionPaymentRequestEnack != nil {
+		return json.Marshal(&src.CreateSubscriptionPaymentRequestEnack)
 	}
 
-	if src.PNACH != nil {
-		return json.Marshal(&src.PNACH)
+	if src.CreateSubscriptionPaymentRequestPnach != nil {
+		return json.Marshal(&src.CreateSubscriptionPaymentRequestPnach)
 	}
 
-	if src.UPI != nil {
-		return json.Marshal(&src.UPI)
+	if src.CreateSubscriptonPaymentRequestUpi != nil {
+		return json.Marshal(&src.CreateSubscriptonPaymentRequestUpi)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -224,20 +224,20 @@ func (obj *CreateSubscriptionPaymentRequestPaymentMethod) GetActualInstance() (i
 	if obj == nil {
 		return nil
 	}
-	if obj.CARD != nil {
-		return obj.CARD
+	if obj.CreateSubscriptionPaymentRequestCard != nil {
+		return obj.CreateSubscriptionPaymentRequestCard
 	}
 
-	if obj.ENACH != nil {
-		return obj.ENACH
+	if obj.CreateSubscriptionPaymentRequestEnack != nil {
+		return obj.CreateSubscriptionPaymentRequestEnack
 	}
 
-	if obj.PNACH != nil {
-		return obj.PNACH
+	if obj.CreateSubscriptionPaymentRequestPnach != nil {
+		return obj.CreateSubscriptionPaymentRequestPnach
 	}
 
-	if obj.UPI != nil {
-		return obj.UPI
+	if obj.CreateSubscriptonPaymentRequestUpi != nil {
+		return obj.CreateSubscriptonPaymentRequestUpi
 	}
 
 	// all schemas are nil
