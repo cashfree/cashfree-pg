@@ -19,7 +19,7 @@ import (
 // checks if the CustomerDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CustomerDetails{}
 
-// CustomerDetails The customer details that are necessary.
+// CustomerDetails The customer details that are necessary. Note that you can pass dummy details if your use case does not require the customer details.
 type CustomerDetails struct {
 	// A unique identifier for the customer. Use alphanumeric values only.
 	CustomerId string `json:"customer_id"`

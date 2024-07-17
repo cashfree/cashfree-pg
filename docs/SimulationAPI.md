@@ -119,7 +119,7 @@ func main() {
 	cashfree.XEnvironment = cashfree.SANDBOX
 
     xApiVersion := "2023-08-01" 
-    simulateRequest := *cashfree.NewSimulateRequest("Entity_example", "EntityId_example", *cashfree.NewEntitySimulationRequest("PaymentStatus_example")) 
+    simulateRequest := *cashfree.NewSimulateRequest("Entity_example", int64(123), *cashfree.NewEntitySimulationRequest("PaymentStatus_example")) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
 

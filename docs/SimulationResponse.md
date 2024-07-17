@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SimulationId** | Pointer to **string** |  | [optional] 
 **Entity** | Pointer to **string** |  | [optional] 
-**EntityId** | Pointer to **string** |  | [optional] 
+**EntityId** | Pointer to **int64** |  | [optional] 
 **EntitySimulation** | Pointer to [**EntitySimulationResponse**](EntitySimulationResponse.md) |  | [optional] 
 
 ## Methods
@@ -80,20 +80,20 @@ HasEntity returns a boolean if a field has been set.
 
 ### GetEntityId
 
-`func (o *SimulationResponse) GetEntityId() string`
+`func (o *SimulationResponse) GetEntityId() int64`
 
 GetEntityId returns the EntityId field if non-nil, zero value otherwise.
 
 ### GetEntityIdOk
 
-`func (o *SimulationResponse) GetEntityIdOk() (*string, bool)`
+`func (o *SimulationResponse) GetEntityIdOk() (*int64, bool)`
 
 GetEntityIdOk returns a tuple with the EntityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntityId
 
-`func (o *SimulationResponse) SetEntityId(v string)`
+`func (o *SimulationResponse) SetEntityId(v int64)`
 
 SetEntityId sets EntityId field to given value.
 

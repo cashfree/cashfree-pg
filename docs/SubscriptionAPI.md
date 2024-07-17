@@ -4,19 +4,19 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SubsCreatePayment**](SubscriptionAPI.md#SubsCreatePayment) | **Post** /subscriptions/pay | Raise a charge or create an auth.
-[**SubsCreatePlan**](SubscriptionAPI.md#SubsCreatePlan) | **Post** /plans | Create a plan.
-[**SubsCreateRefund**](SubscriptionAPI.md#SubsCreateRefund) | **Post** /subscriptions/{subscription_id}/refunds | Create a refund.
-[**SubsCreateSubscription**](SubscriptionAPI.md#SubsCreateSubscription) | **Post** /subscriptions | Create Subscription
+[**SubsCreatePayment**](SubscriptionAPI.md#SubsCreatePayment) | **Post** /pg/subscriptions/pay | Raise a charge or create an auth.
+[**SubsCreatePlan**](SubscriptionAPI.md#SubsCreatePlan) | **Post** /pg/plans | Create a plan.
+[**SubsCreateRefund**](SubscriptionAPI.md#SubsCreateRefund) | **Post** /pg/subscriptions/{subscription_id}/refunds | Create a refund.
+[**SubsCreateSubscription**](SubscriptionAPI.md#SubsCreateSubscription) | **Post** /pg/subscriptions | Create Subscription
 [**SubsFetchPlan**](SubscriptionAPI.md#SubsFetchPlan) | **Get** /pg/plans/{plan_id} | Fetch Plan
-[**SubsFetchSubscription**](SubscriptionAPI.md#SubsFetchSubscription) | **Get** /subscriptions/{subscription_id} | Fetch Subscription
-[**SubsFetchSubscriptionPayment**](SubscriptionAPI.md#SubsFetchSubscriptionPayment) | **Get** /subscriptions/{subscription_id}/payments/{payment_id} | Fetch details of a single payment.
-[**SubsFetchSubscriptionPayments**](SubscriptionAPI.md#SubsFetchSubscriptionPayments) | **Get** /subscriptions/{subscription_id}/payments | Fetch details of all payments of a subscription.
-[**SubsFetchSubscriptionRefund**](SubscriptionAPI.md#SubsFetchSubscriptionRefund) | **Get** /subscriptions/{subscription_id}/refunds/{refund_id} | Fetch details of a refund.
-[**SubsManageSubscription**](SubscriptionAPI.md#SubsManageSubscription) | **Post** /subscriptions/{subscription_id}/manage | Manage a subscription.
-[**SubsManageSubscriptionPayment**](SubscriptionAPI.md#SubsManageSubscriptionPayment) | **Post** /subscriptions/{subscription_id}/payments/{payment_id}/manage | Manage a single payment.
-[**SubscriptionDocumentUpload**](SubscriptionAPI.md#SubscriptionDocumentUpload) | **Post** /subscriptions/pay/documents/{payment_id} | Upload Physical Nach for Physical Nach Authorization.
-[**SubscriptionEligibility**](SubscriptionAPI.md#SubscriptionEligibility) | **Post** /subscriptions/eligibility/payment_methods | Get Eligible payment methods available for a subscription
+[**SubsFetchSubscription**](SubscriptionAPI.md#SubsFetchSubscription) | **Get** /pg/subscriptions/{subscription_id} | Fetch Subscription
+[**SubsFetchSubscriptionPayment**](SubscriptionAPI.md#SubsFetchSubscriptionPayment) | **Get** /pg/subscriptions/{subscription_id}/payments/{payment_id} | Fetch details of a single payment.
+[**SubsFetchSubscriptionPayments**](SubscriptionAPI.md#SubsFetchSubscriptionPayments) | **Get** /pg/subscriptions/{subscription_id}/payments | Fetch details of all payments of a subscription.
+[**SubsFetchSubscriptionRefund**](SubscriptionAPI.md#SubsFetchSubscriptionRefund) | **Get** /pg/subscriptions/{subscription_id}/refunds/{refund_id} | Fetch details of a refund.
+[**SubsManageSubscription**](SubscriptionAPI.md#SubsManageSubscription) | **Post** /pg/subscriptions/{subscription_id}/manage | Manage a subscription.
+[**SubsManageSubscriptionPayment**](SubscriptionAPI.md#SubsManageSubscriptionPayment) | **Post** /pg/subscriptions/{subscription_id}/payments/{payment_id}/manage | Manage a single payment.
+[**SubscriptionDocumentUpload**](SubscriptionAPI.md#SubscriptionDocumentUpload) | **Post** /pg/subscriptions/pay/documents/{payment_id} | Upload Physical Nach for Physical Nach Authorization.
+[**SubscriptionEligibility**](SubscriptionAPI.md#SubscriptionEligibility) | **Post** /pg/subscriptions/eligibility/payment_methods | Get Eligible payment methods available for a subscription
 
 
 
