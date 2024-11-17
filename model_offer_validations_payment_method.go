@@ -107,16 +107,6 @@ func (dst *OfferValidationsPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		}
 
-		if match == 0 {
-			all := map[string]interface{}{}
-			if strings.Contains(string(jsonOfferAll), "all") {
-				match++
-				dst.OfferAll = &OfferAll{
-					All: all,
-				}
-			}
-		}
-
 	} else {
 
 		dst.OfferAll = nil

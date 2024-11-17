@@ -32,7 +32,7 @@ type UpdateTerminalEntity struct {
 	TerminalNote *string `json:"terminal_note,omitempty"`
 	TerminalPhoneNo *string `json:"terminal_phone_no,omitempty"`
 	TerminalStatus *string `json:"terminal_status,omitempty"`
-	TerminalMeta *string `json:"terminal_meta,omitempty"`
+	TerminalMeta *CreateTerminalRequestTerminalMeta `json:"terminal_meta,omitempty"`
 }
 
 
