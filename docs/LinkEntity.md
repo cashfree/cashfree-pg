@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfLinkId** | Pointer to **string** |  | [optional] 
+**CfLinkId** | Pointer to **int** |  | [optional] 
 **LinkId** | Pointer to **string** |  | [optional] 
 **LinkStatus** | Pointer to **string** |  | [optional] 
 **LinkCurrency** | Pointer to **string** |  | [optional] 

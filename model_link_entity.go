@@ -21,7 +21,7 @@ var _ MappedNullable = &LinkEntity{}
 
 // LinkEntity Payment link success creation response object
 type LinkEntity struct {
-	CfLinkId int `json:"cf_link_id,omitempty"`
+	CfLinkId *int `json:"cf_link_id,omitempty"`
 	LinkId *string `json:"link_id,omitempty"`
 	LinkStatus *string `json:"link_status,omitempty"`
 	LinkCurrency *string `json:"link_currency,omitempty"`
