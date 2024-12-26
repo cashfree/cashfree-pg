@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **CustomerDetails** | Pointer to [**CustomerDetailsResponse**](CustomerDetailsResponse.md) |  | [optional] 
 **OrderMeta** | Pointer to [**OrderMeta**](OrderMeta.md) |  | [optional] 
 **OrderTags** | Pointer to **map[string]string** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
+**CartDetails** | Pointer to [**CartDetailsEntity**](CartDetailsEntity.md) |  | [optional] 
 
 ## Methods
 
@@ -387,6 +388,31 @@ SetOrderTags sets OrderTags field to given value.
 `func (o *OrderEntity) HasOrderTags() bool`
 
 HasOrderTags returns a boolean if a field has been set.
+
+### GetCartDetails
+
+`func (o *OrderEntity) GetCartDetails() CartDetailsEntity`
+
+GetCartDetails returns the CartDetails field if non-nil, zero value otherwise.
+
+### GetCartDetailsOk
+
+`func (o *OrderEntity) GetCartDetailsOk() (*CartDetailsEntity, bool)`
+
+GetCartDetailsOk returns a tuple with the CartDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCartDetails
+
+`func (o *OrderEntity) SetCartDetails(v CartDetailsEntity)`
+
+SetCartDetails sets CartDetails field to given value.
+
+### HasCartDetails
+
+`func (o *OrderEntity) HasCartDetails() bool`
+
+HasCartDetails returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

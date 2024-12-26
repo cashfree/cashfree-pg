@@ -25,6 +25,8 @@ type CreateSubscriptionRequestAuthorizationDetails struct {
 	AuthorizationAmount *float32 `json:"authorization_amount,omitempty"`
 	// Indicates whether the authorization amount should be refunded to the customer automatically. Merchants can use this field to specify if the authorized funds should be returned to the customer after authorization of the subscription.
 	AuthorizationAmountRefund *bool `json:"authorization_amount_refund,omitempty"`
+	// Payment methods for the subscription. enach, pnach, upi, card are possible values.
+	PaymentMethods []string `json:"payment_methods,omitempty"`
 }
 
 
@@ -44,6 +46,9 @@ func (o CreateSubscriptionRequestAuthorizationDetails) ToMap() (map[string]inter
 	}
 	if !IsNil(o.AuthorizationAmountRefund) {
 		toSerialize["authorization_amount_refund"] = o.AuthorizationAmountRefund
+	}
+	if !IsNil(o.PaymentMethods) {
+		toSerialize["payment_methods"] = o.PaymentMethods
 	}
 	return toSerialize, nil
 }

@@ -27,6 +27,7 @@ type CreateOrderRequest struct {
 	OrderAmount float64 `json:"order_amount"`
 	// Currency for the order. INR if left empty. Contact care@cashfree.com to enable new currencies.
 	OrderCurrency string `json:"order_currency"`
+	CartDetails *CartDetails `json:"cart_details,omitempty"`
 	CustomerDetails CustomerDetails `json:"customer_details"`
 	Terminal *TerminalDetails `json:"terminal,omitempty"`
 	OrderMeta *OrderMeta `json:"order_meta,omitempty"`
@@ -57,6 +58,9 @@ func (o CreateOrderRequest) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["order_amount"] = o.OrderAmount
 	toSerialize["order_currency"] = o.OrderCurrency
+	if !IsNil(o.CartDetails) {
+		toSerialize["cart_details"] = o.CartDetails
+	}
 	toSerialize["customer_details"] = o.CustomerDetails
 	if !IsNil(o.Terminal) {
 		toSerialize["terminal"] = o.Terminal

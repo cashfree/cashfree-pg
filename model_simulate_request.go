@@ -21,9 +21,9 @@ var _ MappedNullable = &SimulateRequest{}
 
 // SimulateRequest simulate payment request object
 type SimulateRequest struct {
-	// Entity type should be PAYMENTS only.
+	// Entity type should be PAYMENTS or SUBS_PAYMENTS only.
 	Entity string `json:"entity"`
-	// In case of Entity type is PAYMENTS, entity_id will be transactionId
+	// If the entity type is PAYMENTS, the entity_id will be the transactionId. If the entity type is SUBS_PAYMENTS, the entity_id will be the merchantTxnId
 	EntityId string `json:"entity_id"`
 	EntitySimulation EntitySimulationRequest `json:"entity_simulation"`
 }

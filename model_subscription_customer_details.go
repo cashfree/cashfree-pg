@@ -33,7 +33,7 @@ type SubscriptionCustomerDetails struct {
 	CustomerBankAccountNumber *string `json:"customer_bank_account_number,omitempty"`
 	// IFSC code of the customer.
 	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
-	// Bank code of the customer.
+	// Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf
 	CustomerBankCode *string `json:"customer_bank_code,omitempty"`
 	// Bank account type of the customer.
 	CustomerBankAccountType *string `json:"customer_bank_account_type,omitempty"`

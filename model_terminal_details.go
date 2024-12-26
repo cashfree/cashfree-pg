@@ -35,7 +35,7 @@ type TerminalDetails struct {
 	TerminalName *string `json:"terminal_name,omitempty"`
 	// note given by merchant while creating the terminal
 	TerminalNote *string `json:"terminal_note,omitempty"`
-	// mobile num of the terminal/agent/storefront
+	// mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id.
 	TerminalPhoneNo string `json:"terminal_phone_no"`
 	// status of terminal active/inactive
 	TerminalStatus *string `json:"terminal_status,omitempty"`

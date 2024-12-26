@@ -35,6 +35,8 @@ type SubscriptionEntity struct {
 	SubscriptionMeta *SubscriptionEntitySubscriptionMeta `json:"subscription_meta,omitempty"`
 	// Note for the subscription.
 	SubscriptionNote *string `json:"subscription_note,omitempty"`
+	// Subscription Session Id.
+	SubscriptionSessionId *string `json:"subscription_session_id,omitempty"`
 	// Payment splits for the subscription.
 	SubscriptionPaymentSplits []SubscriptionPaymentSplitItem `json:"subscription_payment_splits,omitempty"`
 	// Status of the subscription.
@@ -81,6 +83,9 @@ func (o SubscriptionEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SubscriptionNote) {
 		toSerialize["subscription_note"] = o.SubscriptionNote
+	}
+	if !IsNil(o.SubscriptionSessionId) {
+		toSerialize["subscription_session_id"] = o.SubscriptionSessionId
 	}
 	if !IsNil(o.SubscriptionPaymentSplits) {
 		toSerialize["subscription_payment_splits"] = o.SubscriptionPaymentSplits

@@ -4,6 +4,7 @@ All URIs are relative to *https://sandbox.cashfree.com/pg*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**PGESCreateAdjustment**](EasySplitAPI.md#PGESCreateAdjustment) | **Post** /easy-split/vendors/{vendor_id}/adjustment | Create Adjustment
 [**PGESCreateOnDemandTransfer**](EasySplitAPI.md#PGESCreateOnDemandTransfer) | **Post** /easy-split/vendors/{vendor_id}/transfer | Create On Demand Transfer
 [**PGESCreateVendors**](EasySplitAPI.md#PGESCreateVendors) | **Post** /easy-split/vendors | Create vendor
 [**PGESDownloadVendorsDocs**](EasySplitAPI.md#PGESDownloadVendorsDocs) | **Get** /easy-split/vendor-docs/{vendor_id}/download/{doc_type} | Download Vendor Documents
@@ -16,7 +17,91 @@ Method | HTTP request | Description
 [**PGESUploadVendorsDocs**](EasySplitAPI.md#PGESUploadVendorsDocs) | **Post** /easy-split/vendor-docs/{vendor_id} | Upload Vendor Docs
 [**PGOrderSplitAfterPayment**](EasySplitAPI.md#PGOrderSplitAfterPayment) | **Post** /easy-split/orders/{order_id}/split | Split After Payment
 [**PGOrderStaticSplit**](EasySplitAPI.md#PGOrderStaticSplit) | **Post** /easy-split/static-split | Create Static Split Configuration
+[**PGSplitOrderRecon**](EasySplitAPI.md#PGSplitOrderRecon) | **Get** /easy-split/orders/{order_id} | Get Split and Settlement Details by OrderID
 
+
+
+## PGESCreateAdjustment
+
+> VendorAdjustmentSuccessResponse PGESCreateAdjustment(ctx, vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).VendorAdjustmentRequest(vendorAdjustmentRequest).Execute()
+
+Create Adjustment
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2023-08-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    vendorAdjustmentRequest := *cashfree.NewVendorAdjustmentRequest("VendorId_example", int64(123), float32(123), "Type_example") 
+
+    resp, r, err := cashfree.PGESCreateAdjustment(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, &vendorAdjustmentRequest, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESCreateAdjustment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESCreateAdjustment`: VendorAdjustmentSuccessResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESCreateAdjustment`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**vendorId** | **string** | The id which uniquely identifies your vendor. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPGESCreateAdjustmentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **vendorAdjustmentRequest** | [**VendorAdjustmentRequest**](VendorAdjustmentRequest.md) | Vendor Adjustment Request Body. | 
+
+### Return type
+
+[**VendorAdjustmentSuccessResponse**](VendorAdjustmentSuccessResponse.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## PGESCreateOnDemandTransfer
@@ -989,6 +1074,87 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PGSplitOrderRecon
+
+> SplitOrderReconSuccessResponse PGSplitOrderRecon(ctx, orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+
+Get Split and Settlement Details by OrderID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2023-08-01" 
+    orderId := "your-order-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGSplitOrderRecon(&xApiVersion, &orderId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGSplitOrderRecon``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGSplitOrderRecon`: SplitOrderReconSuccessResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGSplitOrderRecon`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**orderId** | **string** | The id which uniquely identifies your order | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPGSplitOrderReconRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+
+### Return type
+
+[**SplitOrderReconSuccessResponse**](SplitOrderReconSuccessResponse.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

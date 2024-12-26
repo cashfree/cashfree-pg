@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Entity** | **string** | Entity type should be PAYMENTS only. | 
-**EntityId** | **string** | In case of Entity type is PAYMENTS, entity_id will be transactionId | 
+**Entity** | **string** | Entity type should be PAYMENTS or SUBS_PAYMENTS only. | 
+**EntityId** | **string** | If the entity type is PAYMENTS, the entity_id will be the transactionId. If the entity type is SUBS_PAYMENTS, the entity_id will be the merchantTxnId | 
 **EntitySimulation** | [**EntitySimulationRequest**](EntitySimulationRequest.md) |  | 
 
 ## Methods

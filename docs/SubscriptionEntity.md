@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SubscriptionId** | Pointer to **string** | A unique ID passed by merchant for identifying the subscription. | [optional] 
 **SubscriptionMeta** | Pointer to [**SubscriptionEntitySubscriptionMeta**](SubscriptionEntitySubscriptionMeta.md) |  | [optional] 
 **SubscriptionNote** | Pointer to **string** | Note for the subscription. | [optional] 
+**SubscriptionSessionId** | Pointer to **string** | Subscription Session Id. | [optional] 
 **SubscriptionPaymentSplits** | Pointer to [**[]SubscriptionPaymentSplitItem**](SubscriptionPaymentSplitItem.md) | Payment splits for the subscription. | [optional] 
 **SubscriptionStatus** | Pointer to **string** | Status of the subscription. | [optional] 
 **SubscriptionTags** | Pointer to **map[string]interface{}** | Tags for the subscription. | [optional] 
@@ -260,6 +261,31 @@ SetSubscriptionNote sets SubscriptionNote field to given value.
 `func (o *SubscriptionEntity) HasSubscriptionNote() bool`
 
 HasSubscriptionNote returns a boolean if a field has been set.
+
+### GetSubscriptionSessionId
+
+`func (o *SubscriptionEntity) GetSubscriptionSessionId() string`
+
+GetSubscriptionSessionId returns the SubscriptionSessionId field if non-nil, zero value otherwise.
+
+### GetSubscriptionSessionIdOk
+
+`func (o *SubscriptionEntity) GetSubscriptionSessionIdOk() (*string, bool)`
+
+GetSubscriptionSessionIdOk returns a tuple with the SubscriptionSessionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscriptionSessionId
+
+`func (o *SubscriptionEntity) SetSubscriptionSessionId(v string)`
+
+SetSubscriptionSessionId sets SubscriptionSessionId field to given value.
+
+### HasSubscriptionSessionId
+
+`func (o *SubscriptionEntity) HasSubscriptionSessionId() bool`
+
+HasSubscriptionSessionId returns a boolean if a field has been set.
 
 ### GetSubscriptionPaymentSplits
 
