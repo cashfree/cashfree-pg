@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **ResolvedAt** | Pointer to **string** | This is the time when the dispute case was closed. | [optional] 
 **DisputeStatus** | Pointer to **string** |  | [optional] 
 **CfDisputeRemarks** | Pointer to **string** |  | [optional] 
-**PreferredEvidence** | Pointer to **map[string]interface{}** |  | [optional] 
+**PreferredEvidence** | Pointer to  |  | [optional] 
 **DisputeEvidence** | Pointer to  |  | [optional] 
 **OrderDetails** | Pointer to [**OrderDetailsInDisputesEntity**](OrderDetailsInDisputesEntity.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**CustomerDetailsInDisputesEntity**](CustomerDetailsInDisputesEntity.md) |  | [optional] 
@@ -316,20 +316,20 @@ HasCfDisputeRemarks returns a boolean if a field has been set.
 
 ### GetPreferredEvidence
 
-`func (o *DisputesEntityMerchantAccepted) GetPreferredEvidence() map[string]interface{}`
+`func (o *DisputesEntityMerchantAccepted) GetPreferredEvidence() []EvidencesToContestDispute`
 
 GetPreferredEvidence returns the PreferredEvidence field if non-nil, zero value otherwise.
 
 ### GetPreferredEvidenceOk
 
-`func (o *DisputesEntityMerchantAccepted) GetPreferredEvidenceOk() (*map[string]interface{}, bool)`
+`func (o *DisputesEntityMerchantAccepted) GetPreferredEvidenceOk() (*[]EvidencesToContestDispute, bool)`
 
 GetPreferredEvidenceOk returns a tuple with the PreferredEvidence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreferredEvidence
 
-`func (o *DisputesEntityMerchantAccepted) SetPreferredEvidence(v map[string]interface{})`
+`func (o *DisputesEntityMerchantAccepted) SetPreferredEvidence(v []EvidencesToContestDispute)`
 
 SetPreferredEvidence sets PreferredEvidence field to given value.
 
