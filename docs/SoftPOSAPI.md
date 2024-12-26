@@ -6,9 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SposCreateTerminal**](SoftPOSAPI.md#SposCreateTerminal) | **Post** /terminal | Create Terminal
 [**SposCreateTerminalTransaction**](SoftPOSAPI.md#SposCreateTerminalTransaction) | **Post** /terminal/transactions | Create Terminal Transaction
+[**SposDemapSoundboxVpa**](SoftPOSAPI.md#SposDemapSoundboxVpa) | **Post** /terminal/demap/soundbox | Demap Soundbox Vpa
 [**SposFetchTerminal**](SoftPOSAPI.md#SposFetchTerminal) | **Get** /terminal/{terminal_phone_no} | Get Terminal Status using Phone Number
 [**SposFetchTerminalQRCodes**](SoftPOSAPI.md#SposFetchTerminalQRCodes) | **Get** /terminal/qrcodes | Fetch Terminal QR Codes
+[**SposFetchTerminalSoundboxVpa**](SoftPOSAPI.md#SposFetchTerminalSoundboxVpa) | **Get** /terminal/soundbox/qrcodes | Fetch Terminal Soundbox vpa
 [**SposFetchTerminalTransaction**](SoftPOSAPI.md#SposFetchTerminalTransaction) | **Get** /terminal/{cf_terminal_id}/payments | Get Terminal Transaction
+[**SposOnboardSoundboxVpa**](SoftPOSAPI.md#SposOnboardSoundboxVpa) | **Post** /terminal/soundbox | Onboard Soundbox Vpa
+[**SposUpdateSoundboxVpa**](SoftPOSAPI.md#SposUpdateSoundboxVpa) | **Patch** /terminal/{cf_terminal_id}/soundbox | Update Soundbox Vpa
 [**SposUpdateTerminal**](SoftPOSAPI.md#SposUpdateTerminal) | **Patch** /terminal/{cf_terminal_id} | Update Terminal
 [**SposUpdateTerminalStatus**](SoftPOSAPI.md#SposUpdateTerminalStatus) | **Patch** /terminal/{cf_terminal_id}/status | Update Terminal Status
 [**SposUploadTerminalDocs**](SoftPOSAPI.md#SposUploadTerminalDocs) | **Post** /terminal/{cf_terminal_id}/docs | Upload Terminal Docs
@@ -154,6 +158,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TerminalTransactionEntity**](TerminalTransactionEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SposDemapSoundboxVpa
+
+> []SoundboxVpaEntity SposDemapSoundboxVpa(ctx).XApiVersion(xApiVersion).DemapSoundboxVpaRequest(demapSoundboxVpaRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+
+Demap Soundbox Vpa
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2023-08-01" 
+    demapSoundboxVpaRequest := *cashfree.NewDemapSoundboxVpaRequest("CfTerminalId_example", "DeviceSerialNo_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposDemapSoundboxVpa(&xApiVersion, &demapSoundboxVpaRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposDemapSoundboxVpa``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposDemapSoundboxVpa`: []SoundboxVpaEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposDemapSoundboxVpa`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSposDemapSoundboxVpaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **demapSoundboxVpaRequest** | [**DemapSoundboxVpaRequest**](DemapSoundboxVpaRequest.md) | Request body to demap soundbox vpa | 
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+
+### Return type
+
+[**[]SoundboxVpaEntity**](SoundboxVpaEntity.md)
 
 ### Authorization
 
@@ -329,6 +410,85 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## SposFetchTerminalSoundboxVpa
+
+> []SoundboxVpaEntity SposFetchTerminalSoundboxVpa(ctx).XApiVersion(xApiVersion).DeviceSerialNo(deviceSerialNo).CfTerminalId(cfTerminalId).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+
+Fetch Terminal Soundbox vpa
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2023-08-01" 
+    deviceSerialNo := "9876543214" 
+    cfTerminalId := "123344" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposFetchTerminalSoundboxVpa(&xApiVersion, &deviceSerialNo, &cfTerminalId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposFetchTerminalSoundboxVpa``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposFetchTerminalSoundboxVpa`: []SoundboxVpaEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposFetchTerminalSoundboxVpa`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSposFetchTerminalSoundboxVpaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **deviceSerialNo** | **string** | Device Serial No assinged. Required if you are not providing the cf_terminal_id in the request. | 
+ **cfTerminalId** | **string** | Cashfree terminal id for which you want to get Soundbox Vpa. Required if you are not providing the device_serial_no in the request. | 
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+
+### Return type
+
+[**[]SoundboxVpaEntity**](SoundboxVpaEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## SposFetchTerminalTransaction
 
 > TerminalPaymentEntity SposFetchTerminalTransaction(ctx, cfTerminalId).XApiVersion(xApiVersion).Utr(utr).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
@@ -405,6 +565,166 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SposOnboardSoundboxVpa
+
+> SoundboxVpaEntity SposOnboardSoundboxVpa(ctx).XApiVersion(xApiVersion).OnboardSoundboxVpaRequest(onboardSoundboxVpaRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+
+Onboard Soundbox Vpa
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2023-08-01" 
+    onboardSoundboxVpaRequest := *cashfree.NewOnboardSoundboxVpaRequest("Vpa_example", "CfTerminalId_example", "DeviceSerialNo_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposOnboardSoundboxVpa(&xApiVersion, &onboardSoundboxVpaRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposOnboardSoundboxVpa``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposOnboardSoundboxVpa`: SoundboxVpaEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposOnboardSoundboxVpa`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSposOnboardSoundboxVpaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **onboardSoundboxVpaRequest** | [**OnboardSoundboxVpaRequest**](OnboardSoundboxVpaRequest.md) | Request body to onboard soundbox vpa | 
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+
+### Return type
+
+[**SoundboxVpaEntity**](SoundboxVpaEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SposUpdateSoundboxVpa
+
+> SoundboxVpaEntity SposUpdateSoundboxVpa(ctx, cfTerminalId).XApiVersion(xApiVersion).UpdateSoundboxVpaRequest(updateSoundboxVpaRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+
+Update Soundbox Vpa
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v4"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2023-08-01" 
+    cfTerminalId := "123344" 
+    updateSoundboxVpaRequest := *cashfree.NewUpdateSoundboxVpaRequest("Vpa_example", "CfTerminalId_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposUpdateSoundboxVpa(&xApiVersion, &cfTerminalId, &updateSoundboxVpaRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposUpdateSoundboxVpa``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposUpdateSoundboxVpa`: SoundboxVpaEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposUpdateSoundboxVpa`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**cfTerminalId** | **string** | Provide the Cashfree terminal ID for which the details have to be updated. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSposUpdateSoundboxVpaRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+
+ **updateSoundboxVpaRequest** | [**UpdateSoundboxVpaRequest**](UpdateSoundboxVpaRequest.md) | Request body to update soundbox vpa | 
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+
+### Return type
+
+[**SoundboxVpaEntity**](SoundboxVpaEntity.md)
+
+### Authorization
+
+[XPartnerAPIKey](../README.md#XPartnerAPIKey), [XClientSecret](../README.md#XClientSecret), [XPartnerMerchantID](../README.md#XPartnerMerchantID), [XClientID](../README.md#XClientID), [XClientSignatureHeader](../README.md#XClientSignatureHeader)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

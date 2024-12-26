@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **CustomerBankAccountHolderName** | Pointer to **string** | Bank holder name of the customer. | [optional] 
 **CustomerBankAccountNumber** | Pointer to **string** | Bank account number of the customer. | [optional] 
 **CustomerBankIfsc** | Pointer to **string** | IFSC code of the customer. | [optional] 
-**CustomerBankCode** | Pointer to **string** | Bank code of the customer. | [optional] 
+**CustomerBankCode** | Pointer to **string** | Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf | [optional] 
 **CustomerBankAccountType** | Pointer to **string** | Bank account type of the customer. | [optional] 
 
 ## Methods

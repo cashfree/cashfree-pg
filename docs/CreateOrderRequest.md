@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **OrderId** | Pointer to **string** | Order identifier present in your system. Alphanumeric, &#39;_&#39; and &#39;-&#39; only | [optional] 
 **OrderAmount** | **float64** | Bill amount for the order. Provide upto two decimals. 10.15 means Rs 10 and 15 paisa | 
 **OrderCurrency** | **string** | Currency for the order. INR if left empty. Contact care@cashfree.com to enable new currencies. | 
+**CartDetails** | Pointer to [**CartDetails**](CartDetails.md) |  | [optional] 
 **CustomerDetails** | [**CustomerDetails**](CustomerDetails.md) |  | 
 **Terminal** | Pointer to [**TerminalDetails**](TerminalDetails.md) |  | [optional] 
 **OrderMeta** | Pointer to [**OrderMeta**](OrderMeta.md) |  | [optional] 
@@ -98,6 +99,31 @@ and a boolean to check if the value has been set.
 
 SetOrderCurrency sets OrderCurrency field to given value.
 
+
+### GetCartDetails
+
+`func (o *CreateOrderRequest) GetCartDetails() CartDetails`
+
+GetCartDetails returns the CartDetails field if non-nil, zero value otherwise.
+
+### GetCartDetailsOk
+
+`func (o *CreateOrderRequest) GetCartDetailsOk() (*CartDetails, bool)`
+
+GetCartDetailsOk returns a tuple with the CartDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCartDetails
+
+`func (o *CreateOrderRequest) SetCartDetails(v CartDetails)`
+
+SetCartDetails sets CartDetails field to given value.
+
+### HasCartDetails
+
+`func (o *CreateOrderRequest) HasCartDetails() bool`
+
+HasCartDetails returns a boolean if a field has been set.
 
 ### GetCustomerDetails
 

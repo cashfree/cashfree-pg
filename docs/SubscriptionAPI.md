@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**SubsFetchSubscriptionRefund**](SubscriptionAPI.md#SubsFetchSubscriptionRefund) | **Get** /subscriptions/{subscription_id}/refunds/{refund_id} | Fetch details of a refund.
 [**SubsManageSubscription**](SubscriptionAPI.md#SubsManageSubscription) | **Post** /subscriptions/{subscription_id}/manage | Manage a subscription.
 [**SubsManageSubscriptionPayment**](SubscriptionAPI.md#SubsManageSubscriptionPayment) | **Post** /subscriptions/{subscription_id}/payments/{payment_id}/manage | Manage a single payment.
-[**SubscriptionDocumentUpload**](SubscriptionAPI.md#SubscriptionDocumentUpload) | **Post** /subscriptions/pay/documents/{payment_id} | API to upload Physical Nach for Physical Nach Authorization.
+[**SubscriptionDocumentUpload**](SubscriptionAPI.md#SubscriptionDocumentUpload) | **Post** /subscriptions/pay/documents/{payment_id} | API to upload file for Physical Nach Authorization.
 [**SubscriptionEligibility**](SubscriptionAPI.md#SubscriptionEligibility) | **Post** /subscriptions/eligibility/payment_methods | API to get all the payment method details available for subscription payments.
 
 
@@ -918,7 +918,7 @@ Name | Type | Description  | Notes
 
 > UploadPnachImageResponse SubscriptionDocumentUpload(ctx, paymentId).XApiVersion(xApiVersion).File(file).PaymentId2(paymentId2).Action(action).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-API to upload Physical Nach for Physical Nach Authorization.
+API to upload file for Physical Nach Authorization.
 
 
 

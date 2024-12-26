@@ -44,6 +44,7 @@ type OrderEntity struct {
 	OrderMeta *OrderMeta `json:"order_meta,omitempty"`
 	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
 	OrderTags *map[string]string `json:"order_tags,omitempty"`
+	CartDetails *CartDetailsEntity `json:"cart_details,omitempty"`
 }
 
 
@@ -99,6 +100,9 @@ func (o OrderEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OrderTags) {
 		toSerialize["order_tags"] = o.OrderTags
+	}
+	if !IsNil(o.CartDetails) {
+		toSerialize["cart_details"] = o.CartDetails
 	}
 	return toSerialize, nil
 }

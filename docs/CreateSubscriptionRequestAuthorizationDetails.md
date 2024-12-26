@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AuthorizationAmount** | Pointer to **float32** | Authorization amount for the auth payment. | [optional] 
 **AuthorizationAmountRefund** | Pointer to **bool** | Indicates whether the authorization amount should be refunded to the customer automatically. Merchants can use this field to specify if the authorized funds should be returned to the customer after authorization of the subscription. | [optional] 
+**PaymentMethods** | Pointer to **[]string** | Payment methods for the subscription. enach, pnach, upi, card are possible values. | [optional] 
 
 ## Methods
 
@@ -75,6 +76,31 @@ SetAuthorizationAmountRefund sets AuthorizationAmountRefund field to given value
 `func (o *CreateSubscriptionRequestAuthorizationDetails) HasAuthorizationAmountRefund() bool`
 
 HasAuthorizationAmountRefund returns a boolean if a field has been set.
+
+### GetPaymentMethods
+
+`func (o *CreateSubscriptionRequestAuthorizationDetails) GetPaymentMethods() []string`
+
+GetPaymentMethods returns the PaymentMethods field if non-nil, zero value otherwise.
+
+### GetPaymentMethodsOk
+
+`func (o *CreateSubscriptionRequestAuthorizationDetails) GetPaymentMethodsOk() (*[]string, bool)`
+
+GetPaymentMethodsOk returns a tuple with the PaymentMethods field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentMethods
+
+`func (o *CreateSubscriptionRequestAuthorizationDetails) SetPaymentMethods(v []string)`
+
+SetPaymentMethods sets PaymentMethods field to given value.
+
+### HasPaymentMethods
+
+`func (o *CreateSubscriptionRequestAuthorizationDetails) HasPaymentMethods() bool`
+
+HasPaymentMethods returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
