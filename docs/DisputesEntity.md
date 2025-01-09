@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **ResolvedAt** | Pointer to **string** | This is the time when the dispute case was closed. | [optional] 
 **DisputeStatus** | Pointer to **string** |  | [optional] 
 **CfDisputeRemarks** | Pointer to **string** |  | [optional] 
-**PreferredEvidence** | Pointer to  |  | [optional] 
-**DisputeEvidence** | Pointer to  |  | [optional] 
+**PreferredEvidence** | Pointer to [**[]EvidencesToContestDispute**](EvidencesToContestDispute.md) |  | [optional] 
+**DisputeEvidence** | Pointer to [**[]Evidence**](Evidence.md) |  | [optional] 
 **OrderDetails** | Pointer to [**OrderDetailsInDisputesEntity**](OrderDetailsInDisputesEntity.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**CustomerDetailsInDisputesEntity**](CustomerDetailsInDisputesEntity.md) |  | [optional] 
 
