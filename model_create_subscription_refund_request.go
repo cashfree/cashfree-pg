@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -21,12 +21,12 @@ var _ MappedNullable = &CreateSubscriptionRefundRequest{}
 
 // CreateSubscriptionRefundRequest Request body to create a subscription refund.
 type CreateSubscriptionRefundRequest struct {
+	// Cashfree subscription payment reference number.
+	CfPaymentId *float32 `json:"cf_payment_id,omitempty"`
 	// A unique ID passed by merchant for identifying the subscription.
 	SubscriptionId string `json:"subscription_id"`
 	// A unique ID passed by merchant for identifying the transaction.
 	PaymentId *string `json:"payment_id,omitempty"`
-	// Cashfree subscription payment reference number.
-	CfPaymentId *string `json:"cf_payment_id,omitempty"`
 	// A unique ID passed by merchant for identifying the refund.
 	RefundId string `json:"refund_id"`
 	// The amount to be refunded. Can be partial or full amount of the payment.
@@ -49,12 +49,12 @@ func (o CreateSubscriptionRefundRequest) MarshalJSON() ([]byte, error) {
 func (o CreateSubscriptionRefundRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CfPaymentId) {
+		toSerialize["cf_payment_id"] = o.CfPaymentId
+	}
 	toSerialize["subscription_id"] = o.SubscriptionId
 	if !IsNil(o.PaymentId) {
 		toSerialize["payment_id"] = o.PaymentId
-	}
-	if !IsNil(o.CfPaymentId) {
-		toSerialize["cf_payment_id"] = o.CfPaymentId
 	}
 	toSerialize["refund_id"] = o.RefundId
 	toSerialize["refund_amount"] = o.RefundAmount

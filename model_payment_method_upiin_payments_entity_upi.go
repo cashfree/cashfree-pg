@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -23,6 +23,8 @@ var _ MappedNullable = &PaymentMethodUPIInPaymentsEntityUpi{}
 type PaymentMethodUPIInPaymentsEntityUpi struct {
 	Channel *string `json:"channel,omitempty"`
 	UpiId *string `json:"upi_id,omitempty"`
+	UpiPayerIfsc *string `json:"upi_payer_ifsc,omitempty"`
+	UpiPayerAccountNumber *string `json:"upi_payer_account_number,omitempty"`
 }
 
 
@@ -42,6 +44,12 @@ func (o PaymentMethodUPIInPaymentsEntityUpi) ToMap() (map[string]interface{}, er
 	}
 	if !IsNil(o.UpiId) {
 		toSerialize["upi_id"] = o.UpiId
+	}
+	if !IsNil(o.UpiPayerIfsc) {
+		toSerialize["upi_payer_ifsc"] = o.UpiPayerIfsc
+	}
+	if !IsNil(o.UpiPayerAccountNumber) {
+		toSerialize["upi_payer_account_number"] = o.UpiPayerAccountNumber
 	}
 	return toSerialize, nil
 }

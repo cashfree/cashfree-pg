@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AddedOn** | Pointer to **string** | date time at which terminal is added | [optional] 
-**CfTerminalId** | Pointer to **string** | cashfree terminal id | [optional] 
+**CfTerminalId** | Pointer to **string** | Cashfree terminal id, this is a required parameter when you do not provide the terminal phone number. | [optional] 
 **LastUpdatedOn** | Pointer to **string** | last instant when this terminal was updated | [optional] 
 **TerminalAddress** | Pointer to **string** | location of terminal | [optional] 
 **TerminalId** | Pointer to **string** | terminal id for merchant reference | [optional] 
 **TerminalName** | Pointer to **string** | name of terminal/agent/storefront | [optional] 
 **TerminalNote** | Pointer to **string** | note given by merchant while creating the terminal | [optional] 
-**TerminalPhoneNo** | **string** | mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id. | 
+**TerminalPhoneNo** | Pointer to **string** | mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id. | [optional] 
 **TerminalStatus** | Pointer to **string** | status of terminal active/inactive | [optional] 
 **TerminalType** | **string** | To identify the type of terminal product in use, in this case it is SPOS. | 
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewTerminalDetails
 
-`func NewTerminalDetails(terminalPhoneNo string, terminalType string, ) *TerminalDetails`
+`func NewTerminalDetails(terminalType string, ) *TerminalDetails`
 
 NewTerminalDetails instantiates a new TerminalDetails object
 This constructor will assign default values to properties that have it defined,
@@ -228,6 +228,11 @@ and a boolean to check if the value has been set.
 
 SetTerminalPhoneNo sets TerminalPhoneNo field to given value.
 
+### HasTerminalPhoneNo
+
+`func (o *TerminalDetails) HasTerminalPhoneNo() bool`
+
+HasTerminalPhoneNo returns a boolean if a field has been set.
 
 ### GetTerminalStatus
 

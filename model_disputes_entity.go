@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -27,6 +27,8 @@ type DisputesEntity struct {
 	ReasonDescription *string `json:"reason_description,omitempty"`
 	// Dispute amount may differ from transaction amount for partial cases.
 	DisputeAmount *float32 `json:"dispute_amount,omitempty"`
+	// Dispute amount currency for a dispute
+	DisputeAmountCurrency *string `json:"dispute_amount_currency,omitempty"`
 	// This is the time when the dispute was created.
 	CreatedAt *string `json:"created_at,omitempty"`
 	// This is the time by which evidence should be submitted to contest the dispute.
@@ -69,6 +71,9 @@ func (o DisputesEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.DisputeAmount) {
 		toSerialize["dispute_amount"] = o.DisputeAmount
+	}
+	if !IsNil(o.DisputeAmountCurrency) {
+		toSerialize["dispute_amount_currency"] = o.DisputeAmountCurrency
 	}
 	if !IsNil(o.CreatedAt) {
 		toSerialize["created_at"] = o.CreatedAt

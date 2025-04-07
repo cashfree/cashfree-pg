@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -57,6 +57,14 @@ type RefundEntity struct {
 	// Time when refund was processed successfully
 	ProcessedAt *string `json:"processed_at,omitempty"`
 	RefundSpeed *RefundSpeed `json:"refund_speed,omitempty"`
+	// Cashfree forex conversion charges for refund processing
+	ForexConversionHandlingCharge *float32 `json:"forex_conversion_handling_charge,omitempty"`
+	// Cashfree forex conversion tax for refund processing
+	ForexConversionHandlingTax *float32 `json:"forex_conversion_handling_tax,omitempty"`
+	// Cashfree forex conversion rate for refund processing
+	ForexConversionRate *float32 `json:"forex_conversion_rate,omitempty"`
+	// Cashfree refund charges currency for a refund
+	ChargesCurrency *string `json:"charges_currency,omitempty"`
 }
 
 
@@ -127,6 +135,18 @@ func (o RefundEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.RefundSpeed) {
 		toSerialize["refund_speed"] = o.RefundSpeed
+	}
+	if !IsNil(o.ForexConversionHandlingCharge) {
+		toSerialize["forex_conversion_handling_charge"] = o.ForexConversionHandlingCharge
+	}
+	if !IsNil(o.ForexConversionHandlingTax) {
+		toSerialize["forex_conversion_handling_tax"] = o.ForexConversionHandlingTax
+	}
+	if !IsNil(o.ForexConversionRate) {
+		toSerialize["forex_conversion_rate"] = o.ForexConversionRate
+	}
+	if !IsNil(o.ChargesCurrency) {
+		toSerialize["charges_currency"] = o.ChargesCurrency
 	}
 	return toSerialize, nil
 }

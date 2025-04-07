@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **OrderAmount** | Pointer to **float32** |  | [optional] 
 **OrderStatus** | Pointer to **string** | Possible values are  - &#x60;ACTIVE&#x60;: Order does not have a sucessful transaction yet - &#x60;PAID&#x60;: Order is PAID with one successful transaction - &#x60;EXPIRED&#x60;: Order was not PAID and not it has expired. No transaction can be initiated for an EXPIRED order.  | [optional] 
 **PaymentSessionId** | Pointer to **string** |  | [optional] 
-**OrderExpiryTime** | Pointer to **time.Time** |  | [optional] 
+**OrderExpiryTime** | Pointer to **string** |  | [optional] 
 **OrderNote** | Pointer to **string** | Additional note for order | [optional] 
-**CreatedAt** | Pointer to **time.Time** | When the order was created at cashfree&#39;s server | [optional] 
+**CreatedAt** | Pointer to **string** | When the order was created at cashfree&#39;s server | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**PaymentLinkCustomerDetails**](PaymentLinkCustomerDetails.md) |  | [optional] 
 **OrderMeta** | Pointer to [**OrderMeta**](OrderMeta.md) |  | [optional] 
@@ -241,20 +241,20 @@ HasPaymentSessionId returns a boolean if a field has been set.
 
 ### GetOrderExpiryTime
 
-`func (o *PaymentLinkOrderEntity) GetOrderExpiryTime() time.Time`
+`func (o *PaymentLinkOrderEntity) GetOrderExpiryTime() string`
 
 GetOrderExpiryTime returns the OrderExpiryTime field if non-nil, zero value otherwise.
 
 ### GetOrderExpiryTimeOk
 
-`func (o *PaymentLinkOrderEntity) GetOrderExpiryTimeOk() (*time.Time, bool)`
+`func (o *PaymentLinkOrderEntity) GetOrderExpiryTimeOk() (*string, bool)`
 
 GetOrderExpiryTimeOk returns a tuple with the OrderExpiryTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrderExpiryTime
 
-`func (o *PaymentLinkOrderEntity) SetOrderExpiryTime(v time.Time)`
+`func (o *PaymentLinkOrderEntity) SetOrderExpiryTime(v string)`
 
 SetOrderExpiryTime sets OrderExpiryTime field to given value.
 
@@ -291,20 +291,20 @@ HasOrderNote returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
-`func (o *PaymentLinkOrderEntity) GetCreatedAt() time.Time`
+`func (o *PaymentLinkOrderEntity) GetCreatedAt() string`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *PaymentLinkOrderEntity) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *PaymentLinkOrderEntity) GetCreatedAtOk() (*string, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *PaymentLinkOrderEntity) SetCreatedAt(v time.Time)`
+`func (o *PaymentLinkOrderEntity) SetCreatedAt(v string)`
 
 SetCreatedAt sets CreatedAt field to given value.
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -27,6 +27,7 @@ type OrderMeta struct {
 	NotifyUrl *string `json:"notify_url,omitempty"`
 	// Allowed payment modes for this order. Pass comma-separated values among following options - \"cc\", \"dc\", \"ccc\", \"ppc\",\"nb\",\"upi\",\"paypal\",\"app\",\"paylater\",\"cardlessemi\",\"dcemi\",\"ccemi\",\"banktransfer\". Leave it blank to show all available payment methods
 	PaymentMethods interface{} `json:"payment_methods,omitempty"`
+	PaymentMethodsFilters *OrderMetaPaymentMethodsFilters `json:"payment_methods_filters,omitempty"`
 }
 
 
@@ -49,6 +50,9 @@ func (o OrderMeta) ToMap() (map[string]interface{}, error) {
 	}
 	if o.PaymentMethods != nil {
 		toSerialize["payment_methods"] = o.PaymentMethods
+	}
+	if !IsNil(o.PaymentMethodsFilters) {
+		toSerialize["payment_methods_filters"] = o.PaymentMethodsFilters
 	}
 	return toSerialize, nil
 }

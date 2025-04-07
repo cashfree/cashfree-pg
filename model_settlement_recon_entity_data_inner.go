@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -21,76 +21,13 @@ var _ MappedNullable = &SettlementReconEntityDataInner{}
 
 // SettlementReconEntityDataInner struct for SettlementReconEntityDataInner
 type SettlementReconEntityDataInner struct {
-	// Unique ID associated with the event.
-	EventId *string `json:"event_id,omitempty"`
-	// The event type can be PAYMENT, REFUND, REFUND_REVERSAL, DISPUTE, DISPUTE_REVERSAL, CHARGEBACK, CHARGEBACK_REVERSAL, OTHER_ADJUSTMENT.
-	EventType *string `json:"event_type,omitempty"`
-	// Amount that is part of the settlement corresponding to the event.
-	EventSettlementAmount *float32 `json:"event_settlement_amount,omitempty"`
-	// Amount corresponding to the event. Example, refund amount, dispute amount, payment amount, etc.
-	EventAmount *float32 `json:"event_amount,omitempty"`
-	// Indicates if it is CREDIT/DEBIT sale.
-	SaleType *string `json:"sale_type,omitempty"`
-	// Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED.
-	EventStatus *string `json:"event_status,omitempty"`
-	// Recon
-	Entity *string `json:"entity,omitempty"`
-	// Time associated with the event. Example, transaction time, dispute initiation time
-	EventTime *string `json:"event_time,omitempty"`
-	// Curreny type - INR.
-	EventCurrency *string `json:"event_currency,omitempty"`
-	// Unique order ID. Alphanumeric and only '-' and '_' allowed.
-	OrderId *string `json:"order_id,omitempty"`
-	// The amount which was passed at the order creation time.
-	OrderAmount *float32 `json:"order_amount,omitempty"`
-	// Customer phone number.
-	CustomerPhone *string `json:"customer_phone,omitempty"`
-	// Customer email.
-	CustomerEmail *string `json:"customer_email,omitempty"`
-	// Customer name.
-	CustomerName *string `json:"customer_name,omitempty"`
-	// Payment amount captured.
-	PaymentAmount *float32 `json:"payment_amount,omitempty"`
-	// Unique transaction reference number of the payment.
-	PaymentUtr *string `json:"payment_utr,omitempty"`
-	// Date and time when the payment was initiated.
-	PaymentTime *string `json:"payment_time,omitempty"`
-	// Service charge applicable for the payment.
-	PaymentServiceCharge *float32 `json:"payment_service_charge,omitempty"`
-	// Service tax applicable on the payment.
-	PaymentServiceTax *float32 `json:"payment_service_tax,omitempty"`
-	// Cashfree Payments unique ID to identify a payment.
-	CfPaymentId *string `json:"cf_payment_id,omitempty"`
-	// Unique ID to identify the settlement.
-	CfSettlementId *string `json:"cf_settlement_id,omitempty"`
-	// Date and time when the settlement was processed.
-	SettlementDate *string `json:"settlement_date,omitempty"`
-	// Unique transaction reference number of the settlement.
-	SettlementUtr *string `json:"settlement_utr,omitempty"`
-	// Service charge that is applicable for splitting the payment.
-	SplitServiceCharge *float32 `json:"split_service_charge,omitempty"`
-	// Service tax applicable for splitting the amount to vendors.
-	SplitServiceTax *float32 `json:"split_service_tax,omitempty"`
-	// Vendor commission applicable for this transaction.
-	VendorCommission *float32 `json:"vendor_commission,omitempty"`
-	// Specifies whether the dispute was closed in favor of the merchant or customer. Possible values - Merchant, Customer.
-	ClosedInFavorOf *string `json:"closed_in_favor_of,omitempty"`
-	// Date and time when the dispute was resolved.
-	DisputeResolvedOn *string `json:"dispute_resolved_on,omitempty"`
-	// Category of the dispute - Dispute code and the reason for dispute is shown.
-	DisputeCategory *string `json:"dispute_category,omitempty"`
-	// Note regarding the dispute.
-	DisputeNote *string `json:"dispute_note,omitempty"`
-	// Date and time when the refund was processed.
-	RefundProcessedAt *string `json:"refund_processed_at,omitempty"`
-	// The bank reference number for refund.
-	RefundArn *string `json:"refund_arn,omitempty"`
-	// A refund note for your reference.
-	RefundNote *string `json:"refund_note,omitempty"`
-	// An unique ID associated with the refund.
-	RefundId *string `json:"refund_id,omitempty"`
-	// Other adjustment remarks.
-	AdjustmentRemarks *string `json:"adjustment_remarks,omitempty"`
+	EventDetails *SettlementReconEntityDataInnerEventDetails `json:"event_details,omitempty"`
+	OrderDetails *SettlementReconEntityDataInnerOrderDetails `json:"order_details,omitempty"`
+	CustomerDetails *SettlementReconEntityDataInnerCustomerDetails `json:"customer_details,omitempty"`
+	PaymentDetails *SettlementReconEntityDataInnerPaymentDetails `json:"payment_details,omitempty"`
+	SettlementDetails *SettlementReconEntityDataInnerSettlementDetails `json:"settlement_details,omitempty"`
+	DisputeDetails *SettlementReconEntityDataInnerDisputeDetails `json:"dispute_details,omitempty"`
+	RefundDetails *SettlementReconEntityDataInnerRefundDetails `json:"refund_details,omitempty"`
 }
 
 
@@ -105,110 +42,26 @@ func (o SettlementReconEntityDataInner) MarshalJSON() ([]byte, error) {
 func (o SettlementReconEntityDataInner) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.EventId) {
-		toSerialize["event_id"] = o.EventId
+	if !IsNil(o.EventDetails) {
+		toSerialize["event_details"] = o.EventDetails
 	}
-	if !IsNil(o.EventType) {
-		toSerialize["event_type"] = o.EventType
+	if !IsNil(o.OrderDetails) {
+		toSerialize["order_details"] = o.OrderDetails
 	}
-	if !IsNil(o.EventSettlementAmount) {
-		toSerialize["event_settlement_amount"] = o.EventSettlementAmount
+	if !IsNil(o.CustomerDetails) {
+		toSerialize["customer_details"] = o.CustomerDetails
 	}
-	if !IsNil(o.EventAmount) {
-		toSerialize["event_amount"] = o.EventAmount
+	if !IsNil(o.PaymentDetails) {
+		toSerialize["payment_details"] = o.PaymentDetails
 	}
-	if !IsNil(o.SaleType) {
-		toSerialize["sale_type"] = o.SaleType
+	if !IsNil(o.SettlementDetails) {
+		toSerialize["settlement_details"] = o.SettlementDetails
 	}
-	if !IsNil(o.EventStatus) {
-		toSerialize["event_status"] = o.EventStatus
+	if !IsNil(o.DisputeDetails) {
+		toSerialize["dispute_details"] = o.DisputeDetails
 	}
-	if !IsNil(o.Entity) {
-		toSerialize["entity"] = o.Entity
-	}
-	if !IsNil(o.EventTime) {
-		toSerialize["event_time"] = o.EventTime
-	}
-	if !IsNil(o.EventCurrency) {
-		toSerialize["event_currency"] = o.EventCurrency
-	}
-	if !IsNil(o.OrderId) {
-		toSerialize["order_id"] = o.OrderId
-	}
-	if !IsNil(o.OrderAmount) {
-		toSerialize["order_amount"] = o.OrderAmount
-	}
-	if !IsNil(o.CustomerPhone) {
-		toSerialize["customer_phone"] = o.CustomerPhone
-	}
-	if !IsNil(o.CustomerEmail) {
-		toSerialize["customer_email"] = o.CustomerEmail
-	}
-	if !IsNil(o.CustomerName) {
-		toSerialize["customer_name"] = o.CustomerName
-	}
-	if !IsNil(o.PaymentAmount) {
-		toSerialize["payment_amount"] = o.PaymentAmount
-	}
-	if !IsNil(o.PaymentUtr) {
-		toSerialize["payment_utr"] = o.PaymentUtr
-	}
-	if !IsNil(o.PaymentTime) {
-		toSerialize["payment_time"] = o.PaymentTime
-	}
-	if !IsNil(o.PaymentServiceCharge) {
-		toSerialize["payment_service_charge"] = o.PaymentServiceCharge
-	}
-	if !IsNil(o.PaymentServiceTax) {
-		toSerialize["payment_service_tax"] = o.PaymentServiceTax
-	}
-	if !IsNil(o.CfPaymentId) {
-		toSerialize["cf_payment_id"] = o.CfPaymentId
-	}
-	if !IsNil(o.CfSettlementId) {
-		toSerialize["cf_settlement_id"] = o.CfSettlementId
-	}
-	if !IsNil(o.SettlementDate) {
-		toSerialize["settlement_date"] = o.SettlementDate
-	}
-	if !IsNil(o.SettlementUtr) {
-		toSerialize["settlement_utr"] = o.SettlementUtr
-	}
-	if !IsNil(o.SplitServiceCharge) {
-		toSerialize["split_service_charge"] = o.SplitServiceCharge
-	}
-	if !IsNil(o.SplitServiceTax) {
-		toSerialize["split_service_tax"] = o.SplitServiceTax
-	}
-	if !IsNil(o.VendorCommission) {
-		toSerialize["vendor_commission"] = o.VendorCommission
-	}
-	if !IsNil(o.ClosedInFavorOf) {
-		toSerialize["closed_in_favor_of"] = o.ClosedInFavorOf
-	}
-	if !IsNil(o.DisputeResolvedOn) {
-		toSerialize["dispute_resolved_on"] = o.DisputeResolvedOn
-	}
-	if !IsNil(o.DisputeCategory) {
-		toSerialize["dispute_category"] = o.DisputeCategory
-	}
-	if !IsNil(o.DisputeNote) {
-		toSerialize["dispute_note"] = o.DisputeNote
-	}
-	if !IsNil(o.RefundProcessedAt) {
-		toSerialize["refund_processed_at"] = o.RefundProcessedAt
-	}
-	if !IsNil(o.RefundArn) {
-		toSerialize["refund_arn"] = o.RefundArn
-	}
-	if !IsNil(o.RefundNote) {
-		toSerialize["refund_note"] = o.RefundNote
-	}
-	if !IsNil(o.RefundId) {
-		toSerialize["refund_id"] = o.RefundId
-	}
-	if !IsNil(o.AdjustmentRemarks) {
-		toSerialize["adjustment_remarks"] = o.AdjustmentRemarks
+	if !IsNil(o.RefundDetails) {
+		toSerialize["refund_details"] = o.RefundDetails
 	}
 	return toSerialize, nil
 }

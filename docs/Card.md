@@ -18,6 +18,14 @@ Name | Type | Description | Notes
 **CardDisplay** | Pointer to **string** | last 4 digits of original card number. Required only for tokenized card transactions. | [optional] 
 **CardAlias** | Pointer to **string** | Card alias as returned by Cashfree Vault API. | [optional] 
 **CardBankName** | Pointer to **string** | One of [\&quot;Kotak\&quot;, \&quot;ICICI\&quot;, \&quot;RBL\&quot;, \&quot;BOB\&quot;, \&quot;Standard Chartered\&quot;]. Card bank name, required for EMI payments. This is the bank user has selected for EMI | [optional] 
+**AddressLineOne** | Pointer to **string** | First line of the address. | [optional] 
+**AddressLineTwo** | Pointer to **string** | Second line of the address. | [optional] 
+**City** | Pointer to **string** | City Name. | [optional] 
+**ZipCode** | Pointer to **string** | Pin Code/Zip Code. | [optional] 
+**Country** | Pointer to **string** | Country Name. | [optional] 
+**CountryCode** | Pointer to **string** | Country Code. Should be in ISO 2 format (ie. US for United States) | [optional] 
+**State** | Pointer to **string** | State Name. | [optional] 
+**StateCode** | Pointer to **string** | State Code. Should be in ISO 2 format (ie. FL for Florida) | [optional] 
 **EmiTenure** | Pointer to **int32** | EMI tenure selected by the user | [optional] 
 
 ## Methods
@@ -383,6 +391,206 @@ SetCardBankName sets CardBankName field to given value.
 `func (o *Card) HasCardBankName() bool`
 
 HasCardBankName returns a boolean if a field has been set.
+
+### GetAddressLineOne
+
+`func (o *Card) GetAddressLineOne() string`
+
+GetAddressLineOne returns the AddressLineOne field if non-nil, zero value otherwise.
+
+### GetAddressLineOneOk
+
+`func (o *Card) GetAddressLineOneOk() (*string, bool)`
+
+GetAddressLineOneOk returns a tuple with the AddressLineOne field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddressLineOne
+
+`func (o *Card) SetAddressLineOne(v string)`
+
+SetAddressLineOne sets AddressLineOne field to given value.
+
+### HasAddressLineOne
+
+`func (o *Card) HasAddressLineOne() bool`
+
+HasAddressLineOne returns a boolean if a field has been set.
+
+### GetAddressLineTwo
+
+`func (o *Card) GetAddressLineTwo() string`
+
+GetAddressLineTwo returns the AddressLineTwo field if non-nil, zero value otherwise.
+
+### GetAddressLineTwoOk
+
+`func (o *Card) GetAddressLineTwoOk() (*string, bool)`
+
+GetAddressLineTwoOk returns a tuple with the AddressLineTwo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddressLineTwo
+
+`func (o *Card) SetAddressLineTwo(v string)`
+
+SetAddressLineTwo sets AddressLineTwo field to given value.
+
+### HasAddressLineTwo
+
+`func (o *Card) HasAddressLineTwo() bool`
+
+HasAddressLineTwo returns a boolean if a field has been set.
+
+### GetCity
+
+`func (o *Card) GetCity() string`
+
+GetCity returns the City field if non-nil, zero value otherwise.
+
+### GetCityOk
+
+`func (o *Card) GetCityOk() (*string, bool)`
+
+GetCityOk returns a tuple with the City field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCity
+
+`func (o *Card) SetCity(v string)`
+
+SetCity sets City field to given value.
+
+### HasCity
+
+`func (o *Card) HasCity() bool`
+
+HasCity returns a boolean if a field has been set.
+
+### GetZipCode
+
+`func (o *Card) GetZipCode() string`
+
+GetZipCode returns the ZipCode field if non-nil, zero value otherwise.
+
+### GetZipCodeOk
+
+`func (o *Card) GetZipCodeOk() (*string, bool)`
+
+GetZipCodeOk returns a tuple with the ZipCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetZipCode
+
+`func (o *Card) SetZipCode(v string)`
+
+SetZipCode sets ZipCode field to given value.
+
+### HasZipCode
+
+`func (o *Card) HasZipCode() bool`
+
+HasZipCode returns a boolean if a field has been set.
+
+### GetCountry
+
+`func (o *Card) GetCountry() string`
+
+GetCountry returns the Country field if non-nil, zero value otherwise.
+
+### GetCountryOk
+
+`func (o *Card) GetCountryOk() (*string, bool)`
+
+GetCountryOk returns a tuple with the Country field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountry
+
+`func (o *Card) SetCountry(v string)`
+
+SetCountry sets Country field to given value.
+
+### HasCountry
+
+`func (o *Card) HasCountry() bool`
+
+HasCountry returns a boolean if a field has been set.
+
+### GetCountryCode
+
+`func (o *Card) GetCountryCode() string`
+
+GetCountryCode returns the CountryCode field if non-nil, zero value otherwise.
+
+### GetCountryCodeOk
+
+`func (o *Card) GetCountryCodeOk() (*string, bool)`
+
+GetCountryCodeOk returns a tuple with the CountryCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountryCode
+
+`func (o *Card) SetCountryCode(v string)`
+
+SetCountryCode sets CountryCode field to given value.
+
+### HasCountryCode
+
+`func (o *Card) HasCountryCode() bool`
+
+HasCountryCode returns a boolean if a field has been set.
+
+### GetState
+
+`func (o *Card) GetState() string`
+
+GetState returns the State field if non-nil, zero value otherwise.
+
+### GetStateOk
+
+`func (o *Card) GetStateOk() (*string, bool)`
+
+GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetState
+
+`func (o *Card) SetState(v string)`
+
+SetState sets State field to given value.
+
+### HasState
+
+`func (o *Card) HasState() bool`
+
+HasState returns a boolean if a field has been set.
+
+### GetStateCode
+
+`func (o *Card) GetStateCode() string`
+
+GetStateCode returns the StateCode field if non-nil, zero value otherwise.
+
+### GetStateCodeOk
+
+`func (o *Card) GetStateCodeOk() (*string, bool)`
+
+GetStateCodeOk returns a tuple with the StateCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStateCode
+
+`func (o *Card) SetStateCode(v string)`
+
+SetStateCode sets StateCode field to given value.
+
+### HasStateCode
+
+`func (o *Card) HasStateCode() bool`
+
+HasStateCode returns a boolean if a field has been set.
 
 ### GetEmiTenure
 

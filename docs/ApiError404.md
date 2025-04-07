@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Message** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **string** |  | [optional] 
+**Help** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** | invalid_request_error | [optional] 
 
 ## Methods
@@ -76,6 +77,31 @@ SetCode sets Code field to given value.
 `func (o *ApiError404) HasCode() bool`
 
 HasCode returns a boolean if a field has been set.
+
+### GetHelp
+
+`func (o *ApiError404) GetHelp() string`
+
+GetHelp returns the Help field if non-nil, zero value otherwise.
+
+### GetHelpOk
+
+`func (o *ApiError404) GetHelpOk() (*string, bool)`
+
+GetHelpOk returns a tuple with the Help field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHelp
+
+`func (o *ApiError404) SetHelp(v string)`
+
+SetHelp sets Help field to given value.
+
+### HasHelp
+
+`func (o *ApiError404) HasHelp() bool`
+
+HasHelp returns a boolean if a field has been set.
 
 ### GetType
 

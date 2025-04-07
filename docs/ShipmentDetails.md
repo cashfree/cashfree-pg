@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TrackingCompany** | **string** | Tracking company name associated with order. | 
 **TrackingUrls** | **[]string** | Tracking Urls associated with order. | 
-**TrackingNumbers** | **[]string** | Tracking Numbers associated with order. | 
+**TrackingNumbers** | **[]string** | Tracking Numbers associated wih order. | 
 
 ## Methods
 

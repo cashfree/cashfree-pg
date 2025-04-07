@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -23,6 +23,7 @@ var _ MappedNullable = &ESOrderReconResponseDataInner{}
 type ESOrderReconResponseDataInner struct {
 	Amount *float32 `json:"amount,omitempty"`
 	SettlementEligibilityTime *string `json:"settlement_eligibility_time,omitempty"`
+	Status *string `json:"status,omitempty"`
 	MerchantOrderId *string `json:"merchant_order_id,omitempty"`
 	TxTime *string `json:"tx_time,omitempty"`
 	Settled *string `json:"settled,omitempty"`
@@ -66,6 +67,9 @@ func (o ESOrderReconResponseDataInner) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SettlementEligibilityTime) {
 		toSerialize["settlement_eligibility_time"] = o.SettlementEligibilityTime
+	}
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
 	}
 	if !IsNil(o.MerchantOrderId) {
 		toSerialize["merchant_order_id"] = o.MerchantOrderId

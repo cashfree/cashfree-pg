@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Channel** | Pointer to **string** |  | [optional] 
 **UpiId** | Pointer to **string** |  | [optional] 
+**UpiPayerIfsc** | Pointer to **string** |  | [optional] 
+**UpiPayerAccountNumber** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -75,6 +77,56 @@ SetUpiId sets UpiId field to given value.
 `func (o *PaymentMethodUPIInPaymentsEntityUpi) HasUpiId() bool`
 
 HasUpiId returns a boolean if a field has been set.
+
+### GetUpiPayerIfsc
+
+`func (o *PaymentMethodUPIInPaymentsEntityUpi) GetUpiPayerIfsc() string`
+
+GetUpiPayerIfsc returns the UpiPayerIfsc field if non-nil, zero value otherwise.
+
+### GetUpiPayerIfscOk
+
+`func (o *PaymentMethodUPIInPaymentsEntityUpi) GetUpiPayerIfscOk() (*string, bool)`
+
+GetUpiPayerIfscOk returns a tuple with the UpiPayerIfsc field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpiPayerIfsc
+
+`func (o *PaymentMethodUPIInPaymentsEntityUpi) SetUpiPayerIfsc(v string)`
+
+SetUpiPayerIfsc sets UpiPayerIfsc field to given value.
+
+### HasUpiPayerIfsc
+
+`func (o *PaymentMethodUPIInPaymentsEntityUpi) HasUpiPayerIfsc() bool`
+
+HasUpiPayerIfsc returns a boolean if a field has been set.
+
+### GetUpiPayerAccountNumber
+
+`func (o *PaymentMethodUPIInPaymentsEntityUpi) GetUpiPayerAccountNumber() string`
+
+GetUpiPayerAccountNumber returns the UpiPayerAccountNumber field if non-nil, zero value otherwise.
+
+### GetUpiPayerAccountNumberOk
+
+`func (o *PaymentMethodUPIInPaymentsEntityUpi) GetUpiPayerAccountNumberOk() (*string, bool)`
+
+GetUpiPayerAccountNumberOk returns a tuple with the UpiPayerAccountNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpiPayerAccountNumber
+
+`func (o *PaymentMethodUPIInPaymentsEntityUpi) SetUpiPayerAccountNumber(v string)`
+
+SetUpiPayerAccountNumber sets UpiPayerAccountNumber field to given value.
+
+### HasUpiPayerAccountNumber
+
+`func (o *PaymentMethodUPIInPaymentsEntityUpi) HasUpiPayerAccountNumber() bool`
+
+HasUpiPayerAccountNumber returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

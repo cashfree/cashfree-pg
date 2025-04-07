@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -115,6 +115,12 @@ type ReconEntityDataInner struct {
 	SettlementTax *float32 `json:"settlement_tax,omitempty"`
 	// Remarks on the settlement.
 	Remarks *string `json:"remarks,omitempty"`
+	// Cashfree forex conversion charges for processing transaction
+	ForexConversionHandlingCharge *float32 `json:"forex_conversion_handling_charge,omitempty"`
+	// Cashfree forex conversion tax for processing transaction
+	ForexConversionHandlingTax *float32 `json:"forex_conversion_handling_tax,omitempty"`
+	// Cashfree charges currency for a event type
+	ChargesCurrency *string `json:"charges_currency,omitempty"`
 }
 
 
@@ -269,6 +275,15 @@ func (o ReconEntityDataInner) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Remarks) {
 		toSerialize["remarks"] = o.Remarks
+	}
+	if !IsNil(o.ForexConversionHandlingCharge) {
+		toSerialize["forex_conversion_handling_charge"] = o.ForexConversionHandlingCharge
+	}
+	if !IsNil(o.ForexConversionHandlingTax) {
+		toSerialize["forex_conversion_handling_tax"] = o.ForexConversionHandlingTax
+	}
+	if !IsNil(o.ChargesCurrency) {
+		toSerialize["charges_currency"] = o.ChargesCurrency
 	}
 	return toSerialize, nil
 }

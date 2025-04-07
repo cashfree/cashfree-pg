@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,6 +22,7 @@ var _ MappedNullable = &ApiError502{}
 // ApiError502 Error when there is error at partner bank
 type ApiError502 struct {
 	Message *string `json:"message,omitempty"`
+	Help *string `json:"help,omitempty"`
 	// `bank_processing_failure` will be returned here to denote failure at bank. 
 	Code *string `json:"code,omitempty"`
 	// api_error
@@ -42,6 +43,9 @@ func (o ApiError502) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.Help) {
+		toSerialize["help"] = o.Help
 	}
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code

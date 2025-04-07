@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -41,8 +41,12 @@ type PaymentEntity struct {
 	PaymentMessage *string `json:"payment_message,omitempty"`
 	BankReference *string `json:"bank_reference,omitempty"`
 	AuthId *string `json:"auth_id,omitempty"`
+	OrderCurrency *string `json:"order_currency,omitempty"`
 	Authorization *AuthorizationInPaymentsEntity `json:"authorization,omitempty"`
 	PaymentMethod *PaymentEntityPaymentMethod `json:"payment_method,omitempty"`
+	InternationalPayment *InternationalPaymentEntity `json:"international_payment,omitempty"`
+	PaymentGatewayDetails *PaymentGatewayDetails `json:"payment_gateway_details,omitempty"`
+	PaymentSurcharge *PaymentEntityPaymentSurcharge `json:"payment_surcharge,omitempty"`
 }
 
 
@@ -102,11 +106,23 @@ func (o PaymentEntity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.AuthId) {
 		toSerialize["auth_id"] = o.AuthId
 	}
+	if !IsNil(o.OrderCurrency) {
+		toSerialize["order_currency"] = o.OrderCurrency
+	}
 	if !IsNil(o.Authorization) {
 		toSerialize["authorization"] = o.Authorization
 	}
 	if !IsNil(o.PaymentMethod) {
 		toSerialize["payment_method"] = o.PaymentMethod
+	}
+	if !IsNil(o.InternationalPayment) {
+		toSerialize["international_payment"] = o.InternationalPayment
+	}
+	if !IsNil(o.PaymentGatewayDetails) {
+		toSerialize["payment_gateway_details"] = o.PaymentGatewayDetails
+	}
+	if !IsNil(o.PaymentSurcharge) {
+		toSerialize["payment_surcharge"] = o.PaymentSurcharge
 	}
 	return toSerialize, nil
 }

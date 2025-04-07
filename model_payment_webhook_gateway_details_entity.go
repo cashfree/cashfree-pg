@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -19,13 +19,15 @@ import (
 // checks if the PaymentWebhookGatewayDetailsEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PaymentWebhookGatewayDetailsEntity{}
 
-// PaymentWebhookGatewayDetailsEntity payment gatewat details present in the webhook response
+// PaymentWebhookGatewayDetailsEntity payment gateway details present in the webhook response
 type PaymentWebhookGatewayDetailsEntity struct {
 	GatewayName *string `json:"gateway_name,omitempty"`
 	GatewayOrderId *string `json:"gateway_order_id,omitempty"`
+	GatewayOrderReferenceId *string `json:"gateway_order_reference_id,omitempty"`
 	GatewayPaymentId *string `json:"gateway_payment_id,omitempty"`
 	GatewayStatusCode *string `json:"gateway_status_code,omitempty"`
 	GatewaySettlement *string `json:"gateway_settlement,omitempty"`
+	GatewayReferenceName *string `json:"gateway_reference_name,omitempty"`
 }
 
 
@@ -46,6 +48,9 @@ func (o PaymentWebhookGatewayDetailsEntity) ToMap() (map[string]interface{}, err
 	if !IsNil(o.GatewayOrderId) {
 		toSerialize["gateway_order_id"] = o.GatewayOrderId
 	}
+	if !IsNil(o.GatewayOrderReferenceId) {
+		toSerialize["gateway_order_reference_id"] = o.GatewayOrderReferenceId
+	}
 	if !IsNil(o.GatewayPaymentId) {
 		toSerialize["gateway_payment_id"] = o.GatewayPaymentId
 	}
@@ -54,6 +59,9 @@ func (o PaymentWebhookGatewayDetailsEntity) ToMap() (map[string]interface{}, err
 	}
 	if !IsNil(o.GatewaySettlement) {
 		toSerialize["gateway_settlement"] = o.GatewaySettlement
+	}
+	if !IsNil(o.GatewayReferenceName) {
+		toSerialize["gateway_reference_name"] = o.GatewayReferenceName
 	}
 	return toSerialize, nil
 }

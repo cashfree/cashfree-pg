@@ -11,14 +11,16 @@ Name | Type | Description | Notes
 **OrderAmount** | Pointer to **float32** |  | [optional] 
 **OrderStatus** | Pointer to **string** | Possible values are  - &#x60;ACTIVE&#x60;: Order does not have a sucessful transaction yet - &#x60;PAID&#x60;: Order is PAID with one successful transaction - &#x60;EXPIRED&#x60;: Order was not PAID and not it has expired. No transaction can be initiated for an EXPIRED order. &#x60;TERMINATED&#x60;: Order terminated &#x60;TERMINATION_REQUESTED&#x60;: Order termination requested | [optional] 
 **PaymentSessionId** | Pointer to **string** |  | [optional] 
-**OrderExpiryTime** | Pointer to **time.Time** |  | [optional] 
+**OrderExpiryTime** | Pointer to **string** |  | [optional] 
 **OrderNote** | Pointer to **string** | Additional note for order | [optional] 
-**CreatedAt** | Pointer to **time.Time** | When the order was created at cashfree&#39;s server | [optional] 
+**CreatedAt** | Pointer to **string** | When the order was created at cashfree&#39;s server | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**CustomerDetailsResponse**](CustomerDetailsResponse.md) |  | [optional] 
 **OrderMeta** | Pointer to [**OrderMeta**](OrderMeta.md) |  | [optional] 
 **OrderTags** | Pointer to **map[string]string** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
 **CartDetails** | Pointer to [**CartDetailsEntity**](CartDetailsEntity.md) |  | [optional] 
+**TerminalData** | Pointer to [**TerminalData**](TerminalData.md) |  | [optional] 
+**Products** | Pointer to [**OrderEntityProducts**](OrderEntityProducts.md) |  | [optional] 
 
 ## Methods
 
@@ -216,20 +218,20 @@ HasPaymentSessionId returns a boolean if a field has been set.
 
 ### GetOrderExpiryTime
 
-`func (o *OrderEntity) GetOrderExpiryTime() time.Time`
+`func (o *OrderEntity) GetOrderExpiryTime() string`
 
 GetOrderExpiryTime returns the OrderExpiryTime field if non-nil, zero value otherwise.
 
 ### GetOrderExpiryTimeOk
 
-`func (o *OrderEntity) GetOrderExpiryTimeOk() (*time.Time, bool)`
+`func (o *OrderEntity) GetOrderExpiryTimeOk() (*string, bool)`
 
 GetOrderExpiryTimeOk returns a tuple with the OrderExpiryTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrderExpiryTime
 
-`func (o *OrderEntity) SetOrderExpiryTime(v time.Time)`
+`func (o *OrderEntity) SetOrderExpiryTime(v string)`
 
 SetOrderExpiryTime sets OrderExpiryTime field to given value.
 
@@ -266,20 +268,20 @@ HasOrderNote returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
-`func (o *OrderEntity) GetCreatedAt() time.Time`
+`func (o *OrderEntity) GetCreatedAt() string`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *OrderEntity) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *OrderEntity) GetCreatedAtOk() (*string, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *OrderEntity) SetCreatedAt(v time.Time)`
+`func (o *OrderEntity) SetCreatedAt(v string)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
@@ -413,6 +415,56 @@ SetCartDetails sets CartDetails field to given value.
 `func (o *OrderEntity) HasCartDetails() bool`
 
 HasCartDetails returns a boolean if a field has been set.
+
+### GetTerminalData
+
+`func (o *OrderEntity) GetTerminalData() TerminalData`
+
+GetTerminalData returns the TerminalData field if non-nil, zero value otherwise.
+
+### GetTerminalDataOk
+
+`func (o *OrderEntity) GetTerminalDataOk() (*TerminalData, bool)`
+
+GetTerminalDataOk returns a tuple with the TerminalData field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerminalData
+
+`func (o *OrderEntity) SetTerminalData(v TerminalData)`
+
+SetTerminalData sets TerminalData field to given value.
+
+### HasTerminalData
+
+`func (o *OrderEntity) HasTerminalData() bool`
+
+HasTerminalData returns a boolean if a field has been set.
+
+### GetProducts
+
+`func (o *OrderEntity) GetProducts() OrderEntityProducts`
+
+GetProducts returns the Products field if non-nil, zero value otherwise.
+
+### GetProductsOk
+
+`func (o *OrderEntity) GetProductsOk() (*OrderEntityProducts, bool)`
+
+GetProductsOk returns a tuple with the Products field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProducts
+
+`func (o *OrderEntity) SetProducts(v OrderEntityProducts)`
+
+SetProducts sets Products field to given value.
+
+### HasProducts
+
+`func (o *OrderEntity) HasProducts() bool`
+
+HasProducts returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Payload** | Pointer to **map[string]interface{}** |  | [optional] 
 **ContentType** | Pointer to **string** |  | [optional] 
 **Method** | Pointer to **string** |  | [optional] 
+**RedirectToBank** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -127,6 +128,31 @@ SetMethod sets Method field to given value.
 `func (o *OrderPayData) HasMethod() bool`
 
 HasMethod returns a boolean if a field has been set.
+
+### GetRedirectToBank
+
+`func (o *OrderPayData) GetRedirectToBank() string`
+
+GetRedirectToBank returns the RedirectToBank field if non-nil, zero value otherwise.
+
+### GetRedirectToBankOk
+
+`func (o *OrderPayData) GetRedirectToBankOk() (*string, bool)`
+
+GetRedirectToBankOk returns a tuple with the RedirectToBank field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRedirectToBank
+
+`func (o *OrderPayData) SetRedirectToBank(v string)`
+
+SetRedirectToBank sets RedirectToBank field to given value.
+
+### HasRedirectToBank
+
+`func (o *OrderPayData) HasRedirectToBank() bool`
+
+HasRedirectToBank returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

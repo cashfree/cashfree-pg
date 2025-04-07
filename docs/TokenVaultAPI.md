@@ -28,7 +28,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
@@ -39,7 +39,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     customerId := "your-customer-id" 
     instrumentId := "some-instrument-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -71,7 +71,7 @@ Other parameters are passed through a pointer to a apiPGCustomerDeleteInstrument
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -112,7 +112,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
@@ -123,7 +123,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     customerId := "your-customer-id" 
     instrumentId := "some-instrument-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -155,7 +155,7 @@ Other parameters are passed through a pointer to a apiPGCustomerFetchInstrumentR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -196,7 +196,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
@@ -207,7 +207,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     customerId := "your-customer-id" 
     instrumentType := "card" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -238,7 +238,7 @@ Other parameters are passed through a pointer to a apiPGCustomerFetchInstruments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
  **instrumentType** | **string** | Payment mode or type of saved instrument  | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -279,7 +279,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
@@ -290,7 +290,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     customerId := "your-customer-id" 
     instrumentId := "some-instrument-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -322,7 +322,7 @@ Other parameters are passed through a pointer to a apiPGCustomerInstrumentsFetch
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
