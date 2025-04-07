@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **ResolvedAt** | Pointer to **string** | This is the time when the dispute case was closed. | [optional] 
 **DisputeStatus** | Pointer to **string** |  | [optional] 
 **CfDisputeRemarks** | Pointer to **string** |  | [optional] 
-**PreferredEvidence** | Pointer to [**[]EvidencesToContestDispute**](EvidencesToContestDispute.md) |  | [optional] 
-**DisputeEvidence** | Pointer to [**[]Evidence**](Evidence.md) |  | [optional] 
+**PreferredEvidence** | Pointer to [**[]PreferredEvidenceInner**](PreferredEvidenceInner.md) |  | [optional] 
+**DisputeEvidence** | Pointer to [**[]DisputeEvidenceInner**](DisputeEvidenceInner.md) |  | [optional] 
 **OrderDetails** | Pointer to [**OrderDetailsInDisputesEntity**](OrderDetailsInDisputesEntity.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**CustomerDetailsInDisputesEntity**](CustomerDetailsInDisputesEntity.md) |  | [optional] 
 
@@ -342,20 +342,20 @@ HasCfDisputeRemarks returns a boolean if a field has been set.
 
 ### GetPreferredEvidence
 
-`func (o *DisputesEntity) GetPreferredEvidence() []EvidencesToContestDispute`
+`func (o *DisputesEntity) GetPreferredEvidence() []PreferredEvidenceInner`
 
 GetPreferredEvidence returns the PreferredEvidence field if non-nil, zero value otherwise.
 
 ### GetPreferredEvidenceOk
 
-`func (o *DisputesEntity) GetPreferredEvidenceOk() (*[]EvidencesToContestDispute, bool)`
+`func (o *DisputesEntity) GetPreferredEvidenceOk() (*[]PreferredEvidenceInner, bool)`
 
 GetPreferredEvidenceOk returns a tuple with the PreferredEvidence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreferredEvidence
 
-`func (o *DisputesEntity) SetPreferredEvidence(v []EvidencesToContestDispute)`
+`func (o *DisputesEntity) SetPreferredEvidence(v []PreferredEvidenceInner)`
 
 SetPreferredEvidence sets PreferredEvidence field to given value.
 
@@ -367,20 +367,20 @@ HasPreferredEvidence returns a boolean if a field has been set.
 
 ### GetDisputeEvidence
 
-`func (o *DisputesEntity) GetDisputeEvidence() []Evidence`
+`func (o *DisputesEntity) GetDisputeEvidence() []DisputeEvidenceInner`
 
 GetDisputeEvidence returns the DisputeEvidence field if non-nil, zero value otherwise.
 
 ### GetDisputeEvidenceOk
 
-`func (o *DisputesEntity) GetDisputeEvidenceOk() (*[]Evidence, bool)`
+`func (o *DisputesEntity) GetDisputeEvidenceOk() (*[]DisputeEvidenceInner, bool)`
 
 GetDisputeEvidenceOk returns a tuple with the DisputeEvidence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDisputeEvidence
 
-`func (o *DisputesEntity) SetDisputeEvidence(v []Evidence)`
+`func (o *DisputesEntity) SetDisputeEvidence(v []DisputeEvidenceInner)`
 
 SetDisputeEvidence sets DisputeEvidence field to given value.
 
