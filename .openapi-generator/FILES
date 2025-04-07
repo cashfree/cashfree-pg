@@ -89,6 +89,7 @@ docs/CustomerEntity.md
 docs/CustomersAPI.md
 docs/DemapSoundboxVpaRequest.md
 docs/DiscountDetails.md
+docs/DisputeEvidenceInner.md
 docs/DisputesAPI.md
 docs/DisputesEntity.md
 docs/DisputesEntityMerchantAccepted.md
@@ -231,6 +232,7 @@ docs/PaymentWebhookGatewayDetailsEntity.md
 docs/PaymentWebhookOrderEntity.md
 docs/PaymentsAPI.md
 docs/PlanEntity.md
+docs/PreferredEvidenceInner.md
 docs/ProductConditions.md
 docs/ProductConditionsEntity.md
 docs/ProductDetails.md
@@ -397,6 +399,7 @@ model_customer_details_response.go
 model_customer_entity.go
 model_demap_soundbox_vpa_request.go
 model_discount_details.go
+model_dispute_evidence_inner.go
 model_disputes_entity.go
 model_disputes_entity_merchant_accepted.go
 model_eligibility_cardless_emi_entity.go
@@ -531,6 +534,7 @@ model_payment_webhook_gateway_details_entity.go
 model_payment_webhook_order_entity.go
 model_pg_create_par_200_response.go
 model_plan_entity.go
+model_preferred_evidence_inner.go
 model_product_conditions.go
 model_product_conditions_entity.go
 model_product_details.go

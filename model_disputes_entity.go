@@ -39,8 +39,8 @@ type DisputesEntity struct {
 	ResolvedAt *string `json:"resolved_at,omitempty"`
 	DisputeStatus *string `json:"dispute_status,omitempty"`
 	CfDisputeRemarks *string `json:"cf_dispute_remarks,omitempty"`
-	PreferredEvidence []EvidencesToContestDispute `json:"preferred_evidence,omitempty"`
-	DisputeEvidence []Evidence `json:"dispute_evidence,omitempty"`
+	PreferredEvidence []PreferredEvidenceInner `json:"preferred_evidence,omitempty"`
+	DisputeEvidence []DisputeEvidenceInner `json:"dispute_evidence,omitempty"`
 	OrderDetails *OrderDetailsInDisputesEntity `json:"order_details,omitempty"`
 	CustomerDetails *CustomerDetailsInDisputesEntity `json:"customer_details,omitempty"`
 }
