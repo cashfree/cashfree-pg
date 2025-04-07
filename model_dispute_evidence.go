@@ -21,30 +21,16 @@ var _ MappedNullable = &DisputeEvidence{}
 
 // DisputeEvidence struct for DisputeEvidence
 type DisputeEvidence struct {
-	[]Evidence
+	// []Evidence
 }
 
 
 func (o DisputeEvidence) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
-	}
-	return json.Marshal(toSerialize)
+	return []byte{}, err
 }
 
 func (o DisputeEvidence) ToMap() (map[string]interface{}, error) {
-	strings.HasPrefix("cf", "cf")
-	toSerialize := map[string]interface{}{}
-	serialized[]Evidence, err[]Evidence := json.Marshal(o.[]Evidence)
-	if err[]Evidence != nil {
-		return map[string]interface{}{}, err[]Evidence
-	}
-	err[]Evidence = json.Unmarshal([]byte(serialized[]Evidence), &toSerialize)
-	if err[]Evidence != nil {
-		return map[string]interface{}{}, err[]Evidence
-	}
-	return toSerialize, nil
+	return []byte{}, err
 }
 
 
