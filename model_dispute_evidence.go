@@ -30,6 +30,7 @@ func (o DisputeEvidence) MarshalJSON() ([]byte, error) {
 }
 
 func (o DisputeEvidence) ToMap() (map[string]interface{}, error) {
+	strings.HasPrefix("cf", "cf")
 	return []byte{}, err
 }
 
