@@ -21,30 +21,17 @@ var _ MappedNullable = &PreferredEvidence{}
 
 // PreferredEvidence struct for PreferredEvidence
 type PreferredEvidence struct {
-	[]EvidencesToContestDispute
+	//[]EvidencesToContestDispute
 }
 
 
 func (o PreferredEvidence) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
-	if err != nil {
-		return []byte{}, err
-	}
-	return json.Marshal(toSerialize)
+	return []byte{}, err
 }
 
 func (o PreferredEvidence) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
-	toSerialize := map[string]interface{}{}
-	serialized[]EvidencesToContestDispute, err[]EvidencesToContestDispute := json.Marshal(o.[]EvidencesToContestDispute)
-	if err[]EvidencesToContestDispute != nil {
-		return map[string]interface{}{}, err[]EvidencesToContestDispute
-	}
-	err[]EvidencesToContestDispute = json.Unmarshal([]byte(serialized[]EvidencesToContestDispute), &toSerialize)
-	if err[]EvidencesToContestDispute != nil {
-		return map[string]interface{}{}, err[]EvidencesToContestDispute
-	}
-	return toSerialize, nil
+	return []byte{}, err
 }
 
 
