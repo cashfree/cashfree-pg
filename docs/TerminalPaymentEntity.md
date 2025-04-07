@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **Authorization** | Pointer to [**AuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**CustomerDetails**](CustomerDetails.md) |  | [optional] 
 **PaymentMethod** | Pointer to [**PaymentEntityPaymentMethod**](PaymentEntityPaymentMethod.md) |  | [optional] 
+**PaymentGatewayDetails** | Pointer to [**PaymentGatewayDetails**](PaymentGatewayDetails.md) |  | [optional] 
 
 ## Methods
 
@@ -491,6 +492,31 @@ SetPaymentMethod sets PaymentMethod field to given value.
 `func (o *TerminalPaymentEntity) HasPaymentMethod() bool`
 
 HasPaymentMethod returns a boolean if a field has been set.
+
+### GetPaymentGatewayDetails
+
+`func (o *TerminalPaymentEntity) GetPaymentGatewayDetails() PaymentGatewayDetails`
+
+GetPaymentGatewayDetails returns the PaymentGatewayDetails field if non-nil, zero value otherwise.
+
+### GetPaymentGatewayDetailsOk
+
+`func (o *TerminalPaymentEntity) GetPaymentGatewayDetailsOk() (*PaymentGatewayDetails, bool)`
+
+GetPaymentGatewayDetailsOk returns a tuple with the PaymentGatewayDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentGatewayDetails
+
+`func (o *TerminalPaymentEntity) SetPaymentGatewayDetails(v PaymentGatewayDetails)`
+
+SetPaymentGatewayDetails sets PaymentGatewayDetails field to given value.
+
+### HasPaymentGatewayDetails
+
+`func (o *TerminalPaymentEntity) HasPaymentGatewayDetails() bool`
+
+HasPaymentGatewayDetails returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

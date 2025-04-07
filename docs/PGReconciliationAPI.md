@@ -36,7 +36,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     fetchReconRequest := *cashfree.NewFetchReconRequest(*cashfree.NewFetchReconRequestPagination(int32(123)), *cashfree.NewFetchReconRequestFilters("StartDate_example", "EndDate_example")) 
     contentType := "application/json" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -64,7 +64,7 @@ Other parameters are passed through a pointer to a apiPGFetchReconRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
  **fetchReconRequest** | [**FetchReconRequest**](FetchReconRequest.md) | Request Body for the reconciliation | 
  **contentType** | **string** | application/json | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 

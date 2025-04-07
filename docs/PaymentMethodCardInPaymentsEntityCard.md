@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **CardCountry** | Pointer to **string** |  | [optional] 
 **CardBankName** | Pointer to **string** |  | [optional] 
 **CardNetworkReferenceId** | Pointer to **string** |  | [optional] 
+**InstrumentId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -205,6 +206,31 @@ SetCardNetworkReferenceId sets CardNetworkReferenceId field to given value.
 `func (o *PaymentMethodCardInPaymentsEntityCard) HasCardNetworkReferenceId() bool`
 
 HasCardNetworkReferenceId returns a boolean if a field has been set.
+
+### GetInstrumentId
+
+`func (o *PaymentMethodCardInPaymentsEntityCard) GetInstrumentId() string`
+
+GetInstrumentId returns the InstrumentId field if non-nil, zero value otherwise.
+
+### GetInstrumentIdOk
+
+`func (o *PaymentMethodCardInPaymentsEntityCard) GetInstrumentIdOk() (*string, bool)`
+
+GetInstrumentIdOk returns a tuple with the InstrumentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstrumentId
+
+`func (o *PaymentMethodCardInPaymentsEntityCard) SetInstrumentId(v string)`
+
+SetInstrumentId sets InstrumentId field to given value.
+
+### HasInstrumentId
+
+`func (o *PaymentMethodCardInPaymentsEntityCard) HasInstrumentId() bool`
+
+HasInstrumentId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

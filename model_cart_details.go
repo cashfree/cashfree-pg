@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -21,9 +21,12 @@ var _ MappedNullable = &CartDetails{}
 
 // CartDetails The cart details that are necessary like shipping address, billing address and more.
 type CartDetails struct {
+	CustomerNote *string `json:"customer_note,omitempty"`
 	ShippingCharge *float64 `json:"shipping_charge,omitempty"`
 	// Name of the cart.
 	CartName *string `json:"cart_name,omitempty"`
+	CustomerShippingAddress *CartAddress `json:"customer_shipping_address,omitempty"`
+	CustomerBillingAddress *CartAddress `json:"customer_billing_address,omitempty"`
 	CartItems []CartItem `json:"cart_items,omitempty"`
 }
 
@@ -39,11 +42,20 @@ func (o CartDetails) MarshalJSON() ([]byte, error) {
 func (o CartDetails) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.CustomerNote) {
+		toSerialize["customer_note"] = o.CustomerNote
+	}
 	if !IsNil(o.ShippingCharge) {
 		toSerialize["shipping_charge"] = o.ShippingCharge
 	}
 	if !IsNil(o.CartName) {
 		toSerialize["cart_name"] = o.CartName
+	}
+	if !IsNil(o.CustomerShippingAddress) {
+		toSerialize["customer_shipping_address"] = o.CustomerShippingAddress
+	}
+	if !IsNil(o.CustomerBillingAddress) {
+		toSerialize["customer_billing_address"] = o.CustomerBillingAddress
 	}
 	if !IsNil(o.CartItems) {
 		toSerialize["cart_items"] = o.CartItems

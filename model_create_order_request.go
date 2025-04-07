@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -39,6 +39,7 @@ type CreateOrderRequest struct {
 	OrderTags *map[string]string `json:"order_tags,omitempty"`
 	// If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
+	Products *Products `json:"products,omitempty"`
 }
 
 
@@ -79,6 +80,9 @@ func (o CreateOrderRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OrderSplits) {
 		toSerialize["order_splits"] = o.OrderSplits
+	}
+	if !IsNil(o.Products) {
+		toSerialize["products"] = o.Products
 	}
 	return toSerialize, nil
 }

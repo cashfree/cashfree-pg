@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **OrderId** | Pointer to **string** | order_id sent during the api request | [optional] 
 **OrderAmount** | Pointer to **float32** |  | [optional] 
 **OrderCurrency** | Pointer to **string** | Currency of the order. Example INR | [optional] 
-**CreatedAt** | Pointer to **time.Time** | When the order was created at cashfree&#39;s server | [optional] 
+**CreatedAt** | Pointer to **string** | When the order was created at cashfree&#39;s server | [optional] 
 **Charges** | Pointer to [**ChargesEntity**](ChargesEntity.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**ExtendedCustomerDetails**](ExtendedCustomerDetails.md) |  | [optional] 
 **ShippingAddress** | Pointer to [**AddressDetails**](AddressDetails.md) |  | [optional] 
@@ -137,20 +137,20 @@ HasOrderCurrency returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
-`func (o *OrderExtendedDataEntity) GetCreatedAt() time.Time`
+`func (o *OrderExtendedDataEntity) GetCreatedAt() string`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *OrderExtendedDataEntity) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *OrderExtendedDataEntity) GetCreatedAtOk() (*string, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *OrderExtendedDataEntity) SetCreatedAt(v time.Time)`
+`func (o *OrderExtendedDataEntity) SetCreatedAt(v string)`
 
 SetCreatedAt sets CreatedAt field to given value.
 

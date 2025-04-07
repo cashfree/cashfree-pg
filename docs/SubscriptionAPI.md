@@ -48,7 +48,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     createSubscriptionPaymentRequest := *cashfree.NewCreateSubscriptionPaymentRequest("SubscriptionId_example", "PaymentId_example", "PaymentType_example") 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -74,7 +74,7 @@ Other parameters are passed through a pointer to a apiSubsCreatePaymentRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
  **createSubscriptionPaymentRequest** | [**CreateSubscriptionPaymentRequest**](CreateSubscriptionPaymentRequest.md) | Request body to create a subscription payment. | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -125,7 +125,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     createPlanRequest := *cashfree.NewCreatePlanRequest("PlanId_example", "PlanName_example", "PlanType_example", float32(123)) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -151,7 +151,7 @@ Other parameters are passed through a pointer to a apiSubsCreatePlanRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
  **createPlanRequest** | [**CreatePlanRequest**](CreatePlanRequest.md) | Request body to create a plan. | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -202,7 +202,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     subscriptionId := "subscription-id-123" 
     createSubscriptionRefundRequest := *cashfree.NewCreateSubscriptionRefundRequest("SubscriptionId_example", "RefundId_example", float32(123)) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -233,7 +233,7 @@ Other parameters are passed through a pointer to a apiSubsCreateRefundRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
  **createSubscriptionRefundRequest** | [**CreateSubscriptionRefundRequest**](CreateSubscriptionRefundRequest.md) | Request body to create a subscription refund. | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -285,7 +285,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     createSubscriptionRequest := *cashfree.NewCreateSubscriptionRequest("SubscriptionId_example", *cashfree.NewSubscriptionCustomerDetails("CustomerEmail_example", "CustomerPhone_example"), *cashfree.NewCreateSubscriptionRequestPlanDetails()) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -311,7 +311,7 @@ Other parameters are passed through a pointer to a apiSubsCreateSubscriptionRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
  **createSubscriptionRequest** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md) | Request body to create a subscription. | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -362,7 +362,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     planId := "plan-id-123" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -392,7 +392,7 @@ Other parameters are passed through a pointer to a apiSubsFetchPlanRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -443,7 +443,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     subscriptionId := "subscription-id-123" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -473,7 +473,7 @@ Other parameters are passed through a pointer to a apiSubsFetchSubscriptionReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -524,7 +524,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     subscriptionId := "subscription-id-123" 
     paymentId := "payment-id-123" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -556,7 +556,7 @@ Other parameters are passed through a pointer to a apiSubsFetchSubscriptionPayme
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -608,7 +608,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     subscriptionId := "subscription-id-123" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -638,7 +638,7 @@ Other parameters are passed through a pointer to a apiSubsFetchSubscriptionPayme
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -689,7 +689,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     subscriptionId := "subscription-id-123" 
     refundId := "refund-id-123" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -721,7 +721,7 @@ Other parameters are passed through a pointer to a apiSubsFetchSubscriptionRefun
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -773,7 +773,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     subscriptionId := "subscription-id-123" 
     manageSubscriptionRequest := *cashfree.NewManageSubscriptionRequest("SubscriptionId_example", "Action_example") 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -804,7 +804,7 @@ Other parameters are passed through a pointer to a apiSubsManageSubscriptionRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
  **manageSubscriptionRequest** | [**ManageSubscriptionRequest**](ManageSubscriptionRequest.md) | Request body to manage a subscription. | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -856,7 +856,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     subscriptionId := "subscription-id-123" 
     paymentId := "payment-id-123" 
     manageSubscriptionPaymentRequest := *cashfree.NewManageSubscriptionPaymentRequest("SubscriptionId_example", "PaymentId_example", "Action_example") 
@@ -889,7 +889,7 @@ Other parameters are passed through a pointer to a apiSubsManageSubscriptionPaym
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
 
  **manageSubscriptionPaymentRequest** | [**ManageSubscriptionPaymentRequest**](ManageSubscriptionPaymentRequest.md) | Request body to manage a subscription payment. | 
@@ -942,7 +942,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     paymentId := "payment-id-123" 
     file := os.NewFile(1234, "some_file") 
     paymentId2 := "paymentId_example" 
@@ -975,7 +975,7 @@ Other parameters are passed through a pointer to a apiSubscriptionDocumentUpload
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
 
  **file** | ***os.File** | Select the .jpg file that should be uploaded or provide the path of that file. You cannot upload a file that is more than 1MB in size. | 
  **paymentId2** | **string** | Authorization Payment Id for physical nach authorization | 
@@ -1029,7 +1029,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2023-08-01" 
+    xApiVersion := "2025-01-01" 
     subscriptionEligibilityRequest := *cashfree.NewSubscriptionEligibilityRequest(*cashfree.NewSubscriptionEligibilityRequestQueries("SubscriptionId_example")) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -1055,7 +1055,7 @@ Other parameters are passed through a pointer to a apiSubscriptionEligibilityReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2023-08-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
  **subscriptionEligibilityRequest** | [**SubscriptionEligibilityRequest**](SubscriptionEligibilityRequest.md) | Request body to fetch subscription eligibile payment method details. | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 

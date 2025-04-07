@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -21,16 +21,25 @@ import (
 
 // Execute executes the request
 //  @return []EligibilityCardlessEMIEntity
-func PGEligibilityFetchCardlessEMI(xApiVersion *string, eligibilityFetchCardlessEMIRequest *EligibilityFetchCardlessEMIRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityCardlessEMIEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchCardlessEMI(eligibilityFetchCardlessEMIRequest *EligibilityFetchCardlessEMIRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityCardlessEMIEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []EligibilityCardlessEMIEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGEligibilityFetchCardlessEMI")
 	}
 
@@ -41,7 +50,7 @@ func PGEligibilityFetchCardlessEMI(xApiVersion *string, eligibilityFetchCardless
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/eligibility/cardlessemi"
 
@@ -72,7 +81,6 @@ func PGEligibilityFetchCardlessEMI(xApiVersion *string, eligibilityFetchCardless
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -82,24 +90,26 @@ func PGEligibilityFetchCardlessEMI(xApiVersion *string, eligibilityFetchCardless
 	// body params
 	localVarPostBody = eligibilityFetchCardlessEMIRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -260,7 +270,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []EligibilityCardlessEMIEntity
-func PGEligibilityFetchCardlessEMIWithContext(ctx context.Context, xApiVersion *string, eligibilityFetchCardlessEMIRequest *EligibilityFetchCardlessEMIRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityCardlessEMIEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchCardlessEMIWithContext(ctx context.Context, eligibilityFetchCardlessEMIRequest *EligibilityFetchCardlessEMIRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityCardlessEMIEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -268,8 +278,18 @@ func PGEligibilityFetchCardlessEMIWithContext(ctx context.Context, xApiVersion *
 		localVarReturnValue  []EligibilityCardlessEMIEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGEligibilityFetchCardlessEMI")
 	}
 
@@ -278,7 +298,7 @@ func PGEligibilityFetchCardlessEMIWithContext(ctx context.Context, xApiVersion *
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/eligibility/cardlessemi"
 
@@ -309,7 +329,6 @@ func PGEligibilityFetchCardlessEMIWithContext(ctx context.Context, xApiVersion *
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -319,27 +338,29 @@ func PGEligibilityFetchCardlessEMIWithContext(ctx context.Context, xApiVersion *
 	// body params
 	localVarPostBody = eligibilityFetchCardlessEMIRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -501,16 +522,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []EligibilityOfferEntity
-func PGEligibilityFetchOffers(xApiVersion *string, eligibilityFetchOffersRequest *EligibilityFetchOffersRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityOfferEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchOffers(eligibilityFetchOffersRequest *EligibilityFetchOffersRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityOfferEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []EligibilityOfferEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGEligibilityFetchOffers")
 	}
 
@@ -521,7 +551,7 @@ func PGEligibilityFetchOffers(xApiVersion *string, eligibilityFetchOffersRequest
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/eligibility/offers"
 
@@ -552,7 +582,6 @@ func PGEligibilityFetchOffers(xApiVersion *string, eligibilityFetchOffersRequest
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -562,24 +591,26 @@ func PGEligibilityFetchOffers(xApiVersion *string, eligibilityFetchOffersRequest
 	// body params
 	localVarPostBody = eligibilityFetchOffersRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -725,7 +756,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []EligibilityOfferEntity
-func PGEligibilityFetchOffersWithContext(ctx context.Context, xApiVersion *string, eligibilityFetchOffersRequest *EligibilityFetchOffersRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityOfferEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchOffersWithContext(ctx context.Context, eligibilityFetchOffersRequest *EligibilityFetchOffersRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityOfferEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -733,8 +764,18 @@ func PGEligibilityFetchOffersWithContext(ctx context.Context, xApiVersion *strin
 		localVarReturnValue  []EligibilityOfferEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGEligibilityFetchOffers")
 	}
 
@@ -743,7 +784,7 @@ func PGEligibilityFetchOffersWithContext(ctx context.Context, xApiVersion *strin
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/eligibility/offers"
 
@@ -774,7 +815,6 @@ func PGEligibilityFetchOffersWithContext(ctx context.Context, xApiVersion *strin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -784,27 +824,29 @@ func PGEligibilityFetchOffersWithContext(ctx context.Context, xApiVersion *strin
 	// body params
 	localVarPostBody = eligibilityFetchOffersRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -951,16 +993,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []EligibilityPaylaterEntity
-func PGEligibilityFetchPaylater(xApiVersion *string, eligibilityFetchPaylaterRequest *EligibilityFetchPaylaterRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaylaterEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchPaylater(eligibilityFetchPaylaterRequest *EligibilityFetchPaylaterRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaylaterEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []EligibilityPaylaterEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGEligibilityFetchPaylater")
 	}
 
@@ -971,7 +1022,7 @@ func PGEligibilityFetchPaylater(xApiVersion *string, eligibilityFetchPaylaterReq
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/eligibility/paylater"
 
@@ -1002,7 +1053,6 @@ func PGEligibilityFetchPaylater(xApiVersion *string, eligibilityFetchPaylaterReq
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1012,24 +1062,26 @@ func PGEligibilityFetchPaylater(xApiVersion *string, eligibilityFetchPaylaterReq
 	// body params
 	localVarPostBody = eligibilityFetchPaylaterRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1190,7 +1242,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []EligibilityPaylaterEntity
-func PGEligibilityFetchPaylaterWithContext(ctx context.Context, xApiVersion *string, eligibilityFetchPaylaterRequest *EligibilityFetchPaylaterRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaylaterEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchPaylaterWithContext(ctx context.Context, eligibilityFetchPaylaterRequest *EligibilityFetchPaylaterRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaylaterEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1198,8 +1250,18 @@ func PGEligibilityFetchPaylaterWithContext(ctx context.Context, xApiVersion *str
 		localVarReturnValue  []EligibilityPaylaterEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGEligibilityFetchPaylater")
 	}
 
@@ -1208,7 +1270,7 @@ func PGEligibilityFetchPaylaterWithContext(ctx context.Context, xApiVersion *str
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/eligibility/paylater"
 
@@ -1239,7 +1301,6 @@ func PGEligibilityFetchPaylaterWithContext(ctx context.Context, xApiVersion *str
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1249,27 +1310,29 @@ func PGEligibilityFetchPaylaterWithContext(ctx context.Context, xApiVersion *str
 	// body params
 	localVarPostBody = eligibilityFetchPaylaterRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1431,16 +1494,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []EligibilityPaymentMethodsEntity
-func PGEligibilityFetchPaymentMethods(xApiVersion *string, eligibilityFetchPaymentMethodsRequest *EligibilityFetchPaymentMethodsRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaymentMethodsEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchPaymentMethods(eligibilityFetchPaymentMethodsRequest *EligibilityFetchPaymentMethodsRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaymentMethodsEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []EligibilityPaymentMethodsEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGEligibilityFetchPaymentMethods")
 	}
 
@@ -1451,7 +1523,7 @@ func PGEligibilityFetchPaymentMethods(xApiVersion *string, eligibilityFetchPayme
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/eligibility/payment_methods"
 
@@ -1482,7 +1554,6 @@ func PGEligibilityFetchPaymentMethods(xApiVersion *string, eligibilityFetchPayme
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1492,24 +1563,26 @@ func PGEligibilityFetchPaymentMethods(xApiVersion *string, eligibilityFetchPayme
 	// body params
 	localVarPostBody = eligibilityFetchPaymentMethodsRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1670,7 +1743,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []EligibilityPaymentMethodsEntity
-func PGEligibilityFetchPaymentMethodsWithContext(ctx context.Context, xApiVersion *string, eligibilityFetchPaymentMethodsRequest *EligibilityFetchPaymentMethodsRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaymentMethodsEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchPaymentMethodsWithContext(ctx context.Context, eligibilityFetchPaymentMethodsRequest *EligibilityFetchPaymentMethodsRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaymentMethodsEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1678,8 +1751,18 @@ func PGEligibilityFetchPaymentMethodsWithContext(ctx context.Context, xApiVersio
 		localVarReturnValue  []EligibilityPaymentMethodsEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGEligibilityFetchPaymentMethods")
 	}
 
@@ -1688,7 +1771,7 @@ func PGEligibilityFetchPaymentMethodsWithContext(ctx context.Context, xApiVersio
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/eligibility/payment_methods"
 
@@ -1719,7 +1802,6 @@ func PGEligibilityFetchPaymentMethodsWithContext(ctx context.Context, xApiVersio
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1729,27 +1811,29 @@ func PGEligibilityFetchPaymentMethodsWithContext(ctx context.Context, xApiVersio
 	// body params
 	localVarPostBody = eligibilityFetchPaymentMethodsRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

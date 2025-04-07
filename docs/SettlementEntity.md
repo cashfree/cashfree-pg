@@ -18,6 +18,10 @@ Name | Type | Description | Notes
 **TransferId** | Pointer to **int32** |  | [optional] 
 **TransferTime** | Pointer to **string** |  | [optional] 
 **TransferUtr** | Pointer to **string** |  | [optional] 
+**ForexConversionHandlingCharge** | Pointer to **float32** | Cashfree forex conversion charges for refund processing | [optional] 
+**ForexConversionHandlingTax** | Pointer to **float32** | Cashfree forex conversion tax for refund processing | [optional] 
+**ForexConversionRate** | Pointer to **float32** | Cashfree forex conversion rate for refund processing | [optional] 
+**ChargesCurrency** | Pointer to **string** | Cashfree refund charges currency for a refund | [optional] 
 
 ## Methods
 
@@ -387,6 +391,106 @@ SetTransferUtr sets TransferUtr field to given value.
 `func (o *SettlementEntity) HasTransferUtr() bool`
 
 HasTransferUtr returns a boolean if a field has been set.
+
+### GetForexConversionHandlingCharge
+
+`func (o *SettlementEntity) GetForexConversionHandlingCharge() float32`
+
+GetForexConversionHandlingCharge returns the ForexConversionHandlingCharge field if non-nil, zero value otherwise.
+
+### GetForexConversionHandlingChargeOk
+
+`func (o *SettlementEntity) GetForexConversionHandlingChargeOk() (*float32, bool)`
+
+GetForexConversionHandlingChargeOk returns a tuple with the ForexConversionHandlingCharge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexConversionHandlingCharge
+
+`func (o *SettlementEntity) SetForexConversionHandlingCharge(v float32)`
+
+SetForexConversionHandlingCharge sets ForexConversionHandlingCharge field to given value.
+
+### HasForexConversionHandlingCharge
+
+`func (o *SettlementEntity) HasForexConversionHandlingCharge() bool`
+
+HasForexConversionHandlingCharge returns a boolean if a field has been set.
+
+### GetForexConversionHandlingTax
+
+`func (o *SettlementEntity) GetForexConversionHandlingTax() float32`
+
+GetForexConversionHandlingTax returns the ForexConversionHandlingTax field if non-nil, zero value otherwise.
+
+### GetForexConversionHandlingTaxOk
+
+`func (o *SettlementEntity) GetForexConversionHandlingTaxOk() (*float32, bool)`
+
+GetForexConversionHandlingTaxOk returns a tuple with the ForexConversionHandlingTax field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexConversionHandlingTax
+
+`func (o *SettlementEntity) SetForexConversionHandlingTax(v float32)`
+
+SetForexConversionHandlingTax sets ForexConversionHandlingTax field to given value.
+
+### HasForexConversionHandlingTax
+
+`func (o *SettlementEntity) HasForexConversionHandlingTax() bool`
+
+HasForexConversionHandlingTax returns a boolean if a field has been set.
+
+### GetForexConversionRate
+
+`func (o *SettlementEntity) GetForexConversionRate() float32`
+
+GetForexConversionRate returns the ForexConversionRate field if non-nil, zero value otherwise.
+
+### GetForexConversionRateOk
+
+`func (o *SettlementEntity) GetForexConversionRateOk() (*float32, bool)`
+
+GetForexConversionRateOk returns a tuple with the ForexConversionRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexConversionRate
+
+`func (o *SettlementEntity) SetForexConversionRate(v float32)`
+
+SetForexConversionRate sets ForexConversionRate field to given value.
+
+### HasForexConversionRate
+
+`func (o *SettlementEntity) HasForexConversionRate() bool`
+
+HasForexConversionRate returns a boolean if a field has been set.
+
+### GetChargesCurrency
+
+`func (o *SettlementEntity) GetChargesCurrency() string`
+
+GetChargesCurrency returns the ChargesCurrency field if non-nil, zero value otherwise.
+
+### GetChargesCurrencyOk
+
+`func (o *SettlementEntity) GetChargesCurrencyOk() (*string, bool)`
+
+GetChargesCurrencyOk returns a tuple with the ChargesCurrency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChargesCurrency
+
+`func (o *SettlementEntity) SetChargesCurrency(v string)`
+
+SetChargesCurrency sets ChargesCurrency field to given value.
+
+### HasChargesCurrency
+
+`func (o *SettlementEntity) HasChargesCurrency() bool`
+
+HasChargesCurrency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

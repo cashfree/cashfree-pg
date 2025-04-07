@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -48,6 +48,22 @@ type Card struct {
 	CardAlias *string `json:"card_alias,omitempty"`
 	// One of [\"Kotak\", \"ICICI\", \"RBL\", \"BOB\", \"Standard Chartered\"]. Card bank name, required for EMI payments. This is the bank user has selected for EMI
 	CardBankName *string `json:"card_bank_name,omitempty"`
+	// First line of the address.
+	AddressLineOne *string `json:"address_line_one,omitempty"`
+	// Second line of the address.
+	AddressLineTwo *string `json:"address_line_two,omitempty"`
+	// City Name.
+	City *string `json:"city,omitempty"`
+	// Pin Code/Zip Code.
+	ZipCode *string `json:"zip_code,omitempty"`
+	// Country Name.
+	Country *string `json:"country,omitempty"`
+	// Country Code. Should be in ISO 2 format (ie. US for United States)
+	CountryCode *string `json:"country_code,omitempty"`
+	// State Name.
+	State *string `json:"state,omitempty"`
+	// State Code. Should be in ISO 2 format (ie. FL for Florida)
+	StateCode *string `json:"state_code,omitempty"`
 	// EMI tenure selected by the user
 	EmiTenure *int32 `json:"emi_tenure,omitempty"`
 }
@@ -103,6 +119,30 @@ func (o Card) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CardBankName) {
 		toSerialize["card_bank_name"] = o.CardBankName
+	}
+	if !IsNil(o.AddressLineOne) {
+		toSerialize["address_line_one"] = o.AddressLineOne
+	}
+	if !IsNil(o.AddressLineTwo) {
+		toSerialize["address_line_two"] = o.AddressLineTwo
+	}
+	if !IsNil(o.City) {
+		toSerialize["city"] = o.City
+	}
+	if !IsNil(o.ZipCode) {
+		toSerialize["zip_code"] = o.ZipCode
+	}
+	if !IsNil(o.Country) {
+		toSerialize["country"] = o.Country
+	}
+	if !IsNil(o.CountryCode) {
+		toSerialize["country_code"] = o.CountryCode
+	}
+	if !IsNil(o.State) {
+		toSerialize["state"] = o.State
+	}
+	if !IsNil(o.StateCode) {
+		toSerialize["state_code"] = o.StateCode
 	}
 	if !IsNil(o.EmiTenure) {
 		toSerialize["emi_tenure"] = o.EmiTenure

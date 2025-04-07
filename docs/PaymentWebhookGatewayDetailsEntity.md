@@ -6,9 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GatewayName** | Pointer to **string** |  | [optional] 
 **GatewayOrderId** | Pointer to **string** |  | [optional] 
+**GatewayOrderReferenceId** | Pointer to **string** |  | [optional] 
 **GatewayPaymentId** | Pointer to **string** |  | [optional] 
 **GatewayStatusCode** | Pointer to **string** |  | [optional] 
 **GatewaySettlement** | Pointer to **string** |  | [optional] 
+**GatewayReferenceName** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -78,6 +80,31 @@ SetGatewayOrderId sets GatewayOrderId field to given value.
 `func (o *PaymentWebhookGatewayDetailsEntity) HasGatewayOrderId() bool`
 
 HasGatewayOrderId returns a boolean if a field has been set.
+
+### GetGatewayOrderReferenceId
+
+`func (o *PaymentWebhookGatewayDetailsEntity) GetGatewayOrderReferenceId() string`
+
+GetGatewayOrderReferenceId returns the GatewayOrderReferenceId field if non-nil, zero value otherwise.
+
+### GetGatewayOrderReferenceIdOk
+
+`func (o *PaymentWebhookGatewayDetailsEntity) GetGatewayOrderReferenceIdOk() (*string, bool)`
+
+GetGatewayOrderReferenceIdOk returns a tuple with the GatewayOrderReferenceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGatewayOrderReferenceId
+
+`func (o *PaymentWebhookGatewayDetailsEntity) SetGatewayOrderReferenceId(v string)`
+
+SetGatewayOrderReferenceId sets GatewayOrderReferenceId field to given value.
+
+### HasGatewayOrderReferenceId
+
+`func (o *PaymentWebhookGatewayDetailsEntity) HasGatewayOrderReferenceId() bool`
+
+HasGatewayOrderReferenceId returns a boolean if a field has been set.
 
 ### GetGatewayPaymentId
 
@@ -153,6 +180,31 @@ SetGatewaySettlement sets GatewaySettlement field to given value.
 `func (o *PaymentWebhookGatewayDetailsEntity) HasGatewaySettlement() bool`
 
 HasGatewaySettlement returns a boolean if a field has been set.
+
+### GetGatewayReferenceName
+
+`func (o *PaymentWebhookGatewayDetailsEntity) GetGatewayReferenceName() string`
+
+GetGatewayReferenceName returns the GatewayReferenceName field if non-nil, zero value otherwise.
+
+### GetGatewayReferenceNameOk
+
+`func (o *PaymentWebhookGatewayDetailsEntity) GetGatewayReferenceNameOk() (*string, bool)`
+
+GetGatewayReferenceNameOk returns a tuple with the GatewayReferenceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGatewayReferenceName
+
+`func (o *PaymentWebhookGatewayDetailsEntity) SetGatewayReferenceName(v string)`
+
+SetGatewayReferenceName sets GatewayReferenceName field to given value.
+
+### HasGatewayReferenceName
+
+`func (o *PaymentWebhookGatewayDetailsEntity) HasGatewayReferenceName() bool`
+
+HasGatewayReferenceName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

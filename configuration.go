@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -38,15 +38,18 @@ const (
 )
 
 var (
+	XApiVersion = "2025-01-01"
+)
+
+type Cashfree struct {
 	XPartnerMerchantId *string
 	XClientId *string
 	XClientSignature *string
 	XClientSecret *string
 	XPartnerApiKey *string
-	XEnvironment CFEnvironment = SANDBOX
-	XEnableErrorAnalytics = true
-	XApiVersion = "2023-08-01";
-)
+	XEnvironment *CFEnvironment
+	XEnableErrorAnalytics *bool
+}
 
 type PGWebhookEvent struct {
 	Type   string
@@ -56,12 +59,12 @@ type PGWebhookEvent struct {
 
 // Execute executes the request
 // @return PGWebhookEvent
-func PGVerifyWebhookSignature(signature string, rawBody string, timestamp string) (*PGWebhookEvent, error) {
-	if XClientSecret == nil {
+func (_this *Cashfree) PGVerifyWebhookSignature(signature string, rawBody string, timestamp string) (*PGWebhookEvent, error) {
+	if _this.XClientSecret == nil {
 		return nil, errors.New("set your secret key, cashfree.XClientSecret := *secretKey")
 	}
 	signatureString := timestamp + rawBody
-	hmacInstance := hmac.New(sha256.New, []byte(*XClientSecret))
+	hmacInstance := hmac.New(sha256.New, []byte(*_this.XClientSecret))
 	hmacInstance.Write([]byte(signatureString))
 	bytesData := hmacInstance.Sum(nil)
 	generatedSignature := base64.StdEncoding.EncodeToString(bytesData)
@@ -92,7 +95,7 @@ func SetupSentry(environment CFEnvironment) {
 		AttachStacktrace: true,
 		EnableTracing:    true,
 		Environment:      env,
-		Release:          "4.3.10",
+		Release:          "5.0.3-beta-1",
 		BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
 			delete(event.Contexts, "device")
 			delete(event.Contexts, "os")
@@ -192,7 +195,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/4.3.10/go",
+		UserAgent:        "OpenAPI-Generator/5.0.3-beta-1/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,16 +22,25 @@ import (
 
 // Execute executes the request
 //  @return TerminalEntity
-func SposCreateTerminal(xApiVersion *string, createTerminalRequest *CreateTerminalRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalEntity, *http.Response, error) {
+func (_this *Cashfree) SposCreateTerminal(createTerminalRequest *CreateTerminalRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *TerminalEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposCreateTerminal")
 	}
 
@@ -42,7 +51,7 @@ func SposCreateTerminal(xApiVersion *string, createTerminalRequest *CreateTermin
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal"
 
@@ -73,7 +82,6 @@ func SposCreateTerminal(xApiVersion *string, createTerminalRequest *CreateTermin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -83,24 +91,26 @@ func SposCreateTerminal(xApiVersion *string, createTerminalRequest *CreateTermin
 	// body params
 	localVarPostBody = createTerminalRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -246,7 +256,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return TerminalEntity
-func SposCreateTerminalWithContext(ctx context.Context, xApiVersion *string, createTerminalRequest *CreateTerminalRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalEntity, *http.Response, error) {
+func (_this *Cashfree) SposCreateTerminalWithContext(ctx context.Context, createTerminalRequest *CreateTerminalRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -254,8 +264,18 @@ func SposCreateTerminalWithContext(ctx context.Context, xApiVersion *string, cre
 		localVarReturnValue  *TerminalEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposCreateTerminal")
 	}
 
@@ -264,7 +284,7 @@ func SposCreateTerminalWithContext(ctx context.Context, xApiVersion *string, cre
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal"
 
@@ -295,7 +315,6 @@ func SposCreateTerminalWithContext(ctx context.Context, xApiVersion *string, cre
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -305,27 +324,29 @@ func SposCreateTerminalWithContext(ctx context.Context, xApiVersion *string, cre
 	// body params
 	localVarPostBody = createTerminalRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -472,16 +493,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return TerminalTransactionEntity
-func SposCreateTerminalTransaction(xApiVersion *string, createTerminalTransactionRequest *CreateTerminalTransactionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalTransactionEntity, *http.Response, error) {
+func (_this *Cashfree) SposCreateTerminalTransaction(createTerminalTransactionRequest *CreateTerminalTransactionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalTransactionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *TerminalTransactionEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposCreateTerminalTransaction")
 	}
 
@@ -492,7 +522,7 @@ func SposCreateTerminalTransaction(xApiVersion *string, createTerminalTransactio
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/transactions"
 
@@ -523,7 +553,6 @@ func SposCreateTerminalTransaction(xApiVersion *string, createTerminalTransactio
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -533,24 +562,26 @@ func SposCreateTerminalTransaction(xApiVersion *string, createTerminalTransactio
 	// body params
 	localVarPostBody = createTerminalTransactionRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -696,7 +727,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return TerminalTransactionEntity
-func SposCreateTerminalTransactionWithContext(ctx context.Context, xApiVersion *string, createTerminalTransactionRequest *CreateTerminalTransactionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalTransactionEntity, *http.Response, error) {
+func (_this *Cashfree) SposCreateTerminalTransactionWithContext(ctx context.Context, createTerminalTransactionRequest *CreateTerminalTransactionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalTransactionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -704,8 +735,18 @@ func SposCreateTerminalTransactionWithContext(ctx context.Context, xApiVersion *
 		localVarReturnValue  *TerminalTransactionEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposCreateTerminalTransaction")
 	}
 
@@ -714,7 +755,7 @@ func SposCreateTerminalTransactionWithContext(ctx context.Context, xApiVersion *
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/transactions"
 
@@ -745,7 +786,6 @@ func SposCreateTerminalTransactionWithContext(ctx context.Context, xApiVersion *
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -755,27 +795,29 @@ func SposCreateTerminalTransactionWithContext(ctx context.Context, xApiVersion *
 	// body params
 	localVarPostBody = createTerminalTransactionRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -922,16 +964,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []SoundboxVpaEntity
-func SposDemapSoundboxVpa(xApiVersion *string, demapSoundboxVpaRequest *DemapSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SoundboxVpaEntity, *http.Response, error) {
+func (_this *Cashfree) SposDemapSoundboxVpa(demapSoundboxVpaRequest *DemapSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SoundboxVpaEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []SoundboxVpaEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposDemapSoundboxVpa")
 	}
 
@@ -942,7 +993,7 @@ func SposDemapSoundboxVpa(xApiVersion *string, demapSoundboxVpaRequest *DemapSou
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/demap/soundbox"
 
@@ -973,7 +1024,6 @@ func SposDemapSoundboxVpa(xApiVersion *string, demapSoundboxVpaRequest *DemapSou
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -983,24 +1033,26 @@ func SposDemapSoundboxVpa(xApiVersion *string, demapSoundboxVpaRequest *DemapSou
 	// body params
 	localVarPostBody = demapSoundboxVpaRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1146,7 +1198,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []SoundboxVpaEntity
-func SposDemapSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, demapSoundboxVpaRequest *DemapSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SoundboxVpaEntity, *http.Response, error) {
+func (_this *Cashfree) SposDemapSoundboxVpaWithContext(ctx context.Context, demapSoundboxVpaRequest *DemapSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SoundboxVpaEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1154,8 +1206,18 @@ func SposDemapSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, d
 		localVarReturnValue  []SoundboxVpaEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposDemapSoundboxVpa")
 	}
 
@@ -1164,7 +1226,7 @@ func SposDemapSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, d
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/demap/soundbox"
 
@@ -1195,7 +1257,6 @@ func SposDemapSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, d
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1205,27 +1266,29 @@ func SposDemapSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, d
 	// body params
 	localVarPostBody = demapSoundboxVpaRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1372,16 +1435,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return TerminalEntity
-func SposFetchTerminal(xApiVersion *string, terminalPhoneNo string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalEntity, *http.Response, error) {
+func (_this *Cashfree) SposFetchTerminal(terminalPhoneNo string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *TerminalEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposFetchTerminal")
 	}
 
@@ -1392,7 +1464,7 @@ func SposFetchTerminal(xApiVersion *string, terminalPhoneNo string,  xRequestId 
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{terminal_phone_no}"
 	localVarPath = strings.Replace(localVarPath, "{"+"terminal_phone_no"+"}", url.PathEscape(parameterValueToString(terminalPhoneNo, "terminalPhoneNo")), -1)
@@ -1421,7 +1493,6 @@ func SposFetchTerminal(xApiVersion *string, terminalPhoneNo string,  xRequestId 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1429,24 +1500,26 @@ func SposFetchTerminal(xApiVersion *string, terminalPhoneNo string,  xRequestId 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1592,7 +1665,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return TerminalEntity
-func SposFetchTerminalWithContext(ctx context.Context, xApiVersion *string, terminalPhoneNo string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalEntity, *http.Response, error) {
+func (_this *Cashfree) SposFetchTerminalWithContext(ctx context.Context, terminalPhoneNo string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1600,8 +1673,18 @@ func SposFetchTerminalWithContext(ctx context.Context, xApiVersion *string, term
 		localVarReturnValue  *TerminalEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposFetchTerminal")
 	}
 
@@ -1610,7 +1693,7 @@ func SposFetchTerminalWithContext(ctx context.Context, xApiVersion *string, term
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{terminal_phone_no}"
 	localVarPath = strings.Replace(localVarPath, "{"+"terminal_phone_no"+"}", url.PathEscape(parameterValueToString(terminalPhoneNo, "terminalPhoneNo")), -1)
@@ -1639,7 +1722,6 @@ func SposFetchTerminalWithContext(ctx context.Context, xApiVersion *string, term
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1647,27 +1729,29 @@ func SposFetchTerminalWithContext(ctx context.Context, xApiVersion *string, term
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1814,16 +1898,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []FetchTerminalQRCodesEntity
-func SposFetchTerminalQRCodes(xApiVersion *string, terminalPhoneNo *string, cfTerminalId *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]FetchTerminalQRCodesEntity, *http.Response, error) {
+func (_this *Cashfree) SposFetchTerminalQRCodes(terminalPhoneNo *string, cfTerminalId *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]FetchTerminalQRCodesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []FetchTerminalQRCodesEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposFetchTerminalQRCodes")
 	}
 
@@ -1834,7 +1927,7 @@ func SposFetchTerminalQRCodes(xApiVersion *string, terminalPhoneNo *string, cfTe
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/qrcodes"
 
@@ -1870,7 +1963,6 @@ func SposFetchTerminalQRCodes(xApiVersion *string, terminalPhoneNo *string, cfTe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1878,24 +1970,26 @@ func SposFetchTerminalQRCodes(xApiVersion *string, terminalPhoneNo *string, cfTe
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -2041,7 +2135,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []FetchTerminalQRCodesEntity
-func SposFetchTerminalQRCodesWithContext(ctx context.Context, xApiVersion *string, terminalPhoneNo *string, cfTerminalId *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]FetchTerminalQRCodesEntity, *http.Response, error) {
+func (_this *Cashfree) SposFetchTerminalQRCodesWithContext(ctx context.Context, terminalPhoneNo *string, cfTerminalId *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]FetchTerminalQRCodesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2049,8 +2143,18 @@ func SposFetchTerminalQRCodesWithContext(ctx context.Context, xApiVersion *strin
 		localVarReturnValue  []FetchTerminalQRCodesEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposFetchTerminalQRCodes")
 	}
 
@@ -2059,7 +2163,7 @@ func SposFetchTerminalQRCodesWithContext(ctx context.Context, xApiVersion *strin
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/qrcodes"
 
@@ -2095,7 +2199,6 @@ func SposFetchTerminalQRCodesWithContext(ctx context.Context, xApiVersion *strin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2103,27 +2206,29 @@ func SposFetchTerminalQRCodesWithContext(ctx context.Context, xApiVersion *strin
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2270,16 +2375,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []SoundboxVpaEntity
-func SposFetchTerminalSoundboxVpa(xApiVersion *string, deviceSerialNo *string, cfTerminalId *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SoundboxVpaEntity, *http.Response, error) {
+func (_this *Cashfree) SposFetchTerminalSoundboxVpa(deviceSerialNo *string, cfTerminalId *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SoundboxVpaEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []SoundboxVpaEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposFetchTerminalSoundboxVpa")
 	}
 
@@ -2290,7 +2404,7 @@ func SposFetchTerminalSoundboxVpa(xApiVersion *string, deviceSerialNo *string, c
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/soundbox/qrcodes"
 
@@ -2326,7 +2440,6 @@ func SposFetchTerminalSoundboxVpa(xApiVersion *string, deviceSerialNo *string, c
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2334,24 +2447,26 @@ func SposFetchTerminalSoundboxVpa(xApiVersion *string, deviceSerialNo *string, c
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -2497,7 +2612,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []SoundboxVpaEntity
-func SposFetchTerminalSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, deviceSerialNo *string, cfTerminalId *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SoundboxVpaEntity, *http.Response, error) {
+func (_this *Cashfree) SposFetchTerminalSoundboxVpaWithContext(ctx context.Context, deviceSerialNo *string, cfTerminalId *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SoundboxVpaEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2505,8 +2620,18 @@ func SposFetchTerminalSoundboxVpaWithContext(ctx context.Context, xApiVersion *s
 		localVarReturnValue  []SoundboxVpaEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposFetchTerminalSoundboxVpa")
 	}
 
@@ -2515,7 +2640,7 @@ func SposFetchTerminalSoundboxVpaWithContext(ctx context.Context, xApiVersion *s
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/soundbox/qrcodes"
 
@@ -2551,7 +2676,6 @@ func SposFetchTerminalSoundboxVpaWithContext(ctx context.Context, xApiVersion *s
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2559,27 +2683,29 @@ func SposFetchTerminalSoundboxVpaWithContext(ctx context.Context, xApiVersion *s
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2726,16 +2852,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return TerminalPaymentEntity
-func SposFetchTerminalTransaction(xApiVersion *string, utr *string, cfTerminalId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalPaymentEntity, *http.Response, error) {
+func (_this *Cashfree) SposFetchTerminalTransaction(utr *string, cfTerminalId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalPaymentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *TerminalPaymentEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposFetchTerminalTransaction")
 	}
 
@@ -2746,7 +2881,7 @@ func SposFetchTerminalTransaction(xApiVersion *string, utr *string, cfTerminalId
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}/payments"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -2779,7 +2914,6 @@ func SposFetchTerminalTransaction(xApiVersion *string, utr *string, cfTerminalId
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2787,24 +2921,26 @@ func SposFetchTerminalTransaction(xApiVersion *string, utr *string, cfTerminalId
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -2950,7 +3086,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return TerminalPaymentEntity
-func SposFetchTerminalTransactionWithContext(ctx context.Context, xApiVersion *string, utr *string, cfTerminalId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalPaymentEntity, *http.Response, error) {
+func (_this *Cashfree) SposFetchTerminalTransactionWithContext(ctx context.Context, utr *string, cfTerminalId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*TerminalPaymentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2958,8 +3094,18 @@ func SposFetchTerminalTransactionWithContext(ctx context.Context, xApiVersion *s
 		localVarReturnValue  *TerminalPaymentEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposFetchTerminalTransaction")
 	}
 
@@ -2968,7 +3114,7 @@ func SposFetchTerminalTransactionWithContext(ctx context.Context, xApiVersion *s
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}/payments"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -3001,7 +3147,6 @@ func SposFetchTerminalTransactionWithContext(ctx context.Context, xApiVersion *s
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3009,27 +3154,29 @@ func SposFetchTerminalTransactionWithContext(ctx context.Context, xApiVersion *s
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3176,16 +3323,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SoundboxVpaEntity
-func SposOnboardSoundboxVpa(xApiVersion *string, onboardSoundboxVpaRequest *OnboardSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SoundboxVpaEntity, *http.Response, error) {
+func (_this *Cashfree) SposOnboardSoundboxVpa(onboardSoundboxVpaRequest *OnboardSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SoundboxVpaEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SoundboxVpaEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposOnboardSoundboxVpa")
 	}
 
@@ -3196,7 +3352,7 @@ func SposOnboardSoundboxVpa(xApiVersion *string, onboardSoundboxVpaRequest *Onbo
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/soundbox"
 
@@ -3227,7 +3383,6 @@ func SposOnboardSoundboxVpa(xApiVersion *string, onboardSoundboxVpaRequest *Onbo
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3237,24 +3392,26 @@ func SposOnboardSoundboxVpa(xApiVersion *string, onboardSoundboxVpaRequest *Onbo
 	// body params
 	localVarPostBody = onboardSoundboxVpaRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3400,7 +3557,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SoundboxVpaEntity
-func SposOnboardSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, onboardSoundboxVpaRequest *OnboardSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SoundboxVpaEntity, *http.Response, error) {
+func (_this *Cashfree) SposOnboardSoundboxVpaWithContext(ctx context.Context, onboardSoundboxVpaRequest *OnboardSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SoundboxVpaEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3408,8 +3565,18 @@ func SposOnboardSoundboxVpaWithContext(ctx context.Context, xApiVersion *string,
 		localVarReturnValue  *SoundboxVpaEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposOnboardSoundboxVpa")
 	}
 
@@ -3418,7 +3585,7 @@ func SposOnboardSoundboxVpaWithContext(ctx context.Context, xApiVersion *string,
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/soundbox"
 
@@ -3449,7 +3616,6 @@ func SposOnboardSoundboxVpaWithContext(ctx context.Context, xApiVersion *string,
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3459,27 +3625,29 @@ func SposOnboardSoundboxVpaWithContext(ctx context.Context, xApiVersion *string,
 	// body params
 	localVarPostBody = onboardSoundboxVpaRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3626,16 +3794,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SoundboxVpaEntity
-func SposUpdateSoundboxVpa(xApiVersion *string, cfTerminalId string, updateSoundboxVpaRequest *UpdateSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SoundboxVpaEntity, *http.Response, error) {
+func (_this *Cashfree) SposUpdateSoundboxVpa(cfTerminalId string, updateSoundboxVpaRequest *UpdateSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SoundboxVpaEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SoundboxVpaEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposUpdateSoundboxVpa")
 	}
 
@@ -3646,7 +3823,7 @@ func SposUpdateSoundboxVpa(xApiVersion *string, cfTerminalId string, updateSound
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}/soundbox"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -3678,7 +3855,6 @@ func SposUpdateSoundboxVpa(xApiVersion *string, cfTerminalId string, updateSound
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3688,24 +3864,26 @@ func SposUpdateSoundboxVpa(xApiVersion *string, cfTerminalId string, updateSound
 	// body params
 	localVarPostBody = updateSoundboxVpaRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3851,7 +4029,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SoundboxVpaEntity
-func SposUpdateSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, cfTerminalId string, updateSoundboxVpaRequest *UpdateSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SoundboxVpaEntity, *http.Response, error) {
+func (_this *Cashfree) SposUpdateSoundboxVpaWithContext(ctx context.Context, cfTerminalId string, updateSoundboxVpaRequest *UpdateSoundboxVpaRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SoundboxVpaEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -3859,8 +4037,18 @@ func SposUpdateSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, 
 		localVarReturnValue  *SoundboxVpaEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposUpdateSoundboxVpa")
 	}
 
@@ -3869,7 +4057,7 @@ func SposUpdateSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, 
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}/soundbox"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -3901,7 +4089,6 @@ func SposUpdateSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3911,27 +4098,29 @@ func SposUpdateSoundboxVpaWithContext(ctx context.Context, xApiVersion *string, 
 	// body params
 	localVarPostBody = updateSoundboxVpaRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4078,16 +4267,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []UpdateTerminalEntity
-func SposUpdateTerminal(xApiVersion *string, cfTerminalId string, updateTerminalRequest *UpdateTerminalRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UpdateTerminalEntity, *http.Response, error) {
+func (_this *Cashfree) SposUpdateTerminal(cfTerminalId string, updateTerminalRequest *UpdateTerminalRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UpdateTerminalEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []UpdateTerminalEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposUpdateTerminal")
 	}
 
@@ -4098,7 +4296,7 @@ func SposUpdateTerminal(xApiVersion *string, cfTerminalId string, updateTerminal
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -4130,7 +4328,6 @@ func SposUpdateTerminal(xApiVersion *string, cfTerminalId string, updateTerminal
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4140,24 +4337,26 @@ func SposUpdateTerminal(xApiVersion *string, cfTerminalId string, updateTerminal
 	// body params
 	localVarPostBody = updateTerminalRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -4303,7 +4502,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []UpdateTerminalEntity
-func SposUpdateTerminalWithContext(ctx context.Context, xApiVersion *string, cfTerminalId string, updateTerminalRequest *UpdateTerminalRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UpdateTerminalEntity, *http.Response, error) {
+func (_this *Cashfree) SposUpdateTerminalWithContext(ctx context.Context, cfTerminalId string, updateTerminalRequest *UpdateTerminalRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UpdateTerminalEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -4311,8 +4510,18 @@ func SposUpdateTerminalWithContext(ctx context.Context, xApiVersion *string, cfT
 		localVarReturnValue  []UpdateTerminalEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposUpdateTerminal")
 	}
 
@@ -4321,7 +4530,7 @@ func SposUpdateTerminalWithContext(ctx context.Context, xApiVersion *string, cfT
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -4353,7 +4562,6 @@ func SposUpdateTerminalWithContext(ctx context.Context, xApiVersion *string, cfT
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4363,27 +4571,29 @@ func SposUpdateTerminalWithContext(ctx context.Context, xApiVersion *string, cfT
 	// body params
 	localVarPostBody = updateTerminalRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4530,16 +4740,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []UpdateTerminalEntity
-func SposUpdateTerminalStatus(xApiVersion *string, cfTerminalId string, updateTerminalStatusRequest *UpdateTerminalStatusRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UpdateTerminalEntity, *http.Response, error) {
+func (_this *Cashfree) SposUpdateTerminalStatus(cfTerminalId string, updateTerminalStatusRequest *UpdateTerminalStatusRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UpdateTerminalEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []UpdateTerminalEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposUpdateTerminalStatus")
 	}
 
@@ -4550,7 +4769,7 @@ func SposUpdateTerminalStatus(xApiVersion *string, cfTerminalId string, updateTe
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}/status"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -4582,7 +4801,6 @@ func SposUpdateTerminalStatus(xApiVersion *string, cfTerminalId string, updateTe
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4592,24 +4810,26 @@ func SposUpdateTerminalStatus(xApiVersion *string, cfTerminalId string, updateTe
 	// body params
 	localVarPostBody = updateTerminalStatusRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -4755,7 +4975,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []UpdateTerminalEntity
-func SposUpdateTerminalStatusWithContext(ctx context.Context, xApiVersion *string, cfTerminalId string, updateTerminalStatusRequest *UpdateTerminalStatusRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UpdateTerminalEntity, *http.Response, error) {
+func (_this *Cashfree) SposUpdateTerminalStatusWithContext(ctx context.Context, cfTerminalId string, updateTerminalStatusRequest *UpdateTerminalStatusRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UpdateTerminalEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -4763,8 +4983,18 @@ func SposUpdateTerminalStatusWithContext(ctx context.Context, xApiVersion *strin
 		localVarReturnValue  []UpdateTerminalEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposUpdateTerminalStatus")
 	}
 
@@ -4773,7 +5003,7 @@ func SposUpdateTerminalStatusWithContext(ctx context.Context, xApiVersion *strin
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}/status"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -4805,7 +5035,6 @@ func SposUpdateTerminalStatusWithContext(ctx context.Context, xApiVersion *strin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4815,27 +5044,29 @@ func SposUpdateTerminalStatusWithContext(ctx context.Context, xApiVersion *strin
 	// body params
 	localVarPostBody = updateTerminalStatusRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4982,16 +5213,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []UploadTerminalDocsEntity
-func SposUploadTerminalDocs(xApiVersion *string, cfTerminalId string, uploadTerminalDocs *UploadTerminalDocs,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UploadTerminalDocsEntity, *http.Response, error) {
+func (_this *Cashfree) SposUploadTerminalDocs(cfTerminalId string, uploadTerminalDocs *UploadTerminalDocs,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UploadTerminalDocsEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []UploadTerminalDocsEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposUploadTerminalDocs")
 	}
 
@@ -5002,7 +5242,7 @@ func SposUploadTerminalDocs(xApiVersion *string, cfTerminalId string, uploadTerm
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}/docs"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -5034,7 +5274,6 @@ func SposUploadTerminalDocs(xApiVersion *string, cfTerminalId string, uploadTerm
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -5044,24 +5283,26 @@ func SposUploadTerminalDocs(xApiVersion *string, cfTerminalId string, uploadTerm
 	// body params
 	localVarPostBody = uploadTerminalDocs
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -5207,7 +5448,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []UploadTerminalDocsEntity
-func SposUploadTerminalDocsWithContext(ctx context.Context, xApiVersion *string, cfTerminalId string, uploadTerminalDocs *UploadTerminalDocs,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UploadTerminalDocsEntity, *http.Response, error) {
+func (_this *Cashfree) SposUploadTerminalDocsWithContext(ctx context.Context, cfTerminalId string, uploadTerminalDocs *UploadTerminalDocs,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]UploadTerminalDocsEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5215,8 +5456,18 @@ func SposUploadTerminalDocsWithContext(ctx context.Context, xApiVersion *string,
 		localVarReturnValue  []UploadTerminalDocsEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SposUploadTerminalDocs")
 	}
 
@@ -5225,7 +5476,7 @@ func SposUploadTerminalDocsWithContext(ctx context.Context, xApiVersion *string,
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/terminal/{cf_terminal_id}/docs"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_terminal_id"+"}", url.PathEscape(parameterValueToString(cfTerminalId, "cfTerminalId")), -1)
@@ -5257,7 +5508,6 @@ func SposUploadTerminalDocsWithContext(ctx context.Context, xApiVersion *string,
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -5267,27 +5517,29 @@ func SposUploadTerminalDocsWithContext(ctx context.Context, xApiVersion *string,
 	// body params
 	localVarPostBody = uploadTerminalDocs
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3-beta-1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

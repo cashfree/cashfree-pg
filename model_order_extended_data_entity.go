@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -14,7 +14,6 @@ package cashfree_pg
 import (
 	"encoding/json"
 	"strings"
-	"time"
 )
 
 // checks if the OrderExtendedDataEntity type satisfies the MappedNullable interface at compile time
@@ -30,7 +29,7 @@ type OrderExtendedDataEntity struct {
 	// Currency of the order. Example INR
 	OrderCurrency *string `json:"order_currency,omitempty"`
 	// When the order was created at cashfree's server
-	CreatedAt *time.Time `json:"created_at,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
 	Charges *ChargesEntity `json:"charges,omitempty"`
 	CustomerDetails *ExtendedCustomerDetails `json:"customer_details,omitempty"`
 	ShippingAddress *AddressDetails `json:"shipping_address,omitempty"`

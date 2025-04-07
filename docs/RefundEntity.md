@@ -23,6 +23,10 @@ Name | Type | Description | Notes
 **CreatedAt** | Pointer to **string** | Time of refund creation | [optional] 
 **ProcessedAt** | Pointer to **string** | Time when refund was processed successfully | [optional] 
 **RefundSpeed** | Pointer to [**RefundSpeed**](RefundSpeed.md) |  | [optional] 
+**ForexConversionHandlingCharge** | Pointer to **float32** | Cashfree forex conversion charges for refund processing | [optional] 
+**ForexConversionHandlingTax** | Pointer to **float32** | Cashfree forex conversion tax for refund processing | [optional] 
+**ForexConversionRate** | Pointer to **float32** | Cashfree forex conversion rate for refund processing | [optional] 
+**ChargesCurrency** | Pointer to **string** | Cashfree refund charges currency for a refund | [optional] 
 
 ## Methods
 
@@ -517,6 +521,106 @@ SetRefundSpeed sets RefundSpeed field to given value.
 `func (o *RefundEntity) HasRefundSpeed() bool`
 
 HasRefundSpeed returns a boolean if a field has been set.
+
+### GetForexConversionHandlingCharge
+
+`func (o *RefundEntity) GetForexConversionHandlingCharge() float32`
+
+GetForexConversionHandlingCharge returns the ForexConversionHandlingCharge field if non-nil, zero value otherwise.
+
+### GetForexConversionHandlingChargeOk
+
+`func (o *RefundEntity) GetForexConversionHandlingChargeOk() (*float32, bool)`
+
+GetForexConversionHandlingChargeOk returns a tuple with the ForexConversionHandlingCharge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexConversionHandlingCharge
+
+`func (o *RefundEntity) SetForexConversionHandlingCharge(v float32)`
+
+SetForexConversionHandlingCharge sets ForexConversionHandlingCharge field to given value.
+
+### HasForexConversionHandlingCharge
+
+`func (o *RefundEntity) HasForexConversionHandlingCharge() bool`
+
+HasForexConversionHandlingCharge returns a boolean if a field has been set.
+
+### GetForexConversionHandlingTax
+
+`func (o *RefundEntity) GetForexConversionHandlingTax() float32`
+
+GetForexConversionHandlingTax returns the ForexConversionHandlingTax field if non-nil, zero value otherwise.
+
+### GetForexConversionHandlingTaxOk
+
+`func (o *RefundEntity) GetForexConversionHandlingTaxOk() (*float32, bool)`
+
+GetForexConversionHandlingTaxOk returns a tuple with the ForexConversionHandlingTax field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexConversionHandlingTax
+
+`func (o *RefundEntity) SetForexConversionHandlingTax(v float32)`
+
+SetForexConversionHandlingTax sets ForexConversionHandlingTax field to given value.
+
+### HasForexConversionHandlingTax
+
+`func (o *RefundEntity) HasForexConversionHandlingTax() bool`
+
+HasForexConversionHandlingTax returns a boolean if a field has been set.
+
+### GetForexConversionRate
+
+`func (o *RefundEntity) GetForexConversionRate() float32`
+
+GetForexConversionRate returns the ForexConversionRate field if non-nil, zero value otherwise.
+
+### GetForexConversionRateOk
+
+`func (o *RefundEntity) GetForexConversionRateOk() (*float32, bool)`
+
+GetForexConversionRateOk returns a tuple with the ForexConversionRate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexConversionRate
+
+`func (o *RefundEntity) SetForexConversionRate(v float32)`
+
+SetForexConversionRate sets ForexConversionRate field to given value.
+
+### HasForexConversionRate
+
+`func (o *RefundEntity) HasForexConversionRate() bool`
+
+HasForexConversionRate returns a boolean if a field has been set.
+
+### GetChargesCurrency
+
+`func (o *RefundEntity) GetChargesCurrency() string`
+
+GetChargesCurrency returns the ChargesCurrency field if non-nil, zero value otherwise.
+
+### GetChargesCurrencyOk
+
+`func (o *RefundEntity) GetChargesCurrencyOk() (*string, bool)`
+
+GetChargesCurrencyOk returns a tuple with the ChargesCurrency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChargesCurrency
+
+`func (o *RefundEntity) SetChargesCurrency(v string)`
+
+SetChargesCurrency sets ChargesCurrency field to given value.
+
+### HasChargesCurrency
+
+`func (o *RefundEntity) HasChargesCurrency() bool`
+
+HasChargesCurrency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

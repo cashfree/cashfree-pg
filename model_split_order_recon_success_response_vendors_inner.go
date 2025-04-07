@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -14,7 +14,6 @@ package cashfree_pg
 import (
 	"encoding/json"
 	"strings"
-	"time"
 )
 
 // checks if the SplitOrderReconSuccessResponseVendorsInner type satisfies the MappedNullable interface at compile time
@@ -29,7 +28,7 @@ type SplitOrderReconSuccessResponseVendorsInner struct {
 	// Settlement amount allocated to the vendor.
 	SettlementAmount *float32 `json:"settlement_amount,omitempty"`
 	// Date and time when the vendor is eligible for the settlement.
-	SettlementEligibilityDate *time.Time `json:"settlement_eligibility_date,omitempty"`
+	SettlementEligibilityDate *string `json:"settlement_eligibility_date,omitempty"`
 }
 
 

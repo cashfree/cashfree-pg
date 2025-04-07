@@ -4,8 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CustomerNote** | Pointer to **string** |  | [optional] 
 **ShippingCharge** | Pointer to **float64** |  | [optional] 
 **CartName** | Pointer to **string** | Name of the cart. | [optional] 
+**CustomerShippingAddress** | Pointer to [**CartAddress**](CartAddress.md) |  | [optional] 
+**CustomerBillingAddress** | Pointer to [**CartAddress**](CartAddress.md) |  | [optional] 
 **CartItems** | Pointer to [**[]CartItem**](CartItem.md) |  | [optional] 
 
 ## Methods
@@ -26,6 +29,31 @@ will change when the set of required properties is changed
 NewCartDetailsWithDefaults instantiates a new CartDetails object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCustomerNote
+
+`func (o *CartDetails) GetCustomerNote() string`
+
+GetCustomerNote returns the CustomerNote field if non-nil, zero value otherwise.
+
+### GetCustomerNoteOk
+
+`func (o *CartDetails) GetCustomerNoteOk() (*string, bool)`
+
+GetCustomerNoteOk returns a tuple with the CustomerNote field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerNote
+
+`func (o *CartDetails) SetCustomerNote(v string)`
+
+SetCustomerNote sets CustomerNote field to given value.
+
+### HasCustomerNote
+
+`func (o *CartDetails) HasCustomerNote() bool`
+
+HasCustomerNote returns a boolean if a field has been set.
 
 ### GetShippingCharge
 
@@ -76,6 +104,56 @@ SetCartName sets CartName field to given value.
 `func (o *CartDetails) HasCartName() bool`
 
 HasCartName returns a boolean if a field has been set.
+
+### GetCustomerShippingAddress
+
+`func (o *CartDetails) GetCustomerShippingAddress() CartAddress`
+
+GetCustomerShippingAddress returns the CustomerShippingAddress field if non-nil, zero value otherwise.
+
+### GetCustomerShippingAddressOk
+
+`func (o *CartDetails) GetCustomerShippingAddressOk() (*CartAddress, bool)`
+
+GetCustomerShippingAddressOk returns a tuple with the CustomerShippingAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerShippingAddress
+
+`func (o *CartDetails) SetCustomerShippingAddress(v CartAddress)`
+
+SetCustomerShippingAddress sets CustomerShippingAddress field to given value.
+
+### HasCustomerShippingAddress
+
+`func (o *CartDetails) HasCustomerShippingAddress() bool`
+
+HasCustomerShippingAddress returns a boolean if a field has been set.
+
+### GetCustomerBillingAddress
+
+`func (o *CartDetails) GetCustomerBillingAddress() CartAddress`
+
+GetCustomerBillingAddress returns the CustomerBillingAddress field if non-nil, zero value otherwise.
+
+### GetCustomerBillingAddressOk
+
+`func (o *CartDetails) GetCustomerBillingAddressOk() (*CartAddress, bool)`
+
+GetCustomerBillingAddressOk returns a tuple with the CustomerBillingAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerBillingAddress
+
+`func (o *CartDetails) SetCustomerBillingAddress(v CartAddress)`
+
+SetCustomerBillingAddress sets CustomerBillingAddress field to given value.
+
+### HasCustomerBillingAddress
+
+`func (o *CartDetails) HasCustomerBillingAddress() bool`
+
+HasCustomerBillingAddress returns a boolean if a field has been set.
 
 ### GetCartItems
 

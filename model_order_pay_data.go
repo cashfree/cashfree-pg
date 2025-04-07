@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -25,6 +25,7 @@ type OrderPayData struct {
 	Payload map[string]interface{} `json:"payload,omitempty"`
 	ContentType *string `json:"content_type,omitempty"`
 	Method *string `json:"method,omitempty"`
+	RedirectToBank *string `json:"redirect_to_bank,omitempty"`
 }
 
 
@@ -50,6 +51,9 @@ func (o OrderPayData) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Method) {
 		toSerialize["method"] = o.Method
+	}
+	if !IsNil(o.RedirectToBank) {
+		toSerialize["redirect_to_bank"] = o.RedirectToBank
 	}
 	return toSerialize, nil
 }

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -21,22 +21,22 @@ var _ MappedNullable = &CreateSubscriptionPaymentRequestCard{}
 
 // CreateSubscriptionPaymentRequestCard payment method card.
 type CreateSubscriptionPaymentRequestCard struct {
-	// Channel. can be link
-	Channel *string `json:"channel,omitempty"`
-	// Card number
-	CardNumber *string `json:"card_number,omitempty"`
-	// Card holder name
-	CardHolderName *string `json:"card_holder_name,omitempty"`
+	// Card CVV
+	CardCvv *string `json:"card_cvv,omitempty"`
 	// Card expiry month
 	CardExpiryMm *string `json:"card_expiry_mm,omitempty"`
 	// Card expiry year
 	CardExpiryYy *string `json:"card_expiry_yy,omitempty"`
-	// Card CVV
-	CardCvv *string `json:"card_cvv,omitempty"`
+	// Card holder name
+	CardHolderName *string `json:"card_holder_name,omitempty"`
 	// Card network
 	CardNetwork *string `json:"card_network,omitempty"`
+	// Card number
+	CardNumber *string `json:"card_number,omitempty"`
 	// Card type
 	CardType *string `json:"card_type,omitempty"`
+	// Channel. can be link
+	Channel *string `json:"channel,omitempty"`
 }
 
 
@@ -51,14 +51,8 @@ func (o CreateSubscriptionPaymentRequestCard) MarshalJSON() ([]byte, error) {
 func (o CreateSubscriptionPaymentRequestCard) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Channel) {
-		toSerialize["channel"] = o.Channel
-	}
-	if !IsNil(o.CardNumber) {
-		toSerialize["card_number"] = o.CardNumber
-	}
-	if !IsNil(o.CardHolderName) {
-		toSerialize["card_holder_name"] = o.CardHolderName
+	if !IsNil(o.CardCvv) {
+		toSerialize["card_cvv"] = o.CardCvv
 	}
 	if !IsNil(o.CardExpiryMm) {
 		toSerialize["card_expiry_mm"] = o.CardExpiryMm
@@ -66,14 +60,20 @@ func (o CreateSubscriptionPaymentRequestCard) ToMap() (map[string]interface{}, e
 	if !IsNil(o.CardExpiryYy) {
 		toSerialize["card_expiry_yy"] = o.CardExpiryYy
 	}
-	if !IsNil(o.CardCvv) {
-		toSerialize["card_cvv"] = o.CardCvv
+	if !IsNil(o.CardHolderName) {
+		toSerialize["card_holder_name"] = o.CardHolderName
 	}
 	if !IsNil(o.CardNetwork) {
 		toSerialize["card_network"] = o.CardNetwork
 	}
+	if !IsNil(o.CardNumber) {
+		toSerialize["card_number"] = o.CardNumber
+	}
 	if !IsNil(o.CardType) {
 		toSerialize["card_type"] = o.CardType
+	}
+	if !IsNil(o.Channel) {
+		toSerialize["channel"] = o.Channel
 	}
 	return toSerialize, nil
 }

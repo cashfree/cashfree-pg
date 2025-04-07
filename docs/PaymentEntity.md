@@ -19,8 +19,12 @@ Name | Type | Description | Notes
 **PaymentMessage** | Pointer to **string** |  | [optional] 
 **BankReference** | Pointer to **string** |  | [optional] 
 **AuthId** | Pointer to **string** |  | [optional] 
+**OrderCurrency** | Pointer to **string** |  | [optional] 
 **Authorization** | Pointer to [**AuthorizationInPaymentsEntity**](AuthorizationInPaymentsEntity.md) |  | [optional] 
 **PaymentMethod** | Pointer to [**PaymentEntityPaymentMethod**](PaymentEntityPaymentMethod.md) |  | [optional] 
+**InternationalPayment** | Pointer to [**InternationalPaymentEntity**](InternationalPaymentEntity.md) |  | [optional] 
+**PaymentGatewayDetails** | Pointer to [**PaymentGatewayDetails**](PaymentGatewayDetails.md) |  | [optional] 
+**PaymentSurcharge** | Pointer to [**PaymentEntityPaymentSurcharge**](PaymentEntityPaymentSurcharge.md) |  | [optional] 
 
 ## Methods
 
@@ -416,6 +420,31 @@ SetAuthId sets AuthId field to given value.
 
 HasAuthId returns a boolean if a field has been set.
 
+### GetOrderCurrency
+
+`func (o *PaymentEntity) GetOrderCurrency() string`
+
+GetOrderCurrency returns the OrderCurrency field if non-nil, zero value otherwise.
+
+### GetOrderCurrencyOk
+
+`func (o *PaymentEntity) GetOrderCurrencyOk() (*string, bool)`
+
+GetOrderCurrencyOk returns a tuple with the OrderCurrency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderCurrency
+
+`func (o *PaymentEntity) SetOrderCurrency(v string)`
+
+SetOrderCurrency sets OrderCurrency field to given value.
+
+### HasOrderCurrency
+
+`func (o *PaymentEntity) HasOrderCurrency() bool`
+
+HasOrderCurrency returns a boolean if a field has been set.
+
 ### GetAuthorization
 
 `func (o *PaymentEntity) GetAuthorization() AuthorizationInPaymentsEntity`
@@ -465,6 +494,81 @@ SetPaymentMethod sets PaymentMethod field to given value.
 `func (o *PaymentEntity) HasPaymentMethod() bool`
 
 HasPaymentMethod returns a boolean if a field has been set.
+
+### GetInternationalPayment
+
+`func (o *PaymentEntity) GetInternationalPayment() InternationalPaymentEntity`
+
+GetInternationalPayment returns the InternationalPayment field if non-nil, zero value otherwise.
+
+### GetInternationalPaymentOk
+
+`func (o *PaymentEntity) GetInternationalPaymentOk() (*InternationalPaymentEntity, bool)`
+
+GetInternationalPaymentOk returns a tuple with the InternationalPayment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInternationalPayment
+
+`func (o *PaymentEntity) SetInternationalPayment(v InternationalPaymentEntity)`
+
+SetInternationalPayment sets InternationalPayment field to given value.
+
+### HasInternationalPayment
+
+`func (o *PaymentEntity) HasInternationalPayment() bool`
+
+HasInternationalPayment returns a boolean if a field has been set.
+
+### GetPaymentGatewayDetails
+
+`func (o *PaymentEntity) GetPaymentGatewayDetails() PaymentGatewayDetails`
+
+GetPaymentGatewayDetails returns the PaymentGatewayDetails field if non-nil, zero value otherwise.
+
+### GetPaymentGatewayDetailsOk
+
+`func (o *PaymentEntity) GetPaymentGatewayDetailsOk() (*PaymentGatewayDetails, bool)`
+
+GetPaymentGatewayDetailsOk returns a tuple with the PaymentGatewayDetails field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentGatewayDetails
+
+`func (o *PaymentEntity) SetPaymentGatewayDetails(v PaymentGatewayDetails)`
+
+SetPaymentGatewayDetails sets PaymentGatewayDetails field to given value.
+
+### HasPaymentGatewayDetails
+
+`func (o *PaymentEntity) HasPaymentGatewayDetails() bool`
+
+HasPaymentGatewayDetails returns a boolean if a field has been set.
+
+### GetPaymentSurcharge
+
+`func (o *PaymentEntity) GetPaymentSurcharge() PaymentEntityPaymentSurcharge`
+
+GetPaymentSurcharge returns the PaymentSurcharge field if non-nil, zero value otherwise.
+
+### GetPaymentSurchargeOk
+
+`func (o *PaymentEntity) GetPaymentSurchargeOk() (*PaymentEntityPaymentSurcharge, bool)`
+
+GetPaymentSurchargeOk returns a tuple with the PaymentSurcharge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentSurcharge
+
+`func (o *PaymentEntity) SetPaymentSurcharge(v PaymentEntityPaymentSurcharge)`
+
+SetPaymentSurcharge sets PaymentSurcharge field to given value.
+
+### HasPaymentSurcharge
+
+`func (o *PaymentEntity) HasPaymentSurcharge() bool`
+
+HasPaymentSurcharge returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
