@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CustomerEmail** | Pointer to **string** | Customer email address. | [optional] 
 **CustomerPhone** | Pointer to **string** | Customer phone number. | [optional] 
 **CustomerName** | Pointer to **string** | Name of the customer. | [optional] 
-**CustomerUid** | Pointer to **string** | Customer identifier at Cashfree. You will get this when you create/get customer       | [optional] 
+**CustomerUid** | Pointer to **string** | Customer identifier at Cashfree. You will get this when you create/get customer | [optional] 
 
 ## Methods
 

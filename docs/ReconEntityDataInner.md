@@ -51,6 +51,9 @@ Name | Type | Description | Notes
 **SettlementCharge** | Pointer to **float32** | Settlement charges applicable on the settlement. | [optional] 
 **SettlementTax** | Pointer to **float32** | Settlement tax applicable on the settlement. | [optional] 
 **Remarks** | Pointer to **string** | Remarks on the settlement. | [optional] 
+**ForexConversionHandlingCharge** | Pointer to **float32** | Cashfree forex conversion charges for processing transaction | [optional] 
+**ForexConversionHandlingTax** | Pointer to **float32** | Cashfree forex conversion tax for processing transaction | [optional] 
+**ChargesCurrency** | Pointer to **string** | Cashfree charges currency for a event type | [optional] 
 
 ## Methods
 
@@ -1245,6 +1248,81 @@ SetRemarks sets Remarks field to given value.
 `func (o *ReconEntityDataInner) HasRemarks() bool`
 
 HasRemarks returns a boolean if a field has been set.
+
+### GetForexConversionHandlingCharge
+
+`func (o *ReconEntityDataInner) GetForexConversionHandlingCharge() float32`
+
+GetForexConversionHandlingCharge returns the ForexConversionHandlingCharge field if non-nil, zero value otherwise.
+
+### GetForexConversionHandlingChargeOk
+
+`func (o *ReconEntityDataInner) GetForexConversionHandlingChargeOk() (*float32, bool)`
+
+GetForexConversionHandlingChargeOk returns a tuple with the ForexConversionHandlingCharge field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexConversionHandlingCharge
+
+`func (o *ReconEntityDataInner) SetForexConversionHandlingCharge(v float32)`
+
+SetForexConversionHandlingCharge sets ForexConversionHandlingCharge field to given value.
+
+### HasForexConversionHandlingCharge
+
+`func (o *ReconEntityDataInner) HasForexConversionHandlingCharge() bool`
+
+HasForexConversionHandlingCharge returns a boolean if a field has been set.
+
+### GetForexConversionHandlingTax
+
+`func (o *ReconEntityDataInner) GetForexConversionHandlingTax() float32`
+
+GetForexConversionHandlingTax returns the ForexConversionHandlingTax field if non-nil, zero value otherwise.
+
+### GetForexConversionHandlingTaxOk
+
+`func (o *ReconEntityDataInner) GetForexConversionHandlingTaxOk() (*float32, bool)`
+
+GetForexConversionHandlingTaxOk returns a tuple with the ForexConversionHandlingTax field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetForexConversionHandlingTax
+
+`func (o *ReconEntityDataInner) SetForexConversionHandlingTax(v float32)`
+
+SetForexConversionHandlingTax sets ForexConversionHandlingTax field to given value.
+
+### HasForexConversionHandlingTax
+
+`func (o *ReconEntityDataInner) HasForexConversionHandlingTax() bool`
+
+HasForexConversionHandlingTax returns a boolean if a field has been set.
+
+### GetChargesCurrency
+
+`func (o *ReconEntityDataInner) GetChargesCurrency() string`
+
+GetChargesCurrency returns the ChargesCurrency field if non-nil, zero value otherwise.
+
+### GetChargesCurrencyOk
+
+`func (o *ReconEntityDataInner) GetChargesCurrencyOk() (*string, bool)`
+
+GetChargesCurrencyOk returns a tuple with the ChargesCurrency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChargesCurrency
+
+`func (o *ReconEntityDataInner) SetChargesCurrency(v string)`
+
+SetChargesCurrency sets ChargesCurrency field to given value.
+
+### HasChargesCurrency
+
+`func (o *ReconEntityDataInner) HasChargesCurrency() bool`
+
+HasChargesCurrency returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **TerminalNote** | Pointer to **string** |  | [optional] 
 **TerminalPhoneNo** | Pointer to **string** |  | [optional] 
 **TerminalStatus** | Pointer to **string** |  | [optional] 
-**TerminalMeta** | Pointer to [**CreateTerminalRequestTerminalMeta**](CreateTerminalRequestTerminalMeta.md) |  | [optional] 
+**TerminalMeta** | Pointer to [**TerminalEntityTerminalMeta**](TerminalEntityTerminalMeta.md) |  | [optional] 
 
 ## Methods
 
@@ -313,20 +313,20 @@ HasTerminalStatus returns a boolean if a field has been set.
 
 ### GetTerminalMeta
 
-`func (o *TerminalEntity) GetTerminalMeta() CreateTerminalRequestTerminalMeta`
+`func (o *TerminalEntity) GetTerminalMeta() TerminalEntityTerminalMeta`
 
 GetTerminalMeta returns the TerminalMeta field if non-nil, zero value otherwise.
 
 ### GetTerminalMetaOk
 
-`func (o *TerminalEntity) GetTerminalMetaOk() (*CreateTerminalRequestTerminalMeta, bool)`
+`func (o *TerminalEntity) GetTerminalMetaOk() (*TerminalEntityTerminalMeta, bool)`
 
 GetTerminalMetaOk returns a tuple with the TerminalMeta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTerminalMeta
 
-`func (o *TerminalEntity) SetTerminalMeta(v CreateTerminalRequestTerminalMeta)`
+`func (o *TerminalEntity) SetTerminalMeta(v TerminalEntityTerminalMeta)`
 
 SetTerminalMeta sets TerminalMeta field to given value.
 

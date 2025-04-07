@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -29,7 +29,7 @@ type ExtendedCustomerDetails struct {
 	CustomerPhone *string `json:"customer_phone,omitempty"`
 	// Name of the customer.
 	CustomerName *string `json:"customer_name,omitempty"`
-	// Customer identifier at Cashfree. You will get this when you create/get customer      
+	// Customer identifier at Cashfree. You will get this when you create/get customer
 	CustomerUid *string `json:"customer_uid,omitempty"`
 }
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CfPaymentId** | Pointer to **float32** | Cashfree subscription payment reference number. | [optional] 
 **SubscriptionId** | **string** | A unique ID passed by merchant for identifying the subscription. | 
 **PaymentId** | Pointer to **string** | A unique ID passed by merchant for identifying the transaction. | [optional] 
-**CfPaymentId** | Pointer to **string** | Cashfree subscription payment reference number. | [optional] 
 **RefundId** | **string** | A unique ID passed by merchant for identifying the refund. | 
 **RefundAmount** | **float32** | The amount to be refunded. Can be partial or full amount of the payment. | 
 **RefundNote** | Pointer to **string** | Refund note. | [optional] 
@@ -30,6 +30,31 @@ will change when the set of required properties is changed
 NewCreateSubscriptionRefundRequestWithDefaults instantiates a new CreateSubscriptionRefundRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCfPaymentId
+
+`func (o *CreateSubscriptionRefundRequest) GetCfPaymentId() float32`
+
+GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
+
+### GetCfPaymentIdOk
+
+`func (o *CreateSubscriptionRefundRequest) GetCfPaymentIdOk() (*float32, bool)`
+
+GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCfPaymentId
+
+`func (o *CreateSubscriptionRefundRequest) SetCfPaymentId(v float32)`
+
+SetCfPaymentId sets CfPaymentId field to given value.
+
+### HasCfPaymentId
+
+`func (o *CreateSubscriptionRefundRequest) HasCfPaymentId() bool`
+
+HasCfPaymentId returns a boolean if a field has been set.
 
 ### GetSubscriptionId
 
@@ -75,31 +100,6 @@ SetPaymentId sets PaymentId field to given value.
 `func (o *CreateSubscriptionRefundRequest) HasPaymentId() bool`
 
 HasPaymentId returns a boolean if a field has been set.
-
-### GetCfPaymentId
-
-`func (o *CreateSubscriptionRefundRequest) GetCfPaymentId() string`
-
-GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
-
-### GetCfPaymentIdOk
-
-`func (o *CreateSubscriptionRefundRequest) GetCfPaymentIdOk() (*string, bool)`
-
-GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCfPaymentId
-
-`func (o *CreateSubscriptionRefundRequest) SetCfPaymentId(v string)`
-
-SetCfPaymentId sets CfPaymentId field to given value.
-
-### HasCfPaymentId
-
-`func (o *CreateSubscriptionRefundRequest) HasCfPaymentId() bool`
-
-HasCfPaymentId returns a boolean if a field has been set.
 
 ### GetRefundId
 

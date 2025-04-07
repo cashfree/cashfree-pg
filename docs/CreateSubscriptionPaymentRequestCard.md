@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | Pointer to **string** | Channel. can be link | [optional] 
-**CardNumber** | Pointer to **string** | Card number | [optional] 
-**CardHolderName** | Pointer to **string** | Card holder name | [optional] 
+**CardCvv** | Pointer to **string** | Card CVV | [optional] 
 **CardExpiryMm** | Pointer to **string** | Card expiry month | [optional] 
 **CardExpiryYy** | Pointer to **string** | Card expiry year | [optional] 
-**CardCvv** | Pointer to **string** | Card CVV | [optional] 
+**CardHolderName** | Pointer to **string** | Card holder name | [optional] 
 **CardNetwork** | Pointer to **string** | Card network | [optional] 
+**CardNumber** | Pointer to **string** | Card number | [optional] 
 **CardType** | Pointer to **string** | Card type | [optional] 
+**Channel** | Pointer to **string** | Channel. can be link | [optional] 
 
 ## Methods
 
@@ -32,80 +32,30 @@ NewCreateSubscriptionPaymentRequestCardWithDefaults instantiates a new CreateSub
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetChannel
+### GetCardCvv
 
-`func (o *CreateSubscriptionPaymentRequestCard) GetChannel() string`
+`func (o *CreateSubscriptionPaymentRequestCard) GetCardCvv() string`
 
-GetChannel returns the Channel field if non-nil, zero value otherwise.
+GetCardCvv returns the CardCvv field if non-nil, zero value otherwise.
 
-### GetChannelOk
+### GetCardCvvOk
 
-`func (o *CreateSubscriptionPaymentRequestCard) GetChannelOk() (*string, bool)`
+`func (o *CreateSubscriptionPaymentRequestCard) GetCardCvvOk() (*string, bool)`
 
-GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
+GetCardCvvOk returns a tuple with the CardCvv field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChannel
+### SetCardCvv
 
-`func (o *CreateSubscriptionPaymentRequestCard) SetChannel(v string)`
+`func (o *CreateSubscriptionPaymentRequestCard) SetCardCvv(v string)`
 
-SetChannel sets Channel field to given value.
+SetCardCvv sets CardCvv field to given value.
 
-### HasChannel
+### HasCardCvv
 
-`func (o *CreateSubscriptionPaymentRequestCard) HasChannel() bool`
+`func (o *CreateSubscriptionPaymentRequestCard) HasCardCvv() bool`
 
-HasChannel returns a boolean if a field has been set.
-
-### GetCardNumber
-
-`func (o *CreateSubscriptionPaymentRequestCard) GetCardNumber() string`
-
-GetCardNumber returns the CardNumber field if non-nil, zero value otherwise.
-
-### GetCardNumberOk
-
-`func (o *CreateSubscriptionPaymentRequestCard) GetCardNumberOk() (*string, bool)`
-
-GetCardNumberOk returns a tuple with the CardNumber field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCardNumber
-
-`func (o *CreateSubscriptionPaymentRequestCard) SetCardNumber(v string)`
-
-SetCardNumber sets CardNumber field to given value.
-
-### HasCardNumber
-
-`func (o *CreateSubscriptionPaymentRequestCard) HasCardNumber() bool`
-
-HasCardNumber returns a boolean if a field has been set.
-
-### GetCardHolderName
-
-`func (o *CreateSubscriptionPaymentRequestCard) GetCardHolderName() string`
-
-GetCardHolderName returns the CardHolderName field if non-nil, zero value otherwise.
-
-### GetCardHolderNameOk
-
-`func (o *CreateSubscriptionPaymentRequestCard) GetCardHolderNameOk() (*string, bool)`
-
-GetCardHolderNameOk returns a tuple with the CardHolderName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCardHolderName
-
-`func (o *CreateSubscriptionPaymentRequestCard) SetCardHolderName(v string)`
-
-SetCardHolderName sets CardHolderName field to given value.
-
-### HasCardHolderName
-
-`func (o *CreateSubscriptionPaymentRequestCard) HasCardHolderName() bool`
-
-HasCardHolderName returns a boolean if a field has been set.
+HasCardCvv returns a boolean if a field has been set.
 
 ### GetCardExpiryMm
 
@@ -157,30 +107,30 @@ SetCardExpiryYy sets CardExpiryYy field to given value.
 
 HasCardExpiryYy returns a boolean if a field has been set.
 
-### GetCardCvv
+### GetCardHolderName
 
-`func (o *CreateSubscriptionPaymentRequestCard) GetCardCvv() string`
+`func (o *CreateSubscriptionPaymentRequestCard) GetCardHolderName() string`
 
-GetCardCvv returns the CardCvv field if non-nil, zero value otherwise.
+GetCardHolderName returns the CardHolderName field if non-nil, zero value otherwise.
 
-### GetCardCvvOk
+### GetCardHolderNameOk
 
-`func (o *CreateSubscriptionPaymentRequestCard) GetCardCvvOk() (*string, bool)`
+`func (o *CreateSubscriptionPaymentRequestCard) GetCardHolderNameOk() (*string, bool)`
 
-GetCardCvvOk returns a tuple with the CardCvv field if it's non-nil, zero value otherwise
+GetCardHolderNameOk returns a tuple with the CardHolderName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardCvv
+### SetCardHolderName
 
-`func (o *CreateSubscriptionPaymentRequestCard) SetCardCvv(v string)`
+`func (o *CreateSubscriptionPaymentRequestCard) SetCardHolderName(v string)`
 
-SetCardCvv sets CardCvv field to given value.
+SetCardHolderName sets CardHolderName field to given value.
 
-### HasCardCvv
+### HasCardHolderName
 
-`func (o *CreateSubscriptionPaymentRequestCard) HasCardCvv() bool`
+`func (o *CreateSubscriptionPaymentRequestCard) HasCardHolderName() bool`
 
-HasCardCvv returns a boolean if a field has been set.
+HasCardHolderName returns a boolean if a field has been set.
 
 ### GetCardNetwork
 
@@ -207,6 +157,31 @@ SetCardNetwork sets CardNetwork field to given value.
 
 HasCardNetwork returns a boolean if a field has been set.
 
+### GetCardNumber
+
+`func (o *CreateSubscriptionPaymentRequestCard) GetCardNumber() string`
+
+GetCardNumber returns the CardNumber field if non-nil, zero value otherwise.
+
+### GetCardNumberOk
+
+`func (o *CreateSubscriptionPaymentRequestCard) GetCardNumberOk() (*string, bool)`
+
+GetCardNumberOk returns a tuple with the CardNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCardNumber
+
+`func (o *CreateSubscriptionPaymentRequestCard) SetCardNumber(v string)`
+
+SetCardNumber sets CardNumber field to given value.
+
+### HasCardNumber
+
+`func (o *CreateSubscriptionPaymentRequestCard) HasCardNumber() bool`
+
+HasCardNumber returns a boolean if a field has been set.
+
 ### GetCardType
 
 `func (o *CreateSubscriptionPaymentRequestCard) GetCardType() string`
@@ -231,6 +206,31 @@ SetCardType sets CardType field to given value.
 `func (o *CreateSubscriptionPaymentRequestCard) HasCardType() bool`
 
 HasCardType returns a boolean if a field has been set.
+
+### GetChannel
+
+`func (o *CreateSubscriptionPaymentRequestCard) GetChannel() string`
+
+GetChannel returns the Channel field if non-nil, zero value otherwise.
+
+### GetChannelOk
+
+`func (o *CreateSubscriptionPaymentRequestCard) GetChannelOk() (*string, bool)`
+
+GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannel
+
+`func (o *CreateSubscriptionPaymentRequestCard) SetChannel(v string)`
+
+SetChannel sets Channel field to given value.
+
+### HasChannel
+
+`func (o *CreateSubscriptionPaymentRequestCard) HasChannel() bool`
+
+HasChannel returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -42,7 +42,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the Cashfree Payment Gateway APIs API v2023-08-01
+// APIClient manages communication with the Cashfree Payment Gateway APIs API v2025-01-01
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

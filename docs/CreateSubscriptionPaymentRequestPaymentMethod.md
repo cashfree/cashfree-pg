@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UpiId** | Pointer to **string** |  | [optional] 
 **Channel** | Pointer to **string** | Channel. can be link | [optional] 
-**AuthMode** | Pointer to **string** | Authentication mode. can be debit_card, aadhaar, or net_banking | [optional] 
-**AccountHolderName** | Pointer to **string** | Account holder name | [optional] 
-**AccountNumber** | Pointer to **string** | Account number | [optional] 
+**UpiId** | Pointer to **string** |  | [optional] 
 **AccountBankCode** | Pointer to **string** | Account bank code | [optional] 
-**AccountType** | Pointer to **string** | Account type | [optional] 
+**AccountHolderName** | Pointer to **string** | Account holder name | [optional] 
 **AccountIfsc** | Pointer to **string** | Account IFSC | [optional] 
+**AccountNumber** | Pointer to **string** | Account number | [optional] 
+**AccountType** | Pointer to **string** | Account type | [optional] 
+**AuthMode** | Pointer to **string** | Authentication mode. can be debit_card, aadhaar, or net_banking | [optional] 
 **MandateCreationDate** | Pointer to **string** | Mandate creation date | [optional] 
 **MandateStartDate** | Pointer to **string** | Mandate start date | [optional] 
-**CardNumber** | Pointer to **string** | Card number | [optional] 
-**CardHolderName** | Pointer to **string** | Card holder name | [optional] 
+**CardCvv** | Pointer to **string** | Card CVV | [optional] 
 **CardExpiryMm** | Pointer to **string** | Card expiry month | [optional] 
 **CardExpiryYy** | Pointer to **string** | Card expiry year | [optional] 
-**CardCvv** | Pointer to **string** | Card CVV | [optional] 
+**CardHolderName** | Pointer to **string** | Card holder name | [optional] 
 **CardNetwork** | Pointer to **string** | Card network | [optional] 
+**CardNumber** | Pointer to **string** | Card number | [optional] 
 **CardType** | Pointer to **string** | Card type | [optional] 
 
 ## Methods
@@ -40,31 +40,6 @@ will change when the set of required properties is changed
 NewCreateSubscriptionPaymentRequestPaymentMethodWithDefaults instantiates a new CreateSubscriptionPaymentRequestPaymentMethod object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetUpiId
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetUpiId() string`
-
-GetUpiId returns the UpiId field if non-nil, zero value otherwise.
-
-### GetUpiIdOk
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetUpiIdOk() (*string, bool)`
-
-GetUpiIdOk returns a tuple with the UpiId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUpiId
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetUpiId(v string)`
-
-SetUpiId sets UpiId field to given value.
-
-### HasUpiId
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasUpiId() bool`
-
-HasUpiId returns a boolean if a field has been set.
 
 ### GetChannel
 
@@ -91,80 +66,30 @@ SetChannel sets Channel field to given value.
 
 HasChannel returns a boolean if a field has been set.
 
-### GetAuthMode
+### GetUpiId
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAuthMode() string`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetUpiId() string`
 
-GetAuthMode returns the AuthMode field if non-nil, zero value otherwise.
+GetUpiId returns the UpiId field if non-nil, zero value otherwise.
 
-### GetAuthModeOk
+### GetUpiIdOk
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAuthModeOk() (*string, bool)`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetUpiIdOk() (*string, bool)`
 
-GetAuthModeOk returns a tuple with the AuthMode field if it's non-nil, zero value otherwise
+GetUpiIdOk returns a tuple with the UpiId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAuthMode
+### SetUpiId
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetAuthMode(v string)`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetUpiId(v string)`
 
-SetAuthMode sets AuthMode field to given value.
+SetUpiId sets UpiId field to given value.
 
-### HasAuthMode
+### HasUpiId
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAuthMode() bool`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasUpiId() bool`
 
-HasAuthMode returns a boolean if a field has been set.
-
-### GetAccountHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountHolderName() string`
-
-GetAccountHolderName returns the AccountHolderName field if non-nil, zero value otherwise.
-
-### GetAccountHolderNameOk
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountHolderNameOk() (*string, bool)`
-
-GetAccountHolderNameOk returns a tuple with the AccountHolderName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetAccountHolderName(v string)`
-
-SetAccountHolderName sets AccountHolderName field to given value.
-
-### HasAccountHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAccountHolderName() bool`
-
-HasAccountHolderName returns a boolean if a field has been set.
-
-### GetAccountNumber
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountNumber() string`
-
-GetAccountNumber returns the AccountNumber field if non-nil, zero value otherwise.
-
-### GetAccountNumberOk
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountNumberOk() (*string, bool)`
-
-GetAccountNumberOk returns a tuple with the AccountNumber field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountNumber
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetAccountNumber(v string)`
-
-SetAccountNumber sets AccountNumber field to given value.
-
-### HasAccountNumber
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAccountNumber() bool`
-
-HasAccountNumber returns a boolean if a field has been set.
+HasUpiId returns a boolean if a field has been set.
 
 ### GetAccountBankCode
 
@@ -191,30 +116,30 @@ SetAccountBankCode sets AccountBankCode field to given value.
 
 HasAccountBankCode returns a boolean if a field has been set.
 
-### GetAccountType
+### GetAccountHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountType() string`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountHolderName() string`
 
-GetAccountType returns the AccountType field if non-nil, zero value otherwise.
+GetAccountHolderName returns the AccountHolderName field if non-nil, zero value otherwise.
 
-### GetAccountTypeOk
+### GetAccountHolderNameOk
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountTypeOk() (*string, bool)`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountHolderNameOk() (*string, bool)`
 
-GetAccountTypeOk returns a tuple with the AccountType field if it's non-nil, zero value otherwise
+GetAccountHolderNameOk returns a tuple with the AccountHolderName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountType
+### SetAccountHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetAccountType(v string)`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetAccountHolderName(v string)`
 
-SetAccountType sets AccountType field to given value.
+SetAccountHolderName sets AccountHolderName field to given value.
 
-### HasAccountType
+### HasAccountHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAccountType() bool`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAccountHolderName() bool`
 
-HasAccountType returns a boolean if a field has been set.
+HasAccountHolderName returns a boolean if a field has been set.
 
 ### GetAccountIfsc
 
@@ -240,6 +165,81 @@ SetAccountIfsc sets AccountIfsc field to given value.
 `func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAccountIfsc() bool`
 
 HasAccountIfsc returns a boolean if a field has been set.
+
+### GetAccountNumber
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountNumber() string`
+
+GetAccountNumber returns the AccountNumber field if non-nil, zero value otherwise.
+
+### GetAccountNumberOk
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountNumberOk() (*string, bool)`
+
+GetAccountNumberOk returns a tuple with the AccountNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountNumber
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetAccountNumber(v string)`
+
+SetAccountNumber sets AccountNumber field to given value.
+
+### HasAccountNumber
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAccountNumber() bool`
+
+HasAccountNumber returns a boolean if a field has been set.
+
+### GetAccountType
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountType() string`
+
+GetAccountType returns the AccountType field if non-nil, zero value otherwise.
+
+### GetAccountTypeOk
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAccountTypeOk() (*string, bool)`
+
+GetAccountTypeOk returns a tuple with the AccountType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountType
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetAccountType(v string)`
+
+SetAccountType sets AccountType field to given value.
+
+### HasAccountType
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAccountType() bool`
+
+HasAccountType returns a boolean if a field has been set.
+
+### GetAuthMode
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAuthMode() string`
+
+GetAuthMode returns the AuthMode field if non-nil, zero value otherwise.
+
+### GetAuthModeOk
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetAuthModeOk() (*string, bool)`
+
+GetAuthModeOk returns a tuple with the AuthMode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAuthMode
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetAuthMode(v string)`
+
+SetAuthMode sets AuthMode field to given value.
+
+### HasAuthMode
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasAuthMode() bool`
+
+HasAuthMode returns a boolean if a field has been set.
 
 ### GetMandateCreationDate
 
@@ -291,55 +291,30 @@ SetMandateStartDate sets MandateStartDate field to given value.
 
 HasMandateStartDate returns a boolean if a field has been set.
 
-### GetCardNumber
+### GetCardCvv
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardNumber() string`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardCvv() string`
 
-GetCardNumber returns the CardNumber field if non-nil, zero value otherwise.
+GetCardCvv returns the CardCvv field if non-nil, zero value otherwise.
 
-### GetCardNumberOk
+### GetCardCvvOk
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardNumberOk() (*string, bool)`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardCvvOk() (*string, bool)`
 
-GetCardNumberOk returns a tuple with the CardNumber field if it's non-nil, zero value otherwise
+GetCardCvvOk returns a tuple with the CardCvv field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardNumber
+### SetCardCvv
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetCardNumber(v string)`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetCardCvv(v string)`
 
-SetCardNumber sets CardNumber field to given value.
+SetCardCvv sets CardCvv field to given value.
 
-### HasCardNumber
+### HasCardCvv
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasCardNumber() bool`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasCardCvv() bool`
 
-HasCardNumber returns a boolean if a field has been set.
-
-### GetCardHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardHolderName() string`
-
-GetCardHolderName returns the CardHolderName field if non-nil, zero value otherwise.
-
-### GetCardHolderNameOk
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardHolderNameOk() (*string, bool)`
-
-GetCardHolderNameOk returns a tuple with the CardHolderName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCardHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetCardHolderName(v string)`
-
-SetCardHolderName sets CardHolderName field to given value.
-
-### HasCardHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasCardHolderName() bool`
-
-HasCardHolderName returns a boolean if a field has been set.
+HasCardCvv returns a boolean if a field has been set.
 
 ### GetCardExpiryMm
 
@@ -391,30 +366,30 @@ SetCardExpiryYy sets CardExpiryYy field to given value.
 
 HasCardExpiryYy returns a boolean if a field has been set.
 
-### GetCardCvv
+### GetCardHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardCvv() string`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardHolderName() string`
 
-GetCardCvv returns the CardCvv field if non-nil, zero value otherwise.
+GetCardHolderName returns the CardHolderName field if non-nil, zero value otherwise.
 
-### GetCardCvvOk
+### GetCardHolderNameOk
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardCvvOk() (*string, bool)`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardHolderNameOk() (*string, bool)`
 
-GetCardCvvOk returns a tuple with the CardCvv field if it's non-nil, zero value otherwise
+GetCardHolderNameOk returns a tuple with the CardHolderName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCardCvv
+### SetCardHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetCardCvv(v string)`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetCardHolderName(v string)`
 
-SetCardCvv sets CardCvv field to given value.
+SetCardHolderName sets CardHolderName field to given value.
 
-### HasCardCvv
+### HasCardHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasCardCvv() bool`
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasCardHolderName() bool`
 
-HasCardCvv returns a boolean if a field has been set.
+HasCardHolderName returns a boolean if a field has been set.
 
 ### GetCardNetwork
 
@@ -440,6 +415,31 @@ SetCardNetwork sets CardNetwork field to given value.
 `func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasCardNetwork() bool`
 
 HasCardNetwork returns a boolean if a field has been set.
+
+### GetCardNumber
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardNumber() string`
+
+GetCardNumber returns the CardNumber field if non-nil, zero value otherwise.
+
+### GetCardNumberOk
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) GetCardNumberOk() (*string, bool)`
+
+GetCardNumberOk returns a tuple with the CardNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCardNumber
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) SetCardNumber(v string)`
+
+SetCardNumber sets CardNumber field to given value.
+
+### HasCardNumber
+
+`func (o *CreateSubscriptionPaymentRequestPaymentMethod) HasCardNumber() bool`
+
+HasCardNumber returns a boolean if a field has been set.
 
 ### GetCardType
 

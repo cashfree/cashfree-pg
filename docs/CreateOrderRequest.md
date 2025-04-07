@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **OrderNote** | Pointer to **string** | Order note for reference. | [optional] 
 **OrderTags** | Pointer to **map[string]string** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) | If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount. | [optional] 
+**Products** | Pointer to [**Products**](Products.md) |  | [optional] 
 
 ## Methods
 
@@ -294,6 +295,31 @@ SetOrderSplits sets OrderSplits field to given value.
 `func (o *CreateOrderRequest) HasOrderSplits() bool`
 
 HasOrderSplits returns a boolean if a field has been set.
+
+### GetProducts
+
+`func (o *CreateOrderRequest) GetProducts() Products`
+
+GetProducts returns the Products field if non-nil, zero value otherwise.
+
+### GetProductsOk
+
+`func (o *CreateOrderRequest) GetProductsOk() (*Products, bool)`
+
+GetProductsOk returns a tuple with the Products field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProducts
+
+`func (o *CreateOrderRequest) SetProducts(v Products)`
+
+SetProducts sets Products field to given value.
+
+### HasProducts
+
+`func (o *CreateOrderRequest) HasProducts() bool`
+
+HasProducts returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

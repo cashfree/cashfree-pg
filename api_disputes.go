@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,16 +22,25 @@ import (
 
 // Execute executes the request
 //  @return DisputesEntityMerchantAccepted
-func PGAcceptDisputeByID(xApiVersion *string, disputeId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DisputesEntityMerchantAccepted, *http.Response, error) {
+func (_this *Cashfree) PGAcceptDisputeByID(disputeId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DisputesEntityMerchantAccepted, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *DisputesEntityMerchantAccepted
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGAcceptDisputeByID")
 	}
 
@@ -42,7 +51,7 @@ func PGAcceptDisputeByID(xApiVersion *string, disputeId int32,  xRequestId *stri
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/disputes/{dispute_id}/accept"
 	localVarPath = strings.Replace(localVarPath, "{"+"dispute_id"+"}", url.PathEscape(parameterValueToString(disputeId, "disputeId")), -1)
@@ -71,7 +80,6 @@ func PGAcceptDisputeByID(xApiVersion *string, disputeId int32,  xRequestId *stri
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -79,24 +87,26 @@ func PGAcceptDisputeByID(xApiVersion *string, disputeId int32,  xRequestId *stri
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -242,7 +252,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return DisputesEntityMerchantAccepted
-func PGAcceptDisputeByIDWithContext(ctx context.Context, xApiVersion *string, disputeId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DisputesEntityMerchantAccepted, *http.Response, error) {
+func (_this *Cashfree) PGAcceptDisputeByIDWithContext(ctx context.Context, disputeId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DisputesEntityMerchantAccepted, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -250,8 +260,18 @@ func PGAcceptDisputeByIDWithContext(ctx context.Context, xApiVersion *string, di
 		localVarReturnValue  *DisputesEntityMerchantAccepted
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGAcceptDisputeByID")
 	}
 
@@ -260,7 +280,7 @@ func PGAcceptDisputeByIDWithContext(ctx context.Context, xApiVersion *string, di
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/disputes/{dispute_id}/accept"
 	localVarPath = strings.Replace(localVarPath, "{"+"dispute_id"+"}", url.PathEscape(parameterValueToString(disputeId, "disputeId")), -1)
@@ -289,7 +309,6 @@ func PGAcceptDisputeByIDWithContext(ctx context.Context, xApiVersion *string, di
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -297,27 +316,29 @@ func PGAcceptDisputeByIDWithContext(ctx context.Context, xApiVersion *string, di
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -464,16 +485,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return DisputesEntity
-func PGFetchDisputeByID(xApiVersion *string, disputeId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DisputesEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchDisputeByID(disputeId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DisputesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *DisputesEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchDisputeByID")
 	}
 
@@ -484,7 +514,7 @@ func PGFetchDisputeByID(xApiVersion *string, disputeId int32,  xRequestId *strin
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/disputes/{dispute_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"dispute_id"+"}", url.PathEscape(parameterValueToString(disputeId, "disputeId")), -1)
@@ -513,7 +543,6 @@ func PGFetchDisputeByID(xApiVersion *string, disputeId int32,  xRequestId *strin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -521,24 +550,26 @@ func PGFetchDisputeByID(xApiVersion *string, disputeId int32,  xRequestId *strin
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -684,7 +715,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return DisputesEntity
-func PGFetchDisputeByIDWithContext(ctx context.Context, xApiVersion *string, disputeId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DisputesEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchDisputeByIDWithContext(ctx context.Context, disputeId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DisputesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -692,8 +723,18 @@ func PGFetchDisputeByIDWithContext(ctx context.Context, xApiVersion *string, dis
 		localVarReturnValue  *DisputesEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchDisputeByID")
 	}
 
@@ -702,7 +743,7 @@ func PGFetchDisputeByIDWithContext(ctx context.Context, xApiVersion *string, dis
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/disputes/{dispute_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"dispute_id"+"}", url.PathEscape(parameterValueToString(disputeId, "disputeId")), -1)
@@ -731,7 +772,6 @@ func PGFetchDisputeByIDWithContext(ctx context.Context, xApiVersion *string, dis
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -739,27 +779,29 @@ func PGFetchDisputeByIDWithContext(ctx context.Context, xApiVersion *string, dis
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -906,16 +948,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []DisputesEntity
-func PGFetchOrderDisputes(xApiVersion *string, orderId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchOrderDisputes(orderId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []DisputesEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchOrderDisputes")
 	}
 
@@ -926,7 +977,7 @@ func PGFetchOrderDisputes(xApiVersion *string, orderId string,  xRequestId *stri
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/orders/{order_id}/disputes"
 	localVarPath = strings.Replace(localVarPath, "{"+"order_id"+"}", url.PathEscape(parameterValueToString(orderId, "orderId")), -1)
@@ -955,7 +1006,6 @@ func PGFetchOrderDisputes(xApiVersion *string, orderId string,  xRequestId *stri
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -963,24 +1013,26 @@ func PGFetchOrderDisputes(xApiVersion *string, orderId string,  xRequestId *stri
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1126,7 +1178,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []DisputesEntity
-func PGFetchOrderDisputesWithContext(ctx context.Context, xApiVersion *string, orderId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchOrderDisputesWithContext(ctx context.Context, orderId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1134,8 +1186,18 @@ func PGFetchOrderDisputesWithContext(ctx context.Context, xApiVersion *string, o
 		localVarReturnValue  []DisputesEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchOrderDisputes")
 	}
 
@@ -1144,7 +1206,7 @@ func PGFetchOrderDisputesWithContext(ctx context.Context, xApiVersion *string, o
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/orders/{order_id}/disputes"
 	localVarPath = strings.Replace(localVarPath, "{"+"order_id"+"}", url.PathEscape(parameterValueToString(orderId, "orderId")), -1)
@@ -1173,7 +1235,6 @@ func PGFetchOrderDisputesWithContext(ctx context.Context, xApiVersion *string, o
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1181,27 +1242,29 @@ func PGFetchOrderDisputesWithContext(ctx context.Context, xApiVersion *string, o
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1348,16 +1411,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []DisputesEntity
-func PGFetchPaymentDisputes(xApiVersion *string, cfPaymentId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchPaymentDisputes(cfPaymentId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []DisputesEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchPaymentDisputes")
 	}
 
@@ -1368,7 +1440,7 @@ func PGFetchPaymentDisputes(xApiVersion *string, cfPaymentId int32,  xRequestId 
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/payments/{cf_payment_id}/disputes"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_payment_id"+"}", url.PathEscape(parameterValueToString(cfPaymentId, "cfPaymentId")), -1)
@@ -1397,7 +1469,6 @@ func PGFetchPaymentDisputes(xApiVersion *string, cfPaymentId int32,  xRequestId 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1405,24 +1476,26 @@ func PGFetchPaymentDisputes(xApiVersion *string, cfPaymentId int32,  xRequestId 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1568,7 +1641,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []DisputesEntity
-func PGFetchPaymentDisputesWithContext(ctx context.Context, xApiVersion *string, cfPaymentId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchPaymentDisputesWithContext(ctx context.Context, cfPaymentId int32,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1576,8 +1649,18 @@ func PGFetchPaymentDisputesWithContext(ctx context.Context, xApiVersion *string,
 		localVarReturnValue  []DisputesEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchPaymentDisputes")
 	}
 
@@ -1586,7 +1669,7 @@ func PGFetchPaymentDisputesWithContext(ctx context.Context, xApiVersion *string,
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/payments/{cf_payment_id}/disputes"
 	localVarPath = strings.Replace(localVarPath, "{"+"cf_payment_id"+"}", url.PathEscape(parameterValueToString(cfPaymentId, "cfPaymentId")), -1)
@@ -1615,7 +1698,6 @@ func PGFetchPaymentDisputesWithContext(ctx context.Context, xApiVersion *string,
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1623,27 +1705,29 @@ func PGFetchPaymentDisputesWithContext(ctx context.Context, xApiVersion *string,
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1790,16 +1874,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []DisputesEntity
-func PGUploadDisputesDocuments(xApiVersion *string, disputeId int32, file *string, docType *string,  xRequestId *string, xIdempotencyKey *string, note *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
+func (_this *Cashfree) PGUploadDisputesDocuments(disputeId int32, file *string, docType *string,  xRequestId *string, xIdempotencyKey *string, note *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []DisputesEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGUploadDisputesDocuments")
 	}
 
@@ -1810,7 +1903,7 @@ func PGUploadDisputesDocuments(xApiVersion *string, disputeId int32, file *strin
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/disputes/{dispute_id}/documents"
 	localVarPath = strings.Replace(localVarPath, "{"+"dispute_id"+"}", url.PathEscape(parameterValueToString(disputeId, "disputeId")), -1)
@@ -1845,7 +1938,6 @@ func PGUploadDisputesDocuments(xApiVersion *string, disputeId int32, file *strin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1858,24 +1950,26 @@ func PGUploadDisputesDocuments(xApiVersion *string, disputeId int32, file *strin
 		parameterAddToHeaderOrQuery(localVarFormParams, "note", note, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -2021,7 +2115,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []DisputesEntity
-func PGUploadDisputesDocumentsWithContext(ctx context.Context, xApiVersion *string, disputeId int32, file *string, docType *string,  xRequestId *string, xIdempotencyKey *string, note *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
+func (_this *Cashfree) PGUploadDisputesDocumentsWithContext(ctx context.Context, disputeId int32, file *string, docType *string,  xRequestId *string, xIdempotencyKey *string, note *string, httpClient *http.Client) ([]DisputesEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2029,8 +2123,18 @@ func PGUploadDisputesDocumentsWithContext(ctx context.Context, xApiVersion *stri
 		localVarReturnValue  []DisputesEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGUploadDisputesDocuments")
 	}
 
@@ -2039,7 +2143,7 @@ func PGUploadDisputesDocumentsWithContext(ctx context.Context, xApiVersion *stri
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/disputes/{dispute_id}/documents"
 	localVarPath = strings.Replace(localVarPath, "{"+"dispute_id"+"}", url.PathEscape(parameterValueToString(disputeId, "disputeId")), -1)
@@ -2074,7 +2178,6 @@ func PGUploadDisputesDocumentsWithContext(ctx context.Context, xApiVersion *stri
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2087,27 +2190,29 @@ func PGUploadDisputesDocumentsWithContext(ctx context.Context, xApiVersion *stri
 		parameterAddToHeaderOrQuery(localVarFormParams, "note", note, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

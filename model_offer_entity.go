@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -23,10 +23,12 @@ var _ MappedNullable = &OfferEntity{}
 type OfferEntity struct {
 	OfferId *string `json:"offer_id,omitempty"`
 	OfferStatus *string `json:"offer_status,omitempty"`
-	OfferMeta *OfferMeta `json:"offer_meta,omitempty"`
-	OfferTnc *OfferTnc `json:"offer_tnc,omitempty"`
-	OfferDetails *OfferDetails `json:"offer_details,omitempty"`
-	OfferValidations *OfferValidations `json:"offer_validations,omitempty"`
+	OrderAmount *float32 `json:"order_amount,omitempty"`
+	PayableAmount *float32 `json:"payable_amount,omitempty"`
+	OfferMeta *OfferMetaResponse `json:"offer_meta,omitempty"`
+	OfferTnc *OfferTncResponse `json:"offer_tnc,omitempty"`
+	OfferDetails *OfferDetailsResponse `json:"offer_details,omitempty"`
+	OfferValidations *OfferValidationsResponse `json:"offer_validations,omitempty"`
 }
 
 
@@ -46,6 +48,12 @@ func (o OfferEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OfferStatus) {
 		toSerialize["offer_status"] = o.OfferStatus
+	}
+	if !IsNil(o.OrderAmount) {
+		toSerialize["order_amount"] = o.OrderAmount
+	}
+	if !IsNil(o.PayableAmount) {
+		toSerialize["payable_amount"] = o.PayableAmount
 	}
 	if !IsNil(o.OfferMeta) {
 		toSerialize["offer_meta"] = o.OfferMeta

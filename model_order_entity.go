@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -14,7 +14,6 @@ package cashfree_pg
 import (
 	"encoding/json"
 	"strings"
-	"time"
 )
 
 // checks if the OrderEntity type satisfies the MappedNullable interface at compile time
@@ -34,17 +33,19 @@ type OrderEntity struct {
 	// Possible values are  - `ACTIVE`: Order does not have a sucessful transaction yet - `PAID`: Order is PAID with one successful transaction - `EXPIRED`: Order was not PAID and not it has expired. No transaction can be initiated for an EXPIRED order. `TERMINATED`: Order terminated `TERMINATION_REQUESTED`: Order termination requested
 	OrderStatus *string `json:"order_status,omitempty"`
 	PaymentSessionId *string `json:"payment_session_id,omitempty"`
-	OrderExpiryTime *time.Time `json:"order_expiry_time,omitempty"`
+	OrderExpiryTime *string `json:"order_expiry_time,omitempty"`
 	// Additional note for order
 	OrderNote *string `json:"order_note,omitempty"`
 	// When the order was created at cashfree's server
-	CreatedAt *time.Time `json:"created_at,omitempty"`
+	CreatedAt *string `json:"created_at,omitempty"`
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
 	CustomerDetails *CustomerDetailsResponse `json:"customer_details,omitempty"`
 	OrderMeta *OrderMeta `json:"order_meta,omitempty"`
 	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
 	OrderTags *map[string]string `json:"order_tags,omitempty"`
 	CartDetails *CartDetailsEntity `json:"cart_details,omitempty"`
+	TerminalData *TerminalData `json:"terminal_data,omitempty"`
+	Products *OrderEntityProducts `json:"products,omitempty"`
 }
 
 
@@ -103,6 +104,12 @@ func (o OrderEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CartDetails) {
 		toSerialize["cart_details"] = o.CartDetails
+	}
+	if !IsNil(o.TerminalData) {
+		toSerialize["terminal_data"] = o.TerminalData
+	}
+	if !IsNil(o.Products) {
+		toSerialize["products"] = o.Products
 	}
 	return toSerialize, nil
 }

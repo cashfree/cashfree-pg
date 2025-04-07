@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ReasonCode** | Pointer to **string** |  | [optional] 
 **ReasonDescription** | Pointer to **string** |  | [optional] 
 **DisputeAmount** | Pointer to **float32** | Dispute amount may differ from transaction amount for partial cases. | [optional] 
+**DisputeAmountCurrency** | Pointer to **string** | Dispute amount currency for a dispute | [optional] 
 **CreatedAt** | Pointer to **string** | This is the time when the dispute was created. | [optional] 
 **RespondBy** | Pointer to **string** | This is the time by which evidence should be submitted to contest the dispute. | [optional] 
 **UpdatedAt** | Pointer to **string** | This is the time when the dispute case was updated. | [optional] 
@@ -163,6 +164,31 @@ SetDisputeAmount sets DisputeAmount field to given value.
 `func (o *DisputesEntity) HasDisputeAmount() bool`
 
 HasDisputeAmount returns a boolean if a field has been set.
+
+### GetDisputeAmountCurrency
+
+`func (o *DisputesEntity) GetDisputeAmountCurrency() string`
+
+GetDisputeAmountCurrency returns the DisputeAmountCurrency field if non-nil, zero value otherwise.
+
+### GetDisputeAmountCurrencyOk
+
+`func (o *DisputesEntity) GetDisputeAmountCurrencyOk() (*string, bool)`
+
+GetDisputeAmountCurrencyOk returns a tuple with the DisputeAmountCurrency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisputeAmountCurrency
+
+`func (o *DisputesEntity) SetDisputeAmountCurrency(v string)`
+
+SetDisputeAmountCurrency sets DisputeAmountCurrency field to given value.
+
+### HasDisputeAmountCurrency
+
+`func (o *DisputesEntity) HasDisputeAmountCurrency() bool`
+
+HasDisputeAmountCurrency returns a boolean if a field has been set.
 
 ### GetCreatedAt
 

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | Pointer to **float32** |  | [optional] 
 **SettlementEligibilityTime** | Pointer to **string** |  | [optional] 
+**Status** | Pointer to **string** |  | [optional] 
 **MerchantOrderId** | Pointer to **string** |  | [optional] 
 **TxTime** | Pointer to **string** |  | [optional] 
 **Settled** | Pointer to **string** |  | [optional] 
@@ -99,6 +100,31 @@ SetSettlementEligibilityTime sets SettlementEligibilityTime field to given value
 `func (o *ESOrderReconResponseDataInner) HasSettlementEligibilityTime() bool`
 
 HasSettlementEligibilityTime returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *ESOrderReconResponseDataInner) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *ESOrderReconResponseDataInner) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *ESOrderReconResponseDataInner) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *ESOrderReconResponseDataInner) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetMerchantOrderId
 

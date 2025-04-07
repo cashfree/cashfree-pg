@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,6 +22,7 @@ var _ MappedNullable = &IdempotencyError{}
 // IdempotencyError Error when idempotency fails. Different request body with the same idempotent key
 type IdempotencyError struct {
 	Message *string `json:"message,omitempty"`
+	Help *string `json:"help,omitempty"`
 	Code *string `json:"code,omitempty"`
 	// idempotency_error
 	Type *string `json:"type,omitempty"`
@@ -41,6 +42,9 @@ func (o IdempotencyError) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
+	}
+	if !IsNil(o.Help) {
+		toSerialize["help"] = o.Help
 	}
 	if !IsNil(o.Code) {
 		toSerialize["code"] = o.Code

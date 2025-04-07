@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &TerminalDetails{}
 type TerminalDetails struct {
 	// date time at which terminal is added
 	AddedOn *string `json:"added_on,omitempty"`
-	// cashfree terminal id
+	// Cashfree terminal id, this is a required parameter when you do not provide the terminal phone number.
 	CfTerminalId *string `json:"cf_terminal_id,omitempty"`
 	// last instant when this terminal was updated
 	LastUpdatedOn *string `json:"last_updated_on,omitempty"`
@@ -36,7 +36,7 @@ type TerminalDetails struct {
 	// note given by merchant while creating the terminal
 	TerminalNote *string `json:"terminal_note,omitempty"`
 	// mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id.
-	TerminalPhoneNo string `json:"terminal_phone_no"`
+	TerminalPhoneNo *string `json:"terminal_phone_no,omitempty"`
 	// status of terminal active/inactive
 	TerminalStatus *string `json:"terminal_status,omitempty"`
 	// To identify the type of terminal product in use, in this case it is SPOS.
@@ -76,7 +76,9 @@ func (o TerminalDetails) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.TerminalNote) {
 		toSerialize["terminal_note"] = o.TerminalNote
 	}
-	toSerialize["terminal_phone_no"] = o.TerminalPhoneNo
+	if !IsNil(o.TerminalPhoneNo) {
+		toSerialize["terminal_phone_no"] = o.TerminalPhoneNo
+	}
 	if !IsNil(o.TerminalStatus) {
 		toSerialize["terminal_status"] = o.TerminalStatus
 	}

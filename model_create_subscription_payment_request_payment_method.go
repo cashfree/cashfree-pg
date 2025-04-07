@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -20,7 +20,7 @@ import (
 // CreateSubscriptionPaymentRequestPaymentMethod - Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]
 type CreateSubscriptionPaymentRequestPaymentMethod struct {
 	CreateSubscriptionPaymentRequestCard *CreateSubscriptionPaymentRequestCard
-	CreateSubscriptionPaymentRequestEnack *CreateSubscriptionPaymentRequestEnack
+	CreateSubscriptionPaymentRequestEnach *CreateSubscriptionPaymentRequestEnach
 	CreateSubscriptionPaymentRequestPnach *CreateSubscriptionPaymentRequestPnach
 	CreateSubscriptonPaymentRequestUpi *CreateSubscriptonPaymentRequestUpi
 }
@@ -32,10 +32,10 @@ func CreateSubscriptionPaymentRequestCardAsCreateSubscriptionPaymentRequestPayme
 	}
 }
 
-// CreateSubscriptionPaymentRequestEnackAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptionPaymentRequestEnack wrapped in CreateSubscriptionPaymentRequestPaymentMethod
-func CreateSubscriptionPaymentRequestEnackAsCreateSubscriptionPaymentRequestPaymentMethod(v *CreateSubscriptionPaymentRequestEnack) CreateSubscriptionPaymentRequestPaymentMethod {
+// CreateSubscriptionPaymentRequestEnachAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptionPaymentRequestEnach wrapped in CreateSubscriptionPaymentRequestPaymentMethod
+func CreateSubscriptionPaymentRequestEnachAsCreateSubscriptionPaymentRequestPaymentMethod(v *CreateSubscriptionPaymentRequestEnach) CreateSubscriptionPaymentRequestPaymentMethod {
 	return CreateSubscriptionPaymentRequestPaymentMethod{
-		CreateSubscriptionPaymentRequestEnack: v,
+		CreateSubscriptionPaymentRequestEnach: v,
 	}
 }
 
@@ -90,17 +90,17 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 	}
 
 
-	// try to unmarshal data into CreateSubscriptionPaymentRequestEnack
+	// try to unmarshal data into CreateSubscriptionPaymentRequestEnach
 
-	err = json.Unmarshal(data, &dst.CreateSubscriptionPaymentRequestEnack)
+	err = json.Unmarshal(data, &dst.CreateSubscriptionPaymentRequestEnach)
 
 	if err == nil {
 
-		jsonCreateSubscriptionPaymentRequestEnack, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestEnack)
+		jsonCreateSubscriptionPaymentRequestEnach, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestEnach)
 
-		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnack), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnack), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnach), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnach), "null") { // empty struct
 
-			dst.CreateSubscriptionPaymentRequestEnack = nil
+			dst.CreateSubscriptionPaymentRequestEnach = nil
 
 		} else {
 
@@ -110,7 +110,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 	} else {
 
-		dst.CreateSubscriptionPaymentRequestEnack = nil
+		dst.CreateSubscriptionPaymentRequestEnach = nil
 
 	}
 
@@ -173,7 +173,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 		dst.CreateSubscriptionPaymentRequestCard = nil
 
 
-		dst.CreateSubscriptionPaymentRequestEnack = nil
+		dst.CreateSubscriptionPaymentRequestEnach = nil
 
 
 		dst.CreateSubscriptionPaymentRequestPnach = nil
@@ -204,8 +204,8 @@ func (src CreateSubscriptionPaymentRequestPaymentMethod) MarshalJSON() ([]byte, 
 		return json.Marshal(&src.CreateSubscriptionPaymentRequestCard)
 	}
 
-	if src.CreateSubscriptionPaymentRequestEnack != nil {
-		return json.Marshal(&src.CreateSubscriptionPaymentRequestEnack)
+	if src.CreateSubscriptionPaymentRequestEnach != nil {
+		return json.Marshal(&src.CreateSubscriptionPaymentRequestEnach)
 	}
 
 	if src.CreateSubscriptionPaymentRequestPnach != nil {
@@ -228,8 +228,8 @@ func (obj *CreateSubscriptionPaymentRequestPaymentMethod) GetActualInstance() (i
 		return obj.CreateSubscriptionPaymentRequestCard
 	}
 
-	if obj.CreateSubscriptionPaymentRequestEnack != nil {
-		return obj.CreateSubscriptionPaymentRequestEnack
+	if obj.CreateSubscriptionPaymentRequestEnach != nil {
+		return obj.CreateSubscriptionPaymentRequestEnach
 	}
 
 	if obj.CreateSubscriptionPaymentRequestPnach != nil {

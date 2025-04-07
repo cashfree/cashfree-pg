@@ -6,10 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OfferId** | Pointer to **string** |  | [optional] 
 **OfferStatus** | Pointer to **string** |  | [optional] 
-**OfferMeta** | Pointer to [**OfferMeta**](OfferMeta.md) |  | [optional] 
-**OfferTnc** | Pointer to [**OfferTnc**](OfferTnc.md) |  | [optional] 
-**OfferDetails** | Pointer to [**OfferDetails**](OfferDetails.md) |  | [optional] 
-**OfferValidations** | Pointer to [**OfferValidations**](OfferValidations.md) |  | [optional] 
+**OrderAmount** | Pointer to **float32** |  | [optional] 
+**PayableAmount** | Pointer to **float32** |  | [optional] 
+**OfferMeta** | Pointer to [**OfferMetaResponse**](OfferMetaResponse.md) |  | [optional] 
+**OfferTnc** | Pointer to [**OfferTncResponse**](OfferTncResponse.md) |  | [optional] 
+**OfferDetails** | Pointer to [**OfferDetailsResponse**](OfferDetailsResponse.md) |  | [optional] 
+**OfferValidations** | Pointer to [**OfferValidationsResponse**](OfferValidationsResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -80,22 +82,72 @@ SetOfferStatus sets OfferStatus field to given value.
 
 HasOfferStatus returns a boolean if a field has been set.
 
+### GetOrderAmount
+
+`func (o *OfferEntity) GetOrderAmount() float32`
+
+GetOrderAmount returns the OrderAmount field if non-nil, zero value otherwise.
+
+### GetOrderAmountOk
+
+`func (o *OfferEntity) GetOrderAmountOk() (*float32, bool)`
+
+GetOrderAmountOk returns a tuple with the OrderAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrderAmount
+
+`func (o *OfferEntity) SetOrderAmount(v float32)`
+
+SetOrderAmount sets OrderAmount field to given value.
+
+### HasOrderAmount
+
+`func (o *OfferEntity) HasOrderAmount() bool`
+
+HasOrderAmount returns a boolean if a field has been set.
+
+### GetPayableAmount
+
+`func (o *OfferEntity) GetPayableAmount() float32`
+
+GetPayableAmount returns the PayableAmount field if non-nil, zero value otherwise.
+
+### GetPayableAmountOk
+
+`func (o *OfferEntity) GetPayableAmountOk() (*float32, bool)`
+
+GetPayableAmountOk returns a tuple with the PayableAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPayableAmount
+
+`func (o *OfferEntity) SetPayableAmount(v float32)`
+
+SetPayableAmount sets PayableAmount field to given value.
+
+### HasPayableAmount
+
+`func (o *OfferEntity) HasPayableAmount() bool`
+
+HasPayableAmount returns a boolean if a field has been set.
+
 ### GetOfferMeta
 
-`func (o *OfferEntity) GetOfferMeta() OfferMeta`
+`func (o *OfferEntity) GetOfferMeta() OfferMetaResponse`
 
 GetOfferMeta returns the OfferMeta field if non-nil, zero value otherwise.
 
 ### GetOfferMetaOk
 
-`func (o *OfferEntity) GetOfferMetaOk() (*OfferMeta, bool)`
+`func (o *OfferEntity) GetOfferMetaOk() (*OfferMetaResponse, bool)`
 
 GetOfferMetaOk returns a tuple with the OfferMeta field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOfferMeta
 
-`func (o *OfferEntity) SetOfferMeta(v OfferMeta)`
+`func (o *OfferEntity) SetOfferMeta(v OfferMetaResponse)`
 
 SetOfferMeta sets OfferMeta field to given value.
 
@@ -107,20 +159,20 @@ HasOfferMeta returns a boolean if a field has been set.
 
 ### GetOfferTnc
 
-`func (o *OfferEntity) GetOfferTnc() OfferTnc`
+`func (o *OfferEntity) GetOfferTnc() OfferTncResponse`
 
 GetOfferTnc returns the OfferTnc field if non-nil, zero value otherwise.
 
 ### GetOfferTncOk
 
-`func (o *OfferEntity) GetOfferTncOk() (*OfferTnc, bool)`
+`func (o *OfferEntity) GetOfferTncOk() (*OfferTncResponse, bool)`
 
 GetOfferTncOk returns a tuple with the OfferTnc field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOfferTnc
 
-`func (o *OfferEntity) SetOfferTnc(v OfferTnc)`
+`func (o *OfferEntity) SetOfferTnc(v OfferTncResponse)`
 
 SetOfferTnc sets OfferTnc field to given value.
 
@@ -132,20 +184,20 @@ HasOfferTnc returns a boolean if a field has been set.
 
 ### GetOfferDetails
 
-`func (o *OfferEntity) GetOfferDetails() OfferDetails`
+`func (o *OfferEntity) GetOfferDetails() OfferDetailsResponse`
 
 GetOfferDetails returns the OfferDetails field if non-nil, zero value otherwise.
 
 ### GetOfferDetailsOk
 
-`func (o *OfferEntity) GetOfferDetailsOk() (*OfferDetails, bool)`
+`func (o *OfferEntity) GetOfferDetailsOk() (*OfferDetailsResponse, bool)`
 
 GetOfferDetailsOk returns a tuple with the OfferDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOfferDetails
 
-`func (o *OfferEntity) SetOfferDetails(v OfferDetails)`
+`func (o *OfferEntity) SetOfferDetails(v OfferDetailsResponse)`
 
 SetOfferDetails sets OfferDetails field to given value.
 
@@ -157,20 +209,20 @@ HasOfferDetails returns a boolean if a field has been set.
 
 ### GetOfferValidations
 
-`func (o *OfferEntity) GetOfferValidations() OfferValidations`
+`func (o *OfferEntity) GetOfferValidations() OfferValidationsResponse`
 
 GetOfferValidations returns the OfferValidations field if non-nil, zero value otherwise.
 
 ### GetOfferValidationsOk
 
-`func (o *OfferEntity) GetOfferValidationsOk() (*OfferValidations, bool)`
+`func (o *OfferEntity) GetOfferValidationsOk() (*OfferValidationsResponse, bool)`
 
 GetOfferValidationsOk returns a tuple with the OfferValidations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOfferValidations
 
-`func (o *OfferEntity) SetOfferValidations(v OfferValidations)`
+`func (o *OfferEntity) SetOfferValidations(v OfferValidationsResponse)`
 
 SetOfferValidations sets OfferValidations field to given value.
 

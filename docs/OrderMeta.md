@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **ReturnUrl** | Pointer to **string** | The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://www.cashfree.com/devstudio/thankyou | [optional] 
 **NotifyUrl** | Pointer to **string** | Notification URL for server-server communication. Useful when user&#39;s connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250. | [optional] 
 **PaymentMethods** | Pointer to **interface{}** | Allowed payment modes for this order. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;,\&quot;nb\&quot;,\&quot;upi\&quot;,\&quot;paypal\&quot;,\&quot;app\&quot;,\&quot;paylater\&quot;,\&quot;cardlessemi\&quot;,\&quot;dcemi\&quot;,\&quot;ccemi\&quot;,\&quot;banktransfer\&quot;. Leave it blank to show all available payment methods | [optional] 
+**PaymentMethodsFilters** | Pointer to [**OrderMetaPaymentMethodsFilters**](OrderMetaPaymentMethodsFilters.md) |  | [optional] 
 
 ## Methods
 
@@ -112,6 +113,31 @@ HasPaymentMethods returns a boolean if a field has been set.
 `func (o *OrderMeta) UnsetPaymentMethods()`
 
 UnsetPaymentMethods ensures that no value is present for PaymentMethods, not even an explicit nil
+### GetPaymentMethodsFilters
+
+`func (o *OrderMeta) GetPaymentMethodsFilters() OrderMetaPaymentMethodsFilters`
+
+GetPaymentMethodsFilters returns the PaymentMethodsFilters field if non-nil, zero value otherwise.
+
+### GetPaymentMethodsFiltersOk
+
+`func (o *OrderMeta) GetPaymentMethodsFiltersOk() (*OrderMetaPaymentMethodsFilters, bool)`
+
+GetPaymentMethodsFiltersOk returns a tuple with the PaymentMethodsFilters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentMethodsFilters
+
+`func (o *OrderMeta) SetPaymentMethodsFilters(v OrderMetaPaymentMethodsFilters)`
+
+SetPaymentMethodsFilters sets PaymentMethodsFilters field to given value.
+
+### HasPaymentMethodsFilters
+
+`func (o *OrderMeta) HasPaymentMethodsFilters() bool`
+
+HasPaymentMethodsFilters returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

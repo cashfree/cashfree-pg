@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **SettlementAmount** | Pointer to **float32** | Amount to be settled after charges and tax. | [optional] 
 **SettlementCurrency** | Pointer to **string** | Currency of the settlement. Example: \&quot;INR\&quot;. | [optional] 
 **TransferUtr** | Pointer to **NullableString** | UTR (Unique Transaction Reference) for the transfer if available, otherwise null. | [optional] 
-**TransferTime** | Pointer to **NullableTime** | Time of transfer if available, otherwise null. | [optional] 
-**PaymentTime** | Pointer to **time.Time** | Timestamp when payment was made. | [optional] 
+**TransferTime** | Pointer to **NullableString** | Time of transfer if available, otherwise null. | [optional] 
+**PaymentTime** | Pointer to **string** | Timestamp when payment was made. | [optional] 
 
 ## Methods
 
@@ -360,20 +360,20 @@ HasTransferUtr returns a boolean if a field has been set.
 UnsetTransferUtr ensures that no value is present for TransferUtr, not even an explicit nil
 ### GetTransferTime
 
-`func (o *SplitOrderReconSuccessResponseSettlement) GetTransferTime() time.Time`
+`func (o *SplitOrderReconSuccessResponseSettlement) GetTransferTime() string`
 
 GetTransferTime returns the TransferTime field if non-nil, zero value otherwise.
 
 ### GetTransferTimeOk
 
-`func (o *SplitOrderReconSuccessResponseSettlement) GetTransferTimeOk() (*time.Time, bool)`
+`func (o *SplitOrderReconSuccessResponseSettlement) GetTransferTimeOk() (*string, bool)`
 
 GetTransferTimeOk returns a tuple with the TransferTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTransferTime
 
-`func (o *SplitOrderReconSuccessResponseSettlement) SetTransferTime(v time.Time)`
+`func (o *SplitOrderReconSuccessResponseSettlement) SetTransferTime(v string)`
 
 SetTransferTime sets TransferTime field to given value.
 
@@ -395,20 +395,20 @@ HasTransferTime returns a boolean if a field has been set.
 UnsetTransferTime ensures that no value is present for TransferTime, not even an explicit nil
 ### GetPaymentTime
 
-`func (o *SplitOrderReconSuccessResponseSettlement) GetPaymentTime() time.Time`
+`func (o *SplitOrderReconSuccessResponseSettlement) GetPaymentTime() string`
 
 GetPaymentTime returns the PaymentTime field if non-nil, zero value otherwise.
 
 ### GetPaymentTimeOk
 
-`func (o *SplitOrderReconSuccessResponseSettlement) GetPaymentTimeOk() (*time.Time, bool)`
+`func (o *SplitOrderReconSuccessResponseSettlement) GetPaymentTimeOk() (*string, bool)`
 
 GetPaymentTimeOk returns a tuple with the PaymentTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPaymentTime
 
-`func (o *SplitOrderReconSuccessResponseSettlement) SetPaymentTime(v time.Time)`
+`func (o *SplitOrderReconSuccessResponseSettlement) SetPaymentTime(v string)`
 
 SetPaymentTime sets PaymentTime field to given value.
 

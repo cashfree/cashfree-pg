@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MinAmount** | Pointer to **float32** | Minimum Amount for Offer to be Applicable | [optional] 
 **MaxAllowed** | **float32** | Maximum Amount for Offer to be Applicable | 
-**PaymentMethod** | [**OfferValidationsPaymentMethod**](OfferValidationsPaymentMethod.md) |  | 
+**PaymentMethod** | [**OfferValidationsResponsePaymentMethod**](OfferValidationsResponsePaymentMethod.md) |  | 
 
 ## Methods
 
 ### NewOfferValidations
 
-`func NewOfferValidations(maxAllowed float32, paymentMethod OfferValidationsPaymentMethod, ) *OfferValidations`
+`func NewOfferValidations(maxAllowed float32, paymentMethod OfferValidationsResponsePaymentMethod, ) *OfferValidations`
 
 NewOfferValidations instantiates a new OfferValidations object
 This constructor will assign default values to properties that have it defined,
@@ -74,20 +74,20 @@ SetMaxAllowed sets MaxAllowed field to given value.
 
 ### GetPaymentMethod
 
-`func (o *OfferValidations) GetPaymentMethod() OfferValidationsPaymentMethod`
+`func (o *OfferValidations) GetPaymentMethod() OfferValidationsResponsePaymentMethod`
 
 GetPaymentMethod returns the PaymentMethod field if non-nil, zero value otherwise.
 
 ### GetPaymentMethodOk
 
-`func (o *OfferValidations) GetPaymentMethodOk() (*OfferValidationsPaymentMethod, bool)`
+`func (o *OfferValidations) GetPaymentMethodOk() (*OfferValidationsResponsePaymentMethod, bool)`
 
 GetPaymentMethodOk returns a tuple with the PaymentMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPaymentMethod
 
-`func (o *OfferValidations) SetPaymentMethod(v OfferValidationsPaymentMethod)`
+`func (o *OfferValidations) SetPaymentMethod(v OfferValidationsResponsePaymentMethod)`
 
 SetPaymentMethod sets PaymentMethod field to given value.
 

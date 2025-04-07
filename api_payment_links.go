@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,16 +22,25 @@ import (
 
 // Execute executes the request
 //  @return LinkEntity
-func PGCancelLink(xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
+func (_this *Cashfree) PGCancelLink(linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *LinkEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGCancelLink")
 	}
 
@@ -42,7 +51,7 @@ func PGCancelLink(xApiVersion *string, linkId string,  xRequestId *string, xIdem
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/links/{link_id}/cancel"
 	localVarPath = strings.Replace(localVarPath, "{"+"link_id"+"}", url.PathEscape(parameterValueToString(linkId, "linkId")), -1)
@@ -71,7 +80,6 @@ func PGCancelLink(xApiVersion *string, linkId string,  xRequestId *string, xIdem
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -79,24 +87,26 @@ func PGCancelLink(xApiVersion *string, linkId string,  xRequestId *string, xIdem
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -242,7 +252,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return LinkEntity
-func PGCancelLinkWithContext(ctx context.Context, xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
+func (_this *Cashfree) PGCancelLinkWithContext(ctx context.Context, linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -250,8 +260,18 @@ func PGCancelLinkWithContext(ctx context.Context, xApiVersion *string, linkId st
 		localVarReturnValue  *LinkEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGCancelLink")
 	}
 
@@ -260,7 +280,7 @@ func PGCancelLinkWithContext(ctx context.Context, xApiVersion *string, linkId st
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/links/{link_id}/cancel"
 	localVarPath = strings.Replace(localVarPath, "{"+"link_id"+"}", url.PathEscape(parameterValueToString(linkId, "linkId")), -1)
@@ -289,7 +309,6 @@ func PGCancelLinkWithContext(ctx context.Context, xApiVersion *string, linkId st
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -297,27 +316,29 @@ func PGCancelLinkWithContext(ctx context.Context, xApiVersion *string, linkId st
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -464,16 +485,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return LinkEntity
-func PGCreateLink(xApiVersion *string, createLinkRequest *CreateLinkRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
+func (_this *Cashfree) PGCreateLink(createLinkRequest *CreateLinkRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *LinkEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGCreateLink")
 	}
 
@@ -484,7 +514,7 @@ func PGCreateLink(xApiVersion *string, createLinkRequest *CreateLinkRequest,  xR
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/links"
 
@@ -515,7 +545,6 @@ func PGCreateLink(xApiVersion *string, createLinkRequest *CreateLinkRequest,  xR
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -525,24 +554,26 @@ func PGCreateLink(xApiVersion *string, createLinkRequest *CreateLinkRequest,  xR
 	// body params
 	localVarPostBody = createLinkRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -688,7 +719,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return LinkEntity
-func PGCreateLinkWithContext(ctx context.Context, xApiVersion *string, createLinkRequest *CreateLinkRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
+func (_this *Cashfree) PGCreateLinkWithContext(ctx context.Context, createLinkRequest *CreateLinkRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -696,8 +727,18 @@ func PGCreateLinkWithContext(ctx context.Context, xApiVersion *string, createLin
 		localVarReturnValue  *LinkEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGCreateLink")
 	}
 
@@ -706,7 +747,7 @@ func PGCreateLinkWithContext(ctx context.Context, xApiVersion *string, createLin
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/links"
 
@@ -737,7 +778,6 @@ func PGCreateLinkWithContext(ctx context.Context, xApiVersion *string, createLin
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -747,27 +787,29 @@ func PGCreateLinkWithContext(ctx context.Context, xApiVersion *string, createLin
 	// body params
 	localVarPostBody = createLinkRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -914,16 +956,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return LinkEntity
-func PGFetchLink(xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchLink(linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *LinkEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchLink")
 	}
 
@@ -934,7 +985,7 @@ func PGFetchLink(xApiVersion *string, linkId string,  xRequestId *string, xIdemp
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/links/{link_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"link_id"+"}", url.PathEscape(parameterValueToString(linkId, "linkId")), -1)
@@ -963,7 +1014,6 @@ func PGFetchLink(xApiVersion *string, linkId string,  xRequestId *string, xIdemp
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -971,24 +1021,26 @@ func PGFetchLink(xApiVersion *string, linkId string,  xRequestId *string, xIdemp
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1149,7 +1201,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return LinkEntity
-func PGFetchLinkWithContext(ctx context.Context, xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchLinkWithContext(ctx context.Context, linkId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*LinkEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1157,8 +1209,18 @@ func PGFetchLinkWithContext(ctx context.Context, xApiVersion *string, linkId str
 		localVarReturnValue  *LinkEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchLink")
 	}
 
@@ -1167,7 +1229,7 @@ func PGFetchLinkWithContext(ctx context.Context, xApiVersion *string, linkId str
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/links/{link_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"link_id"+"}", url.PathEscape(parameterValueToString(linkId, "linkId")), -1)
@@ -1196,7 +1258,6 @@ func PGFetchLinkWithContext(ctx context.Context, xApiVersion *string, linkId str
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1204,27 +1265,29 @@ func PGFetchLinkWithContext(ctx context.Context, xApiVersion *string, linkId str
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1386,16 +1449,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []PaymentLinkOrderEntity
-func PGLinkFetchOrders(xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, status *string, httpClient *http.Client) ([]PaymentLinkOrderEntity, *http.Response, error) {
+func (_this *Cashfree) PGLinkFetchOrders(linkId string,  xRequestId *string, xIdempotencyKey *string, status *string, httpClient *http.Client) ([]PaymentLinkOrderEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []PaymentLinkOrderEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGLinkFetchOrders")
 	}
 
@@ -1406,7 +1478,7 @@ func PGLinkFetchOrders(xApiVersion *string, linkId string,  xRequestId *string, 
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/links/{link_id}/orders"
 	localVarPath = strings.Replace(localVarPath, "{"+"link_id"+"}", url.PathEscape(parameterValueToString(linkId, "linkId")), -1)
@@ -1438,7 +1510,6 @@ func PGLinkFetchOrders(xApiVersion *string, linkId string,  xRequestId *string, 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1446,24 +1517,26 @@ func PGLinkFetchOrders(xApiVersion *string, linkId string,  xRequestId *string, 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1609,7 +1682,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []PaymentLinkOrderEntity
-func PGLinkFetchOrdersWithContext(ctx context.Context, xApiVersion *string, linkId string,  xRequestId *string, xIdempotencyKey *string, status *string, httpClient *http.Client) ([]PaymentLinkOrderEntity, *http.Response, error) {
+func (_this *Cashfree) PGLinkFetchOrdersWithContext(ctx context.Context, linkId string,  xRequestId *string, xIdempotencyKey *string, status *string, httpClient *http.Client) ([]PaymentLinkOrderEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1617,8 +1690,18 @@ func PGLinkFetchOrdersWithContext(ctx context.Context, xApiVersion *string, link
 		localVarReturnValue  []PaymentLinkOrderEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGLinkFetchOrders")
 	}
 
@@ -1627,7 +1710,7 @@ func PGLinkFetchOrdersWithContext(ctx context.Context, xApiVersion *string, link
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/links/{link_id}/orders"
 	localVarPath = strings.Replace(localVarPath, "{"+"link_id"+"}", url.PathEscape(parameterValueToString(linkId, "linkId")), -1)
@@ -1659,7 +1742,6 @@ func PGLinkFetchOrdersWithContext(ctx context.Context, xApiVersion *string, link
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1667,27 +1749,29 @@ func PGLinkFetchOrdersWithContext(ctx context.Context, xApiVersion *string, link
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

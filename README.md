@@ -17,13 +17,73 @@ Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com
 
 ### Installation
 ```bash
-go get github.com/cashfree/cashfree-pg/v4
+go get github.com/cashfree/cashfree-pg/v5
 ```
 ### Configuration
 
+## Version >= 5
+
 ```go 
 import (
-    cashfree "github.com/cashfree/cashfree-pg/v4"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
+)
+
+xClientId := "<x-client-id>"
+xClientSecret := "<x-client-secret>"
+
+cashfree = Cashfree {
+	XEnvironment: Cashfree.SANDBOX,
+	XClientID: &xClientId,
+	XClientSecret: &xClientSecret,
+}
+```
+Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant Dashboard](https://merchant.cashfree.com/merchants/login)
+
+### Basic Usage
+Create Order
+```go
+returnUrl := "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
+
+request := cashfree.CreateOrderRequest{
+	OrderAmount:   1.0,
+	OrderCurrency: "INR",
+	CustomerDetails: cashfree.CustomerDetails{
+		CustomerId:    "walterwNrcMi",
+		CustomerPhone: "9999999999",
+	},
+	OrderMeta: &cashfree.OrderMeta{
+		ReturnUrl: &returnUrl,
+	},
+}
+
+version := "2022-09-01"
+
+response, httpResponse, err := cashfree.PGCreateOrder(&request, nil, nil, nil)
+if err != nil {
+	fmt.Println(err.Error())
+} else {
+	fmt.Println(httpResponse.StatusCode)
+	fmt.Println(response)
+}
+```
+
+Get Order
+```go
+version := "2022-09-01"
+response, httpResponse, err := cashfree.PGFetchOrder("<order_id>", nil, nil, nil)
+if err != nil {
+	fmt.Println(err.Error())
+} else {
+	fmt.Println(httpResponse.StatusCode)
+	fmt.Println(response)
+}
+```
+
+## Version < 5
+
+```go 
+import (
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 clientId := "<x-client-id>"
@@ -52,7 +112,7 @@ request := cashfree.CreateOrderRequest{
 	},
 }
 
-version := "2023-08-01"
+version := "2022-09-01"
 
 response, httpResponse, err := cashfree.PGCreateOrder(&version, &request, nil, nil, nil)
 if err != nil {
@@ -65,7 +125,7 @@ if err != nil {
 
 Get Order
 ```go
-version := "2023-08-01"
+version := "2022-09-01"
 response, httpResponse, err := cashfree.PGFetchOrder(&version, "<order_id>", nil, nil, nil)
 if err != nil {
 	fmt.Println(err.Error())

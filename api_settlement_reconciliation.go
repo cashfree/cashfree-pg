@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -21,16 +21,25 @@ import (
 
 // Execute executes the request
 //  @return SettlementEntity
-func PGFetchSettlements(xApiVersion *string, fetchSettlementsRequest *FetchSettlementsRequest,  contentType *string, xRequestId *string, xIdempotencyKey *string, accept *string, httpClient *http.Client) (*SettlementEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchSettlements(fetchSettlementsRequest *FetchSettlementsRequest,  contentType *string, xRequestId *string, xIdempotencyKey *string, accept *string, httpClient *http.Client) (*SettlementEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SettlementEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchSettlements")
 	}
 
@@ -41,7 +50,7 @@ func PGFetchSettlements(xApiVersion *string, fetchSettlementsRequest *FetchSettl
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/settlements"
 
@@ -75,7 +84,6 @@ func PGFetchSettlements(xApiVersion *string, fetchSettlementsRequest *FetchSettl
 	if contentType != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Content-Type", contentType, "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -88,24 +96,26 @@ func PGFetchSettlements(xApiVersion *string, fetchSettlementsRequest *FetchSettl
 	// body params
 	localVarPostBody = fetchSettlementsRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -251,7 +261,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SettlementEntity
-func PGFetchSettlementsWithContext(ctx context.Context, xApiVersion *string, fetchSettlementsRequest *FetchSettlementsRequest,  contentType *string, xRequestId *string, xIdempotencyKey *string, accept *string, httpClient *http.Client) (*SettlementEntity, *http.Response, error) {
+func (_this *Cashfree) PGFetchSettlementsWithContext(ctx context.Context, fetchSettlementsRequest *FetchSettlementsRequest,  contentType *string, xRequestId *string, xIdempotencyKey *string, accept *string, httpClient *http.Client) (*SettlementEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -259,8 +269,18 @@ func PGFetchSettlementsWithContext(ctx context.Context, xApiVersion *string, fet
 		localVarReturnValue  *SettlementEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchSettlements")
 	}
 
@@ -269,7 +289,7 @@ func PGFetchSettlementsWithContext(ctx context.Context, xApiVersion *string, fet
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/settlements"
 
@@ -303,7 +323,6 @@ func PGFetchSettlementsWithContext(ctx context.Context, xApiVersion *string, fet
 	if contentType != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Content-Type", contentType, "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -316,27 +335,29 @@ func PGFetchSettlementsWithContext(ctx context.Context, xApiVersion *string, fet
 	// body params
 	localVarPostBody = fetchSettlementsRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -483,16 +504,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SettlementReconEntity
-func PGSettlementFetchRecon(xApiVersion *string, settlementFetchReconRequest *SettlementFetchReconRequest,  contentType *string, xRequestId *string, xIdempotencyKey *string, accept *string, httpClient *http.Client) (*SettlementReconEntity, *http.Response, error) {
+func (_this *Cashfree) PGSettlementFetchRecon(settlementFetchReconRequest *SettlementFetchReconRequest,  contentType *string, xRequestId *string, xIdempotencyKey *string, accept *string, httpClient *http.Client) (*SettlementReconEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SettlementReconEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGSettlementFetchRecon")
 	}
 
@@ -503,7 +533,7 @@ func PGSettlementFetchRecon(xApiVersion *string, settlementFetchReconRequest *Se
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/settlement/recon"
 
@@ -537,7 +567,6 @@ func PGSettlementFetchRecon(xApiVersion *string, settlementFetchReconRequest *Se
 	if contentType != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Content-Type", contentType, "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -550,24 +579,26 @@ func PGSettlementFetchRecon(xApiVersion *string, settlementFetchReconRequest *Se
 	// body params
 	localVarPostBody = settlementFetchReconRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -713,7 +744,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SettlementReconEntity
-func PGSettlementFetchReconWithContext(ctx context.Context, xApiVersion *string, settlementFetchReconRequest *SettlementFetchReconRequest,  contentType *string, xRequestId *string, xIdempotencyKey *string, accept *string, httpClient *http.Client) (*SettlementReconEntity, *http.Response, error) {
+func (_this *Cashfree) PGSettlementFetchReconWithContext(ctx context.Context, settlementFetchReconRequest *SettlementFetchReconRequest,  contentType *string, xRequestId *string, xIdempotencyKey *string, accept *string, httpClient *http.Client) (*SettlementReconEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -721,8 +752,18 @@ func PGSettlementFetchReconWithContext(ctx context.Context, xApiVersion *string,
 		localVarReturnValue  *SettlementReconEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGSettlementFetchRecon")
 	}
 
@@ -731,7 +772,7 @@ func PGSettlementFetchReconWithContext(ctx context.Context, xApiVersion *string,
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/settlement/recon"
 
@@ -765,7 +806,6 @@ func PGSettlementFetchReconWithContext(ctx context.Context, xApiVersion *string,
 	if contentType != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "Content-Type", contentType, "")
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -778,27 +818,29 @@ func PGSettlementFetchReconWithContext(ctx context.Context, xApiVersion *string,
 	// body params
 	localVarPostBody = settlementFetchReconRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

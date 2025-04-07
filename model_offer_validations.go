@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -25,7 +25,7 @@ type OfferValidations struct {
 	MinAmount *float32 `json:"min_amount,omitempty"`
 	// Maximum Amount for Offer to be Applicable
 	MaxAllowed float32 `json:"max_allowed"`
-	PaymentMethod OfferValidationsPaymentMethod `json:"payment_method"`
+	PaymentMethod OfferValidationsResponsePaymentMethod `json:"payment_method"`
 }
 
 

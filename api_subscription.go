@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2023-08-01
+API version: 2025-01-01
 Contact: developers@cashfree.com
 */
 
@@ -23,16 +23,25 @@ import (
 
 // Execute executes the request
 //  @return CreateSubscriptionPaymentResponse
-func SubsCreatePayment(xApiVersion *string, createSubscriptionPaymentRequest *CreateSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*CreateSubscriptionPaymentResponse, *http.Response, error) {
+func (_this *Cashfree) SubsCreatePayment(createSubscriptionPaymentRequest *CreateSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*CreateSubscriptionPaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *CreateSubscriptionPaymentResponse
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsCreatePayment")
 	}
 
@@ -43,7 +52,7 @@ func SubsCreatePayment(xApiVersion *string, createSubscriptionPaymentRequest *Cr
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/pay"
 
@@ -74,7 +83,6 @@ func SubsCreatePayment(xApiVersion *string, createSubscriptionPaymentRequest *Cr
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -84,24 +92,26 @@ func SubsCreatePayment(xApiVersion *string, createSubscriptionPaymentRequest *Cr
 	// body params
 	localVarPostBody = createSubscriptionPaymentRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -232,7 +242,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return CreateSubscriptionPaymentResponse
-func SubsCreatePaymentWithContext(ctx context.Context, xApiVersion *string, createSubscriptionPaymentRequest *CreateSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*CreateSubscriptionPaymentResponse, *http.Response, error) {
+func (_this *Cashfree) SubsCreatePaymentWithContext(ctx context.Context, createSubscriptionPaymentRequest *CreateSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*CreateSubscriptionPaymentResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -240,8 +250,18 @@ func SubsCreatePaymentWithContext(ctx context.Context, xApiVersion *string, crea
 		localVarReturnValue  *CreateSubscriptionPaymentResponse
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsCreatePayment")
 	}
 
@@ -250,7 +270,7 @@ func SubsCreatePaymentWithContext(ctx context.Context, xApiVersion *string, crea
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/pay"
 
@@ -281,7 +301,6 @@ func SubsCreatePaymentWithContext(ctx context.Context, xApiVersion *string, crea
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -291,27 +310,29 @@ func SubsCreatePaymentWithContext(ctx context.Context, xApiVersion *string, crea
 	// body params
 	localVarPostBody = createSubscriptionPaymentRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -443,16 +464,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return PlanEntity
-func SubsCreatePlan(xApiVersion *string, createPlanRequest *CreatePlanRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*PlanEntity, *http.Response, error) {
+func (_this *Cashfree) SubsCreatePlan(createPlanRequest *CreatePlanRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*PlanEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *PlanEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsCreatePlan")
 	}
 
@@ -463,7 +493,7 @@ func SubsCreatePlan(xApiVersion *string, createPlanRequest *CreatePlanRequest,  
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/plans"
 
@@ -494,7 +524,6 @@ func SubsCreatePlan(xApiVersion *string, createPlanRequest *CreatePlanRequest,  
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -504,24 +533,26 @@ func SubsCreatePlan(xApiVersion *string, createPlanRequest *CreatePlanRequest,  
 	// body params
 	localVarPostBody = createPlanRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -652,7 +683,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return PlanEntity
-func SubsCreatePlanWithContext(ctx context.Context, xApiVersion *string, createPlanRequest *CreatePlanRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*PlanEntity, *http.Response, error) {
+func (_this *Cashfree) SubsCreatePlanWithContext(ctx context.Context, createPlanRequest *CreatePlanRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*PlanEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -660,8 +691,18 @@ func SubsCreatePlanWithContext(ctx context.Context, xApiVersion *string, createP
 		localVarReturnValue  *PlanEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsCreatePlan")
 	}
 
@@ -670,7 +711,7 @@ func SubsCreatePlanWithContext(ctx context.Context, xApiVersion *string, createP
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/plans"
 
@@ -701,7 +742,6 @@ func SubsCreatePlanWithContext(ctx context.Context, xApiVersion *string, createP
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -711,27 +751,29 @@ func SubsCreatePlanWithContext(ctx context.Context, xApiVersion *string, createP
 	// body params
 	localVarPostBody = createPlanRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -863,16 +905,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SubscriptionPaymentRefundEntity
-func SubsCreateRefund(xApiVersion *string, subscriptionId string, createSubscriptionRefundRequest *CreateSubscriptionRefundRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentRefundEntity, *http.Response, error) {
+func (_this *Cashfree) SubsCreateRefund(subscriptionId string, createSubscriptionRefundRequest *CreateSubscriptionRefundRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentRefundEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SubscriptionPaymentRefundEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsCreateRefund")
 	}
 
@@ -883,7 +934,7 @@ func SubsCreateRefund(xApiVersion *string, subscriptionId string, createSubscrip
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/refunds"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -915,7 +966,6 @@ func SubsCreateRefund(xApiVersion *string, subscriptionId string, createSubscrip
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -925,24 +975,26 @@ func SubsCreateRefund(xApiVersion *string, subscriptionId string, createSubscrip
 	// body params
 	localVarPostBody = createSubscriptionRefundRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1073,7 +1125,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SubscriptionPaymentRefundEntity
-func SubsCreateRefundWithContext(ctx context.Context, xApiVersion *string, subscriptionId string, createSubscriptionRefundRequest *CreateSubscriptionRefundRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentRefundEntity, *http.Response, error) {
+func (_this *Cashfree) SubsCreateRefundWithContext(ctx context.Context, subscriptionId string, createSubscriptionRefundRequest *CreateSubscriptionRefundRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentRefundEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1081,8 +1133,18 @@ func SubsCreateRefundWithContext(ctx context.Context, xApiVersion *string, subsc
 		localVarReturnValue  *SubscriptionPaymentRefundEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsCreateRefund")
 	}
 
@@ -1091,7 +1153,7 @@ func SubsCreateRefundWithContext(ctx context.Context, xApiVersion *string, subsc
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/refunds"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -1123,7 +1185,6 @@ func SubsCreateRefundWithContext(ctx context.Context, xApiVersion *string, subsc
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1133,27 +1194,29 @@ func SubsCreateRefundWithContext(ctx context.Context, xApiVersion *string, subsc
 	// body params
 	localVarPostBody = createSubscriptionRefundRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1285,16 +1348,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SubscriptionEntity
-func SubsCreateSubscription(xApiVersion *string, createSubscriptionRequest *CreateSubscriptionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
+func (_this *Cashfree) SubsCreateSubscription(createSubscriptionRequest *CreateSubscriptionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SubscriptionEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsCreateSubscription")
 	}
 
@@ -1305,7 +1377,7 @@ func SubsCreateSubscription(xApiVersion *string, createSubscriptionRequest *Crea
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions"
 
@@ -1336,7 +1408,6 @@ func SubsCreateSubscription(xApiVersion *string, createSubscriptionRequest *Crea
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1346,24 +1417,26 @@ func SubsCreateSubscription(xApiVersion *string, createSubscriptionRequest *Crea
 	// body params
 	localVarPostBody = createSubscriptionRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1494,7 +1567,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SubscriptionEntity
-func SubsCreateSubscriptionWithContext(ctx context.Context, xApiVersion *string, createSubscriptionRequest *CreateSubscriptionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
+func (_this *Cashfree) SubsCreateSubscriptionWithContext(ctx context.Context, createSubscriptionRequest *CreateSubscriptionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1502,8 +1575,18 @@ func SubsCreateSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 		localVarReturnValue  *SubscriptionEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsCreateSubscription")
 	}
 
@@ -1512,7 +1595,7 @@ func SubsCreateSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions"
 
@@ -1543,7 +1626,6 @@ func SubsCreateSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1553,27 +1635,29 @@ func SubsCreateSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 	// body params
 	localVarPostBody = createSubscriptionRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1705,16 +1789,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return PlanEntity
-func SubsFetchPlan(xApiVersion *string, planId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*PlanEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchPlan(planId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*PlanEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *PlanEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchPlan")
 	}
 
@@ -1725,7 +1818,7 @@ func SubsFetchPlan(xApiVersion *string, planId string,  xRequestId *string, xIde
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/plans/{plan_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"plan_id"+"}", url.PathEscape(parameterValueToString(planId, "planId")), -1)
@@ -1754,7 +1847,6 @@ func SubsFetchPlan(xApiVersion *string, planId string,  xRequestId *string, xIde
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1762,24 +1854,26 @@ func SubsFetchPlan(xApiVersion *string, planId string,  xRequestId *string, xIde
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -1895,7 +1989,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return PlanEntity
-func SubsFetchPlanWithContext(ctx context.Context, xApiVersion *string, planId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*PlanEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchPlanWithContext(ctx context.Context, planId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*PlanEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1903,8 +1997,18 @@ func SubsFetchPlanWithContext(ctx context.Context, xApiVersion *string, planId s
 		localVarReturnValue  *PlanEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchPlan")
 	}
 
@@ -1913,7 +2017,7 @@ func SubsFetchPlanWithContext(ctx context.Context, xApiVersion *string, planId s
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/plans/{plan_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"plan_id"+"}", url.PathEscape(parameterValueToString(planId, "planId")), -1)
@@ -1942,7 +2046,6 @@ func SubsFetchPlanWithContext(ctx context.Context, xApiVersion *string, planId s
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -1950,27 +2053,29 @@ func SubsFetchPlanWithContext(ctx context.Context, xApiVersion *string, planId s
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2087,16 +2192,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SubscriptionEntity
-func SubsFetchSubscription(xApiVersion *string, subscriptionId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchSubscription(subscriptionId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SubscriptionEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchSubscription")
 	}
 
@@ -2107,7 +2221,7 @@ func SubsFetchSubscription(xApiVersion *string, subscriptionId string,  xRequest
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -2136,7 +2250,6 @@ func SubsFetchSubscription(xApiVersion *string, subscriptionId string,  xRequest
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2144,24 +2257,26 @@ func SubsFetchSubscription(xApiVersion *string, subscriptionId string,  xRequest
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -2277,7 +2392,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SubscriptionEntity
-func SubsFetchSubscriptionWithContext(ctx context.Context, xApiVersion *string, subscriptionId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchSubscriptionWithContext(ctx context.Context, subscriptionId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2285,8 +2400,18 @@ func SubsFetchSubscriptionWithContext(ctx context.Context, xApiVersion *string, 
 		localVarReturnValue  *SubscriptionEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchSubscription")
 	}
 
@@ -2295,7 +2420,7 @@ func SubsFetchSubscriptionWithContext(ctx context.Context, xApiVersion *string, 
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -2324,7 +2449,6 @@ func SubsFetchSubscriptionWithContext(ctx context.Context, xApiVersion *string, 
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2332,27 +2456,29 @@ func SubsFetchSubscriptionWithContext(ctx context.Context, xApiVersion *string, 
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2469,16 +2595,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SubscriptionPaymentEntity
-func SubsFetchSubscriptionPayment(xApiVersion *string, subscriptionId string, paymentId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchSubscriptionPayment(subscriptionId string, paymentId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SubscriptionPaymentEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchSubscriptionPayment")
 	}
 
@@ -2489,7 +2624,7 @@ func SubsFetchSubscriptionPayment(xApiVersion *string, subscriptionId string, pa
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments/{payment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -2519,7 +2654,6 @@ func SubsFetchSubscriptionPayment(xApiVersion *string, subscriptionId string, pa
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2527,24 +2661,26 @@ func SubsFetchSubscriptionPayment(xApiVersion *string, subscriptionId string, pa
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -2660,7 +2796,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SubscriptionPaymentEntity
-func SubsFetchSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *string, subscriptionId string, paymentId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchSubscriptionPaymentWithContext(ctx context.Context, subscriptionId string, paymentId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2668,8 +2804,18 @@ func SubsFetchSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *s
 		localVarReturnValue  *SubscriptionPaymentEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchSubscriptionPayment")
 	}
 
@@ -2678,7 +2824,7 @@ func SubsFetchSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *s
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments/{payment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -2708,7 +2854,6 @@ func SubsFetchSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *s
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2716,27 +2861,29 @@ func SubsFetchSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *s
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2853,16 +3000,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []SubscriptionPaymentEntity
-func SubsFetchSubscriptionPayments(xApiVersion *string, subscriptionId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SubscriptionPaymentEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchSubscriptionPayments(subscriptionId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SubscriptionPaymentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  []SubscriptionPaymentEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchSubscriptionPayments")
 	}
 
@@ -2873,7 +3029,7 @@ func SubsFetchSubscriptionPayments(xApiVersion *string, subscriptionId string,  
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -2902,7 +3058,6 @@ func SubsFetchSubscriptionPayments(xApiVersion *string, subscriptionId string,  
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -2910,24 +3065,26 @@ func SubsFetchSubscriptionPayments(xApiVersion *string, subscriptionId string,  
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3058,7 +3215,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []SubscriptionPaymentEntity
-func SubsFetchSubscriptionPaymentsWithContext(ctx context.Context, xApiVersion *string, subscriptionId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SubscriptionPaymentEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchSubscriptionPaymentsWithContext(ctx context.Context, subscriptionId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]SubscriptionPaymentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3066,8 +3223,18 @@ func SubsFetchSubscriptionPaymentsWithContext(ctx context.Context, xApiVersion *
 		localVarReturnValue  []SubscriptionPaymentEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchSubscriptionPayments")
 	}
 
@@ -3076,7 +3243,7 @@ func SubsFetchSubscriptionPaymentsWithContext(ctx context.Context, xApiVersion *
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -3105,7 +3272,6 @@ func SubsFetchSubscriptionPaymentsWithContext(ctx context.Context, xApiVersion *
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3113,27 +3279,29 @@ func SubsFetchSubscriptionPaymentsWithContext(ctx context.Context, xApiVersion *
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3265,16 +3433,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SubscriptionPaymentRefundEntity
-func SubsFetchSubscriptionRefund(xApiVersion *string, subscriptionId string, refundId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentRefundEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchSubscriptionRefund(subscriptionId string, refundId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentRefundEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SubscriptionPaymentRefundEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchSubscriptionRefund")
 	}
 
@@ -3285,7 +3462,7 @@ func SubsFetchSubscriptionRefund(xApiVersion *string, subscriptionId string, ref
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/refunds/{refund_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -3315,7 +3492,6 @@ func SubsFetchSubscriptionRefund(xApiVersion *string, subscriptionId string, ref
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3323,24 +3499,26 @@ func SubsFetchSubscriptionRefund(xApiVersion *string, subscriptionId string, ref
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3456,7 +3634,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SubscriptionPaymentRefundEntity
-func SubsFetchSubscriptionRefundWithContext(ctx context.Context, xApiVersion *string, subscriptionId string, refundId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentRefundEntity, *http.Response, error) {
+func (_this *Cashfree) SubsFetchSubscriptionRefundWithContext(ctx context.Context, subscriptionId string, refundId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentRefundEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -3464,8 +3642,18 @@ func SubsFetchSubscriptionRefundWithContext(ctx context.Context, xApiVersion *st
 		localVarReturnValue  *SubscriptionPaymentRefundEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsFetchSubscriptionRefund")
 	}
 
@@ -3474,7 +3662,7 @@ func SubsFetchSubscriptionRefundWithContext(ctx context.Context, xApiVersion *st
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/refunds/{refund_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -3504,7 +3692,6 @@ func SubsFetchSubscriptionRefundWithContext(ctx context.Context, xApiVersion *st
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3512,27 +3699,29 @@ func SubsFetchSubscriptionRefundWithContext(ctx context.Context, xApiVersion *st
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3649,16 +3838,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SubscriptionEntity
-func SubsManageSubscription(xApiVersion *string, subscriptionId string, manageSubscriptionRequest *ManageSubscriptionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
+func (_this *Cashfree) SubsManageSubscription(subscriptionId string, manageSubscriptionRequest *ManageSubscriptionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SubscriptionEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsManageSubscription")
 	}
 
@@ -3669,7 +3867,7 @@ func SubsManageSubscription(xApiVersion *string, subscriptionId string, manageSu
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/manage"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -3701,7 +3899,6 @@ func SubsManageSubscription(xApiVersion *string, subscriptionId string, manageSu
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3711,24 +3908,26 @@ func SubsManageSubscription(xApiVersion *string, subscriptionId string, manageSu
 	// body params
 	localVarPostBody = manageSubscriptionRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -3859,7 +4058,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SubscriptionEntity
-func SubsManageSubscriptionWithContext(ctx context.Context, xApiVersion *string, subscriptionId string, manageSubscriptionRequest *ManageSubscriptionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
+func (_this *Cashfree) SubsManageSubscriptionWithContext(ctx context.Context, subscriptionId string, manageSubscriptionRequest *ManageSubscriptionRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -3867,8 +4066,18 @@ func SubsManageSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 		localVarReturnValue  *SubscriptionEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsManageSubscription")
 	}
 
@@ -3877,7 +4086,7 @@ func SubsManageSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/manage"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -3909,7 +4118,6 @@ func SubsManageSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -3919,27 +4127,29 @@ func SubsManageSubscriptionWithContext(ctx context.Context, xApiVersion *string,
 	// body params
 	localVarPostBody = manageSubscriptionRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4071,16 +4281,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SubscriptionPaymentEntity
-func SubsManageSubscriptionPayment(xApiVersion *string, subscriptionId string, paymentId string, manageSubscriptionPaymentRequest *ManageSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentEntity, *http.Response, error) {
+func (_this *Cashfree) SubsManageSubscriptionPayment(subscriptionId string, paymentId string, manageSubscriptionPaymentRequest *ManageSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SubscriptionPaymentEntity
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsManageSubscriptionPayment")
 	}
 
@@ -4091,7 +4310,7 @@ func SubsManageSubscriptionPayment(xApiVersion *string, subscriptionId string, p
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments/{payment_id}/manage"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -4124,7 +4343,6 @@ func SubsManageSubscriptionPayment(xApiVersion *string, subscriptionId string, p
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4134,24 +4352,26 @@ func SubsManageSubscriptionPayment(xApiVersion *string, subscriptionId string, p
 	// body params
 	localVarPostBody = manageSubscriptionPaymentRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -4267,7 +4487,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SubscriptionPaymentEntity
-func SubsManageSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *string, subscriptionId string, paymentId string, manageSubscriptionPaymentRequest *ManageSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentEntity, *http.Response, error) {
+func (_this *Cashfree) SubsManageSubscriptionPaymentWithContext(ctx context.Context, subscriptionId string, paymentId string, manageSubscriptionPaymentRequest *ManageSubscriptionPaymentRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionPaymentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4275,8 +4495,18 @@ func SubsManageSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *
 		localVarReturnValue  *SubscriptionPaymentEntity
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubsManageSubscriptionPayment")
 	}
 
@@ -4285,7 +4515,7 @@ func SubsManageSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/{subscription_id}/payments/{payment_id}/manage"
 	localVarPath = strings.Replace(localVarPath, "{"+"subscription_id"+"}", url.PathEscape(parameterValueToString(subscriptionId, "subscriptionId")), -1)
@@ -4318,7 +4548,6 @@ func SubsManageSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4328,27 +4557,29 @@ func SubsManageSubscriptionPaymentWithContext(ctx context.Context, xApiVersion *
 	// body params
 	localVarPostBody = manageSubscriptionPaymentRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4465,16 +4696,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return UploadPnachImageResponse
-func SubscriptionDocumentUpload(xApiVersion *string, paymentId string, file *os.File, paymentId2 *string, action *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*UploadPnachImageResponse, *http.Response, error) {
+func (_this *Cashfree) SubscriptionDocumentUpload(paymentId string, file *os.File, paymentId2 *string, action *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*UploadPnachImageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *UploadPnachImageResponse
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubscriptionDocumentUpload")
 	}
 
@@ -4485,7 +4725,7 @@ func SubscriptionDocumentUpload(xApiVersion *string, paymentId string, file *os.
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/pay/documents/{payment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"payment_id"+"}", url.PathEscape(parameterValueToString(paymentId, "paymentId")), -1)
@@ -4523,7 +4763,6 @@ func SubscriptionDocumentUpload(xApiVersion *string, paymentId string, file *os.
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4550,24 +4789,26 @@ func SubscriptionDocumentUpload(xApiVersion *string, paymentId string, file *os.
 	parameterAddToHeaderOrQuery(localVarFormParams, "payment_id", paymentId2, "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "action", action, "")
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -4698,7 +4939,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return UploadPnachImageResponse
-func SubscriptionDocumentUploadWithContext(ctx context.Context, xApiVersion *string, paymentId string, file *os.File, paymentId2 *string, action *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*UploadPnachImageResponse, *http.Response, error) {
+func (_this *Cashfree) SubscriptionDocumentUploadWithContext(ctx context.Context, paymentId string, file *os.File, paymentId2 *string, action *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*UploadPnachImageResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -4706,8 +4947,18 @@ func SubscriptionDocumentUploadWithContext(ctx context.Context, xApiVersion *str
 		localVarReturnValue  *UploadPnachImageResponse
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubscriptionDocumentUpload")
 	}
 
@@ -4716,7 +4967,7 @@ func SubscriptionDocumentUploadWithContext(ctx context.Context, xApiVersion *str
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/pay/documents/{payment_id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"payment_id"+"}", url.PathEscape(parameterValueToString(paymentId, "paymentId")), -1)
@@ -4754,7 +5005,6 @@ func SubscriptionDocumentUploadWithContext(ctx context.Context, xApiVersion *str
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4781,27 +5031,29 @@ func SubscriptionDocumentUploadWithContext(ctx context.Context, xApiVersion *str
 	parameterAddToHeaderOrQuery(localVarFormParams, "payment_id", paymentId2, "")
 	parameterAddToHeaderOrQuery(localVarFormParams, "action", action, "")
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4933,16 +5185,25 @@ if XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return SubscriptionEligibilityResponse
-func SubscriptionEligibility(xApiVersion *string, subscriptionEligibilityRequest *SubscriptionEligibilityRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEligibilityResponse, *http.Response, error) {
+func (_this *Cashfree) SubscriptionEligibility(subscriptionEligibilityRequest *SubscriptionEligibilityRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEligibilityResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *SubscriptionEligibilityResponse
 	)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubscriptionEligibility")
 	}
 
@@ -4953,7 +5214,7 @@ func SubscriptionEligibility(xApiVersion *string, subscriptionEligibilityRequest
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/eligibility/payment_methods"
 
@@ -4984,7 +5245,6 @@ func SubscriptionEligibility(xApiVersion *string, subscriptionEligibilityRequest
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -4994,24 +5254,26 @@ func SubscriptionEligibility(xApiVersion *string, subscriptionEligibilityRequest
 	// body params
 	localVarPostBody = subscriptionEligibilityRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
@@ -5142,7 +5404,7 @@ if XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return SubscriptionEligibilityResponse
-func SubscriptionEligibilityWithContext(ctx context.Context, xApiVersion *string, subscriptionEligibilityRequest *SubscriptionEligibilityRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEligibilityResponse, *http.Response, error) {
+func (_this *Cashfree) SubscriptionEligibilityWithContext(ctx context.Context, subscriptionEligibilityRequest *SubscriptionEligibilityRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SubscriptionEligibilityResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -5150,8 +5412,18 @@ func SubscriptionEligibilityWithContext(ctx context.Context, xApiVersion *string
 		localVarReturnValue  *SubscriptionEligibilityResponse
 	)
 
-	if XEnableErrorAnalytics {
-		SetupSentry(XEnvironment)
+	if _this.XEnableErrorAnalytics == nil {
+		flag := false
+		_this.XEnableErrorAnalytics = &flag
+	}
+
+	if _this.XEnvironment == nil {
+		e := CFEnvironment.SANDBOX
+		_this.XEnvironment = &e
+	}
+
+	if *_this.XEnableErrorAnalytics {
+		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("SubscriptionEligibility")
 	}
 
@@ -5160,7 +5432,7 @@ func SubscriptionEligibilityWithContext(ctx context.Context, xApiVersion *string
 		client.cfg.HTTPClient = httpClient
 	}
 
-	localBasePath := client.cfg.Servers[int(XEnvironment)].URL
+	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
 	localVarPath := localBasePath + "/subscriptions/eligibility/payment_methods"
 
@@ -5191,7 +5463,6 @@ func SubscriptionEligibilityWithContext(ctx context.Context, xApiVersion *string
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", xApiVersion, "")
 	if xRequestId != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-request-id", xRequestId, "")
 	}
@@ -5201,27 +5472,29 @@ func SubscriptionEligibilityWithContext(ctx context.Context, xApiVersion *string
 	// body params
 	localVarPostBody = subscriptionEligibilityRequest
 
-if XPartnerMerchantId != nil {
-	localVarHeaderParams["x-partner-merchantid"] = *XPartnerMerchantId
+parameterAddToHeaderOrQuery(localVarHeaderParams, "x-api-version", XApiVersion, "")
+
+if _this.XPartnerMerchantId != nil {
+	localVarHeaderParams["x-partner-merchantid"] = *_this.XPartnerMerchantId
 }
 
-if XClientId != nil {
-	localVarHeaderParams["x-client-id"] = *XClientId
+if _this.XClientId != nil {
+	localVarHeaderParams["x-client-id"] = *_this.XClientId
 }
 
-if XClientSignature != nil {
-	localVarHeaderParams["x-client-signature"] = *XClientSignature
+if _this.XClientSignature != nil {
+	localVarHeaderParams["x-client-signature"] = *_this.XClientSignature
 }
 
-if XClientSecret != nil {
-	localVarHeaderParams["x-client-secret"] = *XClientSecret
+if _this.XClientSecret != nil {
+	localVarHeaderParams["x-client-secret"] = *_this.XClientSecret
 }
 
-if XPartnerApiKey != nil {
-	localVarHeaderParams["x-partner-apikey"] = *XPartnerApiKey
+if _this.XPartnerApiKey != nil {
+	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-4.3.10"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

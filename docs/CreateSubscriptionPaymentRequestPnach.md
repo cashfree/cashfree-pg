@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | Pointer to **string** | Channel. can be post | [optional] 
-**AccountHolderName** | Pointer to **string** | Account holder name | [optional] 
-**AccountNumber** | Pointer to **string** | Account number | [optional] 
 **AccountBankCode** | Pointer to **string** | Account bank code | [optional] 
-**AccountType** | Pointer to **string** | Account type | [optional] 
+**AccountHolderName** | Pointer to **string** | Account holder name | [optional] 
 **AccountIfsc** | Pointer to **string** | Account IFSC | [optional] 
+**AccountNumber** | Pointer to **string** | Account number | [optional] 
+**AccountType** | Pointer to **string** | Account type | [optional] 
+**Channel** | Pointer to **string** | Channel. can be post | [optional] 
 **MandateCreationDate** | Pointer to **string** | Mandate creation date | [optional] 
 **MandateStartDate** | Pointer to **string** | Mandate start date | [optional] 
 
@@ -31,81 +31,6 @@ will change when the set of required properties is changed
 NewCreateSubscriptionPaymentRequestPnachWithDefaults instantiates a new CreateSubscriptionPaymentRequestPnach object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetChannel
-
-`func (o *CreateSubscriptionPaymentRequestPnach) GetChannel() string`
-
-GetChannel returns the Channel field if non-nil, zero value otherwise.
-
-### GetChannelOk
-
-`func (o *CreateSubscriptionPaymentRequestPnach) GetChannelOk() (*string, bool)`
-
-GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetChannel
-
-`func (o *CreateSubscriptionPaymentRequestPnach) SetChannel(v string)`
-
-SetChannel sets Channel field to given value.
-
-### HasChannel
-
-`func (o *CreateSubscriptionPaymentRequestPnach) HasChannel() bool`
-
-HasChannel returns a boolean if a field has been set.
-
-### GetAccountHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountHolderName() string`
-
-GetAccountHolderName returns the AccountHolderName field if non-nil, zero value otherwise.
-
-### GetAccountHolderNameOk
-
-`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountHolderNameOk() (*string, bool)`
-
-GetAccountHolderNameOk returns a tuple with the AccountHolderName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPnach) SetAccountHolderName(v string)`
-
-SetAccountHolderName sets AccountHolderName field to given value.
-
-### HasAccountHolderName
-
-`func (o *CreateSubscriptionPaymentRequestPnach) HasAccountHolderName() bool`
-
-HasAccountHolderName returns a boolean if a field has been set.
-
-### GetAccountNumber
-
-`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountNumber() string`
-
-GetAccountNumber returns the AccountNumber field if non-nil, zero value otherwise.
-
-### GetAccountNumberOk
-
-`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountNumberOk() (*string, bool)`
-
-GetAccountNumberOk returns a tuple with the AccountNumber field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountNumber
-
-`func (o *CreateSubscriptionPaymentRequestPnach) SetAccountNumber(v string)`
-
-SetAccountNumber sets AccountNumber field to given value.
-
-### HasAccountNumber
-
-`func (o *CreateSubscriptionPaymentRequestPnach) HasAccountNumber() bool`
-
-HasAccountNumber returns a boolean if a field has been set.
 
 ### GetAccountBankCode
 
@@ -132,30 +57,30 @@ SetAccountBankCode sets AccountBankCode field to given value.
 
 HasAccountBankCode returns a boolean if a field has been set.
 
-### GetAccountType
+### GetAccountHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountType() string`
+`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountHolderName() string`
 
-GetAccountType returns the AccountType field if non-nil, zero value otherwise.
+GetAccountHolderName returns the AccountHolderName field if non-nil, zero value otherwise.
 
-### GetAccountTypeOk
+### GetAccountHolderNameOk
 
-`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountTypeOk() (*string, bool)`
+`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountHolderNameOk() (*string, bool)`
 
-GetAccountTypeOk returns a tuple with the AccountType field if it's non-nil, zero value otherwise
+GetAccountHolderNameOk returns a tuple with the AccountHolderName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAccountType
+### SetAccountHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPnach) SetAccountType(v string)`
+`func (o *CreateSubscriptionPaymentRequestPnach) SetAccountHolderName(v string)`
 
-SetAccountType sets AccountType field to given value.
+SetAccountHolderName sets AccountHolderName field to given value.
 
-### HasAccountType
+### HasAccountHolderName
 
-`func (o *CreateSubscriptionPaymentRequestPnach) HasAccountType() bool`
+`func (o *CreateSubscriptionPaymentRequestPnach) HasAccountHolderName() bool`
 
-HasAccountType returns a boolean if a field has been set.
+HasAccountHolderName returns a boolean if a field has been set.
 
 ### GetAccountIfsc
 
@@ -181,6 +106,81 @@ SetAccountIfsc sets AccountIfsc field to given value.
 `func (o *CreateSubscriptionPaymentRequestPnach) HasAccountIfsc() bool`
 
 HasAccountIfsc returns a boolean if a field has been set.
+
+### GetAccountNumber
+
+`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountNumber() string`
+
+GetAccountNumber returns the AccountNumber field if non-nil, zero value otherwise.
+
+### GetAccountNumberOk
+
+`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountNumberOk() (*string, bool)`
+
+GetAccountNumberOk returns a tuple with the AccountNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountNumber
+
+`func (o *CreateSubscriptionPaymentRequestPnach) SetAccountNumber(v string)`
+
+SetAccountNumber sets AccountNumber field to given value.
+
+### HasAccountNumber
+
+`func (o *CreateSubscriptionPaymentRequestPnach) HasAccountNumber() bool`
+
+HasAccountNumber returns a boolean if a field has been set.
+
+### GetAccountType
+
+`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountType() string`
+
+GetAccountType returns the AccountType field if non-nil, zero value otherwise.
+
+### GetAccountTypeOk
+
+`func (o *CreateSubscriptionPaymentRequestPnach) GetAccountTypeOk() (*string, bool)`
+
+GetAccountTypeOk returns a tuple with the AccountType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccountType
+
+`func (o *CreateSubscriptionPaymentRequestPnach) SetAccountType(v string)`
+
+SetAccountType sets AccountType field to given value.
+
+### HasAccountType
+
+`func (o *CreateSubscriptionPaymentRequestPnach) HasAccountType() bool`
+
+HasAccountType returns a boolean if a field has been set.
+
+### GetChannel
+
+`func (o *CreateSubscriptionPaymentRequestPnach) GetChannel() string`
+
+GetChannel returns the Channel field if non-nil, zero value otherwise.
+
+### GetChannelOk
+
+`func (o *CreateSubscriptionPaymentRequestPnach) GetChannelOk() (*string, bool)`
+
+GetChannelOk returns a tuple with the Channel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannel
+
+`func (o *CreateSubscriptionPaymentRequestPnach) SetChannel(v string)`
+
+SetChannel sets Channel field to given value.
+
+### HasChannel
+
+`func (o *CreateSubscriptionPaymentRequestPnach) HasChannel() bool`
+
+HasChannel returns a boolean if a field has been set.
 
 ### GetMandateCreationDate
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **VendorId** | Pointer to **string** | Unique identifier for the vendor. | [optional] 
 **SettlementId** | Pointer to **int64** | Settlement ID associated with the vendor. | [optional] 
 **SettlementAmount** | Pointer to **float32** | Settlement amount allocated to the vendor. | [optional] 
-**SettlementEligibilityDate** | Pointer to **time.Time** | Date and time when the vendor is eligible for the settlement. | [optional] 
+**SettlementEligibilityDate** | Pointer to **string** | Date and time when the vendor is eligible for the settlement. | [optional] 
 
 ## Methods
 
@@ -105,20 +105,20 @@ HasSettlementAmount returns a boolean if a field has been set.
 
 ### GetSettlementEligibilityDate
 
-`func (o *SplitOrderReconSuccessResponseVendorsInner) GetSettlementEligibilityDate() time.Time`
+`func (o *SplitOrderReconSuccessResponseVendorsInner) GetSettlementEligibilityDate() string`
 
 GetSettlementEligibilityDate returns the SettlementEligibilityDate field if non-nil, zero value otherwise.
 
 ### GetSettlementEligibilityDateOk
 
-`func (o *SplitOrderReconSuccessResponseVendorsInner) GetSettlementEligibilityDateOk() (*time.Time, bool)`
+`func (o *SplitOrderReconSuccessResponseVendorsInner) GetSettlementEligibilityDateOk() (*string, bool)`
 
 GetSettlementEligibilityDateOk returns a tuple with the SettlementEligibilityDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSettlementEligibilityDate
 
-`func (o *SplitOrderReconSuccessResponseVendorsInner) SetSettlementEligibilityDate(v time.Time)`
+`func (o *SplitOrderReconSuccessResponseVendorsInner) SetSettlementEligibilityDate(v string)`
 
 SetSettlementEligibilityDate sets SettlementEligibilityDate field to given value.
 
