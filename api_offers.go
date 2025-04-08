@@ -34,11 +34,6 @@ func (_this *Cashfree) PGCreateOffer(createOfferRequest *CreateOfferRequest,  xR
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGCreateOffer")
@@ -269,11 +264,6 @@ func (_this *Cashfree) PGCreateOfferWithContext(ctx context.Context, createOffer
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGCreateOffer")
@@ -346,7 +336,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -503,11 +493,6 @@ func (_this *Cashfree) PGFetchOffer(offerId string,  xRequestId *string, xIdempo
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -736,11 +721,6 @@ func (_this *Cashfree) PGFetchOfferWithContext(ctx context.Context, offerId stri
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchOffer")
@@ -809,7 +789,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -34,11 +34,6 @@ func (_this *Cashfree) PGOrderCreateRefund(orderId string, orderCreateRefundRequ
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGOrderCreateRefund")
@@ -285,11 +280,6 @@ func (_this *Cashfree) PGOrderCreateRefundWithContext(ctx context.Context, order
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGOrderCreateRefund")
@@ -363,7 +353,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -535,11 +525,6 @@ func (_this *Cashfree) PGOrderFetchRefund(orderId string, refundId string,  xReq
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -784,11 +769,6 @@ func (_this *Cashfree) PGOrderFetchRefundWithContext(ctx context.Context, orderI
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGOrderFetchRefund")
@@ -858,7 +838,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1030,11 +1010,6 @@ func (_this *Cashfree) PGOrderFetchRefunds(orderId string,  xRequestId *string, 
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -1263,11 +1238,6 @@ func (_this *Cashfree) PGOrderFetchRefundsWithContext(ctx context.Context, order
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGOrderFetchRefunds")
@@ -1336,7 +1306,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -34,11 +34,6 @@ func (_this *Cashfree) PGCreateOrder(createOrderRequest *CreateOrderRequest,  xR
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGCreateOrder")
@@ -269,11 +264,6 @@ func (_this *Cashfree) PGCreateOrderWithContext(ctx context.Context, createOrder
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGCreateOrder")
@@ -346,7 +336,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -503,11 +493,6 @@ func (_this *Cashfree) PGFetchOrder(orderId string,  xRequestId *string, xIdempo
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -736,11 +721,6 @@ func (_this *Cashfree) PGFetchOrderWithContext(ctx context.Context, orderId stri
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchOrder")
@@ -809,7 +789,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -966,11 +946,6 @@ func (_this *Cashfree) PGFetchOrderExtendedData(orderId string,  xRequestId *str
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -1199,11 +1174,6 @@ func (_this *Cashfree) PGFetchOrderExtendedDataWithContext(ctx context.Context, 
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGFetchOrderExtendedData")
@@ -1272,7 +1242,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1429,11 +1399,6 @@ func (_this *Cashfree) PGTerminateOrder(orderId string, terminateOrderRequest *T
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -1667,11 +1632,6 @@ func (_this *Cashfree) PGTerminateOrderWithContext(ctx context.Context, orderId 
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGTerminateOrder")
@@ -1745,7 +1705,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1902,11 +1862,6 @@ func (_this *Cashfree) PGUpdateOrderExtendedData(orderId string, updateOrderExte
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -2140,11 +2095,6 @@ func (_this *Cashfree) PGUpdateOrderExtendedDataWithContext(ctx context.Context,
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGUpdateOrderExtendedData")
@@ -2218,7 +2168,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -35,11 +35,6 @@ func (_this *Cashfree) PGESCreateAdjustment(vendorId string,  xRequestId *string
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESCreateAdjustment")
@@ -178,11 +173,6 @@ func (_this *Cashfree) PGESCreateAdjustmentWithContext(ctx context.Context, vend
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESCreateAdjustment")
@@ -253,7 +243,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -320,11 +310,6 @@ func (_this *Cashfree) PGESCreateOnDemandTransfer(vendorId string,  xRequestId *
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -465,11 +450,6 @@ func (_this *Cashfree) PGESCreateOnDemandTransferWithContext(ctx context.Context
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESCreateOnDemandTransfer")
@@ -540,7 +520,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -607,11 +587,6 @@ func (_this *Cashfree) PGESCreateVendors( xRequestId *string, xIdempotencyKey *s
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -751,11 +726,6 @@ func (_this *Cashfree) PGESCreateVendorsWithContext(ctx context.Context,  xReque
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESCreateVendors")
@@ -825,7 +795,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -892,11 +862,6 @@ func (_this *Cashfree) PGESDownloadVendorsDocs(docType string, vendorId string, 
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -1022,11 +987,6 @@ func (_this *Cashfree) PGESDownloadVendorsDocsWithContext(ctx context.Context, d
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESDownloadVendorsDocs")
@@ -1096,7 +1056,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1149,11 +1109,6 @@ func (_this *Cashfree) PGESFetchVendors(vendorId string,  xRequestId *string, xI
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -1292,11 +1247,6 @@ func (_this *Cashfree) PGESFetchVendorsWithContext(ctx context.Context, vendorId
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESFetchVendors")
@@ -1365,7 +1315,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1432,11 +1382,6 @@ func (_this *Cashfree) PGESGetVendorBalance(vendorId string,  xRequestId *string
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -1575,11 +1520,6 @@ func (_this *Cashfree) PGESGetVendorBalanceWithContext(ctx context.Context, vend
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESGetVendorBalance")
@@ -1648,7 +1588,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1715,11 +1655,6 @@ func (_this *Cashfree) PGESGetVendorBalanceTransferCharges(amount float32, rateT
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -1862,11 +1797,6 @@ func (_this *Cashfree) PGESGetVendorBalanceTransferChargesWithContext(ctx contex
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESGetVendorBalanceTransferCharges")
@@ -1939,7 +1869,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2006,11 +1936,6 @@ func (_this *Cashfree) PGESGetVendorsDocs(vendorId string,  xRequestId *string, 
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -2149,11 +2074,6 @@ func (_this *Cashfree) PGESGetVendorsDocsWithContext(ctx context.Context, vendor
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESGetVendorsDocs")
@@ -2222,7 +2142,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2289,11 +2209,6 @@ func (_this *Cashfree) PGESOrderRecon( xRequestId *string, xIdempotencyKey *stri
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -2463,11 +2378,6 @@ func (_this *Cashfree) PGESOrderReconWithContext(ctx context.Context,  xRequestI
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESOrderRecon")
@@ -2537,7 +2447,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2634,11 +2544,6 @@ func (_this *Cashfree) PGESUpdateVendors(vendorId string,  xRequestId *string, x
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -2779,11 +2684,6 @@ func (_this *Cashfree) PGESUpdateVendorsWithContext(ctx context.Context, vendorI
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESUpdateVendors")
@@ -2854,7 +2754,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2921,11 +2821,6 @@ func (_this *Cashfree) PGESUploadVendorsDocs(vendorId string,  xRequestId *strin
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -3087,11 +2982,6 @@ func (_this *Cashfree) PGESUploadVendorsDocsWithContext(ctx context.Context, ven
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGESUploadVendorsDocs")
@@ -3183,7 +3073,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3250,11 +3140,6 @@ func (_this *Cashfree) PGOrderSplitAfterPayment(orderId string,  xRequestId *str
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -3425,11 +3310,6 @@ func (_this *Cashfree) PGOrderSplitAfterPaymentWithContext(ctx context.Context, 
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGOrderSplitAfterPayment")
@@ -3500,7 +3380,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3597,11 +3477,6 @@ func (_this *Cashfree) PGOrderStaticSplit( xRequestId *string, xIdempotencyKey *
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -3741,11 +3616,6 @@ func (_this *Cashfree) PGOrderStaticSplitWithContext(ctx context.Context,  xRequ
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGOrderStaticSplit")
@@ -3815,7 +3685,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3882,11 +3752,6 @@ func (_this *Cashfree) PGSplitOrderRecon(orderId string,  xRequestId *string, xI
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
 		_this.XEnableErrorAnalytics = &flag
-	}
-
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
 	}
 
 	if *_this.XEnableErrorAnalytics {
@@ -4025,11 +3890,6 @@ func (_this *Cashfree) PGSplitOrderReconWithContext(ctx context.Context, orderId
 		_this.XEnableErrorAnalytics = &flag
 	}
 
-	if _this.XEnvironment == nil {
-		e := CFEnvironment.SANDBOX
-		_this.XEnvironment = &e
-	}
-
 	if *_this.XEnableErrorAnalytics {
 		SetupSentry(*_this.XEnvironment)
 		defer CaptureError("PGSplitOrderRecon")
@@ -4098,7 +3958,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.2"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.3"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
