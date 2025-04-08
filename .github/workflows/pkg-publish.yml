@@ -31,19 +31,19 @@ jobs:
           git config --global user.name "Cashfree Payments"
           go mod tidy
           GOPROXY=proxy.golang.org go list -m github.com/cashfree/cashfree-pg/v5@"${{ steps.get-latest-tag.outputs.tag }}"
-          curl --location --request POST 'https://api.github.com/repos/cashfree/cashfree-pg/releases' \
-          --header 'Accept: application/vnd.github+json' \
-          --header "Authorization: Bearer ${{ secrets.TOKEN_GITHUB }}" \
-          --header 'X-GitHub-Api-Version: 2022-11-28' \
-          --header 'Content-Type: application/json' \
-          --data-raw '{
-              "tag_name": "${{ steps.get-latest-tag.outputs.tag }}",
-              "target_commitish": "main",
-              "name": "${{ steps.get-latest-tag.outputs.tag }}",
-              "body": "Release version ${{ steps.get-latest-tag.outputs.tag }}",
-              "draft": false,
-              "prerelease": false,
-              "generate_release_notes": false
-          }'
+          # curl --location --request POST 'https://api.github.com/repos/cashfree/cashfree-pg/releases' \
+          # --header 'Accept: application/vnd.github+json' \
+          # --header "Authorization: Bearer ${{ secrets.TOKEN_GITHUB }}" \
+          # --header 'X-GitHub-Api-Version: 2022-11-28' \
+          # --header 'Content-Type: application/json' \
+          # --data-raw '{
+          #     "tag_name": "${{ steps.get-latest-tag.outputs.tag }}",
+          #     "target_commitish": "main",
+          #     "name": "${{ steps.get-latest-tag.outputs.tag }}",
+          #     "body": "Release version ${{ steps.get-latest-tag.outputs.tag }}",
+          #     "draft": false,
+          #     "prerelease": false,
+          #     "generate_release_notes": false
+          # }'
         env:
           GOPROXY: proxy.golang.org
