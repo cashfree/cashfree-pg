@@ -53,9 +53,6 @@ func (_this *Cashfree) SposCreateTerminal(createTerminalRequest *CreateTerminalR
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createTerminalRequest == nil {
 		return localVarReturnValue, nil, reportError("createTerminalRequest is required and must be specified")
 	}
@@ -281,9 +278,6 @@ func (_this *Cashfree) SposCreateTerminalWithContext(ctx context.Context, create
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createTerminalRequest == nil {
 		return localVarReturnValue, nil, reportError("createTerminalRequest is required and must be specified")
 	}
@@ -336,7 +330,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -514,9 +508,6 @@ func (_this *Cashfree) SposCreateTerminalTransaction(createTerminalTransactionRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createTerminalTransactionRequest == nil {
 		return localVarReturnValue, nil, reportError("createTerminalTransactionRequest is required and must be specified")
 	}
@@ -742,9 +733,6 @@ func (_this *Cashfree) SposCreateTerminalTransactionWithContext(ctx context.Cont
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createTerminalTransactionRequest == nil {
 		return localVarReturnValue, nil, reportError("createTerminalTransactionRequest is required and must be specified")
 	}
@@ -797,7 +785,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -975,9 +963,6 @@ func (_this *Cashfree) SposDemapSoundboxVpa(demapSoundboxVpaRequest *DemapSoundb
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if demapSoundboxVpaRequest == nil {
 		return localVarReturnValue, nil, reportError("demapSoundboxVpaRequest is required and must be specified")
 	}
@@ -1203,9 +1188,6 @@ func (_this *Cashfree) SposDemapSoundboxVpaWithContext(ctx context.Context, dema
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if demapSoundboxVpaRequest == nil {
 		return localVarReturnValue, nil, reportError("demapSoundboxVpaRequest is required and must be specified")
 	}
@@ -1258,7 +1240,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1437,9 +1419,6 @@ func (_this *Cashfree) SposFetchTerminal(terminalPhoneNo string,  xRequestId *st
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1661,9 +1640,6 @@ func (_this *Cashfree) SposFetchTerminalWithContext(ctx context.Context, termina
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1711,7 +1687,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1889,9 +1865,6 @@ func (_this *Cashfree) SposFetchTerminalQRCodes(terminalPhoneNo *string, cfTermi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if terminalPhoneNo == nil {
 		return localVarReturnValue, nil, reportError("terminalPhoneNo is required and must be specified")
 	}
@@ -2120,9 +2093,6 @@ func (_this *Cashfree) SposFetchTerminalQRCodesWithContext(ctx context.Context, 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if terminalPhoneNo == nil {
 		return localVarReturnValue, nil, reportError("terminalPhoneNo is required and must be specified")
 	}
@@ -2178,7 +2148,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2356,9 +2326,6 @@ func (_this *Cashfree) SposFetchTerminalSoundboxVpa(deviceSerialNo *string, cfTe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if deviceSerialNo == nil {
 		return localVarReturnValue, nil, reportError("deviceSerialNo is required and must be specified")
 	}
@@ -2587,9 +2554,6 @@ func (_this *Cashfree) SposFetchTerminalSoundboxVpaWithContext(ctx context.Conte
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if deviceSerialNo == nil {
 		return localVarReturnValue, nil, reportError("deviceSerialNo is required and must be specified")
 	}
@@ -2645,7 +2609,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2824,9 +2788,6 @@ func (_this *Cashfree) SposFetchTerminalTransaction(utr *string, cfTerminalId st
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if utr == nil {
 		return localVarReturnValue, nil, reportError("utr is required and must be specified")
 	}
@@ -3052,9 +3013,6 @@ func (_this *Cashfree) SposFetchTerminalTransactionWithContext(ctx context.Conte
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if utr == nil {
 		return localVarReturnValue, nil, reportError("utr is required and must be specified")
 	}
@@ -3106,7 +3064,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3284,9 +3242,6 @@ func (_this *Cashfree) SposOnboardSoundboxVpa(onboardSoundboxVpaRequest *Onboard
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if onboardSoundboxVpaRequest == nil {
 		return localVarReturnValue, nil, reportError("onboardSoundboxVpaRequest is required and must be specified")
 	}
@@ -3512,9 +3467,6 @@ func (_this *Cashfree) SposOnboardSoundboxVpaWithContext(ctx context.Context, on
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if onboardSoundboxVpaRequest == nil {
 		return localVarReturnValue, nil, reportError("onboardSoundboxVpaRequest is required and must be specified")
 	}
@@ -3567,7 +3519,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3746,9 +3698,6 @@ func (_this *Cashfree) SposUpdateSoundboxVpa(cfTerminalId string, updateSoundbox
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if updateSoundboxVpaRequest == nil {
 		return localVarReturnValue, nil, reportError("updateSoundboxVpaRequest is required and must be specified")
 	}
@@ -3975,9 +3924,6 @@ func (_this *Cashfree) SposUpdateSoundboxVpaWithContext(ctx context.Context, cfT
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if updateSoundboxVpaRequest == nil {
 		return localVarReturnValue, nil, reportError("updateSoundboxVpaRequest is required and must be specified")
 	}
@@ -4030,7 +3976,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4209,9 +4155,6 @@ func (_this *Cashfree) SposUpdateTerminal(cfTerminalId string, updateTerminalReq
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if updateTerminalRequest == nil {
 		return localVarReturnValue, nil, reportError("updateTerminalRequest is required and must be specified")
 	}
@@ -4438,9 +4381,6 @@ func (_this *Cashfree) SposUpdateTerminalWithContext(ctx context.Context, cfTerm
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if updateTerminalRequest == nil {
 		return localVarReturnValue, nil, reportError("updateTerminalRequest is required and must be specified")
 	}
@@ -4493,7 +4433,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4672,9 +4612,6 @@ func (_this *Cashfree) SposUpdateTerminalStatus(cfTerminalId string, updateTermi
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if updateTerminalStatusRequest == nil {
 		return localVarReturnValue, nil, reportError("updateTerminalStatusRequest is required and must be specified")
 	}
@@ -4901,9 +4838,6 @@ func (_this *Cashfree) SposUpdateTerminalStatusWithContext(ctx context.Context, 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if updateTerminalStatusRequest == nil {
 		return localVarReturnValue, nil, reportError("updateTerminalStatusRequest is required and must be specified")
 	}
@@ -4956,7 +4890,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5135,9 +5069,6 @@ func (_this *Cashfree) SposUploadTerminalDocs(cfTerminalId string, uploadTermina
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if uploadTerminalDocs == nil {
 		return localVarReturnValue, nil, reportError("uploadTerminalDocs is required and must be specified")
 	}
@@ -5364,9 +5295,6 @@ func (_this *Cashfree) SposUploadTerminalDocsWithContext(ctx context.Context, cf
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if uploadTerminalDocs == nil {
 		return localVarReturnValue, nil, reportError("uploadTerminalDocs is required and must be specified")
 	}
@@ -5419,7 +5347,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

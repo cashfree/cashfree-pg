@@ -52,9 +52,6 @@ func (_this *Cashfree) PGCreateCustomer(createCustomerRequest *CreateCustomerReq
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createCustomerRequest == nil {
 		return localVarReturnValue, nil, reportError("createCustomerRequest is required and must be specified")
 	}
@@ -280,9 +277,6 @@ func (_this *Cashfree) PGCreateCustomerWithContext(ctx context.Context, createCu
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createCustomerRequest == nil {
 		return localVarReturnValue, nil, reportError("createCustomerRequest is required and must be specified")
 	}
@@ -335,7 +329,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
