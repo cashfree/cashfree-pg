@@ -54,9 +54,6 @@ func (_this *Cashfree) PGAuthorizeOrder(orderId string, authorizeOrderRequest *A
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if authorizeOrderRequest == nil {
 		return localVarReturnValue, nil, reportError("authorizeOrderRequest is required and must be specified")
 	}
@@ -298,9 +295,6 @@ func (_this *Cashfree) PGAuthorizeOrderWithContext(ctx context.Context, orderId 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if authorizeOrderRequest == nil {
 		return localVarReturnValue, nil, reportError("authorizeOrderRequest is required and must be specified")
 	}
@@ -353,7 +347,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -547,9 +541,6 @@ func (_this *Cashfree) PGOrderAuthenticatePayment(cfPaymentId string, orderAuthe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if orderAuthenticatePaymentRequest == nil {
 		return localVarReturnValue, nil, reportError("orderAuthenticatePaymentRequest is required and must be specified")
 	}
@@ -791,9 +782,6 @@ func (_this *Cashfree) PGOrderAuthenticatePaymentWithContext(ctx context.Context
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if orderAuthenticatePaymentRequest == nil {
 		return localVarReturnValue, nil, reportError("orderAuthenticatePaymentRequest is required and must be specified")
 	}
@@ -846,7 +834,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1041,9 +1029,6 @@ func (_this *Cashfree) PGOrderFetchPayment(orderId string, cfPaymentId string,  
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1281,9 +1266,6 @@ func (_this *Cashfree) PGOrderFetchPaymentWithContext(ctx context.Context, order
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1331,7 +1313,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1525,9 +1507,6 @@ func (_this *Cashfree) PGOrderFetchPayments(orderId string,  xRequestId *string,
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1764,9 +1743,6 @@ func (_this *Cashfree) PGOrderFetchPaymentsWithContext(ctx context.Context, orde
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1814,7 +1790,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2007,9 +1983,6 @@ func (_this *Cashfree) PGPayOrder(payOrderRequest *PayOrderRequest,  xRequestId 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if payOrderRequest == nil {
 		return localVarReturnValue, nil, reportError("payOrderRequest is required and must be specified")
 	}
@@ -2250,9 +2223,6 @@ func (_this *Cashfree) PGPayOrderWithContext(ctx context.Context, payOrderReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if payOrderRequest == nil {
 		return localVarReturnValue, nil, reportError("payOrderRequest is required and must be specified")
 	}
@@ -2305,7 +2275,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

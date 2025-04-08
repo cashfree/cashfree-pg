@@ -52,9 +52,6 @@ func (_this *Cashfree) PGEligibilityFetchCardlessEMI(eligibilityFetchCardlessEMI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if eligibilityFetchCardlessEMIRequest == nil {
 		return localVarReturnValue, nil, reportError("eligibilityFetchCardlessEMIRequest is required and must be specified")
 	}
@@ -295,9 +292,6 @@ func (_this *Cashfree) PGEligibilityFetchCardlessEMIWithContext(ctx context.Cont
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if eligibilityFetchCardlessEMIRequest == nil {
 		return localVarReturnValue, nil, reportError("eligibilityFetchCardlessEMIRequest is required and must be specified")
 	}
@@ -350,7 +344,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -543,9 +537,6 @@ func (_this *Cashfree) PGEligibilityFetchOffers(eligibilityFetchOffersRequest *E
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if eligibilityFetchOffersRequest == nil {
 		return localVarReturnValue, nil, reportError("eligibilityFetchOffersRequest is required and must be specified")
 	}
@@ -771,9 +762,6 @@ func (_this *Cashfree) PGEligibilityFetchOffersWithContext(ctx context.Context, 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if eligibilityFetchOffersRequest == nil {
 		return localVarReturnValue, nil, reportError("eligibilityFetchOffersRequest is required and must be specified")
 	}
@@ -826,7 +814,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1004,9 +992,6 @@ func (_this *Cashfree) PGEligibilityFetchPaylater(eligibilityFetchPaylaterReques
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if eligibilityFetchPaylaterRequest == nil {
 		return localVarReturnValue, nil, reportError("eligibilityFetchPaylaterRequest is required and must be specified")
 	}
@@ -1247,9 +1232,6 @@ func (_this *Cashfree) PGEligibilityFetchPaylaterWithContext(ctx context.Context
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if eligibilityFetchPaylaterRequest == nil {
 		return localVarReturnValue, nil, reportError("eligibilityFetchPaylaterRequest is required and must be specified")
 	}
@@ -1302,7 +1284,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1495,9 +1477,6 @@ func (_this *Cashfree) PGEligibilityFetchPaymentMethods(eligibilityFetchPaymentM
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if eligibilityFetchPaymentMethodsRequest == nil {
 		return localVarReturnValue, nil, reportError("eligibilityFetchPaymentMethodsRequest is required and must be specified")
 	}
@@ -1738,9 +1717,6 @@ func (_this *Cashfree) PGEligibilityFetchPaymentMethodsWithContext(ctx context.C
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if eligibilityFetchPaymentMethodsRequest == nil {
 		return localVarReturnValue, nil, reportError("eligibilityFetchPaymentMethodsRequest is required and must be specified")
 	}
@@ -1793,7 +1769,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

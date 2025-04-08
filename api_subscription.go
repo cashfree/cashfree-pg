@@ -54,9 +54,6 @@ func (_this *Cashfree) SubsCreatePayment(createSubscriptionPaymentRequest *Creat
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createSubscriptionPaymentRequest == nil {
 		return localVarReturnValue, nil, reportError("createSubscriptionPaymentRequest is required and must be specified")
 	}
@@ -267,9 +264,6 @@ func (_this *Cashfree) SubsCreatePaymentWithContext(ctx context.Context, createS
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createSubscriptionPaymentRequest == nil {
 		return localVarReturnValue, nil, reportError("createSubscriptionPaymentRequest is required and must be specified")
 	}
@@ -322,7 +316,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -485,9 +479,6 @@ func (_this *Cashfree) SubsCreatePlan(createPlanRequest *CreatePlanRequest,  xRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createPlanRequest == nil {
 		return localVarReturnValue, nil, reportError("createPlanRequest is required and must be specified")
 	}
@@ -698,9 +689,6 @@ func (_this *Cashfree) SubsCreatePlanWithContext(ctx context.Context, createPlan
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createPlanRequest == nil {
 		return localVarReturnValue, nil, reportError("createPlanRequest is required and must be specified")
 	}
@@ -753,7 +741,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -917,9 +905,6 @@ func (_this *Cashfree) SubsCreateRefund(subscriptionId string, createSubscriptio
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createSubscriptionRefundRequest == nil {
 		return localVarReturnValue, nil, reportError("createSubscriptionRefundRequest is required and must be specified")
 	}
@@ -1131,9 +1116,6 @@ func (_this *Cashfree) SubsCreateRefundWithContext(ctx context.Context, subscrip
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createSubscriptionRefundRequest == nil {
 		return localVarReturnValue, nil, reportError("createSubscriptionRefundRequest is required and must be specified")
 	}
@@ -1186,7 +1168,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1349,9 +1331,6 @@ func (_this *Cashfree) SubsCreateSubscription(createSubscriptionRequest *CreateS
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createSubscriptionRequest == nil {
 		return localVarReturnValue, nil, reportError("createSubscriptionRequest is required and must be specified")
 	}
@@ -1562,9 +1541,6 @@ func (_this *Cashfree) SubsCreateSubscriptionWithContext(ctx context.Context, cr
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if createSubscriptionRequest == nil {
 		return localVarReturnValue, nil, reportError("createSubscriptionRequest is required and must be specified")
 	}
@@ -1617,7 +1593,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1781,9 +1757,6 @@ func (_this *Cashfree) SubsFetchPlan(planId string,  xRequestId *string, xIdempo
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1975,9 +1948,6 @@ func (_this *Cashfree) SubsFetchPlanWithContext(ctx context.Context, planId stri
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2025,7 +1995,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2174,9 +2144,6 @@ func (_this *Cashfree) SubsFetchSubscription(subscriptionId string,  xRequestId 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2368,9 +2335,6 @@ func (_this *Cashfree) SubsFetchSubscriptionWithContext(ctx context.Context, sub
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2418,7 +2382,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2568,9 +2532,6 @@ func (_this *Cashfree) SubsFetchSubscriptionPayment(subscriptionId string, payme
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2763,9 +2724,6 @@ func (_this *Cashfree) SubsFetchSubscriptionPaymentWithContext(ctx context.Conte
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2813,7 +2771,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -2962,9 +2920,6 @@ func (_this *Cashfree) SubsFetchSubscriptionPayments(subscriptionId string,  xRe
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3171,9 +3126,6 @@ func (_this *Cashfree) SubsFetchSubscriptionPaymentsWithContext(ctx context.Cont
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3221,7 +3173,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3386,9 +3338,6 @@ func (_this *Cashfree) SubsFetchSubscriptionRefund(subscriptionId string, refund
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3581,9 +3530,6 @@ func (_this *Cashfree) SubsFetchSubscriptionRefundWithContext(ctx context.Contex
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3631,7 +3577,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -3780,9 +3726,6 @@ func (_this *Cashfree) SubsManageSubscription(subscriptionId string, manageSubsc
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if manageSubscriptionRequest == nil {
 		return localVarReturnValue, nil, reportError("manageSubscriptionRequest is required and must be specified")
 	}
@@ -3994,9 +3937,6 @@ func (_this *Cashfree) SubsManageSubscriptionWithContext(ctx context.Context, su
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if manageSubscriptionRequest == nil {
 		return localVarReturnValue, nil, reportError("manageSubscriptionRequest is required and must be specified")
 	}
@@ -4049,7 +3989,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4214,9 +4154,6 @@ func (_this *Cashfree) SubsManageSubscriptionPayment(subscriptionId string, paym
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if manageSubscriptionPaymentRequest == nil {
 		return localVarReturnValue, nil, reportError("manageSubscriptionPaymentRequest is required and must be specified")
 	}
@@ -4414,9 +4351,6 @@ func (_this *Cashfree) SubsManageSubscriptionPaymentWithContext(ctx context.Cont
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if manageSubscriptionPaymentRequest == nil {
 		return localVarReturnValue, nil, reportError("manageSubscriptionPaymentRequest is required and must be specified")
 	}
@@ -4469,7 +4403,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -4618,9 +4552,6 @@ func (_this *Cashfree) SubscriptionDocumentUpload(paymentId string, file *os.Fil
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if file == nil {
 		return localVarReturnValue, nil, reportError("file is required and must be specified")
 	}
@@ -4855,9 +4786,6 @@ func (_this *Cashfree) SubscriptionDocumentUploadWithContext(ctx context.Context
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if file == nil {
 		return localVarReturnValue, nil, reportError("file is required and must be specified")
 	}
@@ -4933,7 +4861,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -5096,9 +5024,6 @@ func (_this *Cashfree) SubscriptionEligibility(subscriptionEligibilityRequest *S
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if subscriptionEligibilityRequest == nil {
 		return localVarReturnValue, nil, reportError("subscriptionEligibilityRequest is required and must be specified")
 	}
@@ -5309,9 +5234,6 @@ func (_this *Cashfree) SubscriptionEligibilityWithContext(ctx context.Context, s
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if subscriptionEligibilityRequest == nil {
 		return localVarReturnValue, nil, reportError("subscriptionEligibilityRequest is required and must be specified")
 	}
@@ -5364,7 +5286,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -52,9 +52,6 @@ func (_this *Cashfree) PGFetchSettlements(fetchSettlementsRequest *FetchSettleme
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if fetchSettlementsRequest == nil {
 		return localVarReturnValue, nil, reportError("fetchSettlementsRequest is required and must be specified")
 	}
@@ -286,9 +283,6 @@ func (_this *Cashfree) PGFetchSettlementsWithContext(ctx context.Context, fetchS
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if fetchSettlementsRequest == nil {
 		return localVarReturnValue, nil, reportError("fetchSettlementsRequest is required and must be specified")
 	}
@@ -347,7 +341,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -525,9 +519,6 @@ func (_this *Cashfree) PGSettlementFetchRecon(settlementFetchReconRequest *Settl
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if settlementFetchReconRequest == nil {
 		return localVarReturnValue, nil, reportError("settlementFetchReconRequest is required and must be specified")
 	}
@@ -759,9 +750,6 @@ func (_this *Cashfree) PGSettlementFetchReconWithContext(ctx context.Context, se
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if settlementFetchReconRequest == nil {
 		return localVarReturnValue, nil, reportError("settlementFetchReconRequest is required and must be specified")
 	}
@@ -820,7 +808,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

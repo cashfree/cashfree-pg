@@ -55,9 +55,6 @@ func (_this *Cashfree) PGCustomerDeleteInstrument(customerId string, instrumentI
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -295,9 +292,6 @@ func (_this *Cashfree) PGCustomerDeleteInstrumentWithContext(ctx context.Context
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -345,7 +339,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -540,9 +534,6 @@ func (_this *Cashfree) PGCustomerFetchInstrument(customerId string, instrumentId
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -780,9 +771,6 @@ func (_this *Cashfree) PGCustomerFetchInstrumentWithContext(ctx context.Context,
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -830,7 +818,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1024,9 +1012,6 @@ func (_this *Cashfree) PGCustomerFetchInstruments(customerId string, instrumentT
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if instrumentType == nil {
 		return localVarReturnValue, nil, reportError("instrumentType is required and must be specified")
 	}
@@ -1252,9 +1237,6 @@ func (_this *Cashfree) PGCustomerFetchInstrumentsWithContext(ctx context.Context
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 	if instrumentType == nil {
 		return localVarReturnValue, nil, reportError("instrumentType is required and must be specified")
 	}
@@ -1306,7 +1288,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1486,9 +1468,6 @@ func (_this *Cashfree) PGCustomerInstrumentsFetchCryptogram(customerId string, i
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1726,9 +1705,6 @@ func (_this *Cashfree) PGCustomerInstrumentsFetchCryptogramWithContext(ctx conte
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if xApiVersion == nil {
-		return localVarReturnValue, nil, reportError("xApiVersion is required and must be specified")
-	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1776,7 +1752,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.4"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.0.5"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
