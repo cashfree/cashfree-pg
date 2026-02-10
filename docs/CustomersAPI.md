@@ -22,32 +22,27 @@ Create Customer at Cashfree
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	createCustomerRequest := *openapiclient.NewCreateCustomerRequest("9999999999") // CreateCustomerRequest | Request to create a new customer at Cashfree
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    createCustomerRequest := *cashfree.NewCreateCustomerRequest("9999999999") 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.PGCreateCustomer(&xApiVersion, &createCustomerRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCreateCustomer``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PGCreateCustomer`: CustomerEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCreateCustomer`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CustomersAPI.PGCreateCustomer(context.Background()).XApiVersion(xApiVersion).CreateCustomerRequest(createCustomerRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CustomersAPI.PGCreateCustomer``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PGCreateCustomer`: CustomerEntity
+	fmt.Fprintf(os.Stdout, "Response from `CustomersAPI.PGCreateCustomer`: %v\n", resp)
 }
 ```
 

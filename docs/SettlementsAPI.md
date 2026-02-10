@@ -23,32 +23,27 @@ Mark Order For Settlement
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
+	createOrderSettlementRequestBody := *openapiclient.NewCreateOrderSettlementRequestBody("OrderId_example", *openapiclient.NewCreateOrderSettlementRequestBodyMetaData()) // CreateOrderSettlementRequestBody | Create Order Settlement Request Body. (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-    createOrderSettlementRequestBody := *cashfree.NewCreateOrderSettlementRequestBody("OrderId_example", *cashfree.NewCreateOrderSettlementRequestBodyMetaData()) 
-
-    resp, r, err := cashfree.MarkForSettlement(&xApiVersion, &xRequestId, &xIdempotencyKey, &createOrderSettlementRequestBody, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.MarkForSettlement``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `MarkForSettlement`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.MarkForSettlement`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettlementsAPI.MarkForSettlement(context.Background()).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).CreateOrderSettlementRequestBody(createOrderSettlementRequestBody).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettlementsAPI.MarkForSettlement``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `MarkForSettlement`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `SettlementsAPI.MarkForSettlement`: %v\n", resp)
 }
 ```
 
@@ -100,32 +95,27 @@ Get Settlements by Order ID
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	orderId := "your-order-id" // string | The id which uniquely identifies your order
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    orderId := "your-order-id" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.PGOrderFetchSettlement(&xApiVersion, &orderId, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderFetchSettlement``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PGOrderFetchSettlement`: SettlementEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderFetchSettlement`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettlementsAPI.PGOrderFetchSettlement(context.Background(), orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettlementsAPI.PGOrderFetchSettlement``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PGOrderFetchSettlement`: SettlementEntity
+	fmt.Fprintf(os.Stdout, "Response from `SettlementsAPI.PGOrderFetchSettlement`: %v\n", resp)
 }
 ```
 
