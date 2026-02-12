@@ -13,9 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
-	"strings"
 	"fmt"
+	"strings"
 )
+
+var _ = fmt.Errorf
 
 // CreateSubscriptionPaymentRequestPaymentMethod - Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]
 type CreateSubscriptionPaymentRequestPaymentMethod struct {
@@ -243,6 +245,5 @@ func (obj *CreateSubscriptionPaymentRequestPaymentMethod) GetActualInstance() (i
 	// all schemas are nil
 	return nil
 }
-
 
 

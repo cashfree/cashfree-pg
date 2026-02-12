@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the RefundEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &RefundEntity{}
@@ -150,6 +153,5 @@ func (o RefundEntity) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

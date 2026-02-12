@@ -13,9 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
-	"strings"
 	"fmt"
+	"strings"
 )
+
+var _ = fmt.Errorf
 
 // OfferType Offer Type Object
 type OfferType string
@@ -74,4 +76,3 @@ func (v OfferType) IsValid() bool {
 	}
 	return false
 }
-

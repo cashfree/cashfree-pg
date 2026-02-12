@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the SplitAfterPaymentRequestSplitInner type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SplitAfterPaymentRequestSplitInner{}
@@ -57,6 +60,5 @@ func (o SplitAfterPaymentRequestSplitInner) ToMap() (map[string]interface{}, err
 	}
 	return toSerialize, nil
 }
-
 
 

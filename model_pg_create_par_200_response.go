@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the PGCreatePAR200Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PGCreatePAR200Response{}
@@ -41,6 +44,5 @@ func (o PGCreatePAR200Response) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

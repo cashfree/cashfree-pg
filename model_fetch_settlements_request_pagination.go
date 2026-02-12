@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the FetchSettlementsRequestPagination type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FetchSettlementsRequestPagination{}
@@ -45,6 +48,5 @@ func (o FetchSettlementsRequestPagination) ToMap() (map[string]interface{}, erro
 	}
 	return toSerialize, nil
 }
-
 
 

@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the UPIAuthorizeDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UPIAuthorizeDetails{}
@@ -52,6 +55,5 @@ func (o UPIAuthorizeDetails) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

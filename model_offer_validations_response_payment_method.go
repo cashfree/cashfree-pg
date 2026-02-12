@@ -13,9 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
-	"strings"
 	"fmt"
+	"strings"
 )
+
+var _ = fmt.Errorf
 
 // OfferValidationsResponsePaymentMethod - struct for OfferValidationsResponsePaymentMethod
 type OfferValidationsResponsePaymentMethod struct {
@@ -375,6 +377,5 @@ func (obj *OfferValidationsResponsePaymentMethod) GetActualInstance() (interface
 	// all schemas are nil
 	return nil
 }
-
 
 

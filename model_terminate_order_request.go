@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the TerminateOrderRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TerminateOrderRequest{}
@@ -40,6 +43,5 @@ func (o TerminateOrderRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["order_status"] = o.OrderStatus
 	return toSerialize, nil
 }
-
 
 

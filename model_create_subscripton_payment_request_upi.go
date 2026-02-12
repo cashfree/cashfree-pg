@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the CreateSubscriptonPaymentRequestUpi type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateSubscriptonPaymentRequestUpi{}
@@ -46,6 +49,5 @@ func (o CreateSubscriptonPaymentRequestUpi) ToMap() (map[string]interface{}, err
 	}
 	return toSerialize, nil
 }
-
 
 

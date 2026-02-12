@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the EligibilityMethodItemEntityDetailsAvailableHandlesInner type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &EligibilityMethodItemEntityDetailsAvailableHandlesInner{}
@@ -47,6 +50,5 @@ func (o EligibilityMethodItemEntityDetailsAvailableHandlesInner) ToMap() (map[st
 	}
 	return toSerialize, nil
 }
-
 
 

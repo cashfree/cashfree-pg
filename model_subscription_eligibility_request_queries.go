@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the SubscriptionEligibilityRequestQueries type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SubscriptionEligibilityRequestQueries{}
@@ -40,6 +43,5 @@ func (o SubscriptionEligibilityRequestQueries) ToMap() (map[string]interface{}, 
 	toSerialize["subscription_id"] = o.SubscriptionId
 	return toSerialize, nil
 }
-
 
 

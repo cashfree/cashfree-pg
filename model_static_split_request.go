@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the StaticSplitRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &StaticSplitRequest{}
@@ -56,6 +59,5 @@ func (o StaticSplitRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["scheme"] = o.Scheme
 	return toSerialize, nil
 }
-
 
 

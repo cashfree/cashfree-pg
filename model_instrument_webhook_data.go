@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the InstrumentWebhookData type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &InstrumentWebhookData{}
@@ -49,6 +52,5 @@ func (o InstrumentWebhookData) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

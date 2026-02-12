@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the OfferUPI type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OfferUPI{}
@@ -39,6 +42,5 @@ func (o OfferUPI) ToMap() (map[string]interface{}, error) {
 	toSerialize["upi"] = o.Upi
 	return toSerialize, nil
 }
-
 
 

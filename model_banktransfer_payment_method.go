@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the BanktransferPaymentMethod type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &BanktransferPaymentMethod{}
@@ -39,6 +42,5 @@ func (o BanktransferPaymentMethod) ToMap() (map[string]interface{}, error) {
 	toSerialize["banktransfer"] = o.Banktransfer
 	return toSerialize, nil
 }
-
 
 

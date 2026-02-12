@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the SettlementReconEntityDataInnerCustomerDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SettlementReconEntityDataInnerCustomerDetails{}
@@ -72,6 +75,5 @@ func (o SettlementReconEntityDataInnerCustomerDetails) ToMap() (map[string]inter
 	}
 	return toSerialize, nil
 }
-
 
 

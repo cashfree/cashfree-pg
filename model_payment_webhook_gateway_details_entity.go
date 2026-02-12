@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the PaymentWebhookGatewayDetailsEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PaymentWebhookGatewayDetailsEntity{}
@@ -65,6 +68,5 @@ func (o PaymentWebhookGatewayDetailsEntity) ToMap() (map[string]interface{}, err
 	}
 	return toSerialize, nil
 }
-
 
 

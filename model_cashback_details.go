@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the CashbackDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CashbackDetails{}
@@ -46,6 +49,5 @@ func (o CashbackDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize["max_cashback_amount"] = o.MaxCashbackAmount
 	return toSerialize, nil
 }
-
 
 

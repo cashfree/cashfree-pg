@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the UpdateOrderExtendedRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdateOrderExtendedRequest{}
@@ -44,6 +47,5 @@ func (o UpdateOrderExtendedRequest) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

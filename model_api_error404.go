@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the ApiError404 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiError404{}
@@ -54,6 +57,5 @@ func (o ApiError404) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

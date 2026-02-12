@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the OfferAll type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OfferAll{}
@@ -40,6 +43,5 @@ func (o OfferAll) ToMap() (map[string]interface{}, error) {
 	toSerialize["all"] = o.All
 	return toSerialize, nil
 }
-
 
 
