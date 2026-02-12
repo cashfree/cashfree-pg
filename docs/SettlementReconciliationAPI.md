@@ -23,34 +23,29 @@ Get All Settlements
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	fetchSettlementsRequest := *openapiclient.NewFetchSettlementsRequest(*openapiclient.NewFetchSettlementsRequestPagination(int32(123)), *openapiclient.NewFetchSettlementsRequestFilters()) // FetchSettlementsRequest | Request Body to get the settlements
+	contentType := "application/json" // string | application/json (optional)
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
+	accept := "application/json" // string | application/json (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    fetchSettlementsRequest := *cashfree.NewFetchSettlementsRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewFetchSettlementsRequestFilters()) 
-    contentType := "application/json" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-    accept := "application/json" 
-
-    resp, r, err := cashfree.PGFetchSettlements(&xApiVersion, &fetchSettlementsRequest, &contentType, &xRequestId, &xIdempotencyKey, &accept, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGFetchSettlements``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PGFetchSettlements`: SettlementEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGFetchSettlements`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettlementReconciliationAPI.PGFetchSettlements(context.Background()).XApiVersion(xApiVersion).FetchSettlementsRequest(fetchSettlementsRequest).ContentType(contentType).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Accept(accept).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettlementReconciliationAPI.PGFetchSettlements``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PGFetchSettlements`: SettlementEntity
+	fmt.Fprintf(os.Stdout, "Response from `SettlementReconciliationAPI.PGFetchSettlements`: %v\n", resp)
 }
 ```
 
@@ -104,34 +99,29 @@ Settlement Reconciliation
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	settlementFetchReconRequest := *openapiclient.NewSettlementFetchReconRequest(*openapiclient.NewFetchSettlementsRequestPagination(int32(123)), *openapiclient.NewFetchSettlementsRequestFilters()) // SettlementFetchReconRequest | Request Body for the settlement reconciliation
+	contentType := "application/json" // string | application/json (optional)
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
+	accept := "application/json" // string | application/json (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    settlementFetchReconRequest := *cashfree.NewSettlementFetchReconRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewFetchSettlementsRequestFilters()) 
-    contentType := "application/json" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-    accept := "application/json" 
-
-    resp, r, err := cashfree.PGSettlementFetchRecon(&xApiVersion, &settlementFetchReconRequest, &contentType, &xRequestId, &xIdempotencyKey, &accept, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGSettlementFetchRecon``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PGSettlementFetchRecon`: SettlementReconEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGSettlementFetchRecon`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SettlementReconciliationAPI.PGSettlementFetchRecon(context.Background()).XApiVersion(xApiVersion).SettlementFetchReconRequest(settlementFetchReconRequest).ContentType(contentType).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Accept(accept).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SettlementReconciliationAPI.PGSettlementFetchRecon``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PGSettlementFetchRecon`: SettlementReconEntity
+	fmt.Fprintf(os.Stdout, "Response from `SettlementReconciliationAPI.PGSettlementFetchRecon`: %v\n", resp)
 }
 ```
 

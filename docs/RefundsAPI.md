@@ -24,33 +24,28 @@ Create Refund
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	orderId := "your-order-id" // string | The id which uniquely identifies your order
+	orderCreateRefundRequest := *openapiclient.NewOrderCreateRefundRequest(float64(123), "RefundId_example") // OrderCreateRefundRequest | Request Body to Create Refunds
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    orderId := "your-order-id" 
-    orderCreateRefundRequest := *cashfree.NewOrderCreateRefundRequest(float64(123), "RefundId_example") 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.PGOrderCreateRefund(&xApiVersion, &orderId, &orderCreateRefundRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderCreateRefund``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PGOrderCreateRefund`: RefundEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderCreateRefund`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RefundsAPI.PGOrderCreateRefund(context.Background(), orderId).XApiVersion(xApiVersion).OrderCreateRefundRequest(orderCreateRefundRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RefundsAPI.PGOrderCreateRefund``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PGOrderCreateRefund`: RefundEntity
+	fmt.Fprintf(os.Stdout, "Response from `RefundsAPI.PGOrderCreateRefund`: %v\n", resp)
 }
 ```
 
@@ -107,33 +102,28 @@ Get Refund
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	orderId := "your-order-id" // string | The id which uniquely identifies your order
+	refundId := "some-refund-id" // string | Refund Id of the refund you want to fetch.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    orderId := "your-order-id" 
-    refundId := "some-refund-id" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.PGOrderFetchRefund(&xApiVersion, &orderId, &refundId, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderFetchRefund``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PGOrderFetchRefund`: RefundEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderFetchRefund`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RefundsAPI.PGOrderFetchRefund(context.Background(), orderId, refundId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RefundsAPI.PGOrderFetchRefund``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PGOrderFetchRefund`: RefundEntity
+	fmt.Fprintf(os.Stdout, "Response from `RefundsAPI.PGOrderFetchRefund`: %v\n", resp)
 }
 ```
 
@@ -191,32 +181,27 @@ Get All Refunds for an Order
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	orderId := "your-order-id" // string | The id which uniquely identifies your order
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    orderId := "your-order-id" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.PGOrderFetchRefunds(&xApiVersion, &orderId, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderFetchRefunds``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `PGOrderFetchRefunds`: []RefundEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderFetchRefunds`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.RefundsAPI.PGOrderFetchRefunds(context.Background(), orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `RefundsAPI.PGOrderFetchRefunds``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `PGOrderFetchRefunds`: []RefundEntity
+	fmt.Fprintf(os.Stdout, "Response from `RefundsAPI.PGOrderFetchRefunds`: %v\n", resp)
 }
 ```
 

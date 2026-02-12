@@ -34,32 +34,27 @@ Raise a charge or create an auth.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	createSubscriptionPaymentRequest := *openapiclient.NewCreateSubscriptionPaymentRequest("SubscriptionId_example", "PaymentId_example", "PaymentType_example") // CreateSubscriptionPaymentRequest | Request body to create a subscription payment.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    createSubscriptionPaymentRequest := *cashfree.NewCreateSubscriptionPaymentRequest("SubscriptionId_example", "PaymentId_example", "PaymentType_example") 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsCreatePayment(&xApiVersion, &createSubscriptionPaymentRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsCreatePayment``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsCreatePayment`: CreateSubscriptionPaymentResponse
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsCreatePayment`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsCreatePayment(context.Background()).XApiVersion(xApiVersion).CreateSubscriptionPaymentRequest(createSubscriptionPaymentRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsCreatePayment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsCreatePayment`: CreateSubscriptionPaymentResponse
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsCreatePayment`: %v\n", resp)
 }
 ```
 
@@ -111,32 +106,27 @@ Create a plan.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	createPlanRequest := *openapiclient.NewCreatePlanRequest("PlanId_example", "PlanName_example", "PlanType_example", float32(123)) // CreatePlanRequest | Request body to create a plan.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    createPlanRequest := *cashfree.NewCreatePlanRequest("PlanId_example", "PlanName_example", "PlanType_example", float32(123)) 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsCreatePlan(&xApiVersion, &createPlanRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsCreatePlan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsCreatePlan`: PlanEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsCreatePlan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsCreatePlan(context.Background()).XApiVersion(xApiVersion).CreatePlanRequest(createPlanRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsCreatePlan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsCreatePlan`: PlanEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsCreatePlan`: %v\n", resp)
 }
 ```
 
@@ -188,33 +178,28 @@ Create a refund.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	subscriptionId := "subscription-id-123" // string | Provide the SubscriptionId using which the subscription was created.
+	createSubscriptionRefundRequest := *openapiclient.NewCreateSubscriptionRefundRequest("SubscriptionId_example", "RefundId_example", float32(123)) // CreateSubscriptionRefundRequest | Request body to create a subscription refund.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    subscriptionId := "subscription-id-123" 
-    createSubscriptionRefundRequest := *cashfree.NewCreateSubscriptionRefundRequest("SubscriptionId_example", "RefundId_example", float32(123)) 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsCreateRefund(&xApiVersion, &subscriptionId, &createSubscriptionRefundRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsCreateRefund``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsCreateRefund`: SubscriptionPaymentRefundEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsCreateRefund`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsCreateRefund(context.Background(), subscriptionId).XApiVersion(xApiVersion).CreateSubscriptionRefundRequest(createSubscriptionRefundRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsCreateRefund``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsCreateRefund`: SubscriptionPaymentRefundEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsCreateRefund`: %v\n", resp)
 }
 ```
 
@@ -271,32 +256,27 @@ Create Subscription
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	createSubscriptionRequest := *openapiclient.NewCreateSubscriptionRequest("SubscriptionId_example", *openapiclient.NewSubscriptionCustomerDetails("CustomerEmail_example", "CustomerPhone_example"), *openapiclient.NewCreateSubscriptionRequestPlanDetails()) // CreateSubscriptionRequest | Request body to create a subscription.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    createSubscriptionRequest := *cashfree.NewCreateSubscriptionRequest("SubscriptionId_example", *cashfree.NewSubscriptionCustomerDetails("CustomerEmail_example", "CustomerPhone_example"), *cashfree.NewCreateSubscriptionRequestPlanDetails()) 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsCreateSubscription(&xApiVersion, &createSubscriptionRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsCreateSubscription``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsCreateSubscription`: SubscriptionEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsCreateSubscription`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsCreateSubscription(context.Background()).XApiVersion(xApiVersion).CreateSubscriptionRequest(createSubscriptionRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsCreateSubscription``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsCreateSubscription`: SubscriptionEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsCreateSubscription`: %v\n", resp)
 }
 ```
 
@@ -348,32 +328,27 @@ Fetch Plan
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	planId := "plan-id-123" // string | Provide the PlanId for which the details have to be fetched.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    planId := "plan-id-123" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsFetchPlan(&xApiVersion, &planId, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsFetchPlan``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsFetchPlan`: PlanEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsFetchPlan`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsFetchPlan(context.Background(), planId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsFetchPlan``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsFetchPlan`: PlanEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsFetchPlan`: %v\n", resp)
 }
 ```
 
@@ -429,32 +404,27 @@ Fetch Subscription
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	subscriptionId := "subscription-id-123" // string | Provide the SubscriptionId using which the subscription was created.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    subscriptionId := "subscription-id-123" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsFetchSubscription(&xApiVersion, &subscriptionId, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsFetchSubscription``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsFetchSubscription`: SubscriptionEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsFetchSubscription`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsFetchSubscription(context.Background(), subscriptionId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsFetchSubscription``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsFetchSubscription`: SubscriptionEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsFetchSubscription`: %v\n", resp)
 }
 ```
 
@@ -510,33 +480,28 @@ Fetch details of a single payment.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	subscriptionId := "subscription-id-123" // string | Provide the SubscriptionId using which the subscription was created.
+	paymentId := "payment-id-123" // string | Provide the PaymentId using which the payment was created.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    subscriptionId := "subscription-id-123" 
-    paymentId := "payment-id-123" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsFetchSubscriptionPayment(&xApiVersion, &subscriptionId, &paymentId, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsFetchSubscriptionPayment``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsFetchSubscriptionPayment`: SubscriptionPaymentEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsFetchSubscriptionPayment`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsFetchSubscriptionPayment(context.Background(), subscriptionId, paymentId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsFetchSubscriptionPayment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsFetchSubscriptionPayment`: SubscriptionPaymentEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsFetchSubscriptionPayment`: %v\n", resp)
 }
 ```
 
@@ -594,32 +559,27 @@ Fetch details of all payments of a subscription.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	subscriptionId := "subscription-id-123" // string | Provide the SubscriptionId using which the subscription was created.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    subscriptionId := "subscription-id-123" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsFetchSubscriptionPayments(&xApiVersion, &subscriptionId, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsFetchSubscriptionPayments``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsFetchSubscriptionPayments`: []SubscriptionPaymentEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsFetchSubscriptionPayments`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsFetchSubscriptionPayments(context.Background(), subscriptionId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsFetchSubscriptionPayments``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsFetchSubscriptionPayments`: []SubscriptionPaymentEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsFetchSubscriptionPayments`: %v\n", resp)
 }
 ```
 
@@ -675,33 +635,28 @@ Fetch details of a refund.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	subscriptionId := "subscription-id-123" // string | Provide the SubscriptionId using which the subscription was created.
+	refundId := "refund-id-123" // string | Provide the PaymentId for which the details have to be fetched.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    subscriptionId := "subscription-id-123" 
-    refundId := "refund-id-123" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsFetchSubscriptionRefund(&xApiVersion, &subscriptionId, &refundId, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsFetchSubscriptionRefund``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsFetchSubscriptionRefund`: SubscriptionPaymentRefundEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsFetchSubscriptionRefund`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsFetchSubscriptionRefund(context.Background(), subscriptionId, refundId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsFetchSubscriptionRefund``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsFetchSubscriptionRefund`: SubscriptionPaymentRefundEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsFetchSubscriptionRefund`: %v\n", resp)
 }
 ```
 
@@ -759,33 +714,28 @@ Manage a subscription.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	subscriptionId := "subscription-id-123" // string | Provide the SubscriptionId using which the subscription was created.
+	manageSubscriptionRequest := *openapiclient.NewManageSubscriptionRequest("SubscriptionId_example", "Action_example") // ManageSubscriptionRequest | Request body to manage a subscription.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    subscriptionId := "subscription-id-123" 
-    manageSubscriptionRequest := *cashfree.NewManageSubscriptionRequest("SubscriptionId_example", "Action_example") 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsManageSubscription(&xApiVersion, &subscriptionId, &manageSubscriptionRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsManageSubscription``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsManageSubscription`: SubscriptionEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsManageSubscription`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsManageSubscription(context.Background(), subscriptionId).XApiVersion(xApiVersion).ManageSubscriptionRequest(manageSubscriptionRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsManageSubscription``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsManageSubscription`: SubscriptionEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsManageSubscription`: %v\n", resp)
 }
 ```
 
@@ -842,34 +792,29 @@ Manage a single payment.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	subscriptionId := "subscription-id-123" // string | Provide the SubscriptionId using which the subscription was created.
+	paymentId := "payment-id-123" // string | Provide the PaymentId using which the payment was created.
+	manageSubscriptionPaymentRequest := *openapiclient.NewManageSubscriptionPaymentRequest("SubscriptionId_example", "PaymentId_example", "Action_example") // ManageSubscriptionPaymentRequest | Request body to manage a subscription payment.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    subscriptionId := "subscription-id-123" 
-    paymentId := "payment-id-123" 
-    manageSubscriptionPaymentRequest := *cashfree.NewManageSubscriptionPaymentRequest("SubscriptionId_example", "PaymentId_example", "Action_example") 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubsManageSubscriptionPayment(&xApiVersion, &subscriptionId, &paymentId, &manageSubscriptionPaymentRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubsManageSubscriptionPayment``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubsManageSubscriptionPayment`: SubscriptionPaymentEntity
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubsManageSubscriptionPayment`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubsManageSubscriptionPayment(context.Background(), subscriptionId, paymentId).XApiVersion(xApiVersion).ManageSubscriptionPaymentRequest(manageSubscriptionPaymentRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubsManageSubscriptionPayment``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubsManageSubscriptionPayment`: SubscriptionPaymentEntity
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubsManageSubscriptionPayment`: %v\n", resp)
 }
 ```
 
@@ -928,35 +873,30 @@ API to upload file for Physical Nach Authorization.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	paymentId := "payment-id-123" // string | Provide the PaymentId using which the payment was created.
+	file := os.NewFile(1234, "some_file") // *os.File | Select the .jpg file that should be uploaded or provide the path of that file. You cannot upload a file that is more than 1MB in size.
+	paymentId2 := "paymentId_example" // string | Authorization Payment Id for physical nach authorization
+	action := "action_example" // string | Action to be performed on the file. Can be SUBMIT_DOCUMENT
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    paymentId := "payment-id-123" 
-    file := os.NewFile(1234, "some_file") 
-    paymentId2 := "paymentId_example" 
-    action := "action_example" 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubscriptionDocumentUpload(&xApiVersion, &paymentId, &file, &paymentId2, &action, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubscriptionDocumentUpload``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubscriptionDocumentUpload`: UploadPnachImageResponse
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubscriptionDocumentUpload`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubscriptionDocumentUpload(context.Background(), paymentId).XApiVersion(xApiVersion).File(file).PaymentId2(paymentId2).Action(action).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubscriptionDocumentUpload``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubscriptionDocumentUpload`: UploadPnachImageResponse
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubscriptionDocumentUpload`: %v\n", resp)
 }
 ```
 
@@ -1015,32 +955,27 @@ API to get all the payment method details available for subscription payments.
 package main
 
 import (
-    "context"
-    "fmt"
-    "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/cashfree/cashfree-pg"
 )
 
 func main() {
+	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
+	subscriptionEligibilityRequest := *openapiclient.NewSubscriptionEligibilityRequest(*openapiclient.NewSubscriptionEligibilityRequestQueries("SubscriptionId_example")) // SubscriptionEligibilityRequest | Request body to fetch subscription eligibile payment method details.
+	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
+	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-    clientId := "<x-client-id>"
-	clientSecret := "<x-client-secret>"
-	cashfree.XClientId = &clientId
-	cashfree.XClientSecret = &clientSecret
-	cashfree.XEnvironment = cashfree.SANDBOX
-
-    xApiVersion := "2025-01-01" 
-    subscriptionEligibilityRequest := *cashfree.NewSubscriptionEligibilityRequest(*cashfree.NewSubscriptionEligibilityRequestQueries("SubscriptionId_example")) 
-    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
-    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
-
-    resp, r, err := cashfree.SubscriptionEligibility(&xApiVersion, &subscriptionEligibilityRequest, &xRequestId, &xIdempotencyKey, nil)
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SubscriptionEligibility``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `SubscriptionEligibility`: SubscriptionEligibilityResponse
-    fmt.Fprintf(os.Stdout, "Response from `cashfree.SubscriptionEligibility`: %v\n", resp)
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.SubscriptionAPI.SubscriptionEligibility(context.Background()).XApiVersion(xApiVersion).SubscriptionEligibilityRequest(subscriptionEligibilityRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `SubscriptionAPI.SubscriptionEligibility``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubscriptionEligibility`: SubscriptionEligibilityResponse
+	fmt.Fprintf(os.Stdout, "Response from `SubscriptionAPI.SubscriptionEligibility`: %v\n", resp)
 }
 ```
 
