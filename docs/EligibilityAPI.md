@@ -25,27 +25,32 @@ Get Eligible Cardless EMI Payment Methods for a customer on an order
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	eligibilityFetchCardlessEMIRequest := *openapiclient.NewEligibilityFetchCardlessEMIRequest(*openapiclient.NewCardlessEMIQueries()) // EligibilityFetchCardlessEMIRequest | Request Body to get eligible cardless emi options for a customer and order
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EligibilityAPI.PGEligibilityFetchCardlessEMI(context.Background()).XApiVersion(xApiVersion).EligibilityFetchCardlessEMIRequest(eligibilityFetchCardlessEMIRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EligibilityAPI.PGEligibilityFetchCardlessEMI``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGEligibilityFetchCardlessEMI`: []EligibilityCardlessEMIEntity
-	fmt.Fprintf(os.Stdout, "Response from `EligibilityAPI.PGEligibilityFetchCardlessEMI`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    eligibilityFetchCardlessEMIRequest := *cashfree.NewEligibilityFetchCardlessEMIRequest(*cashfree.NewCardlessEMIQueries()) 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGEligibilityFetchCardlessEMI(&xApiVersion, &eligibilityFetchCardlessEMIRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGEligibilityFetchCardlessEMI``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGEligibilityFetchCardlessEMI`: []EligibilityCardlessEMIEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGEligibilityFetchCardlessEMI`: %v\n", resp)
 }
 ```
 
@@ -97,27 +102,32 @@ Get Eligible Offers for an Order
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	eligibilityFetchOffersRequest := *openapiclient.NewEligibilityFetchOffersRequest(*openapiclient.NewOfferQueries()) // EligibilityFetchOffersRequest | Request Body to get eligible offers for a customer and order
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EligibilityAPI.PGEligibilityFetchOffers(context.Background()).XApiVersion(xApiVersion).EligibilityFetchOffersRequest(eligibilityFetchOffersRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EligibilityAPI.PGEligibilityFetchOffers``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGEligibilityFetchOffers`: []EligibilityOfferEntity
-	fmt.Fprintf(os.Stdout, "Response from `EligibilityAPI.PGEligibilityFetchOffers`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    eligibilityFetchOffersRequest := *cashfree.NewEligibilityFetchOffersRequest(*cashfree.NewOfferQueries()) 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGEligibilityFetchOffers(&xApiVersion, &eligibilityFetchOffersRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGEligibilityFetchOffers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGEligibilityFetchOffers`: []EligibilityOfferEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGEligibilityFetchOffers`: %v\n", resp)
 }
 ```
 
@@ -169,27 +179,32 @@ Get Eligible Paylater for a customer on an order
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	eligibilityFetchPaylaterRequest := *openapiclient.NewEligibilityFetchPaylaterRequest(*openapiclient.NewCardlessEMIQueries()) // EligibilityFetchPaylaterRequest | Request Body to get eligible paylater options for a customer and order
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EligibilityAPI.PGEligibilityFetchPaylater(context.Background()).XApiVersion(xApiVersion).EligibilityFetchPaylaterRequest(eligibilityFetchPaylaterRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EligibilityAPI.PGEligibilityFetchPaylater``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGEligibilityFetchPaylater`: []EligibilityPaylaterEntity
-	fmt.Fprintf(os.Stdout, "Response from `EligibilityAPI.PGEligibilityFetchPaylater`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    eligibilityFetchPaylaterRequest := *cashfree.NewEligibilityFetchPaylaterRequest(*cashfree.NewCardlessEMIQueries()) 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGEligibilityFetchPaylater(&xApiVersion, &eligibilityFetchPaylaterRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGEligibilityFetchPaylater``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGEligibilityFetchPaylater`: []EligibilityPaylaterEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGEligibilityFetchPaylater`: %v\n", resp)
 }
 ```
 
@@ -241,27 +256,32 @@ Get eligible Payment Methods
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	eligibilityFetchPaymentMethodsRequest := *openapiclient.NewEligibilityFetchPaymentMethodsRequest(*openapiclient.NewPaymentMethodsQueries()) // EligibilityFetchPaymentMethodsRequest | Request Body to get eligible payment methods for an account and order
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EligibilityAPI.PGEligibilityFetchPaymentMethods(context.Background()).XApiVersion(xApiVersion).EligibilityFetchPaymentMethodsRequest(eligibilityFetchPaymentMethodsRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EligibilityAPI.PGEligibilityFetchPaymentMethods``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGEligibilityFetchPaymentMethods`: []EligibilityPaymentMethodsEntity
-	fmt.Fprintf(os.Stdout, "Response from `EligibilityAPI.PGEligibilityFetchPaymentMethods`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    eligibilityFetchPaymentMethodsRequest := *cashfree.NewEligibilityFetchPaymentMethodsRequest(*cashfree.NewPaymentMethodsQueries()) 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGEligibilityFetchPaymentMethods(&xApiVersion, &eligibilityFetchPaymentMethodsRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGEligibilityFetchPaymentMethods``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGEligibilityFetchPaymentMethods`: []EligibilityPaymentMethodsEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGEligibilityFetchPaymentMethods`: %v\n", resp)
 }
 ```
 

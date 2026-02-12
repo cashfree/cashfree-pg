@@ -33,27 +33,32 @@ Create Terminal
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	createTerminalRequest := *openapiclient.NewCreateTerminalRequest("TerminalId_example", "TerminalPhoneNo_example", "TerminalName_example", "TerminalEmail_example", "TerminalType_example") // CreateTerminalRequest | Request Body to Create Terminal for SPOS
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposCreateTerminal(context.Background()).XApiVersion(xApiVersion).CreateTerminalRequest(createTerminalRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposCreateTerminal``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposCreateTerminal`: TerminalEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposCreateTerminal`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    createTerminalRequest := *cashfree.NewCreateTerminalRequest("TerminalId_example", "TerminalPhoneNo_example", "TerminalName_example", "TerminalEmail_example", "TerminalType_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposCreateTerminal(&xApiVersion, &createTerminalRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposCreateTerminal``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposCreateTerminal`: TerminalEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposCreateTerminal`: %v\n", resp)
 }
 ```
 
@@ -105,27 +110,32 @@ Create Terminal Transaction
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	createTerminalTransactionRequest := *openapiclient.NewCreateTerminalTransactionRequest("CfOrderId_example", "PaymentMethod_example") // CreateTerminalTransactionRequest | Request body to create a terminal transaction
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposCreateTerminalTransaction(context.Background()).XApiVersion(xApiVersion).CreateTerminalTransactionRequest(createTerminalTransactionRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposCreateTerminalTransaction``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposCreateTerminalTransaction`: TerminalTransactionEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposCreateTerminalTransaction`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    createTerminalTransactionRequest := *cashfree.NewCreateTerminalTransactionRequest("CfOrderId_example", "PaymentMethod_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposCreateTerminalTransaction(&xApiVersion, &createTerminalTransactionRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposCreateTerminalTransaction``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposCreateTerminalTransaction`: TerminalTransactionEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposCreateTerminalTransaction`: %v\n", resp)
 }
 ```
 
@@ -177,27 +187,32 @@ Demap Soundbox Vpa
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	demapSoundboxVpaRequest := *openapiclient.NewDemapSoundboxVpaRequest("CfTerminalId_example", "DeviceSerialNo_example") // DemapSoundboxVpaRequest | Request body to demap soundbox vpa
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposDemapSoundboxVpa(context.Background()).XApiVersion(xApiVersion).DemapSoundboxVpaRequest(demapSoundboxVpaRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposDemapSoundboxVpa``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposDemapSoundboxVpa`: []SoundboxVpaEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposDemapSoundboxVpa`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    demapSoundboxVpaRequest := *cashfree.NewDemapSoundboxVpaRequest("CfTerminalId_example", "DeviceSerialNo_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposDemapSoundboxVpa(&xApiVersion, &demapSoundboxVpaRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposDemapSoundboxVpa``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposDemapSoundboxVpa`: []SoundboxVpaEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposDemapSoundboxVpa`: %v\n", resp)
 }
 ```
 
@@ -249,27 +264,32 @@ Get Terminal Status using Phone Number
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	terminalPhoneNo := "6309291183" // string | The terminal for which you want to view the order details.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposFetchTerminal(context.Background(), terminalPhoneNo).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposFetchTerminal``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposFetchTerminal`: TerminalEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposFetchTerminal`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    terminalPhoneNo := "6309291183" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposFetchTerminal(&xApiVersion, &terminalPhoneNo, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposFetchTerminal``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposFetchTerminal`: TerminalEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposFetchTerminal`: %v\n", resp)
 }
 ```
 
@@ -325,28 +345,33 @@ Fetch Terminal QR Codes
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	terminalPhoneNo := "9876543214" // string | Phone number assigned to the terminal. Required if you are not providing the cf_terminal_id in the request.
-	cfTerminalId := "123344" // string | Cashfree terminal id for which you want to get staticQRs. Required if you are not providing the terminal_phone_number in the request.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposFetchTerminalQRCodes(context.Background()).XApiVersion(xApiVersion).TerminalPhoneNo(terminalPhoneNo).CfTerminalId(cfTerminalId).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposFetchTerminalQRCodes``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposFetchTerminalQRCodes`: []FetchTerminalQRCodesEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposFetchTerminalQRCodes`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    terminalPhoneNo := "9876543214" 
+    cfTerminalId := "123344" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposFetchTerminalQRCodes(&xApiVersion, &terminalPhoneNo, &cfTerminalId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposFetchTerminalQRCodes``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposFetchTerminalQRCodes`: []FetchTerminalQRCodesEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposFetchTerminalQRCodes`: %v\n", resp)
 }
 ```
 
@@ -399,28 +424,33 @@ Fetch Terminal Soundbox vpa
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	deviceSerialNo := "9876543214" // string | Device Serial No assinged. Required if you are not providing the cf_terminal_id in the request.
-	cfTerminalId := "123344" // string | Cashfree terminal id for which you want to get Soundbox Vpa. Required if you are not providing the device_serial_no in the request.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposFetchTerminalSoundboxVpa(context.Background()).XApiVersion(xApiVersion).DeviceSerialNo(deviceSerialNo).CfTerminalId(cfTerminalId).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposFetchTerminalSoundboxVpa``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposFetchTerminalSoundboxVpa`: []SoundboxVpaEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposFetchTerminalSoundboxVpa`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    deviceSerialNo := "9876543214" 
+    cfTerminalId := "123344" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposFetchTerminalSoundboxVpa(&xApiVersion, &deviceSerialNo, &cfTerminalId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposFetchTerminalSoundboxVpa``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposFetchTerminalSoundboxVpa`: []SoundboxVpaEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposFetchTerminalSoundboxVpa`: %v\n", resp)
 }
 ```
 
@@ -473,28 +503,33 @@ Get Terminal Transaction
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	utr := "testUTR001" // string | Utr of the transaction.
-	cfTerminalId := "123344" // string | Provide the Cashfree terminal ID for which the details have to be updated.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposFetchTerminalTransaction(context.Background(), cfTerminalId).XApiVersion(xApiVersion).Utr(utr).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposFetchTerminalTransaction``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposFetchTerminalTransaction`: TerminalPaymentEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposFetchTerminalTransaction`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    utr := "testUTR001" 
+    cfTerminalId := "123344" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposFetchTerminalTransaction(&xApiVersion, &utr, &cfTerminalId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposFetchTerminalTransaction``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposFetchTerminalTransaction`: TerminalPaymentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposFetchTerminalTransaction`: %v\n", resp)
 }
 ```
 
@@ -551,27 +586,32 @@ Onboard Soundbox Vpa
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	onboardSoundboxVpaRequest := *openapiclient.NewOnboardSoundboxVpaRequest("Vpa_example", "CfTerminalId_example", "DeviceSerialNo_example") // OnboardSoundboxVpaRequest | Request body to onboard soundbox vpa
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposOnboardSoundboxVpa(context.Background()).XApiVersion(xApiVersion).OnboardSoundboxVpaRequest(onboardSoundboxVpaRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposOnboardSoundboxVpa``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposOnboardSoundboxVpa`: SoundboxVpaEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposOnboardSoundboxVpa`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    onboardSoundboxVpaRequest := *cashfree.NewOnboardSoundboxVpaRequest("Vpa_example", "CfTerminalId_example", "DeviceSerialNo_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposOnboardSoundboxVpa(&xApiVersion, &onboardSoundboxVpaRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposOnboardSoundboxVpa``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposOnboardSoundboxVpa`: SoundboxVpaEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposOnboardSoundboxVpa`: %v\n", resp)
 }
 ```
 
@@ -623,28 +663,33 @@ Update Soundbox Vpa
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	cfTerminalId := "123344" // string | Provide the Cashfree terminal ID for which the details have to be updated.
-	updateSoundboxVpaRequest := *openapiclient.NewUpdateSoundboxVpaRequest("Vpa_example", "CfTerminalId_example") // UpdateSoundboxVpaRequest | Request body to update soundbox vpa
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposUpdateSoundboxVpa(context.Background(), cfTerminalId).XApiVersion(xApiVersion).UpdateSoundboxVpaRequest(updateSoundboxVpaRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposUpdateSoundboxVpa``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposUpdateSoundboxVpa`: SoundboxVpaEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposUpdateSoundboxVpa`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    cfTerminalId := "123344" 
+    updateSoundboxVpaRequest := *cashfree.NewUpdateSoundboxVpaRequest("Vpa_example", "CfTerminalId_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposUpdateSoundboxVpa(&xApiVersion, &cfTerminalId, &updateSoundboxVpaRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposUpdateSoundboxVpa``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposUpdateSoundboxVpa`: SoundboxVpaEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposUpdateSoundboxVpa`: %v\n", resp)
 }
 ```
 
@@ -701,28 +746,33 @@ Update Terminal
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	cfTerminalId := "123344" // string | Provide the Cashfree terminal ID for which the details have to be updated.
-	updateTerminalRequest := *openapiclient.NewUpdateTerminalRequest("TerminalType_example") // UpdateTerminalRequest | Request Body to update terminal for SPOS.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposUpdateTerminal(context.Background(), cfTerminalId).XApiVersion(xApiVersion).UpdateTerminalRequest(updateTerminalRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposUpdateTerminal``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposUpdateTerminal`: []UpdateTerminalEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposUpdateTerminal`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    cfTerminalId := "123344" 
+    updateTerminalRequest := *cashfree.NewUpdateTerminalRequest("TerminalType_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposUpdateTerminal(&xApiVersion, &cfTerminalId, &updateTerminalRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposUpdateTerminal``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposUpdateTerminal`: []UpdateTerminalEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposUpdateTerminal`: %v\n", resp)
 }
 ```
 
@@ -779,28 +829,33 @@ Update Terminal Status
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	cfTerminalId := "123344" // string | Provide the Cashfree terminal ID for which the details have to be updated.
-	updateTerminalStatusRequest := *openapiclient.NewUpdateTerminalStatusRequest("TerminalStatus_example") // UpdateTerminalStatusRequest | Request Body to update terminal status for SPOS.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposUpdateTerminalStatus(context.Background(), cfTerminalId).XApiVersion(xApiVersion).UpdateTerminalStatusRequest(updateTerminalStatusRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposUpdateTerminalStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposUpdateTerminalStatus`: []UpdateTerminalEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposUpdateTerminalStatus`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    cfTerminalId := "123344" 
+    updateTerminalStatusRequest := *cashfree.NewUpdateTerminalStatusRequest("TerminalStatus_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposUpdateTerminalStatus(&xApiVersion, &cfTerminalId, &updateTerminalStatusRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposUpdateTerminalStatus``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposUpdateTerminalStatus`: []UpdateTerminalEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposUpdateTerminalStatus`: %v\n", resp)
 }
 ```
 
@@ -857,28 +912,33 @@ Upload Terminal Docs
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	cfTerminalId := "123344" // string | Provide the Cashfree terminal ID for which the details have to be updated.
-	uploadTerminalDocs := *openapiclient.NewUploadTerminalDocs("DocType_example", "DocValue_example", "File_example") // UploadTerminalDocs | Request Body to update terminal documents for SPOS.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SoftPOSAPI.SposUploadTerminalDocs(context.Background(), cfTerminalId).XApiVersion(xApiVersion).UploadTerminalDocs(uploadTerminalDocs).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SoftPOSAPI.SposUploadTerminalDocs``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SposUploadTerminalDocs`: []UploadTerminalDocsEntity
-	fmt.Fprintf(os.Stdout, "Response from `SoftPOSAPI.SposUploadTerminalDocs`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    cfTerminalId := "123344" 
+    uploadTerminalDocs := *cashfree.NewUploadTerminalDocs("DocType_example", "DocValue_example", "File_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.SposUploadTerminalDocs(&xApiVersion, &cfTerminalId, &uploadTerminalDocs, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.SposUploadTerminalDocs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SposUploadTerminalDocs`: []UploadTerminalDocsEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.SposUploadTerminalDocs`: %v\n", resp)
 }
 ```
 
