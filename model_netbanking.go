@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the Netbanking type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Netbanking{}
@@ -26,7 +29,7 @@ type Netbanking struct {
 	// Bank code
 	NetbankingBankCode *int32 `json:"netbanking_bank_code,omitempty"`
 	// String code for bank
-	NetbankingBankName *string `json:"netbanking_bank_name,omitempty"`
+	NetbankingBankName *string `json:"netbanking_bank_name,omitempty" validate:"regexp=^[A-Z]{5}$"`
 }
 
 
@@ -50,6 +53,5 @@ func (o Netbanking) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 
