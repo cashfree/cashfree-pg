@@ -1,7 +1,9 @@
-module github.com/cashfree/cashfree-pg
+module github.com/cashfree/cashfree-pg/v5
 
-go 1.23
+go 1.18
+
+require github.com/getsentry/sentry-go v0.18.0
+require github.com/stretchr/testify v1.8.4
 
 require (
-	gopkg.in/validator.v2 v2.0.1
 )

@@ -25,28 +25,33 @@ Delete Saved Card Instrument
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	customerId := "your-customer-id" // string | Your Customer ID that you had sent during create order API `POST/orders`
-	instrumentId := "some-instrument-id" // string | The instrument_id which needs to be deleted
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TokenVaultAPI.PGCustomerDeleteInstrument(context.Background(), customerId, instrumentId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TokenVaultAPI.PGCustomerDeleteInstrument``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGCustomerDeleteInstrument`: InstrumentEntity
-	fmt.Fprintf(os.Stdout, "Response from `TokenVaultAPI.PGCustomerDeleteInstrument`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    customerId := "your-customer-id" 
+    instrumentId := "some-instrument-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGCustomerDeleteInstrument(&xApiVersion, &customerId, &instrumentId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCustomerDeleteInstrument``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGCustomerDeleteInstrument`: InstrumentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCustomerDeleteInstrument`: %v\n", resp)
 }
 ```
 
@@ -104,28 +109,33 @@ Fetch Specific Saved Card Instrument
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	customerId := "your-customer-id" // string | Your Customer ID that you had sent during create order API `POST/orders`
-	instrumentId := "some-instrument-id" // string | The instrument_id of the saved instrument which needs to be queried
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TokenVaultAPI.PGCustomerFetchInstrument(context.Background(), customerId, instrumentId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TokenVaultAPI.PGCustomerFetchInstrument``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGCustomerFetchInstrument`: InstrumentEntity
-	fmt.Fprintf(os.Stdout, "Response from `TokenVaultAPI.PGCustomerFetchInstrument`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    customerId := "your-customer-id" 
+    instrumentId := "some-instrument-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGCustomerFetchInstrument(&xApiVersion, &customerId, &instrumentId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCustomerFetchInstrument``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGCustomerFetchInstrument`: InstrumentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCustomerFetchInstrument`: %v\n", resp)
 }
 ```
 
@@ -183,28 +193,33 @@ Fetch All Saved Card Instrument
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	customerId := "your-customer-id" // string | Your Customer ID that you had sent during create order API `POST/orders`
-	instrumentType := "card" // string | Payment mode or type of saved instrument 
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TokenVaultAPI.PGCustomerFetchInstruments(context.Background(), customerId).XApiVersion(xApiVersion).InstrumentType(instrumentType).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TokenVaultAPI.PGCustomerFetchInstruments``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGCustomerFetchInstruments`: []InstrumentEntity
-	fmt.Fprintf(os.Stdout, "Response from `TokenVaultAPI.PGCustomerFetchInstruments`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    customerId := "your-customer-id" 
+    instrumentType := "card" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGCustomerFetchInstruments(&xApiVersion, &customerId, &instrumentType, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCustomerFetchInstruments``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGCustomerFetchInstruments`: []InstrumentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCustomerFetchInstruments`: %v\n", resp)
 }
 ```
 
@@ -261,28 +276,33 @@ Fetch cryptogram for a saved card instrument
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	customerId := "your-customer-id" // string | Your Customer ID that you had sent during create order API `POST/orders`
-	instrumentId := "some-instrument-id" // string | The instrument_id of the saved card instrument which needs to be queried
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TokenVaultAPI.PGCustomerInstrumentsFetchCryptogram(context.Background(), customerId, instrumentId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TokenVaultAPI.PGCustomerInstrumentsFetchCryptogram``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGCustomerInstrumentsFetchCryptogram`: CryptogramEntity
-	fmt.Fprintf(os.Stdout, "Response from `TokenVaultAPI.PGCustomerInstrumentsFetchCryptogram`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    customerId := "your-customer-id" 
+    instrumentId := "some-instrument-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGCustomerInstrumentsFetchCryptogram(&xApiVersion, &customerId, &instrumentId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCustomerInstrumentsFetchCryptogram``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGCustomerInstrumentsFetchCryptogram`: CryptogramEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCustomerInstrumentsFetchCryptogram`: %v\n", resp)
 }
 ```
 

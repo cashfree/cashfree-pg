@@ -23,27 +23,32 @@ Fetch Simulation
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	simulationId := "sim_2900842gV18Lhh7owswLj5XF0uHHUn1CX" // string | Provide the SimulationId for which the details have to be fetched.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SimulationAPI.PGFetchSimulation(context.Background(), simulationId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SimulationAPI.PGFetchSimulation``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGFetchSimulation`: SimulationResponse
-	fmt.Fprintf(os.Stdout, "Response from `SimulationAPI.PGFetchSimulation`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    simulationId := "sim_2900842gV18Lhh7owswLj5XF0uHHUn1CX" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGFetchSimulation(&xApiVersion, &simulationId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGFetchSimulation``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGFetchSimulation`: SimulationResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGFetchSimulation`: %v\n", resp)
 }
 ```
 
@@ -99,27 +104,32 @@ Simulate Payment
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	simulateRequest := *openapiclient.NewSimulateRequest("Entity_example", "EntityId_example", *openapiclient.NewEntitySimulationRequest("PaymentStatus_example")) // SimulateRequest | Request Body to Make Simulation
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SimulationAPI.PGSimulatePayment(context.Background()).XApiVersion(xApiVersion).SimulateRequest(simulateRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SimulationAPI.PGSimulatePayment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGSimulatePayment`: SimulationResponse
-	fmt.Fprintf(os.Stdout, "Response from `SimulationAPI.PGSimulatePayment`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    simulateRequest := *cashfree.NewSimulateRequest("Entity_example", "EntityId_example", *cashfree.NewEntitySimulationRequest("PaymentStatus_example")) 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGSimulatePayment(&xApiVersion, &simulateRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGSimulatePayment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGSimulatePayment`: SimulationResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGSimulatePayment`: %v\n", resp)
 }
 ```
 

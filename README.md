@@ -1,7 +1,7 @@
-# Cashfree PG Node SDK
-![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg-sdk-nodejs) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg-sdk-nodejs/main) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg-sdk-nodejs?label=latest) ![npm](https://img.shields.io/npm/v/cashfree-pg) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg-sdk-nodejs) [![Coverage Status](https://coveralls.io/repos/github/cashfree/cashfree-pg-sdk-nodejs/badge.svg?branch=)](https://coveralls.io/github/cashfree/cashfree-pg-sdk-nodejs?branch=main)
+# Cashfree PG Go SDK
+![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg/main) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg) [![Coverage Status](https://coveralls.io/repos/github/cashfree/cashfree-pg/badge.svg?branch=main)](https://coveralls.io/github/cashfree/cashfree-pg?branch=main) [![GoDoc](https://godoc.org/github.com/cashfree/cashfree-pg/v4?status.svg)](https://godoc.org/github.com/cashfree/cashfree-pg/v4)
 
-The Cashfree PG Node SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side JavaScript  applications. 
+The Cashfree PG Go SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side Go  applications. 
 
 
 
@@ -17,103 +17,122 @@ Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com
 
 ### Installation
 ```bash
-npm i cashfree-pg
+go get github.com/cashfree/cashfree-pg/v5
 ```
 ### Configuration
 
-## Version >=5
+## Version >= 5
 
-```javascript 
-import { Cashfree } from "cashfree-pg"; 
+```go 
+import (
+    cashfree "github.com/cashfree/cashfree-pg/v5"
+)
 
-var cashfree = new Cashfree(Cashfree.SANDBOX, "<x-client-id>", "<x-client-secret>")
+xClientId := "<x-client-id>"
+xClientSecret := "<x-client-secret>"
+
+cashfree = Cashfree {
+	XEnvironment: Cashfree.SANDBOX,
+	XClientID: &xClientId,
+	XClientSecret: &xClientSecret,
+}
+```
+Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant Dashboard](https://merchant.cashfree.com/merchants/login)
+
+### Basic Usage
+Create Order
+```go
+returnUrl := "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
+
+request := cashfree.CreateOrderRequest{
+	OrderAmount:   1.0,
+	OrderCurrency: "INR",
+	CustomerDetails: cashfree.CustomerDetails{
+		CustomerId:    "walterwNrcMi",
+		CustomerPhone: "9999999999",
+	},
+	OrderMeta: &cashfree.OrderMeta{
+		ReturnUrl: &returnUrl,
+	},
+}
+
+version := "2022-09-01"
+
+response, httpResponse, err := cashfree.PGCreateOrder(&request, nil, nil, nil)
+if err != nil {
+	fmt.Println(err.Error())
+} else {
+	fmt.Println(httpResponse.StatusCode)
+	fmt.Println(response)
+}
+```
+
+Get Order
+```go
+version := "2022-09-01"
+response, httpResponse, err := cashfree.PGFetchOrder("<order_id>", nil, nil, nil)
+if err != nil {
+	fmt.Println(err.Error())
+} else {
+	fmt.Println(httpResponse.StatusCode)
+	fmt.Println(response)
+}
+```
+
+## Version < 5
+
+```go 
+import (
+    cashfree "github.com/cashfree/cashfree-pg/v5"
+)
+
+clientId := "<x-client-id>"
+clientSecret := "<x-client-secret>"
+cashfree.XClientId = &clientId
+cashfree.XClientSecret = &clientSecret
+cashfree.XEnvironment = cashfree.SANDBOX
 ```
 
 Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant Dashboard](https://merchant.cashfree.com/merchants/login)
 
 ### Basic Usage
 Create Order
-```javascript
-var request = {
-    "order_amount": 1,
-    "order_currency": "INR",
-    "order_id": "order_34692745",
-    "customer_details": {
-        "customer_id": "walterwNrcMi",
-        "customer_phone": "9999999999"
-    },
-    "order_meta": {
-        "return_url": "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
-    }
-};
-Cashfree.PGCreateOrder(request).then((response) => {
-    console.log('Order Created successfully:',response.data)
-}).catch((error) => {
-    console.error('Error:', error.response.data.message);
-});
+```go
+returnUrl := "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
+
+request := cashfree.CreateOrderRequest{
+	OrderAmount:   1.0,
+	OrderCurrency: "INR",
+	CustomerDetails: cashfree.CustomerDetails{
+		CustomerId:    "walterwNrcMi",
+		CustomerPhone: "9999999999",
+	},
+	OrderMeta: &cashfree.OrderMeta{
+		ReturnUrl: &returnUrl,
+	},
+}
+
+version := "2022-09-01"
+
+response, httpResponse, err := cashfree.PGCreateOrder(&version, &request, nil, nil, nil)
+if err != nil {
+	fmt.Println(err.Error())
+} else {
+	fmt.Println(httpResponse.StatusCode)
+	fmt.Println(response)
+}
 ```
 
 Get Order
-```javascript
-Cashfree.PGFetchOrder("<order_id>").then((response) => {
-    console.log('Order fetched successfully:', response.data);
-}).catch((error) => {
-    console.error('Error:', error.response.data.message);
-});
-```
-
-## Version <5
-
-```javascript 
-import { Cashfree } from "cashfree-pg"; 
-
-Cashfree.XClientId = "<x-client-id>";
-Cashfree.XClientSecret = "<x-client-secret>";
-Cashfree.XEnvironment = Cashfree.Environment.SANDBOX;
-```
-
-Generate your API keys (x-client-id , x-client-secret) from [Cashfree Merchant Dashboard](https://merchant.cashfree.com/merchants/login)
-
-### Basic Usage
-Create Order
-```javascript
-var request = {
-    "order_amount": 1,
-    "order_currency": "INR",
-    "order_id": "order_34692745",
-    "customer_details": {
-        "customer_id": "walterwNrcMi",
-        "customer_phone": "9999999999"
-    },
-    "order_meta": {
-        "return_url": "https://www.cashfree.com/devstudio/preview/pg/web/checkout?order_id={order_id}"
-    }
-};
-Cashfree.PGCreateOrder("2023-08-01", request).then((response) => {
-    console.log('Order Created successfully:',response.data)
-}).catch((error) => {
-    console.error('Error:', error.response.data.message);
-});
-```
-
-Get Order
-```javascript
-Cashfree.PGFetchOrder("2023-08-01", "<order_id>").then((response) => {
-    console.log('Order fetched successfully:', response.data);
-}).catch((error) => {
-    console.error('Error:', error.response.data.message);
-});
-```
-
-Validate Webhook
-```javascript
-app.post('/webhook', function (req, res) {
-    try {
-        Cashfree.PGVerifyWebhookSignature(req.headers["x-webhook-signature"], req.rawBody, req.headers["x-webhook-timestamp"]);
-    } catch (err) {
-        console.log(err.message)
-    }
-})
+```go
+version := "2022-09-01"
+response, httpResponse, err := cashfree.PGFetchOrder(&version, "<order_id>", nil, nil, nil)
+if err != nil {
+	fmt.Println(err.Error())
+} else {
+	fmt.Println(httpResponse.StatusCode)
+	fmt.Println(response)
+}
 ```
 
 ## Supported Resources
@@ -132,9 +151,9 @@ app.post('/webhook', function (req, res) {
 
 - [Settlements](docs/Settlements.md)
 
-- [Offers](docs/Offers.md)
-
 - [Reconciliation](docs/Reconciliation.md)
+
+- [Webhook](docs/Webhook.md)
 
 ## Licence
 

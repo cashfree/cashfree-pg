@@ -22,27 +22,32 @@ Create PAR at Cashfree
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	pARRequest := *openapiclient.NewPARRequest("xxxx...xxx", "xxx", "xx", "xx", "PLAIN_CARD") // PARRequest | Request payload for creating PAR.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.UtilitiesAPI.PGCreatePAR(context.Background()).XApiVersion(xApiVersion).PARRequest(pARRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UtilitiesAPI.PGCreatePAR``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGCreatePAR`: PGCreatePAR200Response
-	fmt.Fprintf(os.Stdout, "Response from `UtilitiesAPI.PGCreatePAR`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    pARRequest := *cashfree.NewPARRequest("xxxx...xxx", "xxx", "xx", "xx", "PLAIN_CARD") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGCreatePAR(&xApiVersion, &pARRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCreatePAR``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGCreatePAR`: PGCreatePAR200Response
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCreatePAR`: %v\n", resp)
 }
 ```
 

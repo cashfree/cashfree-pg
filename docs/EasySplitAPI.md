@@ -35,28 +35,33 @@ Create Adjustment
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	vendorId := "your-vendor-id" // string | The id which uniquely identifies your vendor.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
-	vendorAdjustmentRequest := *openapiclient.NewVendorAdjustmentRequest("VendorId_example", int64(123), float32(123), "Type_example") // VendorAdjustmentRequest | Vendor Adjustment Request Body. (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESCreateAdjustment(context.Background(), vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).VendorAdjustmentRequest(vendorAdjustmentRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESCreateAdjustment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESCreateAdjustment`: VendorAdjustmentSuccessResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESCreateAdjustment`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    vendorAdjustmentRequest := *cashfree.NewVendorAdjustmentRequest("VendorId_example", int64(123), float32(123), "Type_example") 
+
+    resp, r, err := cashfree.PGESCreateAdjustment(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, &vendorAdjustmentRequest, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESCreateAdjustment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESCreateAdjustment`: VendorAdjustmentSuccessResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESCreateAdjustment`: %v\n", resp)
 }
 ```
 
@@ -113,28 +118,33 @@ Create On Demand Transfer
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	vendorId := "your-vendor-id" // string | The id which uniquely identifies your vendor.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
-	adjustVendorBalanceRequest := *openapiclient.NewAdjustVendorBalanceRequest("TransferFrom_example", "TransferType_example", float32(123)) // AdjustVendorBalanceRequest | Adjust Vendor Balance Request Body. (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESCreateOnDemandTransfer(context.Background(), vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).AdjustVendorBalanceRequest(adjustVendorBalanceRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESCreateOnDemandTransfer``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESCreateOnDemandTransfer`: AdjustVendorBalanceResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESCreateOnDemandTransfer`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    adjustVendorBalanceRequest := *cashfree.NewAdjustVendorBalanceRequest("TransferFrom_example", "TransferType_example", float32(123)) 
+
+    resp, r, err := cashfree.PGESCreateOnDemandTransfer(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, &adjustVendorBalanceRequest, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESCreateOnDemandTransfer``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESCreateOnDemandTransfer`: AdjustVendorBalanceResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESCreateOnDemandTransfer`: %v\n", resp)
 }
 ```
 
@@ -191,27 +201,32 @@ Create vendor
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
-	createVendorRequest := *openapiclient.NewCreateVendorRequest("VendorId_example", "Status_example", "Name_example", "Email_example", "Phone_example", []openapiclient.KycDetails{*openapiclient.NewKycDetails()}) // CreateVendorRequest | Create Vendor Request Body. (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESCreateVendors(context.Background()).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).CreateVendorRequest(createVendorRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESCreateVendors``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESCreateVendors`: CreateVendorResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESCreateVendors`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    createVendorRequest := *cashfree.NewCreateVendorRequest("VendorId_example", "Status_example", "Name_example", "Email_example", "Phone_example", []cashfree.KycDetails{*cashfree.NewKycDetails()}) 
+
+    resp, r, err := cashfree.PGESCreateVendors(&xApiVersion, &xRequestId, &xIdempotencyKey, &createVendorRequest, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESCreateVendors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESCreateVendors`: CreateVendorResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESCreateVendors`: %v\n", resp)
 }
 ```
 
@@ -263,28 +278,33 @@ Download Vendor Documents
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	docType := "docType_example" // string | Mention the document type that has to be downloaded. Only an uploaded document can be downloaded.
-	vendorId := "your-vendor-id" // string | The id which uniquely identifies your vendor.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESDownloadVendorsDocs(context.Background(), docType, vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESDownloadVendorsDocs``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESDownloadVendorsDocs`: VendorDocumentDownloadResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESDownloadVendorsDocs`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    docType := "docType_example" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGESDownloadVendorsDocs(&xApiVersion, &docType, &vendorId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESDownloadVendorsDocs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESDownloadVendorsDocs`: VendorDocumentDownloadResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESDownloadVendorsDocs`: %v\n", resp)
 }
 ```
 
@@ -342,27 +362,32 @@ Get Vendor All Details
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	vendorId := "your-vendor-id" // string | The id which uniquely identifies your vendor.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESFetchVendors(context.Background(), vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESFetchVendors``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESFetchVendors`: VendorEntity
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESFetchVendors`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGESFetchVendors(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESFetchVendors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESFetchVendors`: VendorEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESFetchVendors`: %v\n", resp)
 }
 ```
 
@@ -418,27 +443,32 @@ Get On Demand Balance
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	vendorId := "your-vendor-id" // string | The id which uniquely identifies your vendor.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESGetVendorBalance(context.Background(), vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESGetVendorBalance``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESGetVendorBalance`: VendorBalance
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESGetVendorBalance`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGESGetVendorBalance(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESGetVendorBalance``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESGetVendorBalance`: VendorBalance
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESGetVendorBalance`: %v\n", resp)
 }
 ```
 
@@ -494,28 +524,33 @@ Get Vendor Balance Transfer Charges
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	amount := float32(1000) // float32 | Specify the amount for which you want to view the service charges and service taxes in the response.
-	rateType := "VENDOR_ON_DEMAND" // string | Mention the type of rate for which you want to check the charges. Possible value: VENDOR_ON_DEMAND
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESGetVendorBalanceTransferCharges(context.Background(), amount).XApiVersion(xApiVersion).RateType(rateType).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESGetVendorBalanceTransferCharges``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESGetVendorBalanceTransferCharges`: VendorBalanceTransferCharges
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESGetVendorBalanceTransferCharges`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    amount := float32(1000) 
+    rateType := "VENDOR_ON_DEMAND" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGESGetVendorBalanceTransferCharges(&xApiVersion, &amount, &rateType, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESGetVendorBalanceTransferCharges``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESGetVendorBalanceTransferCharges`: VendorBalanceTransferCharges
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESGetVendorBalanceTransferCharges`: %v\n", resp)
 }
 ```
 
@@ -572,27 +607,32 @@ Get Vendor All Documents Status
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	vendorId := "your-vendor-id" // string | The id which uniquely identifies your vendor.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESGetVendorsDocs(context.Background(), vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESGetVendorsDocs``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESGetVendorsDocs`: VendorDocumentsResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESGetVendorsDocs`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGESGetVendorsDocs(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESGetVendorsDocs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESGetVendorsDocs`: VendorDocumentsResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESGetVendorsDocs`: %v\n", resp)
 }
 ```
 
@@ -648,27 +688,32 @@ Get Split and Settlement Details by OrderID v2.0
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
-	eSOrderReconRequest := *openapiclient.NewESOrderReconRequest(*openapiclient.NewESOrderReconRequestFilters(), *openapiclient.NewESOrderReconRequestPagination()) // ESOrderReconRequest | Get Split and Settlement Details by OrderID v2.0 (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESOrderRecon(context.Background()).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).ESOrderReconRequest(eSOrderReconRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESOrderRecon``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESOrderRecon`: ESOrderReconResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESOrderRecon`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    eSOrderReconRequest := *cashfree.NewESOrderReconRequest(*cashfree.NewESOrderReconRequestFilters(), *cashfree.NewESOrderReconRequestPagination()) 
+
+    resp, r, err := cashfree.PGESOrderRecon(&xApiVersion, &xRequestId, &xIdempotencyKey, &eSOrderReconRequest, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESOrderRecon``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESOrderRecon`: ESOrderReconResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESOrderRecon`: %v\n", resp)
 }
 ```
 
@@ -720,28 +765,33 @@ Update vendor Details
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	vendorId := "your-vendor-id" // string | The id which uniquely identifies your vendor.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
-	updateVendorRequest := *openapiclient.NewUpdateVendorRequest("Status_example", "Name_example", "Email_example", "Phone_example", float32(123), []openapiclient.KycDetails{*openapiclient.NewKycDetails()}) // UpdateVendorRequest | Create Vendor Request Body. (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESUpdateVendors(context.Background(), vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).UpdateVendorRequest(updateVendorRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESUpdateVendors``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESUpdateVendors`: UpdateVendorResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESUpdateVendors`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    updateVendorRequest := *cashfree.NewUpdateVendorRequest("Status_example", "Name_example", "Email_example", "Phone_example", float32(123), []cashfree.KycDetails{*cashfree.NewKycDetails()}) 
+
+    resp, r, err := cashfree.PGESUpdateVendors(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, &updateVendorRequest, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESUpdateVendors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESUpdateVendors`: UpdateVendorResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESUpdateVendors`: %v\n", resp)
 }
 ```
 
@@ -798,30 +848,35 @@ Upload Vendor Docs
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	vendorId := "your-vendor-id" // string | The id which uniquely identifies your vendor.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
-	docType := "docType_example" // string | Mention the type of the document you are uploading. Possible values: UIDAI_FRONT, UIDAI_BACK, UIDAI_NUMBER, DL, DL_NUMBER, PASSPORT_FRONT, PASSPORT_BACK, PASSPORT_NUMBER, VOTER_ID, VOTER_ID_NUMBER, PAN, PAN_NUMBER, GST, GSTIN_NUMBER, CIN, CIN_NUMBER, NBFC_CERTIFICATE. If the doc type ends with a number you should add the doc value else upload the doc file. (optional)
-	docValue := "docValue_example" // string | Enter the display name of the uploaded file. (optional)
-	file := os.NewFile(1234, "some_file") // *os.File | Select the document that should be uploaded or provide the path of that file. You cannot upload a file that is more than 2MB in size. (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGESUploadVendorsDocs(context.Background(), vendorId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).DocType(docType).DocValue(docValue).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGESUploadVendorsDocs``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGESUploadVendorsDocs`: UploadVendorDocumentsResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGESUploadVendorsDocs`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    vendorId := "your-vendor-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    docType := "docType_example" 
+    docValue := "docValue_example" 
+    file := os.NewFile(1234, "some_file") 
+
+    resp, r, err := cashfree.PGESUploadVendorsDocs(&xApiVersion, &vendorId, &xRequestId, &xIdempotencyKey, &docType, &docValue, &file, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGESUploadVendorsDocs``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGESUploadVendorsDocs`: UploadVendorDocumentsResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGESUploadVendorsDocs`: %v\n", resp)
 }
 ```
 
@@ -880,28 +935,33 @@ Split After Payment
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	orderId := "your-order-id" // string | The id which uniquely identifies your order
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
-	splitAfterPaymentRequest := *openapiclient.NewSplitAfterPaymentRequest([]openapiclient.SplitAfterPaymentRequestSplitInner{*openapiclient.NewSplitAfterPaymentRequestSplitInner()}) // SplitAfterPaymentRequest | Request Body to Create Split for an order. (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGOrderSplitAfterPayment(context.Background(), orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).SplitAfterPaymentRequest(splitAfterPaymentRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGOrderSplitAfterPayment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGOrderSplitAfterPayment`: SplitAfterPaymentResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGOrderSplitAfterPayment`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    orderId := "your-order-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    splitAfterPaymentRequest := *cashfree.NewSplitAfterPaymentRequest([]cashfree.SplitAfterPaymentRequestSplitInner{*cashfree.NewSplitAfterPaymentRequestSplitInner()}) 
+
+    resp, r, err := cashfree.PGOrderSplitAfterPayment(&xApiVersion, &orderId, &xRequestId, &xIdempotencyKey, &splitAfterPaymentRequest, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderSplitAfterPayment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGOrderSplitAfterPayment`: SplitAfterPaymentResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderSplitAfterPayment`: %v\n", resp)
 }
 ```
 
@@ -958,27 +1018,32 @@ Create Static Split Configuration
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
-	staticSplitRequest := *openapiclient.NewStaticSplitRequest(false, "ProductType_example", []openapiclient.StaticSplitRequestSchemeInner{*openapiclient.NewStaticSplitRequestSchemeInner()}) // StaticSplitRequest | Static Split (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGOrderStaticSplit(context.Background()).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).StaticSplitRequest(staticSplitRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGOrderStaticSplit``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGOrderStaticSplit`: StaticSplitResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGOrderStaticSplit`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    staticSplitRequest := *cashfree.NewStaticSplitRequest(false, "ProductType_example", []cashfree.StaticSplitRequestSchemeInner{*cashfree.NewStaticSplitRequestSchemeInner()}) 
+
+    resp, r, err := cashfree.PGOrderStaticSplit(&xApiVersion, &xRequestId, &xIdempotencyKey, &staticSplitRequest, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderStaticSplit``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGOrderStaticSplit`: StaticSplitResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderStaticSplit`: %v\n", resp)
 }
 ```
 
@@ -1030,27 +1095,32 @@ Get Split and Settlement Details by OrderID
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	orderId := "your-order-id" // string | The id which uniquely identifies your order
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.EasySplitAPI.PGSplitOrderRecon(context.Background(), orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `EasySplitAPI.PGSplitOrderRecon``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGSplitOrderRecon`: SplitOrderReconSuccessResponse
-	fmt.Fprintf(os.Stdout, "Response from `EasySplitAPI.PGSplitOrderRecon`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    orderId := "your-order-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGSplitOrderRecon(&xApiVersion, &orderId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGSplitOrderRecon``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGSplitOrderRecon`: SplitOrderReconSuccessResponse
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGSplitOrderRecon`: %v\n", resp)
 }
 ```
 

@@ -26,28 +26,33 @@ Preauthorization
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	orderId := "your-order-id" // string | The id which uniquely identifies your order
-	authorizeOrderRequest := *openapiclient.NewAuthorizeOrderRequest() // AuthorizeOrderRequest | Request to Capture or Void Transactions
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.PGAuthorizeOrder(context.Background(), orderId).XApiVersion(xApiVersion).AuthorizeOrderRequest(authorizeOrderRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.PGAuthorizeOrder``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGAuthorizeOrder`: PaymentEntity
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.PGAuthorizeOrder`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    orderId := "your-order-id" 
+    authorizeOrderRequest := *cashfree.NewAuthorizeOrderRequest() 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGAuthorizeOrder(&xApiVersion, &orderId, &authorizeOrderRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGAuthorizeOrder``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGAuthorizeOrder`: PaymentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGAuthorizeOrder`: %v\n", resp)
 }
 ```
 
@@ -104,28 +109,33 @@ Submit or Resend OTP
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	cfPaymentId := "121224562" // string | The Cashfree payment or transaction ID.
-	orderAuthenticatePaymentRequest := *openapiclient.NewOrderAuthenticatePaymentRequest("Otp_example", "Action_example") // OrderAuthenticatePaymentRequest | Request body to submit/resend headless OTP. To use this API make sure you have headless OTP enabled for your account
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.PGOrderAuthenticatePayment(context.Background(), cfPaymentId).XApiVersion(xApiVersion).OrderAuthenticatePaymentRequest(orderAuthenticatePaymentRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.PGOrderAuthenticatePayment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGOrderAuthenticatePayment`: OrderAuthenticateEntity
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.PGOrderAuthenticatePayment`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    cfPaymentId := "121224562" 
+    orderAuthenticatePaymentRequest := *cashfree.NewOrderAuthenticatePaymentRequest("Otp_example", "Action_example") 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGOrderAuthenticatePayment(&xApiVersion, &cfPaymentId, &orderAuthenticatePaymentRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderAuthenticatePayment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGOrderAuthenticatePayment`: OrderAuthenticateEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderAuthenticatePayment`: %v\n", resp)
 }
 ```
 
@@ -182,28 +192,33 @@ Get Payment by ID
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	orderId := "your-order-id" // string | The id which uniquely identifies your order
-	cfPaymentId := "121224562" // string | The Cashfree payment or transaction ID.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.PGOrderFetchPayment(context.Background(), orderId, cfPaymentId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.PGOrderFetchPayment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGOrderFetchPayment`: PaymentEntity
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.PGOrderFetchPayment`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    orderId := "your-order-id" 
+    cfPaymentId := "121224562" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGOrderFetchPayment(&xApiVersion, &orderId, &cfPaymentId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderFetchPayment``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGOrderFetchPayment`: PaymentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderFetchPayment`: %v\n", resp)
 }
 ```
 
@@ -261,27 +276,32 @@ Get Payments for an Order
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	orderId := "your-order-id" // string | The id which uniquely identifies your order
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.PGOrderFetchPayments(context.Background(), orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.PGOrderFetchPayments``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGOrderFetchPayments`: []PaymentEntity
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.PGOrderFetchPayments`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    orderId := "your-order-id" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGOrderFetchPayments(&xApiVersion, &orderId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderFetchPayments``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGOrderFetchPayments`: []PaymentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderFetchPayments`: %v\n", resp)
 }
 ```
 
@@ -337,27 +357,32 @@ Order Pay
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	payOrderRequest := *openapiclient.NewPayOrderRequest("session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn", openapiclient.PayOrderRequest_payment_method{AppPaymentMethod: openapiclient.NewAppPaymentMethod(*openapiclient.NewApp("Channel_example", "Provider_example", "Phone_example"))}) // PayOrderRequest | Request body to create a transaction at cashfree using `payment_session_id`
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PaymentsAPI.PGPayOrder(context.Background()).XApiVersion(xApiVersion).PayOrderRequest(payOrderRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PaymentsAPI.PGPayOrder``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGPayOrder`: PayOrderEntity
-	fmt.Fprintf(os.Stdout, "Response from `PaymentsAPI.PGPayOrder`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    payOrderRequest := *cashfree.NewPayOrderRequest("session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn", cashfree.PayOrderRequest_payment_method{AppPaymentMethod: cashfree.NewAppPaymentMethod(*cashfree.NewApp("Channel_example", "Provider_example", "Phone_example"))}) 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGPayOrder(&xApiVersion, &payOrderRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGPayOrder``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGPayOrder`: PayOrderEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGPayOrder`: %v\n", resp)
 }
 ```
 

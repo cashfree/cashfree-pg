@@ -23,27 +23,32 @@ Create Offer
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	createOfferRequest := *openapiclient.NewCreateOfferRequest(*openapiclient.NewOfferMeta("Test Offer", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", "CFTESTOFFER", "2023-03-21T08:09:51Z", "2023-03-29T08:09:51Z"), *openapiclient.NewOfferTnc("text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit"), *openapiclient.NewOfferDetails("DISCOUNT_AND_CASHBACK"), *openapiclient.NewOfferValidations(float32(1), openapiclient.OfferValidationsResponse_payment_method{OfferAll: openapiclient.NewOfferAll(map[string]interface{}(123))})) // CreateOfferRequest | Request body to create an offer at Cashfree
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OffersAPI.PGCreateOffer(context.Background()).XApiVersion(xApiVersion).CreateOfferRequest(createOfferRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OffersAPI.PGCreateOffer``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGCreateOffer`: OfferEntity
-	fmt.Fprintf(os.Stdout, "Response from `OffersAPI.PGCreateOffer`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    createOfferRequest := *cashfree.NewCreateOfferRequest(*cashfree.NewOfferMeta("Test Offer", "Lorem ipsum dolor sit amet, consectetur adipiscing elit", "CFTESTOFFER", "2023-03-21T08:09:51Z", "2023-03-29T08:09:51Z"), *cashfree.NewOfferTnc("text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit"), *cashfree.NewOfferDetails("DISCOUNT_AND_CASHBACK"), *cashfree.NewOfferValidations(float32(1), cashfree.OfferValidationsResponse_payment_method{OfferAll: cashfree.NewOfferAll(map[string]interface{}(123))})) 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGCreateOffer(&xApiVersion, &createOfferRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCreateOffer``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGCreateOffer`: OfferEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCreateOffer`: %v\n", resp)
 }
 ```
 
@@ -95,27 +100,32 @@ Get Offer by ID
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/cashfree/cashfree-pg"
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
 )
 
 func main() {
-	xApiVersion := "2025-01-01" // string | API version to be used. Format is in YYYY-MM-DD (default to "2025-01-01")
-	offerId := "d2b430fb-1afe-455a-af31-66d00377b29a" // string | The offer ID for which you want to view the offer details.
-	xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" // string | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree (optional)
-	xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" // string | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.OffersAPI.PGFetchOffer(context.Background(), offerId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OffersAPI.PGFetchOffer``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PGFetchOffer`: OfferEntity
-	fmt.Fprintf(os.Stdout, "Response from `OffersAPI.PGFetchOffer`: %v\n", resp)
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2025-01-01" 
+    offerId := "d2b430fb-1afe-455a-af31-66d00377b29a" 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGFetchOffer(&xApiVersion, &offerId, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGFetchOffer``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGFetchOffer`: OfferEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGFetchOffer`: %v\n", resp)
 }
 ```
 
