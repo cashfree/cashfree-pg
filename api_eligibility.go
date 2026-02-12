@@ -118,7 +118,7 @@ export class Cashfree {
             } else {
                 scope.setExtra('environment', 'production');
             }
-            scope.setExtra('release', "5.1.1");
+            scope.setExtra('release', "5.1.2");
         }
         if(axios) {
             this.axios = axios;
