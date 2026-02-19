@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the IdempotencyError type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &IdempotencyError{}
@@ -54,6 +57,5 @@ func (o IdempotencyError) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

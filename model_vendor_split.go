@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the VendorSplit type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &VendorSplit{}
@@ -55,6 +58,5 @@ func (o VendorSplit) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 
