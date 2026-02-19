@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the CreateTerminalRequestTerminalMeta type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateTerminalRequestTerminalMeta{}
@@ -42,6 +45,5 @@ func (o CreateTerminalRequestTerminalMeta) ToMap() (map[string]interface{}, erro
 	}
 	return toSerialize, nil
 }
-
 
 

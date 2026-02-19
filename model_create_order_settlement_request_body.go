@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the CreateOrderSettlementRequestBody type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateOrderSettlementRequestBody{}
@@ -42,6 +45,5 @@ func (o CreateOrderSettlementRequestBody) ToMap() (map[string]interface{}, error
 	toSerialize["meta_data"] = o.MetaData
 	return toSerialize, nil
 }
-
 
 

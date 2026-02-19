@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the LinkEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &LinkEntity{}
@@ -115,6 +118,5 @@ func (o LinkEntity) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 
