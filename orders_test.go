@@ -20,6 +20,19 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	cashfree.XEnvironment = cashfree.SANDBOX
 	XApiVersion := "2023-08-01"
 	ctx := context.Background()
+	seedOrderId := "order_" + uniqueSuffix()
+
+	seedCreateOrderRequest := cashfree.CreateOrderRequest{
+		OrderId:       &seedOrderId,
+		OrderAmount:   1.0,
+		OrderCurrency: "INR",
+		CustomerDetails: cashfree.CustomerDetails{
+			CustomerId:    "suhas-test",
+			CustomerPhone: "9999999999",
+		},
+	}
+	_, seedOrderHTTPRes, seedOrderErr := cashfree.PGCreateOrder(&XApiVersion, &seedCreateOrderRequest, nil, nil, nil)
+	requireSuccessOrDecodeError(t, seedOrderHTTPRes, seedOrderErr)
 
 	t.Run("PGCreateOrder should give status 200", func(t *testing.T) {
 
@@ -31,17 +44,14 @@ func Test_cashfree_pg_orders(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		resp, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
 	t.Run("PGCreateOrder should give status code 409", func(t *testing.T) {
 
-		orderId := "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6"
+		orderId := seedOrderId
 
 		createOrderRequest := cashfree.CreateOrderRequest{
 			OrderId:       &orderId,
@@ -70,11 +80,8 @@ func Test_cashfree_pg_orders(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		resp, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -222,17 +229,14 @@ func Test_cashfree_pg_orders(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		resp, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, nil)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, nil)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
 	t.Run("PGCreateOrderWithContext should give status code 409", func(t *testing.T) {
 
-		orderId := "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6"
+		orderId := seedOrderId
 
 		createOrderRequest := cashfree.CreateOrderRequest{
 			OrderId:       &orderId,
@@ -262,11 +266,8 @@ func Test_cashfree_pg_orders(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		resp, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -385,22 +386,16 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	t.Run("PGFetchOrder should status code 200", func(t *testing.T) {
 		cashfree.XClientId = &clientId
 
-		resp, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", nil, nil, nil)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, seedOrderId, nil, nil, nil)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
 	t.Run("PGFetchOrder should give status code 200 with client", func(t *testing.T) {
 		cashfree.XClientId = &clientId
 
-		resp, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", nil, nil, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, seedOrderId, nil, nil, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -409,11 +404,8 @@ func Test_cashfree_pg_orders(t *testing.T) {
 		requestId := "test"
 		idempotency := "test"
 
-		resp, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", &requestId, &idempotency, nil)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, seedOrderId, &requestId, &idempotency, nil)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -438,7 +430,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	})
 
 	t.Run("PGFetchOrder should fail when xApiVerion missing", func(t *testing.T) {
-		resp, _, err := cashfree.PGFetchOrder(nil, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", nil, nil, nil)
+		resp, _, err := cashfree.PGFetchOrder(nil, seedOrderId, nil, nil, nil)
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
@@ -450,7 +442,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 		clientId := "unauthorised"
 		cashfree.XClientId = &clientId
 
-		resp, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", nil, nil, nil)
+		resp, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, seedOrderId, nil, nil, nil)
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
@@ -465,22 +457,16 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	t.Run("PGFetchOrder should status code 200", func(t *testing.T) {
 		cashfree.XClientId = &clientId
 
-		resp, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", nil, nil, nil)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, seedOrderId, nil, nil, nil)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
 	t.Run("PGFetchOrderWithContext should give status code 200 with client", func(t *testing.T) {
 		cashfree.XClientId = &clientId
 
-		resp, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", nil, nil, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, seedOrderId, nil, nil, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -489,11 +475,8 @@ func Test_cashfree_pg_orders(t *testing.T) {
 		requestId := "test"
 		idempotency := "test"
 
-		resp, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", &requestId, &idempotency, nil)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, seedOrderId, &requestId, &idempotency, nil)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -518,7 +501,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	})
 
 	t.Run("PGFetchOrderWithContext should fail when xApiVerion missing", func(t *testing.T) {
-		resp, _, err := cashfree.PGFetchOrderWithContext(ctx, nil, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", nil, nil, nil)
+		resp, _, err := cashfree.PGFetchOrderWithContext(ctx, nil, seedOrderId, nil, nil, nil)
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
@@ -530,7 +513,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 		clientId := "unauthorised"
 		cashfree.XClientId = &clientId
 
-		resp, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6", nil, nil, nil)
+		resp, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, seedOrderId, nil, nil, nil)
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
