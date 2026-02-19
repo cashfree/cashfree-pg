@@ -4,9 +4,7 @@ import (
 	"context"
 	"net/http"
 	"os"
-	"strconv"
 	"testing"
-	"time"
 
 	cashfree "github.com/cashfree/cashfree-pg/v3"
 	"github.com/stretchr/testify/require"
@@ -45,7 +43,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGCreateLink xapiversion missing", func(t *testing.T) {
 
 		createLinkRequest := cashfree.CreateLinkRequest{
-			LinkId:       strconv.Itoa(int(time.Now().Unix())),
+			LinkId:       uniqueSuffix(),
 			LinkAmount:   1,
 			LinkCurrency: "INR",
 			LinkPurpose:  "gosdk_testing",
@@ -54,7 +52,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 			},
 		}
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGCreateLink(nil, &createLinkRequest, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -64,7 +62,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGCreateLink request missing", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGCreateLink(&XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -78,7 +76,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		flag := true
 
 		createLinkRequest := cashfree.CreateLinkRequest{
-			LinkId:       strconv.Itoa(int(time.Now().Unix())),
+			LinkId:       uniqueSuffix(),
 			LinkAmount:   1,
 			LinkCurrency: "INR",
 			LinkPurpose:  "gosdk_testing",
@@ -90,7 +88,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 			},
 		}
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGCreateLink(&XApiVersion, &createLinkRequest, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -109,7 +107,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// 	cashfree.XClientId = &clientId
 
 	// 	createLinkRequest := cashfree.CreateLinkRequest{
-	// 		LinkId:       strconv.Itoa(int(time.Now().Unix())),
+	// 		LinkId:       uniqueSuffix(),
 	// 		LinkAmount:   1,
 	// 		LinkCurrency: "INR",
 	// 		LinkPurpose:  "gosdk_testing",
@@ -121,7 +119,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// 		},
 	// 	}
 	// 	req := "test"
-	// 	idemp := strconv.Itoa(int(time.Now().Unix()))
+	// 	idemp := uniqueSuffix()
 	// 	resp, httpRes, err := cashfree.PGCreateLinkWithContext(ctx, &XApiVersion, &createLinkRequest, &req, &idemp, http.DefaultClient)
 
 	// 	require.Nil(t, err)
@@ -133,7 +131,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGCreateLink xapiversion missing", func(t *testing.T) {
 
 		createLinkRequest := cashfree.CreateLinkRequest{
-			LinkId:       strconv.Itoa(int(time.Now().Unix())),
+			LinkId:       uniqueSuffix(),
 			LinkAmount:   1,
 			LinkCurrency: "INR",
 			LinkPurpose:  "gosdk_testing",
@@ -142,7 +140,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 			},
 		}
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGCreateLinkWithContext(ctx, nil, &createLinkRequest, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -152,7 +150,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGCreateLink request missing", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGCreateLinkWithContext(ctx, &XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -166,7 +164,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		flag := true
 
 		createLinkRequest := cashfree.CreateLinkRequest{
-			LinkId:       strconv.Itoa(int(time.Now().Unix())),
+			LinkId:       uniqueSuffix(),
 			LinkAmount:   1,
 			LinkCurrency: "INR",
 			LinkPurpose:  "gosdk_testing",
@@ -178,7 +176,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 			},
 		}
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGCreateLinkWithContext(ctx, &XApiVersion, &createLinkRequest, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -196,7 +194,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		cashfree.XClientId = &clientId
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, httpRes, err := cashfree.PGFetchLink(&XApiVersion, linkId, &req, &idemp, http.DefaultClient)
 		requireSuccessOrDecodeError(t, httpRes, err)
 
@@ -205,7 +203,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGFetchLink api version missing code", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGFetchLink(nil, linkId, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -215,7 +213,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGFetchLink api version missing code", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGFetchLink(&XApiVersion, "invalid", &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -230,7 +228,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		cashfree.XClientId = &c
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGFetchLink(&XApiVersion, linkId, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -247,7 +245,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 
 		cashfree.XClientId = &clientId
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, httpRes, err := cashfree.PGFetchLinkWithContext(ctx, &XApiVersion, linkId, &req, &idemp, http.DefaultClient)
 		requireSuccessOrDecodeError(t, httpRes, err)
 
@@ -256,7 +254,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGFetchLink api version missing code", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGFetchLinkWithContext(ctx, nil, linkId, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -266,7 +264,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGFetchLink api version missing code", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGFetchLinkWithContext(ctx, &XApiVersion, "invalid", &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -281,7 +279,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		cashfree.XClientId = &c
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGFetchLinkWithContext(ctx, &XApiVersion, linkId, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -299,7 +297,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		cashfree.XClientId = &clientId
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGLinkFetchOrders(&XApiVersion, linkId, &req, &idemp, http.DefaultClient)
 
 		require.Nil(t, err)
@@ -311,7 +309,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGFetchLink api version missing code", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGLinkFetchOrders(nil, linkId, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -321,7 +319,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGFetchLink api version missing code", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGLinkFetchOrders(&XApiVersion, "invalid", &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -336,7 +334,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		cashfree.XClientId = &c
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGLinkFetchOrders(&XApiVersion, linkId, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -353,7 +351,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 
 		cashfree.XClientId = &clientId
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGLinkFetchOrdersWithContext(ctx, &XApiVersion, linkId, &req, &idemp, http.DefaultClient)
 
 		require.Nil(t, err)
@@ -365,7 +363,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGFetchLink api version missing code", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGLinkFetchOrdersWithContext(ctx, nil, linkId, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -375,7 +373,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Orders PGFetchLink api version missing code", func(t *testing.T) {
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGLinkFetchOrdersWithContext(ctx, &XApiVersion, "invalid", &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -390,7 +388,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		cashfree.XClientId = &c
 
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGLinkFetchOrdersWithContext(ctx, &XApiVersion, linkId, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -409,7 +407,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// 	cashfree.XClientId = &clientId
 
 	// 	createLinkRequest := cashfree.CreateLinkRequest{
-	// 		LinkId:       strconv.Itoa(int(time.Now().Unix())),
+	// 		LinkId:       uniqueSuffix(),
 	// 		LinkAmount:   1,
 	// 		LinkCurrency: "INR",
 	// 		LinkPurpose:  "gosdk_testing",
@@ -421,11 +419,11 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// 		},
 	// 	}
 	// 	req := "511f216d-9c69-49a8-9b16-9110b103c8af"
-	// 	idemp := strconv.Itoa(int(time.Now().Unix()))
+	// 	idemp := uniqueSuffix()
 	// 	resp, _, _ := cashfree.PGCreateLink(&XApiVersion, &createLinkRequest, &req, &idemp, http.DefaultClient)
 
 	// 	cashfree.XClientId = &clientId
-	// 	idemp = strconv.Itoa(int(time.Now().Unix())) + strconv.Itoa(int(time.Now().Unix()))
+	// 	idemp = uniqueSuffix() + uniqueSuffix()
 	// 	newResp, httpRes, err := cashfree.PGCancelLink(&XApiVersion, resp.GetLinkId(), &req, &idemp, http.DefaultClient)
 
 	// 	require.Nil(t, err)
@@ -436,7 +434,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// t.Run("Test Order PGCancelLink api version missing", func(t *testing.T) {
 	// 	cashfree.XClientId = &clientId
 	// 	req := "test"
-	// 	idemp := strconv.Itoa(int(time.Now().Unix()))
+	// 	idemp := uniqueSuffix()
 	// 	_, _, err := cashfree.PGCancelLink(nil, "cancelLinkId", &req, &idemp, http.DefaultClient)
 
 	// 	require.NotNil(t, err)
@@ -445,7 +443,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// t.Run("Test Order PGCancelLink api version missing", func(t *testing.T) {
 	// 	cashfree.XClientId = &clientId
 	// 	req := "test"
-	// 	idemp := strconv.Itoa(int(time.Now().Unix()))
+	// 	idemp := uniqueSuffix()
 	// 	resp, httpRes, err := cashfree.PGCancelLink(&XApiVersion, "randomlinkId", &req, &idemp, http.DefaultClient)
 
 	// 	require.NotNil(t, err)
@@ -457,7 +455,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// 	c := "unauthorised"
 	// 	cashfree.XClientId = &c
 	// 	req := "test"
-	// 	idemp := strconv.Itoa(int(time.Now().Unix()))
+	// 	idemp := uniqueSuffix()
 	// 	resp, httpRes, err := cashfree.PGCancelLink(&XApiVersion, "cancelLinkId", &req, &idemp, http.DefaultClient)
 
 	// 	require.NotNil(t, err)
@@ -475,7 +473,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// 	cashfree.XClientId = &clientId
 
 	// 	createLinkRequest := cashfree.CreateLinkRequest{
-	// 		LinkId:       strconv.Itoa(int(time.Now().Unix())),
+	// 		LinkId:       uniqueSuffix(),
 	// 		LinkAmount:   1,
 	// 		LinkCurrency: "INR",
 	// 		LinkPurpose:  "gosdk_testing",
@@ -487,11 +485,11 @@ func Test_cashfree_pg_links(t *testing.T) {
 	// 		},
 	// 	}
 	// 	req := "511f216d-9c69-49a8-9b16-9110b103c8af"
-	// 	idemp := strconv.Itoa(int(time.Now().Unix()))
+	// 	idemp := uniqueSuffix()
 	// 	resp, _, _ := cashfree.PGCreateLink(&XApiVersion, &createLinkRequest, &req, &idemp, http.DefaultClient)
 
 	// 	cashfree.XClientId = &clientId
-	// 	idemp = strconv.Itoa(int(time.Now().Unix())) + strconv.Itoa(int(time.Now().Unix()))
+	// 	idemp = uniqueSuffix() + uniqueSuffix()
 	// 	newResp, httpRes, err := cashfree.PGCancelLinkWithContext(ctx, &XApiVersion, resp.GetLinkId(), &req, &idemp, http.DefaultClient)
 
 	// 	require.Nil(t, err)
@@ -502,7 +500,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 	t.Run("Test Order PGCancelLink api version missing", func(t *testing.T) {
 		cashfree.XClientId = &clientId
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		_, _, err := cashfree.PGCancelLinkWithContext(ctx, nil, "cancelLinkId", &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -512,7 +510,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 		c := "unauthorised"
 		cashfree.XClientId = &c
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGCancelLinkWithContext(ctx, &XApiVersion, "cancelLinkId", &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)

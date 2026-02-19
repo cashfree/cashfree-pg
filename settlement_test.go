@@ -4,9 +4,7 @@ import (
 	"context"
 	"net/http"
 	"os"
-	"strconv"
 	"testing"
-	"time"
 
 	cashfree "github.com/cashfree/cashfree-pg/v3"
 	"github.com/stretchr/testify/require"
@@ -26,7 +24,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 	t.Run("PGOrderFetchSettlement should give status code 404", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchSettlement(&XApiVersion, orderId, &req, &idemp, http.DefaultClient)
 
@@ -39,7 +37,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 	t.Run("PGOrderFetchSettlement should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
@@ -55,7 +53,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 	t.Run("PGOrderFetchSettlementWithContext should give status code 404", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		resp, httpRes, err := cashfree.PGOrderFetchSettlementWithContext(ctx, &XApiVersion, orderId, &req, &idemp, http.DefaultClient)
@@ -69,7 +67,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 	t.Run("PGOrderFetchSettlementWithContext should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 

@@ -4,9 +4,7 @@ import (
 	"context"
 	"net/http"
 	"os"
-	"strconv"
 	"testing"
-	"time"
 
 	cashfree "github.com/cashfree/cashfree-pg/v3"
 	"github.com/stretchr/testify/require"
@@ -38,7 +36,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethods should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaymentMethodsRequest{
 			Queries: cashfree.PaymentMethodsQueries{
@@ -54,7 +52,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethods should fail when xApiVersion is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaymentMethodsRequest{
 			Queries: cashfree.PaymentMethodsQueries{
@@ -71,7 +69,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethods should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGEligibilityFetchPaymentMethods(&XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
@@ -82,7 +80,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethods should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaymentMethodsRequest{
 			Queries: cashfree.PaymentMethodsQueries{},
@@ -99,7 +97,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethods should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
@@ -124,7 +122,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethodsWithContext should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaymentMethodsRequest{
@@ -141,7 +139,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethodsWithContext should fail when xApiVersion is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaymentMethodsRequest{
 			Queries: cashfree.PaymentMethodsQueries{
@@ -158,7 +156,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethodsWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGEligibilityFetchPaymentMethodsWithContext(ctx, &XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
@@ -169,7 +167,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethodsWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaymentMethodsRequest{
 			Queries: cashfree.PaymentMethodsQueries{},
@@ -186,7 +184,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaymentMethodsWithContext should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
@@ -211,7 +209,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylater should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaylaterRequest{
@@ -231,7 +229,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylater should fail when xApiVersion is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaylaterRequest{
 			Queries: cashfree.CardlessEMIQueries{
@@ -251,7 +249,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylater should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGEligibilityFetchPaylater(&XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
@@ -262,7 +260,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylater should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaylaterRequest{}
 
@@ -277,7 +275,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylater should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
@@ -305,7 +303,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylaterWithContext should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaylaterRequest{
@@ -325,7 +323,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylaterWithContext should fail when xApiVersion is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaylaterRequest{
 			Queries: cashfree.CardlessEMIQueries{
@@ -345,7 +343,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylaterWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGEligibilityFetchPaylaterWithContext(ctx, &XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
@@ -356,7 +354,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylaterWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchPaylaterRequest{}
 
@@ -371,7 +369,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchPaylaterWithContext should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
@@ -399,7 +397,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMI should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchCardlessEMIRequest{
@@ -419,7 +417,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMI should fail when xApiVersion is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchCardlessEMIRequest{
 			Queries: cashfree.CardlessEMIQueries{
@@ -439,7 +437,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMI should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGEligibilityFetchCardlessEMI(&XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
@@ -450,7 +448,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMI should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchCardlessEMIRequest{}
 
@@ -465,7 +463,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMI should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
@@ -493,7 +491,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMIWithContext should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchCardlessEMIRequest{
@@ -513,7 +511,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMIWithContext should fail when xApiVersion is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchCardlessEMIRequest{
 			Queries: cashfree.CardlessEMIQueries{
@@ -533,7 +531,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMIWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGEligibilityFetchCardlessEMIWithContext(ctx, &XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
@@ -544,7 +542,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMIWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchCardlessEMIRequest{}
 
@@ -559,7 +557,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchCardlessEMIWithContext should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
@@ -587,7 +585,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchOffers should fail when xApiVersion is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchOffersRequest{
@@ -605,7 +603,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchOffers should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchOffersRequest{}
@@ -621,7 +619,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchOffers should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		_, _, err := cashfree.PGEligibilityFetchOffers(&XApiVersion, nil, &req, &idemp, http.DefaultClient)
@@ -633,7 +631,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchOffers should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
@@ -658,7 +656,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchOffersWithContext should fail when xApiVersion is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchOffersRequest{
@@ -676,7 +674,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchOffersWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		eligibilityFetchPaymentMethodsRequest := cashfree.EligibilityFetchOffersRequest{}
@@ -692,7 +690,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchOffersWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		_, _, err := cashfree.PGEligibilityFetchOffersWithContext(ctx, &XApiVersion, nil, &req, &idemp, http.DefaultClient)
@@ -704,7 +702,7 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	t.Run("PGEligibilityFetchOffersWithContext should give status code 401", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		c := "unauthorised"
 		cashfree.XClientId = &c
 
