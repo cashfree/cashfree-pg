@@ -21,8 +21,26 @@ func Test_cashfree_pg_links(t *testing.T) {
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 	XApiVersion := "2023-08-01"
-	linkId := "test_new_new_new"
+	linkId := "go_sdk_link_" + uniqueSuffix()
 	ctx := context.Background()
+
+	flag := true
+	seedCreateLinkRequest := cashfree.CreateLinkRequest{
+		LinkId:       linkId,
+		LinkAmount:   1,
+		LinkCurrency: "INR",
+		LinkPurpose:  "gosdk_testing",
+		CustomerDetails: cashfree.LinkCustomerDetailsEntity{
+			CustomerPhone: "9999999999",
+		},
+		LinkNotify: &cashfree.LinkNotifyEntity{
+			SendSms: &flag,
+		},
+	}
+	seedRequestID := "seed-" + uniqueSuffix()
+	seedIdempotency := uniqueSuffix()
+	_, seedLinkHTTPRes, seedLinkErr := cashfree.PGCreateLink(&XApiVersion, &seedCreateLinkRequest, &seedRequestID, &seedIdempotency, http.DefaultClient)
+	requireSuccessOrDecodeError(t, seedLinkHTTPRes, seedLinkErr)
 
 	t.Run("Test Orders PGCreateLink xapiversion missing", func(t *testing.T) {
 
@@ -179,11 +197,8 @@ func Test_cashfree_pg_links(t *testing.T) {
 
 		req := "test"
 		idemp := strconv.Itoa(int(time.Now().Unix()))
-		resp, httpRes, err := cashfree.PGFetchLink(&XApiVersion, linkId, &req, &idemp, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGFetchLink(&XApiVersion, linkId, &req, &idemp, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -233,11 +248,8 @@ func Test_cashfree_pg_links(t *testing.T) {
 		cashfree.XClientId = &clientId
 		req := "test"
 		idemp := strconv.Itoa(int(time.Now().Unix()))
-		resp, httpRes, err := cashfree.PGFetchLinkWithContext(ctx, &XApiVersion, linkId, &req, &idemp, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGFetchLinkWithContext(ctx, &XApiVersion, linkId, &req, &idemp, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
