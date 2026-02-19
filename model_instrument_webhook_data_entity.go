@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the InstrumentWebhookDataEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &InstrumentWebhookDataEntity{}
@@ -41,6 +44,5 @@ func (o InstrumentWebhookDataEntity) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

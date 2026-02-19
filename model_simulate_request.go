@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the SimulateRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SimulateRequest{}
@@ -45,6 +48,5 @@ func (o SimulateRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["entity_simulation"] = o.EntitySimulation
 	return toSerialize, nil
 }
-
 
 

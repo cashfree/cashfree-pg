@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the UpdateTerminalStatusRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdateTerminalStatusRequest{}
@@ -40,6 +43,5 @@ func (o UpdateTerminalStatusRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["terminal_status"] = o.TerminalStatus
 	return toSerialize, nil
 }
-
 
 

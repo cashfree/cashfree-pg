@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the OfferMeta type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OfferMeta{}
@@ -52,6 +55,5 @@ func (o OfferMeta) ToMap() (map[string]interface{}, error) {
 	toSerialize["offer_end_time"] = o.OfferEndTime
 	return toSerialize, nil
 }
-
 
 
