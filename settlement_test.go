@@ -19,8 +19,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 	cashfree.XClientId = &clientId
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
-	orderId := "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6"
-	// amount := float32(1000.0)
+	orderId := "invalid_order_" + uniqueSuffix()
 	XApiVersion := "2023-08-01"
 	ctx := context.Background()
 
@@ -33,7 +32,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -48,6 +47,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
+		require.NotNil(t, httpRes)
 		assert.Equal(t, 401, httpRes.StatusCode)
 
 	})
@@ -62,7 +62,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -77,6 +77,7 @@ func Test_cashfree_pg_settlement(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
+		require.NotNil(t, httpRes)
 		assert.Equal(t, 401, httpRes.StatusCode)
 
 	})

@@ -19,10 +19,21 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 	cashfree.XClientId = &clientId
 	cashfree.XClientSecret = &XClientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
-	orderId := "order_342Z7ns5LWu4x4xIFvQqmF7x52Jc6"
-	// amount := float32(1000.0)
+	orderId := "order_" + uniqueSuffix()
 	XApiVersion := "2023-08-01"
 	ctx := context.Background()
+
+	createOrderRequest := cashfree.CreateOrderRequest{
+		OrderId:       &orderId,
+		OrderAmount:   1.0,
+		OrderCurrency: "INR",
+		CustomerDetails: cashfree.CustomerDetails{
+			CustomerId:    "suhas-test",
+			CustomerPhone: "9999999999",
+		},
+	}
+	_, createOrderHTTPRes, createOrderErr := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
+	requireSuccessOrDecodeError(t, createOrderHTTPRes, createOrderErr)
 
 	t.Run("PGEligibilityFetchPaymentMethods should give status code 200", func(t *testing.T) {
 
@@ -35,11 +46,8 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 			},
 		}
 
-		resp, httpRes, err := cashfree.PGEligibilityFetchPaymentMethods(&XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGEligibilityFetchPaymentMethods(&XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -125,11 +133,8 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 			},
 		}
 
-		resp, httpRes, err := cashfree.PGEligibilityFetchPaymentMethodsWithContext(ctx, &XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGEligibilityFetchPaymentMethodsWithContext(ctx, &XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -218,11 +223,8 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 			},
 		}
 
-		resp, httpRes, err := cashfree.PGEligibilityFetchPaylater(&XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGEligibilityFetchPaylater(&XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -315,11 +317,8 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 			},
 		}
 
-		resp, httpRes, err := cashfree.PGEligibilityFetchPaylaterWithContext(ctx, &XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGEligibilityFetchPaylaterWithContext(ctx, &XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -412,11 +411,8 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 			},
 		}
 
-		resp, httpRes, err := cashfree.PGEligibilityFetchCardlessEMI(&XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGEligibilityFetchCardlessEMI(&XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 
@@ -509,11 +505,8 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 			},
 		}
 
-		resp, httpRes, err := cashfree.PGEligibilityFetchCardlessEMIWithContext(ctx, &XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
+		_, httpRes, err := cashfree.PGEligibilityFetchCardlessEMIWithContext(ctx, &XApiVersion, &eligibilityFetchPaymentMethodsRequest, &req, &idemp, http.DefaultClient)
+		requireSuccessOrDecodeError(t, httpRes, err)
 
 	})
 

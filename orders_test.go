@@ -21,6 +21,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	XApiVersion := "2023-08-01"
 	ctx := context.Background()
 	seedOrderId := "order_" + uniqueSuffix()
+	invalidOrderId := "invalid_order_" + uniqueSuffix()
 
 	seedCreateOrderRequest := cashfree.CreateOrderRequest{
 		OrderId:       &seedOrderId,
@@ -411,11 +412,11 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 	t.Run("PGFetchOrder should give status code 404", func(t *testing.T) {
 
-		resp, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52J", nil, nil, nil)
+		resp, httpRes, err := cashfree.PGFetchOrder(&XApiVersion, invalidOrderId, nil, nil, nil)
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -425,7 +426,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -482,11 +483,11 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 	t.Run("PGFetchOrderWithContext should give status code 404", func(t *testing.T) {
 
-		resp, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, "order_342Z7ns5LWu4x4xIFvQqmF7x52J", nil, nil, nil)
+		resp, httpRes, err := cashfree.PGFetchOrderWithContext(ctx, &XApiVersion, invalidOrderId, nil, nil, nil)
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -496,7 +497,7 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 

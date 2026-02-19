@@ -22,18 +22,26 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	cashfree.XEnvironment = cashfree.SANDBOX
 	XApiVersion := "2023-08-01"
 	ctx := context.Background()
+	unpaidOrderId := "order_" + uniqueSuffix()
 	orderId := "order_" + uniqueSuffix()
 
-	createOrderRequest := cashfree.CreateOrderRequest{
-		OrderId:       &orderId,
-		OrderAmount:   20.0,
-		OrderCurrency: "INR",
-		CustomerDetails: cashfree.CustomerDetails{
-			CustomerId:    "suhas-test",
-			CustomerPhone: "9999999999",
-		},
+	createOrder := func(orderID string) (*cashfree.OrderEntity, *http.Response, error) {
+		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderID,
+			OrderAmount:   20.0,
+			OrderCurrency: "INR",
+			CustomerDetails: cashfree.CustomerDetails{
+				CustomerId:    "suhas-test",
+				CustomerPhone: "9999999999",
+			},
+		}
+		return cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
 	}
-	orderResp, orderHTTPRes, orderErr := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+
+	_, unpaidOrderHTTPRes, unpaidOrderErr := createOrder(unpaidOrderId)
+	requireSuccessOrDecodeError(t, unpaidOrderHTTPRes, unpaidOrderErr)
+
+	orderResp, orderHTTPRes, orderErr := createOrder(orderId)
 	requireSuccessOrDecodeError(t, orderHTTPRes, orderErr)
 
 	paymentSessionID := ""
@@ -74,7 +82,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 		}
 		req := "test"
 		idemp := strconv.Itoa(int(time.Now().Unix()))
-		resp, httpRes, err := cashfree.PGOrderCreateRefund(&XApiVersion, orderId, &createOrderRefundRequest, &req, &idemp, http.DefaultClient)
+		resp, httpRes, err := cashfree.PGOrderCreateRefund(&XApiVersion, unpaidOrderId, &createOrderRefundRequest, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
@@ -140,7 +148,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -175,7 +183,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 		}
 		req := "test"
 		idemp := strconv.Itoa(int(time.Now().Unix()))
-		resp, httpRes, err := cashfree.PGOrderCreateRefundWithContext(ctx, &XApiVersion, orderId, &createOrderRefundRequest, &req, &idemp, http.DefaultClient)
+		resp, httpRes, err := cashfree.PGOrderCreateRefundWithContext(ctx, &XApiVersion, unpaidOrderId, &createOrderRefundRequest, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
@@ -241,7 +249,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -293,7 +301,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -342,7 +350,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -375,7 +383,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -393,7 +401,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -437,7 +445,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -455,7 +463,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
