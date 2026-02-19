@@ -4,7 +4,6 @@ import (
 	"context"
 	"net/http"
 	"os"
-	"strconv"
 	"testing"
 	"time"
 
@@ -78,10 +77,10 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		createOrderRefundRequest := cashfree.OrderCreateRefundRequest{
 			RefundAmount: 1.0,
-			RefundId:     strconv.Itoa(int(time.Now().Unix())),
+			RefundId:     uniqueSuffix(),
 		}
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGOrderCreateRefund(&XApiVersion, unpaidOrderId, &createOrderRefundRequest, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -102,7 +101,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		createOrderRefundRequest := cashfree.OrderCreateRefundRequest{
 			RefundAmount: 1.0,
-			RefundId:     strconv.Itoa(int(time.Now().Unix())),
+			RefundId:     uniqueSuffix(),
 		}
 		_, _, err := cashfree.PGOrderCreateRefund(nil, orderId, &createOrderRefundRequest, nil, nil, nil)
 
@@ -159,7 +158,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		createOrderRefundRequest := cashfree.OrderCreateRefundRequest{
 			RefundAmount: 1.0,
-			RefundId:     strconv.Itoa(int(time.Now().Unix())),
+			RefundId:     uniqueSuffix(),
 		}
 		resp, httpRes, err := cashfree.PGOrderCreateRefund(&XApiVersion, orderId, &createOrderRefundRequest, nil, nil, nil)
 
@@ -179,10 +178,10 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		createOrderRefundRequest := cashfree.OrderCreateRefundRequest{
 			RefundAmount: 1.0,
-			RefundId:     strconv.Itoa(int(time.Now().Unix())),
+			RefundId:     uniqueSuffix(),
 		}
 		req := "test"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		resp, httpRes, err := cashfree.PGOrderCreateRefundWithContext(ctx, &XApiVersion, unpaidOrderId, &createOrderRefundRequest, &req, &idemp, http.DefaultClient)
 
 		require.NotNil(t, err)
@@ -203,7 +202,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		createOrderRefundRequest := cashfree.OrderCreateRefundRequest{
 			RefundAmount: 1.0,
-			RefundId:     strconv.Itoa(int(time.Now().Unix())),
+			RefundId:     uniqueSuffix(),
 		}
 		_, _, err := cashfree.PGOrderCreateRefundWithContext(ctx, nil, orderId, &createOrderRefundRequest, nil, nil, nil)
 
@@ -260,7 +259,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		createOrderRefundRequest := cashfree.OrderCreateRefundRequest{
 			RefundAmount: 1.0,
-			RefundId:     strconv.Itoa(int(time.Now().Unix())),
+			RefundId:     uniqueSuffix(),
 		}
 		resp, httpRes, err := cashfree.PGOrderCreateRefundWithContext(ctx, &XApiVersion, orderId, &createOrderRefundRequest, nil, nil, nil)
 
@@ -277,7 +276,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	t.Run("PGOrderFetchRefunds should give status code 200", func(t *testing.T) {
 
 		cashfree.XClientId = &clientId
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefunds(&XApiVersion, orderId, &xReq, &xReq, http.DefaultClient)
 
@@ -295,7 +294,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	})
 
 	t.Run("PGOrderFetchRefunds should give status code 404", func(t *testing.T) {
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefunds(&XApiVersion, "", &xReq, &xReq, http.DefaultClient)
 
@@ -309,7 +308,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		c := "unauthorised"
 		cashfree.XClientId = &c
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefunds(&XApiVersion, orderId, &xReq, &xReq, http.DefaultClient)
 
@@ -326,7 +325,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	t.Run("PGOrderFetchRefundsWithContext should give status code 200", func(t *testing.T) {
 
 		cashfree.XClientId = &clientId
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefundsWithContext(ctx, &XApiVersion, orderId, &xReq, &xReq, http.DefaultClient)
 
@@ -344,7 +343,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	})
 
 	t.Run("PGOrderFetchRefundsWithContext should give status code 404", func(t *testing.T) {
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefundsWithContext(ctx, &XApiVersion, "", &xReq, &xReq, http.DefaultClient)
 
@@ -358,7 +357,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		c := "unauthorised"
 		cashfree.XClientId = &c
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefundsWithContext(ctx, &XApiVersion, orderId, &xReq, &xReq, http.DefaultClient)
 
@@ -377,7 +376,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	t.Run("PGOrderFetchRefund should give status code 404", func(t *testing.T) {
 
 		cashfree.XClientId = &clientId
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefund(&XApiVersion, orderId, refundID, &xReq, &xReq, http.DefaultClient)
 
@@ -395,7 +394,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	})
 
 	t.Run("PGOrderFetchRefund should give status code 404", func(t *testing.T) {
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefund(&XApiVersion, "", refundID, &xReq, &xReq, http.DefaultClient)
 
@@ -406,7 +405,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	})
 
 	t.Run("PGOrderFetchRefund should give status code 400", func(t *testing.T) {
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefund(&XApiVersion, "=", refundID, &xReq, &xReq, http.DefaultClient)
 
@@ -420,7 +419,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		c := "unauthorised"
 		cashfree.XClientId = &c
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefund(&XApiVersion, orderId, refundID, &xReq, &xReq, http.DefaultClient)
 
@@ -439,7 +438,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	t.Run("PGOrderFetchRefundWithContext should give status code 404", func(t *testing.T) {
 
 		cashfree.XClientId = &clientId
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefundWithContext(ctx, &XApiVersion, orderId, refundIDWithContext, &xReq, &xReq, http.DefaultClient)
 
@@ -457,7 +456,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	})
 
 	t.Run("PGOrderFetchRefundWithContext should give status code 404", func(t *testing.T) {
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefundWithContext(ctx, &XApiVersion, "", refundIDWithContext, &xReq, &xReq, http.DefaultClient)
 
@@ -468,7 +467,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	})
 
 	t.Run("PGOrderFetchRefundWithContext should give status code 400", func(t *testing.T) {
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefundWithContext(ctx, &XApiVersion, "=", refundIDWithContext, &xReq, &xReq, http.DefaultClient)
 
@@ -482,7 +481,7 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 
 		c := "unauthorised"
 		cashfree.XClientId = &c
-		xReq := strconv.Itoa(int(time.Now().Unix()))
+		xReq := uniqueSuffix()
 
 		resp, httpRes, err := cashfree.PGOrderFetchRefundWithContext(ctx, &XApiVersion, orderId, refundIDWithContext, &xReq, &xReq, http.DefaultClient)
 

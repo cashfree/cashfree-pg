@@ -91,7 +91,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderFetchPayments should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, httpRes, err := cashfree.PGOrderFetchPayments(&XApiVersion, orderId, &req, &idemp, http.DefaultClient)
 		requireSuccessOrDecodeError(t, httpRes, err)
@@ -135,7 +135,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderFetchPaymentsWithContext should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		_, httpRes, err := cashfree.PGOrderFetchPaymentsWithContext(ctx, &XApiVersion, orderId, &req, &idemp, http.DefaultClient)
@@ -180,7 +180,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderFetchPayment should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		var httpRes *http.Response
@@ -241,7 +241,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderFetchPaymentWithContext should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 
 		var httpRes *http.Response
@@ -302,7 +302,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderPay should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 		orderID := "order_" + uniqueSuffix()
 		paymentSessionID := paymentSessionForOrder(orderID)
@@ -330,7 +330,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderPay should fail when order request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGPayOrder(&XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
@@ -341,7 +341,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderPay should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGPayOrder(nil, nil, &req, &idemp, http.DefaultClient)
 
@@ -352,7 +352,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderPay should give status code 404", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		upiId := "testsuccess@gocash"
 		upiPayment := cashfree.PayOrderRequestPaymentMethod{
@@ -384,7 +384,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderPayWithContext should give status code 200", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 		cashfree.XClientId = &clientId
 		orderID := "order_" + uniqueSuffix()
 		paymentSessionID := paymentSessionForOrder(orderID)
@@ -420,7 +420,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderPayWithContext should fail when order request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGPayOrderWithContext(ctx, &XApiVersion, nil, &req, &idemp, http.DefaultClient)
 
@@ -431,7 +431,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderPayWithContext should fail when request is missing", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		_, _, err := cashfree.PGPayOrderWithContext(ctx, nil, nil, &req, &idemp, http.DefaultClient)
 
@@ -442,7 +442,7 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	t.Run("PGOrderPayWithContext should give status code 404", func(t *testing.T) {
 
 		req := "TEST"
-		idemp := strconv.Itoa(int(time.Now().Unix()))
+		idemp := uniqueSuffix()
 
 		upiId := "testsuccess@gocash"
 		upiPayment := cashfree.PayOrderRequestPaymentMethod{
