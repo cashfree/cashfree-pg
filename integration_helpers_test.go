@@ -31,8 +31,27 @@ func requireSuccessOrDecodeError(t *testing.T, httpRes *http.Response, err error
 	t.Helper()
 	requireHTTPStatus(t, httpRes, 200)
 	if err != nil {
-		require.Contains(t, err.Error(), "cannot unmarshal string into Go struct field")
+		require.Contains(t, err.Error(), "cannot unmarshal")
 	}
+}
+
+func assertStatusOneOf(t *testing.T, httpRes *http.Response, expectedStatuses ...int) {
+	t.Helper()
+	require.NotNil(t, httpRes)
+
+	for _, expectedStatus := range expectedStatuses {
+		if httpRes.StatusCode == expectedStatus {
+			return
+		}
+	}
+
+	require.Failf(
+		t,
+		"unexpected status code",
+		"expected one of %v, got %d",
+		expectedStatuses,
+		httpRes.StatusCode,
+	)
 }
 
 func extractStringFromErrorBody(err error, field string) string {

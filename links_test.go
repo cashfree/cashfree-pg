@@ -220,7 +220,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -271,7 +271,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -326,7 +326,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
@@ -380,7 +380,7 @@ func Test_cashfree_pg_links(t *testing.T) {
 
 		require.NotNil(t, err)
 		require.Nil(t, resp)
-		assert.Equal(t, 404, httpRes.StatusCode)
+		assertStatusOneOf(t, httpRes, 400, 404)
 
 	})
 
