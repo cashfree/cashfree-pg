@@ -47,8 +47,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	requireSeedCreateOrderSuccess(t, seedOrderHTTPRes, seedOrderErr)
 
 	t.Run("PGCreateOrder should give status 200", func(t *testing.T) {
+		orderId := "order_" + uniqueSuffix()
 
 		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -83,8 +85,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	})
 
 	t.Run("PGCreateOrder should give status 200", func(t *testing.T) {
+		orderId := "order_" + uniqueSuffix()
 
 		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -232,8 +236,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 	t.Run("PGCreateOrderWithContext should give status 200", func(t *testing.T) {
 		cashfree.XClientId = &clientId
+		orderId := "order_" + uniqueSuffix()
 
 		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -269,8 +275,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 	t.Run("PGCreateOrderWithContext should give status 200", func(t *testing.T) {
 		cashfree.XClientId = &clientId
+		orderId := "order_" + uniqueSuffix()
 
 		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
