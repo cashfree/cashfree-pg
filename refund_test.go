@@ -34,7 +34,17 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		return cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+		var resp *cashfree.OrderEntity
+		var httpRes *http.Response
+		var err error
+		for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
+			resp, httpRes, err = cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+			if httpRes != nil && httpRes.StatusCode == http.StatusOK {
+				return resp, httpRes, err
+			}
+			sleepBeforeEventualRetry(attempt)
+		}
+		return resp, httpRes, err
 	}
 
 	_, unpaidOrderHTTPRes, unpaidOrderErr := createOrder(unpaidOrderId)
@@ -67,7 +77,15 @@ func Test_cashfree_pg_refunds(t *testing.T) {
 	}
 	seedReq := "seed-" + uniqueSuffix()
 	seedIdempotency := uniqueSuffix()
-	_, payHTTPRes, payErr := cashfree.PGPayOrder(&XApiVersion, &payOrderRequest, &seedReq, &seedIdempotency, http.DefaultClient)
+	var payHTTPRes *http.Response
+	var payErr error
+	for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
+		_, payHTTPRes, payErr = cashfree.PGPayOrder(&XApiVersion, &payOrderRequest, &seedReq, &seedIdempotency, http.DefaultClient)
+		if payHTTPRes != nil && payHTTPRes.StatusCode == http.StatusOK {
+			break
+		}
+		sleepBeforeEventualRetry(attempt)
+	}
 	requireSuccessOrDecodeError(t, payHTTPRes, payErr)
 
 	// Let the sandbox state settle before issuing refund calls.
