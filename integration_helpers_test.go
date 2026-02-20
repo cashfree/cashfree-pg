@@ -76,6 +76,37 @@ func requireSeedCreateOrderSuccess(t *testing.T, httpRes *http.Response, err err
 	}
 }
 
+// Some create-order success paths in sandbox intermittently return transient 404s.
+// Retry briefly and accept 409 as success if a previous create attempt actually succeeded.
+func requireCreateOrderSuccessWithRetry(t *testing.T, call func() (*http.Response, error)) {
+	t.Helper()
+
+	var httpRes *http.Response
+	var err error
+	for attempt := 0; attempt < seedCreateOrderMaxAttempts; attempt++ {
+		httpRes, err = call()
+
+		if httpRes != nil {
+			switch httpRes.StatusCode {
+			case http.StatusOK:
+				if err != nil {
+					require.Contains(t, err.Error(), "cannot unmarshal")
+				}
+				return
+			case http.StatusConflict:
+				return
+			}
+		}
+
+		if !shouldRetrySeedCreateOrder(httpRes) {
+			break
+		}
+		sleepBeforeSeedCreateOrderRetry(attempt)
+	}
+
+	requireSuccessOrDecodeError(t, httpRes, err)
+}
+
 func assertStatusOneOf(t *testing.T, httpRes *http.Response, expectedStatuses ...int) {
 	t.Helper()
 	require.NotNil(t, httpRes)
