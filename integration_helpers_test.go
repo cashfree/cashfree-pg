@@ -19,6 +19,8 @@ type responseBodyError interface {
 const (
 	eventualConsistencyMaxAttempts = 21
 	eventualConsistencyRetryDelay  = 2 * time.Second
+	seedCreateOrderMaxAttempts     = 3
+	seedCreateOrderRetryDelay      = 500 * time.Millisecond
 )
 
 func uniqueSuffix() string {
@@ -28,6 +30,16 @@ func uniqueSuffix() string {
 func sleepBeforeEventualRetry(attempt int) {
 	if attempt < eventualConsistencyMaxAttempts-1 {
 		time.Sleep(eventualConsistencyRetryDelay)
+	}
+}
+
+func shouldRetrySeedCreateOrder(httpRes *http.Response) bool {
+	return httpRes == nil || httpRes.StatusCode == http.StatusNotFound
+}
+
+func sleepBeforeSeedCreateOrderRetry(attempt int) {
+	if attempt < seedCreateOrderMaxAttempts-1 {
+		time.Sleep(seedCreateOrderRetryDelay)
 	}
 }
 

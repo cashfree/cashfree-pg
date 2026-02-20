@@ -30,7 +30,18 @@ func Test_cashfree_pg_eligibility(t *testing.T) {
 			CustomerPhone: "9999999999",
 		},
 	}
-	_, createOrderHTTPRes, createOrderErr := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
+	var createOrderHTTPRes *http.Response
+	var createOrderErr error
+	for attempt := 0; attempt < seedCreateOrderMaxAttempts; attempt++ {
+		_, createOrderHTTPRes, createOrderErr = cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
+		if createOrderHTTPRes != nil && (createOrderHTTPRes.StatusCode == http.StatusOK || createOrderHTTPRes.StatusCode == http.StatusConflict) {
+			break
+		}
+		if !shouldRetrySeedCreateOrder(createOrderHTTPRes) {
+			break
+		}
+		sleepBeforeSeedCreateOrderRetry(attempt)
+	}
 	requireSeedCreateOrderSuccess(t, createOrderHTTPRes, createOrderErr)
 
 	t.Run("PGEligibilityFetchPaymentMethods should give status code 200", func(t *testing.T) {

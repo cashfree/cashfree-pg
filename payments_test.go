@@ -35,7 +35,20 @@ func Test_cashfree_pg_payments(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		return cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+		var resp *cashfree.OrderEntity
+		var httpRes *http.Response
+		var err error
+		for attempt := 0; attempt < seedCreateOrderMaxAttempts; attempt++ {
+			resp, httpRes, err = cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+			if httpRes != nil && (httpRes.StatusCode == http.StatusOK || httpRes.StatusCode == http.StatusConflict) {
+				break
+			}
+			if !shouldRetrySeedCreateOrder(httpRes) {
+				break
+			}
+			sleepBeforeSeedCreateOrderRetry(attempt)
+		}
+		return resp, httpRes, err
 	}
 
 	paymentSessionForOrder := func(orderID string) string {
