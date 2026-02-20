@@ -56,8 +56,6 @@ request := cashfree.CreateOrderRequest{
 	},
 }
 
-version := "2022-09-01"
-
 response, httpResponse, err := cashfree.PGCreateOrder(&request, nil, nil, nil)
 if err != nil {
 	fmt.Println(err.Error())
@@ -69,7 +67,6 @@ if err != nil {
 
 Get Order
 ```go
-version := "2022-09-01"
 response, httpResponse, err := cashfree.PGFetchOrder("<order_id>", nil, nil, nil)
 if err != nil {
 	fmt.Println(err.Error())
@@ -112,7 +109,7 @@ request := cashfree.CreateOrderRequest{
 	},
 }
 
-version := "2022-09-01"
+version := "2023-08-01"
 
 response, httpResponse, err := cashfree.PGCreateOrder(&version, &request, nil, nil, nil)
 if err != nil {
@@ -125,7 +122,7 @@ if err != nil {
 
 Get Order
 ```go
-version := "2022-09-01"
+version := "2023-08-01"
 response, httpResponse, err := cashfree.PGFetchOrder(&version, "<order_id>", nil, nil, nil)
 if err != nil {
 	fmt.Println(err.Error())

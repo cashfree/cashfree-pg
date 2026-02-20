@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the DiscountDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DiscountDetails{}
@@ -46,6 +49,5 @@ func (o DiscountDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize["max_discount_amount"] = o.MaxDiscountAmount
 	return toSerialize, nil
 }
-
 
 

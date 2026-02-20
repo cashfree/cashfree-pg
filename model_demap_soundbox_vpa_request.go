@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the DemapSoundboxVpaRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DemapSoundboxVpaRequest{}
@@ -43,6 +46,5 @@ func (o DemapSoundboxVpaRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["device_serial_no"] = o.DeviceSerialNo
 	return toSerialize, nil
 }
-
 
 

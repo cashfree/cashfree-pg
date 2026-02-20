@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the UpdateVendorRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdateVendorRequest{}
@@ -75,6 +78,5 @@ func (o UpdateVendorRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["kyc_details"] = o.KycDetails
 	return toSerialize, nil
 }
-
 
 

@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the OrderEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OrderEntity{}
@@ -113,6 +116,5 @@ func (o OrderEntity) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

@@ -95,7 +95,7 @@ func SetupSentry(environment CFEnvironment) {
 		AttachStacktrace: true,
 		EnableTracing:    true,
 		Environment:      env,
-		Release:          "5.0.6",
+		Release:          "5.1.9",
 		BeforeSend: func(event *sentry.Event, hint *sentry.EventHint) *sentry.Event {
 			delete(event.Contexts, "device")
 			delete(event.Contexts, "os")
@@ -195,7 +195,7 @@ type Configuration struct {
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
 		DefaultHeader:    make(map[string]string),
-		UserAgent:        "OpenAPI-Generator/5.0.6/go",
+		UserAgent:        "OpenAPI-Generator/5.1.9/go",
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{

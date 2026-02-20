@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the TransferDetailsTagsInner type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TransferDetailsTagsInner{}
@@ -45,6 +48,5 @@ func (o TransferDetailsTagsInner) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 
