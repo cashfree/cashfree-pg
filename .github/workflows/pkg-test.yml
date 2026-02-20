@@ -18,13 +18,13 @@ jobs:
           go-version: '1.18'
 
       - name: Test
-        run: go mod tidy && clientid=$PG_CLIENT_ID clientsecret=$PG_CLIENT_SECRET go test -race -covermode atomic -coverprofile=covprofile ./...
+        run: go mod tidy && clientid=$PG_CLIENT_ID clientsecret=$PG_CLIENT_SECRET go test -race ./...
         env:
           PG_CLIENT_ID: ${{ secrets.CLIENTID }}
           PG_CLIENT_SECRET: ${{ secrets.CLIENTSECRET }}
-      - name: Install goveralls
-        run: go install github.com/mattn/goveralls@latest
-      - name: Send coverage
-        env:
-          COVERALLS_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: goveralls -coverprofile=covprofile
+      # - name: Install goveralls
+      #   run: go install github.com/mattn/goveralls@latest
+      # - name: Send coverage
+      #   env:
+      #     COVERALLS_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+      #   run: goveralls -coverprofile=covprofile
