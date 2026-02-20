@@ -32,12 +32,25 @@ func Test_cashfree_pg_orders(t *testing.T) {
 			CustomerPhone: "9999999999",
 		},
 	}
-	_, seedOrderHTTPRes, seedOrderErr := cashfree.PGCreateOrder(&XApiVersion, &seedCreateOrderRequest, nil, nil, nil)
+	var seedOrderHTTPRes *http.Response
+	var seedOrderErr error
+	for attempt := 0; attempt < seedCreateOrderMaxAttempts; attempt++ {
+		_, seedOrderHTTPRes, seedOrderErr = cashfree.PGCreateOrder(&XApiVersion, &seedCreateOrderRequest, nil, nil, nil)
+		if seedOrderHTTPRes != nil && (seedOrderHTTPRes.StatusCode == http.StatusOK || seedOrderHTTPRes.StatusCode == http.StatusConflict) {
+			break
+		}
+		if !shouldRetrySeedCreateOrder(seedOrderHTTPRes) {
+			break
+		}
+		sleepBeforeSeedCreateOrderRetry(attempt)
+	}
 	requireSeedCreateOrderSuccess(t, seedOrderHTTPRes, seedOrderErr)
 
 	t.Run("PGCreateOrder should give status 200", func(t *testing.T) {
+		orderId := "order_" + uniqueSuffix()
 
 		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -45,8 +58,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		_, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
-		requireSuccessOrDecodeError(t, httpRes, err)
+		requireCreateOrderSuccessWithRetry(t, func() (*http.Response, error) {
+			_, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+			return httpRes, err
+		})
 
 	})
 
@@ -72,8 +87,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 	})
 
 	t.Run("PGCreateOrder should give status 200", func(t *testing.T) {
+		orderId := "order_" + uniqueSuffix()
 
 		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -81,8 +98,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		_, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
-		requireSuccessOrDecodeError(t, httpRes, err)
+		requireCreateOrderSuccessWithRetry(t, func() (*http.Response, error) {
+			_, httpRes, err := cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
+			return httpRes, err
+		})
 
 	})
 
@@ -221,8 +240,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 	t.Run("PGCreateOrderWithContext should give status 200", func(t *testing.T) {
 		cashfree.XClientId = &clientId
+		orderId := "order_" + uniqueSuffix()
 
 		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -230,8 +251,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		_, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, nil)
-		requireSuccessOrDecodeError(t, httpRes, err)
+		requireCreateOrderSuccessWithRetry(t, func() (*http.Response, error) {
+			_, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, nil)
+			return httpRes, err
+		})
 
 	})
 
@@ -258,8 +281,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 
 	t.Run("PGCreateOrderWithContext should give status 200", func(t *testing.T) {
 		cashfree.XClientId = &clientId
+		orderId := "order_" + uniqueSuffix()
 
 		createOrderRequest := cashfree.CreateOrderRequest{
+			OrderId:       &orderId,
 			OrderAmount:   1.0,
 			OrderCurrency: "INR",
 			CustomerDetails: cashfree.CustomerDetails{
@@ -267,8 +292,10 @@ func Test_cashfree_pg_orders(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		_, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
-		requireSuccessOrDecodeError(t, httpRes, err)
+		requireCreateOrderSuccessWithRetry(t, func() (*http.Response, error) {
+			_, httpRes, err := cashfree.PGCreateOrderWithContext(ctx, &XApiVersion, &createOrderRequest, nil, nil, http.DefaultClient)
+			return httpRes, err
+		})
 
 	})
 
