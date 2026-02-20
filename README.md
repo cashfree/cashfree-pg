@@ -1,5 +1,5 @@
 # Cashfree PG Go SDK
-![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg/main) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg) [![GoDoc](https://godoc.org/github.com/cashfree/cashfree-pg/v4?status.svg)](https://godoc.org/github.com/cashfree/cashfree-pg/v4)
+![GitHub](https://img.shields.io/github/license/cashfree/cashfree-pg) ![Discord](https://img.shields.io/discord/931125665669972018?label=discord) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cashfree/cashfree-pg/main) ![GitHub release (with filter)](https://img.shields.io/github/v/release/cashfree/cashfree-pg?label=latest) ![GitHub forks](https://img.shields.io/github/forks/cashfree/cashfree-pg) [![Coverage Status](https://coveralls.io/repos/github/cashfree/cashfree-pg/badge.svg?branch=main)](https://coveralls.io/github/cashfree/cashfree-pg?branch=main) [![GoDoc](https://godoc.org/github.com/cashfree/cashfree-pg/v4?status.svg)](https://godoc.org/github.com/cashfree/cashfree-pg/v4)
 
 The Cashfree PG Go SDK offers a convenient solution to access [Cashfree PG APIs](https://docs.cashfree.com/reference/pg-new-apis-endpoint) from a server-side Go  applications. 
 
@@ -56,8 +56,6 @@ request := cashfree.CreateOrderRequest{
 	},
 }
 
-version := "2022-09-01"
-
 response, httpResponse, err := cashfree.PGCreateOrder(&request, nil, nil, nil)
 if err != nil {
 	fmt.Println(err.Error())
@@ -69,7 +67,6 @@ if err != nil {
 
 Get Order
 ```go
-version := "2022-09-01"
 response, httpResponse, err := cashfree.PGFetchOrder("<order_id>", nil, nil, nil)
 if err != nil {
 	fmt.Println(err.Error())
@@ -112,7 +109,7 @@ request := cashfree.CreateOrderRequest{
 	},
 }
 
-version := "2022-09-01"
+version := "2023-08-01"
 
 response, httpResponse, err := cashfree.PGCreateOrder(&version, &request, nil, nil, nil)
 if err != nil {
@@ -125,7 +122,7 @@ if err != nil {
 
 Get Order
 ```go
-version := "2022-09-01"
+version := "2023-08-01"
 response, httpResponse, err := cashfree.PGFetchOrder(&version, "<order_id>", nil, nil, nil)
 if err != nil {
 	fmt.Println(err.Error())

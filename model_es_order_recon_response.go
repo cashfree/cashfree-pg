@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the ESOrderReconResponse type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ESOrderReconResponse{}
@@ -49,6 +52,5 @@ func (o ESOrderReconResponse) ToMap() (map[string]interface{}, error) {
 	}
 	return toSerialize, nil
 }
-
 
 

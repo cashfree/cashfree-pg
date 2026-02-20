@@ -13,9 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
-	"strings"
 	"fmt"
+	"strings"
 )
+
+var _ = fmt.Errorf
 
 // PayOrderRequestPaymentMethod - struct for PayOrderRequestPaymentMethod
 type PayOrderRequestPaymentMethod struct {
@@ -419,6 +421,5 @@ func (obj *PayOrderRequestPaymentMethod) GetActualInstance() (interface{}) {
 	// all schemas are nil
 	return nil
 }
-
 
 

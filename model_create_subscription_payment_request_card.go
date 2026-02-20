@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the CreateSubscriptionPaymentRequestCard type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateSubscriptionPaymentRequestCard{}
@@ -77,6 +80,5 @@ func (o CreateSubscriptionPaymentRequestCard) ToMap() (map[string]interface{}, e
 	}
 	return toSerialize, nil
 }
-
 
 
