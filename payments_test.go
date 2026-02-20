@@ -35,7 +35,17 @@ func Test_cashfree_pg_payments(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		return cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+		var resp *cashfree.OrderEntity
+		var httpRes *http.Response
+		var err error
+		for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
+			resp, httpRes, err = cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
+			if httpRes != nil && httpRes.StatusCode == http.StatusOK {
+				return resp, httpRes, err
+			}
+			sleepBeforeEventualRetry(attempt)
+		}
+		return resp, httpRes, err
 	}
 
 	paymentSessionForOrder := func(orderID string) string {
@@ -74,7 +84,16 @@ func Test_cashfree_pg_payments(t *testing.T) {
 	}
 	seedReqID := "seed-" + uniqueSuffix()
 	seedIdempotency := uniqueSuffix()
-	seedPayResp, seedPayHTTPRes, seedPayErr := cashfree.PGPayOrder(&XApiVersion, &seedPayOrderRequest, &seedReqID, &seedIdempotency, http.DefaultClient)
+	var seedPayResp *cashfree.PayOrderEntity
+	var seedPayHTTPRes *http.Response
+	var seedPayErr error
+	for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
+		seedPayResp, seedPayHTTPRes, seedPayErr = cashfree.PGPayOrder(&XApiVersion, &seedPayOrderRequest, &seedReqID, &seedIdempotency, http.DefaultClient)
+		if seedPayHTTPRes != nil && seedPayHTTPRes.StatusCode == http.StatusOK {
+			break
+		}
+		sleepBeforeEventualRetry(attempt)
+	}
 	requireSuccessOrDecodeError(t, seedPayHTTPRes, seedPayErr)
 
 	if seedPayResp != nil && seedPayResp.CfPaymentId != nil {
@@ -185,12 +204,12 @@ func Test_cashfree_pg_payments(t *testing.T) {
 
 		var httpRes *http.Response
 		var err error
-		for attempt := 0; attempt < 5; attempt++ {
+		for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
 			_, httpRes, err = cashfree.PGOrderFetchPayment(&XApiVersion, paidOrderId, paymentId, &req, &idemp, http.DefaultClient)
 			if httpRes != nil && httpRes.StatusCode == 200 {
 				break
 			}
-			time.Sleep(2 * time.Second)
+			sleepBeforeEventualRetry(attempt)
 		}
 		require.NotNil(t, httpRes)
 		if httpRes.StatusCode == 200 {
@@ -246,12 +265,12 @@ func Test_cashfree_pg_payments(t *testing.T) {
 
 		var httpRes *http.Response
 		var err error
-		for attempt := 0; attempt < 5; attempt++ {
+		for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
 			_, httpRes, err = cashfree.PGOrderFetchPaymentWithContext(ctx, &XApiVersion, paidOrderId, paymentId, &req, &idemp, http.DefaultClient)
 			if httpRes != nil && httpRes.StatusCode == 200 {
 				break
 			}
-			time.Sleep(2 * time.Second)
+			sleepBeforeEventualRetry(attempt)
 		}
 		require.NotNil(t, httpRes)
 		if httpRes.StatusCode == 200 {

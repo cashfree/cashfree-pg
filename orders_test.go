@@ -32,7 +32,15 @@ func Test_cashfree_pg_orders(t *testing.T) {
 			CustomerPhone: "9999999999",
 		},
 	}
-	_, seedOrderHTTPRes, seedOrderErr := cashfree.PGCreateOrder(&XApiVersion, &seedCreateOrderRequest, nil, nil, nil)
+	var seedOrderHTTPRes *http.Response
+	var seedOrderErr error
+	for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
+		_, seedOrderHTTPRes, seedOrderErr = cashfree.PGCreateOrder(&XApiVersion, &seedCreateOrderRequest, nil, nil, nil)
+		if seedOrderHTTPRes != nil && seedOrderHTTPRes.StatusCode == http.StatusOK {
+			break
+		}
+		sleepBeforeEventualRetry(attempt)
+	}
 	requireSuccessOrDecodeError(t, seedOrderHTTPRes, seedOrderErr)
 
 	t.Run("PGCreateOrder should give status 200", func(t *testing.T) {

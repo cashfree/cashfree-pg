@@ -16,8 +16,19 @@ type responseBodyError interface {
 	Body() []byte
 }
 
+const (
+	eventualConsistencyMaxAttempts = 21
+	eventualConsistencyRetryDelay  = 2 * time.Second
+)
+
 func uniqueSuffix() string {
 	return strconv.FormatInt(time.Now().UnixNano(), 10)
+}
+
+func sleepBeforeEventualRetry(attempt int) {
+	if attempt < eventualConsistencyMaxAttempts-1 {
+		time.Sleep(eventualConsistencyRetryDelay)
+	}
 }
 
 func requireHTTPStatus(t *testing.T, httpRes *http.Response, expectedStatus int) {
