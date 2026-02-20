@@ -46,6 +46,24 @@ func requireSuccessOrDecodeError(t *testing.T, httpRes *http.Response, err error
 	}
 }
 
+// Seed create-order calls can legitimately return 409 if the first attempt
+// succeeded server-side and a retry replays the same order_id.
+func requireSeedCreateOrderSuccess(t *testing.T, httpRes *http.Response, err error) {
+	t.Helper()
+	require.NotNil(t, httpRes)
+
+	switch httpRes.StatusCode {
+	case http.StatusOK:
+		if err != nil {
+			require.Contains(t, err.Error(), "cannot unmarshal")
+		}
+	case http.StatusConflict:
+		// Already created; acceptable for seeding.
+	default:
+		require.Failf(t, "unexpected status code", "expected one of [200 409], got %d", httpRes.StatusCode)
+	}
+}
+
 func assertStatusOneOf(t *testing.T, httpRes *http.Response, expectedStatuses ...int) {
 	t.Helper()
 	require.NotNil(t, httpRes)

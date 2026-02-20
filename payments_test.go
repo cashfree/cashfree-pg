@@ -35,22 +35,12 @@ func Test_cashfree_pg_payments(t *testing.T) {
 				CustomerPhone: "9999999999",
 			},
 		}
-		var resp *cashfree.OrderEntity
-		var httpRes *http.Response
-		var err error
-		for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
-			resp, httpRes, err = cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
-			if httpRes != nil && httpRes.StatusCode == http.StatusOK {
-				return resp, httpRes, err
-			}
-			sleepBeforeEventualRetry(attempt)
-		}
-		return resp, httpRes, err
+		return cashfree.PGCreateOrder(&XApiVersion, &createOrderRequest, nil, nil, nil)
 	}
 
 	paymentSessionForOrder := func(orderID string) string {
 		resp, httpRes, err := createOrder(orderID)
-		requireSuccessOrDecodeError(t, httpRes, err)
+		requireSeedCreateOrderSuccess(t, httpRes, err)
 
 		paymentSessionID := ""
 		if resp != nil && resp.PaymentSessionId != nil {
@@ -59,13 +49,28 @@ func Test_cashfree_pg_payments(t *testing.T) {
 		if paymentSessionID == "" {
 			paymentSessionID = extractStringFromErrorBody(err, "payment_session_id")
 		}
+		if paymentSessionID == "" {
+			for attempt := 0; attempt < eventualConsistencyMaxAttempts; attempt++ {
+				fetchResp, fetchHTTPRes, fetchErr := cashfree.PGFetchOrder(&XApiVersion, orderID, nil, nil, http.DefaultClient)
+				if fetchResp != nil && fetchResp.PaymentSessionId != nil {
+					paymentSessionID = *fetchResp.PaymentSessionId
+				}
+				if paymentSessionID == "" {
+					paymentSessionID = extractStringFromErrorBody(fetchErr, "payment_session_id")
+				}
+				if fetchHTTPRes != nil && fetchHTTPRes.StatusCode == http.StatusOK && paymentSessionID != "" {
+					break
+				}
+				sleepBeforeEventualRetry(attempt)
+			}
+		}
 		require.NotEmpty(t, paymentSessionID)
 
 		return paymentSessionID
 	}
 
 	_, orderHTTPRes, orderErr := createOrder(orderId)
-	requireSuccessOrDecodeError(t, orderHTTPRes, orderErr)
+	requireSeedCreateOrderSuccess(t, orderHTTPRes, orderErr)
 
 	paymentSessionID := paymentSessionForOrder(paidOrderId)
 
