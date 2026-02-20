@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the FetchReconRequestFilters type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FetchReconRequestFilters{}
@@ -43,6 +46,5 @@ func (o FetchReconRequestFilters) ToMap() (map[string]interface{}, error) {
 	toSerialize["end_date"] = o.EndDate
 	return toSerialize, nil
 }
-
 
 

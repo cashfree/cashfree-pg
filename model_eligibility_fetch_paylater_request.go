@@ -13,8 +13,11 @@ package cashfree_pg
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 )
+
+var _ = fmt.Errorf
 
 // checks if the EligibilityFetchPaylaterRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &EligibilityFetchPaylaterRequest{}
@@ -39,6 +42,5 @@ func (o EligibilityFetchPaylaterRequest) ToMap() (map[string]interface{}, error)
 	toSerialize["queries"] = o.Queries
 	return toSerialize, nil
 }
-
 
 
