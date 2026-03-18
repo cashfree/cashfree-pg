@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -45,6 +45,7 @@ type LinkEntity struct {
 	// Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.
 	LinkQrcode *string `json:"link_qrcode,omitempty"`
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
+	Subscription *LinkSubscriptionEntity `json:"subscription,omitempty"`
 }
 
 
@@ -115,6 +116,9 @@ func (o LinkEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OrderSplits) {
 		toSerialize["order_splits"] = o.OrderSplits
+	}
+	if !IsNil(o.Subscription) {
+		toSerialize["subscription"] = o.Subscription
 	}
 	return toSerialize, nil
 }

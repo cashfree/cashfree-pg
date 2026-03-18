@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **SubscriptionNote** | Pointer to **string** | Note for the subscription. | [optional] 
 **SubscriptionTags** | Pointer to **map[string]interface{}** | Tags for the subscription. | [optional] 
 **SubscriptionPaymentSplits** | Pointer to [**[]SubscriptionPaymentSplitItem**](SubscriptionPaymentSplitItem.md) | Payment splits for the subscription. | [optional] 
+**CfOrderId** | Pointer to **string** | Cashfree order ID for the subscription. | [optional] 
 
 ## Methods
 
@@ -268,6 +269,31 @@ SetSubscriptionPaymentSplits sets SubscriptionPaymentSplits field to given value
 `func (o *CreateSubscriptionRequest) HasSubscriptionPaymentSplits() bool`
 
 HasSubscriptionPaymentSplits returns a boolean if a field has been set.
+
+### GetCfOrderId
+
+`func (o *CreateSubscriptionRequest) GetCfOrderId() string`
+
+GetCfOrderId returns the CfOrderId field if non-nil, zero value otherwise.
+
+### GetCfOrderIdOk
+
+`func (o *CreateSubscriptionRequest) GetCfOrderIdOk() (*string, bool)`
+
+GetCfOrderIdOk returns a tuple with the CfOrderId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCfOrderId
+
+`func (o *CreateSubscriptionRequest) SetCfOrderId(v string)`
+
+SetCfOrderId sets CfOrderId field to given value.
+
+### HasCfOrderId
+
+`func (o *CreateSubscriptionRequest) HasCfOrderId() bool`
+
+HasCfOrderId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

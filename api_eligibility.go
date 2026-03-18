@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -344,7 +344,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.1.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -814,7 +814,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.1.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1284,7 +1284,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.1.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1446,7 +1446,7 @@ if _this.XPartnerApiKey != nil {
 
 // Execute executes the request
 //  @return []EligibilityPaymentMethodsEntity
-func (_this *Cashfree) PGEligibilityFetchPaymentMethods(eligibilityFetchPaymentMethodsRequest *EligibilityFetchPaymentMethodsRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaymentMethodsEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchPaymentMethods(eligibilityFetchPaymentMethodsRequest *EligibilityFetchPaymentMethodsRequest,  xRequestId *string, xIdempotencyKey *string, xClientDevice *string, xClientOs *string, xClientRenderingType *string, xClientBrowser *string, httpClient *http.Client) ([]EligibilityPaymentMethodsEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1504,6 +1504,18 @@ func (_this *Cashfree) PGEligibilityFetchPaymentMethods(eligibilityFetchPaymentM
 	if xIdempotencyKey != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
+	if xClientDevice != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-client-device", xClientDevice, "")
+	}
+	if xClientOs != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-client-os", xClientOs, "")
+	}
+	if xClientRenderingType != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-client-rendering-type", xClientRenderingType, "")
+	}
+	if xClientBrowser != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-client-browser", xClientBrowser, "")
+	}
 	// body params
 	localVarPostBody = eligibilityFetchPaymentMethodsRequest
 
@@ -1687,7 +1699,7 @@ if _this.XPartnerApiKey != nil {
 // With Context
 // Execute executes the request
 //  @return []EligibilityPaymentMethodsEntity
-func (_this *Cashfree) PGEligibilityFetchPaymentMethodsWithContext(ctx context.Context, eligibilityFetchPaymentMethodsRequest *EligibilityFetchPaymentMethodsRequest,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]EligibilityPaymentMethodsEntity, *http.Response, error) {
+func (_this *Cashfree) PGEligibilityFetchPaymentMethodsWithContext(ctx context.Context, eligibilityFetchPaymentMethodsRequest *EligibilityFetchPaymentMethodsRequest,  xRequestId *string, xIdempotencyKey *string, xClientDevice *string, xClientOs *string, xClientRenderingType *string, xClientBrowser *string, httpClient *http.Client) ([]EligibilityPaymentMethodsEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1744,6 +1756,18 @@ func (_this *Cashfree) PGEligibilityFetchPaymentMethodsWithContext(ctx context.C
 	if xIdempotencyKey != nil {
 		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-idempotency-key", xIdempotencyKey, "")
 	}
+	if xClientDevice != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-client-device", xClientDevice, "")
+	}
+	if xClientOs != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-client-os", xClientOs, "")
+	}
+	if xClientRenderingType != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-client-rendering-type", xClientRenderingType, "")
+	}
+	if xClientBrowser != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "x-client-browser", xClientBrowser, "")
+	}
 	// body params
 	localVarPostBody = eligibilityFetchPaymentMethodsRequest
 
@@ -1769,7 +1793,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.1.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.0"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

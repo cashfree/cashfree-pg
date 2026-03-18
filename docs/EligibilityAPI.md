@@ -39,7 +39,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     eligibilityFetchCardlessEMIRequest := *cashfree.NewEligibilityFetchCardlessEMIRequest(*cashfree.NewCardlessEMIQueries()) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -65,7 +65,7 @@ Other parameters are passed through a pointer to a apiPGEligibilityFetchCardless
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
  **eligibilityFetchCardlessEMIRequest** | [**EligibilityFetchCardlessEMIRequest**](EligibilityFetchCardlessEMIRequest.md) | Request Body to get eligible cardless emi options for a customer and order | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -116,7 +116,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     eligibilityFetchOffersRequest := *cashfree.NewEligibilityFetchOffersRequest(*cashfree.NewOfferQueries()) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -142,7 +142,7 @@ Other parameters are passed through a pointer to a apiPGEligibilityFetchOffersRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
  **eligibilityFetchOffersRequest** | [**EligibilityFetchOffersRequest**](EligibilityFetchOffersRequest.md) | Request Body to get eligible offers for a customer and order | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -193,7 +193,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     eligibilityFetchPaylaterRequest := *cashfree.NewEligibilityFetchPaylaterRequest(*cashfree.NewCardlessEMIQueries()) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -219,7 +219,7 @@ Other parameters are passed through a pointer to a apiPGEligibilityFetchPaylater
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
  **eligibilityFetchPaylaterRequest** | [**EligibilityFetchPaylaterRequest**](EligibilityFetchPaylaterRequest.md) | Request Body to get eligible paylater options for a customer and order | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ## PGEligibilityFetchPaymentMethods
 
-> []EligibilityPaymentMethodsEntity PGEligibilityFetchPaymentMethods(ctx).XApiVersion(xApiVersion).EligibilityFetchPaymentMethodsRequest(eligibilityFetchPaymentMethodsRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+> []EligibilityPaymentMethodsEntity PGEligibilityFetchPaymentMethods(ctx).XApiVersion(xApiVersion).EligibilityFetchPaymentMethodsRequest(eligibilityFetchPaymentMethodsRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).XClientDevice(xClientDevice).XClientOs(xClientOs).XClientRenderingType(xClientRenderingType).XClientBrowser(xClientBrowser).Execute()
 
 Get eligible Payment Methods
 
@@ -270,12 +270,16 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     eligibilityFetchPaymentMethodsRequest := *cashfree.NewEligibilityFetchPaymentMethodsRequest(*cashfree.NewPaymentMethodsQueries()) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    xClientDevice := "mobile" 
+    xClientOs := "android" 
+    xClientRenderingType := "mweb" 
+    xClientBrowser := "safari" 
 
-    resp, r, err := cashfree.PGEligibilityFetchPaymentMethods(&xApiVersion, &eligibilityFetchPaymentMethodsRequest, &xRequestId, &xIdempotencyKey, nil)
+    resp, r, err := cashfree.PGEligibilityFetchPaymentMethods(&xApiVersion, &eligibilityFetchPaymentMethodsRequest, &xRequestId, &xIdempotencyKey, &xClientDevice, &xClientOs, &xClientRenderingType, &xClientBrowser, nil)
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGEligibilityFetchPaymentMethods``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -296,10 +300,14 @@ Other parameters are passed through a pointer to a apiPGEligibilityFetchPaymentM
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
  **eligibilityFetchPaymentMethodsRequest** | [**EligibilityFetchPaymentMethodsRequest**](EligibilityFetchPaymentMethodsRequest.md) | Request Body to get eligible payment methods for an account and order | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xClientDevice** | **string** | The type of device on which the payment is initiated.  | 
+ **xClientOs** | **string** | The operating system of the client device used to make the payment.  | 
+ **xClientRenderingType** | **string** | Indicates how the payment experience is rendered to the user. - mweb – Payment rendered in a mobile browser (browser on a mobile device) - webview – Payment rendered inside an in-app browser (WebView within a merchant app) - native – Payment rendered natively within the merchant’s mobile app using SDKs  | 
+ **xClientBrowser** | **string** | The browser used to initiate the payment.  | 
 
 ### Return type
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -36,6 +36,8 @@ type SubscriptionPaymentEntity struct {
 	FailureDetails *SubscriptionPaymentEntityFailureDetails `json:"failure_details,omitempty"`
 	// The charge amount of the payment.
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
+	// The payment currency.
+	PaymentCurrency *string `json:"payment_currency,omitempty"`
 	// A unique ID passed by merchant for identifying the transaction.
 	PaymentId *string `json:"payment_id,omitempty"`
 	// The date on which the payment was initiated.
@@ -86,6 +88,9 @@ func (o SubscriptionPaymentEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PaymentAmount) {
 		toSerialize["payment_amount"] = o.PaymentAmount
+	}
+	if !IsNil(o.PaymentCurrency) {
+		toSerialize["payment_currency"] = o.PaymentCurrency
 	}
 	if !IsNil(o.PaymentId) {
 		toSerialize["payment_id"] = o.PaymentId

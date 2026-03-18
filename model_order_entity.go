@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -36,11 +36,11 @@ type OrderEntity struct {
 	// Possible values are  - `ACTIVE`: Order does not have a sucessful transaction yet - `PAID`: Order is PAID with one successful transaction - `EXPIRED`: Order was not PAID and not it has expired. No transaction can be initiated for an EXPIRED order. `TERMINATED`: Order terminated `TERMINATION_REQUESTED`: Order termination requested
 	OrderStatus *string `json:"order_status,omitempty"`
 	PaymentSessionId *string `json:"payment_session_id,omitempty"`
-	OrderExpiryTime *string `json:"order_expiry_time,omitempty"`
+	OrderExpiryTime *time.Time `json:"order_expiry_time,omitempty"`
 	// Additional note for order
 	OrderNote *string `json:"order_note,omitempty"`
 	// When the order was created at cashfree's server
-	CreatedAt *string `json:"created_at,omitempty"`
+	CreatedAt *time.Time `json:"created_at,omitempty"`
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
 	CustomerDetails *CustomerDetailsResponse `json:"customer_details,omitempty"`
 	OrderMeta *OrderMeta `json:"order_meta,omitempty"`

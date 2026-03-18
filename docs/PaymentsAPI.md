@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**PGOrderFetchPayment**](PaymentsAPI.md#PGOrderFetchPayment) | **Get** /orders/{order_id}/payments/{cf_payment_id} | Get Payment by ID
 [**PGOrderFetchPayments**](PaymentsAPI.md#PGOrderFetchPayments) | **Get** /orders/{order_id}/payments | Get Payments for an Order
 [**PGPayOrder**](PaymentsAPI.md#PGPayOrder) | **Post** /orders/sessions | Order Pay
+[**PGPayOrderAuthorizeOnly**](PaymentsAPI.md#PGPayOrderAuthorizeOnly) | **Post** /orders/sessions/authorize | Order Pay Authorize Only
 
 
 
@@ -40,7 +41,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     orderId := "your-order-id" 
     authorizeOrderRequest := *cashfree.NewAuthorizeOrderRequest() 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -71,7 +72,7 @@ Other parameters are passed through a pointer to a apiPGAuthorizeOrderRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
 
  **authorizeOrderRequest** | [**AuthorizeOrderRequest**](AuthorizeOrderRequest.md) | Request to Capture or Void Transactions | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -123,7 +124,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     cfPaymentId := "121224562" 
     orderAuthenticatePaymentRequest := *cashfree.NewOrderAuthenticatePaymentRequest("Otp_example", "Action_example") 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -154,7 +155,7 @@ Other parameters are passed through a pointer to a apiPGOrderAuthenticatePayment
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
 
  **orderAuthenticatePaymentRequest** | [**OrderAuthenticatePaymentRequest**](OrderAuthenticatePaymentRequest.md) | Request body to submit/resend headless OTP. To use this API make sure you have headless OTP enabled for your account | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -206,7 +207,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     orderId := "your-order-id" 
     cfPaymentId := "121224562" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -238,7 +239,7 @@ Other parameters are passed through a pointer to a apiPGOrderFetchPaymentRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
 
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
@@ -290,7 +291,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     orderId := "your-order-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -320,7 +321,7 @@ Other parameters are passed through a pointer to a apiPGOrderFetchPaymentsReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
@@ -345,7 +346,7 @@ Name | Type | Description  | Notes
 
 ## PGPayOrder
 
-> PayOrderEntity PGPayOrder(ctx).XApiVersion(xApiVersion).PayOrderRequest(payOrderRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+> PayOrderEntity PGPayOrder(ctx).XApiVersion(xApiVersion).PayOrderRequest(payOrderRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).XClientDevice(xClientDevice).XClientOs(xClientOs).XClientRenderingType(xClientRenderingType).XClientBrowser(xClientBrowser).Execute()
 
 Order Pay
 
@@ -371,12 +372,16 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     payOrderRequest := *cashfree.NewPayOrderRequest("session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn", cashfree.PayOrderRequest_payment_method{AppPaymentMethod: cashfree.NewAppPaymentMethod(*cashfree.NewApp("Channel_example", "Provider_example", "Phone_example"))}) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+    xClientDevice := "mobile" 
+    xClientOs := "android" 
+    xClientRenderingType := "mweb" 
+    xClientBrowser := "safari" 
 
-    resp, r, err := cashfree.PGPayOrder(&xApiVersion, &payOrderRequest, &xRequestId, &xIdempotencyKey, nil)
+    resp, r, err := cashfree.PGPayOrder(&xApiVersion, &payOrderRequest, &xRequestId, &xIdempotencyKey, &xClientDevice, &xClientOs, &xClientRenderingType, &xClientBrowser, nil)
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGPayOrder``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -397,14 +402,95 @@ Other parameters are passed through a pointer to a apiPGPayOrderRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
  **payOrderRequest** | [**PayOrderRequest**](PayOrderRequest.md) | Request body to create a transaction at cashfree using &#x60;payment_session_id&#x60; | 
+ **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xClientDevice** | **string** | The type of device on which the payment is initiated.  | 
+ **xClientOs** | **string** | The operating system of the client device used to make the payment.  | 
+ **xClientRenderingType** | **string** | Indicates how the payment experience is rendered to the user. - mweb – Payment rendered in a mobile browser (browser on a mobile device) - webview – Payment rendered inside an in-app browser (WebView within a merchant app) - native – Payment rendered natively within the merchant’s mobile app using SDKs  | 
+ **xClientBrowser** | **string** | The browser used to initiate the payment.  | 
+
+### Return type
+
+[**PayOrderEntity**](PayOrderEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PGPayOrderAuthorizeOnly
+
+> PaymentEntity PGPayOrderAuthorizeOnly(ctx).XApiVersion(xApiVersion).PayOrderAuthorizeOnlyRequest(payOrderAuthorizeOnlyRequest).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+
+Order Pay Authorize Only
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    cashfree "github.com/cashfree/cashfree-pg/v5"
+)
+
+func main() {
+
+    clientId := "<x-client-id>"
+	clientSecret := "<x-client-secret>"
+	cashfree.XClientId = &clientId
+	cashfree.XClientSecret = &clientSecret
+	cashfree.XEnvironment = cashfree.SANDBOX
+
+    xApiVersion := "2026-01-01" 
+    payOrderAuthorizeOnlyRequest := *cashfree.NewPayOrderAuthorizeOnlyRequest("session__CvcEmNKDkmERQrxnx39ibhJ3Ii034pjc8ZVxf3qcgEXCWlgDDlHRgz2XYZCqpajDQSXMMtCusPgOIxYP2LZx0-05p39gC2Vgmq1RAj--gcn", *cashfree.NewPayOrderAuthorizeOnlyRequestAuthorizationData()) 
+    xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
+    xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
+
+    resp, r, err := cashfree.PGPayOrderAuthorizeOnly(&xApiVersion, &payOrderAuthorizeOnlyRequest, &xRequestId, &xIdempotencyKey, nil)
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGPayOrderAuthorizeOnly``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PGPayOrderAuthorizeOnly`: PaymentEntity
+    fmt.Fprintf(os.Stdout, "Response from `cashfree.PGPayOrderAuthorizeOnly`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPGPayOrderAuthorizeOnlyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2026-01-01&quot;]
+ **payOrderAuthorizeOnlyRequest** | [**PayOrderAuthorizeOnlyRequest**](PayOrderAuthorizeOnlyRequest.md) | Request body to create an authorization only transaction at cashfree using &#x60;payment_session_id&#x60; | 
  **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
  **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
 
 ### Return type
 
-[**PayOrderEntity**](PayOrderEntity.md)
+[**PaymentEntity**](PaymentEntity.md)
 
 ### Authorization
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -32,13 +32,14 @@ type OrderExtendedDataEntity struct {
 	// Currency of the order. Example INR
 	OrderCurrency *string `json:"order_currency,omitempty"`
 	// When the order was created at cashfree's server
-	CreatedAt *string `json:"created_at,omitempty"`
+	CreatedAt *time.Time `json:"created_at,omitempty"`
 	Charges *ChargesEntity `json:"charges,omitempty"`
 	CustomerDetails *ExtendedCustomerDetails `json:"customer_details,omitempty"`
 	ShippingAddress *AddressDetails `json:"shipping_address,omitempty"`
 	BillingAddress *AddressDetails `json:"billing_address,omitempty"`
 	Cart *ExtendedCartDetails `json:"cart,omitempty"`
-	Offer *OfferExtendedDetails `json:"offer,omitempty"`
+	// Details of the offer which got applied to the paid order.
+	Offers *[]string `json:"offers,omitempty"`
 }
 
 
@@ -83,8 +84,8 @@ func (o OrderExtendedDataEntity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Cart) {
 		toSerialize["cart"] = o.Cart
 	}
-	if !IsNil(o.Offer) {
-		toSerialize["offer"] = o.Offer
+	if !IsNil(o.Offers) {
+		toSerialize["offers"] = o.Offers
 	}
 	return toSerialize, nil
 }

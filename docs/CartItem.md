@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ItemId** | Pointer to **string** | Unique identifier of the item | [optional] 
+**ItemVariantId** | Pointer to **string** | Variant identifier of the item | [optional] 
 **ItemName** | Pointer to **string** | Name of the item | [optional] 
 **ItemDescription** | Pointer to **string** | Description of the item | [optional] 
 **ItemTags** | Pointer to **[]string** | Tags attached to that item | [optional] 
@@ -58,6 +59,31 @@ SetItemId sets ItemId field to given value.
 `func (o *CartItem) HasItemId() bool`
 
 HasItemId returns a boolean if a field has been set.
+
+### GetItemVariantId
+
+`func (o *CartItem) GetItemVariantId() string`
+
+GetItemVariantId returns the ItemVariantId field if non-nil, zero value otherwise.
+
+### GetItemVariantIdOk
+
+`func (o *CartItem) GetItemVariantIdOk() (*string, bool)`
+
+GetItemVariantIdOk returns a tuple with the ItemVariantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemVariantId
+
+`func (o *CartItem) SetItemVariantId(v string)`
+
+SetItemVariantId sets ItemVariantId field to given value.
+
+### HasItemVariantId
+
+`func (o *CartItem) HasItemVariantId() bool`
+
+HasItemVariantId returns a boolean if a field has been set.
 
 ### GetItemName
 

@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **OrderId** | Pointer to **string** | order_id sent during the api request | [optional] 
 **OrderAmount** | Pointer to **float32** |  | [optional] 
 **OrderCurrency** | Pointer to **string** | Currency of the order. Example INR | [optional] 
-**CreatedAt** | Pointer to **string** | When the order was created at cashfree&#39;s server | [optional] 
+**CreatedAt** | Pointer to **time.Time** | When the order was created at cashfree&#39;s server | [optional] 
 **Charges** | Pointer to [**ChargesEntity**](ChargesEntity.md) |  | [optional] 
 **CustomerDetails** | Pointer to [**ExtendedCustomerDetails**](ExtendedCustomerDetails.md) |  | [optional] 
 **ShippingAddress** | Pointer to [**AddressDetails**](AddressDetails.md) |  | [optional] 
 **BillingAddress** | Pointer to [**AddressDetails**](AddressDetails.md) |  | [optional] 
 **Cart** | Pointer to [**ExtendedCartDetails**](ExtendedCartDetails.md) |  | [optional] 
-**Offer** | Pointer to [**OfferExtendedDetails**](OfferExtendedDetails.md) |  | [optional] 
+**Offers** | Pointer to  | Details of the offer which got applied to the paid order. | [optional] 
 
 ## Methods
 
@@ -137,20 +137,20 @@ HasOrderCurrency returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
-`func (o *OrderExtendedDataEntity) GetCreatedAt() string`
+`func (o *OrderExtendedDataEntity) GetCreatedAt() time.Time`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *OrderExtendedDataEntity) GetCreatedAtOk() (*string, bool)`
+`func (o *OrderExtendedDataEntity) GetCreatedAtOk() (*time.Time, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *OrderExtendedDataEntity) SetCreatedAt(v string)`
+`func (o *OrderExtendedDataEntity) SetCreatedAt(v time.Time)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
@@ -285,30 +285,30 @@ SetCart sets Cart field to given value.
 
 HasCart returns a boolean if a field has been set.
 
-### GetOffer
+### GetOffers
 
-`func (o *OrderExtendedDataEntity) GetOffer() OfferExtendedDetails`
+`func (o *OrderExtendedDataEntity) GetOffers() []string`
 
-GetOffer returns the Offer field if non-nil, zero value otherwise.
+GetOffers returns the Offers field if non-nil, zero value otherwise.
 
-### GetOfferOk
+### GetOffersOk
 
-`func (o *OrderExtendedDataEntity) GetOfferOk() (*OfferExtendedDetails, bool)`
+`func (o *OrderExtendedDataEntity) GetOffersOk() (*[]string, bool)`
 
-GetOfferOk returns a tuple with the Offer field if it's non-nil, zero value otherwise
+GetOffersOk returns a tuple with the Offers field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOffer
+### SetOffers
 
-`func (o *OrderExtendedDataEntity) SetOffer(v OfferExtendedDetails)`
+`func (o *OrderExtendedDataEntity) SetOffers(v []string)`
 
-SetOffer sets Offer field to given value.
+SetOffers sets Offers field to given value.
 
-### HasOffer
+### HasOffers
 
-`func (o *OrderExtendedDataEntity) HasOffer() bool`
+`func (o *OrderExtendedDataEntity) HasOffers() bool`
 
-HasOffer returns a boolean if a field has been set.
+HasOffers returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

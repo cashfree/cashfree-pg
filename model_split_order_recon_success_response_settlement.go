@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -49,9 +49,9 @@ type SplitOrderReconSuccessResponseSettlement struct {
 	// UTR (Unique Transaction Reference) for the transfer if available, otherwise null.
 	TransferUtr NullableString `json:"transfer_utr,omitempty"`
 	// Time of transfer if available, otherwise null.
-	TransferTime NullableString `json:"transfer_time,omitempty"`
+	TransferTime NullableTime `json:"transfer_time,omitempty"`
 	// Timestamp when payment was made.
-	PaymentTime *string `json:"payment_time,omitempty"`
+	PaymentTime *time.Time `json:"payment_time,omitempty"`
 }
 
 

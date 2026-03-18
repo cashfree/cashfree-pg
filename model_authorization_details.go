@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the AuthorizationDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AuthorizationDetails{}
 
-// AuthorizationDetails Details of the authorization done for the subscription. Returned in Get subscription and auth payments.
+// AuthorizationDetails Details of the authorization done for the subscription. Returned in Get subscription and payments.
 type AuthorizationDetails struct {
 	// Authorization amount for the auth payment.
 	AuthorizationAmount *float32 `json:"authorization_amount,omitempty"`
@@ -36,8 +36,9 @@ type AuthorizationDetails struct {
 	AuthorizationStatus *string `json:"authorization_status,omitempty"`
 	// A unique ID passed by merchant for identifying the transaction.
 	PaymentId *string `json:"payment_id,omitempty"`
-	// Payment method used for the authorization.
-	PaymentMethod *string `json:"payment_method,omitempty"`
+	// Payment group used for the authorization.
+	PaymentGroup *string `json:"payment_group,omitempty"`
+	PaymentMethod *AuthorizationDetailsPaymentMethod `json:"payment_method,omitempty"`
 }
 
 
@@ -69,6 +70,9 @@ func (o AuthorizationDetails) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PaymentId) {
 		toSerialize["payment_id"] = o.PaymentId
+	}
+	if !IsNil(o.PaymentGroup) {
+		toSerialize["payment_group"] = o.PaymentGroup
 	}
 	if !IsNil(o.PaymentMethod) {
 		toSerialize["payment_method"] = o.PaymentMethod

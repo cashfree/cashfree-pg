@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,7 +24,7 @@ var _ MappedNullable = &Upi{}
 
 // Upi UPI collect payment method object
 type Upi struct {
-	// Specify the channel through which the payment must be processed. Can be one of [\"link\", \"collect\", \"qrcode\"]
+	// Specify the channel through which the payment must be processed. Can be one of [\"link\", \"collect\", \"qrcode\", \"pod_qrcode\"]
 	Channel string `json:"channel"`
 	// Customer UPI VPA to process payment.  ### Important This is a required parameter for channel = `collect` 
 	UpiId *string `json:"upi_id,omitempty"`

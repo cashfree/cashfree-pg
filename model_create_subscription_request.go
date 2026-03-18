@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -40,6 +40,8 @@ type CreateSubscriptionRequest struct {
 	SubscriptionTags map[string]interface{} `json:"subscription_tags,omitempty"`
 	// Payment splits for the subscription.
 	SubscriptionPaymentSplits []SubscriptionPaymentSplitItem `json:"subscription_payment_splits,omitempty"`
+	// Cashfree order ID for the subscription.
+	CfOrderId *string `json:"cf_order_id,omitempty"`
 }
 
 
@@ -77,6 +79,9 @@ func (o CreateSubscriptionRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SubscriptionPaymentSplits) {
 		toSerialize["subscription_payment_splits"] = o.SubscriptionPaymentSplits
+	}
+	if !IsNil(o.CfOrderId) {
+		toSerialize["cf_order_id"] = o.CfOrderId
 	}
 	return toSerialize, nil
 }

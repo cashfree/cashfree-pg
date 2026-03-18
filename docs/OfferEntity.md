@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **OfferStatus** | Pointer to **string** |  | [optional] 
 **OrderAmount** | Pointer to **float32** |  | [optional] 
 **PayableAmount** | Pointer to **float32** |  | [optional] 
+**RedemptionAmount** | Pointer to **float32** |  | [optional] 
+**Platform** | Pointer to **string** |  | [optional] 
 **OfferMeta** | Pointer to [**OfferMetaResponse**](OfferMetaResponse.md) |  | [optional] 
 **OfferTnc** | Pointer to [**OfferTncResponse**](OfferTncResponse.md) |  | [optional] 
 **OfferDetails** | Pointer to [**OfferDetailsResponse**](OfferDetailsResponse.md) |  | [optional] 
@@ -131,6 +133,56 @@ SetPayableAmount sets PayableAmount field to given value.
 `func (o *OfferEntity) HasPayableAmount() bool`
 
 HasPayableAmount returns a boolean if a field has been set.
+
+### GetRedemptionAmount
+
+`func (o *OfferEntity) GetRedemptionAmount() float32`
+
+GetRedemptionAmount returns the RedemptionAmount field if non-nil, zero value otherwise.
+
+### GetRedemptionAmountOk
+
+`func (o *OfferEntity) GetRedemptionAmountOk() (*float32, bool)`
+
+GetRedemptionAmountOk returns a tuple with the RedemptionAmount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRedemptionAmount
+
+`func (o *OfferEntity) SetRedemptionAmount(v float32)`
+
+SetRedemptionAmount sets RedemptionAmount field to given value.
+
+### HasRedemptionAmount
+
+`func (o *OfferEntity) HasRedemptionAmount() bool`
+
+HasRedemptionAmount returns a boolean if a field has been set.
+
+### GetPlatform
+
+`func (o *OfferEntity) GetPlatform() string`
+
+GetPlatform returns the Platform field if non-nil, zero value otherwise.
+
+### GetPlatformOk
+
+`func (o *OfferEntity) GetPlatformOk() (*string, bool)`
+
+GetPlatformOk returns a tuple with the Platform field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlatform
+
+`func (o *OfferEntity) SetPlatform(v string)`
+
+SetPlatform sets Platform field to given value.
+
+### HasPlatform
+
+`func (o *OfferEntity) HasPlatform() bool`
+
+HasPlatform returns a boolean if a field has been set.
 
 ### GetOfferMeta
 

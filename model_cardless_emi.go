@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -26,7 +26,7 @@ var _ MappedNullable = &CardlessEMI{}
 type CardlessEMI struct {
 	// The channel for cardless EMI is always `link`
 	Channel *string `json:"channel,omitempty"`
-	// One of [`flexmoney`, `zestmoney`, `hdfc`, `icici`, `cashe`, `idfc`, `kotak`, `snapmint`, `bharatx`]
+	// One of [`flexmoney`, `zestmoney`, `hdfc`, `icici`, `cashe`, `idfc`, `kotak`, `snapmint`, `bharatx`, `simplpi3`]
 	Provider *string `json:"provider,omitempty"`
 	// Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as 'invalid_request_error' and code as 'invalid_request_error'
 	Phone *string `json:"phone,omitempty"`

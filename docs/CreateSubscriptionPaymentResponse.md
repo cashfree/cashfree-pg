@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **CfPaymentId** | Pointer to **string** | Cashfree subscription payment reference number | [optional] 
 **FailureDetails** | Pointer to [**SubscriptionPaymentEntityFailureDetails**](SubscriptionPaymentEntityFailureDetails.md) |  | [optional] 
 **PaymentAmount** | Pointer to **float32** | The charge amount of the payment. | [optional] 
+**PaymentCurrency** | Pointer to **string** | The payment currency. | [optional] 
 **PaymentId** | Pointer to **string** | A unique ID passed by merchant for identifying the transaction. | [optional] 
 **PaymentInitiatedDate** | Pointer to **string** | The date on which the payment was initiated. | [optional] 
 **PaymentStatus** | Pointer to **string** | Status of the payment. | [optional] 
@@ -108,6 +109,31 @@ SetPaymentAmount sets PaymentAmount field to given value.
 `func (o *CreateSubscriptionPaymentResponse) HasPaymentAmount() bool`
 
 HasPaymentAmount returns a boolean if a field has been set.
+
+### GetPaymentCurrency
+
+`func (o *CreateSubscriptionPaymentResponse) GetPaymentCurrency() string`
+
+GetPaymentCurrency returns the PaymentCurrency field if non-nil, zero value otherwise.
+
+### GetPaymentCurrencyOk
+
+`func (o *CreateSubscriptionPaymentResponse) GetPaymentCurrencyOk() (*string, bool)`
+
+GetPaymentCurrencyOk returns a tuple with the PaymentCurrency field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentCurrency
+
+`func (o *CreateSubscriptionPaymentResponse) SetPaymentCurrency(v string)`
+
+SetPaymentCurrency sets PaymentCurrency field to given value.
+
+### HasPaymentCurrency
+
+`func (o *CreateSubscriptionPaymentResponse) HasPaymentCurrency() bool`
+
+HasPaymentCurrency returns a boolean if a field has been set.
 
 ### GetPaymentId
 
