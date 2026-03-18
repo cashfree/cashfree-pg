@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -31,6 +31,9 @@ type OrderMeta struct {
 	// Allowed payment modes for this order. Pass comma-separated values among following options - \"cc\", \"dc\", \"ccc\", \"ppc\",\"nb\",\"upi\",\"paypal\",\"app\",\"paylater\",\"cardlessemi\",\"dcemi\",\"ccemi\",\"banktransfer\". Leave it blank to show all available payment methods
 	PaymentMethods interface{} `json:"payment_methods,omitempty"`
 	PaymentMethodsFilters *OrderMetaPaymentMethodsFilters `json:"payment_methods_filters,omitempty"`
+	// Set the priority of UPI apps that you want to show for this order. Pass values in list among following options - \"gpay\",\"phonepe\",\"paytm\",\"navi\",\"cred\",\"supermoney\",\"amazonpay\",\"bhim\",\"mobikwik\",\"airtel\",\"popclub\",\"kiwi\"
+	UpiAppPriority interface{} `json:"upi_app_priority,omitempty"`
+	OfferFilters *OrderMetaOfferFilters `json:"offer_filters,omitempty"`
 }
 
 
@@ -56,6 +59,12 @@ func (o OrderMeta) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PaymentMethodsFilters) {
 		toSerialize["payment_methods_filters"] = o.PaymentMethodsFilters
+	}
+	if o.UpiAppPriority != nil {
+		toSerialize["upi_app_priority"] = o.UpiAppPriority
+	}
+	if !IsNil(o.OfferFilters) {
+		toSerialize["offer_filters"] = o.OfferFilters
 	}
 	return toSerialize, nil
 }

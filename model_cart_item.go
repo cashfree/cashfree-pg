@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -26,6 +26,8 @@ var _ MappedNullable = &CartItem{}
 type CartItem struct {
 	// Unique identifier of the item
 	ItemId *string `json:"item_id,omitempty"`
+	// Variant identifier of the item
+	ItemVariantId *string `json:"item_variant_id,omitempty"`
 	// Name of the item
 	ItemName *string `json:"item_name,omitempty"`
 	// Description of the item
@@ -60,6 +62,9 @@ func (o CartItem) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.ItemId) {
 		toSerialize["item_id"] = o.ItemId
+	}
+	if !IsNil(o.ItemVariantId) {
+		toSerialize["item_variant_id"] = o.ItemVariantId
 	}
 	if !IsNil(o.ItemName) {
 		toSerialize["item_name"] = o.ItemName

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,12 +24,7 @@ var _ MappedNullable = &OfferExtendedDetails{}
 
 // OfferExtendedDetails Details of the offer which got applied to the paid order.
 type OfferExtendedDetails struct {
-	OfferId *string `json:"offer_id,omitempty"`
-	OfferStatus *string `json:"offer_status,omitempty"`
-	OfferMeta *OfferMeta `json:"offer_meta,omitempty"`
-	OfferTnc *OfferTnc `json:"offer_tnc,omitempty"`
-	OfferDetails *OfferDetails `json:"offer_details,omitempty"`
-	OfferValidations *OfferValidations `json:"offer_validations,omitempty"`
+	[]string
 }
 
 
@@ -44,23 +39,13 @@ func (o OfferExtendedDetails) MarshalJSON() ([]byte, error) {
 func (o OfferExtendedDetails) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.OfferId) {
-		toSerialize["offer_id"] = o.OfferId
+	serialized[]string, err[]string := json.Marshal(o.[]string)
+	if err[]string != nil {
+		return map[string]interface{}{}, err[]string
 	}
-	if !IsNil(o.OfferStatus) {
-		toSerialize["offer_status"] = o.OfferStatus
-	}
-	if !IsNil(o.OfferMeta) {
-		toSerialize["offer_meta"] = o.OfferMeta
-	}
-	if !IsNil(o.OfferTnc) {
-		toSerialize["offer_tnc"] = o.OfferTnc
-	}
-	if !IsNil(o.OfferDetails) {
-		toSerialize["offer_details"] = o.OfferDetails
-	}
-	if !IsNil(o.OfferValidations) {
-		toSerialize["offer_validations"] = o.OfferValidations
+	err[]string = json.Unmarshal([]byte(serialized[]string), &toSerialize)
+	if err[]string != nil {
+		return map[string]interface{}{}, err[]string
 	}
 	return toSerialize, nil
 }

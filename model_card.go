@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -69,6 +69,8 @@ type Card struct {
 	StateCode *string `json:"state_code,omitempty"`
 	// EMI tenure selected by the user
 	EmiTenure *int32 `json:"emi_tenure,omitempty"`
+	// par received from network
+	Par *string `json:"par,omitempty"`
 }
 
 
@@ -149,6 +151,9 @@ func (o Card) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EmiTenure) {
 		toSerialize["emi_tenure"] = o.EmiTenure
+	}
+	if !IsNil(o.Par) {
+		toSerialize["par"] = o.Par
 	}
 	return toSerialize, nil
 }

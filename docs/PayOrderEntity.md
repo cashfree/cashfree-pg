@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **PaymentAmount** | Pointer to **float32** | total amount payable | [optional] 
 **CfPaymentId** | Pointer to **string** | Payment identifier created by Cashfree | [optional] 
 **PaymentMethod** | Pointer to **string** | One of [\&quot;upi\&quot;, \&quot;netbanking\&quot;, \&quot;card\&quot;, \&quot;app\&quot;, \&quot;cardless_emi\&quot;, \&quot;paylater\&quot;, \&quot;banktransfer\&quot;]  | [optional] 
-**Channel** | Pointer to **string** | One of [\&quot;link\&quot;, \&quot;collect\&quot;, \&quot;qrcode\&quot;]. In an older version we used to support different channels like &#39;gpay&#39;, &#39;phonepe&#39; etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as &#39;link&#39; and provider as &#39;gpay&#39; | [optional] 
+**Channel** | Pointer to **string** | One of [\&quot;link\&quot;, \&quot;collect\&quot;, \&quot;qrcode\&quot;, \&quot;pod_qrcode\&quot;]. In an older version we used to support different channels like &#39;gpay&#39;, &#39;phonepe&#39; etc. However, we now support only the following channels - link, collect, qrcode and pod_qrcode. To process payments using gpay, you will have to provide channel as &#39;link&#39; and provider as &#39;gpay&#39; | [optional] 
 **Action** | Pointer to **string** | One of [\&quot;link\&quot;, \&quot;custom\&quot;, \&quot;form\&quot;] | [optional] 
 **Data** | Pointer to [**OrderPayData**](OrderPayData.md) |  | [optional] 
 

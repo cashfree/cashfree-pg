@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **LinkNotify** | Pointer to [**LinkNotifyEntity**](LinkNotifyEntity.md) |  | [optional] 
 **LinkQrcode** | Pointer to **string** | Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment. | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) |  | [optional] 
+**Subscription** | Pointer to [**LinkSubscriptionEntity**](LinkSubscriptionEntity.md) |  | [optional] 
 
 ## Methods
 
@@ -517,6 +518,31 @@ SetOrderSplits sets OrderSplits field to given value.
 `func (o *LinkEntity) HasOrderSplits() bool`
 
 HasOrderSplits returns a boolean if a field has been set.
+
+### GetSubscription
+
+`func (o *LinkEntity) GetSubscription() LinkSubscriptionEntity`
+
+GetSubscription returns the Subscription field if non-nil, zero value otherwise.
+
+### GetSubscriptionOk
+
+`func (o *LinkEntity) GetSubscriptionOk() (*LinkSubscriptionEntity, bool)`
+
+GetSubscriptionOk returns a tuple with the Subscription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscription
+
+`func (o *LinkEntity) SetSubscription(v LinkSubscriptionEntity)`
+
+SetSubscription sets Subscription field to given value.
+
+### HasSubscription
+
+`func (o *LinkEntity) HasSubscription() bool`
+
+HasSubscription returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

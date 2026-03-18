@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **NotifyUrl** | Pointer to **string** | Notification URL for server-server communication. Useful when user&#39;s connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250. | [optional] 
 **PaymentMethods** | Pointer to **interface{}** | Allowed payment modes for this order. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;,\&quot;nb\&quot;,\&quot;upi\&quot;,\&quot;paypal\&quot;,\&quot;app\&quot;,\&quot;paylater\&quot;,\&quot;cardlessemi\&quot;,\&quot;dcemi\&quot;,\&quot;ccemi\&quot;,\&quot;banktransfer\&quot;. Leave it blank to show all available payment methods | [optional] 
 **PaymentMethodsFilters** | Pointer to [**OrderMetaPaymentMethodsFilters**](OrderMetaPaymentMethodsFilters.md) |  | [optional] 
+**UpiAppPriority** | Pointer to **interface{}** | Set the priority of UPI apps that you want to show for this order. Pass values in list among following options - \&quot;gpay\&quot;,\&quot;phonepe\&quot;,\&quot;paytm\&quot;,\&quot;navi\&quot;,\&quot;cred\&quot;,\&quot;supermoney\&quot;,\&quot;amazonpay\&quot;,\&quot;bhim\&quot;,\&quot;mobikwik\&quot;,\&quot;airtel\&quot;,\&quot;popclub\&quot;,\&quot;kiwi\&quot; | [optional] 
+**OfferFilters** | Pointer to [**OrderMetaOfferFilters**](OrderMetaOfferFilters.md) |  | [optional] 
 
 ## Methods
 
@@ -137,6 +139,66 @@ SetPaymentMethodsFilters sets PaymentMethodsFilters field to given value.
 `func (o *OrderMeta) HasPaymentMethodsFilters() bool`
 
 HasPaymentMethodsFilters returns a boolean if a field has been set.
+
+### GetUpiAppPriority
+
+`func (o *OrderMeta) GetUpiAppPriority() interface{}`
+
+GetUpiAppPriority returns the UpiAppPriority field if non-nil, zero value otherwise.
+
+### GetUpiAppPriorityOk
+
+`func (o *OrderMeta) GetUpiAppPriorityOk() (*interface{}, bool)`
+
+GetUpiAppPriorityOk returns a tuple with the UpiAppPriority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpiAppPriority
+
+`func (o *OrderMeta) SetUpiAppPriority(v interface{})`
+
+SetUpiAppPriority sets UpiAppPriority field to given value.
+
+### HasUpiAppPriority
+
+`func (o *OrderMeta) HasUpiAppPriority() bool`
+
+HasUpiAppPriority returns a boolean if a field has been set.
+
+### SetUpiAppPriorityNil
+
+`func (o *OrderMeta) SetUpiAppPriorityNil(b bool)`
+
+ SetUpiAppPriorityNil sets the value for UpiAppPriority to be an explicit nil
+
+### UnsetUpiAppPriority
+`func (o *OrderMeta) UnsetUpiAppPriority()`
+
+UnsetUpiAppPriority ensures that no value is present for UpiAppPriority, not even an explicit nil
+### GetOfferFilters
+
+`func (o *OrderMeta) GetOfferFilters() OrderMetaOfferFilters`
+
+GetOfferFilters returns the OfferFilters field if non-nil, zero value otherwise.
+
+### GetOfferFiltersOk
+
+`func (o *OrderMeta) GetOfferFiltersOk() (*OrderMetaOfferFilters, bool)`
+
+GetOfferFiltersOk returns a tuple with the OfferFilters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOfferFilters
+
+`func (o *OrderMeta) SetOfferFilters(v OrderMetaOfferFilters)`
+
+SetOfferFilters sets OfferFilters field to given value.
+
+### HasOfferFilters
+
+`func (o *OrderMeta) HasOfferFilters() bool`
+
+HasOfferFilters returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

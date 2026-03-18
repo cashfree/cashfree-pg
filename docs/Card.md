@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **State** | Pointer to **string** | State Name. | [optional] 
 **StateCode** | Pointer to **string** | State Code. Should be in ISO 2 format (ie. FL for Florida) | [optional] 
 **EmiTenure** | Pointer to **int32** | EMI tenure selected by the user | [optional] 
+**Par** | Pointer to **string** | par received from network | [optional] 
 
 ## Methods
 
@@ -616,6 +617,31 @@ SetEmiTenure sets EmiTenure field to given value.
 `func (o *Card) HasEmiTenure() bool`
 
 HasEmiTenure returns a boolean if a field has been set.
+
+### GetPar
+
+`func (o *Card) GetPar() string`
+
+GetPar returns the Par field if non-nil, zero value otherwise.
+
+### GetParOk
+
+`func (o *Card) GetParOk() (*string, bool)`
+
+GetParOk returns a tuple with the Par field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPar
+
+`func (o *Card) SetPar(v string)`
+
+SetPar sets Par field to given value.
+
+### HasPar
+
+`func (o *Card) HasPar() bool`
+
+HasPar returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

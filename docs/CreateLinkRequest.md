@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **LinkNotes** | Pointer to **map[string]string** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional] 
 **LinkMeta** | Pointer to [**LinkMetaResponseEntity**](LinkMetaResponseEntity.md) |  | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) | If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount. | [optional] 
+**Subscription** | Pointer to [**Subscription**](Subscription.md) |  | [optional] 
 
 ## Methods
 
@@ -336,6 +337,31 @@ SetOrderSplits sets OrderSplits field to given value.
 `func (o *CreateLinkRequest) HasOrderSplits() bool`
 
 HasOrderSplits returns a boolean if a field has been set.
+
+### GetSubscription
+
+`func (o *CreateLinkRequest) GetSubscription() Subscription`
+
+GetSubscription returns the Subscription field if non-nil, zero value otherwise.
+
+### GetSubscriptionOk
+
+`func (o *CreateLinkRequest) GetSubscriptionOk() (*Subscription, bool)`
+
+GetSubscriptionOk returns a tuple with the Subscription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscription
+
+`func (o *CreateLinkRequest) SetSubscription(v Subscription)`
+
+SetSubscription sets Subscription field to given value.
+
+### HasSubscription
+
+`func (o *CreateLinkRequest) HasSubscription() bool`
+
+HasSubscription returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
