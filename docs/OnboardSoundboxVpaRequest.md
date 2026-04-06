@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Vpa** | **string** | Terminal Vpa ,that need to onboard on soundbox | 
-**CfTerminalId** | **string** | cashfree terminal id. | 
-**DeviceSerialNo** | **string** | Device Serial No of soundbox | 
-**MerchantName** | Pointer to **string** | Merchant Name that need to onboard on soundbox | [optional] 
-**Language** | Pointer to **string** | language of soundbox,currently English, Hindi, Tamil | [optional] 
+**Vpa** | **string** | Terminal Vpa ,that need to onboard on soundbox. | 
+**CfTerminalId** | **int64** | Cashfree terminal ID. | 
+**DeviceSerialNo** | Pointer to **string** | Device Serial No of soundbox. | [optional] 
+**MerchantName** | Pointer to **string** | Merchant Name that need to onboard on soundbox. | [optional] 
+**Language** | Pointer to **string** | language of soundbox,currently English, Hindi, Tamil. | [optional] 
 
 ## Methods
 
 ### NewOnboardSoundboxVpaRequest
 
-`func NewOnboardSoundboxVpaRequest(vpa string, cfTerminalId string, deviceSerialNo string, ) *OnboardSoundboxVpaRequest`
+`func NewOnboardSoundboxVpaRequest(vpa string, cfTerminalId int64, ) *OnboardSoundboxVpaRequest`
 
 NewOnboardSoundboxVpaRequest instantiates a new OnboardSoundboxVpaRequest object
 This constructor will assign default values to properties that have it defined,
@@ -51,20 +51,20 @@ SetVpa sets Vpa field to given value.
 
 ### GetCfTerminalId
 
-`func (o *OnboardSoundboxVpaRequest) GetCfTerminalId() string`
+`func (o *OnboardSoundboxVpaRequest) GetCfTerminalId() int64`
 
 GetCfTerminalId returns the CfTerminalId field if non-nil, zero value otherwise.
 
 ### GetCfTerminalIdOk
 
-`func (o *OnboardSoundboxVpaRequest) GetCfTerminalIdOk() (*string, bool)`
+`func (o *OnboardSoundboxVpaRequest) GetCfTerminalIdOk() (*int64, bool)`
 
 GetCfTerminalIdOk returns a tuple with the CfTerminalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfTerminalId
 
-`func (o *OnboardSoundboxVpaRequest) SetCfTerminalId(v string)`
+`func (o *OnboardSoundboxVpaRequest) SetCfTerminalId(v int64)`
 
 SetCfTerminalId sets CfTerminalId field to given value.
 
@@ -88,6 +88,11 @@ and a boolean to check if the value has been set.
 
 SetDeviceSerialNo sets DeviceSerialNo field to given value.
 
+### HasDeviceSerialNo
+
+`func (o *OnboardSoundboxVpaRequest) HasDeviceSerialNo() bool`
+
+HasDeviceSerialNo returns a boolean if a field has been set.
 
 ### GetMerchantName
 

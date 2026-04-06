@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -21,13 +21,13 @@ import (
 )
 
 // Execute executes the request
-//  @return InstrumentEntity
-func (_this *Cashfree) PGCustomerDeleteInstrument(customerId string, instrumentId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*InstrumentEntity, *http.Response, error) {
+//  @return DeletedInstrumentEntity
+func (_this *Cashfree) PGCustomerDeleteInstrument(customerId string, instrumentId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DeletedInstrumentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InstrumentEntity
+		localVarReturnValue  *DeletedInstrumentEntity
 	)
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
@@ -259,13 +259,13 @@ if _this.XPartnerApiKey != nil {
 
 // With Context
 // Execute executes the request
-//  @return InstrumentEntity
-func (_this *Cashfree) PGCustomerDeleteInstrumentWithContext(ctx context.Context, customerId string, instrumentId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*InstrumentEntity, *http.Response, error) {
+//  @return DeletedInstrumentEntity
+func (_this *Cashfree) PGCustomerDeleteInstrumentWithContext(ctx context.Context, customerId string, instrumentId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*DeletedInstrumentEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *InstrumentEntity
+		localVarReturnValue  *DeletedInstrumentEntity
 	)
 
 	if _this.XEnableErrorAnalytics == nil {
@@ -339,7 +339,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.1.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -818,7 +818,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.1.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -979,13 +979,13 @@ if _this.XPartnerApiKey != nil {
 
 
 // Execute executes the request
-//  @return []InstrumentEntity
-func (_this *Cashfree) PGCustomerFetchInstruments(customerId string, instrumentType *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]InstrumentEntity, *http.Response, error) {
+//  @return []InstrumentEntityForAllSavedCard
+func (_this *Cashfree) PGCustomerFetchInstruments(customerId string, instrumentType *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]InstrumentEntityForAllSavedCard, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []InstrumentEntity
+		localVarReturnValue  []InstrumentEntityForAllSavedCard
 	)
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
@@ -1006,7 +1006,7 @@ func (_this *Cashfree) PGCustomerFetchInstruments(customerId string, instrumentT
 
 	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
-	localVarPath := localBasePath + "/customers/{customer_id}/instruments"
+	localVarPath := localBasePath + "/customers/{customer_id}/instruments?instrument_type=card"
 	localVarPath = strings.Replace(localVarPath, "{"+"customer_id"+"}", url.PathEscape(parameterValueToString(customerId, "customerId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1205,13 +1205,13 @@ if _this.XPartnerApiKey != nil {
 
 // With Context
 // Execute executes the request
-//  @return []InstrumentEntity
-func (_this *Cashfree) PGCustomerFetchInstrumentsWithContext(ctx context.Context, customerId string, instrumentType *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]InstrumentEntity, *http.Response, error) {
+//  @return []InstrumentEntityForAllSavedCard
+func (_this *Cashfree) PGCustomerFetchInstrumentsWithContext(ctx context.Context, customerId string, instrumentType *string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) ([]InstrumentEntityForAllSavedCard, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []InstrumentEntity
+		localVarReturnValue  []InstrumentEntityForAllSavedCard
 	)
 
 	if _this.XEnableErrorAnalytics == nil {
@@ -1231,7 +1231,7 @@ func (_this *Cashfree) PGCustomerFetchInstrumentsWithContext(ctx context.Context
 
 	localBasePath := client.cfg.Servers[int(*_this.XEnvironment)].URL
 
-	localVarPath := localBasePath + "/customers/{customer_id}/instruments"
+	localVarPath := localBasePath + "/customers/{customer_id}/instruments?instrument_type=card"
 	localVarPath = strings.Replace(localVarPath, "{"+"customer_id"+"}", url.PathEscape(parameterValueToString(customerId, "customerId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1288,7 +1288,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.1.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1752,7 +1752,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-5.1.0"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.1"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the PaymentWebhookErrorEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PaymentWebhookErrorEntity{}
 
-// PaymentWebhookErrorEntity error details present in the webhook
+// PaymentWebhookErrorEntity error details present in the webhook.
 type PaymentWebhookErrorEntity struct {
 	ErrorCode *string `json:"error_code,omitempty"`
 	ErrorDescription *string `json:"error_description,omitempty"`

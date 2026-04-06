@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TrackingCompany** | **string** | Tracking company name associated with order. | 
 **TrackingUrls** | **[]string** | Tracking Urls associated with order. | 
-**TrackingNumbers** | **[]string** | Tracking Numbers associated wih order. | 
+**TrackingNumbers** | Pointer to **[]string** | Tracking Numbers associated wih order. | [optional] 
 
 ## Methods
 
 ### NewShipmentDetails
 
-`func NewShipmentDetails(trackingCompany string, trackingUrls []string, trackingNumbers []string, ) *ShipmentDetails`
+`func NewShipmentDetails(trackingCompany string, trackingUrls []string, ) *ShipmentDetails`
 
 NewShipmentDetails instantiates a new ShipmentDetails object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +86,11 @@ and a boolean to check if the value has been set.
 
 SetTrackingNumbers sets TrackingNumbers field to given value.
 
+### HasTrackingNumbers
+
+`func (o *ShipmentDetails) HasTrackingNumbers() bool`
+
+HasTrackingNumbers returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OrderId** | Pointer to **string** | Order identifier present in your system. Alphanumeric, &#39;_&#39; and &#39;-&#39; only | [optional] 
-**OrderAmount** | **float64** | Bill amount for the order. Provide upto two decimals. 10.15 means Rs 10 and 15 paisa | 
-**OrderCurrency** | **string** | Currency for the order. INR if left empty. Contact care@cashfree.com to enable new currencies. | 
+**OrderId** | Pointer to **string** | Order identifier present in your system. Alphanumeric, &#39;_&#39; and &#39;-&#39; only. | [optional] 
+**OrderAmount** | **float64** | Bill amount for the order. Provide upto two decimals. 10.15 means Rs 10 and 15 paisa. For orders in non-INR currency, please refer to [supported amounts](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#decimal-support) per currency. | 
+**OrderCurrency** | **string** | Currency for the order. INR if left empty. For support currency list, refer [here](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#full-currency-list). Submit [Support Form](https://merchant.cashfree.com/auth/login) to enable new currencies. | 
 **CartDetails** | Pointer to [**CartDetails**](CartDetails.md) |  | [optional] 
-**CustomerDetails** | [**CustomerDetails**](CustomerDetails.md) |  | 
+**CustomerDetails** | Pointer to [**CustomerDetails**](CustomerDetails.md) |  | [optional] 
 **Terminal** | Pointer to [**TerminalDetails**](TerminalDetails.md) |  | [optional] 
 **OrderMeta** | Pointer to [**OrderMeta**](OrderMeta.md) |  | [optional] 
 **OrderExpiryTime** | Pointer to **string** | Time after which the order expires. Customers will not be able to make the payment beyond the time specified here. We store timestamps in IST, but you can provide them in a valid ISO 8601 time format. Example 2021-07-02T10:20:12+05:30 for IST, 2021-07-02T10:20:12Z for UTC | [optional] 
 **OrderNote** | Pointer to **string** | Order note for reference. | [optional] 
-**OrderTags** | Pointer to **map[string]string** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
+**OrderTags** | Pointer to **map[string]string** | Custom Tags in the form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added. | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) | If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount. | [optional] 
 **Products** | Pointer to [**Products**](Products.md) |  | [optional] 
 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewCreateOrderRequest
 
-`func NewCreateOrderRequest(orderAmount float64, orderCurrency string, customerDetails CustomerDetails, ) *CreateOrderRequest`
+`func NewCreateOrderRequest(orderAmount float64, orderCurrency string, ) *CreateOrderRequest`
 
 NewCreateOrderRequest instantiates a new CreateOrderRequest object
 This constructor will assign default values to properties that have it defined,
@@ -145,6 +145,11 @@ and a boolean to check if the value has been set.
 
 SetCustomerDetails sets CustomerDetails field to given value.
 
+### HasCustomerDetails
+
+`func (o *CreateOrderRequest) HasCustomerDetails() bool`
+
+HasCustomerDetails returns a boolean if a field has been set.
 
 ### GetTerminal
 

@@ -4,18 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfPaymentId** | Pointer to **string** |  | [optional] 
+**CfPaymentId** | Pointer to **int64** |  | [optional] 
 **OrderId** | Pointer to **string** |  | [optional] 
 **Entity** | Pointer to **string** |  | [optional] 
 **ErrorDetails** | Pointer to [**ErrorDetailsInPaymentsEntity**](ErrorDetailsInPaymentsEntity.md) |  | [optional] 
 **IsCaptured** | Pointer to **bool** |  | [optional] 
-**OrderAmount** | Pointer to **float32** | Order amount can be different from payment amount if you collect service fee from the customer | [optional] 
-**PaymentGroup** | Pointer to **string** | Type of payment group. One of [&#39;prepaid_card&#39;, &#39;upi_ppi_offline&#39;, &#39;cash&#39;, &#39;upi_credit_card&#39;, &#39;paypal&#39;, &#39;net_banking&#39;, &#39;cardless_emi&#39;, &#39;credit_card&#39;, &#39;bank_transfer&#39;, &#39;pay_later&#39;, &#39;debit_card_emi&#39;, &#39;debit_card&#39;, &#39;wallet&#39;, &#39;upi_ppi&#39;, &#39;upi&#39;, &#39;credit_card_emi&#39;] | [optional] 
+**OrderAmount** | Pointer to **float32** | Order amount can be different from payment amount if you collect service fee from the customer. | [optional] 
+**PaymentGroup** | Pointer to **string** | Type of payment group. One of [&#39;prepaid_card&#39;, &#39;upi_ppi_offline&#39;, &#39;cash&#39;, &#39;upi_credit_card&#39;, &#39;paypal&#39;, &#39;net_banking&#39;, &#39;cardless_emi&#39;, &#39;credit_card&#39;, &#39;bank_transfer&#39;, &#39;pay_later&#39;, &#39;debit_card_emi&#39;, &#39;debit_card&#39;, &#39;wallet&#39;, &#39;upi_ppi&#39;, &#39;upi&#39;, &#39;credit_card_emi&#39;]. | [optional] 
 **PaymentCurrency** | Pointer to **string** |  | [optional] 
 **PaymentAmount** | Pointer to **float32** |  | [optional] 
-**PaymentTime** | Pointer to **string** | This is the time when the payment was initiated | [optional] 
-**PaymentCompletionTime** | Pointer to **string** | This is the time when the payment reaches its terminal state | [optional] 
-**PaymentStatus** | Pointer to **string** | The transaction status can be one of  [\&quot;SUCCESS\&quot;, \&quot;NOT_ATTEMPTED\&quot;, \&quot;FAILED\&quot;, \&quot;USER_DROPPED\&quot;, \&quot;VOID\&quot;, \&quot;CANCELLED\&quot;, \&quot;PENDING\&quot;] | [optional] 
+**PaymentTime** | Pointer to **string** | This is the time when the payment was initiated. | [optional] 
+**PaymentCompletionTime** | Pointer to **string** | This is the time when the payment reaches its terminal state. | [optional] 
+**PaymentStatus** | Pointer to **string** | The transaction status can be one of  [\&quot;SUCCESS\&quot;, \&quot;NOT_ATTEMPTED\&quot;, \&quot;FAILED\&quot;, \&quot;USER_DROPPED\&quot;, \&quot;VOID\&quot;, \&quot;CANCELLED\&quot;, \&quot;PENDING\&quot;]. | [optional] 
 **PaymentMessage** | Pointer to **string** |  | [optional] 
 **BankReference** | Pointer to **string** |  | [optional] 
 **AuthId** | Pointer to **string** |  | [optional] 
@@ -45,20 +45,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfPaymentId
 
-`func (o *TerminalPaymentEntity) GetCfPaymentId() string`
+`func (o *TerminalPaymentEntity) GetCfPaymentId() int64`
 
 GetCfPaymentId returns the CfPaymentId field if non-nil, zero value otherwise.
 
 ### GetCfPaymentIdOk
 
-`func (o *TerminalPaymentEntity) GetCfPaymentIdOk() (*string, bool)`
+`func (o *TerminalPaymentEntity) GetCfPaymentIdOk() (*int64, bool)`
 
 GetCfPaymentIdOk returns a tuple with the CfPaymentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfPaymentId
 
-`func (o *TerminalPaymentEntity) SetCfPaymentId(v string)`
+`func (o *TerminalPaymentEntity) SetCfPaymentId(v int64)`
 
 SetCfPaymentId sets CfPaymentId field to given value.
 

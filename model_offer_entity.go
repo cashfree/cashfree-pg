@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the OfferEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OfferEntity{}
 
-// OfferEntity Offer entity object
+// OfferEntity Offer entity object.
 type OfferEntity struct {
 	OfferId *string `json:"offer_id,omitempty"`
 	OfferStatus *string `json:"offer_status,omitempty"`
@@ -32,6 +32,8 @@ type OfferEntity struct {
 	OfferTnc *OfferTncResponse `json:"offer_tnc,omitempty"`
 	OfferDetails *OfferDetailsResponse `json:"offer_details,omitempty"`
 	OfferValidations *OfferValidationsResponse `json:"offer_validations,omitempty"`
+	RedemptionAmount *float32 `json:"redemption_amount,omitempty"`
+	Platform *string `json:"platform,omitempty"`
 }
 
 
@@ -69,6 +71,12 @@ func (o OfferEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OfferValidations) {
 		toSerialize["offer_validations"] = o.OfferValidations
+	}
+	if !IsNil(o.RedemptionAmount) {
+		toSerialize["redemption_amount"] = o.RedemptionAmount
+	}
+	if !IsNil(o.Platform) {
+		toSerialize["platform"] = o.Platform
 	}
 	return toSerialize, nil
 }

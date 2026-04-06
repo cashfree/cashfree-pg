@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfPaymentId** | Pointer to **string** | The payment id for which this request was sent | [optional] 
-**Action** | Pointer to **string** | The action that was invoked for this request. | [optional] 
-**AuthenticateStatus** | Pointer to **string** | Status of the is action. Will be either failed or successful. If the action is successful, you should still call the authorization status to verify the final payment status. | [optional] 
-**PaymentMessage** | Pointer to **string** | Human readable message which describes the status in more detail | [optional] 
+**CfPaymentId** | Pointer to **string** | Cashfree payment ID for which this request was sent. | [optional] 
+**Action** | Pointer to **string** | The action that was requested. | [optional] 
+**AuthenticateStatus** | Pointer to **string** | Status of this action - will be either success or failed. If the action is success, you should still call [payment status API](https://www.cashfree.com/docs/api-reference/payments/latest/payments/get) to verify the final payment status. | [optional] 
+**PaymentMessage** | Pointer to **string** | Human readable message which describes the status in more detail. | [optional] 
 
 ## Methods
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ApproveBy** | Pointer to **string** | Time by which this authorization should be approved by the customer. | [optional] 
-**StartTime** | Pointer to **string** | This is the time when the UPI one time mandate will start | [optional] 
+**StartTime** | Pointer to **string** | This is the time when the UPI one time mandate will start. | [optional] 
 **EndTime** | Pointer to **string** | This is the time when the UPI mandate will be over. If the mandate has not been executed by this time, the funds will be returned back to the customer after this time. | [optional] 
 
 ## Methods

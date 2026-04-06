@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,17 +22,17 @@ var _ = fmt.Errorf
 // checks if the Upi type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Upi{}
 
-// Upi UPI collect payment method object
+// Upi UPI collect payment method object.
 type Upi struct {
-	// Specify the channel through which the payment must be processed. Can be one of [\"link\", \"collect\", \"qrcode\"]
-	Channel string `json:"channel"`
-	// Customer UPI VPA to process payment.  ### Important This is a required parameter for channel = `collect` 
+	// Specify the channel through which the payment must be processed. Can be one of [\"link\", \"collect\", \"qrcode\", \"podQrCode\"].
+	Channel *string `json:"channel,omitempty"`
+	// Customer UPI VPA to process payment.  ### Important This is a required parameter for channel = `collect`. 
 	UpiId *string `json:"upi_id,omitempty"`
-	// use this if you want cashfree to show a loader. Sample response below. It is only supported for collect `action:collect` will be returned with `data.url` having the link for redirection 
+	// use this if you want cashfree to show a loader. Sample response below. It is only supported for collect `action:collect` will be returned with `data.url` having the link for redirection. 
 	UpiRedirectUrl *bool `json:"upi_redirect_url,omitempty"`
-	// The UPI request will be valid for this expiry minutes. This parameter is only applicable for a UPI collect payment. The default value is 5 minutes. You should keep the minimum as 5 minutes, and maximum as 15 minutes
+	// The UPI request will be valid for this expiry minutes. This parameter is only applicable for a UPI collect payment. The default value is 5 minutes. You should keep the minimum as 5 minutes, and maximum as 15 minutes.
 	UpiExpiryMinutes *float32 `json:"upi_expiry_minutes,omitempty"`
-	// For one time mandate on UPI. Set this as authorize_only = true. Please note that you can only use the \"collect\" channel if you are sending a one time mandate request
+	// For one time mandate on UPI. Set this as authorize_only = true. Please note that you can only use the \"collect\" channel if you are sending a one time mandate request.
 	AuthorizeOnly *bool `json:"authorize_only,omitempty"`
 	Authorization *UPIAuthorizeDetails `json:"authorization,omitempty"`
 }
@@ -49,7 +49,9 @@ func (o Upi) MarshalJSON() ([]byte, error) {
 func (o Upi) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	toSerialize["channel"] = o.Channel
+	if !IsNil(o.Channel) {
+		toSerialize["channel"] = o.Channel
+	}
 	if !IsNil(o.UpiId) {
 		toSerialize["upi_id"] = o.UpiId
 	}

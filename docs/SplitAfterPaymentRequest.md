@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Split** | [**[]SplitAfterPaymentRequestSplitInner**](SplitAfterPaymentRequestSplitInner.md) | Specify the vendors order split details. | 
+**Split** | Pointer to [**[]SplitAfterPaymentRequestSplitInner**](SplitAfterPaymentRequestSplitInner.md) | Specify the vendors order split details. | [optional] 
 **DisableSplit** | Pointer to **bool** | Specify if you want to end the split or continue creating further splits in future. | [optional] 
 
 ## Methods
 
 ### NewSplitAfterPaymentRequest
 
-`func NewSplitAfterPaymentRequest(split []SplitAfterPaymentRequestSplitInner, ) *SplitAfterPaymentRequest`
+`func NewSplitAfterPaymentRequest() *SplitAfterPaymentRequest`
 
 NewSplitAfterPaymentRequest instantiates a new SplitAfterPaymentRequest object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetSplit sets Split field to given value.
 
+### HasSplit
+
+`func (o *SplitAfterPaymentRequest) HasSplit() bool`
+
+HasSplit returns a boolean if a field has been set.
 
 ### GetDisableSplit
 

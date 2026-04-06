@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,13 +22,13 @@ var _ = fmt.Errorf
 // checks if the SubscriptionBankDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SubscriptionBankDetails{}
 
-// SubscriptionBankDetails Bank details object
+// SubscriptionBankDetails Bank details object.
 type SubscriptionBankDetails struct {
 	// ID of the bank.
 	BankId *string `json:"bank_id,omitempty"`
 	// Name of the bank.
 	BankName *string `json:"bank_name,omitempty"`
-	// List of account authentication modes supported by the bank. (e.g. DEBIT_CARD, NET_BANKING, AADHAAR)
+	// List of account authentication modes supported by the bank. (e.g. DEBIT_CARD, NET_BANKING, AADHAAR).
 	AccountAuthModes []string `json:"account_auth_modes,omitempty"`
 }
 

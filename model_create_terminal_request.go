@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,23 +22,25 @@ var _ = fmt.Errorf
 // checks if the CreateTerminalRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateTerminalRequest{}
 
-// CreateTerminalRequest Request body to create a terminal
+// CreateTerminalRequest Request body to create a terminal.
 type CreateTerminalRequest struct {
-	// merchant’s internal terminal id
+	// merchant’s internal terminal id.
 	TerminalId string `json:"terminal_id"`
-	// phone number assigned to the terminal
+	// phone number assigned to the terminal.
 	TerminalPhoneNo string `json:"terminal_phone_no"`
-	// terminal name to be assigned by merchants
+	// terminal name to be assigned by merchants.
 	TerminalName string `json:"terminal_name"`
-	// address of the terminal. required for STOREFRONT
+	// address of the terminal. required for STOREFRONT.
 	TerminalAddress *string `json:"terminal_address,omitempty"`
 	// terminal email ID of the AGENT/STOREFRONT assigned by merchants.
 	TerminalEmail string `json:"terminal_email"`
-	// additional note for terminal
+	// additional note for terminal.
 	TerminalNote *string `json:"terminal_note,omitempty"`
 	// mention the terminal type. possible values - AGENT, STOREFRONT.
 	TerminalType string `json:"terminal_type"`
 	TerminalMeta *CreateTerminalRequestTerminalMeta `json:"terminal_meta,omitempty"`
+	// Merchant's vpa prefix for the terminal.
+	TerminalVpaPrefix *string `json:"terminal_vpa_prefix,omitempty"`
 }
 
 
@@ -66,6 +68,9 @@ func (o CreateTerminalRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["terminal_type"] = o.TerminalType
 	if !IsNil(o.TerminalMeta) {
 		toSerialize["terminal_meta"] = o.TerminalMeta
+	}
+	if !IsNil(o.TerminalVpaPrefix) {
+		toSerialize["terminal_vpa_prefix"] = o.TerminalVpaPrefix
 	}
 	return toSerialize, nil
 }

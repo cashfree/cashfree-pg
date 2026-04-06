@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,9 +22,9 @@ var _ = fmt.Errorf
 // checks if the CartDetailsEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CartDetailsEntity{}
 
-// CartDetailsEntity Cart Details in the Order Entity Response
+// CartDetailsEntity Cart Details in the Order Entity Response.
 type CartDetailsEntity struct {
-	// ID of the cart that was created
+	// ID of the cart that was created.
 	CartId *string `json:"cart_id,omitempty"`
 }
 

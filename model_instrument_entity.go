@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,21 +22,21 @@ var _ = fmt.Errorf
 // checks if the InstrumentEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &InstrumentEntity{}
 
-// InstrumentEntity Saved card instrument object
+// InstrumentEntity Use this API to fetch specific saved card stored for the customer in Cashfree’s [Token Vault](https://www.cashfree.com/docs/payments/features/token-vault).
 type InstrumentEntity struct {
-	// customer_id for which the instrument was saved
+	// Customer ID that merchant sends during [Create Order API](https://www.cashfree.com/docs/api-reference/payments/latest/orders/create), against which the cards are saved for the customer.
 	CustomerId *string `json:"customer_id,omitempty"`
-	// cf_payment_id of the successful transaction done while saving instrument
+	// cf_payment_id of the successful transaction done while saving instrument.
 	AfaReference *string `json:"afa_reference,omitempty"`
-	// saved instrument id
+	// Identifier for the card saved at Cashfree.
 	InstrumentId *string `json:"instrument_id,omitempty"`
-	// Type of the saved instrument
+	// Type of the saved instrument. Available option is `card`.
 	InstrumentType *string `json:"instrument_type,omitempty"`
-	// Unique id for the saved instrument
+	// Unique identifier for the saved card, used to identify a specific card.
 	InstrumentUid *string `json:"instrument_uid,omitempty"`
-	// masked card number displayed to the customer
+	// Last four digits of actual card number.
 	InstrumentDisplay *string `json:"instrument_display,omitempty"`
-	// Status of the saved instrument.
+	// Status of the saved instrument. Available options are `ACTIVE`, `INACTIVE`.
 	InstrumentStatus *string `json:"instrument_status,omitempty"`
 	// Timestamp at which instrument was saved.
 	CreatedAt *string `json:"created_at,omitempty"`

@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomerId** | Pointer to **string** | A unique identifier for the customer. Use alphanumeric values only. | [optional] 
 **CustomerEmail** | Pointer to **string** | Customer email address. | [optional] 
-**CustomerPhone** | **string** | Customer phone number. | 
+**CustomerPhone** | Pointer to **string** | Customer phone number. | [optional] 
 **CustomerName** | Pointer to **string** | Name of the customer. | [optional] 
-**CustomerBankAccountNumber** | Pointer to **string** | Customer bank account. Required if you want to do a bank account check (TPV) | [optional] 
-**CustomerBankIfsc** | Pointer to **string** | Customer bank IFSC. Required if you want to do a bank account check (TPV) | [optional] 
-**CustomerBankCode** | Pointer to **float32** | Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV) | [optional] 
+**CustomerBankAccountNumber** | Pointer to **string** | Customer bank account. Required if you want to do a bank account check (TPV). | [optional] 
+**CustomerBankIfsc** | Pointer to **string** | Customer bank IFSC. Required if you want to do a bank account check (TPV). | [optional] 
+**CustomerBankCode** | Pointer to **float32** | Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV). | [optional] 
 
 ## Methods
 
 ### NewPaymentLinkCustomerDetails
 
-`func NewPaymentLinkCustomerDetails(customerPhone string, ) *PaymentLinkCustomerDetails`
+`func NewPaymentLinkCustomerDetails() *PaymentLinkCustomerDetails`
 
 NewPaymentLinkCustomerDetails instantiates a new PaymentLinkCustomerDetails object
 This constructor will assign default values to properties that have it defined,
@@ -100,6 +100,11 @@ and a boolean to check if the value has been set.
 
 SetCustomerPhone sets CustomerPhone field to given value.
 
+### HasCustomerPhone
+
+`func (o *PaymentLinkCustomerDetails) HasCustomerPhone() bool`
+
+HasCustomerPhone returns a boolean if a field has been set.
 
 ### GetCustomerName
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | Pointer to **bool** | Option to enable or disable the feature | [optional] 
+**Enabled** | Pointer to **bool** | Option to enable or disable the feature. | [optional] 
 **Conditions** | Pointer to [**[]ProductConditions**](ProductConditions.md) | The conditions array allows to configure rules by adding condition objects with specific parameters for feature configurations. | [optional] 
 
 ## Methods

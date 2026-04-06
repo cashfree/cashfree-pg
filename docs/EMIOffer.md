@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Type of emi offer. Possible values are &#x60;credit_card_emi&#x60;, &#x60;debit_card_emi&#x60;, &#x60;cardless_emi&#x60; | 
-**Issuer** | **string** | Bank Name | 
+**Type** | **string** | Type of emi offer. Possible values are &#x60;credit_card_emi&#x60;, &#x60;debit_card_emi&#x60;, &#x60;cardless_emi&#x60;. | 
+**Issuer** | **string** | Bank Name. | 
 **Tenures** | **[]int32** |  | 
 
 ## Methods

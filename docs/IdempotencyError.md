@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Message** | Pointer to **string** |  | [optional] 
 **Help** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** | idempotency_error | [optional] 
+**Type** | Pointer to **string** | idempotency_error. | [optional] 
 
 ## Methods
 

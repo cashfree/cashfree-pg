@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,10 +22,10 @@ var _ = fmt.Errorf
 // checks if the UpdateOrderExtendedRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdateOrderExtendedRequest{}
 
-// UpdateOrderExtendedRequest Request Body to Update extended data related to order
+// UpdateOrderExtendedRequest Request body to update extended data related to order.
 type UpdateOrderExtendedRequest struct {
 	// Shipment details, such as the tracking company, tracking number, and tracking URLs, associated with the shipping of an order. Either `shipment_details` or `order_delivery_status` is required.
-	ShipmentDetails []ShipmentDetails `json:"shipment_details"`
+	ShipmentDetails []ShipmentDetails `json:"shipment_details,omitempty"`
 	OrderDeliveryStatus *OrderDeliveryStatus `json:"order_delivery_status,omitempty"`
 }
 
@@ -41,7 +41,9 @@ func (o UpdateOrderExtendedRequest) MarshalJSON() ([]byte, error) {
 func (o UpdateOrderExtendedRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	toSerialize["shipment_details"] = o.ShipmentDetails
+	if !IsNil(o.ShipmentDetails) {
+		toSerialize["shipment_details"] = o.ShipmentDetails
+	}
 	if !IsNil(o.OrderDeliveryStatus) {
 		toSerialize["order_delivery_status"] = o.OrderDeliveryStatus
 	}

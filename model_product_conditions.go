@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,11 +24,11 @@ var _ MappedNullable = &ProductConditions{}
 
 // ProductConditions struct for ProductConditions
 type ProductConditions struct {
-	// The Action key in the conditions array specifies whether a condition should \"ALLOW\" or \"DENY\" the specified rule or feature
+	// The Action key in the conditions array specifies whether a condition should \"ALLOW\" or \"DENY\" the specified rule or feature.
 	Action *string `json:"action,omitempty"`
-	// Specify what you're trying to configure, such as \"features\"
+	// Specify what you're trying to configure, such as \"features.\".
 	Key *string `json:"key,omitempty"`
-	// Define the values you need to set within the conditions in this array, such as \"checkoutCollectAddress\", \"checkoutAuthenticate\"
+	// Define the values you need to set within the conditions in this array, such as \"checkoutCollectAddress\", \"checkoutAuthenticate\".
 	Values []string `json:"values,omitempty"`
 }
 

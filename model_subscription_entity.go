@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,16 +22,16 @@ var _ = fmt.Errorf
 // checks if the SubscriptionEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SubscriptionEntity{}
 
-// SubscriptionEntity The response returned for Get, Create or Manage Subscription APIs.
+// SubscriptionEntity struct for SubscriptionEntity
 type SubscriptionEntity struct {
 	AuthorisationDetails *AuthorizationDetails `json:"authorisation_details,omitempty"`
-	// Cashfree subscription reference number
+	// Cashfree subscription reference number.
 	CfSubscriptionId *string `json:"cf_subscription_id,omitempty"`
 	CustomerDetails *SubscriptionCustomerDetails `json:"customer_details,omitempty"`
 	PlanDetails *PlanEntity `json:"plan_details,omitempty"`
-	// Time at which the subscription will expire.
+	// Time at which the subscription will expire. We store timestamps in IST.
 	SubscriptionExpiryTime *string `json:"subscription_expiry_time,omitempty"`
-	// Time at which the first charge will be made for the subscription. Applicable only for PERIODIC plans.
+	// Time at which the first charge will be made for the subscription. Applicable only for PERIODIC plans. Cashfree stores timestamps in IST.
 	SubscriptionFirstChargeTime *string `json:"subscription_first_charge_time,omitempty"`
 	// A unique ID passed by merchant for identifying the subscription.
 	SubscriptionId *string `json:"subscription_id,omitempty"`
@@ -42,10 +42,12 @@ type SubscriptionEntity struct {
 	SubscriptionSessionId *string `json:"subscription_session_id,omitempty"`
 	// Payment splits for the subscription.
 	SubscriptionPaymentSplits []SubscriptionPaymentSplitItem `json:"subscription_payment_splits,omitempty"`
-	// Status of the subscription.
+	// Status of the subscription. For more details, see [Subscription Lifecycle](https://www.cashfree.com/docs/payments/subscription/create#subscription-lifecycle).
 	SubscriptionStatus *string `json:"subscription_status,omitempty"`
 	// Tags for the subscription.
 	SubscriptionTags map[string]interface{} `json:"subscription_tags,omitempty"`
+	// The date on which the next payment is scheduled to be processed. Cashfree stores timestamps in IST. For ON_DEMAND plans this will be null .
+	NextScheduleDate *string `json:"next_schedule_date,omitempty"`
 }
 
 
@@ -98,6 +100,9 @@ func (o SubscriptionEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.SubscriptionTags) {
 		toSerialize["subscription_tags"] = o.SubscriptionTags
+	}
+	if !IsNil(o.NextScheduleDate) {
+		toSerialize["next_schedule_date"] = o.NextScheduleDate
 	}
 	return toSerialize, nil
 }

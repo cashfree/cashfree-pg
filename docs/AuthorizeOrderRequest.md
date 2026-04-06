@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | Pointer to **string** | Type of authorization to run. Can be one of &#39;CAPTURE&#39; , &#39;VOID&#39; | [optional] 
-**Amount** | Pointer to **float32** | The amount if you are running a &#39;CAPTURE&#39; | [optional] 
+**Action** | **string** | Type of authorisation to run. Available options are &#x60;CAPTURE&#x60;, &#x60;VOID&#x60;. | 
+**Amount** | Pointer to **float32** | The amount you want to capture. This is required only when action is &#x60;CAPTURE&#x60;. | [optional] 
 
 ## Methods
 
 ### NewAuthorizeOrderRequest
 
-`func NewAuthorizeOrderRequest() *AuthorizeOrderRequest`
+`func NewAuthorizeOrderRequest(action string, ) *AuthorizeOrderRequest`
 
 NewAuthorizeOrderRequest instantiates a new AuthorizeOrderRequest object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetAction sets Action field to given value.
 
-### HasAction
-
-`func (o *AuthorizeOrderRequest) HasAction() bool`
-
-HasAction returns a boolean if a field has been set.
 
 ### GetAmount
 

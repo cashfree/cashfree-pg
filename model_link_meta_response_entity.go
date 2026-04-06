@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,15 +22,15 @@ var _ = fmt.Errorf
 // checks if the LinkMetaResponseEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &LinkMetaResponseEntity{}
 
-// LinkMetaResponseEntity Payment link meta information object
+// LinkMetaResponseEntity Payment link meta information object.
 type LinkMetaResponseEntity struct {
 	// Notification URL for server-server communication. It should be an https URL.
 	NotifyUrl *string `json:"notify_url,omitempty"`
-	// If \"true\", link will directly open UPI Intent flow on mobile, and normal link flow elsewhere
+	// If \"true\", link will directly open UPI Intent flow on mobile, and normal link flow elsewhere.
 	UpiIntent *string `json:"upi_intent,omitempty"`
 	// The URL to which user will be redirected to after the payment is done on the link. Maximum length: 250.
 	ReturnUrl *string `json:"return_url,omitempty"`
-	// Allowed payment modes for this link. Pass comma-separated values among following options - \"cc\", \"dc\", \"ccc\", \"ppc\", \"nb\", \"upi\", \"paypal\", \"app\". Leave it blank to show all available payment methods
+	// Allowed payment modes for this link. Pass comma-separated values among following options - \"cc\", \"dc\", \"ccc\", \"ppc\", \"nb\", \"upi\", \"paypal\", \"app\". Leave it blank to show all available payment methods.
 	PaymentMethods *string `json:"payment_methods,omitempty"`
 }
 

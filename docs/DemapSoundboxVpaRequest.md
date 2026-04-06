@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfTerminalId** | **string** | cashfree terminal id. | 
-**DeviceSerialNo** | **string** | Device Serial No of soundbox that need to demap. | 
+**CfTerminalId** | **int64** | Cashfree terminal ID. | 
+**DeviceSerialNo** | Pointer to **string** | Device Serial No of soundbox that need to demap. | [optional] 
 
 ## Methods
 
 ### NewDemapSoundboxVpaRequest
 
-`func NewDemapSoundboxVpaRequest(cfTerminalId string, deviceSerialNo string, ) *DemapSoundboxVpaRequest`
+`func NewDemapSoundboxVpaRequest(cfTerminalId int64, ) *DemapSoundboxVpaRequest`
 
 NewDemapSoundboxVpaRequest instantiates a new DemapSoundboxVpaRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCfTerminalId
 
-`func (o *DemapSoundboxVpaRequest) GetCfTerminalId() string`
+`func (o *DemapSoundboxVpaRequest) GetCfTerminalId() int64`
 
 GetCfTerminalId returns the CfTerminalId field if non-nil, zero value otherwise.
 
 ### GetCfTerminalIdOk
 
-`func (o *DemapSoundboxVpaRequest) GetCfTerminalIdOk() (*string, bool)`
+`func (o *DemapSoundboxVpaRequest) GetCfTerminalIdOk() (*int64, bool)`
 
 GetCfTerminalIdOk returns a tuple with the CfTerminalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfTerminalId
 
-`func (o *DemapSoundboxVpaRequest) SetCfTerminalId(v string)`
+`func (o *DemapSoundboxVpaRequest) SetCfTerminalId(v int64)`
 
 SetCfTerminalId sets CfTerminalId field to given value.
 
@@ -65,6 +65,11 @@ and a boolean to check if the value has been set.
 
 SetDeviceSerialNo sets DeviceSerialNo field to given value.
 
+### HasDeviceSerialNo
+
+`func (o *DemapSoundboxVpaRequest) HasDeviceSerialNo() bool`
+
+HasDeviceSerialNo returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

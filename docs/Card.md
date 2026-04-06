@@ -4,29 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | **string** | The channel for card payments can be \&quot;link\&quot; or \&quot;post\&quot;. Post is used for seamless OTP payments where merchant captures OTP on their own page. | 
-**CardNumber** | Pointer to **string** | Customer card number for plain card transactions. Token pan number for tokenized card transactions. | [optional] 
-**CardHolderName** | Pointer to **string** | Customer name mentioned on the card. | [optional] 
-**CardExpiryMm** | Pointer to **string** | Card expiry month for plain card transactions. Token expiry month for tokenized card transactions. | [optional] 
-**CardExpiryYy** | Pointer to **string** | Card expiry year for plain card transactions. Token expiry year for tokenized card transactions. | [optional] 
-**CardCvv** | Pointer to **string** | CVV mentioned on the card. | [optional] 
-**InstrumentId** | Pointer to **string** | instrument id of saved card. Required only to make payment using saved instrument. | [optional] 
-**Cryptogram** | Pointer to **string** | cryptogram received from card network. Required only for tokenized card transactions. | [optional] 
-**TokenRequestorId** | Pointer to **string** | TRID issued by card networks. Required only for tokenized card transactions. | [optional] 
-**TokenReferenceId** | Pointer to **string** | Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards. | [optional] 
-**TokenType** | Pointer to **string** |  | [optional] 
-**CardDisplay** | Pointer to **string** | last 4 digits of original card number. Required only for tokenized card transactions. | [optional] 
-**CardAlias** | Pointer to **string** | Card alias as returned by Cashfree Vault API. | [optional] 
-**CardBankName** | Pointer to **string** | One of [\&quot;Kotak\&quot;, \&quot;ICICI\&quot;, \&quot;RBL\&quot;, \&quot;BOB\&quot;, \&quot;Standard Chartered\&quot;]. Card bank name, required for EMI payments. This is the bank user has selected for EMI | [optional] 
+**Channel** | **string** | The channel for card payments can be \&quot;link\&quot; or \&quot;post\&quot;. Use \&quot;post\&quot; to request [Native OTP](https://www.cashfree.com/docs/payments/features/native-otp) authentication, where the merchant must render the Native OTP UI to collect the OTP. Otherwise, use link for the redirection flow. | 
+**CardNumber** | Pointer to **string** | Customer’s card number for plain card transactions, or token number for external token transactions, or Alt ID number for external Alt ID transactions. | [optional] 
+**CardHolderName** | Pointer to **string** | Name on the customer’s card. Optional for external token or external Alt ID transactions. | [optional] 
+**CardExpiryMm** | Pointer to **string** | Card expiry month for plain card transactions, or token expiry month for external token transactions, or Alt ID expiry month for external Alt ID transactions. | [optional] 
+**CardExpiryYy** | Pointer to **string** | Card expiry year for plain card transactions, or token expiry year for external token transactions and Alt ID expiry year for external Alt ID transactions. | [optional] 
+**CardCvv** | Pointer to **string** | CVV mentioned on the card. Mandatory for plain card and external Alt ID transactions; optional for saved card transactions. | [optional] 
+**InstrumentId** | Pointer to **string** | Instrument ID of the saved card, as received in response from [Fetch All Saved Card Instrument API](https://www.cashfree.com/docs/api-reference/payments/latest/token-vault/get-all). Required only when making payments using cards saved with Cashfree. | [optional] 
+**Cryptogram** | Pointer to **string** | Cryptogram received from the card network. Required only for external token or external Alt ID transactions; provided by the merchant’s token requestor. | [optional] 
+**TokenRequestorId** | Pointer to **string** | Token Requestor ID (TRID) issued by the respective card network. Required only for external token transactions; provided by the merchant’s token requestor. | [optional] 
+**TokenReferenceId** | Pointer to **string** | Token Reference ID, required only for external Alt ID transactions for Diners; provided by the merchant’s token requestor. | [optional] 
+**TokenType** | Pointer to **string** | Token type enum. Mandatory only for external Alt ID transactions. | [optional] 
+**CardDisplay** | Pointer to **string** | Last 4 digits of original card number, required only for external token or external Alt ID transactions, used for bookkeeping purposes. | [optional] 
+**CardBankName** | Pointer to **string** | One of [\&quot;Kotak\&quot;, \&quot;ICICI\&quot;, \&quot;RBL\&quot;, \&quot;BOB\&quot;, \&quot;Standard Chartered\&quot;]. Card bank name, required for EMI payments. This is the bank user has selected for EMI. | [optional] 
 **AddressLineOne** | Pointer to **string** | First line of the address. | [optional] 
 **AddressLineTwo** | Pointer to **string** | Second line of the address. | [optional] 
 **City** | Pointer to **string** | City Name. | [optional] 
 **ZipCode** | Pointer to **string** | Pin Code/Zip Code. | [optional] 
 **Country** | Pointer to **string** | Country Name. | [optional] 
-**CountryCode** | Pointer to **string** | Country Code. Should be in ISO 2 format (ie. US for United States) | [optional] 
+**CountryCode** | Pointer to **string** | Country Code. Should be in ISO 2 format (ie. US for United States). | [optional] 
 **State** | Pointer to **string** | State Name. | [optional] 
-**StateCode** | Pointer to **string** | State Code. Should be in ISO 2 format (ie. FL for Florida) | [optional] 
-**EmiTenure** | Pointer to **int32** | EMI tenure selected by the user | [optional] 
+**StateCode** | Pointer to **string** | State Code. Should be in ISO 2 format (ie. FL for Florida). | [optional] 
+**EmiTenure** | Pointer to **int32** | EMI tenure selected by the user. | [optional] 
+**Par** | Pointer to **string** | Par received from network. | [optional] 
 
 ## Methods
 
@@ -342,31 +342,6 @@ SetCardDisplay sets CardDisplay field to given value.
 
 HasCardDisplay returns a boolean if a field has been set.
 
-### GetCardAlias
-
-`func (o *Card) GetCardAlias() string`
-
-GetCardAlias returns the CardAlias field if non-nil, zero value otherwise.
-
-### GetCardAliasOk
-
-`func (o *Card) GetCardAliasOk() (*string, bool)`
-
-GetCardAliasOk returns a tuple with the CardAlias field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCardAlias
-
-`func (o *Card) SetCardAlias(v string)`
-
-SetCardAlias sets CardAlias field to given value.
-
-### HasCardAlias
-
-`func (o *Card) HasCardAlias() bool`
-
-HasCardAlias returns a boolean if a field has been set.
-
 ### GetCardBankName
 
 `func (o *Card) GetCardBankName() string`
@@ -616,6 +591,31 @@ SetEmiTenure sets EmiTenure field to given value.
 `func (o *Card) HasEmiTenure() bool`
 
 HasEmiTenure returns a boolean if a field has been set.
+
+### GetPar
+
+`func (o *Card) GetPar() string`
+
+GetPar returns the Par field if non-nil, zero value otherwise.
+
+### GetParOk
+
+`func (o *Card) GetParOk() (*string, bool)`
+
+GetParOk returns a tuple with the Par field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPar
+
+`func (o *Card) SetPar(v string)`
+
+SetPar sets Par field to given value.
+
+### HasPar
+
+`func (o *Card) HasPar() bool`
+
+HasPar returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

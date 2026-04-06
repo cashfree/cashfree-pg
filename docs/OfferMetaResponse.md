@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OfferCode** | Pointer to **string** | Unique identifier for the Offer. | [optional] 
 **OfferDescription** | Pointer to **string** | Description for the Offer. | [optional] 
-**OfferEndTime** | Pointer to **string** | Expiry Time for the Offer | [optional] 
-**OfferStartTime** | Pointer to **string** | Start Time for the Offer | [optional] 
+**OfferEndTime** | Pointer to **string** | Expiry Time for the Offer. | [optional] 
+**OfferStartTime** | Pointer to **string** | Start Time for the Offer. | [optional] 
 **OfferTitle** | Pointer to **string** | Title for the Offer. | [optional] 
 
 ## Methods

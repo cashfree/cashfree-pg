@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,11 +22,11 @@ var _ = fmt.Errorf
 // checks if the FetchTerminalQRCodesEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FetchTerminalQRCodesEntity{}
 
-// FetchTerminalQRCodesEntity Fetch Static QR Codes using terminal ID or phone number
+// FetchTerminalQRCodesEntity Fetch Static QR Codes using terminal ID or phone number.
 type FetchTerminalQRCodesEntity struct {
 	// Name of the bank that is linked to the Static QR.
 	Bank *string `json:"bank,omitempty"`
-	// Base-64 Encoded QR Code URL
+	// Base-64 Encoded QR Code URL.
 	QrCode *string `json:"qrCode,omitempty"`
 	// URL of the qr Code.
 	QrCodeUrl *string `json:"qrCodeUrl,omitempty"`

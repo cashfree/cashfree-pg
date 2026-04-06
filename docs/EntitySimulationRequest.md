@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PaymentStatus** | **string** | Payment Status | 
-**PaymentErrorCode** | Pointer to **string** | Payment Error Code | [optional] 
+**PaymentStatus** | **string** | Payment status. | 
+**PaymentErrorCode** | Pointer to **string** | Payment error code. | [optional] 
 
 ## Methods
 

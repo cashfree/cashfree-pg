@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,10 +22,10 @@ var _ = fmt.Errorf
 // checks if the TerminateOrderRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TerminateOrderRequest{}
 
-// TerminateOrderRequest Request to terminate an active order at Cashfree
+// TerminateOrderRequest Request to terminate an active order at Cashfree.
 type TerminateOrderRequest struct {
 	// To terminate an order, pass order_status as \"TERMINATED\". Please note, order might not be terminated - confirm with the order_status in response. \"TERMINATION_REQUESTED\" states that the request is recieved and we are working on it. If the order terminates successfully, status will change to \"TERMINATED\". Incase there's any active transaction which moved to success - order might not get terminated.
-	OrderStatus string `json:"order_status"`
+	OrderStatus *string `json:"order_status,omitempty"`
 }
 
 
@@ -40,7 +40,9 @@ func (o TerminateOrderRequest) MarshalJSON() ([]byte, error) {
 func (o TerminateOrderRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	toSerialize["order_status"] = o.OrderStatus
+	if !IsNil(o.OrderStatus) {
+		toSerialize["order_status"] = o.OrderStatus
+	}
 	return toSerialize, nil
 }
 
