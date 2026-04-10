@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Pagination** | [**FetchSettlementsRequestPagination**](FetchSettlementsRequestPagination.md) |  | 
-**Filters** | [**FetchSettlementsRequestFilters**](FetchSettlementsRequestFilters.md) |  | 
+**Filters** | Pointer to [**SettlementFetchReconRequestFilters**](SettlementFetchReconRequestFilters.md) |  | [optional] 
 
 ## Methods
 
 ### NewSettlementFetchReconRequest
 
-`func NewSettlementFetchReconRequest(pagination FetchSettlementsRequestPagination, filters FetchSettlementsRequestFilters, ) *SettlementFetchReconRequest`
+`func NewSettlementFetchReconRequest(pagination FetchSettlementsRequestPagination, ) *SettlementFetchReconRequest`
 
 NewSettlementFetchReconRequest instantiates a new SettlementFetchReconRequest object
 This constructor will assign default values to properties that have it defined,
@@ -48,23 +48,28 @@ SetPagination sets Pagination field to given value.
 
 ### GetFilters
 
-`func (o *SettlementFetchReconRequest) GetFilters() FetchSettlementsRequestFilters`
+`func (o *SettlementFetchReconRequest) GetFilters() SettlementFetchReconRequestFilters`
 
 GetFilters returns the Filters field if non-nil, zero value otherwise.
 
 ### GetFiltersOk
 
-`func (o *SettlementFetchReconRequest) GetFiltersOk() (*FetchSettlementsRequestFilters, bool)`
+`func (o *SettlementFetchReconRequest) GetFiltersOk() (*SettlementFetchReconRequestFilters, bool)`
 
 GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilters
 
-`func (o *SettlementFetchReconRequest) SetFilters(v FetchSettlementsRequestFilters)`
+`func (o *SettlementFetchReconRequest) SetFilters(v SettlementFetchReconRequestFilters)`
 
 SetFilters sets Filters field to given value.
 
+### HasFilters
+
+`func (o *SettlementFetchReconRequest) HasFilters() bool`
+
+HasFilters returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

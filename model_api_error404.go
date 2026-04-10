@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,12 +22,12 @@ var _ = fmt.Errorf
 // checks if the ApiError404 type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ApiError404{}
 
-// ApiError404 Error when resource requested is not found
+// ApiError404 Error when resource requested is not found.
 type ApiError404 struct {
 	Message *string `json:"message,omitempty"`
 	Code *string `json:"code,omitempty"`
 	Help *string `json:"help,omitempty"`
-	// invalid_request_error
+	// invalid_request_error.
 	Type *string `json:"type,omitempty"`
 }
 

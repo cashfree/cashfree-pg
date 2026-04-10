@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RefundAmount** | **float64** | Amount to be refunded. Should be lesser than or equal to the transaction amount. (Decimals allowed) | 
-**RefundId** | **string** | An unique ID to associate the refund with. Provie alphanumeric values | 
-**RefundNote** | Pointer to **string** | A refund note for your reference. | [optional] 
-**RefundSpeed** | Pointer to **string** | Speed at which the refund is processed. It&#39;s an optional field with default being STANDARD | [optional] 
-**RefundSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) |  | [optional] 
+**RefundAmount** | **float64** | Amount to be refunded. Should be lesser than or equal to the transaction amount. (Decimals allowed). | 
+**RefundId** | Pointer to **string** | An unique ID to associate the refund with. Provie alphanumeric values. | [optional] 
+**RefundNote** | Pointer to **string** | A refund note for your reference. To simulate refund status in Sandbox, pass SUCCESS, FAILED, PENDING, or ACTIVE in the refund_note field. This is a case-sensitive parameter. | [optional] 
+**RefundSpeed** | Pointer to **string** | Speed at which the refund is processed. It&#39;s an optional field with default being STANDARD. | [optional] 
+**RefundSplits** | Pointer to [**[]OrderCreateRefundRequestRefundSplitsInner**](OrderCreateRefundRequestRefundSplitsInner.md) |  | [optional] 
 
 ## Methods
 
 ### NewOrderCreateRefundRequest
 
-`func NewOrderCreateRefundRequest(refundAmount float64, refundId string, ) *OrderCreateRefundRequest`
+`func NewOrderCreateRefundRequest(refundAmount float64, ) *OrderCreateRefundRequest`
 
 NewOrderCreateRefundRequest instantiates a new OrderCreateRefundRequest object
 This constructor will assign default values to properties that have it defined,
@@ -68,6 +68,11 @@ and a boolean to check if the value has been set.
 
 SetRefundId sets RefundId field to given value.
 
+### HasRefundId
+
+`func (o *OrderCreateRefundRequest) HasRefundId() bool`
+
+HasRefundId returns a boolean if a field has been set.
 
 ### GetRefundNote
 
@@ -121,20 +126,20 @@ HasRefundSpeed returns a boolean if a field has been set.
 
 ### GetRefundSplits
 
-`func (o *OrderCreateRefundRequest) GetRefundSplits() []VendorSplit`
+`func (o *OrderCreateRefundRequest) GetRefundSplits() []OrderCreateRefundRequestRefundSplitsInner`
 
 GetRefundSplits returns the RefundSplits field if non-nil, zero value otherwise.
 
 ### GetRefundSplitsOk
 
-`func (o *OrderCreateRefundRequest) GetRefundSplitsOk() (*[]VendorSplit, bool)`
+`func (o *OrderCreateRefundRequest) GetRefundSplitsOk() (*[]OrderCreateRefundRequestRefundSplitsInner, bool)`
 
 GetRefundSplitsOk returns a tuple with the RefundSplits field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRefundSplits
 
-`func (o *OrderCreateRefundRequest) SetRefundSplits(v []VendorSplit)`
+`func (o *OrderCreateRefundRequest) SetRefundSplits(v []OrderCreateRefundRequestRefundSplitsInner)`
 
 SetRefundSplits sets RefundSplits field to given value.
 

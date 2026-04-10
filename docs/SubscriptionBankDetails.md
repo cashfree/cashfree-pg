@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BankId** | Pointer to **string** | ID of the bank. | [optional] 
 **BankName** | Pointer to **string** | Name of the bank. | [optional] 
-**AccountAuthModes** | Pointer to **[]string** | List of account authentication modes supported by the bank. (e.g. DEBIT_CARD, NET_BANKING, AADHAAR) | [optional] 
+**AccountAuthModes** | Pointer to **[]string** | List of account authentication modes supported by the bank. (e.g. DEBIT_CARD, NET_BANKING, AADHAAR). | [optional] 
 
 ## Methods
 

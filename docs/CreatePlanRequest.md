@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **PlanId** | **string** | Unique ID to identify the plan. Only alpha-numerics, dot, hyphen and underscore allowed. | 
 **PlanName** | **string** | Name of the plan. | 
 **PlanType** | **string** | Type of the plan. Possible values - PERIODIC, ON_DEMAND. | 
-**PlanCurrency** | Pointer to **string** | Currency of the plan. | [optional] 
+**PlanCurrency** | Pointer to **string** | Currency of the plan. For plans in non-INR currency, please refer to [supported currencies](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#full-currency-list). | [optional] 
 **PlanRecurringAmount** | Pointer to **float32** | Recurring amount for the plan. Required for PERIODIC plan_type. | [optional] 
 **PlanMaxAmount** | **float32** | Maximum amount for the plan. | 
 **PlanMaxCycles** | Pointer to **int32** | Maximum number of payment cycles for the plan. | [optional] 

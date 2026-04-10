@@ -6,12 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomerId** | **string** | A unique identifier for the customer. Use alphanumeric values only. | 
 **CustomerEmail** | Pointer to **string** | Customer email address. | [optional] 
-**CustomerPhone** | **string** | Customer phone number. | 
+**CustomerPhone** | **string** | Customer phone number. To accommodate international phone numbers, ensure the number is prefixed with a &#39;+&#39; to override the 10-digit limitation. | 
 **CustomerName** | Pointer to **string** | Name of the customer. | [optional] 
-**CustomerBankAccountNumber** | Pointer to **string** | Customer bank account. Required if you want to do a bank account check (TPV) | [optional] 
-**CustomerBankIfsc** | Pointer to **string** | Customer bank IFSC. Required if you want to do a bank account check (TPV) | [optional] 
-**CustomerBankCode** | Pointer to **float32** | Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV) | [optional] 
-**CustomerUid** | Pointer to **string** | Customer identifier at Cashfree. You will get this when you create/get customer | [optional] 
+**CustomerBankAccountNumber** | Pointer to **string** | Customer&#39;s bank account number. This field is required only if you want to perform a bank account check (TPV). | [optional] 
+**CustomerBankIfsc** | Pointer to **string** | Customer&#39;s bank IFSC. Required if you want to do a bank account check (TPV). | [optional] 
+**CustomerBankCode** | Pointer to **float32** | Customer&#39;s bank code. Required for net banking payments, if you want to do a bank account check (TPV). | [optional] 
+**CustomerUid** | Pointer to **string** | Customer&#39;s identifier at Cashfree. You will get this when you create/get customer. | [optional] 
 
 ## Methods
 

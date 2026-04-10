@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the TerminalEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TerminalEntity{}
 
-// TerminalEntity Create terminal response object
+// TerminalEntity Create terminal response object.
 type TerminalEntity struct {
 	AddedOn *string `json:"added_on,omitempty"`
 	CfTerminalId *int32 `json:"cf_terminal_id,omitempty"`
@@ -36,6 +36,7 @@ type TerminalEntity struct {
 	TerminalPhoneNo *string `json:"terminal_phone_no,omitempty"`
 	TerminalStatus *string `json:"terminal_status,omitempty"`
 	TerminalMeta *TerminalEntityTerminalMeta `json:"terminal_meta,omitempty"`
+	TerminalVpas *string `json:"terminal_vpas,omitempty"`
 }
 
 
@@ -85,6 +86,9 @@ func (o TerminalEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.TerminalMeta) {
 		toSerialize["terminal_meta"] = o.TerminalMeta
+	}
+	if !IsNil(o.TerminalVpas) {
+		toSerialize["terminal_vpas"] = o.TerminalVpas
 	}
 	return toSerialize, nil
 }

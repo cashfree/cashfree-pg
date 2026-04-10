@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the SettlementEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SettlementEntity{}
 
-// SettlementEntity Settlement entity object
+// SettlementEntity Settlement entity object.
 type SettlementEntity struct {
 	CfPaymentId *string `json:"cf_payment_id,omitempty"`
 	CfSettlementId *string `json:"cf_settlement_id,omitempty"`
@@ -38,13 +38,13 @@ type SettlementEntity struct {
 	TransferId *int32 `json:"transfer_id,omitempty"`
 	TransferTime *string `json:"transfer_time,omitempty"`
 	TransferUtr *string `json:"transfer_utr,omitempty"`
-	// Cashfree forex conversion charges for refund processing
+	// Cashfree forex conversion charges for refund processing.
 	ForexConversionHandlingCharge *float32 `json:"forex_conversion_handling_charge,omitempty"`
-	// Cashfree forex conversion tax for refund processing
+	// Cashfree forex conversion tax for refund processing.
 	ForexConversionHandlingTax *float32 `json:"forex_conversion_handling_tax,omitempty"`
-	// Cashfree forex conversion rate for refund processing
+	// Cashfree forex conversion rate for refund processing.
 	ForexConversionRate *float32 `json:"forex_conversion_rate,omitempty"`
-	// Cashfree refund charges currency for a refund
+	// Cashfree refund charges currency for a refund.
 	ChargesCurrency *string `json:"charges_currency,omitempty"`
 }
 

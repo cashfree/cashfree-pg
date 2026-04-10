@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ShippingCharges** | Pointer to **float32** | Shipping charge of the order | [optional] 
-**CodHandlingCharges** | Pointer to **float32** | COD handling fee for order | [optional] 
+**ShippingCharges** | Pointer to **float32** | Shipping charge of the order. | [optional] 
+**CodHandlingCharges** | Pointer to **float32** | COD handling fee for order. | [optional] 
 
 ## Methods
 

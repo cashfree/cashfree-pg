@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | **string** | The channel for card payments will always be \&quot;link\&quot; | 
+**Channel** | **string** | The channel for card payments will always be \&quot;link\&quot;. | 
 **CardNumber** | **string** | Customer card number. | 
 **CardHolderName** | Pointer to **string** | Customer name mentioned on the card. | [optional] 
 **CardExpiryMm** | **string** | Card expiry month. | 
 **CardExpiryYy** | **string** | Card expiry year. | 
 **CardCvv** | **string** | CVV mentioned on the card. | 
-**CardAlias** | Pointer to **string** | Card alias as returned by Cashfree Vault API | [optional] 
-**CardBankName** | **string** | Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\&quot;hdfc, \&quot;kotak\&quot;, \&quot;icici\&quot;, \&quot;rbl\&quot;, \&quot;bob\&quot;, \&quot;standard chartered\&quot;, \&quot;axis\&quot;, \&quot;au\&quot;, \&quot;yes\&quot;, \&quot;sbi\&quot;, \&quot;fed\&quot;, \&quot;hsbc\&quot;, \&quot;citi\&quot;, \&quot;amex\&quot;] | 
-**EmiTenure** | **int32** | EMI tenure selected by the user | 
+**CardAlias** | Pointer to **string** | Card alias as returned by Cashfree Vault API. | [optional] 
+**CardBankName** | **string** | Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\&quot;hdfc, \&quot;kotak\&quot;, \&quot;icici\&quot;, \&quot;rbl\&quot;, \&quot;bob\&quot;, \&quot;standard chartered\&quot;, \&quot;axis\&quot;, \&quot;au\&quot;, \&quot;yes\&quot;, \&quot;sbi\&quot;, \&quot;fed\&quot;, \&quot;hsbc\&quot;, \&quot;citi\&quot;, \&quot;amex\&quot;]. | 
+**EmiTenure** | **int32** | EMI tenure selected by the user. | 
 
 ## Methods
 

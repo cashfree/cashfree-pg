@@ -6,17 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CfPaymentId** | Pointer to **float32** | Cashfree subscription payment reference number. | [optional] 
 **SubscriptionId** | **string** | A unique ID passed by merchant for identifying the subscription. | 
-**PaymentId** | Pointer to **string** | A unique ID passed by merchant for identifying the transaction. | [optional] 
+**PaymentId** | **string** | A unique ID passed by merchant for identifying the transaction. | 
 **RefundId** | **string** | A unique ID passed by merchant for identifying the refund. | 
 **RefundAmount** | **float32** | The amount to be refunded. Can be partial or full amount of the payment. | 
-**RefundNote** | Pointer to **string** | Refund note. | [optional] 
+**RefundNote** | Pointer to **string** | Refund note for merchant reference. To simulate refund status in Sandbox, pass SUCCESS, FAILED, PENDING, or ACTIVE in the refund_note field. This is a case-sensitive parameter. | [optional] 
 **RefundSpeed** | Pointer to **string** | Refund speed. Can be INSTANT or STANDARD. UPI supports only STANDARD refunds, Enach and Pnach supports only INSTANT refunds. | [optional] 
 
 ## Methods
 
 ### NewCreateSubscriptionRefundRequest
 
-`func NewCreateSubscriptionRefundRequest(subscriptionId string, refundId string, refundAmount float32, ) *CreateSubscriptionRefundRequest`
+`func NewCreateSubscriptionRefundRequest(subscriptionId string, paymentId string, refundId string, refundAmount float32, ) *CreateSubscriptionRefundRequest`
 
 NewCreateSubscriptionRefundRequest instantiates a new CreateSubscriptionRefundRequest object
 This constructor will assign default values to properties that have it defined,
@@ -95,11 +95,6 @@ and a boolean to check if the value has been set.
 
 SetPaymentId sets PaymentId field to given value.
 
-### HasPaymentId
-
-`func (o *CreateSubscriptionRefundRequest) HasPaymentId() bool`
-
-HasPaymentId returns a boolean if a field has been set.
 
 ### GetRefundId
 

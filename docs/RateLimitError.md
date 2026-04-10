@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Message** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** | rate_limit_error | [optional] 
+**Type** | Pointer to **string** | rate_limit_error. | [optional] 
 
 ## Methods
 

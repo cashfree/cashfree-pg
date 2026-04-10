@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,30 +22,27 @@ var _ = fmt.Errorf
 // checks if the CreateVendorRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateVendorRequest{}
 
-// CreateVendorRequest Create Vendor Request
+// CreateVendorRequest Create Vendor Request.
 type CreateVendorRequest struct {
 	// Specify the unique Vendor ID to identify the beneficiary. Alphanumeric and underscore (_) allowed.
 	VendorId string `json:"vendor_id"`
-	// Specify the status of vendor that should be updated. Possible values: ACTIVE,BLOCKED, DELETED
+	// Specify the status of vendor that should be updated. Possible values: ACTIVE,BLOCKED, DELETED.
 	Status string `json:"status"`
-	// Specify the name of the vendor to be updated. Name should not have any special character except . / - &
+	// Specify the name of the vendor to be updated. Name should not have any special character except . / - &.
 	Name string `json:"name"`
-	// Specify the vendor email ID that should be updated. String in email ID format (Ex:johndoe_1@cashfree.com) should contain @ and dot (.)
+	// Specify the vendor email ID that should be updated. String in email ID format (Ex:johndoe_1@cashfree.com) should contain @ and dot (.).
 	Email string `json:"email"`
 	// Specify the beneficiaries phone number to be updated. Phone number registered in India (only digits, 8 - 12 characters after excluding +91).
 	Phone string `json:"phone"`
-	// Specify if the vendor bank account details should be verified. Possible values: true or false
+	// Specify if the vendor bank account details should be verified. Possible values: true or false.
 	VerifyAccount *bool `json:"verify_account,omitempty"`
-	// Update if the vendor will have dashboard access or not. Possible values are: true or false
+	// Update if the vendor will have dashboard access or not. Possible values are: true or false.
 	DashboardAccess *bool `json:"dashboard_access,omitempty"`
 	// Specify the settlement cycle to be updated. View the settlement cycle details from the \"Settlement Cycles Supported\" table. If no schedule option is configured, the settlement cycle ID \"1\" will be in effect. Select \"8\" or \"9\" if you want to schedule instant vendor settlements.
 	ScheduleOption *float32 `json:"schedule_option,omitempty"`
-	// Specify the vendor bank account details to be updated.
-	Bank []BankDetails `json:"bank,omitempty"`
-	// Updated beneficiary upi vpa. Alphanumeric, dot (.), hyphen (-), at sign (@), and underscore allowed (100 character limit). Note: underscore and dot (.) gets accepted before and after @, but hyphen (-) is only accepted before @ sign.
-	Upi []UpiDetails `json:"upi,omitempty"`
-	// Specify the kyc details that should be updated.
-	KycDetails []KycDetails `json:"kyc_details"`
+	Bank *BankDetails `json:"bank,omitempty"`
+	Upi *UpiDetails `json:"upi,omitempty"`
+	KycDetails KycDetails `json:"kyc_details"`
 }
 
 

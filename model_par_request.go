@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,16 +24,16 @@ var _ MappedNullable = &PARRequest{}
 
 // PARRequest struct for PARRequest
 type PARRequest struct {
-	// Card number, between 15 and 19 digits.
+	// The card number, containing 15 to 19 numeric digits without spaces or special characters.
 	CardNumber string `json:"card_number"`
-	// Card CVV, 3 or 4 digits.
+	// The Card Verification Value (CVV), a 3-digit code for most cards (Visa, Mastercard) and a 4-digit code for American Express, used for transaction authentication.
 	CardCvv string `json:"card_cvv"`
-	// Two-digit card expiry month (01-12).
+	// The two-digit expiry month (01-12), indicating when the card will expire.
 	CardExpiryMm string `json:"card_expiry_mm"`
-	// Two-digit card expiry year.
+	// The two-digit expiry year, representing the last two digits of the card’s expiration year.
 	CardExpiryYy string `json:"card_expiry_yy"`
-	// Card type; allowed value is PLAIN_CARD.
-	CardType string `json:"card_type"`
+	// Specifies the type of card, with the only accepted value being `PLAIN_CARD`.
+	CardType *string `json:"card_type,omitempty"`
 }
 
 
@@ -52,7 +52,9 @@ func (o PARRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize["card_cvv"] = o.CardCvv
 	toSerialize["card_expiry_mm"] = o.CardExpiryMm
 	toSerialize["card_expiry_yy"] = o.CardExpiryYy
-	toSerialize["card_type"] = o.CardType
+	if !IsNil(o.CardType) {
+		toSerialize["card_type"] = o.CardType
+	}
 	return toSerialize, nil
 }
 

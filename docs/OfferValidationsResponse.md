@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MaxAllowed** | Pointer to **float32** | Maximum Amount for Offer to be Applicable | [optional] 
-**MinAmount** | Pointer to **float32** | Minimum Amount for Offer to be Applicable | [optional] 
+**MaxAllowed** | Pointer to **float32** | Maximum Amount for Offer to be Applicable. | [optional] 
+**MinAmount** | Pointer to **float32** | Minimum Amount for Offer to be Applicable. | [optional] 
 **PaymentMethod** | Pointer to [**OfferValidationsResponsePaymentMethod**](OfferValidationsResponsePaymentMethod.md) |  | [optional] 
 
 ## Methods

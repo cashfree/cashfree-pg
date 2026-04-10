@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PGAcceptDisputeByID**](DisputesAPI.md#PGAcceptDisputeByID) | **Put** /disputes/{dispute_id}/accept | Accept Dispute by Dispute ID
 [**PGFetchDisputeByID**](DisputesAPI.md#PGFetchDisputeByID) | **Get** /disputes/{dispute_id} | Get Disputes by Dispute ID
-[**PGFetchOrderDisputes**](DisputesAPI.md#PGFetchOrderDisputes) | **Get** /orders/{order_id}/disputes | Get Disputes by Order Id
+[**PGFetchOrderDisputes**](DisputesAPI.md#PGFetchOrderDisputes) | **Get** /orders/{order_id}/disputes | Get Disputes by Order ID
 [**PGFetchPaymentDisputes**](DisputesAPI.md#PGFetchPaymentDisputes) | **Get** /payments/{cf_payment_id}/disputes | Get Disputes by Payment ID
 [**PGUploadDisputesDocuments**](DisputesAPI.md#PGUploadDisputesDocuments) | **Post** /disputes/{dispute_id}/documents | Submit Evidence to contest the Dispute by Dispute ID
 
@@ -40,7 +40,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     disputeId := int32(56) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -70,10 +70,10 @@ Other parameters are passed through a pointer to a apiPGAcceptDisputeByIDRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
 
 ### Return type
 
@@ -121,7 +121,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     disputeId := int32(56) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -151,10 +151,10 @@ Other parameters are passed through a pointer to a apiPGFetchDisputeByIDRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
 
 ### Return type
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 > []DisputesEntity PGFetchOrderDisputes(ctx, orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Get Disputes by Order Id
+Get Disputes by Order ID
 
 
 
@@ -202,7 +202,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     orderId := "orderId_example" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -232,10 +232,10 @@ Other parameters are passed through a pointer to a apiPGFetchOrderDisputesReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
 
 ### Return type
 
@@ -283,7 +283,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     cfPaymentId := int32(56) 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -313,10 +313,10 @@ Other parameters are passed through a pointer to a apiPGFetchPaymentDisputesRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
 
 ### Return type
 
@@ -364,7 +364,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     disputeId := int32(56) 
     file := "file_example" 
     docType := "docType_example" 
@@ -397,12 +397,12 @@ Other parameters are passed through a pointer to a apiPGUploadDisputesDocumentsR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
  **file** | **string** | File types supported are jpeg, jpg, png, pdf and maximum file size allowed is 20 MB. | 
  **docType** | **string** | Mention the type of the document you are uploading. Possible values :- Delivery/Service Proof, Shipping Proof, Statement of Service, Proof of Service Used, Cancellation of Service Proof, Refund Proof, Business model explanation, Extra Charges Declaration, Terms &amp; Conditions, Customer Withdrawal Letter, Certificate of Authenticity, Reseller Agreement. You can use get evidences to contest dispute API to fetch set of documents required to contest particular dispute. | 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
  **note** | **string** |  | 
 
 ### Return type

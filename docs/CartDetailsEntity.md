@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CartId** | Pointer to **string** | ID of the cart that was created | [optional] 
+**CartId** | Pointer to **string** | ID of the cart that was created. | [optional] 
 
 ## Methods
 

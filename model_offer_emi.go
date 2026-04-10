@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,9 +22,9 @@ var _ = fmt.Errorf
 // checks if the OfferEMI type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OfferEMI{}
 
-// OfferEMI EMI offer object
+// OfferEMI EMI offer object.
 type OfferEMI struct {
-	Emi EMIOffer `json:"emi"`
+	Emi *EMIOffer `json:"emi,omitempty"`
 }
 
 
@@ -39,7 +39,9 @@ func (o OfferEMI) MarshalJSON() ([]byte, error) {
 func (o OfferEMI) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	toSerialize["emi"] = o.Emi
+	if !IsNil(o.Emi) {
+		toSerialize["emi"] = o.Emi
+	}
 	return toSerialize, nil
 }
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,51 +22,51 @@ var _ = fmt.Errorf
 // checks if the RefundEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &RefundEntity{}
 
-// RefundEntity The refund entity
+// RefundEntity The refund entity.
 type RefundEntity struct {
-	// Cashfree Payments ID of the payment for which refund is initiated
+	// Cashfree Payments ID of the payment for which refund is initiated.
 	CfPaymentId *string `json:"cf_payment_id,omitempty"`
-	// Cashfree Payments ID for a refund
+	// Cashfree Payments ID for a refund.
 	CfRefundId *string `json:"cf_refund_id,omitempty"`
-	// Merchant’s order Id of the order for which refund is initiated
+	// Merchant’s order Id of the order for which refund is initiated.
 	OrderId *string `json:"order_id,omitempty"`
-	// Merchant’s refund ID of the refund
+	// Merchant’s refund ID of the refund.
 	RefundId *string `json:"refund_id,omitempty"`
-	// Type of object
+	// Type of object.
 	Entity *string `json:"entity,omitempty"`
-	// Amount that is refunded
+	// Amount that is refunded.
 	RefundAmount *float32 `json:"refund_amount,omitempty"`
-	// Currency of the refund amount
+	// Currency of the refund amount.
 	RefundCurrency *string `json:"refund_currency,omitempty"`
-	// Note added by merchant for the refund
+	// Note added by merchant for the refund.
 	RefundNote *string `json:"refund_note,omitempty"`
-	// This can be one of [\"SUCCESS\", \"PENDING\", \"CANCELLED\", \"ONHOLD\", \"FAILED\"]
+	// This can be one of [\"SUCCESS\", \"PENDING\", \"CANCELLED\", \"ONHOLD\", \"FAILED\"].
 	RefundStatus *string `json:"refund_status,omitempty"`
-	// The bank reference number for refund
+	// The bank reference number for refund.
 	RefundArn *string `json:"refund_arn,omitempty"`
-	// Charges in INR for processing refund
+	// Charges in INR for processing refund.
 	RefundCharge *float32 `json:"refund_charge,omitempty"`
-	// Description of refund status
+	// Description of refund status.
 	StatusDescription *string `json:"status_description,omitempty"`
-	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
+	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.
 	Metadata map[string]interface{} `json:"metadata,omitempty"`
 	RefundSplits []VendorSplit `json:"refund_splits,omitempty"`
-	// This can be one of [\"PAYMENT_AUTO_REFUND\", \"MERCHANT_INITIATED\", \"UNRECONCILED_AUTO_REFUND\"]
+	// This can be one of [\"PAYMENT_AUTO_REFUND\", \"MERCHANT_INITIATED\", \"UNRECONCILED_AUTO_REFUND\"].
 	RefundType *string `json:"refund_type,omitempty"`
-	// Method or speed of processing refund
+	// Method or speed of processing refund.
 	RefundMode *string `json:"refund_mode,omitempty"`
-	// Time of refund creation
+	// Time of refund creation.
 	CreatedAt *string `json:"created_at,omitempty"`
-	// Time when refund was processed successfully
+	// Time when refund was processed successfully.
 	ProcessedAt *string `json:"processed_at,omitempty"`
 	RefundSpeed *RefundSpeed `json:"refund_speed,omitempty"`
-	// Cashfree forex conversion charges for refund processing
+	// Cashfree forex conversion charges for refund processing.
 	ForexConversionHandlingCharge *float32 `json:"forex_conversion_handling_charge,omitempty"`
-	// Cashfree forex conversion tax for refund processing
+	// Cashfree forex conversion tax for refund processing.
 	ForexConversionHandlingTax *float32 `json:"forex_conversion_handling_tax,omitempty"`
-	// Cashfree forex conversion rate for refund processing
+	// Cashfree forex conversion rate for refund processing.
 	ForexConversionRate *float32 `json:"forex_conversion_rate,omitempty"`
-	// Cashfree refund charges currency for a refund
+	// Cashfree refund charges currency for a refund.
 	ChargesCurrency *string `json:"charges_currency,omitempty"`
 }
 

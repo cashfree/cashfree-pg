@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NextScheduledTime** | Pointer to **string** | Next scheduled time for the retry of the FAILED payment. Required for retry action. | [optional] 
+**NextScheduledTime** | Pointer to **string** | Next scheduled time for the retry of the FAILED payment. Required for retry action.    Please note that only the date component is considered. Any time value provided will be ignored. | [optional] 
 
 ## Methods
 
