@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | Delivery status of order | 
+**Status** | Pointer to **string** | Delivery status of order. | [optional] 
 **Reason** | Pointer to **string** | Reason of provided order delivery status. This is optional field. | [optional] 
 
 ## Methods
 
 ### NewOrderDeliveryStatus
 
-`func NewOrderDeliveryStatus(status string, ) *OrderDeliveryStatus`
+`func NewOrderDeliveryStatus() *OrderDeliveryStatus`
 
 NewOrderDeliveryStatus instantiates a new OrderDeliveryStatus object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *OrderDeliveryStatus) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetReason
 

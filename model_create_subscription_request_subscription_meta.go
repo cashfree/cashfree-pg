@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -28,6 +28,8 @@ type CreateSubscriptionRequestSubscriptionMeta struct {
 	ReturnUrl *string `json:"return_url,omitempty"`
 	// Notification channel for the subscription. SMS, EMAIL are possible values.
 	NotificationChannel []string `json:"notification_channel,omitempty"`
+	// Expiry date for the subscription session.
+	SessionIdExpiry *string `json:"session_id_expiry,omitempty"`
 }
 
 
@@ -47,6 +49,9 @@ func (o CreateSubscriptionRequestSubscriptionMeta) ToMap() (map[string]interface
 	}
 	if !IsNil(o.NotificationChannel) {
 		toSerialize["notification_channel"] = o.NotificationChannel
+	}
+	if !IsNil(o.SessionIdExpiry) {
+		toSerialize["session_id_expiry"] = o.SessionIdExpiry
 	}
 	return toSerialize, nil
 }

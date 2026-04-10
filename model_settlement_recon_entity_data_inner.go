@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,13 +24,13 @@ var _ MappedNullable = &SettlementReconEntityDataInner{}
 
 // SettlementReconEntityDataInner struct for SettlementReconEntityDataInner
 type SettlementReconEntityDataInner struct {
-	EventDetails *SettlementReconEntityDataInnerEventDetails `json:"event_details,omitempty"`
-	OrderDetails *SettlementReconEntityDataInnerOrderDetails `json:"order_details,omitempty"`
-	CustomerDetails *SettlementReconEntityDataInnerCustomerDetails `json:"customer_details,omitempty"`
+	EventDetails *ReconEntityDataInnerEventDetails `json:"event_details,omitempty"`
+	OrderDetails *ReconEntityDataInnerOrderDetails `json:"order_details,omitempty"`
+	CustomerDetails *ReconEntityDataInnerCustomerDetails `json:"customer_details,omitempty"`
 	PaymentDetails *SettlementReconEntityDataInnerPaymentDetails `json:"payment_details,omitempty"`
-	SettlementDetails *SettlementReconEntityDataInnerSettlementDetails `json:"settlement_details,omitempty"`
-	DisputeDetails *SettlementReconEntityDataInnerDisputeDetails `json:"dispute_details,omitempty"`
-	RefundDetails *SettlementReconEntityDataInnerRefundDetails `json:"refund_details,omitempty"`
+	SettlementDetails *ReconEntityDataInnerSettlementDetails `json:"settlement_details,omitempty"`
+	DisputeDetails *ReconEntityDataInnerDisputeDetails `json:"dispute_details,omitempty"`
+	RefundDetails *ReconEntityDataInnerRefundDetails `json:"refund_details,omitempty"`
 }
 
 

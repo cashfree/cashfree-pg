@@ -5,18 +5,19 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AuthorisationDetails** | Pointer to [**AuthorizationDetails**](AuthorizationDetails.md) |  | [optional] 
-**CfSubscriptionId** | Pointer to **string** | Cashfree subscription reference number | [optional] 
+**CfSubscriptionId** | Pointer to **string** | Cashfree subscription reference number. | [optional] 
 **CustomerDetails** | Pointer to [**SubscriptionCustomerDetails**](SubscriptionCustomerDetails.md) |  | [optional] 
 **PlanDetails** | Pointer to [**PlanEntity**](PlanEntity.md) |  | [optional] 
-**SubscriptionExpiryTime** | Pointer to **string** | Time at which the subscription will expire. | [optional] 
-**SubscriptionFirstChargeTime** | Pointer to **string** | Time at which the first charge will be made for the subscription. Applicable only for PERIODIC plans. | [optional] 
+**SubscriptionExpiryTime** | Pointer to **string** | Time at which the subscription will expire. We store timestamps in IST. | [optional] 
+**SubscriptionFirstChargeTime** | Pointer to **string** | Time at which the first charge will be made for the subscription. Applicable only for PERIODIC plans. Cashfree stores timestamps in IST. | [optional] 
 **SubscriptionId** | Pointer to **string** | A unique ID passed by merchant for identifying the subscription. | [optional] 
 **SubscriptionMeta** | Pointer to [**SubscriptionEntitySubscriptionMeta**](SubscriptionEntitySubscriptionMeta.md) |  | [optional] 
 **SubscriptionNote** | Pointer to **string** | Note for the subscription. | [optional] 
 **SubscriptionSessionId** | Pointer to **string** | Subscription Session Id. | [optional] 
 **SubscriptionPaymentSplits** | Pointer to [**[]SubscriptionPaymentSplitItem**](SubscriptionPaymentSplitItem.md) | Payment splits for the subscription. | [optional] 
-**SubscriptionStatus** | Pointer to **string** | Status of the subscription. | [optional] 
+**SubscriptionStatus** | Pointer to **string** | Status of the subscription. For more details, see [Subscription Lifecycle](https://www.cashfree.com/docs/payments/subscription/create#subscription-lifecycle). | [optional] 
 **SubscriptionTags** | Pointer to **map[string]interface{}** | Tags for the subscription. | [optional] 
+**NextScheduleDate** | Pointer to **string** | The date on which the next payment is scheduled to be processed. Cashfree stores timestamps in IST. For ON_DEMAND plans this will be null . | [optional] 
 
 ## Methods
 
@@ -361,6 +362,31 @@ SetSubscriptionTags sets SubscriptionTags field to given value.
 `func (o *SubscriptionEntity) HasSubscriptionTags() bool`
 
 HasSubscriptionTags returns a boolean if a field has been set.
+
+### GetNextScheduleDate
+
+`func (o *SubscriptionEntity) GetNextScheduleDate() string`
+
+GetNextScheduleDate returns the NextScheduleDate field if non-nil, zero value otherwise.
+
+### GetNextScheduleDateOk
+
+`func (o *SubscriptionEntity) GetNextScheduleDateOk() (*string, bool)`
+
+GetNextScheduleDateOk returns a tuple with the NextScheduleDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNextScheduleDate
+
+`func (o *SubscriptionEntity) SetNextScheduleDate(v string)`
+
+SetNextScheduleDate sets NextScheduleDate field to given value.
+
+### HasNextScheduleDate
+
+`func (o *SubscriptionEntity) HasNextScheduleDate() bool`
+
+HasNextScheduleDate returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

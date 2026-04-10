@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,17 +22,17 @@ var _ = fmt.Errorf
 // checks if the PayOrderEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PayOrderEntity{}
 
-// PayOrderEntity Order Pay response once you create a transaction for that order
+// PayOrderEntity Order pay response once you create a transaction for that order.
 type PayOrderEntity struct {
-	// total amount payable
+	// Total amount payable.
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
-	// Payment identifier created by Cashfree
+	// Payment identifier created by Cashfree.
 	CfPaymentId *string `json:"cf_payment_id,omitempty"`
-	// One of [\"upi\", \"netbanking\", \"card\", \"app\", \"cardless_emi\", \"paylater\", \"banktransfer\"] 
+	// The payment method used for this transaction. - netbanking: Net banking payment. - card: Credit or debit card payment. - upi: UPI payment via collect, intent, or QR code. - app: Wallet-based payment. - cardless_emi: Cardless EMI payment. - paylater: Pay later payment. - banktransfer: Direct bank transfer payment. - applepay: Apple Pay payment. 
 	PaymentMethod *string `json:"payment_method,omitempty"`
-	// One of [\"link\", \"collect\", \"qrcode\"]. In an older version we used to support different channels like 'gpay', 'phonepe' etc. However, we now support only the following channels - link, collect and qrcode. To process payments using gpay, you will have to provide channel as 'link' and provider as 'gpay'
+	// The channel used for the payment method. - link: Redirect-based flow where the customer is taken to an external page. - post: Native OTP flow where the merchant renders a custom UI to collect OTP. - collect: UPI collect request sent to the customer's VPA. - qrcode: UPI QR code for the customer to scan. - podQrCode: Pay on delivery QR code. 
 	Channel *string `json:"channel,omitempty"`
-	// One of [\"link\", \"custom\", \"form\"]
+	// The action to complete the payment. - link: Redirect the customer to `data.url` using a browser or in-app webview. - post: Render a native UI, collect required input, and POST it to `data.url`. - form: Render the form from `data.payload` and auto-submit it to `data.url`. - custom: Follow integration-specific instructions or SDK handling. 
 	Action *string `json:"action,omitempty"`
 	Data *OrderPayData `json:"data,omitempty"`
 }

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | **string** | The channel for netbanking will always be &#x60;link&#x60; | 
-**NetbankingBankCode** | Pointer to **int32** | Bank code | [optional] 
-**NetbankingBankName** | Pointer to **string** | String code for bank | [optional] 
+**Channel** | **string** | The channel for netbanking will always be &#x60;link&#x60;. | 
+**NetbankingBankCode** | Pointer to **int32** | Bank code. | [optional] 
+**NetbankingBankName** | Pointer to **string** | String code for bank. | [optional] 
 
 ## Methods
 

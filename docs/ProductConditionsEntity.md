@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | Pointer to **string** | The Action key in the conditions array specifies whether a condition is allowed or denied for the specified rule or feature | [optional] 
-**Key** | Pointer to **string** | key of the condition | [optional] 
-**Values** | Pointer to **[]string** | Values set for the condition | [optional] 
+**Action** | Pointer to **string** | The Action key in the conditions array specifies whether a condition is allowed or denied for the specified rule or feature. | [optional] 
+**Key** | Pointer to **string** | key of the condition. | [optional] 
+**Values** | Pointer to **[]string** | Values set for the condition. | [optional] 
 
 ## Methods
 

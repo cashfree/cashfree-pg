@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,14 +22,14 @@ var _ = fmt.Errorf
 // checks if the CreateTerminalTransactionRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateTerminalTransactionRequest{}
 
-// CreateTerminalTransactionRequest Request body to create a terminal transaction
+// CreateTerminalTransactionRequest Request body to create a terminal transaction.
 type CreateTerminalTransactionRequest struct {
 	// cashfree order ID that was returned while creating an order.
 	CfOrderId string `json:"cf_order_id"`
-	// cashfree terminal id. this is a required parameter when you do not provide the terminal phone number.
-	CfTerminalId *string `json:"cf_terminal_id,omitempty"`
+	// Cashfree terminal ID, this is a required parameter when you do not provide the terminal phone number.
+	CfTerminalId *int64 `json:"cf_terminal_id,omitempty"`
 	// mention the payment method used for the transaction. possible values - QR_CODE, LINK.
-	PaymentMethod string `json:"payment_method"`
+	PaymentMethod *string `json:"payment_method,omitempty"`
 	// agent mobile number assigned to the terminal. this is a required parameter when you do not provide the cf_terminal_id.
 	TerminalPhoneNo *string `json:"terminal_phone_no,omitempty"`
 	// make it true to have request be sent to create a Dynamic GST QR Code.
@@ -52,7 +52,9 @@ func (o CreateTerminalTransactionRequest) ToMap() (map[string]interface{}, error
 	if !IsNil(o.CfTerminalId) {
 		toSerialize["cf_terminal_id"] = o.CfTerminalId
 	}
-	toSerialize["payment_method"] = o.PaymentMethod
+	if !IsNil(o.PaymentMethod) {
+		toSerialize["payment_method"] = o.PaymentMethod
+	}
 	if !IsNil(o.TerminalPhoneNo) {
 		toSerialize["terminal_phone_no"] = o.TerminalPhoneNo
 	}

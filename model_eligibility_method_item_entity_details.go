@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,7 +24,7 @@ var _ MappedNullable = &EligibilityMethodItemEntityDetails{}
 
 // EligibilityMethodItemEntityDetails struct for EligibilityMethodItemEntityDetails
 type EligibilityMethodItemEntityDetails struct {
-	// List of account types associated with the payment method. (e.g. SAVINGS or CURRENT)
+	// List of account types associated with the payment method. (e.g. SAVINGS or CURRENT).
 	AccountTypes []string `json:"account_types,omitempty"`
 	// List of the most frequently used banks.
 	FrequentBankDetails []SubscriptionBankDetails `json:"frequent_bank_details,omitempty"`
@@ -32,7 +32,7 @@ type EligibilityMethodItemEntityDetails struct {
 	AllBankDetails []SubscriptionBankDetails `json:"all_bank_details,omitempty"`
 	// List of supported VPA handles.
 	AvailableHandles []EligibilityMethodItemEntityDetailsAvailableHandlesInner `json:"available_handles,omitempty"`
-	// List of allowed card types. (e.g. DEBIT_CARD, CREDIT_CARD)
+	// List of allowed card types. (e.g. DEBIT_CARD, CREDIT_CARD).
 	AllowedCardTypes []string `json:"allowed_card_types,omitempty"`
 }
 

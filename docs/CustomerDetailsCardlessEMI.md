@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomerPhone** | **string** | Phone Number of the customer | 
+**CustomerPhone** | **string** | Phone Number of the customer. | 
 
 ## Methods
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,11 +22,11 @@ var _ = fmt.Errorf
 // checks if the SubscriptionPaymentSplitItem type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SubscriptionPaymentSplitItem{}
 
-// SubscriptionPaymentSplitItem Subscription Payment Split Item
+// SubscriptionPaymentSplitItem Subscription Payment Split Item.
 type SubscriptionPaymentSplitItem struct {
-	// Vendor ID
+	// Vendor ID.
 	VendorId *string `json:"vendor_id,omitempty"`
-	// Percentage of the payment to be split to vendor
+	// Percentage of the payment to be split to vendor.
 	Percentage *float32 `json:"percentage,omitempty"`
 }
 

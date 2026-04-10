@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,15 +22,15 @@ var _ = fmt.Errorf
 // checks if the UpdateSoundboxVpaRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UpdateSoundboxVpaRequest{}
 
-// UpdateSoundboxVpaRequest Request body to update soundbox vpa
+// UpdateSoundboxVpaRequest Request body to update soundbox vpa.
 type UpdateSoundboxVpaRequest struct {
 	// Terminal Vpa,for which we need to update details.
 	Vpa string `json:"vpa"`
-	// cashfree terminal id.
-	CfTerminalId string `json:"cf_terminal_id"`
-	// Merchant Name that need to updated on soundbox
+	// Cashfree terminal ID.
+	CfTerminalId int64 `json:"cf_terminal_id"`
+	// Merchant Name that need to updated on soundbox.
 	MerchantName *string `json:"merchant_name,omitempty"`
-	// language of soundbox,currently English, Hindi, Tamil
+	// language of soundbox,currently English, Hindi, Tamil.
 	Language *string `json:"language,omitempty"`
 }
 

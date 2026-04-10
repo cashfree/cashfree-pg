@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **OfferTitle** | **string** | Title for the Offer. | 
 **OfferDescription** | **string** | Description for the Offer. | 
 **OfferCode** | **string** | Unique identifier for the Offer. | 
-**OfferStartTime** | **string** | Start Time for the Offer | 
-**OfferEndTime** | **string** | Expiry Time for the Offer | 
+**OfferStartTime** | **string** | Start Time for the Offer. | 
+**OfferEndTime** | **string** | Expiry Time for the Offer. | 
 
 ## Methods
 

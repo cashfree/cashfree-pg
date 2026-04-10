@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the RefundSpeed type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &RefundSpeed{}
 
-// RefundSpeed How fast refund has to be proecessed
+// RefundSpeed How fast refund has to be proecessed.
 type RefundSpeed struct {
 	// Requested speed of refund.
 	Requested *string `json:"requested,omitempty"`
@@ -30,7 +30,7 @@ type RefundSpeed struct {
 	Accepted *string `json:"accepted,omitempty"`
 	// Processed speed of refund.
 	Processed *string `json:"processed,omitempty"`
-	// Error message, if any for refund_speed request
+	// Error message, if any for refund_speed request.
 	Message *string `json:"message,omitempty"`
 }
 

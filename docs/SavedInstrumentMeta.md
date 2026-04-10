@@ -4,11 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardNetwork** | Pointer to **string** | card scheme/network of the saved card. Example visa, mastercard | [optional] 
-**CardBankName** | Pointer to **string** | Issuing bank name of saved card | [optional] 
-**CardCountry** | Pointer to **string** | Issuing country of saved card | [optional] 
-**CardType** | Pointer to **string** | Type of saved card | [optional] 
-**CardTokenDetails** | Pointer to **map[string]interface{}** |  | [optional] 
+**CardNetwork** | Pointer to **string** | Card scheme/network of the saved card. Available options are &#x60;visa&#x60;, &#x60;mastercard&#x60;, &#x60;rupay&#x60;, &#x60;amex&#x60;, and &#x60;diners&#x60;. | [optional] 
+**CardBankName** | Pointer to **string** | Issuing bank name of the saved card. For example, &#x60;HDFC BANK&#x60;, &#x60;AXIS BANK&#x60;, or &#x60;ICICI BANK&#x60;. | [optional] 
+**CardCountry** | Pointer to **string** | Issuing country of the saved card. For example, &#x60;IN&#x60;. | [optional] 
+**CardType** | Pointer to **string** | Type of the saved card. Available options are &#x60;credit_card&#x60;, &#x60;debit_card&#x60;, and &#x60;prepaid_card&#x60;. | [optional] 
+**CardSubType** | Pointer to **string** | Subtype of the saved card. R indicates retail, P indicates premium, and C indicates corporate. Available options are &#x60;R&#x60;, &#x60;P&#x60;, and &#x60;C&#x60;. | [optional] 
+**CardTokenDetails** | Pointer to [**SavedInstrumentMetaCardTokenDetails**](SavedInstrumentMetaCardTokenDetails.md) |  | [optional] 
 
 ## Methods
 
@@ -129,22 +130,47 @@ SetCardType sets CardType field to given value.
 
 HasCardType returns a boolean if a field has been set.
 
+### GetCardSubType
+
+`func (o *SavedInstrumentMeta) GetCardSubType() string`
+
+GetCardSubType returns the CardSubType field if non-nil, zero value otherwise.
+
+### GetCardSubTypeOk
+
+`func (o *SavedInstrumentMeta) GetCardSubTypeOk() (*string, bool)`
+
+GetCardSubTypeOk returns a tuple with the CardSubType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCardSubType
+
+`func (o *SavedInstrumentMeta) SetCardSubType(v string)`
+
+SetCardSubType sets CardSubType field to given value.
+
+### HasCardSubType
+
+`func (o *SavedInstrumentMeta) HasCardSubType() bool`
+
+HasCardSubType returns a boolean if a field has been set.
+
 ### GetCardTokenDetails
 
-`func (o *SavedInstrumentMeta) GetCardTokenDetails() map[string]interface{}`
+`func (o *SavedInstrumentMeta) GetCardTokenDetails() SavedInstrumentMetaCardTokenDetails`
 
 GetCardTokenDetails returns the CardTokenDetails field if non-nil, zero value otherwise.
 
 ### GetCardTokenDetailsOk
 
-`func (o *SavedInstrumentMeta) GetCardTokenDetailsOk() (*map[string]interface{}, bool)`
+`func (o *SavedInstrumentMeta) GetCardTokenDetailsOk() (*SavedInstrumentMetaCardTokenDetails, bool)`
 
 GetCardTokenDetailsOk returns a tuple with the CardTokenDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCardTokenDetails
 
-`func (o *SavedInstrumentMeta) SetCardTokenDetails(v map[string]interface{})`
+`func (o *SavedInstrumentMeta) SetCardTokenDetails(v SavedInstrumentMetaCardTokenDetails)`
 
 SetCardTokenDetails sets CardTokenDetails field to given value.
 

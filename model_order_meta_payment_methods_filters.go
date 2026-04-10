@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -25,7 +25,7 @@ var _ MappedNullable = &OrderMetaPaymentMethodsFilters{}
 // OrderMetaPaymentMethodsFilters Allowed payment modes for this order. Along with multiple filters for cards can be added to this key. And this filtering will be honoured during transaction creation.
 type OrderMetaPaymentMethodsFilters struct {
 	Methods *OrderMetaPaymentMethodsFiltersMethods `json:"methods,omitempty"`
-	Filters *OrderMetaPaymentMethodsFiltersFilters `json:"filters,omitempty"`
+	Filters *OrderPaymentMethodFilters `json:"filters,omitempty"`
 }
 
 

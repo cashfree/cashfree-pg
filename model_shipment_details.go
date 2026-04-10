@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -29,7 +29,7 @@ type ShipmentDetails struct {
 	// Tracking Urls associated with order.
 	TrackingUrls []string `json:"tracking_urls"`
 	// Tracking Numbers associated wih order.
-	TrackingNumbers []string `json:"tracking_numbers"`
+	TrackingNumbers []string `json:"tracking_numbers,omitempty"`
 }
 
 
@@ -46,7 +46,9 @@ func (o ShipmentDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["tracking_company"] = o.TrackingCompany
 	toSerialize["tracking_urls"] = o.TrackingUrls
-	toSerialize["tracking_numbers"] = o.TrackingNumbers
+	if !IsNil(o.TrackingNumbers) {
+		toSerialize["tracking_numbers"] = o.TrackingNumbers
+	}
 	return toSerialize, nil
 }
 

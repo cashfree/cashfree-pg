@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,13 +22,14 @@ var _ = fmt.Errorf
 // checks if the SimulateRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SimulateRequest{}
 
-// SimulateRequest simulate payment request object
+// SimulateRequest Request body for simulation.
 type SimulateRequest struct {
-	// Entity type should be PAYMENTS or SUBS_PAYMENTS only.
+	// Entity type should be PAYMENTS, SUBS_PAYMENTS OR VBA_TRANSFER only.
 	Entity string `json:"entity"`
-	// If the entity type is PAYMENTS, the entity_id will be the transactionId. If the entity type is SUBS_PAYMENTS, the entity_id will be the merchantTxnId
-	EntityId string `json:"entity_id"`
-	EntitySimulation EntitySimulationRequest `json:"entity_simulation"`
+	// If the entity type is PAYMENTS, the entity_id will be the cf_payment_id. If the entity type is SUBS_PAYMENTS, the entity_id will be the payment_id. If the entity type is VBA_TRANSFER, the entity_id will be the vba_account_number.
+	EntityId *string `json:"entity_id,omitempty"`
+	EntitySimulation *EntitySimulationRequest `json:"entity_simulation,omitempty"`
+	VbaSimulation *VBASimulationRequest `json:"vba_simulation,omitempty"`
 }
 
 
@@ -44,8 +45,15 @@ func (o SimulateRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["entity"] = o.Entity
-	toSerialize["entity_id"] = o.EntityId
-	toSerialize["entity_simulation"] = o.EntitySimulation
+	if !IsNil(o.EntityId) {
+		toSerialize["entity_id"] = o.EntityId
+	}
+	if !IsNil(o.EntitySimulation) {
+		toSerialize["entity_simulation"] = o.EntitySimulation
+	}
+	if !IsNil(o.VbaSimulation) {
+		toSerialize["vba_simulation"] = o.VbaSimulation
+	}
 	return toSerialize, nil
 }
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PaymentSessionId** | **string** |  | 
+**PaymentSessionId** | **string** | Unique identifier for the payment session, returned in the response of the Create Order API. | 
 **PaymentMethod** | [**PayOrderRequestPaymentMethod**](PayOrderRequestPaymentMethod.md) |  | 
-**SaveInstrument** | Pointer to **bool** |  | [optional] 
+**SaveInstrument** | Pointer to **bool** | Send as **true** if the customer has given consent to save or tokenise the card; otherwise, send as false. | [optional] 
 **OfferId** | Pointer to **string** | This is required if any offers needs to be applied to the order. | [optional] 
 
 ## Methods

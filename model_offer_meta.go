@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the OfferMeta type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OfferMeta{}
 
-// OfferMeta Offer meta details object
+// OfferMeta Offer meta details object.
 type OfferMeta struct {
 	// Title for the Offer.
 	OfferTitle string `json:"offer_title"`
@@ -30,9 +30,9 @@ type OfferMeta struct {
 	OfferDescription string `json:"offer_description"`
 	// Unique identifier for the Offer.
 	OfferCode string `json:"offer_code"`
-	// Start Time for the Offer
+	// Start Time for the Offer.
 	OfferStartTime string `json:"offer_start_time"`
-	// Expiry Time for the Offer
+	// Expiry Time for the Offer.
 	OfferEndTime string `json:"offer_end_time"`
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SubscriptionId** | **string** | A unique ID passed by merchant for identifying the subscription | 
+**SubscriptionId** | **string** | A unique ID passed by merchant for identifying the subscription. | 
 
 ## Methods
 

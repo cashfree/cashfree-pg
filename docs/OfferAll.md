@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**All** | **map[string]interface{}** | All offers applicable | 
+**All** | **map[string]interface{}** | All offers applicable. | 
 
 ## Methods
 

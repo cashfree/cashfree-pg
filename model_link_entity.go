@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the LinkEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &LinkEntity{}
 
-// LinkEntity Payment link success creation response object
+// LinkEntity struct for LinkEntity
 type LinkEntity struct {
 	CfLinkId *string `json:"cf_link_id,omitempty"`
 	LinkId *string `json:"link_id,omitempty"`
@@ -38,13 +38,14 @@ type LinkEntity struct {
 	LinkMeta *LinkMetaResponseEntity `json:"link_meta,omitempty"`
 	LinkUrl *string `json:"link_url,omitempty"`
 	LinkExpiryTime *string `json:"link_expiry_time,omitempty"`
-	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
+	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.
 	LinkNotes *map[string]string `json:"link_notes,omitempty"`
 	LinkAutoReminders *bool `json:"link_auto_reminders,omitempty"`
 	LinkNotify *LinkNotifyEntity `json:"link_notify,omitempty"`
 	// Base64 encoded string for payment link. You can scan with camera to open a link in the browser to complete the payment.
 	LinkQrcode *string `json:"link_qrcode,omitempty"`
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
+	Subscription *LinkSubscriptionEntity `json:"subscription,omitempty"`
 }
 
 
@@ -115,6 +116,9 @@ func (o LinkEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OrderSplits) {
 		toSerialize["order_splits"] = o.OrderSplits
+	}
+	if !IsNil(o.Subscription) {
+		toSerialize["subscription"] = o.Subscription
 	}
 	return toSerialize, nil
 }

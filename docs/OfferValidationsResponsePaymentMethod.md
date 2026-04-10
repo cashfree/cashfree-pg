@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**All** | **map[string]interface{}** | All offers applicable | 
+**All** | **map[string]interface{}** | All offers applicable. | 
 **Card** | [**CardOffer**](CardOffer.md) |  | 
 **Netbanking** | [**OfferNBNetbanking**](OfferNBNetbanking.md) |  | 
 **App** | [**WalletOffer**](WalletOffer.md) |  | 
 **Upi** | **map[string]interface{}** |  | 
 **Paylater** | [**PaylaterOffer**](PaylaterOffer.md) |  | 
-**Emi** | [**EMIOffer**](EMIOffer.md) |  | 
+**Emi** | Pointer to [**EMIOffer**](EMIOffer.md) |  | [optional] 
 
 ## Methods
 
 ### NewOfferValidationsResponsePaymentMethod
 
-`func NewOfferValidationsResponsePaymentMethod(all map[string]interface{}, card CardOffer, netbanking OfferNBNetbanking, app WalletOffer, upi map[string]interface{}, paylater PaylaterOffer, emi EMIOffer, ) *OfferValidationsResponsePaymentMethod`
+`func NewOfferValidationsResponsePaymentMethod(all map[string]interface{}, card CardOffer, netbanking OfferNBNetbanking, app WalletOffer, upi map[string]interface{}, paylater PaylaterOffer, ) *OfferValidationsResponsePaymentMethod`
 
 NewOfferValidationsResponsePaymentMethod instantiates a new OfferValidationsResponsePaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -170,6 +170,11 @@ and a boolean to check if the value has been set.
 
 SetEmi sets Emi field to given value.
 
+### HasEmi
+
+`func (o *OfferValidationsResponsePaymentMethod) HasEmi() bool`
+
+HasEmi returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

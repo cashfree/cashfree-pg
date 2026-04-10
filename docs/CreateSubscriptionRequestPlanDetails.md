@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **PlanId** | Pointer to **string** | The unique identifier used to create plan. You only need to pass this field if you had already created plan. Otherwise use the other fields here to define the plan. | [optional] 
 **PlanName** | Pointer to **string** | Specify plan name for easy reference. | [optional] 
 **PlanType** | Pointer to **string** | Possible values ON_DEMAND or PERIODIC. PERIODIC - Payments are triggered automatically at fixed intervals defined by the merchant. ON_DEMAND - Merchant needs to trigger/charge the customer explicitly with the required amount. | [optional] 
-**PlanCurrency** | Pointer to **string** | INR by default. | [optional] 
+**PlanCurrency** | Pointer to **string** | INR by default. For subscriptions in non-INR currency, please refer to [supported currencies](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#full-currency-list). | [optional] 
 **PlanAmount** | Pointer to **float32** | The amount to be charged for PERIODIC plan. This is a conditional parameter, only required for PERIODIC plans. | [optional] 
 **PlanMaxAmount** | Pointer to **float32** | This is the maximum amount that can be charged on a subscription. | [optional] 
 **PlanMaxCycles** | Pointer to **int32** | Maximum number of debits set for the plan. The subscription will automatically change to COMPLETED status once this limit is reached. | [optional] 

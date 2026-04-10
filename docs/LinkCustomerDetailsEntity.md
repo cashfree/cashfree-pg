@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomerPhone** | **string** | Customer phone number | 
-**CustomerEmail** | Pointer to **string** | Customer email address | [optional] 
-**CustomerName** | Pointer to **string** | Customer name | [optional] 
-**CustomerBankAccountNumber** | Pointer to **string** | Customer Bank Account Number | [optional] 
-**CustomerBankIfsc** | Pointer to **string** | Customer Bank Ifsc | [optional] 
-**CustomerBankCode** | Pointer to **int32** | Customer Bank Code | [optional] 
+**CustomerPhone** | **string** | Customer phone number. | 
+**CustomerEmail** | Pointer to **string** | Customer email address. | [optional] 
+**CustomerName** | Pointer to **string** | Customer name. | [optional] 
+**CustomerBankAccountNumber** | Pointer to **string** | Customer Bank Account Number. | [optional] 
+**CustomerBankIfsc** | Pointer to **string** | Customer Bank Ifsc. | [optional] 
+**CustomerBankCode** | Pointer to **int32** | Customer Bank Code. | [optional] 
+**CustomerBankAcoountHolderName** | Pointer to **string** | Customer Bank Account Holder Name. | [optional] 
 
 ## Methods
 
@@ -174,6 +175,31 @@ SetCustomerBankCode sets CustomerBankCode field to given value.
 `func (o *LinkCustomerDetailsEntity) HasCustomerBankCode() bool`
 
 HasCustomerBankCode returns a boolean if a field has been set.
+
+### GetCustomerBankAcoountHolderName
+
+`func (o *LinkCustomerDetailsEntity) GetCustomerBankAcoountHolderName() string`
+
+GetCustomerBankAcoountHolderName returns the CustomerBankAcoountHolderName field if non-nil, zero value otherwise.
+
+### GetCustomerBankAcoountHolderNameOk
+
+`func (o *LinkCustomerDetailsEntity) GetCustomerBankAcoountHolderNameOk() (*string, bool)`
+
+GetCustomerBankAcoountHolderNameOk returns a tuple with the CustomerBankAcoountHolderName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerBankAcoountHolderName
+
+`func (o *LinkCustomerDetailsEntity) SetCustomerBankAcoountHolderName(v string)`
+
+SetCustomerBankAcoountHolderName sets CustomerBankAcoountHolderName field to given value.
+
+### HasCustomerBankAcoountHolderName
+
+`func (o *LinkCustomerDetailsEntity) HasCustomerBankAcoountHolderName() bool`
+
+HasCustomerBankAcoountHolderName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

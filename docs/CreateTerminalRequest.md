@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TerminalId** | **string** | merchant’s internal terminal id | 
-**TerminalPhoneNo** | **string** | phone number assigned to the terminal | 
-**TerminalName** | **string** | terminal name to be assigned by merchants | 
-**TerminalAddress** | Pointer to **string** | address of the terminal. required for STOREFRONT | [optional] 
+**TerminalId** | **string** | merchant’s internal terminal id. | 
+**TerminalPhoneNo** | **string** | phone number assigned to the terminal. | 
+**TerminalName** | **string** | terminal name to be assigned by merchants. | 
+**TerminalAddress** | Pointer to **string** | address of the terminal. required for STOREFRONT. | [optional] 
 **TerminalEmail** | **string** | terminal email ID of the AGENT/STOREFRONT assigned by merchants. | 
-**TerminalNote** | Pointer to **string** | additional note for terminal | [optional] 
+**TerminalNote** | Pointer to **string** | additional note for terminal. | [optional] 
 **TerminalType** | **string** | mention the terminal type. possible values - AGENT, STOREFRONT. | 
 **TerminalMeta** | Pointer to [**CreateTerminalRequestTerminalMeta**](CreateTerminalRequestTerminalMeta.md) |  | [optional] 
+**TerminalVpaPrefix** | Pointer to **string** | Merchant&#39;s vpa prefix for the terminal. | [optional] 
 
 ## Methods
 
@@ -206,6 +207,31 @@ SetTerminalMeta sets TerminalMeta field to given value.
 `func (o *CreateTerminalRequest) HasTerminalMeta() bool`
 
 HasTerminalMeta returns a boolean if a field has been set.
+
+### GetTerminalVpaPrefix
+
+`func (o *CreateTerminalRequest) GetTerminalVpaPrefix() string`
+
+GetTerminalVpaPrefix returns the TerminalVpaPrefix field if non-nil, zero value otherwise.
+
+### GetTerminalVpaPrefixOk
+
+`func (o *CreateTerminalRequest) GetTerminalVpaPrefixOk() (*string, bool)`
+
+GetTerminalVpaPrefixOk returns a tuple with the TerminalVpaPrefix field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerminalVpaPrefix
+
+`func (o *CreateTerminalRequest) SetTerminalVpaPrefix(v string)`
+
+SetTerminalVpaPrefix sets TerminalVpaPrefix field to given value.
+
+### HasTerminalVpaPrefix
+
+`func (o *CreateTerminalRequest) HasTerminalVpaPrefix() bool`
+
+HasTerminalVpaPrefix returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

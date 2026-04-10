@@ -4,22 +4,22 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | Specify the status of vendor that should be updated. Possible values: ACTIVE,BLOCKED, DELETED | 
-**Name** | **string** | Specify the name of the vendor to be updated. Name should not have any special character except . / - &amp; | 
-**Email** | **string** | Specify the vendor email ID that should be updated. String in email ID format (Ex:johndoe_1@cashfree.com) should contain @ and dot (.) | 
-**Phone** | **string** | Specify the beneficiaries phone number to be updated. Phone number registered in India (only digits, 8 - 12 characters after excluding +91). | 
-**VerifyAccount** | Pointer to **bool** | Specify if the vendor bank account details should be verified. Possible values: true or false | [optional] 
-**DashboardAccess** | Pointer to **bool** | Update if the vendor will have dashboard access or not. Possible values are: true or false | [optional] 
-**ScheduleOption** | **float32** | Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table. If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements. | 
+**Status** | Pointer to **string** | Specify the status of vendor that should be updated. Possible value: ACTIVE. | [optional] 
+**Name** | Pointer to **string** | Specify the name of the vendor to be updated. Name should not have any special character except . / - &amp;. | [optional] 
+**Email** | Pointer to **string** | Specify the vendor email ID that should be updated. String in email ID format (Ex:johndoe_1@cashfree.com) should contain @ and dot (.). | [optional] 
+**Phone** | Pointer to **string** | Specify the beneficiaries phone number to be updated. Phone number registered in India (only digits, 8 - 12 characters after excluding +91). | [optional] 
+**VerifyAccount** | Pointer to **bool** | Specify if the vendor bank account details should be verified. Possible values: true or false. | [optional] 
+**DashboardAccess** | Pointer to **bool** | Update if the vendor will have dashboard access or not. Possible values are: true or false. | [optional] 
+**ScheduleOption** | Pointer to **float32** | Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table. If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements. | [optional] 
 **Bank** | Pointer to [**[]BankDetails**](BankDetails.md) | Specify the vendor bank account details to be updated. | [optional] 
 **Upi** | Pointer to [**[]UpiDetails**](UpiDetails.md) | Updated beneficiary upi vpa. Alphanumeric, dot (.), hyphen (-), at sign (@), and underscore allowed (100 character limit). Note: underscore and dot (.) gets accepted before and after @, but hyphen (-) is only accepted before @ sign. | [optional] 
-**KycDetails** | [**[]KycDetails**](KycDetails.md) | Specify the kyc details that should be updated. | 
+**KycDetails** | Pointer to [**[]KycDetails**](KycDetails.md) | Specify the kyc details that should be updated. | [optional] 
 
 ## Methods
 
 ### NewUpdateVendorRequest
 
-`func NewUpdateVendorRequest(status string, name string, email string, phone string, scheduleOption float32, kycDetails []KycDetails, ) *UpdateVendorRequest`
+`func NewUpdateVendorRequest() *UpdateVendorRequest`
 
 NewUpdateVendorRequest instantiates a new UpdateVendorRequest object
 This constructor will assign default values to properties that have it defined,
@@ -53,6 +53,11 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
+### HasStatus
+
+`func (o *UpdateVendorRequest) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetName
 
@@ -73,6 +78,11 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+### HasName
+
+`func (o *UpdateVendorRequest) HasName() bool`
+
+HasName returns a boolean if a field has been set.
 
 ### GetEmail
 
@@ -93,6 +103,11 @@ and a boolean to check if the value has been set.
 
 SetEmail sets Email field to given value.
 
+### HasEmail
+
+`func (o *UpdateVendorRequest) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
 
 ### GetPhone
 
@@ -113,6 +128,11 @@ and a boolean to check if the value has been set.
 
 SetPhone sets Phone field to given value.
 
+### HasPhone
+
+`func (o *UpdateVendorRequest) HasPhone() bool`
+
+HasPhone returns a boolean if a field has been set.
 
 ### GetVerifyAccount
 
@@ -183,6 +203,11 @@ and a boolean to check if the value has been set.
 
 SetScheduleOption sets ScheduleOption field to given value.
 
+### HasScheduleOption
+
+`func (o *UpdateVendorRequest) HasScheduleOption() bool`
+
+HasScheduleOption returns a boolean if a field has been set.
 
 ### GetBank
 
@@ -253,6 +278,11 @@ and a boolean to check if the value has been set.
 
 SetKycDetails sets KycDetails field to given value.
 
+### HasKycDetails
+
+`func (o *UpdateVendorRequest) HasKycDetails() bool`
+
+HasKycDetails returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
