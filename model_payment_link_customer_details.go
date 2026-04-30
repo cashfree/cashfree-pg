@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -29,14 +29,14 @@ type PaymentLinkCustomerDetails struct {
 	// Customer email address.
 	CustomerEmail *string `json:"customer_email,omitempty"`
 	// Customer phone number.
-	CustomerPhone string `json:"customer_phone"`
+	CustomerPhone *string `json:"customer_phone,omitempty"`
 	// Name of the customer.
 	CustomerName *string `json:"customer_name,omitempty"`
-	// Customer bank account. Required if you want to do a bank account check (TPV)
+	// Customer bank account. Required if you want to do a bank account check (TPV).
 	CustomerBankAccountNumber *string `json:"customer_bank_account_number,omitempty"`
-	// Customer bank IFSC. Required if you want to do a bank account check (TPV)
+	// Customer bank IFSC. Required if you want to do a bank account check (TPV).
 	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
-	// Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV)
+	// Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV).
 	CustomerBankCode *float32 `json:"customer_bank_code,omitempty"`
 }
 
@@ -58,7 +58,9 @@ func (o PaymentLinkCustomerDetails) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomerEmail) {
 		toSerialize["customer_email"] = o.CustomerEmail
 	}
-	toSerialize["customer_phone"] = o.CustomerPhone
+	if !IsNil(o.CustomerPhone) {
+		toSerialize["customer_phone"] = o.CustomerPhone
+	}
 	if !IsNil(o.CustomerName) {
 		toSerialize["customer_name"] = o.CustomerName
 	}

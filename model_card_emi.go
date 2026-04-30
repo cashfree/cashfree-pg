@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,9 +22,9 @@ var _ = fmt.Errorf
 // checks if the CardEMI type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CardEMI{}
 
-// CardEMI Payment method for card emi
+// CardEMI Payment method for card EMI.
 type CardEMI struct {
-	// The channel for card payments will always be \"link\"
+	// The channel for card payments will always be \"link\".
 	Channel string `json:"channel"`
 	// Customer card number.
 	CardNumber string `json:"card_number"`
@@ -36,11 +36,11 @@ type CardEMI struct {
 	CardExpiryYy string `json:"card_expiry_yy"`
 	// CVV mentioned on the card.
 	CardCvv string `json:"card_cvv"`
-	// Card alias as returned by Cashfree Vault API
+	// Card alias as returned by Cashfree Vault API.
 	CardAlias *string `json:"card_alias,omitempty"`
-	// Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\"hdfc, \"kotak\", \"icici\", \"rbl\", \"bob\", \"standard chartered\", \"axis\", \"au\", \"yes\", \"sbi\", \"fed\", \"hsbc\", \"citi\", \"amex\"]
+	// Card bank name, required for EMI payments. This is the bank user has selected for EMI. One of [\"hdfc, \"kotak\", \"icici\", \"rbl\", \"bob\", \"standard chartered\", \"axis\", \"au\", \"yes\", \"sbi\", \"fed\", \"hsbc\", \"citi\", \"amex\"].
 	CardBankName string `json:"card_bank_name"`
-	// EMI tenure selected by the user
+	// EMI tenure selected by the user.
 	EmiTenure int32 `json:"emi_tenure"`
 }
 

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Message** | Pointer to **string** |  | [optional] 
 **Help** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **string** | &#x60;bank_processing_failure&#x60; will be returned here to denote failure at bank.  | [optional] 
-**Type** | Pointer to **string** | api_error | [optional] 
+**Type** | Pointer to **string** | api_error. | [optional] 
 
 ## Methods
 

@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Vpa** | **string** | Terminal Vpa,for which we need to update details. | 
-**CfTerminalId** | **string** | cashfree terminal id. | 
-**MerchantName** | Pointer to **string** | Merchant Name that need to updated on soundbox | [optional] 
-**Language** | Pointer to **string** | language of soundbox,currently English, Hindi, Tamil | [optional] 
+**CfTerminalId** | **int64** | Cashfree terminal ID. | 
+**MerchantName** | Pointer to **string** | Merchant Name that need to updated on soundbox. | [optional] 
+**Language** | Pointer to **string** | language of soundbox,currently English, Hindi, Tamil. | [optional] 
 
 ## Methods
 
 ### NewUpdateSoundboxVpaRequest
 
-`func NewUpdateSoundboxVpaRequest(vpa string, cfTerminalId string, ) *UpdateSoundboxVpaRequest`
+`func NewUpdateSoundboxVpaRequest(vpa string, cfTerminalId int64, ) *UpdateSoundboxVpaRequest`
 
 NewUpdateSoundboxVpaRequest instantiates a new UpdateSoundboxVpaRequest object
 This constructor will assign default values to properties that have it defined,
@@ -50,20 +50,20 @@ SetVpa sets Vpa field to given value.
 
 ### GetCfTerminalId
 
-`func (o *UpdateSoundboxVpaRequest) GetCfTerminalId() string`
+`func (o *UpdateSoundboxVpaRequest) GetCfTerminalId() int64`
 
 GetCfTerminalId returns the CfTerminalId field if non-nil, zero value otherwise.
 
 ### GetCfTerminalIdOk
 
-`func (o *UpdateSoundboxVpaRequest) GetCfTerminalIdOk() (*string, bool)`
+`func (o *UpdateSoundboxVpaRequest) GetCfTerminalIdOk() (*int64, bool)`
 
 GetCfTerminalIdOk returns a tuple with the CfTerminalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfTerminalId
 
-`func (o *UpdateSoundboxVpaRequest) SetCfTerminalId(v string)`
+`func (o *UpdateSoundboxVpaRequest) SetCfTerminalId(v int64)`
 
 SetCfTerminalId sets CfTerminalId field to given value.
 

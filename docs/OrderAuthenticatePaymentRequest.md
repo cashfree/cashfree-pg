@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Otp** | **string** | OTP to be submitted | 
-**Action** | **string** | The action for this workflow. Could be either SUBMIT_OTP or RESEND_OTP | 
+**Otp** | Pointer to **string** | OTP collected from the customer. Mandatory only when action is SUBMIT_OTP. | [optional] 
+**Action** | **string** | Action intended for this request - can be SUBMIT_OTP or RESEND_OTP. | 
 
 ## Methods
 
 ### NewOrderAuthenticatePaymentRequest
 
-`func NewOrderAuthenticatePaymentRequest(otp string, action string, ) *OrderAuthenticatePaymentRequest`
+`func NewOrderAuthenticatePaymentRequest(action string, ) *OrderAuthenticatePaymentRequest`
 
 NewOrderAuthenticatePaymentRequest instantiates a new OrderAuthenticatePaymentRequest object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetOtp sets Otp field to given value.
 
+### HasOtp
+
+`func (o *OrderAuthenticatePaymentRequest) HasOtp() bool`
+
+HasOtp returns a boolean if a field has been set.
 
 ### GetAction
 

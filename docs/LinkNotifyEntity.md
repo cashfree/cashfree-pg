@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SendSms** | Pointer to **bool** | If \&quot;true\&quot;, Cashfree will send sms on customer_phone | [optional] 
-**SendEmail** | Pointer to **bool** | If \&quot;true\&quot;, Cashfree will send email on customer_email | [optional] 
+**SendSms** | Pointer to **bool** | If \&quot;true\&quot;, Cashfree will send sms on customer_phone. | [optional] 
+**SendEmail** | Pointer to **bool** | If \&quot;true\&quot;, Cashfree will send email on customer_email. | [optional] 
 
 ## Methods
 

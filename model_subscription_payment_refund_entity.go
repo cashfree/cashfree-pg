@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the SubscriptionPaymentRefundEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SubscriptionPaymentRefundEntity{}
 
-// SubscriptionPaymentRefundEntity Get/Create Subscription Payment Refund Response
+// SubscriptionPaymentRefundEntity Get/Create Subscription Payment Refund Response.
 type SubscriptionPaymentRefundEntity struct {
 	// A unique ID passed by merchant for identifying the transaction.
 	PaymentId *string `json:"payment_id,omitempty"`
@@ -34,11 +34,11 @@ type SubscriptionPaymentRefundEntity struct {
 	CfRefundId *string `json:"cf_refund_id,omitempty"`
 	// The refund amount.
 	RefundAmount *float32 `json:"refund_amount,omitempty"`
-	// Refund note.
+	// Refund note for merchant reference.
 	RefundNote *string `json:"refund_note,omitempty"`
 	// Refund speed. Can be INSTANT or NORMAL.
 	RefundSpeed *string `json:"refund_speed,omitempty"`
-	// Status of the refund.
+	// Status of the refund. Can be INITIALIZED, SUCCESS, CANCEL, PENDING or FAILED.
 	RefundStatus *string `json:"refund_status,omitempty"`
 }
 

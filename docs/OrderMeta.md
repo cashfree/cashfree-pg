@@ -4,10 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReturnUrl** | Pointer to **string** | The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://www.cashfree.com/devstudio/thankyou | [optional] 
+**ReturnUrl** | Pointer to **string** | This is the [URL](https://www.cashfree.com/devstudio/thankyou?order_id&#x3D;devstudio_734905336776434862) to which the customer will be redirected after the payment reaches a terminal state (success, failed or cancelled). We recommend keeping context of &#x60;order_id&#x60; in your &#x60;return_url&#x60; so that you can identify the order when customer lands on your page. Cashfree triggers a **GET request** to this URL. Maximum URL length: 250 characters. | [optional] 
 **NotifyUrl** | Pointer to **string** | Notification URL for server-server communication. Useful when user&#39;s connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250. | [optional] 
-**PaymentMethods** | Pointer to **interface{}** | Allowed payment modes for this order. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;,\&quot;nb\&quot;,\&quot;upi\&quot;,\&quot;paypal\&quot;,\&quot;app\&quot;,\&quot;paylater\&quot;,\&quot;cardlessemi\&quot;,\&quot;dcemi\&quot;,\&quot;ccemi\&quot;,\&quot;banktransfer\&quot;. Leave it blank to show all available payment methods | [optional] 
+**PaymentMethods** | Pointer to **interface{}** | Specifies the allowed payment modes for this order. To restrict payment options,  provide a comma-separated list of values from the following options: &#x60;cc&#x60;, &#x60;dc&#x60;, &#x60;ccc&#x60;,  &#x60;ppc&#x60;, &#x60;nb&#x60;, &#x60;upi&#x60;, &#x60;paypal&#x60;, &#x60;app&#x60;, &#x60;paylater&#x60;, &#x60;cardlessemi&#x60;, &#x60;dcemi&#x60;, &#x60;ccemi&#x60;,  &#x60;banktransfer&#x60;, &#x60;applepay&#x60;. Leave this field blank to display all available payment methods. | [optional] 
 **PaymentMethodsFilters** | Pointer to [**OrderMetaPaymentMethodsFilters**](OrderMetaPaymentMethodsFilters.md) |  | [optional] 
+**OfferFilters** | Pointer to [**OrderMetaOfferFilters**](OrderMetaOfferFilters.md) |  | [optional] 
+**UpiAppPriority** | Pointer to **interface{}** | Set the priority of UPI apps that you want to show for this order. Pass values in list among following options - \&quot;gpay\&quot;,\&quot;phonepe\&quot;,\&quot;paytm\&quot;,\&quot;navi\&quot;,\&quot;cred\&quot;,\&quot;supermoney\&quot;,\&quot;amazonpay\&quot;,\&quot;bhim\&quot;,\&quot;mobikwik\&quot;,\&quot;airtel\&quot;,\&quot;popclub\&quot;,\&quot;kiwi\&quot;. | [optional] 
 
 ## Methods
 
@@ -138,6 +140,66 @@ SetPaymentMethodsFilters sets PaymentMethodsFilters field to given value.
 
 HasPaymentMethodsFilters returns a boolean if a field has been set.
 
+### GetOfferFilters
+
+`func (o *OrderMeta) GetOfferFilters() OrderMetaOfferFilters`
+
+GetOfferFilters returns the OfferFilters field if non-nil, zero value otherwise.
+
+### GetOfferFiltersOk
+
+`func (o *OrderMeta) GetOfferFiltersOk() (*OrderMetaOfferFilters, bool)`
+
+GetOfferFiltersOk returns a tuple with the OfferFilters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOfferFilters
+
+`func (o *OrderMeta) SetOfferFilters(v OrderMetaOfferFilters)`
+
+SetOfferFilters sets OfferFilters field to given value.
+
+### HasOfferFilters
+
+`func (o *OrderMeta) HasOfferFilters() bool`
+
+HasOfferFilters returns a boolean if a field has been set.
+
+### GetUpiAppPriority
+
+`func (o *OrderMeta) GetUpiAppPriority() interface{}`
+
+GetUpiAppPriority returns the UpiAppPriority field if non-nil, zero value otherwise.
+
+### GetUpiAppPriorityOk
+
+`func (o *OrderMeta) GetUpiAppPriorityOk() (*interface{}, bool)`
+
+GetUpiAppPriorityOk returns a tuple with the UpiAppPriority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUpiAppPriority
+
+`func (o *OrderMeta) SetUpiAppPriority(v interface{})`
+
+SetUpiAppPriority sets UpiAppPriority field to given value.
+
+### HasUpiAppPriority
+
+`func (o *OrderMeta) HasUpiAppPriority() bool`
+
+HasUpiAppPriority returns a boolean if a field has been set.
+
+### SetUpiAppPriorityNil
+
+`func (o *OrderMeta) SetUpiAppPriorityNil(b bool)`
+
+ SetUpiAppPriorityNil sets the value for UpiAppPriority to be an explicit nil
+
+### UnsetUpiAppPriority
+`func (o *OrderMeta) UnsetUpiAppPriority()`
+
+UnsetUpiAppPriority ensures that no value is present for UpiAppPriority, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **CustomerName** | Pointer to **string** | Name of the customer. | [optional] 
 **CustomerEmail** | **string** | Email of the customer. | 
 **CustomerPhone** | **string** | Phone number of the customer. | 
-**CustomerBankAccountHolderName** | Pointer to **string** | Bank holder name of the customer. | [optional] 
-**CustomerBankAccountNumber** | Pointer to **string** | Bank account number of the customer. | [optional] 
-**CustomerBankIfsc** | Pointer to **string** | IFSC code of the customer. | [optional] 
-**CustomerBankCode** | Pointer to **string** | Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf | [optional] 
+**CustomerBankAccountHolderName** | Pointer to **string** | Bank holder name of the customer. Account holder name is mandatory for TPV transaction. Max character allowed is 40. | [optional] 
+**CustomerBankAccountNumber** | Pointer to **string** | Bank account number of the customer. Conditional Parameter. Max character allowed is 35. | [optional] 
+**CustomerBankIfsc** | Pointer to **string** | IFSC code of the customer. For a TPV transaction, send at least one out of &#x60;customer_bank_code&#x60; or &#x60;customer_bank_ifsc&#x60;. | [optional] 
+**CustomerBankCode** | Pointer to **string** | Bank code of the customer. Refer to the list of Live Banks in API E-Mandate [here](https://www.npci.org.in/product/nach/all-members). For a TPV transactions, include at least one of &#x60;customer_bank_code&#x60; or &#x60;customer_bank_ifsc&#x60;. | [optional] 
 **CustomerBankAccountType** | Pointer to **string** | Bank account type of the customer. | [optional] 
 
 ## Methods

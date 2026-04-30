@@ -6,14 +6,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**PGCustomerDeleteInstrument**](TokenVaultAPI.md#PGCustomerDeleteInstrument) | **Delete** /customers/{customer_id}/instruments/{instrument_id} | Delete Saved Card Instrument
 [**PGCustomerFetchInstrument**](TokenVaultAPI.md#PGCustomerFetchInstrument) | **Get** /customers/{customer_id}/instruments/{instrument_id} | Fetch Specific Saved Card Instrument
-[**PGCustomerFetchInstruments**](TokenVaultAPI.md#PGCustomerFetchInstruments) | **Get** /customers/{customer_id}/instruments | Fetch All Saved Card Instrument
-[**PGCustomerInstrumentsFetchCryptogram**](TokenVaultAPI.md#PGCustomerInstrumentsFetchCryptogram) | **Get** /customers/{customer_id}/instruments/{instrument_id}/cryptogram | Fetch cryptogram for a saved card instrument
+[**PGCustomerFetchInstruments**](TokenVaultAPI.md#PGCustomerFetchInstruments) | **Get** /customers/{customer_id}/instruments?instrument_type&#x3D;card | Fetch All Saved Card Instrument
+[**PGCustomerInstrumentsFetchCryptogram**](TokenVaultAPI.md#PGCustomerInstrumentsFetchCryptogram) | **Get** /customers/{customer_id}/instruments/{instrument_id}/cryptogram | Fetch Cryptogram for a Saved Card Instrument
 
 
 
 ## PGCustomerDeleteInstrument
 
-> InstrumentEntity PGCustomerDeleteInstrument(ctx, customerId, instrumentId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+> DeletedInstrumentEntity PGCustomerDeleteInstrument(ctx, customerId, instrumentId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
 Delete Saved Card Instrument
 
@@ -39,7 +39,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     customerId := "your-customer-id" 
     instrumentId := "some-instrument-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -50,7 +50,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCustomerDeleteInstrument``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PGCustomerDeleteInstrument`: InstrumentEntity
+    // response from `PGCustomerDeleteInstrument`: DeletedInstrumentEntity
     fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCustomerDeleteInstrument`: %v\n", resp)
 }
 ```
@@ -61,8 +61,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**customerId** | **string** | Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; | 
-**instrumentId** | **string** | The instrument_id which needs to be deleted | 
+**customerId** | **string** | The customer ID provided by the merchant during the [Create Order API](https://www.cashfree.com/docs/api-reference/payments/latest/orders/create) call, used to save cards for the customer. | 
+**instrumentId** | **string** | The instrument_id which needs to be deleted. | 
 
 ### Other Parameters
 
@@ -71,15 +71,15 @@ Other parameters are passed through a pointer to a apiPGCustomerDeleteInstrument
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
 
 ### Return type
 
-[**InstrumentEntity**](InstrumentEntity.md)
+[**DeletedInstrumentEntity**](DeletedInstrumentEntity.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     customerId := "your-customer-id" 
     instrumentId := "some-instrument-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -145,8 +145,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**customerId** | **string** | Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; | 
-**instrumentId** | **string** | The instrument_id of the saved instrument which needs to be queried | 
+**customerId** | **string** | The customer ID provided by the merchant during the [Create Order API](https://www.cashfree.com/docs/api-reference/payments/latest/orders/create) call, used to save cards for the customer. | 
+**instrumentId** | **string** | The instrument_id of the saved instrument which needs to be queried. | 
 
 ### Other Parameters
 
@@ -155,11 +155,11 @@ Other parameters are passed through a pointer to a apiPGCustomerFetchInstrumentR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
 
 ### Return type
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ## PGCustomerFetchInstruments
 
-> []InstrumentEntity PGCustomerFetchInstruments(ctx, customerId).XApiVersion(xApiVersion).InstrumentType(instrumentType).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+> []InstrumentEntityForAllSavedCard PGCustomerFetchInstruments(ctx, customerId).XApiVersion(xApiVersion).InstrumentType(instrumentType).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
 Fetch All Saved Card Instrument
 
@@ -207,7 +207,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     customerId := "your-customer-id" 
     instrumentType := "card" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -218,7 +218,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGCustomerFetchInstruments``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PGCustomerFetchInstruments`: []InstrumentEntity
+    // response from `PGCustomerFetchInstruments`: []InstrumentEntityForAllSavedCard
     fmt.Fprintf(os.Stdout, "Response from `cashfree.PGCustomerFetchInstruments`: %v\n", resp)
 }
 ```
@@ -229,7 +229,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**customerId** | **string** | Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; | 
+**customerId** | **string** | The customer ID provided by the merchant during the [Create Order API](https://www.cashfree.com/docs/api-reference/payments/latest/orders/create) call, used to save cards for the customer. | 
 
 ### Other Parameters
 
@@ -238,15 +238,15 @@ Other parameters are passed through a pointer to a apiPGCustomerFetchInstruments
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
- **instrumentType** | **string** | Payment mode or type of saved instrument  | 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **instrumentType** | **string** | Payment mode or type of saved instrument. | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
 
 ### Return type
 
-[**[]InstrumentEntity**](InstrumentEntity.md)
+[**[]InstrumentEntityForAllSavedCard**](InstrumentEntityForAllSavedCard.md)
 
 ### Authorization
 
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 > CryptogramEntity PGCustomerInstrumentsFetchCryptogram(ctx, customerId, instrumentId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
-Fetch cryptogram for a saved card instrument
+Fetch Cryptogram for a Saved Card Instrument
 
 
 
@@ -290,7 +290,7 @@ func main() {
 	cashfree.XClientSecret = &clientSecret
 	cashfree.XEnvironment = cashfree.SANDBOX
 
-    xApiVersion := "2025-01-01" 
+    xApiVersion := "2026-01-01" 
     customerId := "your-customer-id" 
     instrumentId := "some-instrument-id" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
@@ -312,8 +312,8 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**customerId** | **string** | Your Customer ID that you had sent during create order API &#x60;POST/orders&#x60; | 
-**instrumentId** | **string** | The instrument_id of the saved card instrument which needs to be queried | 
+**customerId** | **string** | The customer ID provided by the merchant during the [Create Order API](https://www.cashfree.com/docs/api-reference/payments/latest/orders/create) call, used to save cards for the customer. | 
+**instrumentId** | **string** | Identifier for the specific card to fetch its details. | 
 
 ### Other Parameters
 
@@ -322,11 +322,11 @@ Other parameters are passed through a pointer to a apiPGCustomerInstrumentsFetch
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD | [default to &quot;2025-01-01&quot;]
+ **xApiVersion** | **string** | API version to be used. Format is in YYYY-MM-DD. | [default to &quot;2026-01-01&quot;]
 
 
- **xRequestId** | **string** | Request id for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to cashfree | 
- **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.   | 
+ **xRequestId** | **string** | Request ID for the API call. Can be used to resolve tech issues. Communicate this in your tech related queries to Cashfree. | 
+ **xIdempotencyKey** | **string** | An idempotency key is a unique identifier you include with your API call. If the request fails or times out, you can safely retry it using the same key to avoid duplicate actions.  | 
 
 ### Return type
 

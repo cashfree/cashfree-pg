@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomerId** | Pointer to **string** | customer_id for which the instrument was saved | [optional] 
-**AfaReference** | Pointer to **string** | cf_payment_id of the successful transaction done while saving instrument | [optional] 
-**InstrumentId** | Pointer to **string** | saved instrument id | [optional] 
-**InstrumentType** | Pointer to **string** | Type of the saved instrument | [optional] 
-**InstrumentUid** | Pointer to **string** | Unique id for the saved instrument | [optional] 
-**InstrumentDisplay** | Pointer to **string** | masked card number displayed to the customer | [optional] 
-**InstrumentStatus** | Pointer to **string** | Status of the saved instrument. | [optional] 
+**CustomerId** | Pointer to **string** | Customer ID that merchant sends during [Create Order API](https://www.cashfree.com/docs/api-reference/payments/latest/orders/create), against which the cards are saved for the customer. | [optional] 
+**AfaReference** | Pointer to **string** | cf_payment_id of the successful transaction done while saving instrument. | [optional] 
+**InstrumentId** | Pointer to **string** | Identifier for the card saved at Cashfree. | [optional] 
+**InstrumentType** | Pointer to **string** | Type of the saved instrument. Available option is &#x60;card&#x60;. | [optional] 
+**InstrumentUid** | Pointer to **string** | Unique identifier for the saved card, used to identify a specific card. | [optional] 
+**InstrumentDisplay** | Pointer to **string** | Last four digits of actual card number. | [optional] 
+**InstrumentStatus** | Pointer to **string** | Status of the saved instrument. Available options are &#x60;ACTIVE&#x60;, &#x60;INACTIVE&#x60;. | [optional] 
 **CreatedAt** | Pointer to **string** | Timestamp at which instrument was saved. | [optional] 
 **InstrumentMeta** | Pointer to [**SavedInstrumentMeta**](SavedInstrumentMeta.md) |  | [optional] 
 

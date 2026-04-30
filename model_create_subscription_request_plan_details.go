@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -30,7 +30,7 @@ type CreateSubscriptionRequestPlanDetails struct {
 	PlanName *string `json:"plan_name,omitempty"`
 	// Possible values ON_DEMAND or PERIODIC. PERIODIC - Payments are triggered automatically at fixed intervals defined by the merchant. ON_DEMAND - Merchant needs to trigger/charge the customer explicitly with the required amount.
 	PlanType *string `json:"plan_type,omitempty"`
-	// INR by default.
+	// INR by default. For subscriptions in non-INR currency, please refer to [supported currencies](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#full-currency-list).
 	PlanCurrency *string `json:"plan_currency,omitempty"`
 	// The amount to be charged for PERIODIC plan. This is a conditional parameter, only required for PERIODIC plans.
 	PlanAmount *float32 `json:"plan_amount,omitempty"`

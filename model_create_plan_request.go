@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the CreatePlanRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreatePlanRequest{}
 
-// CreatePlanRequest Request body to create a plan.
+// CreatePlanRequest Request parameters to create a new plan.
 type CreatePlanRequest struct {
 	// Unique ID to identify the plan. Only alpha-numerics, dot, hyphen and underscore allowed.
 	PlanId string `json:"plan_id"`
@@ -30,7 +30,7 @@ type CreatePlanRequest struct {
 	PlanName string `json:"plan_name"`
 	// Type of the plan. Possible values - PERIODIC, ON_DEMAND.
 	PlanType string `json:"plan_type"`
-	// Currency of the plan.
+	// Currency of the plan. For plans in non-INR currency, please refer to [supported currencies](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#full-currency-list).
 	PlanCurrency *string `json:"plan_currency,omitempty"`
 	// Recurring amount for the plan. Required for PERIODIC plan_type.
 	PlanRecurringAmount *float32 `json:"plan_recurring_amount,omitempty"`

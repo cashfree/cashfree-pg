@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Par** | Pointer to **string** |  | [optional] 
+**Par** | Pointer to **string** | PAR for plain card sent in request. | [optional] 
 
 ## Methods
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,16 +22,16 @@ var _ = fmt.Errorf
 // checks if the CreateLinkRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateLinkRequest{}
 
-// CreateLinkRequest Request paramenters for link creation
+// CreateLinkRequest struct for CreateLinkRequest
 type CreateLinkRequest struct {
 	// Unique Identifier (provided by merchant) for the Link. Alphanumeric and only - and _ allowed (50 character limit). Use this for other link-related APIs.
-	LinkId string `json:"link_id"`
+	LinkId *string `json:"link_id,omitempty"`
 	// Amount to be collected using this link. Provide upto two decimals for paise.
 	LinkAmount float64 `json:"link_amount"`
-	// Currency for the payment link. Default is INR. Contact care@cashfree.com to enable new currencies.
+	// Currency for the payment link. Default is INR. Submit [Support Form](https://merchant.cashfree.com/auth/login) to enable new currencies.
 	LinkCurrency string `json:"link_currency"`
 	// A brief description for which payment must be collected. This is shown to the customer.
-	LinkPurpose string `json:"link_purpose"`
+	LinkPurpose *string `json:"link_purpose,omitempty"`
 	CustomerDetails LinkCustomerDetailsEntity `json:"customer_details"`
 	// If \"true\", customer can make partial payments for the link.
 	LinkPartialPayments *bool `json:"link_partial_payments,omitempty"`
@@ -42,11 +42,14 @@ type CreateLinkRequest struct {
 	LinkNotify *LinkNotifyEntity `json:"link_notify,omitempty"`
 	// If \"true\", reminders will be sent to customers for collecting payments.
 	LinkAutoReminders *bool `json:"link_auto_reminders,omitempty"`
-	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs
+	// Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs.
 	LinkNotes *map[string]string `json:"link_notes,omitempty"`
 	LinkMeta *LinkMetaResponseEntity `json:"link_meta,omitempty"`
 	// If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
+	// Enable or disable invoice generation for this payment link.
+	EnableInvoice *bool `json:"enable_invoice,omitempty"`
+	Subscription *Subscription `json:"subscription,omitempty"`
 }
 
 
@@ -61,10 +64,14 @@ func (o CreateLinkRequest) MarshalJSON() ([]byte, error) {
 func (o CreateLinkRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	toSerialize["link_id"] = o.LinkId
+	if !IsNil(o.LinkId) {
+		toSerialize["link_id"] = o.LinkId
+	}
 	toSerialize["link_amount"] = o.LinkAmount
 	toSerialize["link_currency"] = o.LinkCurrency
-	toSerialize["link_purpose"] = o.LinkPurpose
+	if !IsNil(o.LinkPurpose) {
+		toSerialize["link_purpose"] = o.LinkPurpose
+	}
 	toSerialize["customer_details"] = o.CustomerDetails
 	if !IsNil(o.LinkPartialPayments) {
 		toSerialize["link_partial_payments"] = o.LinkPartialPayments
@@ -89,6 +96,12 @@ func (o CreateLinkRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.OrderSplits) {
 		toSerialize["order_splits"] = o.OrderSplits
+	}
+	if !IsNil(o.EnableInvoice) {
+		toSerialize["enable_invoice"] = o.EnableInvoice
+	}
+	if !IsNil(o.Subscription) {
+		toSerialize["subscription"] = o.Subscription
 	}
 	return toSerialize, nil
 }

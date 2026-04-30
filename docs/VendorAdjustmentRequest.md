@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VendorId** | **string** | The unique identifier of the vendor to whom the adjustment is applied | 
+**VendorId** | **string** | The unique identifier of the vendor to whom the adjustment is applied. | 
 **AdjustmentId** | **int64** | The unique identifier for the adjustment transaction. | 
 **Amount** | **float32** | The adjustment amount to be applied. | 
 **Type** | **string** | The type of adjustment. Possible values: CREDIT, DEBIT. | 

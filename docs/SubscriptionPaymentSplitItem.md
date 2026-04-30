@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VendorId** | Pointer to **string** | Vendor ID | [optional] 
-**Percentage** | Pointer to **float32** | Percentage of the payment to be split to vendor | [optional] 
+**VendorId** | Pointer to **string** | Vendor ID. | [optional] 
+**Percentage** | Pointer to **float32** | Percentage of the payment to be split to vendor. | [optional] 
 
 ## Methods
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,26 +24,28 @@ var _ MappedNullable = &CartItem{}
 
 // CartItem Each item in the cart.
 type CartItem struct {
-	// Unique identifier of the item
+	// Unique identifier of the item.
 	ItemId *string `json:"item_id,omitempty"`
-	// Name of the item
+	// Name of the item.
 	ItemName *string `json:"item_name,omitempty"`
-	// Description of the item
+	// Description of the item.
 	ItemDescription *string `json:"item_description,omitempty"`
-	// Tags attached to that item
+	// Tags attached to that item.
 	ItemTags []string `json:"item_tags,omitempty"`
-	// Item details url
+	// Item details url.
 	ItemDetailsUrl *string `json:"item_details_url,omitempty"`
-	// Item image url
+	// Item image url.
 	ItemImageUrl *string `json:"item_image_url,omitempty"`
-	// Original price
+	// Original price.
 	ItemOriginalUnitPrice *float64 `json:"item_original_unit_price,omitempty"`
-	// Discounted Price
+	// Discounted Price.
 	ItemDiscountedUnitPrice *float64 `json:"item_discounted_unit_price,omitempty"`
 	// Currency of the item.
 	ItemCurrency *string `json:"item_currency,omitempty"`
-	// Quantity if that item
+	// Quantity if that item.
 	ItemQuantity *float32 `json:"item_quantity,omitempty"`
+	// Variant identifier of the item.
+	ItemVariantId *string `json:"item_variant_id,omitempty"`
 }
 
 
@@ -87,6 +89,9 @@ func (o CartItem) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ItemQuantity) {
 		toSerialize["item_quantity"] = o.ItemQuantity
+	}
+	if !IsNil(o.ItemVariantId) {
+		toSerialize["item_variant_id"] = o.ItemVariantId
 	}
 	return toSerialize, nil
 }

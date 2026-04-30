@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **TerminalPhoneNo** | Pointer to **string** |  | [optional] 
 **TerminalStatus** | Pointer to **string** |  | [optional] 
 **TerminalMeta** | Pointer to [**TerminalEntityTerminalMeta**](TerminalEntityTerminalMeta.md) |  | [optional] 
+**TerminalVpas** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -335,6 +336,31 @@ SetTerminalMeta sets TerminalMeta field to given value.
 `func (o *TerminalEntity) HasTerminalMeta() bool`
 
 HasTerminalMeta returns a boolean if a field has been set.
+
+### GetTerminalVpas
+
+`func (o *TerminalEntity) GetTerminalVpas() string`
+
+GetTerminalVpas returns the TerminalVpas field if non-nil, zero value otherwise.
+
+### GetTerminalVpasOk
+
+`func (o *TerminalEntity) GetTerminalVpasOk() (*string, bool)`
+
+GetTerminalVpasOk returns a tuple with the TerminalVpas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTerminalVpas
+
+`func (o *TerminalEntity) SetTerminalVpas(v string)`
+
+SetTerminalVpas sets TerminalVpas field to given value.
+
+### HasTerminalVpas
+
+`func (o *TerminalEntity) HasTerminalVpas() bool`
+
+HasTerminalVpas returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

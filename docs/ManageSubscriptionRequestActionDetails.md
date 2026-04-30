@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NextScheduledTime** | Pointer to **string** | Next scheduled time for the action. Required for ACTIVATE action. | [optional] 
+**NextScheduledTime** | Pointer to **string** | Next scheduled time for the action. Required for ACTIVATE action.   Please note that only the date component is considered. Any time value provided will be ignored. | [optional] 
 **PlanId** | Pointer to **string** | Plan ID to update. Required for CHANGE_PLAN action. | [optional] 
 
 ## Methods

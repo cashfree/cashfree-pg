@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,14 +24,14 @@ var _ MappedNullable = &CreateSubscriptionPaymentResponse{}
 
 // CreateSubscriptionPaymentResponse The response returned is Create Subscription Auth or Charge APIs.
 type CreateSubscriptionPaymentResponse struct {
-	// Cashfree subscription payment reference number
+	// Cashfree subscription payment reference number.
 	CfPaymentId *string `json:"cf_payment_id,omitempty"`
 	FailureDetails *SubscriptionPaymentEntityFailureDetails `json:"failure_details,omitempty"`
 	// The charge amount of the payment.
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
 	// A unique ID passed by merchant for identifying the transaction.
 	PaymentId *string `json:"payment_id,omitempty"`
-	// The date on which the payment was initiated.
+	// The date on which the payment was initiated. We store timestamps in IST.
 	PaymentInitiatedDate *string `json:"payment_initiated_date,omitempty"`
 	// Status of the payment.
 	PaymentStatus *string `json:"payment_status,omitempty"`
@@ -41,7 +41,7 @@ type CreateSubscriptionPaymentResponse struct {
 	SubscriptionId *string `json:"subscription_id,omitempty"`
 	// Contains a payload for auth app links in case of AUTH. For charge, the payload is empty.
 	Data map[string]interface{} `json:"data,omitempty"`
-	// Payment method used for the authorization.
+	// Payment method used for the authorisation.
 	PaymentMethod *string `json:"payment_method,omitempty"`
 }
 

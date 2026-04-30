@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CustomerPhone** | **string** | Customer Phone Number | 
-**CustomerEmail** | Pointer to **string** | Customer Email | [optional] 
-**CustomerName** | Pointer to **string** | Customer Name | [optional] 
+**CustomerPhone** | **string** | Customer Phone Number. | 
+**CustomerEmail** | Pointer to **string** | Customer Email. | [optional] 
+**CustomerName** | Pointer to **string** | Customer Name. | [optional] 
 
 ## Methods
 

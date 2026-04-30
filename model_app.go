@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the App type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &App{}
 
-// App App payment method
+// App App payment method.
 type App struct {
 	// Specify the channel through which the payment must be processed.
 	Channel string `json:"channel"`

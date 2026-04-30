@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,9 +24,9 @@ var _ MappedNullable = &EMIOffer{}
 
 // EMIOffer struct for EMIOffer
 type EMIOffer struct {
-	// Type of emi offer. Possible values are `credit_card_emi`, `debit_card_emi`, `cardless_emi`
+	// Type of emi offer. Possible values are `credit_card_emi`, `debit_card_emi`, `cardless_emi`.
 	Type string `json:"type"`
-	// Bank Name
+	// Bank Name.
 	Issuer string `json:"issuer"`
 	Tenures []int32 `json:"tenures"`
 }

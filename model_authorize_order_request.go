@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,11 +22,11 @@ var _ = fmt.Errorf
 // checks if the AuthorizeOrderRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AuthorizeOrderRequest{}
 
-// AuthorizeOrderRequest Request to capture or void transaction
+// AuthorizeOrderRequest Request to capture or void transaction.
 type AuthorizeOrderRequest struct {
-	// Type of authorization to run. Can be one of 'CAPTURE' , 'VOID'
-	Action *string `json:"action,omitempty"`
-	// The amount if you are running a 'CAPTURE'
+	// Type of authorisation to run. Available options are `CAPTURE`, `VOID`.
+	Action string `json:"action"`
+	// The amount you want to capture. This is required only when action is `CAPTURE`.
 	Amount *float32 `json:"amount,omitempty"`
 }
 
@@ -42,9 +42,7 @@ func (o AuthorizeOrderRequest) MarshalJSON() ([]byte, error) {
 func (o AuthorizeOrderRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Action) {
-		toSerialize["action"] = o.Action
-	}
+	toSerialize["action"] = o.Action
 	if !IsNil(o.Amount) {
 		toSerialize["amount"] = o.Amount
 	}

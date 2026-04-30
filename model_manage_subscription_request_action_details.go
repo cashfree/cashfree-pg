@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,7 +24,7 @@ var _ MappedNullable = &ManageSubscriptionRequestActionDetails{}
 
 // ManageSubscriptionRequestActionDetails Details of the action to be performed.
 type ManageSubscriptionRequestActionDetails struct {
-	// Next scheduled time for the action. Required for ACTIVATE action.
+	// Next scheduled time for the action. Required for ACTIVATE action.   Please note that only the date component is considered. Any time value provided will be ignored.
 	NextScheduledTime *string `json:"next_scheduled_time,omitempty"`
 	// Plan ID to update. Required for CHANGE_PLAN action.
 	PlanId *string `json:"plan_id,omitempty"`

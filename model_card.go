@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,34 +22,33 @@ var _ = fmt.Errorf
 // checks if the Card type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Card{}
 
-// Card Card Payment method
+// Card The card payment object can be used to make payments using a plain card, a card saved with Cashfree, an externally saved card, or an external Alt ID for guest checkout transactions. Refer to the examples in the Sample Request section for different payloads, and refer [Token Vault](https://www.cashfree.com/docs/payments/features/token-vault#token-vault) for more details on tokenisation.
 type Card struct {
-	// The channel for card payments can be \"link\" or \"post\". Post is used for seamless OTP payments where merchant captures OTP on their own page.
+	// The channel for card payments can be \"link\" or \"post\". Use \"post\" to request [Native OTP](https://www.cashfree.com/docs/payments/features/native-otp) authentication, where the merchant must render the Native OTP UI to collect the OTP. Otherwise, use link for the redirection flow.
 	Channel string `json:"channel"`
-	// Customer card number for plain card transactions. Token pan number for tokenized card transactions.
+	// Customer’s card number for plain card transactions, or token number for external token transactions, or Alt ID number for external Alt ID transactions.
 	CardNumber *string `json:"card_number,omitempty"`
-	// Customer name mentioned on the card.
+	// Name on the customer’s card. Optional for external token or external Alt ID transactions.
 	CardHolderName *string `json:"card_holder_name,omitempty"`
-	// Card expiry month for plain card transactions. Token expiry month for tokenized card transactions.
+	// Card expiry month for plain card transactions, or token expiry month for external token transactions, or Alt ID expiry month for external Alt ID transactions.
 	CardExpiryMm *string `json:"card_expiry_mm,omitempty"`
-	// Card expiry year for plain card transactions. Token expiry year for tokenized card transactions.
+	// Card expiry year for plain card transactions, or token expiry year for external token transactions and Alt ID expiry year for external Alt ID transactions.
 	CardExpiryYy *string `json:"card_expiry_yy,omitempty"`
-	// CVV mentioned on the card.
+	// CVV mentioned on the card. Mandatory for plain card and external Alt ID transactions; optional for saved card transactions.
 	CardCvv *string `json:"card_cvv,omitempty"`
-	// instrument id of saved card. Required only to make payment using saved instrument.
+	// Instrument ID of the saved card, as received in response from [Fetch All Saved Card Instrument API](https://www.cashfree.com/docs/api-reference/payments/latest/token-vault/get-all). Required only when making payments using cards saved with Cashfree.
 	InstrumentId *string `json:"instrument_id,omitempty"`
-	// cryptogram received from card network. Required only for tokenized card transactions.
+	// Cryptogram received from the card network. Required only for external token or external Alt ID transactions; provided by the merchant’s token requestor.
 	Cryptogram *string `json:"cryptogram,omitempty"`
-	// TRID issued by card networks. Required only for tokenized card transactions.
+	// Token Requestor ID (TRID) issued by the respective card network. Required only for external token transactions; provided by the merchant’s token requestor.
 	TokenRequestorId *string `json:"token_requestor_id,omitempty"`
-	// Token Reference Id provided by Diners for Guest Checkout Token.  Required only for Diners cards.
+	// Token Reference ID, required only for external Alt ID transactions for Diners; provided by the merchant’s token requestor.
 	TokenReferenceId *string `json:"token_reference_id,omitempty"`
+	// Token type enum. Mandatory only for external Alt ID transactions.
 	TokenType *string `json:"token_type,omitempty"`
-	// last 4 digits of original card number. Required only for tokenized card transactions.
+	// Last 4 digits of original card number, required only for external token or external Alt ID transactions, used for bookkeeping purposes.
 	CardDisplay *string `json:"card_display,omitempty"`
-	// Card alias as returned by Cashfree Vault API.
-	CardAlias *string `json:"card_alias,omitempty"`
-	// One of [\"Kotak\", \"ICICI\", \"RBL\", \"BOB\", \"Standard Chartered\"]. Card bank name, required for EMI payments. This is the bank user has selected for EMI
+	// One of [\"Kotak\", \"ICICI\", \"RBL\", \"BOB\", \"Standard Chartered\"]. Card bank name, required for EMI payments. This is the bank user has selected for EMI.
 	CardBankName *string `json:"card_bank_name,omitempty"`
 	// First line of the address.
 	AddressLineOne *string `json:"address_line_one,omitempty"`
@@ -61,14 +60,16 @@ type Card struct {
 	ZipCode *string `json:"zip_code,omitempty"`
 	// Country Name.
 	Country *string `json:"country,omitempty"`
-	// Country Code. Should be in ISO 2 format (ie. US for United States)
+	// Country Code. Should be in ISO 2 format (ie. US for United States).
 	CountryCode *string `json:"country_code,omitempty"`
 	// State Name.
 	State *string `json:"state,omitempty"`
-	// State Code. Should be in ISO 2 format (ie. FL for Florida)
+	// State Code. Should be in ISO 2 format (ie. FL for Florida).
 	StateCode *string `json:"state_code,omitempty"`
-	// EMI tenure selected by the user
+	// EMI tenure selected by the user.
 	EmiTenure *int32 `json:"emi_tenure,omitempty"`
+	// Par received from network.
+	Par *string `json:"par,omitempty"`
 }
 
 
@@ -117,9 +118,6 @@ func (o Card) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CardDisplay) {
 		toSerialize["card_display"] = o.CardDisplay
 	}
-	if !IsNil(o.CardAlias) {
-		toSerialize["card_alias"] = o.CardAlias
-	}
 	if !IsNil(o.CardBankName) {
 		toSerialize["card_bank_name"] = o.CardBankName
 	}
@@ -149,6 +147,9 @@ func (o Card) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.EmiTenure) {
 		toSerialize["emi_tenure"] = o.EmiTenure
+	}
+	if !IsNil(o.Par) {
+		toSerialize["par"] = o.Par
 	}
 	return toSerialize, nil
 }
