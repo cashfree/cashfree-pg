@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthorizationAmount** | Pointer to **float32** | Authorization amount for the auth payment. | [optional] 
+**AuthorizationAmount** | Pointer to **float32** | Authorization amount for the auth payment. Please note that authorization_amount will always be 0 for ENACH. | [optional] 
 **AuthorizationAmountRefund** | Pointer to **bool** | Indicates whether the authorization amount should be refunded to the customer automatically. Merchants can use this field to specify if the authorized funds should be returned to the customer after authorization of the subscription. | [optional] 
 **AuthorizationReference** | Pointer to **string** | Authorization reference. UMN for UPI, UMRN for EMandate/Physical Mandate and Enrollment ID for cards. | [optional] 
-**AuthorizationTime** | Pointer to **string** | Authorization time. | [optional] 
+**AuthorizationTime** | Pointer to **string** | Authorization time. Cashfree stores timestamps in IST. | [optional] 
 **AuthorizationStatus** | Pointer to **string** | Status of the authorization. | [optional] 
 **PaymentId** | Pointer to **string** | A unique ID passed by merchant for identifying the transaction. | [optional] 
-**PaymentMethod** | Pointer to **string** | Payment method used for the authorization. | [optional] 
+**PaymentGroup** | Pointer to **string** | Payment group used for the authorization. | [optional] 
+**PaymentMethod** | Pointer to [**AuthorizationDetailsPaymentMethod**](AuthorizationDetailsPaymentMethod.md) |  | [optional] 
 
 ## Methods
 
@@ -181,22 +182,47 @@ SetPaymentId sets PaymentId field to given value.
 
 HasPaymentId returns a boolean if a field has been set.
 
+### GetPaymentGroup
+
+`func (o *AuthorizationDetails) GetPaymentGroup() string`
+
+GetPaymentGroup returns the PaymentGroup field if non-nil, zero value otherwise.
+
+### GetPaymentGroupOk
+
+`func (o *AuthorizationDetails) GetPaymentGroupOk() (*string, bool)`
+
+GetPaymentGroupOk returns a tuple with the PaymentGroup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentGroup
+
+`func (o *AuthorizationDetails) SetPaymentGroup(v string)`
+
+SetPaymentGroup sets PaymentGroup field to given value.
+
+### HasPaymentGroup
+
+`func (o *AuthorizationDetails) HasPaymentGroup() bool`
+
+HasPaymentGroup returns a boolean if a field has been set.
+
 ### GetPaymentMethod
 
-`func (o *AuthorizationDetails) GetPaymentMethod() string`
+`func (o *AuthorizationDetails) GetPaymentMethod() AuthorizationDetailsPaymentMethod`
 
 GetPaymentMethod returns the PaymentMethod field if non-nil, zero value otherwise.
 
 ### GetPaymentMethodOk
 
-`func (o *AuthorizationDetails) GetPaymentMethodOk() (*string, bool)`
+`func (o *AuthorizationDetails) GetPaymentMethodOk() (*AuthorizationDetailsPaymentMethod, bool)`
 
 GetPaymentMethodOk returns a tuple with the PaymentMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPaymentMethod
 
-`func (o *AuthorizationDetails) SetPaymentMethod(v string)`
+`func (o *AuthorizationDetails) SetPaymentMethod(v AuthorizationDetailsPaymentMethod)`
 
 SetPaymentMethod sets PaymentMethod field to given value.
 

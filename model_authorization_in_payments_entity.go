@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,23 +22,23 @@ var _ = fmt.Errorf
 // checks if the AuthorizationInPaymentsEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AuthorizationInPaymentsEntity{}
 
-// AuthorizationInPaymentsEntity If preauth enabled for account you will get this body
+// AuthorizationInPaymentsEntity If preauth enabled for account you will get this body.
 type AuthorizationInPaymentsEntity struct {
-	// One of CAPTURE or VOID
+	// One of CAPTURE or VOID.
 	Action *string `json:"action,omitempty"`
-	// One of SUCCESS or PENDING
+	// One of SUCCESS or PENDING.
 	Status *string `json:"status,omitempty"`
-	// The captured amount for this authorization request
+	// The captured amount for this authorization request.
 	CapturedAmount *float32 `json:"captured_amount,omitempty"`
-	// Start time of this authorization hold (only for UPI)
+	// Start time of this authorization hold (only for UPI).
 	StartTime *string `json:"start_time,omitempty"`
-	// End time of this authorization hold (only for UPI)
+	// End time of this authorization hold (only for UPI).
 	EndTime *string `json:"end_time,omitempty"`
-	// Approve by time as passed in the authorization request (only for UPI)
+	// Approve by time as passed in the authorization request (only for UPI).
 	ApproveBy *string `json:"approve_by,omitempty"`
-	// CAPTURE or VOID reference number based on action 
+	// CAPTURE or VOID reference number based on action.
 	ActionReference *string `json:"action_reference,omitempty"`
-	// Time of action (CAPTURE or VOID)
+	// Time of action (CAPTURE or VOID).
 	ActionTime *string `json:"action_time,omitempty"`
 }
 

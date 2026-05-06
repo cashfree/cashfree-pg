@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Methods** | Pointer to [**OrderMetaPaymentMethodsFiltersMethods**](OrderMetaPaymentMethodsFiltersMethods.md) |  | [optional] 
-**Filters** | Pointer to [**OrderMetaPaymentMethodsFiltersFilters**](OrderMetaPaymentMethodsFiltersFilters.md) |  | [optional] 
+**Filters** | Pointer to [**OrderPaymentMethodFilters**](OrderPaymentMethodFilters.md) |  | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasMethods returns a boolean if a field has been set.
 
 ### GetFilters
 
-`func (o *OrderMetaPaymentMethodsFilters) GetFilters() OrderMetaPaymentMethodsFiltersFilters`
+`func (o *OrderMetaPaymentMethodsFilters) GetFilters() OrderPaymentMethodFilters`
 
 GetFilters returns the Filters field if non-nil, zero value otherwise.
 
 ### GetFiltersOk
 
-`func (o *OrderMetaPaymentMethodsFilters) GetFiltersOk() (*OrderMetaPaymentMethodsFiltersFilters, bool)`
+`func (o *OrderMetaPaymentMethodsFilters) GetFiltersOk() (*OrderPaymentMethodFilters, bool)`
 
 GetFiltersOk returns a tuple with the Filters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFilters
 
-`func (o *OrderMetaPaymentMethodsFilters) SetFilters(v OrderMetaPaymentMethodsFiltersFilters)`
+`func (o *OrderMetaPaymentMethodsFilters) SetFilters(v OrderPaymentMethodFilters)`
 
 SetFilters sets Filters field to given value.
 

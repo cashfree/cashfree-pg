@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,20 +22,22 @@ var _ = fmt.Errorf
 // checks if the LinkCustomerDetailsEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &LinkCustomerDetailsEntity{}
 
-// LinkCustomerDetailsEntity Payment link customer entity
+// LinkCustomerDetailsEntity Payment link customer entity.
 type LinkCustomerDetailsEntity struct {
-	// Customer phone number
+	// Customer phone number.
 	CustomerPhone string `json:"customer_phone"`
-	// Customer email address
+	// Customer email address.
 	CustomerEmail *string `json:"customer_email,omitempty"`
-	// Customer name
+	// Customer name.
 	CustomerName *string `json:"customer_name,omitempty"`
-	// Customer Bank Account Number
+	// Customer Bank Account Number.
 	CustomerBankAccountNumber *string `json:"customer_bank_account_number,omitempty"`
-	// Customer Bank Ifsc
+	// Customer Bank Ifsc.
 	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
-	// Customer Bank Code
+	// Customer Bank Code.
 	CustomerBankCode *int32 `json:"customer_bank_code,omitempty"`
+	// Customer Bank Account Holder Name.
+	CustomerBankAcoountHolderName *string `json:"customer_bank_acoount_holder_name,omitempty"`
 }
 
 
@@ -65,6 +67,9 @@ func (o LinkCustomerDetailsEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CustomerBankCode) {
 		toSerialize["customer_bank_code"] = o.CustomerBankCode
+	}
+	if !IsNil(o.CustomerBankAcoountHolderName) {
+		toSerialize["customer_bank_acoount_holder_name"] = o.CustomerBankAcoountHolderName
 	}
 	return toSerialize, nil
 }

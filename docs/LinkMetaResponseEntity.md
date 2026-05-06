@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NotifyUrl** | Pointer to **string** | Notification URL for server-server communication. It should be an https URL. | [optional] 
-**UpiIntent** | Pointer to **string** | If \&quot;true\&quot;, link will directly open UPI Intent flow on mobile, and normal link flow elsewhere | [optional] 
+**UpiIntent** | Pointer to **string** | If \&quot;true\&quot;, link will directly open UPI Intent flow on mobile, and normal link flow elsewhere. | [optional] 
 **ReturnUrl** | Pointer to **string** | The URL to which user will be redirected to after the payment is done on the link. Maximum length: 250. | [optional] 
-**PaymentMethods** | Pointer to **string** | Allowed payment modes for this link. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;, \&quot;nb\&quot;, \&quot;upi\&quot;, \&quot;paypal\&quot;, \&quot;app\&quot;. Leave it blank to show all available payment methods | [optional] 
+**PaymentMethods** | Pointer to **string** | Allowed payment modes for this link. Pass comma-separated values among following options - \&quot;cc\&quot;, \&quot;dc\&quot;, \&quot;ccc\&quot;, \&quot;ppc\&quot;, \&quot;nb\&quot;, \&quot;upi\&quot;, \&quot;paypal\&quot;, \&quot;app\&quot;. Leave it blank to show all available payment methods. | [optional] 
 
 ## Methods
 

@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **RefundId** | Pointer to **string** | A unique ID passed by merchant for identifying the refund. | [optional] 
 **CfRefundId** | Pointer to **string** | Cashfree subscription payment refund reference number. | [optional] 
 **RefundAmount** | Pointer to **float32** | The refund amount. | [optional] 
-**RefundNote** | Pointer to **string** | Refund note. | [optional] 
+**RefundNote** | Pointer to **string** | Refund note for merchant reference. | [optional] 
 **RefundSpeed** | Pointer to **string** | Refund speed. Can be INSTANT or NORMAL. | [optional] 
-**RefundStatus** | Pointer to **string** | Status of the refund. | [optional] 
+**RefundStatus** | Pointer to **string** | Status of the refund. Can be INITIALIZED, SUCCESS, CANCEL, PENDING or FAILED. | [optional] 
 
 ## Methods
 

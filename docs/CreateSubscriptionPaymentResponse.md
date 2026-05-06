@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CfPaymentId** | Pointer to **string** | Cashfree subscription payment reference number | [optional] 
+**CfPaymentId** | Pointer to **string** | Cashfree subscription payment reference number. | [optional] 
 **FailureDetails** | Pointer to [**SubscriptionPaymentEntityFailureDetails**](SubscriptionPaymentEntityFailureDetails.md) |  | [optional] 
 **PaymentAmount** | Pointer to **float32** | The charge amount of the payment. | [optional] 
 **PaymentId** | Pointer to **string** | A unique ID passed by merchant for identifying the transaction. | [optional] 
-**PaymentInitiatedDate** | Pointer to **string** | The date on which the payment was initiated. | [optional] 
+**PaymentInitiatedDate** | Pointer to **string** | The date on which the payment was initiated. We store timestamps in IST. | [optional] 
 **PaymentStatus** | Pointer to **string** | Status of the payment. | [optional] 
 **PaymentType** | Pointer to **string** | Payment type. Can be AUTH or CHARGE. | [optional] 
 **SubscriptionId** | Pointer to **string** | A unique ID passed by merchant for identifying the subscription. | [optional] 
 **Data** | Pointer to **map[string]interface{}** | Contains a payload for auth app links in case of AUTH. For charge, the payload is empty. | [optional] 
-**PaymentMethod** | Pointer to **string** | Payment method used for the authorization. | [optional] 
+**PaymentMethod** | Pointer to **string** | Payment method used for the authorisation. | [optional] 
 
 ## Methods
 

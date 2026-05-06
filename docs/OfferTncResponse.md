@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**OfferTncType** | Pointer to **string** | TnC Type for the Offer. It can be either &#x60;text&#x60; or &#x60;link&#x60; | [optional] 
+**OfferTncType** | Pointer to **string** | TnC Type for the Offer. It can be either &#x60;text&#x60; or &#x60;link&#x60;. | [optional] 
 **OfferTncValue** | Pointer to **string** | TnC for the Offer. | [optional] 
 
 ## Methods

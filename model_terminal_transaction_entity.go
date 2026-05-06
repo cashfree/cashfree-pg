@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,9 +22,9 @@ var _ = fmt.Errorf
 // checks if the TerminalTransactionEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TerminalTransactionEntity{}
 
-// TerminalTransactionEntity Create terminal response object
+// TerminalTransactionEntity Create terminal response object.
 type TerminalTransactionEntity struct {
-	CfPaymentId *string `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
 	PaymentAmount *int32 `json:"payment_amount,omitempty"`
 	PaymentMethod *string `json:"payment_method,omitempty"`
 	PaymentUrl *string `json:"payment_url,omitempty"`

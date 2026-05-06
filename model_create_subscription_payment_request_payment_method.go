@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -19,12 +19,12 @@ import (
 
 var _ = fmt.Errorf
 
-// CreateSubscriptionPaymentRequestPaymentMethod - Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]
+// CreateSubscriptionPaymentRequestPaymentMethod - Payment method. Can be one of [\"upi\", \"enach\", \"pnach\", \"card\"]. This field is not required when raising a charge. It is only mandatory when raising an authorisation. In the case of a charge, this field is ignored, and the charge will be created using the same payment method that was used for the original authorisation.
 type CreateSubscriptionPaymentRequestPaymentMethod struct {
 	CreateSubscriptionPaymentRequestCard *CreateSubscriptionPaymentRequestCard
 	CreateSubscriptionPaymentRequestEnach *CreateSubscriptionPaymentRequestEnach
 	CreateSubscriptionPaymentRequestPnach *CreateSubscriptionPaymentRequestPnach
-	CreateSubscriptonPaymentRequestUpi *CreateSubscriptonPaymentRequestUpi
+	CreateSubscriptionPaymentRequestUpi *CreateSubscriptionPaymentRequestUpi
 }
 
 // CreateSubscriptionPaymentRequestCardAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptionPaymentRequestCard wrapped in CreateSubscriptionPaymentRequestPaymentMethod
@@ -48,10 +48,10 @@ func CreateSubscriptionPaymentRequestPnachAsCreateSubscriptionPaymentRequestPaym
 	}
 }
 
-// CreateSubscriptonPaymentRequestUpiAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptonPaymentRequestUpi wrapped in CreateSubscriptionPaymentRequestPaymentMethod
-func CreateSubscriptonPaymentRequestUpiAsCreateSubscriptionPaymentRequestPaymentMethod(v *CreateSubscriptonPaymentRequestUpi) CreateSubscriptionPaymentRequestPaymentMethod {
+// CreateSubscriptionPaymentRequestUpiAsCreateSubscriptionPaymentRequestPaymentMethod is a convenience function that returns CreateSubscriptionPaymentRequestUpi wrapped in CreateSubscriptionPaymentRequestPaymentMethod
+func CreateSubscriptionPaymentRequestUpiAsCreateSubscriptionPaymentRequestPaymentMethod(v *CreateSubscriptionPaymentRequestUpi) CreateSubscriptionPaymentRequestPaymentMethod {
 	return CreateSubscriptionPaymentRequestPaymentMethod{
-		CreateSubscriptonPaymentRequestUpi: v,
+		CreateSubscriptionPaymentRequestUpi: v,
 	}
 }
 
@@ -142,17 +142,17 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 	}
 
 
-	// try to unmarshal data into CreateSubscriptonPaymentRequestUpi
+	// try to unmarshal data into CreateSubscriptionPaymentRequestUpi
 
-	err = json.Unmarshal(data, &dst.CreateSubscriptonPaymentRequestUpi)
+	err = json.Unmarshal(data, &dst.CreateSubscriptionPaymentRequestUpi)
 
 	if err == nil {
 
-		jsonCreateSubscriptonPaymentRequestUpi, _ := json.Marshal(dst.CreateSubscriptonPaymentRequestUpi)
+		jsonCreateSubscriptionPaymentRequestUpi, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestUpi)
 
-		if strings.Contains(string(jsonCreateSubscriptonPaymentRequestUpi), "{}") || strings.Contains(string(jsonCreateSubscriptonPaymentRequestUpi), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestUpi), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestUpi), "null") { // empty struct
 
-			dst.CreateSubscriptonPaymentRequestUpi = nil
+			dst.CreateSubscriptionPaymentRequestUpi = nil
 
 		} else {
 
@@ -162,7 +162,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 	} else {
 
-		dst.CreateSubscriptonPaymentRequestUpi = nil
+		dst.CreateSubscriptionPaymentRequestUpi = nil
 
 	}
 
@@ -181,7 +181,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 		dst.CreateSubscriptionPaymentRequestPnach = nil
 
 
-		dst.CreateSubscriptonPaymentRequestUpi = nil
+		dst.CreateSubscriptionPaymentRequestUpi = nil
 
 
 		return fmt.Errorf("data matches more than one schema in oneOf(CreateSubscriptionPaymentRequestPaymentMethod)")
@@ -214,8 +214,8 @@ func (src CreateSubscriptionPaymentRequestPaymentMethod) MarshalJSON() ([]byte, 
 		return json.Marshal(&src.CreateSubscriptionPaymentRequestPnach)
 	}
 
-	if src.CreateSubscriptonPaymentRequestUpi != nil {
-		return json.Marshal(&src.CreateSubscriptonPaymentRequestUpi)
+	if src.CreateSubscriptionPaymentRequestUpi != nil {
+		return json.Marshal(&src.CreateSubscriptionPaymentRequestUpi)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -238,8 +238,8 @@ func (obj *CreateSubscriptionPaymentRequestPaymentMethod) GetActualInstance() (i
 		return obj.CreateSubscriptionPaymentRequestPnach
 	}
 
-	if obj.CreateSubscriptonPaymentRequestUpi != nil {
-		return obj.CreateSubscriptonPaymentRequestUpi
+	if obj.CreateSubscriptionPaymentRequestUpi != nil {
+		return obj.CreateSubscriptionPaymentRequestUpi
 	}
 
 	// all schemas are nil

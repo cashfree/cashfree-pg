@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **PlanDetails** | [**CreateSubscriptionRequestPlanDetails**](CreateSubscriptionRequestPlanDetails.md) |  | 
 **AuthorizationDetails** | Pointer to [**CreateSubscriptionRequestAuthorizationDetails**](CreateSubscriptionRequestAuthorizationDetails.md) |  | [optional] 
 **SubscriptionMeta** | Pointer to [**CreateSubscriptionRequestSubscriptionMeta**](CreateSubscriptionRequestSubscriptionMeta.md) |  | [optional] 
-**SubscriptionExpiryTime** | Pointer to **string** | Expiry date for the subscription. | [optional] 
-**SubscriptionFirstChargeTime** | Pointer to **string** | Time at which the first charge will be made for the subscription after authorization. Applicable only for PERIODIC plans. | [optional] 
-**SubscriptionNote** | Pointer to **string** | Note for the subscription. | [optional] 
-**SubscriptionTags** | Pointer to **map[string]interface{}** | Tags for the subscription. | [optional] 
+**SubscriptionExpiryTime** | Pointer to **string** | Expiry date for the subscription. Cashfree stores timestamps in IST, but you can provide them in a valid ISO 8601 time format.  For IST this &#x60;2025-06-01T10:20:12+05:30&#x60; translates to &#x60;2025-06-01 10:20:12&#x60;    For UTC this &#x60;2025-06-01T10:20:12Z&#x60; translates to &#x60;2025-06-01 15:50:12+05:30&#x60;. | [optional] 
+**SubscriptionFirstChargeTime** | Pointer to **string** | Time at which the first charge will be made for the subscription after authorization. Applicable only for PERIODIC plans. Cashfree stores timestamps in IST, but you can provide them in a valid ISO 8601 time format.  For IST this &#x60;2025-06-01T10:20:12+05:30&#x60; translates to &#x60;2025-06-01 10:20:12&#x60;    For UTC this &#x60;2025-06-01T10:20:12Z&#x60; translates to &#x60;2025-06-01 15:50:12+05:30&#x60;. | [optional] 
+**SubscriptionTags** | Pointer to **map[string]interface{}** | Custom tags for this subscription. You can include up to 10 entries as string key-value pairs. Use any key names that suit your integration. A commonly used key is psp_note, which sets the note displayed to the customer in their payment service provider (PSP) app or on their statement. When using psp_note, the value must be between 1 and 255 characters. | [optional] 
 **SubscriptionPaymentSplits** | Pointer to [**[]SubscriptionPaymentSplitItem**](SubscriptionPaymentSplitItem.md) | Payment splits for the subscription. | [optional] 
+**CfOrderId** | Pointer to **string** | Cashfree order ID for the subscription. | [optional] 
 
 ## Methods
 
@@ -194,31 +194,6 @@ SetSubscriptionFirstChargeTime sets SubscriptionFirstChargeTime field to given v
 
 HasSubscriptionFirstChargeTime returns a boolean if a field has been set.
 
-### GetSubscriptionNote
-
-`func (o *CreateSubscriptionRequest) GetSubscriptionNote() string`
-
-GetSubscriptionNote returns the SubscriptionNote field if non-nil, zero value otherwise.
-
-### GetSubscriptionNoteOk
-
-`func (o *CreateSubscriptionRequest) GetSubscriptionNoteOk() (*string, bool)`
-
-GetSubscriptionNoteOk returns a tuple with the SubscriptionNote field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSubscriptionNote
-
-`func (o *CreateSubscriptionRequest) SetSubscriptionNote(v string)`
-
-SetSubscriptionNote sets SubscriptionNote field to given value.
-
-### HasSubscriptionNote
-
-`func (o *CreateSubscriptionRequest) HasSubscriptionNote() bool`
-
-HasSubscriptionNote returns a boolean if a field has been set.
-
 ### GetSubscriptionTags
 
 `func (o *CreateSubscriptionRequest) GetSubscriptionTags() map[string]interface{}`
@@ -268,6 +243,31 @@ SetSubscriptionPaymentSplits sets SubscriptionPaymentSplits field to given value
 `func (o *CreateSubscriptionRequest) HasSubscriptionPaymentSplits() bool`
 
 HasSubscriptionPaymentSplits returns a boolean if a field has been set.
+
+### GetCfOrderId
+
+`func (o *CreateSubscriptionRequest) GetCfOrderId() string`
+
+GetCfOrderId returns the CfOrderId field if non-nil, zero value otherwise.
+
+### GetCfOrderIdOk
+
+`func (o *CreateSubscriptionRequest) GetCfOrderIdOk() (*string, bool)`
+
+GetCfOrderIdOk returns a tuple with the CfOrderId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCfOrderId
+
+`func (o *CreateSubscriptionRequest) SetCfOrderId(v string)`
+
+SetCfOrderId sets CfOrderId field to given value.
+
+### HasCfOrderId
+
+`func (o *CreateSubscriptionRequest) HasCfOrderId() bool`
+
+HasCfOrderId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

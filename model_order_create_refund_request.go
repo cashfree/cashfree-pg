@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,17 +22,17 @@ var _ = fmt.Errorf
 // checks if the OrderCreateRefundRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OrderCreateRefundRequest{}
 
-// OrderCreateRefundRequest create refund request object
+// OrderCreateRefundRequest create refund request object.
 type OrderCreateRefundRequest struct {
-	// Amount to be refunded. Should be lesser than or equal to the transaction amount. (Decimals allowed)
+	// Amount to be refunded. Should be lesser than or equal to the transaction amount. (Decimals allowed).
 	RefundAmount float64 `json:"refund_amount"`
-	// An unique ID to associate the refund with. Provie alphanumeric values
-	RefundId string `json:"refund_id"`
-	// A refund note for your reference.
+	// An unique ID to associate the refund with. Provie alphanumeric values.
+	RefundId *string `json:"refund_id,omitempty"`
+	// A refund note for your reference. To simulate refund status in Sandbox, pass SUCCESS, FAILED, PENDING, or ACTIVE in the refund_note field. This is a case-sensitive parameter.
 	RefundNote *string `json:"refund_note,omitempty"`
-	// Speed at which the refund is processed. It's an optional field with default being STANDARD
+	// Speed at which the refund is processed. It's an optional field with default being STANDARD.
 	RefundSpeed *string `json:"refund_speed,omitempty"`
-	RefundSplits []VendorSplit `json:"refund_splits,omitempty"`
+	RefundSplits []OrderCreateRefundRequestRefundSplitsInner `json:"refund_splits,omitempty"`
 }
 
 
@@ -48,7 +48,9 @@ func (o OrderCreateRefundRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["refund_amount"] = o.RefundAmount
-	toSerialize["refund_id"] = o.RefundId
+	if !IsNil(o.RefundId) {
+		toSerialize["refund_id"] = o.RefundId
+	}
 	if !IsNil(o.RefundNote) {
 		toSerialize["refund_note"] = o.RefundNote
 	}

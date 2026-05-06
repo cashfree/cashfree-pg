@@ -5,22 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VendorId** | **string** | Specify the unique Vendor ID to identify the beneficiary. Alphanumeric and underscore (_) allowed. | 
-**Status** | **string** | Specify the status of vendor that should be updated. Possible values: ACTIVE,BLOCKED, DELETED | 
-**Name** | **string** | Specify the name of the vendor to be updated. Name should not have any special character except . / - &amp; | 
-**Email** | **string** | Specify the vendor email ID that should be updated. String in email ID format (Ex:johndoe_1@cashfree.com) should contain @ and dot (.) | 
+**Status** | **string** | Specify the status of vendor that should be updated. Possible values: ACTIVE,BLOCKED, DELETED. | 
+**Name** | **string** | Specify the name of the vendor to be updated. Name should not have any special character except . / - &amp;. | 
+**Email** | **string** | Specify the vendor email ID that should be updated. String in email ID format (Ex:johndoe_1@cashfree.com) should contain @ and dot (.). | 
 **Phone** | **string** | Specify the beneficiaries phone number to be updated. Phone number registered in India (only digits, 8 - 12 characters after excluding +91). | 
-**VerifyAccount** | Pointer to **bool** | Specify if the vendor bank account details should be verified. Possible values: true or false | [optional] 
-**DashboardAccess** | Pointer to **bool** | Update if the vendor will have dashboard access or not. Possible values are: true or false | [optional] 
+**VerifyAccount** | Pointer to **bool** | Specify if the vendor bank account details should be verified. Possible values: true or false. | [optional] 
+**DashboardAccess** | Pointer to **bool** | Update if the vendor will have dashboard access or not. Possible values are: true or false. | [optional] 
 **ScheduleOption** | Pointer to **float32** | Specify the settlement cycle to be updated. View the settlement cycle details from the \&quot;Settlement Cycles Supported\&quot; table. If no schedule option is configured, the settlement cycle ID \&quot;1\&quot; will be in effect. Select \&quot;8\&quot; or \&quot;9\&quot; if you want to schedule instant vendor settlements. | [optional] 
-**Bank** | Pointer to [**[]BankDetails**](BankDetails.md) | Specify the vendor bank account details to be updated. | [optional] 
-**Upi** | Pointer to [**[]UpiDetails**](UpiDetails.md) | Updated beneficiary upi vpa. Alphanumeric, dot (.), hyphen (-), at sign (@), and underscore allowed (100 character limit). Note: underscore and dot (.) gets accepted before and after @, but hyphen (-) is only accepted before @ sign. | [optional] 
-**KycDetails** | [**[]KycDetails**](KycDetails.md) | Specify the kyc details that should be updated. | 
+**Bank** | Pointer to [**BankDetails**](BankDetails.md) |  | [optional] 
+**Upi** | Pointer to [**UpiDetails**](UpiDetails.md) |  | [optional] 
+**KycDetails** | [**KycDetails**](KycDetails.md) |  | 
 
 ## Methods
 
 ### NewCreateVendorRequest
 
-`func NewCreateVendorRequest(vendorId string, status string, name string, email string, phone string, kycDetails []KycDetails, ) *CreateVendorRequest`
+`func NewCreateVendorRequest(vendorId string, status string, name string, email string, phone string, kycDetails KycDetails, ) *CreateVendorRequest`
 
 NewCreateVendorRequest instantiates a new CreateVendorRequest object
 This constructor will assign default values to properties that have it defined,
@@ -212,20 +212,20 @@ HasScheduleOption returns a boolean if a field has been set.
 
 ### GetBank
 
-`func (o *CreateVendorRequest) GetBank() []BankDetails`
+`func (o *CreateVendorRequest) GetBank() BankDetails`
 
 GetBank returns the Bank field if non-nil, zero value otherwise.
 
 ### GetBankOk
 
-`func (o *CreateVendorRequest) GetBankOk() (*[]BankDetails, bool)`
+`func (o *CreateVendorRequest) GetBankOk() (*BankDetails, bool)`
 
 GetBankOk returns a tuple with the Bank field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBank
 
-`func (o *CreateVendorRequest) SetBank(v []BankDetails)`
+`func (o *CreateVendorRequest) SetBank(v BankDetails)`
 
 SetBank sets Bank field to given value.
 
@@ -237,20 +237,20 @@ HasBank returns a boolean if a field has been set.
 
 ### GetUpi
 
-`func (o *CreateVendorRequest) GetUpi() []UpiDetails`
+`func (o *CreateVendorRequest) GetUpi() UpiDetails`
 
 GetUpi returns the Upi field if non-nil, zero value otherwise.
 
 ### GetUpiOk
 
-`func (o *CreateVendorRequest) GetUpiOk() (*[]UpiDetails, bool)`
+`func (o *CreateVendorRequest) GetUpiOk() (*UpiDetails, bool)`
 
 GetUpiOk returns a tuple with the Upi field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpi
 
-`func (o *CreateVendorRequest) SetUpi(v []UpiDetails)`
+`func (o *CreateVendorRequest) SetUpi(v UpiDetails)`
 
 SetUpi sets Upi field to given value.
 
@@ -262,20 +262,20 @@ HasUpi returns a boolean if a field has been set.
 
 ### GetKycDetails
 
-`func (o *CreateVendorRequest) GetKycDetails() []KycDetails`
+`func (o *CreateVendorRequest) GetKycDetails() KycDetails`
 
 GetKycDetails returns the KycDetails field if non-nil, zero value otherwise.
 
 ### GetKycDetailsOk
 
-`func (o *CreateVendorRequest) GetKycDetailsOk() (*[]KycDetails, bool)`
+`func (o *CreateVendorRequest) GetKycDetailsOk() (*KycDetails, bool)`
 
 GetKycDetailsOk returns a tuple with the KycDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKycDetails
 
-`func (o *CreateVendorRequest) SetKycDetails(v []KycDetails)`
+`func (o *CreateVendorRequest) SetKycDetails(v KycDetails)`
 
 SetKycDetails sets KycDetails field to given value.
 

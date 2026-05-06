@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,10 +22,12 @@ var _ = fmt.Errorf
 // checks if the PayOrderRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PayOrderRequest{}
 
-// PayOrderRequest Complete object for the pay api that uses payment method objects
+// PayOrderRequest struct for PayOrderRequest
 type PayOrderRequest struct {
+	// Unique identifier for the payment session, returned in the response of the Create Order API.
 	PaymentSessionId string `json:"payment_session_id"`
 	PaymentMethod PayOrderRequestPaymentMethod `json:"payment_method"`
+	// Send as **true** if the customer has given consent to save or tokenise the card; otherwise, send as false.
 	SaveInstrument *bool `json:"save_instrument,omitempty"`
 	// This is required if any offers needs to be applied to the order.
 	OfferId *string `json:"offer_id,omitempty"`

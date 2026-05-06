@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountTypes** | Pointer to **[]string** | List of account types associated with the payment method. (e.g. SAVINGS or CURRENT) | [optional] 
+**AccountTypes** | Pointer to **[]string** | List of account types associated with the payment method. (e.g. SAVINGS or CURRENT). | [optional] 
 **FrequentBankDetails** | Pointer to [**[]SubscriptionBankDetails**](SubscriptionBankDetails.md) | List of the most frequently used banks. | [optional] 
 **AllBankDetails** | Pointer to [**[]SubscriptionBankDetails**](SubscriptionBankDetails.md) | Details about all banks associated with the payment method. | [optional] 
 **AvailableHandles** | Pointer to [**[]EligibilityMethodItemEntityDetailsAvailableHandlesInner**](EligibilityMethodItemEntityDetailsAvailableHandlesInner.md) | List of supported VPA handles. | [optional] 
-**AllowedCardTypes** | Pointer to **[]string** | List of allowed card types. (e.g. DEBIT_CARD, CREDIT_CARD) | [optional] 
+**AllowedCardTypes** | Pointer to **[]string** | List of allowed card types. (e.g. DEBIT_CARD, CREDIT_CARD). | [optional] 
 
 ## Methods
 

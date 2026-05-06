@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Requested** | Pointer to **string** | Requested speed of refund. | [optional] 
 **Accepted** | Pointer to **string** | Accepted speed of refund. | [optional] 
 **Processed** | Pointer to **string** | Processed speed of refund. | [optional] 
-**Message** | Pointer to **string** | Error message, if any for refund_speed request | [optional] 
+**Message** | Pointer to **string** | Error message, if any for refund_speed request. | [optional] 
 
 ## Methods
 

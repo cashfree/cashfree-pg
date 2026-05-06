@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,15 +22,18 @@ var _ = fmt.Errorf
 // checks if the OrderMeta type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OrderMeta{}
 
-// OrderMeta Optional meta details to control how the customer pays and how payment journey completes
+// OrderMeta Optional meta details to control how the customer pays and how payment journey completes.
 type OrderMeta struct {
-	// The URL to which user will be redirected to after the payment on bank OTP page. Maximum length: 250. We suggest to keep context of order_id in your return_url so that you can identify the order when customer lands on your page. Example of return_url format could be https://www.cashfree.com/devstudio/thankyou
+	// This is the [URL](https://www.cashfree.com/devstudio/thankyou?order_id=devstudio_734905336776434862) to which the customer will be redirected after the payment reaches a terminal state (success, failed or cancelled). We recommend keeping context of `order_id` in your `return_url` so that you can identify the order when customer lands on your page. Cashfree triggers a **GET request** to this URL. Maximum URL length: 250 characters.
 	ReturnUrl *string `json:"return_url,omitempty"`
 	// Notification URL for server-server communication. Useful when user's connection drops while re-directing. NotifyUrl should be an https URL. Maximum length: 250.
 	NotifyUrl *string `json:"notify_url,omitempty"`
-	// Allowed payment modes for this order. Pass comma-separated values among following options - \"cc\", \"dc\", \"ccc\", \"ppc\",\"nb\",\"upi\",\"paypal\",\"app\",\"paylater\",\"cardlessemi\",\"dcemi\",\"ccemi\",\"banktransfer\". Leave it blank to show all available payment methods
+	// Specifies the allowed payment modes for this order. To restrict payment options,  provide a comma-separated list of values from the following options: `cc`, `dc`, `ccc`,  `ppc`, `nb`, `upi`, `paypal`, `app`, `paylater`, `cardlessemi`, `dcemi`, `ccemi`,  `banktransfer`, `applepay`. Leave this field blank to display all available payment methods.
 	PaymentMethods interface{} `json:"payment_methods,omitempty"`
 	PaymentMethodsFilters *OrderMetaPaymentMethodsFilters `json:"payment_methods_filters,omitempty"`
+	OfferFilters *OrderMetaOfferFilters `json:"offer_filters,omitempty"`
+	// Set the priority of UPI apps that you want to show for this order. Pass values in list among following options - \"gpay\",\"phonepe\",\"paytm\",\"navi\",\"cred\",\"supermoney\",\"amazonpay\",\"bhim\",\"mobikwik\",\"airtel\",\"popclub\",\"kiwi\".
+	UpiAppPriority interface{} `json:"upi_app_priority,omitempty"`
 }
 
 
@@ -56,6 +59,12 @@ func (o OrderMeta) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PaymentMethodsFilters) {
 		toSerialize["payment_methods_filters"] = o.PaymentMethodsFilters
+	}
+	if !IsNil(o.OfferFilters) {
+		toSerialize["offer_filters"] = o.OfferFilters
+	}
+	if o.UpiAppPriority != nil {
+		toSerialize["upi_app_priority"] = o.UpiAppPriority
 	}
 	return toSerialize, nil
 }

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,9 +22,9 @@ var _ = fmt.Errorf
 // checks if the Banktransfer type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Banktransfer{}
 
-// Banktransfer Banktransfer payment method
+// Banktransfer Bank transfer payment method.
 type Banktransfer struct {
-	// The channel for cardless EMI is always `link`
+	// The channel for bank transfer is always `link`.
 	Channel *string `json:"channel,omitempty"`
 }
 

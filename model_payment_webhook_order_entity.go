@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,12 +22,12 @@ var _ = fmt.Errorf
 // checks if the PaymentWebhookOrderEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PaymentWebhookOrderEntity{}
 
-// PaymentWebhookOrderEntity order entity in webhook
+// PaymentWebhookOrderEntity order entity in webhook.
 type PaymentWebhookOrderEntity struct {
 	OrderId *string `json:"order_id,omitempty"`
 	OrderAmount *float64 `json:"order_amount,omitempty"`
 	OrderCurrency *string `json:"order_currency,omitempty"`
-	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
+	// Custom Tags in the form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added.
 	OrderTags *map[string]string `json:"order_tags,omitempty"`
 }
 

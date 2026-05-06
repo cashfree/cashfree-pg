@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,12 +22,17 @@ var _ = fmt.Errorf
 // checks if the OrderPayData type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OrderPayData{}
 
-// OrderPayData the data object pay api
+// OrderPayData The data object of Order Pay API.
 type OrderPayData struct {
+	// For card payments, if the response includes ```action:link```, redirect the customer to the ```data.url``` page. If the response includes ```action:post```, display a native OTP UI to collect the OTP and submit it to ```data.url```.
 	Url *string `json:"url,omitempty"`
+	// Key value pairs sent as the request body if the payment link requires a form submission instead of a redirect.
 	Payload map[string]interface{} `json:"payload,omitempty"`
+	// Specifies the Content-Type header that should be used when submitting the payload, for example, ```application/x-www-form-urlencoded```.
 	ContentType *string `json:"content_type,omitempty"`
+	// The HTTP method to use when submitting the payload to the url. For example, POST.
 	Method *string `json:"method,omitempty"`
+	// This field is available only for card payments when ```action:post``` is returned. Display a native OTP UI and also provide an option for the customer to redirect to bank page. When the customer selects this option, redirect them to the ```data.redirect_to_bank``` URL.
 	RedirectToBank *string `json:"redirect_to_bank,omitempty"`
 }
 

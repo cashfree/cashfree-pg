@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the CreateSubscriptionRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateSubscriptionRequest{}
 
-// CreateSubscriptionRequest Request body to create a new subscription.
+// CreateSubscriptionRequest Request parameters to create a new subscription.
 type CreateSubscriptionRequest struct {
 	// A unique ID for the subscription. It can include alphanumeric characters, underscore, dot, hyphen, and space. Maximum characters allowed is 250.
 	SubscriptionId string `json:"subscription_id"`
@@ -30,16 +30,16 @@ type CreateSubscriptionRequest struct {
 	PlanDetails CreateSubscriptionRequestPlanDetails `json:"plan_details"`
 	AuthorizationDetails *CreateSubscriptionRequestAuthorizationDetails `json:"authorization_details,omitempty"`
 	SubscriptionMeta *CreateSubscriptionRequestSubscriptionMeta `json:"subscription_meta,omitempty"`
-	// Expiry date for the subscription.
+	// Expiry date for the subscription. Cashfree stores timestamps in IST, but you can provide them in a valid ISO 8601 time format.  For IST this `2025-06-01T10:20:12+05:30` translates to `2025-06-01 10:20:12`    For UTC this `2025-06-01T10:20:12Z` translates to `2025-06-01 15:50:12+05:30`.
 	SubscriptionExpiryTime *string `json:"subscription_expiry_time,omitempty"`
-	// Time at which the first charge will be made for the subscription after authorization. Applicable only for PERIODIC plans.
+	// Time at which the first charge will be made for the subscription after authorization. Applicable only for PERIODIC plans. Cashfree stores timestamps in IST, but you can provide them in a valid ISO 8601 time format.  For IST this `2025-06-01T10:20:12+05:30` translates to `2025-06-01 10:20:12`    For UTC this `2025-06-01T10:20:12Z` translates to `2025-06-01 15:50:12+05:30`.
 	SubscriptionFirstChargeTime *string `json:"subscription_first_charge_time,omitempty"`
-	// Note for the subscription.
-	SubscriptionNote *string `json:"subscription_note,omitempty"`
-	// Tags for the subscription.
+	// Custom tags for this subscription. You can include up to 10 entries as string key-value pairs. Use any key names that suit your integration. A commonly used key is psp_note, which sets the note displayed to the customer in their payment service provider (PSP) app or on their statement. When using psp_note, the value must be between 1 and 255 characters.
 	SubscriptionTags map[string]interface{} `json:"subscription_tags,omitempty"`
 	// Payment splits for the subscription.
 	SubscriptionPaymentSplits []SubscriptionPaymentSplitItem `json:"subscription_payment_splits,omitempty"`
+	// Cashfree order ID for the subscription.
+	CfOrderId *string `json:"cf_order_id,omitempty"`
 }
 
 
@@ -69,14 +69,14 @@ func (o CreateSubscriptionRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.SubscriptionFirstChargeTime) {
 		toSerialize["subscription_first_charge_time"] = o.SubscriptionFirstChargeTime
 	}
-	if !IsNil(o.SubscriptionNote) {
-		toSerialize["subscription_note"] = o.SubscriptionNote
-	}
 	if !IsNil(o.SubscriptionTags) {
 		toSerialize["subscription_tags"] = o.SubscriptionTags
 	}
 	if !IsNil(o.SubscriptionPaymentSplits) {
 		toSerialize["subscription_payment_splits"] = o.SubscriptionPaymentSplits
+	}
+	if !IsNil(o.CfOrderId) {
+		toSerialize["cf_order_id"] = o.CfOrderId
 	}
 	return toSerialize, nil
 }

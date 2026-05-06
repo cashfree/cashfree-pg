@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Emi** | [**EMIOffer**](EMIOffer.md) |  | 
+**Emi** | Pointer to [**EMIOffer**](EMIOffer.md) |  | [optional] 
 
 ## Methods
 
 ### NewOfferEMI
 
-`func NewOfferEMI(emi EMIOffer, ) *OfferEMI`
+`func NewOfferEMI() *OfferEMI`
 
 NewOfferEMI instantiates a new OfferEMI object
 This constructor will assign default values to properties that have it defined,
@@ -44,6 +44,11 @@ and a boolean to check if the value has been set.
 
 SetEmi sets Emi field to given value.
 
+### HasEmi
+
+`func (o *OfferEMI) HasEmi() bool`
+
+HasEmi returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

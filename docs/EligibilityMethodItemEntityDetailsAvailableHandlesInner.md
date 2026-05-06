@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Handle** | Pointer to **string** | VPA handle | [optional] 
+**Handle** | Pointer to **string** | VPA handle. | [optional] 
 **Application** | Pointer to **string** | Application or service related to the VPA handle. | [optional] 
 
 ## Methods

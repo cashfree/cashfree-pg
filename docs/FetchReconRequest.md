@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Pagination** | [**FetchReconRequestPagination**](FetchReconRequestPagination.md) |  | 
-**Filters** | [**FetchReconRequestFilters**](FetchReconRequestFilters.md) |  | 
+**Filters** | Pointer to [**FetchReconRequestFilters**](FetchReconRequestFilters.md) |  | [optional] 
 
 ## Methods
 
 ### NewFetchReconRequest
 
-`func NewFetchReconRequest(pagination FetchReconRequestPagination, filters FetchReconRequestFilters, ) *FetchReconRequest`
+`func NewFetchReconRequest(pagination FetchReconRequestPagination, ) *FetchReconRequest`
 
 NewFetchReconRequest instantiates a new FetchReconRequest object
 This constructor will assign default values to properties that have it defined,
@@ -65,6 +65,11 @@ and a boolean to check if the value has been set.
 
 SetFilters sets Filters field to given value.
 
+### HasFilters
+
+`func (o *FetchReconRequest) HasFilters() bool`
+
+HasFilters returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

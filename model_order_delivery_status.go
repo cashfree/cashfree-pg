@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,8 +24,8 @@ var _ MappedNullable = &OrderDeliveryStatus{}
 
 // OrderDeliveryStatus Order delivery Status associated with order.
 type OrderDeliveryStatus struct {
-	// Delivery status of order
-	Status string `json:"status"`
+	// Delivery status of order.
+	Status *string `json:"status,omitempty"`
 	// Reason of provided order delivery status. This is optional field.
 	Reason *string `json:"reason,omitempty"`
 }
@@ -42,7 +42,9 @@ func (o OrderDeliveryStatus) MarshalJSON() ([]byte, error) {
 func (o OrderDeliveryStatus) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	toSerialize["status"] = o.Status
+	if !IsNil(o.Status) {
+		toSerialize["status"] = o.Status
+	}
 	if !IsNil(o.Reason) {
 		toSerialize["reason"] = o.Reason
 	}

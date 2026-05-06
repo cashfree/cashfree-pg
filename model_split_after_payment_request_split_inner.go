@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -30,7 +30,7 @@ type SplitAfterPaymentRequestSplitInner struct {
 	Amount *float32 `json:"amount,omitempty"`
 	// Specify the percentage of amount to be split.
 	Percentage *float32 `json:"percentage,omitempty"`
-	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
+	// Custom Tags in the form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added.
 	Tags *map[string]string `json:"tags,omitempty"`
 }
 

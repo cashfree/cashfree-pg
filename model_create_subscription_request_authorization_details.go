@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,7 +24,7 @@ var _ MappedNullable = &CreateSubscriptionRequestAuthorizationDetails{}
 
 // CreateSubscriptionRequestAuthorizationDetails struct for CreateSubscriptionRequestAuthorizationDetails
 type CreateSubscriptionRequestAuthorizationDetails struct {
-	// Authorization amount for the auth payment.
+	// Authorization amount for the auth payment. Please note that authorization_amount will always be 0 for ENACH.
 	AuthorizationAmount *float32 `json:"authorization_amount,omitempty"`
 	// Indicates whether the authorization amount should be refunded to the customer automatically. Merchants can use this field to specify if the authorized funds should be returned to the customer after authorization of the subscription.
 	AuthorizationAmountRefund *bool `json:"authorization_amount_refund,omitempty"`

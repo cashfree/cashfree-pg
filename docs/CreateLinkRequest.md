@@ -4,25 +4,27 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LinkId** | **string** | Unique Identifier (provided by merchant) for the Link. Alphanumeric and only - and _ allowed (50 character limit). Use this for other link-related APIs. | 
+**LinkId** | Pointer to **string** | Unique Identifier (provided by merchant) for the Link. Alphanumeric and only - and _ allowed (50 character limit). Use this for other link-related APIs. | [optional] 
 **LinkAmount** | **float64** | Amount to be collected using this link. Provide upto two decimals for paise. | 
-**LinkCurrency** | **string** | Currency for the payment link. Default is INR. Contact care@cashfree.com to enable new currencies. | 
-**LinkPurpose** | **string** | A brief description for which payment must be collected. This is shown to the customer. | 
+**LinkCurrency** | **string** | Currency for the payment link. Default is INR. Submit [Support Form](https://merchant.cashfree.com/auth/login) to enable new currencies. | 
+**LinkPurpose** | Pointer to **string** | A brief description for which payment must be collected. This is shown to the customer. | [optional] 
 **CustomerDetails** | [**LinkCustomerDetailsEntity**](LinkCustomerDetailsEntity.md) |  | 
 **LinkPartialPayments** | Pointer to **bool** | If \&quot;true\&quot;, customer can make partial payments for the link. | [optional] 
 **LinkMinimumPartialAmount** | Pointer to **float64** | Minimum amount in first installment that needs to be paid by the customer if partial payments are enabled. This should be less than the link_amount. | [optional] 
 **LinkExpiryTime** | Pointer to **string** | Time after which the link expires. Customers will not be able to make the payment beyond the time specified here. You can provide them in a valid ISO 8601 time format. Default is 30 days. | [optional] 
 **LinkNotify** | Pointer to [**LinkNotifyEntity**](LinkNotifyEntity.md) |  | [optional] 
 **LinkAutoReminders** | Pointer to **bool** | If \&quot;true\&quot;, reminders will be sent to customers for collecting payments. | [optional] 
-**LinkNotes** | Pointer to **map[string]string** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs | [optional] 
+**LinkNotes** | Pointer to **map[string]string** | Key-value pair that can be used to store additional information about the entity. Maximum 5 key-value pairs. | [optional] 
 **LinkMeta** | Pointer to [**LinkMetaResponseEntity**](LinkMetaResponseEntity.md) |  | [optional] 
 **OrderSplits** | Pointer to [**[]VendorSplit**](VendorSplit.md) | If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount. | [optional] 
+**EnableInvoice** | Pointer to **bool** | Enable or disable invoice generation for this payment link. | [optional] 
+**Subscription** | Pointer to [**Subscription**](Subscription.md) |  | [optional] 
 
 ## Methods
 
 ### NewCreateLinkRequest
 
-`func NewCreateLinkRequest(linkId string, linkAmount float64, linkCurrency string, linkPurpose string, customerDetails LinkCustomerDetailsEntity, ) *CreateLinkRequest`
+`func NewCreateLinkRequest(linkAmount float64, linkCurrency string, customerDetails LinkCustomerDetailsEntity, ) *CreateLinkRequest`
 
 NewCreateLinkRequest instantiates a new CreateLinkRequest object
 This constructor will assign default values to properties that have it defined,
@@ -56,6 +58,11 @@ and a boolean to check if the value has been set.
 
 SetLinkId sets LinkId field to given value.
 
+### HasLinkId
+
+`func (o *CreateLinkRequest) HasLinkId() bool`
+
+HasLinkId returns a boolean if a field has been set.
 
 ### GetLinkAmount
 
@@ -116,6 +123,11 @@ and a boolean to check if the value has been set.
 
 SetLinkPurpose sets LinkPurpose field to given value.
 
+### HasLinkPurpose
+
+`func (o *CreateLinkRequest) HasLinkPurpose() bool`
+
+HasLinkPurpose returns a boolean if a field has been set.
 
 ### GetCustomerDetails
 
@@ -336,6 +348,56 @@ SetOrderSplits sets OrderSplits field to given value.
 `func (o *CreateLinkRequest) HasOrderSplits() bool`
 
 HasOrderSplits returns a boolean if a field has been set.
+
+### GetEnableInvoice
+
+`func (o *CreateLinkRequest) GetEnableInvoice() bool`
+
+GetEnableInvoice returns the EnableInvoice field if non-nil, zero value otherwise.
+
+### GetEnableInvoiceOk
+
+`func (o *CreateLinkRequest) GetEnableInvoiceOk() (*bool, bool)`
+
+GetEnableInvoiceOk returns a tuple with the EnableInvoice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnableInvoice
+
+`func (o *CreateLinkRequest) SetEnableInvoice(v bool)`
+
+SetEnableInvoice sets EnableInvoice field to given value.
+
+### HasEnableInvoice
+
+`func (o *CreateLinkRequest) HasEnableInvoice() bool`
+
+HasEnableInvoice returns a boolean if a field has been set.
+
+### GetSubscription
+
+`func (o *CreateLinkRequest) GetSubscription() Subscription`
+
+GetSubscription returns the Subscription field if non-nil, zero value otherwise.
+
+### GetSubscriptionOk
+
+`func (o *CreateLinkRequest) GetSubscriptionOk() (*Subscription, bool)`
+
+GetSubscriptionOk returns a tuple with the Subscription field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubscription
+
+`func (o *CreateLinkRequest) SetSubscription(v Subscription)`
+
+SetSubscription sets Subscription field to given value.
+
+### HasSubscription
+
+`func (o *CreateLinkRequest) HasSubscription() bool`
+
+HasSubscription returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

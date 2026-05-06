@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Vpa** | Pointer to **string** |  | [optional] 
-**CfTerminalId** | Pointer to **string** |  | [optional] 
+**CfTerminalId** | Pointer to **int64** |  | [optional] 
 **DeviceSerialNo** | Pointer to **string** |  | [optional] 
 **MerchantName** | Pointer to **string** |  | [optional] 
 **Language** | Pointer to **string** |  | [optional] 
@@ -56,20 +56,20 @@ HasVpa returns a boolean if a field has been set.
 
 ### GetCfTerminalId
 
-`func (o *SoundboxVpaEntity) GetCfTerminalId() string`
+`func (o *SoundboxVpaEntity) GetCfTerminalId() int64`
 
 GetCfTerminalId returns the CfTerminalId field if non-nil, zero value otherwise.
 
 ### GetCfTerminalIdOk
 
-`func (o *SoundboxVpaEntity) GetCfTerminalIdOk() (*string, bool)`
+`func (o *SoundboxVpaEntity) GetCfTerminalIdOk() (*int64, bool)`
 
 GetCfTerminalIdOk returns a tuple with the CfTerminalId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCfTerminalId
 
-`func (o *SoundboxVpaEntity) SetCfTerminalId(v string)`
+`func (o *SoundboxVpaEntity) SetCfTerminalId(v int64)`
 
 SetCfTerminalId sets CfTerminalId field to given value.
 

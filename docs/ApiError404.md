@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Message** | Pointer to **string** |  | [optional] 
 **Code** | Pointer to **string** |  | [optional] 
 **Help** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to **string** | invalid_request_error | [optional] 
+**Type** | Pointer to **string** | invalid_request_error. | [optional] 
 
 ## Methods
 

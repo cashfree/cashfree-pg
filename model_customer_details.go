@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -28,17 +28,17 @@ type CustomerDetails struct {
 	CustomerId string `json:"customer_id"`
 	// Customer email address.
 	CustomerEmail *string `json:"customer_email,omitempty"`
-	// Customer phone number.
+	// Customer phone number. To accommodate international phone numbers, ensure the number is prefixed with a '+' to override the 10-digit limitation.
 	CustomerPhone string `json:"customer_phone"`
 	// Name of the customer.
 	CustomerName *string `json:"customer_name,omitempty"`
-	// Customer bank account. Required if you want to do a bank account check (TPV)
+	// Customer's bank account number. This field is required only if you want to perform a bank account check (TPV).
 	CustomerBankAccountNumber *string `json:"customer_bank_account_number,omitempty"`
-	// Customer bank IFSC. Required if you want to do a bank account check (TPV)
+	// Customer's bank IFSC. Required if you want to do a bank account check (TPV).
 	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
-	// Customer bank code. Required for net banking payments, if you want to do a bank account check (TPV)
+	// Customer's bank code. Required for net banking payments, if you want to do a bank account check (TPV).
 	CustomerBankCode *float32 `json:"customer_bank_code,omitempty"`
-	// Customer identifier at Cashfree. You will get this when you create/get customer
+	// Customer's identifier at Cashfree. You will get this when you create/get customer.
 	CustomerUid *string `json:"customer_uid,omitempty"`
 }
 
