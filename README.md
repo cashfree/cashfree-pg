@@ -17,7 +17,7 @@ Try out our interactive guides at [Cashfree Dev Studio](https://www.cashfree.com
 
 ### Installation
 ```bash
-go get github.com/cashfree/cashfree-pg/v5
+go get github.com/cashfree/cashfree-pg/v6
 ```
 ### Configuration
 
@@ -25,7 +25,7 @@ go get github.com/cashfree/cashfree-pg/v5
 
 ```go 
 import (
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+    cashfree "github.com/cashfree/cashfree-pg/v6"
 )
 
 xClientId := "<x-client-id>"
@@ -80,7 +80,7 @@ if err != nil {
 
 ```go 
 import (
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+    cashfree "github.com/cashfree/cashfree-pg/v6"
 )
 
 clientId := "<x-client-id>"
