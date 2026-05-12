@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,25 +22,25 @@ var _ = fmt.Errorf
 // checks if the TerminalDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TerminalDetails{}
 
-// TerminalDetails Use this if you are creating an order for cashfree's softPOS
+// TerminalDetails Use this if you are creating an order for cashfree's softPOS.
 type TerminalDetails struct {
-	// date time at which terminal is added
+	// date time at which terminal is added.
 	AddedOn *string `json:"added_on,omitempty"`
-	// Cashfree terminal id, this is a required parameter when you do not provide the terminal phone number.
-	CfTerminalId *string `json:"cf_terminal_id,omitempty"`
-	// last instant when this terminal was updated
+	// Cashfree terminal ID, this is a required parameter when you do not provide the terminal phone number.
+	CfTerminalId *int64 `json:"cf_terminal_id,omitempty"`
+	// last instant when this terminal was updated.
 	LastUpdatedOn *string `json:"last_updated_on,omitempty"`
-	// location of terminal
+	// location of terminal.
 	TerminalAddress *string `json:"terminal_address,omitempty"`
-	// terminal id for merchant reference
+	// terminal id for merchant reference.
 	TerminalId *string `json:"terminal_id,omitempty"`
-	// name of terminal/agent/storefront
+	// name of terminal/agent/storefront.
 	TerminalName *string `json:"terminal_name,omitempty"`
-	// note given by merchant while creating the terminal
+	// note given by merchant while creating the terminal.
 	TerminalNote *string `json:"terminal_note,omitempty"`
 	// mobile num of the terminal/agent/storefront,This is a required parameter when you do not provide the cf_terminal_id.
 	TerminalPhoneNo *string `json:"terminal_phone_no,omitempty"`
-	// status of terminal active/inactive
+	// status of terminal active/inactive.
 	TerminalStatus *string `json:"terminal_status,omitempty"`
 	// To identify the type of terminal product in use, in this case it is SPOS.
 	TerminalType string `json:"terminal_type"`

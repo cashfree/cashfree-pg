@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,17 +22,19 @@ var _ = fmt.Errorf
 // checks if the SavedInstrumentMeta type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SavedInstrumentMeta{}
 
-// SavedInstrumentMeta Card instrument meta information
+// SavedInstrumentMeta Card instrument meta information.
 type SavedInstrumentMeta struct {
-	// card scheme/network of the saved card. Example visa, mastercard
+	// Card scheme/network of the saved card. Available options are `visa`, `mastercard`, `rupay`, `amex`, and `diners`.
 	CardNetwork *string `json:"card_network,omitempty"`
-	// Issuing bank name of saved card
+	// Issuing bank name of the saved card. For example, `HDFC BANK`, `AXIS BANK`, or `ICICI BANK`.
 	CardBankName *string `json:"card_bank_name,omitempty"`
-	// Issuing country of saved card
+	// Issuing country of the saved card. For example, `IN`.
 	CardCountry *string `json:"card_country,omitempty"`
-	// Type of saved card
+	// Type of the saved card. Available options are `credit_card`, `debit_card`, and `prepaid_card`.
 	CardType *string `json:"card_type,omitempty"`
-	CardTokenDetails map[string]interface{} `json:"card_token_details,omitempty"`
+	// Subtype of the saved card. R indicates retail, P indicates premium, and C indicates corporate. Available options are `R`, `P`, and `C`.
+	CardSubType *string `json:"card_sub_type,omitempty"`
+	CardTokenDetails *SavedInstrumentMetaCardTokenDetails `json:"card_token_details,omitempty"`
 }
 
 
@@ -58,6 +60,9 @@ func (o SavedInstrumentMeta) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.CardType) {
 		toSerialize["card_type"] = o.CardType
+	}
+	if !IsNil(o.CardSubType) {
+		toSerialize["card_sub_type"] = o.CardSubType
 	}
 	if !IsNil(o.CardTokenDetails) {
 		toSerialize["card_token_details"] = o.CardTokenDetails

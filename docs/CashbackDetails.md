@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CashbackType** | **string** | Type of discount | 
+**CashbackType** | **string** | Type of discount. | 
 **CashbackValue** | **float32** | Value of Discount. | 
 **MaxCashbackAmount** | **float32** | Maximum Value of Cashback allowed. | 
 

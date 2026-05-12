@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,23 +22,23 @@ var _ = fmt.Errorf
 // checks if the CreateOrderRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreateOrderRequest{}
 
-// CreateOrderRequest Request body to create an order at cashfree
+// CreateOrderRequest Request body to create an order at Cashfree.
 type CreateOrderRequest struct {
-	// Order identifier present in your system. Alphanumeric, '_' and '-' only
+	// Order identifier present in your system. Alphanumeric, '_' and '-' only.
 	OrderId *string `json:"order_id,omitempty"`
-	// Bill amount for the order. Provide upto two decimals. 10.15 means Rs 10 and 15 paisa
+	// Bill amount for the order. Provide upto two decimals. 10.15 means Rs 10 and 15 paisa. For orders in non-INR currency, please refer to [supported amounts](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#decimal-support) per currency.
 	OrderAmount float64 `json:"order_amount"`
-	// Currency for the order. INR if left empty. Contact care@cashfree.com to enable new currencies.
+	// Currency for the order. INR if left empty. For support currency list, refer [here](https://www.cashfree.com/docs/payments/international-payments/ipg/currencies-supported#full-currency-list). Submit [Support Form](https://merchant.cashfree.com/auth/login) to enable new currencies.
 	OrderCurrency string `json:"order_currency"`
 	CartDetails *CartDetails `json:"cart_details,omitempty"`
-	CustomerDetails CustomerDetails `json:"customer_details"`
+	CustomerDetails *CustomerDetails `json:"customer_details,omitempty"`
 	Terminal *TerminalDetails `json:"terminal,omitempty"`
 	OrderMeta *OrderMeta `json:"order_meta,omitempty"`
 	// Time after which the order expires. Customers will not be able to make the payment beyond the time specified here. We store timestamps in IST, but you can provide them in a valid ISO 8601 time format. Example 2021-07-02T10:20:12+05:30 for IST, 2021-07-02T10:20:12Z for UTC
 	OrderExpiryTime *string `json:"order_expiry_time,omitempty"`
 	// Order note for reference.
 	OrderNote *string `json:"order_note,omitempty"`
-	// Custom Tags in thr form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added
+	// Custom Tags in the form of {\"key\":\"value\"} which can be passed for an order. A maximum of 10 tags can be added.
 	OrderTags *map[string]string `json:"order_tags,omitempty"`
 	// If you have Easy split enabled in your Cashfree account then you can use this option to split the order amount.
 	OrderSplits []VendorSplit `json:"order_splits,omitempty"`
@@ -65,7 +65,9 @@ func (o CreateOrderRequest) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CartDetails) {
 		toSerialize["cart_details"] = o.CartDetails
 	}
-	toSerialize["customer_details"] = o.CustomerDetails
+	if !IsNil(o.CustomerDetails) {
+		toSerialize["customer_details"] = o.CustomerDetails
+	}
 	if !IsNil(o.Terminal) {
 		toSerialize["terminal"] = o.Terminal
 	}

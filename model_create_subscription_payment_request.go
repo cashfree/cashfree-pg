@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -32,7 +32,7 @@ type CreateSubscriptionPaymentRequest struct {
 	PaymentId string `json:"payment_id"`
 	// The charge amount of the payment. Required in case of charge.
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
-	// The date on which the payment is scheduled to be processed. Required for UPI and CARD payment modes.
+	// The date on which the payment is scheduled to be processed. This field is required for UPI and CARD payment modes. Cashfree stores timestamps in IST, but you can provide them in a valid ISO 8601 time format. For IST this `2025-06-01T10:20:12+05:30` translates to `2025-06-01 10:20:12`. For UTC this `2025-06-01T10:20:12Z` translates to `2025-06-01 15:50:12+05:30`.   Please note that only the date component is considered. Any time value provided will be ignored.
 	PaymentScheduleDate *string `json:"payment_schedule_date,omitempty"`
 	// Payment remarks.
 	PaymentRemarks *string `json:"payment_remarks,omitempty"`

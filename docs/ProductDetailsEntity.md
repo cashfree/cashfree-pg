@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | Pointer to **bool** | Whether the feature has been enabled for this order | [optional] 
-**Conditions** | Pointer to [**[]ProductConditionsEntity**](ProductConditionsEntity.md) | Configured condtions for the feature | [optional] 
+**Enabled** | Pointer to **bool** | Whether the feature has been enabled for this order. | [optional] 
+**Conditions** | Pointer to [**[]ProductConditionsEntity**](ProductConditionsEntity.md) | Configured condtions for the feature. | [optional] 
 
 ## Methods
 

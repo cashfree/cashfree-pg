@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Card** | [**Card**](Card.md) |  | 
+**Card** | Pointer to [**Card**](Card.md) |  | [optional] 
 **Upi** | [**Upi**](Upi.md) |  | 
 **Netbanking** | [**Netbanking**](Netbanking.md) |  | 
 **App** | [**App**](App.md) |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewPayOrderRequestPaymentMethod
 
-`func NewPayOrderRequestPaymentMethod(card Card, upi Upi, netbanking Netbanking, app App, emi CardEMI, cardlessEmi CardlessEMI, paylater Paylater, banktransfer Banktransfer, ) *PayOrderRequestPaymentMethod`
+`func NewPayOrderRequestPaymentMethod(upi Upi, netbanking Netbanking, app App, emi CardEMI, cardlessEmi CardlessEMI, paylater Paylater, banktransfer Banktransfer, ) *PayOrderRequestPaymentMethod`
 
 NewPayOrderRequestPaymentMethod instantiates a new PayOrderRequestPaymentMethod object
 This constructor will assign default values to properties that have it defined,
@@ -51,6 +51,11 @@ and a boolean to check if the value has been set.
 
 SetCard sets Card field to given value.
 
+### HasCard
+
+`func (o *PayOrderRequestPaymentMethod) HasCard() bool`
+
+HasCard returns a boolean if a field has been set.
 
 ### GetUpi
 

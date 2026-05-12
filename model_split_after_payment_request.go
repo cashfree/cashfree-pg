@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,10 +22,10 @@ var _ = fmt.Errorf
 // checks if the SplitAfterPaymentRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SplitAfterPaymentRequest{}
 
-// SplitAfterPaymentRequest Split After Payment Request
+// SplitAfterPaymentRequest Split After Payment Request.
 type SplitAfterPaymentRequest struct {
 	// Specify the vendors order split details.
-	Split []SplitAfterPaymentRequestSplitInner `json:"split"`
+	Split []SplitAfterPaymentRequestSplitInner `json:"split,omitempty"`
 	// Specify if you want to end the split or continue creating further splits in future.
 	DisableSplit *bool `json:"disable_split,omitempty"`
 }
@@ -42,7 +42,9 @@ func (o SplitAfterPaymentRequest) MarshalJSON() ([]byte, error) {
 func (o SplitAfterPaymentRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
-	toSerialize["split"] = o.Split
+	if !IsNil(o.Split) {
+		toSerialize["split"] = o.Split
+	}
 	if !IsNil(o.DisableSplit) {
 		toSerialize["disable_split"] = o.DisableSplit
 	}

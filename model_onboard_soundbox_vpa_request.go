@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,17 +22,17 @@ var _ = fmt.Errorf
 // checks if the OnboardSoundboxVpaRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &OnboardSoundboxVpaRequest{}
 
-// OnboardSoundboxVpaRequest Request body to onboard soundbox vpa
+// OnboardSoundboxVpaRequest Request body to onboard soundbox vpa.
 type OnboardSoundboxVpaRequest struct {
-	// Terminal Vpa ,that need to onboard on soundbox
+	// Terminal Vpa ,that need to onboard on soundbox.
 	Vpa string `json:"vpa"`
-	// cashfree terminal id.
-	CfTerminalId string `json:"cf_terminal_id"`
-	// Device Serial No of soundbox
-	DeviceSerialNo string `json:"device_serial_no"`
-	// Merchant Name that need to onboard on soundbox
+	// Cashfree terminal ID.
+	CfTerminalId int64 `json:"cf_terminal_id"`
+	// Device Serial No of soundbox.
+	DeviceSerialNo *string `json:"device_serial_no,omitempty"`
+	// Merchant Name that need to onboard on soundbox.
 	MerchantName *string `json:"merchant_name,omitempty"`
-	// language of soundbox,currently English, Hindi, Tamil
+	// language of soundbox,currently English, Hindi, Tamil.
 	Language *string `json:"language,omitempty"`
 }
 
@@ -50,7 +50,9 @@ func (o OnboardSoundboxVpaRequest) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["vpa"] = o.Vpa
 	toSerialize["cf_terminal_id"] = o.CfTerminalId
-	toSerialize["device_serial_no"] = o.DeviceSerialNo
+	if !IsNil(o.DeviceSerialNo) {
+		toSerialize["device_serial_no"] = o.DeviceSerialNo
+	}
 	if !IsNil(o.MerchantName) {
 		toSerialize["merchant_name"] = o.MerchantName
 	}

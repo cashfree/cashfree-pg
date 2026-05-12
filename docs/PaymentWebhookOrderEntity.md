@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **OrderId** | Pointer to **string** |  | [optional] 
 **OrderAmount** | Pointer to **float64** |  | [optional] 
 **OrderCurrency** | Pointer to **string** |  | [optional] 
-**OrderTags** | Pointer to **map[string]string** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
+**OrderTags** | Pointer to **map[string]string** | Custom Tags in the form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added. | [optional] 
 
 ## Methods
 

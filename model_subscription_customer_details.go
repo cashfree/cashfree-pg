@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -30,13 +30,13 @@ type SubscriptionCustomerDetails struct {
 	CustomerEmail string `json:"customer_email"`
 	// Phone number of the customer.
 	CustomerPhone string `json:"customer_phone"`
-	// Bank holder name of the customer.
+	// Bank holder name of the customer. Account holder name is mandatory for TPV transaction. Max character allowed is 40.
 	CustomerBankAccountHolderName *string `json:"customer_bank_account_holder_name,omitempty"`
-	// Bank account number of the customer.
+	// Bank account number of the customer. Conditional Parameter. Max character allowed is 35.
 	CustomerBankAccountNumber *string `json:"customer_bank_account_number,omitempty"`
-	// IFSC code of the customer.
+	// IFSC code of the customer. For a TPV transaction, send at least one out of `customer_bank_code` or `customer_bank_ifsc`.
 	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
-	// Bank code of the customer. Refer to https://www.npci.org.in/PDF/nach/live-members-e-mandates/Live-Banks-in-API-E-Mandate.pdf
+	// Bank code of the customer. Refer to the list of Live Banks in API E-Mandate [here](https://www.npci.org.in/product/nach/all-members). For a TPV transactions, include at least one of `customer_bank_code` or `customer_bank_ifsc`.
 	CustomerBankCode *string `json:"customer_bank_code,omitempty"`
 	// Bank account type of the customer.
 	CustomerBankAccountType *string `json:"customer_bank_account_type,omitempty"`

@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | Pointer to **string** |  | [optional] 
-**CardNumber** | Pointer to **string** |  | [optional] 
-**CardNetwork** | Pointer to **string** |  | [optional] 
-**CardType** | Pointer to **string** |  | [optional] 
-**CardCountry** | Pointer to **string** |  | [optional] 
-**CardBankName** | Pointer to **string** |  | [optional] 
-**CardNetworkReferenceId** | Pointer to **string** |  | [optional] 
-**InstrumentId** | Pointer to **string** |  | [optional] 
+**Channel** | Pointer to **string** | The requested channel, can be &#x60;link&#x60; or &#x60;post&#x60;. | [optional] 
+**CardNumber** | Pointer to **string** | The last four digits of the customer&#39;s card number. For external token transactions or external Alt ID transactions, this value is passed only when the merchant includes &#x60;card_display&#x60; in the [Order Pay API](https://www.cashfree.com/docs/api-reference/payments/latest/payments/pay) request. | [optional] 
+**CardNetwork** | Pointer to **string** | The card scheme or network of the card. For example, &#x60;visa&#x60;, &#x60;mastercard&#x60;, &#x60;rupay&#x60;, &#x60;amex&#x60;, or &#x60;diners&#x60;. | [optional] 
+**CardType** | Pointer to **string** | The type of card. For example, &#x60;credit_card&#x60;, &#x60;debit_card&#x60;, or &#x60;prepaid_card&#x60;. | [optional] 
+**CardSubType** | Pointer to **string** | The sub-type of card. &#x60;R&#x60; is Retail card, &#x60;P&#x60; is Premium card, &#x60;C&#x60; is Corporate card. | [optional] 
+**CardCountry** | Pointer to **string** | The issuing country of the card. For example, &#x60;IN&#x60;. | [optional] 
+**CardBankName** | Pointer to **string** | The issuing bank of the card. For example, &#x60;HDFC BANK&#x60;, &#x60;AXIS BANK&#x60;, or &#x60;ICICI BANK&#x60;. | [optional] 
+**CardNetworkReferenceId** | Pointer to **string** | The authentication reference ID provided by the respective card network. | [optional] 
+**InstrumentId** | Pointer to **string** | The identifier for the card saved at Cashfree. This value is sent only for CF token transactions. | [optional] 
 
 ## Methods
 
@@ -131,6 +132,31 @@ SetCardType sets CardType field to given value.
 `func (o *PaymentMethodCardInPaymentsEntityCard) HasCardType() bool`
 
 HasCardType returns a boolean if a field has been set.
+
+### GetCardSubType
+
+`func (o *PaymentMethodCardInPaymentsEntityCard) GetCardSubType() string`
+
+GetCardSubType returns the CardSubType field if non-nil, zero value otherwise.
+
+### GetCardSubTypeOk
+
+`func (o *PaymentMethodCardInPaymentsEntityCard) GetCardSubTypeOk() (*string, bool)`
+
+GetCardSubTypeOk returns a tuple with the CardSubType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCardSubType
+
+`func (o *PaymentMethodCardInPaymentsEntityCard) SetCardSubType(v string)`
+
+SetCardSubType sets CardSubType field to given value.
+
+### HasCardSubType
+
+`func (o *PaymentMethodCardInPaymentsEntityCard) HasCardSubType() bool`
+
+HasCardSubType returns a boolean if a field has been set.
 
 ### GetCardCountry
 

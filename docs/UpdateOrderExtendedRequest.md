@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ShipmentDetails** | [**[]ShipmentDetails**](ShipmentDetails.md) | Shipment details, such as the tracking company, tracking number, and tracking URLs, associated with the shipping of an order. Either &#x60;shipment_details&#x60; or &#x60;order_delivery_status&#x60; is required. | 
+**ShipmentDetails** | Pointer to [**[]ShipmentDetails**](ShipmentDetails.md) | Shipment details, such as the tracking company, tracking number, and tracking URLs, associated with the shipping of an order. Either &#x60;shipment_details&#x60; or &#x60;order_delivery_status&#x60; is required. | [optional] 
 **OrderDeliveryStatus** | Pointer to [**OrderDeliveryStatus**](OrderDeliveryStatus.md) |  | [optional] 
 
 ## Methods
 
 ### NewUpdateOrderExtendedRequest
 
-`func NewUpdateOrderExtendedRequest(shipmentDetails []ShipmentDetails, ) *UpdateOrderExtendedRequest`
+`func NewUpdateOrderExtendedRequest() *UpdateOrderExtendedRequest`
 
 NewUpdateOrderExtendedRequest instantiates a new UpdateOrderExtendedRequest object
 This constructor will assign default values to properties that have it defined,
@@ -45,6 +45,11 @@ and a boolean to check if the value has been set.
 
 SetShipmentDetails sets ShipmentDetails field to given value.
 
+### HasShipmentDetails
+
+`func (o *UpdateOrderExtendedRequest) HasShipmentDetails() bool`
+
+HasShipmentDetails returns a boolean if a field has been set.
 
 ### GetOrderDeliveryStatus
 

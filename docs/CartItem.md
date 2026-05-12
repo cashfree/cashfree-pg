@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ItemId** | Pointer to **string** | Unique identifier of the item | [optional] 
-**ItemName** | Pointer to **string** | Name of the item | [optional] 
-**ItemDescription** | Pointer to **string** | Description of the item | [optional] 
-**ItemTags** | Pointer to **[]string** | Tags attached to that item | [optional] 
-**ItemDetailsUrl** | Pointer to **string** | Item details url | [optional] 
-**ItemImageUrl** | Pointer to **string** | Item image url | [optional] 
-**ItemOriginalUnitPrice** | Pointer to **float64** | Original price | [optional] 
-**ItemDiscountedUnitPrice** | Pointer to **float64** | Discounted Price | [optional] 
+**ItemId** | Pointer to **string** | Unique identifier of the item. | [optional] 
+**ItemName** | Pointer to **string** | Name of the item. | [optional] 
+**ItemDescription** | Pointer to **string** | Description of the item. | [optional] 
+**ItemTags** | Pointer to **[]string** | Tags attached to that item. | [optional] 
+**ItemDetailsUrl** | Pointer to **string** | Item details url. | [optional] 
+**ItemImageUrl** | Pointer to **string** | Item image url. | [optional] 
+**ItemOriginalUnitPrice** | Pointer to **float64** | Original price. | [optional] 
+**ItemDiscountedUnitPrice** | Pointer to **float64** | Discounted Price. | [optional] 
 **ItemCurrency** | Pointer to **string** | Currency of the item. | [optional] 
-**ItemQuantity** | Pointer to **float32** | Quantity if that item | [optional] 
+**ItemQuantity** | Pointer to **float32** | Quantity if that item. | [optional] 
+**ItemVariantId** | Pointer to **string** | Variant identifier of the item. | [optional] 
 
 ## Methods
 
@@ -283,6 +284,31 @@ SetItemQuantity sets ItemQuantity field to given value.
 `func (o *CartItem) HasItemQuantity() bool`
 
 HasItemQuantity returns a boolean if a field has been set.
+
+### GetItemVariantId
+
+`func (o *CartItem) GetItemVariantId() string`
+
+GetItemVariantId returns the ItemVariantId field if non-nil, zero value otherwise.
+
+### GetItemVariantIdOk
+
+`func (o *CartItem) GetItemVariantIdOk() (*string, bool)`
+
+GetItemVariantIdOk returns a tuple with the ItemVariantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemVariantId
+
+`func (o *CartItem) SetItemVariantId(v string)`
+
+SetItemVariantId sets ItemVariantId field to given value.
+
+### HasItemVariantId
+
+`func (o *CartItem) HasItemVariantId() bool`
+
+HasItemVariantId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

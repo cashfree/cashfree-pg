@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,13 +22,13 @@ var _ = fmt.Errorf
 // checks if the Netbanking type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Netbanking{}
 
-// Netbanking Netbanking payment method request body
+// Netbanking Netbanking payment method request body.
 type Netbanking struct {
-	// The channel for netbanking will always be `link`
+	// The channel for netbanking will always be `link`.
 	Channel string `json:"channel"`
-	// Bank code
+	// Bank code.
 	NetbankingBankCode *int32 `json:"netbanking_bank_code,omitempty"`
-	// String code for bank
+	// String code for bank.
 	NetbankingBankName *string `json:"netbanking_bank_name,omitempty" validate:"regexp=^[A-Z]{5}$"`
 }
 

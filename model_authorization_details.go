@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,22 +22,23 @@ var _ = fmt.Errorf
 // checks if the AuthorizationDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AuthorizationDetails{}
 
-// AuthorizationDetails Details of the authorization done for the subscription. Returned in Get subscription and auth payments.
+// AuthorizationDetails Details of the authorization done for the subscription. Returned in Get subscription and payments.
 type AuthorizationDetails struct {
-	// Authorization amount for the auth payment.
+	// Authorization amount for the auth payment. Please note that authorization_amount will always be 0 for ENACH.
 	AuthorizationAmount *float32 `json:"authorization_amount,omitempty"`
 	// Indicates whether the authorization amount should be refunded to the customer automatically. Merchants can use this field to specify if the authorized funds should be returned to the customer after authorization of the subscription.
 	AuthorizationAmountRefund *bool `json:"authorization_amount_refund,omitempty"`
 	// Authorization reference. UMN for UPI, UMRN for EMandate/Physical Mandate and Enrollment ID for cards.
 	AuthorizationReference *string `json:"authorization_reference,omitempty"`
-	// Authorization time.
+	// Authorization time. Cashfree stores timestamps in IST.
 	AuthorizationTime *string `json:"authorization_time,omitempty"`
 	// Status of the authorization.
 	AuthorizationStatus *string `json:"authorization_status,omitempty"`
 	// A unique ID passed by merchant for identifying the transaction.
 	PaymentId *string `json:"payment_id,omitempty"`
-	// Payment method used for the authorization.
-	PaymentMethod *string `json:"payment_method,omitempty"`
+	// Payment group used for the authorization.
+	PaymentGroup *string `json:"payment_group,omitempty"`
+	PaymentMethod *AuthorizationDetailsPaymentMethod `json:"payment_method,omitempty"`
 }
 
 
@@ -69,6 +70,9 @@ func (o AuthorizationDetails) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.PaymentId) {
 		toSerialize["payment_id"] = o.PaymentId
+	}
+	if !IsNil(o.PaymentGroup) {
+		toSerialize["payment_group"] = o.PaymentGroup
 	}
 	if !IsNil(o.PaymentMethod) {
 		toSerialize["payment_method"] = o.PaymentMethod

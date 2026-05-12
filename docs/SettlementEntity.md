@@ -18,10 +18,10 @@ Name | Type | Description | Notes
 **TransferId** | Pointer to **int32** |  | [optional] 
 **TransferTime** | Pointer to **string** |  | [optional] 
 **TransferUtr** | Pointer to **string** |  | [optional] 
-**ForexConversionHandlingCharge** | Pointer to **float32** | Cashfree forex conversion charges for refund processing | [optional] 
-**ForexConversionHandlingTax** | Pointer to **float32** | Cashfree forex conversion tax for refund processing | [optional] 
-**ForexConversionRate** | Pointer to **float32** | Cashfree forex conversion rate for refund processing | [optional] 
-**ChargesCurrency** | Pointer to **string** | Cashfree refund charges currency for a refund | [optional] 
+**ForexConversionHandlingCharge** | Pointer to **float32** | Cashfree forex conversion charges for refund processing. | [optional] 
+**ForexConversionHandlingTax** | Pointer to **float32** | Cashfree forex conversion tax for refund processing. | [optional] 
+**ForexConversionRate** | Pointer to **float32** | Cashfree forex conversion rate for refund processing. | [optional] 
+**ChargesCurrency** | Pointer to **string** | Cashfree refund charges currency for a refund. | [optional] 
 
 ## Methods
 

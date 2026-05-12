@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **VendorId** | Pointer to **string** | Specify the merchant vendor ID to split the payment. | [optional] 
 **Amount** | Pointer to **float32** | Specify the amount to be split to the vendor. | [optional] 
 **Percentage** | Pointer to **float32** | Specify the percentage of amount to be split. | [optional] 
-**Tags** | Pointer to **map[string]string** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
+**Tags** | Pointer to **map[string]string** | Custom Tags in the form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added. | [optional] 
 
 ## Methods
 

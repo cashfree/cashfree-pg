@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Channel** | Pointer to **string** | The channel for cardless EMI is always &#x60;link&#x60; | [optional] 
+**Channel** | Pointer to **string** | The channel for bank transfer is always &#x60;link&#x60;. | [optional] 
 
 ## Methods
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,24 +22,24 @@ var _ = fmt.Errorf
 // checks if the TerminalPaymentEntity type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TerminalPaymentEntity{}
 
-// TerminalPaymentEntity terminal payment entity full object
+// TerminalPaymentEntity terminal payment entity full object.
 type TerminalPaymentEntity struct {
-	CfPaymentId *string `json:"cf_payment_id,omitempty"`
+	CfPaymentId *int64 `json:"cf_payment_id,omitempty"`
 	OrderId *string `json:"order_id,omitempty"`
 	Entity *string `json:"entity,omitempty"`
 	ErrorDetails *ErrorDetailsInPaymentsEntity `json:"error_details,omitempty"`
 	IsCaptured *bool `json:"is_captured,omitempty"`
-	// Order amount can be different from payment amount if you collect service fee from the customer
+	// Order amount can be different from payment amount if you collect service fee from the customer.
 	OrderAmount *float32 `json:"order_amount,omitempty"`
-	// Type of payment group. One of ['prepaid_card', 'upi_ppi_offline', 'cash', 'upi_credit_card', 'paypal', 'net_banking', 'cardless_emi', 'credit_card', 'bank_transfer', 'pay_later', 'debit_card_emi', 'debit_card', 'wallet', 'upi_ppi', 'upi', 'credit_card_emi']
+	// Type of payment group. One of ['prepaid_card', 'upi_ppi_offline', 'cash', 'upi_credit_card', 'paypal', 'net_banking', 'cardless_emi', 'credit_card', 'bank_transfer', 'pay_later', 'debit_card_emi', 'debit_card', 'wallet', 'upi_ppi', 'upi', 'credit_card_emi'].
 	PaymentGroup *string `json:"payment_group,omitempty"`
 	PaymentCurrency *string `json:"payment_currency,omitempty"`
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
-	// This is the time when the payment was initiated
+	// This is the time when the payment was initiated.
 	PaymentTime *string `json:"payment_time,omitempty"`
-	// This is the time when the payment reaches its terminal state
+	// This is the time when the payment reaches its terminal state.
 	PaymentCompletionTime *string `json:"payment_completion_time,omitempty"`
-	// The transaction status can be one of  [\"SUCCESS\", \"NOT_ATTEMPTED\", \"FAILED\", \"USER_DROPPED\", \"VOID\", \"CANCELLED\", \"PENDING\"]
+	// The transaction status can be one of  [\"SUCCESS\", \"NOT_ATTEMPTED\", \"FAILED\", \"USER_DROPPED\", \"VOID\", \"CANCELLED\", \"PENDING\"].
 	PaymentStatus *string `json:"payment_status,omitempty"`
 	PaymentMessage *string `json:"payment_message,omitempty"`
 	BankReference *string `json:"bank_reference,omitempty"`

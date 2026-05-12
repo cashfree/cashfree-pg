@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | Pointer to **string** | One of CAPTURE or VOID | [optional] 
-**Status** | Pointer to **string** | One of SUCCESS or PENDING | [optional] 
-**CapturedAmount** | Pointer to **float32** | The captured amount for this authorization request | [optional] 
-**StartTime** | Pointer to **string** | Start time of this authorization hold (only for UPI) | [optional] 
-**EndTime** | Pointer to **string** | End time of this authorization hold (only for UPI) | [optional] 
-**ApproveBy** | Pointer to **string** | Approve by time as passed in the authorization request (only for UPI) | [optional] 
-**ActionReference** | Pointer to **string** | CAPTURE or VOID reference number based on action  | [optional] 
-**ActionTime** | Pointer to **string** | Time of action (CAPTURE or VOID) | [optional] 
+**Action** | Pointer to **string** | One of CAPTURE or VOID. | [optional] 
+**Status** | Pointer to **string** | One of SUCCESS or PENDING. | [optional] 
+**CapturedAmount** | Pointer to **float32** | The captured amount for this authorization request. | [optional] 
+**StartTime** | Pointer to **string** | Start time of this authorization hold (only for UPI). | [optional] 
+**EndTime** | Pointer to **string** | End time of this authorization hold (only for UPI). | [optional] 
+**ApproveBy** | Pointer to **string** | Approve by time as passed in the authorization request (only for UPI). | [optional] 
+**ActionReference** | Pointer to **string** | CAPTURE or VOID reference number based on action. | [optional] 
+**ActionTime** | Pointer to **string** | Time of action (CAPTURE or VOID). | [optional] 
 
 ## Methods
 

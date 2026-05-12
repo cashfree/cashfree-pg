@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bank** | Pointer to **string** | Name of the bank that is linked to the Static QR. | [optional] 
-**QrCode** | Pointer to **string** | Base-64 Encoded QR Code URL | [optional] 
+**QrCode** | Pointer to **string** | Base-64 Encoded QR Code URL. | [optional] 
 **QrCodeUrl** | Pointer to **string** | URL of the qr Code. | [optional] 
 **Status** | Pointer to **string** | Status of the static QR. | [optional] 
 

@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VendorId** | **string** | Vendor id created in Cashfree system | 
-**Amount** | Pointer to **float32** | Amount which will be associated with this vendor | [optional] 
-**Percentage** | Pointer to **float32** | Percentage of order amount which shall get added to vendor account | [optional] 
-**Tags** | Pointer to **map[string]map[string]interface{}** | Custom Tags in thr form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added | [optional] 
+**VendorId** | Pointer to **string** | Vendor id created in Cashfree system. | [optional] 
+**Amount** | Pointer to **float32** | Amount which will be associated with this vendor. | [optional] 
+**Percentage** | Pointer to **float32** | Percentage of order amount which shall get added to vendor account. | [optional] 
+**Tags** | Pointer to **map[string]map[string]interface{}** | Custom Tags in the form of {\&quot;key\&quot;:\&quot;value\&quot;} which can be passed for an order. A maximum of 10 tags can be added. | [optional] 
 
 ## Methods
 
 ### NewVendorSplit
 
-`func NewVendorSplit(vendorId string, ) *VendorSplit`
+`func NewVendorSplit() *VendorSplit`
 
 NewVendorSplit instantiates a new VendorSplit object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +47,11 @@ and a boolean to check if the value has been set.
 
 SetVendorId sets VendorId field to given value.
 
+### HasVendorId
+
+`func (o *VendorSplit) HasVendorId() bool`
+
+HasVendorId returns a boolean if a field has been set.
 
 ### GetAmount
 

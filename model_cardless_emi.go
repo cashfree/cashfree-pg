@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,15 +22,15 @@ var _ = fmt.Errorf
 // checks if the CardlessEMI type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CardlessEMI{}
 
-// CardlessEMI Request body for cardless emi payment method
+// CardlessEMI Request body for cardless EMI payment method.
 type CardlessEMI struct {
-	// The channel for cardless EMI is always `link`
+	// The channel for cardless EMI is always `link`.
 	Channel *string `json:"channel,omitempty"`
-	// One of [`flexmoney`, `zestmoney`, `hdfc`, `icici`, `cashe`, `idfc`, `kotak`, `snapmint`, `bharatx`]
+	// One of [`flexmoney`, `zestmoney`, `hdfc`, `icici`, `cashe`, `idfc`, `kotak`, `snapmint`, `bharatx`].
 	Provider *string `json:"provider,omitempty"`
-	// Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as 'invalid_request_error' and code as 'invalid_request_error'
+	// Customers phone number for this payment instrument. If the customer is not eligible you will receive a 400 error with type as 'invalid_request_error' and code as 'invalid_request_error'.
 	Phone *string `json:"phone,omitempty"`
-	// EMI tenure for the selected provider. This is mandatory when provider is one of [`hdfc`, `icici`, `cashe`, `idfc`, `kotak`]
+	// EMI tenure for the selected provider. This is mandatory when provider is one of [`hdfc`, `icici`, `cashe`, `idfc`, `kotak`].
 	EmiTenure *int32 `json:"emi_tenure,omitempty"`
 }
 

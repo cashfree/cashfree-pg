@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -22,9 +22,9 @@ var _ = fmt.Errorf
 // checks if the VendorAdjustmentRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &VendorAdjustmentRequest{}
 
-// VendorAdjustmentRequest Vendor Adjustment Request Body
+// VendorAdjustmentRequest Vendor Adjustment Request Body.
 type VendorAdjustmentRequest struct {
-	// The unique identifier of the vendor to whom the adjustment is applied
+	// The unique identifier of the vendor to whom the adjustment is applied.
 	VendorId string `json:"vendor_id"`
 	// The unique identifier for the adjustment transaction.
 	AdjustmentId int64 `json:"adjustment_id"`

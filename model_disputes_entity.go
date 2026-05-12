@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -30,7 +30,7 @@ type DisputesEntity struct {
 	ReasonDescription *string `json:"reason_description,omitempty"`
 	// Dispute amount may differ from transaction amount for partial cases.
 	DisputeAmount *float32 `json:"dispute_amount,omitempty"`
-	// Dispute amount currency for a dispute
+	// Dispute amount currency for a dispute.
 	DisputeAmountCurrency *string `json:"dispute_amount_currency,omitempty"`
 	// This is the time when the dispute was created.
 	CreatedAt *string `json:"created_at,omitempty"`
@@ -42,8 +42,8 @@ type DisputesEntity struct {
 	ResolvedAt *string `json:"resolved_at,omitempty"`
 	DisputeStatus *string `json:"dispute_status,omitempty"`
 	CfDisputeRemarks *string `json:"cf_dispute_remarks,omitempty"`
-	PreferredEvidence []PreferredEvidenceInner `json:"preferred_evidence,omitempty"`
-	DisputeEvidence []DisputeEvidenceInner `json:"dispute_evidence,omitempty"`
+	PreferredEvidence []EvidencesToContestDispute `json:"preferred_evidence,omitempty"`
+	DisputeEvidence []Evidence `json:"dispute_evidence,omitempty"`
 	OrderDetails *OrderDetailsInDisputesEntity `json:"order_details,omitempty"`
 	CustomerDetails *CustomerDetailsInDisputesEntity `json:"customer_details,omitempty"`
 }

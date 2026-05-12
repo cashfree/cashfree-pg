@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,7 +24,7 @@ var _ MappedNullable = &SubscriptionEligibilityRequestQueries{}
 
 // SubscriptionEligibilityRequestQueries Necessary parameters to fetch eligible payment methods.
 type SubscriptionEligibilityRequestQueries struct {
-	// A unique ID passed by merchant for identifying the subscription
+	// A unique ID passed by merchant for identifying the subscription.
 	SubscriptionId string `json:"subscription_id"`
 }
 

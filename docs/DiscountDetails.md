@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DiscountType** | **string** | Type of discount | 
+**DiscountType** | **string** | Type of discount. | 
 **DiscountValue** | **float32** | Value of Discount. | 
 **MaxDiscountAmount** | **float32** | Maximum Value of Discount allowed. | 
 

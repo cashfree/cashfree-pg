@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -24,13 +24,23 @@ var _ MappedNullable = &PaymentMethodCardInPaymentsEntityCard{}
 
 // PaymentMethodCardInPaymentsEntityCard struct for PaymentMethodCardInPaymentsEntityCard
 type PaymentMethodCardInPaymentsEntityCard struct {
+	// The requested channel, can be `link` or `post`.
 	Channel *string `json:"channel,omitempty"`
+	// The last four digits of the customer's card number. For external token transactions or external Alt ID transactions, this value is passed only when the merchant includes `card_display` in the [Order Pay API](https://www.cashfree.com/docs/api-reference/payments/latest/payments/pay) request.
 	CardNumber *string `json:"card_number,omitempty"`
+	// The card scheme or network of the card. For example, `visa`, `mastercard`, `rupay`, `amex`, or `diners`.
 	CardNetwork *string `json:"card_network,omitempty"`
+	// The type of card. For example, `credit_card`, `debit_card`, or `prepaid_card`.
 	CardType *string `json:"card_type,omitempty"`
+	// The sub-type of card. `R` is Retail card, `P` is Premium card, `C` is Corporate card.
+	CardSubType *string `json:"card_sub_type,omitempty"`
+	// The issuing country of the card. For example, `IN`.
 	CardCountry *string `json:"card_country,omitempty"`
+	// The issuing bank of the card. For example, `HDFC BANK`, `AXIS BANK`, or `ICICI BANK`.
 	CardBankName *string `json:"card_bank_name,omitempty"`
+	// The authentication reference ID provided by the respective card network.
 	CardNetworkReferenceId *string `json:"card_network_reference_id,omitempty"`
+	// The identifier for the card saved at Cashfree. This value is sent only for CF token transactions.
 	InstrumentId *string `json:"instrument_id,omitempty"`
 }
 
@@ -57,6 +67,9 @@ func (o PaymentMethodCardInPaymentsEntityCard) ToMap() (map[string]interface{}, 
 	}
 	if !IsNil(o.CardType) {
 		toSerialize["card_type"] = o.CardType
+	}
+	if !IsNil(o.CardSubType) {
+		toSerialize["card_sub_type"] = o.CardSubType
 	}
 	if !IsNil(o.CardCountry) {
 		toSerialize["card_country"] = o.CardCountry

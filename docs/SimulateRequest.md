@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Entity** | **string** | Entity type should be PAYMENTS or SUBS_PAYMENTS only. | 
-**EntityId** | **string** | If the entity type is PAYMENTS, the entity_id will be the transactionId. If the entity type is SUBS_PAYMENTS, the entity_id will be the merchantTxnId | 
-**EntitySimulation** | [**EntitySimulationRequest**](EntitySimulationRequest.md) |  | 
+**Entity** | **string** | Entity type should be PAYMENTS, SUBS_PAYMENTS OR VBA_TRANSFER only. | 
+**EntityId** | Pointer to **string** | If the entity type is PAYMENTS, the entity_id will be the cf_payment_id. If the entity type is SUBS_PAYMENTS, the entity_id will be the payment_id. If the entity type is VBA_TRANSFER, the entity_id will be the vba_account_number. | [optional] 
+**EntitySimulation** | Pointer to [**EntitySimulationRequest**](EntitySimulationRequest.md) |  | [optional] 
+**VbaSimulation** | Pointer to [**VBASimulationRequest**](VBASimulationRequest.md) |  | [optional] 
 
 ## Methods
 
 ### NewSimulateRequest
 
-`func NewSimulateRequest(entity string, entityId string, entitySimulation EntitySimulationRequest, ) *SimulateRequest`
+`func NewSimulateRequest(entity string, ) *SimulateRequest`
 
 NewSimulateRequest instantiates a new SimulateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -66,6 +67,11 @@ and a boolean to check if the value has been set.
 
 SetEntityId sets EntityId field to given value.
 
+### HasEntityId
+
+`func (o *SimulateRequest) HasEntityId() bool`
+
+HasEntityId returns a boolean if a field has been set.
 
 ### GetEntitySimulation
 
@@ -86,6 +92,36 @@ and a boolean to check if the value has been set.
 
 SetEntitySimulation sets EntitySimulation field to given value.
 
+### HasEntitySimulation
+
+`func (o *SimulateRequest) HasEntitySimulation() bool`
+
+HasEntitySimulation returns a boolean if a field has been set.
+
+### GetVbaSimulation
+
+`func (o *SimulateRequest) GetVbaSimulation() VBASimulationRequest`
+
+GetVbaSimulation returns the VbaSimulation field if non-nil, zero value otherwise.
+
+### GetVbaSimulationOk
+
+`func (o *SimulateRequest) GetVbaSimulationOk() (*VBASimulationRequest, bool)`
+
+GetVbaSimulationOk returns a tuple with the VbaSimulation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVbaSimulation
+
+`func (o *SimulateRequest) SetVbaSimulation(v VBASimulationRequest)`
+
+SetVbaSimulation sets VbaSimulation field to given value.
+
+### HasVbaSimulation
+
+`func (o *SimulateRequest) HasVbaSimulation() bool`
+
+HasVbaSimulation returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
