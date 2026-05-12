@@ -1,4 +1,4 @@
-module github.com/cashfree/cashfree-pg/v5
+module github.com/cashfree/cashfree-pg/v6
 
 go 1.18
 

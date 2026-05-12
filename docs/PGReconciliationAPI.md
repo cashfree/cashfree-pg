@@ -25,7 +25,7 @@ import (
     "context"
     "fmt"
     "os"
-    cashfree "github.com/cashfree/cashfree-pg/v5"
+    cashfree "github.com/cashfree/cashfree-pg/v6"
 )
 
 func main() {
