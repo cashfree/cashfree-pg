@@ -61,4 +61,39 @@ func (o UploadVendorDocumentsResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUploadVendorDocumentsResponse struct {
+	value *UploadVendorDocumentsResponse
+	isSet bool
+}
+
+func (v NullableUploadVendorDocumentsResponse) Get() *UploadVendorDocumentsResponse {
+	return v.value
+}
+
+func (v *NullableUploadVendorDocumentsResponse) Set(val *UploadVendorDocumentsResponse) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUploadVendorDocumentsResponse) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUploadVendorDocumentsResponse) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUploadVendorDocumentsResponse(val *UploadVendorDocumentsResponse) *NullableUploadVendorDocumentsResponse {
+	return &NullableUploadVendorDocumentsResponse{value: val, isSet: true}
+}
+
+func (v NullableUploadVendorDocumentsResponse) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUploadVendorDocumentsResponse) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

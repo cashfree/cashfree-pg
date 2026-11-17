@@ -85,4 +85,39 @@ func (o InstrumentEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableInstrumentEntity struct {
+	value *InstrumentEntity
+	isSet bool
+}
+
+func (v NullableInstrumentEntity) Get() *InstrumentEntity {
+	return v.value
+}
+
+func (v *NullableInstrumentEntity) Set(val *InstrumentEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableInstrumentEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableInstrumentEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableInstrumentEntity(val *InstrumentEntity) *NullableInstrumentEntity {
+	return &NullableInstrumentEntity{value: val, isSet: true}
+}
+
+func (v NullableInstrumentEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableInstrumentEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

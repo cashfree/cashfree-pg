@@ -91,4 +91,39 @@ func (o CreateSubscriptionRequestPlanDetails) ToMap() (map[string]interface{}, e
 	return toSerialize, nil
 }
 
+type NullableCreateSubscriptionRequestPlanDetails struct {
+	value *CreateSubscriptionRequestPlanDetails
+	isSet bool
+}
+
+func (v NullableCreateSubscriptionRequestPlanDetails) Get() *CreateSubscriptionRequestPlanDetails {
+	return v.value
+}
+
+func (v *NullableCreateSubscriptionRequestPlanDetails) Set(val *CreateSubscriptionRequestPlanDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateSubscriptionRequestPlanDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateSubscriptionRequestPlanDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateSubscriptionRequestPlanDetails(val *CreateSubscriptionRequestPlanDetails) *NullableCreateSubscriptionRequestPlanDetails {
+	return &NullableCreateSubscriptionRequestPlanDetails{value: val, isSet: true}
+}
+
+func (v NullableCreateSubscriptionRequestPlanDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateSubscriptionRequestPlanDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -54,4 +54,39 @@ func (o CreateCustomerRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCreateCustomerRequest struct {
+	value *CreateCustomerRequest
+	isSet bool
+}
+
+func (v NullableCreateCustomerRequest) Get() *CreateCustomerRequest {
+	return v.value
+}
+
+func (v *NullableCreateCustomerRequest) Set(val *CreateCustomerRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateCustomerRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateCustomerRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateCustomerRequest(val *CreateCustomerRequest) *NullableCreateCustomerRequest {
+	return &NullableCreateCustomerRequest{value: val, isSet: true}
+}
+
+func (v NullableCreateCustomerRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateCustomerRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

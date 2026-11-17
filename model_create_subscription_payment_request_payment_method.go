@@ -75,7 +75,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 		jsonCreateSubscriptionPaymentRequestCard, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestCard)
 
-		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestCard), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestCard), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestCard), "{}") || string(jsonCreateSubscriptionPaymentRequestCard) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.CreateSubscriptionPaymentRequestCard = nil
 
@@ -100,7 +100,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 		jsonCreateSubscriptionPaymentRequestEnach, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestEnach)
 
-		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnach), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnach), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestEnach), "{}") || string(jsonCreateSubscriptionPaymentRequestEnach) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.CreateSubscriptionPaymentRequestEnach = nil
 
@@ -125,7 +125,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 		jsonCreateSubscriptionPaymentRequestPnach, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestPnach)
 
-		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestPnach), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestPnach), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestPnach), "{}") || string(jsonCreateSubscriptionPaymentRequestPnach) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.CreateSubscriptionPaymentRequestPnach = nil
 
@@ -150,7 +150,7 @@ func (dst *CreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(data []b
 
 		jsonCreateSubscriptionPaymentRequestUpi, _ := json.Marshal(dst.CreateSubscriptionPaymentRequestUpi)
 
-		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestUpi), "{}") || strings.Contains(string(jsonCreateSubscriptionPaymentRequestUpi), "null") { // empty struct
+		if strings.Contains(string(jsonCreateSubscriptionPaymentRequestUpi), "{}") || string(jsonCreateSubscriptionPaymentRequestUpi) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.CreateSubscriptionPaymentRequestUpi = nil
 
@@ -246,4 +246,39 @@ func (obj *CreateSubscriptionPaymentRequestPaymentMethod) GetActualInstance() (i
 	return nil
 }
 
+type NullableCreateSubscriptionPaymentRequestPaymentMethod struct {
+	value *CreateSubscriptionPaymentRequestPaymentMethod
+	isSet bool
+}
+
+func (v NullableCreateSubscriptionPaymentRequestPaymentMethod) Get() *CreateSubscriptionPaymentRequestPaymentMethod {
+	return v.value
+}
+
+func (v *NullableCreateSubscriptionPaymentRequestPaymentMethod) Set(val *CreateSubscriptionPaymentRequestPaymentMethod) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateSubscriptionPaymentRequestPaymentMethod) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateSubscriptionPaymentRequestPaymentMethod) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateSubscriptionPaymentRequestPaymentMethod(val *CreateSubscriptionPaymentRequestPaymentMethod) *NullableCreateSubscriptionPaymentRequestPaymentMethod {
+	return &NullableCreateSubscriptionPaymentRequestPaymentMethod{value: val, isSet: true}
+}
+
+func (v NullableCreateSubscriptionPaymentRequestPaymentMethod) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateSubscriptionPaymentRequestPaymentMethod) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

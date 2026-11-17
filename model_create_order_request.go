@@ -92,4 +92,39 @@ func (o CreateOrderRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCreateOrderRequest struct {
+	value *CreateOrderRequest
+	isSet bool
+}
+
+func (v NullableCreateOrderRequest) Get() *CreateOrderRequest {
+	return v.value
+}
+
+func (v *NullableCreateOrderRequest) Set(val *CreateOrderRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateOrderRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateOrderRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateOrderRequest(val *CreateOrderRequest) *NullableCreateOrderRequest {
+	return &NullableCreateOrderRequest{value: val, isSet: true}
+}
+
+func (v NullableCreateOrderRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateOrderRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

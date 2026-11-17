@@ -54,4 +54,39 @@ func (o RateLimitError) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableRateLimitError struct {
+	value *RateLimitError
+	isSet bool
+}
+
+func (v NullableRateLimitError) Get() *RateLimitError {
+	return v.value
+}
+
+func (v *NullableRateLimitError) Set(val *RateLimitError) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableRateLimitError) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableRateLimitError) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableRateLimitError(val *RateLimitError) *NullableRateLimitError {
+	return &NullableRateLimitError{value: val, isSet: true}
+}
+
+func (v NullableRateLimitError) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableRateLimitError) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

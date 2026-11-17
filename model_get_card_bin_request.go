@@ -44,4 +44,39 @@ func (o GetCardBinRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableGetCardBinRequest struct {
+	value *GetCardBinRequest
+	isSet bool
+}
+
+func (v NullableGetCardBinRequest) Get() *GetCardBinRequest {
+	return v.value
+}
+
+func (v *NullableGetCardBinRequest) Set(val *GetCardBinRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableGetCardBinRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableGetCardBinRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableGetCardBinRequest(val *GetCardBinRequest) *NullableGetCardBinRequest {
+	return &NullableGetCardBinRequest{value: val, isSet: true}
+}
+
+func (v NullableGetCardBinRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableGetCardBinRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

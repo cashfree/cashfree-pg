@@ -46,4 +46,39 @@ func (o SubscriptionEligibilityResponse) ToMap() (map[string]interface{}, error)
 	return toSerialize, nil
 }
 
+type NullableSubscriptionEligibilityResponse struct {
+	value *SubscriptionEligibilityResponse
+	isSet bool
+}
+
+func (v NullableSubscriptionEligibilityResponse) Get() *SubscriptionEligibilityResponse {
+	return v.value
+}
+
+func (v *NullableSubscriptionEligibilityResponse) Set(val *SubscriptionEligibilityResponse) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSubscriptionEligibilityResponse) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSubscriptionEligibilityResponse) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSubscriptionEligibilityResponse(val *SubscriptionEligibilityResponse) *NullableSubscriptionEligibilityResponse {
+	return &NullableSubscriptionEligibilityResponse{value: val, isSet: true}
+}
+
+func (v NullableSubscriptionEligibilityResponse) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSubscriptionEligibilityResponse) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

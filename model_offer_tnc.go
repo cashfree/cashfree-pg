@@ -47,4 +47,39 @@ func (o OfferTnc) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOfferTnc struct {
+	value *OfferTnc
+	isSet bool
+}
+
+func (v NullableOfferTnc) Get() *OfferTnc {
+	return v.value
+}
+
+func (v *NullableOfferTnc) Set(val *OfferTnc) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOfferTnc) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOfferTnc) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOfferTnc(val *OfferTnc) *NullableOfferTnc {
+	return &NullableOfferTnc{value: val, isSet: true}
+}
+
+func (v NullableOfferTnc) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOfferTnc) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -154,4 +154,39 @@ func (o RefundEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableRefundEntity struct {
+	value *RefundEntity
+	isSet bool
+}
+
+func (v NullableRefundEntity) Get() *RefundEntity {
+	return v.value
+}
+
+func (v *NullableRefundEntity) Set(val *RefundEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableRefundEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableRefundEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableRefundEntity(val *RefundEntity) *NullableRefundEntity {
+	return &NullableRefundEntity{value: val, isSet: true}
+}
+
+func (v NullableRefundEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableRefundEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

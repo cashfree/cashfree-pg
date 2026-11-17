@@ -89,4 +89,39 @@ func (o OrderExtendedDataEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOrderExtendedDataEntity struct {
+	value *OrderExtendedDataEntity
+	isSet bool
+}
+
+func (v NullableOrderExtendedDataEntity) Get() *OrderExtendedDataEntity {
+	return v.value
+}
+
+func (v *NullableOrderExtendedDataEntity) Set(val *OrderExtendedDataEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderExtendedDataEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderExtendedDataEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderExtendedDataEntity(val *OrderExtendedDataEntity) *NullableOrderExtendedDataEntity {
+	return &NullableOrderExtendedDataEntity{value: val, isSet: true}
+}
+
+func (v NullableOrderExtendedDataEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderExtendedDataEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

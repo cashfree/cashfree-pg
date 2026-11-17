@@ -49,4 +49,39 @@ func (o ESOrderReconResponseDataInnerOrderSplitsInner) ToMap() (map[string]inter
 	return toSerialize, nil
 }
 
+type NullableESOrderReconResponseDataInnerOrderSplitsInner struct {
+	value *ESOrderReconResponseDataInnerOrderSplitsInner
+	isSet bool
+}
+
+func (v NullableESOrderReconResponseDataInnerOrderSplitsInner) Get() *ESOrderReconResponseDataInnerOrderSplitsInner {
+	return v.value
+}
+
+func (v *NullableESOrderReconResponseDataInnerOrderSplitsInner) Set(val *ESOrderReconResponseDataInnerOrderSplitsInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableESOrderReconResponseDataInnerOrderSplitsInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableESOrderReconResponseDataInnerOrderSplitsInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableESOrderReconResponseDataInnerOrderSplitsInner(val *ESOrderReconResponseDataInnerOrderSplitsInner) *NullableESOrderReconResponseDataInnerOrderSplitsInner {
+	return &NullableESOrderReconResponseDataInnerOrderSplitsInner{value: val, isSet: true}
+}
+
+func (v NullableESOrderReconResponseDataInnerOrderSplitsInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableESOrderReconResponseDataInnerOrderSplitsInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

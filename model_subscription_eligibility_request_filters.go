@@ -46,4 +46,39 @@ func (o SubscriptionEligibilityRequestFilters) ToMap() (map[string]interface{}, 
 	return toSerialize, nil
 }
 
+type NullableSubscriptionEligibilityRequestFilters struct {
+	value *SubscriptionEligibilityRequestFilters
+	isSet bool
+}
+
+func (v NullableSubscriptionEligibilityRequestFilters) Get() *SubscriptionEligibilityRequestFilters {
+	return v.value
+}
+
+func (v *NullableSubscriptionEligibilityRequestFilters) Set(val *SubscriptionEligibilityRequestFilters) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSubscriptionEligibilityRequestFilters) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSubscriptionEligibilityRequestFilters) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSubscriptionEligibilityRequestFilters(val *SubscriptionEligibilityRequestFilters) *NullableSubscriptionEligibilityRequestFilters {
+	return &NullableSubscriptionEligibilityRequestFilters{value: val, isSet: true}
+}
+
+func (v NullableSubscriptionEligibilityRequestFilters) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSubscriptionEligibilityRequestFilters) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

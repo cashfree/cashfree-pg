@@ -71,4 +71,39 @@ func (o AuthResponseUpi) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableAuthResponseUpi struct {
+	value *AuthResponseUpi
+	isSet bool
+}
+
+func (v NullableAuthResponseUpi) Get() *AuthResponseUpi {
+	return v.value
+}
+
+func (v *NullableAuthResponseUpi) Set(val *AuthResponseUpi) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableAuthResponseUpi) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableAuthResponseUpi) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableAuthResponseUpi(val *AuthResponseUpi) *NullableAuthResponseUpi {
+	return &NullableAuthResponseUpi{value: val, isSet: true}
+}
+
+func (v NullableAuthResponseUpi) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableAuthResponseUpi) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

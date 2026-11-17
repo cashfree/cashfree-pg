@@ -45,4 +45,39 @@ func (o RefundWebhookDataEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableRefundWebhookDataEntity struct {
+	value *RefundWebhookDataEntity
+	isSet bool
+}
+
+func (v NullableRefundWebhookDataEntity) Get() *RefundWebhookDataEntity {
+	return v.value
+}
+
+func (v *NullableRefundWebhookDataEntity) Set(val *RefundWebhookDataEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableRefundWebhookDataEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableRefundWebhookDataEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableRefundWebhookDataEntity(val *RefundWebhookDataEntity) *NullableRefundWebhookDataEntity {
+	return &NullableRefundWebhookDataEntity{value: val, isSet: true}
+}
+
+func (v NullableRefundWebhookDataEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableRefundWebhookDataEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

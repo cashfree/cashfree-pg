@@ -61,4 +61,39 @@ func (o SplitOrderReconSuccessResponseVendorsInner) ToMap() (map[string]interfac
 	return toSerialize, nil
 }
 
+type NullableSplitOrderReconSuccessResponseVendorsInner struct {
+	value *SplitOrderReconSuccessResponseVendorsInner
+	isSet bool
+}
+
+func (v NullableSplitOrderReconSuccessResponseVendorsInner) Get() *SplitOrderReconSuccessResponseVendorsInner {
+	return v.value
+}
+
+func (v *NullableSplitOrderReconSuccessResponseVendorsInner) Set(val *SplitOrderReconSuccessResponseVendorsInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSplitOrderReconSuccessResponseVendorsInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSplitOrderReconSuccessResponseVendorsInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSplitOrderReconSuccessResponseVendorsInner(val *SplitOrderReconSuccessResponseVendorsInner) *NullableSplitOrderReconSuccessResponseVendorsInner {
+	return &NullableSplitOrderReconSuccessResponseVendorsInner{value: val, isSet: true}
+}
+
+func (v NullableSplitOrderReconSuccessResponseVendorsInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSplitOrderReconSuccessResponseVendorsInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

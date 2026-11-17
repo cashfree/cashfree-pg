@@ -53,4 +53,39 @@ func (o PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) ToMap() (map[string]i
 	return toSerialize, nil
 }
 
+type NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails struct {
+	value *PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails
+	isSet bool
+}
+
+func (v NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) Get() *PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails {
+	return v.value
+}
+
+func (v *NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) Set(val *PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails(val *PaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) *NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails {
+	return &NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails{value: val, isSet: true}
+}
+
+func (v NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePaymentMethodCardEMIInPaymentsEntityEmiEmiDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

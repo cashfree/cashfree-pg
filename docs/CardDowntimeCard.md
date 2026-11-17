@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CardIssuer** | Pointer to **[]string** |  | [optional] 
-**CardType** | Pointer to **[]string** |  | [optional] 
-**CardNetwork** | Pointer to **[]string** |  | [optional] 
+**CardType** | Pointer to [**[]CardDowntimeCardTypeEnum**](CardDowntimeCardTypeEnum.md) |  | [optional] 
+**CardNetwork** | Pointer to [**[]CardDowntimeCardNetworkEnum**](CardDowntimeCardNetworkEnum.md) |  | [optional] 
 
 ## Methods
 
@@ -54,20 +54,20 @@ HasCardIssuer returns a boolean if a field has been set.
 
 ### GetCardType
 
-`func (o *CardDowntimeCard) GetCardType() []string`
+`func (o *CardDowntimeCard) GetCardType() []CardDowntimeCardTypeEnum`
 
 GetCardType returns the CardType field if non-nil, zero value otherwise.
 
 ### GetCardTypeOk
 
-`func (o *CardDowntimeCard) GetCardTypeOk() (*[]string, bool)`
+`func (o *CardDowntimeCard) GetCardTypeOk() (*[]CardDowntimeCardTypeEnum, bool)`
 
 GetCardTypeOk returns a tuple with the CardType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCardType
 
-`func (o *CardDowntimeCard) SetCardType(v []string)`
+`func (o *CardDowntimeCard) SetCardType(v []CardDowntimeCardTypeEnum)`
 
 SetCardType sets CardType field to given value.
 
@@ -79,20 +79,20 @@ HasCardType returns a boolean if a field has been set.
 
 ### GetCardNetwork
 
-`func (o *CardDowntimeCard) GetCardNetwork() []string`
+`func (o *CardDowntimeCard) GetCardNetwork() []CardDowntimeCardNetworkEnum`
 
 GetCardNetwork returns the CardNetwork field if non-nil, zero value otherwise.
 
 ### GetCardNetworkOk
 
-`func (o *CardDowntimeCard) GetCardNetworkOk() (*[]string, bool)`
+`func (o *CardDowntimeCard) GetCardNetworkOk() (*[]CardDowntimeCardNetworkEnum, bool)`
 
 GetCardNetworkOk returns a tuple with the CardNetwork field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCardNetwork
 
-`func (o *CardDowntimeCard) SetCardNetwork(v []string)`
+`func (o *CardDowntimeCard) SetCardNetwork(v []CardDowntimeCardNetworkEnum)`
 
 SetCardNetwork sets CardNetwork field to given value.
 

@@ -61,4 +61,39 @@ func (o FetchTerminalQRCodesEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableFetchTerminalQRCodesEntity struct {
+	value *FetchTerminalQRCodesEntity
+	isSet bool
+}
+
+func (v NullableFetchTerminalQRCodesEntity) Get() *FetchTerminalQRCodesEntity {
+	return v.value
+}
+
+func (v *NullableFetchTerminalQRCodesEntity) Set(val *FetchTerminalQRCodesEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableFetchTerminalQRCodesEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableFetchTerminalQRCodesEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableFetchTerminalQRCodesEntity(val *FetchTerminalQRCodesEntity) *NullableFetchTerminalQRCodesEntity {
+	return &NullableFetchTerminalQRCodesEntity{value: val, isSet: true}
+}
+
+func (v NullableFetchTerminalQRCodesEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableFetchTerminalQRCodesEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -43,4 +43,39 @@ func (o BanktransferPaymentMethod) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableBanktransferPaymentMethod struct {
+	value *BanktransferPaymentMethod
+	isSet bool
+}
+
+func (v NullableBanktransferPaymentMethod) Get() *BanktransferPaymentMethod {
+	return v.value
+}
+
+func (v *NullableBanktransferPaymentMethod) Set(val *BanktransferPaymentMethod) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableBanktransferPaymentMethod) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableBanktransferPaymentMethod) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableBanktransferPaymentMethod(val *BanktransferPaymentMethod) *NullableBanktransferPaymentMethod {
+	return &NullableBanktransferPaymentMethod{value: val, isSet: true}
+}
+
+func (v NullableBanktransferPaymentMethod) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableBanktransferPaymentMethod) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

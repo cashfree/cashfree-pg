@@ -65,4 +65,39 @@ func (o TransferDetails) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableTransferDetails struct {
+	value *TransferDetails
+	isSet bool
+}
+
+func (v NullableTransferDetails) Get() *TransferDetails {
+	return v.value
+}
+
+func (v *NullableTransferDetails) Set(val *TransferDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableTransferDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableTransferDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableTransferDetails(val *TransferDetails) *NullableTransferDetails {
+	return &NullableTransferDetails{value: val, isSet: true}
+}
+
+func (v NullableTransferDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableTransferDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

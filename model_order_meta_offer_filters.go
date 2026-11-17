@@ -51,4 +51,39 @@ func (o OrderMetaOfferFilters) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOrderMetaOfferFilters struct {
+	value *OrderMetaOfferFilters
+	isSet bool
+}
+
+func (v NullableOrderMetaOfferFilters) Get() *OrderMetaOfferFilters {
+	return v.value
+}
+
+func (v *NullableOrderMetaOfferFilters) Set(val *OrderMetaOfferFilters) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderMetaOfferFilters) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderMetaOfferFilters) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderMetaOfferFilters(val *OrderMetaOfferFilters) *NullableOrderMetaOfferFilters {
+	return &NullableOrderMetaOfferFilters{value: val, isSet: true}
+}
+
+func (v NullableOrderMetaOfferFilters) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderMetaOfferFilters) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

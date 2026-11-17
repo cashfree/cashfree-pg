@@ -49,4 +49,39 @@ func (o GetAllTerminalTransactionRequest) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
+type NullableGetAllTerminalTransactionRequest struct {
+	value *GetAllTerminalTransactionRequest
+	isSet bool
+}
+
+func (v NullableGetAllTerminalTransactionRequest) Get() *GetAllTerminalTransactionRequest {
+	return v.value
+}
+
+func (v *NullableGetAllTerminalTransactionRequest) Set(val *GetAllTerminalTransactionRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableGetAllTerminalTransactionRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableGetAllTerminalTransactionRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableGetAllTerminalTransactionRequest(val *GetAllTerminalTransactionRequest) *NullableGetAllTerminalTransactionRequest {
+	return &NullableGetAllTerminalTransactionRequest{value: val, isSet: true}
+}
+
+func (v NullableGetAllTerminalTransactionRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableGetAllTerminalTransactionRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

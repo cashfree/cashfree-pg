@@ -45,4 +45,39 @@ func (o CardDowntime) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCardDowntime struct {
+	value *CardDowntime
+	isSet bool
+}
+
+func (v NullableCardDowntime) Get() *CardDowntime {
+	return v.value
+}
+
+func (v *NullableCardDowntime) Set(val *CardDowntime) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCardDowntime) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCardDowntime) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCardDowntime(val *CardDowntime) *NullableCardDowntime {
+	return &NullableCardDowntime{value: val, isSet: true}
+}
+
+func (v NullableCardDowntime) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCardDowntime) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

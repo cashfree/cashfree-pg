@@ -70,4 +70,39 @@ func (o Upi) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUpi struct {
+	value *Upi
+	isSet bool
+}
+
+func (v NullableUpi) Get() *Upi {
+	return v.value
+}
+
+func (v *NullableUpi) Set(val *Upi) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUpi) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUpi) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUpi(val *Upi) *NullableUpi {
+	return &NullableUpi{value: val, isSet: true}
+}
+
+func (v NullableUpi) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUpi) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

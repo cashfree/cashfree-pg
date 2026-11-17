@@ -45,4 +45,39 @@ func (o WalletDowntimeWallet) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableWalletDowntimeWallet struct {
+	value *WalletDowntimeWallet
+	isSet bool
+}
+
+func (v NullableWalletDowntimeWallet) Get() *WalletDowntimeWallet {
+	return v.value
+}
+
+func (v *NullableWalletDowntimeWallet) Set(val *WalletDowntimeWallet) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableWalletDowntimeWallet) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableWalletDowntimeWallet) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableWalletDowntimeWallet(val *WalletDowntimeWallet) *NullableWalletDowntimeWallet {
+	return &NullableWalletDowntimeWallet{value: val, isSet: true}
+}
+
+func (v NullableWalletDowntimeWallet) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableWalletDowntimeWallet) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -49,4 +49,39 @@ func (o AuthorizeOrderRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableAuthorizeOrderRequest struct {
+	value *AuthorizeOrderRequest
+	isSet bool
+}
+
+func (v NullableAuthorizeOrderRequest) Get() *AuthorizeOrderRequest {
+	return v.value
+}
+
+func (v *NullableAuthorizeOrderRequest) Set(val *AuthorizeOrderRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableAuthorizeOrderRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableAuthorizeOrderRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableAuthorizeOrderRequest(val *AuthorizeOrderRequest) *NullableAuthorizeOrderRequest {
+	return &NullableAuthorizeOrderRequest{value: val, isSet: true}
+}
+
+func (v NullableAuthorizeOrderRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableAuthorizeOrderRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

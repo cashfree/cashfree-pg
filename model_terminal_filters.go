@@ -86,4 +86,39 @@ func (o TerminalFilters) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableTerminalFilters struct {
+	value *TerminalFilters
+	isSet bool
+}
+
+func (v NullableTerminalFilters) Get() *TerminalFilters {
+	return v.value
+}
+
+func (v *NullableTerminalFilters) Set(val *TerminalFilters) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableTerminalFilters) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableTerminalFilters) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableTerminalFilters(val *TerminalFilters) *NullableTerminalFilters {
+	return &NullableTerminalFilters{value: val, isSet: true}
+}
+
+func (v NullableTerminalFilters) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableTerminalFilters) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

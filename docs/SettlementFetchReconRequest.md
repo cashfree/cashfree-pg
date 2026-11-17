@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Pagination** | [**FetchSettlementsRequestPagination**](FetchSettlementsRequestPagination.md) |  | 
-**Filters** | Pointer to [**SettlementFetchReconRequestFilters**](SettlementFetchReconRequestFilters.md) |  | [optional] 
+**Filters** | [**SettlementFetchReconRequestFilters**](SettlementFetchReconRequestFilters.md) |  | 
 
 ## Methods
 
 ### NewSettlementFetchReconRequest
 
-`func NewSettlementFetchReconRequest(pagination FetchSettlementsRequestPagination, ) *SettlementFetchReconRequest`
+`func NewSettlementFetchReconRequest(pagination FetchSettlementsRequestPagination, filters SettlementFetchReconRequestFilters, ) *SettlementFetchReconRequest`
 
 NewSettlementFetchReconRequest instantiates a new SettlementFetchReconRequest object
 This constructor will assign default values to properties that have it defined,
@@ -65,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetFilters sets Filters field to given value.
 
-### HasFilters
-
-`func (o *SettlementFetchReconRequest) HasFilters() bool`
-
-HasFilters returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

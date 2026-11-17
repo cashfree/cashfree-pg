@@ -43,4 +43,39 @@ func (o EligibilityFetchCardlessEMIRequest) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
+type NullableEligibilityFetchCardlessEMIRequest struct {
+	value *EligibilityFetchCardlessEMIRequest
+	isSet bool
+}
+
+func (v NullableEligibilityFetchCardlessEMIRequest) Get() *EligibilityFetchCardlessEMIRequest {
+	return v.value
+}
+
+func (v *NullableEligibilityFetchCardlessEMIRequest) Set(val *EligibilityFetchCardlessEMIRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEligibilityFetchCardlessEMIRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEligibilityFetchCardlessEMIRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEligibilityFetchCardlessEMIRequest(val *EligibilityFetchCardlessEMIRequest) *NullableEligibilityFetchCardlessEMIRequest {
+	return &NullableEligibilityFetchCardlessEMIRequest{value: val, isSet: true}
+}
+
+func (v NullableEligibilityFetchCardlessEMIRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEligibilityFetchCardlessEMIRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

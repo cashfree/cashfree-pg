@@ -76,4 +76,39 @@ func (o CryptogramEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCryptogramEntity struct {
+	value *CryptogramEntity
+	isSet bool
+}
+
+func (v NullableCryptogramEntity) Get() *CryptogramEntity {
+	return v.value
+}
+
+func (v *NullableCryptogramEntity) Set(val *CryptogramEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCryptogramEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCryptogramEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCryptogramEntity(val *CryptogramEntity) *NullableCryptogramEntity {
+	return &NullableCryptogramEntity{value: val, isSet: true}
+}
+
+func (v NullableCryptogramEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCryptogramEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

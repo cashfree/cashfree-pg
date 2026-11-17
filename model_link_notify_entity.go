@@ -51,4 +51,39 @@ func (o LinkNotifyEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableLinkNotifyEntity struct {
+	value *LinkNotifyEntity
+	isSet bool
+}
+
+func (v NullableLinkNotifyEntity) Get() *LinkNotifyEntity {
+	return v.value
+}
+
+func (v *NullableLinkNotifyEntity) Set(val *LinkNotifyEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableLinkNotifyEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableLinkNotifyEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableLinkNotifyEntity(val *LinkNotifyEntity) *NullableLinkNotifyEntity {
+	return &NullableLinkNotifyEntity{value: val, isSet: true}
+}
+
+func (v NullableLinkNotifyEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableLinkNotifyEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

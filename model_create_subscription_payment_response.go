@@ -90,4 +90,39 @@ func (o CreateSubscriptionPaymentResponse) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
+type NullableCreateSubscriptionPaymentResponse struct {
+	value *CreateSubscriptionPaymentResponse
+	isSet bool
+}
+
+func (v NullableCreateSubscriptionPaymentResponse) Get() *CreateSubscriptionPaymentResponse {
+	return v.value
+}
+
+func (v *NullableCreateSubscriptionPaymentResponse) Set(val *CreateSubscriptionPaymentResponse) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateSubscriptionPaymentResponse) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateSubscriptionPaymentResponse) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateSubscriptionPaymentResponse(val *CreateSubscriptionPaymentResponse) *NullableCreateSubscriptionPaymentResponse {
+	return &NullableCreateSubscriptionPaymentResponse{value: val, isSet: true}
+}
+
+func (v NullableCreateSubscriptionPaymentResponse) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateSubscriptionPaymentResponse) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

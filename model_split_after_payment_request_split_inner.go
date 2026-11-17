@@ -61,4 +61,39 @@ func (o SplitAfterPaymentRequestSplitInner) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
+type NullableSplitAfterPaymentRequestSplitInner struct {
+	value *SplitAfterPaymentRequestSplitInner
+	isSet bool
+}
+
+func (v NullableSplitAfterPaymentRequestSplitInner) Get() *SplitAfterPaymentRequestSplitInner {
+	return v.value
+}
+
+func (v *NullableSplitAfterPaymentRequestSplitInner) Set(val *SplitAfterPaymentRequestSplitInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSplitAfterPaymentRequestSplitInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSplitAfterPaymentRequestSplitInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSplitAfterPaymentRequestSplitInner(val *SplitAfterPaymentRequestSplitInner) *NullableSplitAfterPaymentRequestSplitInner {
+	return &NullableSplitAfterPaymentRequestSplitInner{value: val, isSet: true}
+}
+
+func (v NullableSplitAfterPaymentRequestSplitInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSplitAfterPaymentRequestSplitInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

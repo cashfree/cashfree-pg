@@ -49,4 +49,39 @@ func (o TransferDetailsTagsInner) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableTransferDetailsTagsInner struct {
+	value *TransferDetailsTagsInner
+	isSet bool
+}
+
+func (v NullableTransferDetailsTagsInner) Get() *TransferDetailsTagsInner {
+	return v.value
+}
+
+func (v *NullableTransferDetailsTagsInner) Set(val *TransferDetailsTagsInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableTransferDetailsTagsInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableTransferDetailsTagsInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableTransferDetailsTagsInner(val *TransferDetailsTagsInner) *NullableTransferDetailsTagsInner {
+	return &NullableTransferDetailsTagsInner{value: val, isSet: true}
+}
+
+func (v NullableTransferDetailsTagsInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableTransferDetailsTagsInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

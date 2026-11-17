@@ -86,4 +86,39 @@ func (o AuthResponseCard) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableAuthResponseCard struct {
+	value *AuthResponseCard
+	isSet bool
+}
+
+func (v NullableAuthResponseCard) Get() *AuthResponseCard {
+	return v.value
+}
+
+func (v *NullableAuthResponseCard) Set(val *AuthResponseCard) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableAuthResponseCard) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableAuthResponseCard) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableAuthResponseCard(val *AuthResponseCard) *NullableAuthResponseCard {
+	return &NullableAuthResponseCard{value: val, isSet: true}
+}
+
+func (v NullableAuthResponseCard) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableAuthResponseCard) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -65,4 +65,39 @@ func (o TerminalTransactionEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableTerminalTransactionEntity struct {
+	value *TerminalTransactionEntity
+	isSet bool
+}
+
+func (v NullableTerminalTransactionEntity) Get() *TerminalTransactionEntity {
+	return v.value
+}
+
+func (v *NullableTerminalTransactionEntity) Set(val *TerminalTransactionEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableTerminalTransactionEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableTerminalTransactionEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableTerminalTransactionEntity(val *TerminalTransactionEntity) *NullableTerminalTransactionEntity {
+	return &NullableTerminalTransactionEntity{value: val, isSet: true}
+}
+
+func (v NullableTerminalTransactionEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableTerminalTransactionEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -59,4 +59,39 @@ func (o ApiError502) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableApiError502 struct {
+	value *ApiError502
+	isSet bool
+}
+
+func (v NullableApiError502) Get() *ApiError502 {
+	return v.value
+}
+
+func (v *NullableApiError502) Set(val *ApiError502) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableApiError502) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableApiError502) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableApiError502(val *ApiError502) *NullableApiError502 {
+	return &NullableApiError502{value: val, isSet: true}
+}
+
+func (v NullableApiError502) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableApiError502) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -89,4 +89,39 @@ func (o TerminalDetails) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableTerminalDetails struct {
+	value *TerminalDetails
+	isSet bool
+}
+
+func (v NullableTerminalDetails) Get() *TerminalDetails {
+	return v.value
+}
+
+func (v *NullableTerminalDetails) Set(val *TerminalDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableTerminalDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableTerminalDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableTerminalDetails(val *TerminalDetails) *NullableTerminalDetails {
+	return &NullableTerminalDetails{value: val, isSet: true}
+}
+
+func (v NullableTerminalDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableTerminalDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

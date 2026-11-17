@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## PGFetchSettlements
 
-> SettlementEntity PGFetchSettlements(ctx).XApiVersion(xApiVersion).FetchSettlementsRequest(fetchSettlementsRequest).ContentType(contentType).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Accept(accept).Execute()
+> GetAllSettlementsResponse PGFetchSettlements(ctx).XApiVersion(xApiVersion).FetchSettlementsRequest(fetchSettlementsRequest).ContentType(contentType).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Accept(accept).Execute()
 
 Get All Settlements
 
@@ -38,7 +38,7 @@ func main() {
 	cashfree.XEnvironment = cashfree.SANDBOX
 
     xApiVersion := "2026-01-01" 
-    fetchSettlementsRequest := *cashfree.NewFetchSettlementsRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123))) 
+    fetchSettlementsRequest := *cashfree.NewFetchSettlementsRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewFetchSettlementsRequestFilters()) 
     contentType := "application/json" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 
@@ -49,7 +49,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGFetchSettlements``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PGFetchSettlements`: SettlementEntity
+    // response from `PGFetchSettlements`: GetAllSettlementsResponse
     fmt.Fprintf(os.Stdout, "Response from `cashfree.PGFetchSettlements`: %v\n", resp)
 }
 ```
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SettlementEntity**](SettlementEntity.md)
+[**GetAllSettlementsResponse**](GetAllSettlementsResponse.md)
 
 ### Authorization
 
@@ -119,7 +119,7 @@ func main() {
 	cashfree.XEnvironment = cashfree.SANDBOX
 
     xApiVersion := "2026-01-01" 
-    settlementFetchReconRequest := *cashfree.NewSettlementFetchReconRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123))) 
+    settlementFetchReconRequest := *cashfree.NewSettlementFetchReconRequest(*cashfree.NewFetchSettlementsRequestPagination(int32(123)), *cashfree.NewSettlementFetchReconRequestFilters()) 
     contentType := "application/json" 
     xRequestId := "4dfb9780-46fe-11ee-be56-0242ac120002" 
     xIdempotencyKey := "47bf8872-46fe-11ee-be56-0242ac120002" 

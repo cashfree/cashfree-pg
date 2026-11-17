@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **CustomerId** | Pointer to **string** | Customer&#39;s id. | [optional] 
 **CustomerBankAccountNumber** | Pointer to **string** | Customer bank account number. | [optional] 
 **CustomerBankCode** | Pointer to **string** | Customer bank code. | [optional] 
-**CustomerBankIfsc** | Pointer to **string** | Customer bank ifsc\&quot; | [optional] 
+**CustomerBankIfsc** | Pointer to **string** | Customer bank IFSC. | [optional] 
 
 ## Methods
 

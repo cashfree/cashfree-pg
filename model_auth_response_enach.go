@@ -76,4 +76,39 @@ func (o AuthResponseEnach) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableAuthResponseEnach struct {
+	value *AuthResponseEnach
+	isSet bool
+}
+
+func (v NullableAuthResponseEnach) Get() *AuthResponseEnach {
+	return v.value
+}
+
+func (v *NullableAuthResponseEnach) Set(val *AuthResponseEnach) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableAuthResponseEnach) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableAuthResponseEnach) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableAuthResponseEnach(val *AuthResponseEnach) *NullableAuthResponseEnach {
+	return &NullableAuthResponseEnach{value: val, isSet: true}
+}
+
+func (v NullableAuthResponseEnach) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableAuthResponseEnach) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

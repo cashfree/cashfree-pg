@@ -46,4 +46,39 @@ func (o CreateTerminalRequestTerminalMeta) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
+type NullableCreateTerminalRequestTerminalMeta struct {
+	value *CreateTerminalRequestTerminalMeta
+	isSet bool
+}
+
+func (v NullableCreateTerminalRequestTerminalMeta) Get() *CreateTerminalRequestTerminalMeta {
+	return v.value
+}
+
+func (v *NullableCreateTerminalRequestTerminalMeta) Set(val *CreateTerminalRequestTerminalMeta) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateTerminalRequestTerminalMeta) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateTerminalRequestTerminalMeta) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateTerminalRequestTerminalMeta(val *CreateTerminalRequestTerminalMeta) *NullableCreateTerminalRequestTerminalMeta {
+	return &NullableCreateTerminalRequestTerminalMeta{value: val, isSet: true}
+}
+
+func (v NullableCreateTerminalRequestTerminalMeta) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateTerminalRequestTerminalMeta) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

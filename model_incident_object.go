@@ -80,4 +80,39 @@ func (o IncidentObject) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableIncidentObject struct {
+	value *IncidentObject
+	isSet bool
+}
+
+func (v NullableIncidentObject) Get() *IncidentObject {
+	return v.value
+}
+
+func (v *NullableIncidentObject) Set(val *IncidentObject) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableIncidentObject) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableIncidentObject) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableIncidentObject(val *IncidentObject) *NullableIncidentObject {
+	return &NullableIncidentObject{value: val, isSet: true}
+}
+
+func (v NullableIncidentObject) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableIncidentObject) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

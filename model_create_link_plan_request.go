@@ -83,4 +83,39 @@ func (o CreateLinkPlanRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCreateLinkPlanRequest struct {
+	value *CreateLinkPlanRequest
+	isSet bool
+}
+
+func (v NullableCreateLinkPlanRequest) Get() *CreateLinkPlanRequest {
+	return v.value
+}
+
+func (v *NullableCreateLinkPlanRequest) Set(val *CreateLinkPlanRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateLinkPlanRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateLinkPlanRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateLinkPlanRequest(val *CreateLinkPlanRequest) *NullableCreateLinkPlanRequest {
+	return &NullableCreateLinkPlanRequest{value: val, isSet: true}
+}
+
+func (v NullableCreateLinkPlanRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateLinkPlanRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

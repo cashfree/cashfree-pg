@@ -61,4 +61,39 @@ func (o VendorSplit) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableVendorSplit struct {
+	value *VendorSplit
+	isSet bool
+}
+
+func (v NullableVendorSplit) Get() *VendorSplit {
+	return v.value
+}
+
+func (v *NullableVendorSplit) Set(val *VendorSplit) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableVendorSplit) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableVendorSplit) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableVendorSplit(val *VendorSplit) *NullableVendorSplit {
+	return &NullableVendorSplit{value: val, isSet: true}
+}
+
+func (v NullableVendorSplit) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableVendorSplit) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 
