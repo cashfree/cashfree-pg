@@ -24,13 +24,15 @@ var _ MappedNullable = &SettlementReconEntityDataInner{}
 
 // SettlementReconEntityDataInner struct for SettlementReconEntityDataInner
 type SettlementReconEntityDataInner struct {
-	EventDetails *ReconEntityDataInnerEventDetails `json:"event_details,omitempty"`
-	OrderDetails *ReconEntityDataInnerOrderDetails `json:"order_details,omitempty"`
-	CustomerDetails *ReconEntityDataInnerCustomerDetails `json:"customer_details,omitempty"`
+	EventDetails *SettlementReconEntityDataInnerEventDetails `json:"event_details,omitempty"`
+	OrderDetails *SettlementReconEntityDataInnerOrderDetails `json:"order_details,omitempty"`
+	CustomerDetails *SettlementReconEntityDataInnerCustomerDetails `json:"customer_details,omitempty"`
 	PaymentDetails *SettlementReconEntityDataInnerPaymentDetails `json:"payment_details,omitempty"`
-	SettlementDetails *ReconEntityDataInnerSettlementDetails `json:"settlement_details,omitempty"`
-	DisputeDetails *ReconEntityDataInnerDisputeDetails `json:"dispute_details,omitempty"`
-	RefundDetails *ReconEntityDataInnerRefundDetails `json:"refund_details,omitempty"`
+	SettlementDetails *SettlementReconEntityDataInnerSettlementDetails `json:"settlement_details,omitempty"`
+	// List of disputes linked to this event.
+	DisputeDetails []SettlementReconEntityDataInnerDisputeDetailsInner `json:"dispute_details,omitempty"`
+	// List of refunds linked to this event.
+	RefundDetails []ReconEntityDataInnerRefundDetails `json:"refund_details,omitempty"`
 }
 
 

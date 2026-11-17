@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Paylater** | Pointer to [**PaymentMethodAppInPaymentsEntityApp**](PaymentMethodAppInPaymentsEntityApp.md) |  | [optional] 
 **Emi** | Pointer to [**PaymentMethodCardEMIInPaymentsEntityEmi**](PaymentMethodCardEMIInPaymentsEntityEmi.md) |  | [optional] 
 **Banktransfer** | Pointer to [**PaymentMethodBankTransferInPaymentsEntityBanktransfer**](PaymentMethodBankTransferInPaymentsEntityBanktransfer.md) |  | [optional] 
+**Others** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
@@ -231,6 +232,31 @@ SetBanktransfer sets Banktransfer field to given value.
 `func (o *PaymentEntityPaymentMethod) HasBanktransfer() bool`
 
 HasBanktransfer returns a boolean if a field has been set.
+
+### GetOthers
+
+`func (o *PaymentEntityPaymentMethod) GetOthers() map[string]interface{}`
+
+GetOthers returns the Others field if non-nil, zero value otherwise.
+
+### GetOthersOk
+
+`func (o *PaymentEntityPaymentMethod) GetOthersOk() (*map[string]interface{}, bool)`
+
+GetOthersOk returns a tuple with the Others field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOthers
+
+`func (o *PaymentEntityPaymentMethod) SetOthers(v map[string]interface{})`
+
+SetOthers sets Others field to given value.
+
+### HasOthers
+
+`func (o *PaymentEntityPaymentMethod) HasOthers() bool`
+
+HasOthers returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

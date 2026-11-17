@@ -22,12 +22,14 @@ var _ = fmt.Errorf
 // checks if the FetchSettlementsRequestFilters type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FetchSettlementsRequestFilters{}
 
-// FetchSettlementsRequestFilters Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
+// FetchSettlementsRequestFilters Specify either the Settlement ID, Settlement UTR, settlement status, or start date and end date to fetch the settlement details.
 type FetchSettlementsRequestFilters struct {
 	// List of settlement IDs for which you want the settlement reconciliation details.
 	CfSettlementIds []string `json:"cf_settlement_ids,omitempty"`
 	// List of settlement UTRs for which you want the settlement reconciliation details.
 	SettlementUtrs []string `json:"settlement_utrs,omitempty"`
+	// List of settlement statuses to filter by. Possible values are SUCCESS, PENDING, PENDING_WITH_CASHFREE, PENDING_WITH_BANK, FAILED.
+	SettlementStatus []string `json:"settlement_status,omitempty"`
 	// Specify the start date from when you want the settlement reconciliation details.
 	StartDate *string `json:"start_date,omitempty"`
 	// Specify the end date till when you want the settlement reconciliation details.
@@ -51,6 +53,9 @@ func (o FetchSettlementsRequestFilters) ToMap() (map[string]interface{}, error) 
 	}
 	if !IsNil(o.SettlementUtrs) {
 		toSerialize["settlement_utrs"] = o.SettlementUtrs
+	}
+	if !IsNil(o.SettlementStatus) {
+		toSerialize["settlement_status"] = o.SettlementStatus
 	}
 	if !IsNil(o.StartDate) {
 		toSerialize["start_date"] = o.StartDate

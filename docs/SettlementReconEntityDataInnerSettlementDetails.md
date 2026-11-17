@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CfSettlementId** | Pointer to **string** | Unique ID to identify the settlement. | [optional] 
 **SettlementDate** | Pointer to **string** | Date and time when the settlement was processed. | [optional] 
-**Utr** | Pointer to **string** | Unique transaction reference number of the settlement. | [optional] 
+**SettlementUtr** | Pointer to **string** | Unique transaction reference number of the settlement. | [optional] 
 **SplitServiceCharge** | Pointer to **float32** | Service charge that is applicable for splitting the payment. | [optional] 
 **SplitServiceTax** | Pointer to **float32** | Service tax applicable for splitting the amount to vendors. | [optional] 
 **VendorCommission** | Pointer to **float32** | Vendor commission applicable for this transaction. | [optional] 
@@ -90,30 +90,30 @@ SetSettlementDate sets SettlementDate field to given value.
 
 HasSettlementDate returns a boolean if a field has been set.
 
-### GetUtr
+### GetSettlementUtr
 
-`func (o *SettlementReconEntityDataInnerSettlementDetails) GetUtr() string`
+`func (o *SettlementReconEntityDataInnerSettlementDetails) GetSettlementUtr() string`
 
-GetUtr returns the Utr field if non-nil, zero value otherwise.
+GetSettlementUtr returns the SettlementUtr field if non-nil, zero value otherwise.
 
-### GetUtrOk
+### GetSettlementUtrOk
 
-`func (o *SettlementReconEntityDataInnerSettlementDetails) GetUtrOk() (*string, bool)`
+`func (o *SettlementReconEntityDataInnerSettlementDetails) GetSettlementUtrOk() (*string, bool)`
 
-GetUtrOk returns a tuple with the Utr field if it's non-nil, zero value otherwise
+GetSettlementUtrOk returns a tuple with the SettlementUtr field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetUtr
+### SetSettlementUtr
 
-`func (o *SettlementReconEntityDataInnerSettlementDetails) SetUtr(v string)`
+`func (o *SettlementReconEntityDataInnerSettlementDetails) SetSettlementUtr(v string)`
 
-SetUtr sets Utr field to given value.
+SetSettlementUtr sets SettlementUtr field to given value.
 
-### HasUtr
+### HasSettlementUtr
 
-`func (o *SettlementReconEntityDataInnerSettlementDetails) HasUtr() bool`
+`func (o *SettlementReconEntityDataInnerSettlementDetails) HasSettlementUtr() bool`
 
-HasUtr returns a boolean if a field has been set.
+HasSettlementUtr returns a boolean if a field has been set.
 
 ### GetSplitServiceCharge
 

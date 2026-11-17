@@ -25,7 +25,7 @@ var _ MappedNullable = &FetchSettlementsRequest{}
 // FetchSettlementsRequest Request to fetch settlement.
 type FetchSettlementsRequest struct {
 	Pagination FetchSettlementsRequestPagination `json:"pagination"`
-	Filters *FetchSettlementsRequestFilters `json:"filters,omitempty"`
+	Filters FetchSettlementsRequestFilters `json:"filters"`
 }
 
 
@@ -41,9 +41,7 @@ func (o FetchSettlementsRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["pagination"] = o.Pagination
-	if !IsNil(o.Filters) {
-		toSerialize["filters"] = o.Filters
-	}
+	toSerialize["filters"] = o.Filters
 	return toSerialize, nil
 }
 

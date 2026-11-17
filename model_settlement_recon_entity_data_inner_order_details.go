@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -28,9 +28,9 @@ type SettlementReconEntityDataInnerOrderDetails struct {
 	OrderId *string `json:"order_id,omitempty"`
 	// The amount which was passed at the order creation time.
 	OrderAmount *float32 `json:"order_amount,omitempty"`
-	// Order Curreny type - INR.
+	// Order Currency type - INR.
 	OrderCurrency *string `json:"order_currency,omitempty"`
-	// The order tags provided during order creation
+	// The order tags provided during order creation.
 	OrderTags map[string]interface{} `json:"order_tags,omitempty"`
 }
 

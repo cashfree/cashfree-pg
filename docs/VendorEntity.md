@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **VendorId** | Pointer to **string** |  | [optional] 
 **AddedOn** | Pointer to **string** |  | [optional] 
 **UpdatedOn** | Pointer to **string** |  | [optional] 
-**Bank** | Pointer to [**[]BankDetails**](BankDetails.md) |  | [optional] 
+**Bank** | Pointer to [**NullableBankDetails**](BankDetails.md) |  | [optional] 
 **Upi** | Pointer to **string** |  | [optional] 
-**ScheduleOption** | Pointer to [**[]ScheduleOption**](ScheduleOption.md) |  | [optional] 
+**ScheduleOption** | Pointer to [**NullableScheduleOption**](ScheduleOption.md) |  | [optional] 
 **VendorType** | Pointer to **string** |  | [optional] 
 **AccountType** | Pointer to **string** |  | [optional] 
 **BusinessType** | Pointer to **string** |  | [optional] 
@@ -216,20 +216,20 @@ HasUpdatedOn returns a boolean if a field has been set.
 
 ### GetBank
 
-`func (o *VendorEntity) GetBank() []BankDetails`
+`func (o *VendorEntity) GetBank() BankDetails`
 
 GetBank returns the Bank field if non-nil, zero value otherwise.
 
 ### GetBankOk
 
-`func (o *VendorEntity) GetBankOk() (*[]BankDetails, bool)`
+`func (o *VendorEntity) GetBankOk() (*BankDetails, bool)`
 
 GetBankOk returns a tuple with the Bank field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBank
 
-`func (o *VendorEntity) SetBank(v []BankDetails)`
+`func (o *VendorEntity) SetBank(v BankDetails)`
 
 SetBank sets Bank field to given value.
 
@@ -239,6 +239,16 @@ SetBank sets Bank field to given value.
 
 HasBank returns a boolean if a field has been set.
 
+### SetBankNil
+
+`func (o *VendorEntity) SetBankNil(b bool)`
+
+ SetBankNil sets the value for Bank to be an explicit nil
+
+### UnsetBank
+`func (o *VendorEntity) UnsetBank()`
+
+UnsetBank ensures that no value is present for Bank, not even an explicit nil
 ### GetUpi
 
 `func (o *VendorEntity) GetUpi() string`
@@ -266,20 +276,20 @@ HasUpi returns a boolean if a field has been set.
 
 ### GetScheduleOption
 
-`func (o *VendorEntity) GetScheduleOption() []ScheduleOption`
+`func (o *VendorEntity) GetScheduleOption() ScheduleOption`
 
 GetScheduleOption returns the ScheduleOption field if non-nil, zero value otherwise.
 
 ### GetScheduleOptionOk
 
-`func (o *VendorEntity) GetScheduleOptionOk() (*[]ScheduleOption, bool)`
+`func (o *VendorEntity) GetScheduleOptionOk() (*ScheduleOption, bool)`
 
 GetScheduleOptionOk returns a tuple with the ScheduleOption field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScheduleOption
 
-`func (o *VendorEntity) SetScheduleOption(v []ScheduleOption)`
+`func (o *VendorEntity) SetScheduleOption(v ScheduleOption)`
 
 SetScheduleOption sets ScheduleOption field to given value.
 
@@ -289,6 +299,16 @@ SetScheduleOption sets ScheduleOption field to given value.
 
 HasScheduleOption returns a boolean if a field has been set.
 
+### SetScheduleOptionNil
+
+`func (o *VendorEntity) SetScheduleOptionNil(b bool)`
+
+ SetScheduleOptionNil sets the value for ScheduleOption to be an explicit nil
+
+### UnsetScheduleOption
+`func (o *VendorEntity) UnsetScheduleOption()`
+
+UnsetScheduleOption ensures that no value is present for ScheduleOption, not even an explicit nil
 ### GetVendorType
 
 `func (o *VendorEntity) GetVendorType() string`

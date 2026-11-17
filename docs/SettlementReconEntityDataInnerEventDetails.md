@@ -10,12 +10,12 @@ Name | Type | Description | Notes
 **EventAmount** | Pointer to **float32** | Amount corresponding to the event. Example, refund amount, dispute amount, payment amount, etc. | [optional] 
 **SaleType** | Pointer to **string** | Indicates if it is CREDIT/DEBIT sale. | [optional] 
 **EventStatus** | Pointer to **string** | Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED. | [optional] 
-**Entity** | Pointer to **string** | Recon | [optional] 
-**EventTime** | Pointer to **string** | Time associated with the event. Example, transaction time, dispute initiation time | [optional] 
-**EventCurrency** | Pointer to **string** | Curreny type - INR. | [optional] 
+**Entity** | Pointer to **string** | Recon. | [optional] 
+**EventTime** | Pointer to **string** | Time associated with the event. Example, transaction time, dispute initiation time. | [optional] 
+**EventCurrency** | Pointer to **string** | Currency type - INR. | [optional] 
 **EventServiceCharge** | Pointer to **float32** | Service charge for above event_type. | [optional] 
 **EventServiceTax** | Pointer to **float32** | Service tax for above event_type. | [optional] 
-**EventRemarks** | Pointer to **float32** | Remarks for above event_type. | [optional] 
+**EventRemarks** | Pointer to **string** | Remarks for above event_type. | [optional] 
 
 ## Methods
 
@@ -313,20 +313,20 @@ HasEventServiceTax returns a boolean if a field has been set.
 
 ### GetEventRemarks
 
-`func (o *SettlementReconEntityDataInnerEventDetails) GetEventRemarks() float32`
+`func (o *SettlementReconEntityDataInnerEventDetails) GetEventRemarks() string`
 
 GetEventRemarks returns the EventRemarks field if non-nil, zero value otherwise.
 
 ### GetEventRemarksOk
 
-`func (o *SettlementReconEntityDataInnerEventDetails) GetEventRemarksOk() (*float32, bool)`
+`func (o *SettlementReconEntityDataInnerEventDetails) GetEventRemarksOk() (*string, bool)`
 
 GetEventRemarksOk returns a tuple with the EventRemarks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventRemarks
 
-`func (o *SettlementReconEntityDataInnerEventDetails) SetEventRemarks(v float32)`
+`func (o *SettlementReconEntityDataInnerEventDetails) SetEventRemarks(v string)`
 
 SetEventRemarks sets EventRemarks field to given value.
 
