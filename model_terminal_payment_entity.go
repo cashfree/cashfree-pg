@@ -31,7 +31,7 @@ type TerminalPaymentEntity struct {
 	IsCaptured *bool `json:"is_captured,omitempty"`
 	// Order amount can be different from payment amount if you collect service fee from the customer.
 	OrderAmount *float32 `json:"order_amount,omitempty"`
-	// Type of payment group. One of ['prepaid_card', 'upi_ppi_offline', 'cash', 'upi_credit_card', 'paypal', 'net_banking', 'cardless_emi', 'credit_card', 'bank_transfer', 'pay_later', 'debit_card_emi', 'debit_card', 'wallet', 'upi_ppi', 'upi', 'credit_card_emi'].
+	// Type of payment group. One of ['prepaid_card', 'upi_ppi_offline', 'cash', 'upi_credit_card', 'paypal', 'net_banking', 'cardless_emi', 'credit_card', 'bank_transfer', 'pay_later', 'debit_card_emi', 'debit_card', 'wallet', 'upi_ppi', 'upi', 'credit_card_emi', 'upi_credit_line'].
 	PaymentGroup *string `json:"payment_group,omitempty"`
 	PaymentCurrency *string `json:"payment_currency,omitempty"`
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`

@@ -6,8 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CfSettlementIds** | Pointer to **[]int32** | List of settlement IDs for which you want the settlement reconciliation details. | [optional] 
 **SettlementUtrs** | Pointer to **[]string** | List of settlement UTRs for which you want the settlement reconciliation details. | [optional] 
-**StartDate** | Pointer to **string** | Specify the start date from when you want the settlement reconciliation details. | [optional] 
-**EndDate** | Pointer to **string** | Specify the end date till when you want the settlement reconciliation details. | [optional] 
+**StartDateInitiatedOn** | Pointer to **string** | Filter events by settlement initiation start date. Use ISO8601 format. | [optional] 
+**EndDateInitiatedOn** | Pointer to **string** | Filter events by settlement initiation end date. Use ISO8601 format. | [optional] 
+**StartDateProcessedOn** | Pointer to **string** | Filter events by settlement processed start date. Use ISO8601 format. | [optional] 
+**EndDateProcessedOn** | Pointer to **string** | Filter events by settlement processed end date. Use ISO8601 format. | [optional] 
+**StartDate** | Pointer to **string** | Deprecated: Use start_date_initiated_on or start_date_processed_on instead. Specify the start date from when you want the settlement reconciliation details. | [optional] 
+**EndDate** | Pointer to **string** | Deprecated: Use end_date_initiated_on or end_date_processed_on instead. Specify the end date till when you want the settlement reconciliation details. | [optional] 
 
 ## Methods
 
@@ -77,6 +81,106 @@ SetSettlementUtrs sets SettlementUtrs field to given value.
 `func (o *SettlementFetchReconRequestFilters) HasSettlementUtrs() bool`
 
 HasSettlementUtrs returns a boolean if a field has been set.
+
+### GetStartDateInitiatedOn
+
+`func (o *SettlementFetchReconRequestFilters) GetStartDateInitiatedOn() string`
+
+GetStartDateInitiatedOn returns the StartDateInitiatedOn field if non-nil, zero value otherwise.
+
+### GetStartDateInitiatedOnOk
+
+`func (o *SettlementFetchReconRequestFilters) GetStartDateInitiatedOnOk() (*string, bool)`
+
+GetStartDateInitiatedOnOk returns a tuple with the StartDateInitiatedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDateInitiatedOn
+
+`func (o *SettlementFetchReconRequestFilters) SetStartDateInitiatedOn(v string)`
+
+SetStartDateInitiatedOn sets StartDateInitiatedOn field to given value.
+
+### HasStartDateInitiatedOn
+
+`func (o *SettlementFetchReconRequestFilters) HasStartDateInitiatedOn() bool`
+
+HasStartDateInitiatedOn returns a boolean if a field has been set.
+
+### GetEndDateInitiatedOn
+
+`func (o *SettlementFetchReconRequestFilters) GetEndDateInitiatedOn() string`
+
+GetEndDateInitiatedOn returns the EndDateInitiatedOn field if non-nil, zero value otherwise.
+
+### GetEndDateInitiatedOnOk
+
+`func (o *SettlementFetchReconRequestFilters) GetEndDateInitiatedOnOk() (*string, bool)`
+
+GetEndDateInitiatedOnOk returns a tuple with the EndDateInitiatedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndDateInitiatedOn
+
+`func (o *SettlementFetchReconRequestFilters) SetEndDateInitiatedOn(v string)`
+
+SetEndDateInitiatedOn sets EndDateInitiatedOn field to given value.
+
+### HasEndDateInitiatedOn
+
+`func (o *SettlementFetchReconRequestFilters) HasEndDateInitiatedOn() bool`
+
+HasEndDateInitiatedOn returns a boolean if a field has been set.
+
+### GetStartDateProcessedOn
+
+`func (o *SettlementFetchReconRequestFilters) GetStartDateProcessedOn() string`
+
+GetStartDateProcessedOn returns the StartDateProcessedOn field if non-nil, zero value otherwise.
+
+### GetStartDateProcessedOnOk
+
+`func (o *SettlementFetchReconRequestFilters) GetStartDateProcessedOnOk() (*string, bool)`
+
+GetStartDateProcessedOnOk returns a tuple with the StartDateProcessedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartDateProcessedOn
+
+`func (o *SettlementFetchReconRequestFilters) SetStartDateProcessedOn(v string)`
+
+SetStartDateProcessedOn sets StartDateProcessedOn field to given value.
+
+### HasStartDateProcessedOn
+
+`func (o *SettlementFetchReconRequestFilters) HasStartDateProcessedOn() bool`
+
+HasStartDateProcessedOn returns a boolean if a field has been set.
+
+### GetEndDateProcessedOn
+
+`func (o *SettlementFetchReconRequestFilters) GetEndDateProcessedOn() string`
+
+GetEndDateProcessedOn returns the EndDateProcessedOn field if non-nil, zero value otherwise.
+
+### GetEndDateProcessedOnOk
+
+`func (o *SettlementFetchReconRequestFilters) GetEndDateProcessedOnOk() (*string, bool)`
+
+GetEndDateProcessedOnOk returns a tuple with the EndDateProcessedOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndDateProcessedOn
+
+`func (o *SettlementFetchReconRequestFilters) SetEndDateProcessedOn(v string)`
+
+SetEndDateProcessedOn sets EndDateProcessedOn field to given value.
+
+### HasEndDateProcessedOn
+
+`func (o *SettlementFetchReconRequestFilters) HasEndDateProcessedOn() bool`
+
+HasEndDateProcessedOn returns a boolean if a field has been set.
 
 ### GetStartDate
 

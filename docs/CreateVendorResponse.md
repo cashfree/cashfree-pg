@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Email** | Pointer to **string** |  | [optional] 
 **Status** | Pointer to **string** |  | [optional] 
-**Bank** | Pointer to [**[]BankDetails**](BankDetails.md) |  | [optional] 
+**Bank** | Pointer to [**NullableBankDetails**](BankDetails.md) |  | [optional] 
 **Upi** | Pointer to **string** |  | [optional] 
 **Phone** | Pointer to **float32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **VendorId** | Pointer to **string** |  | [optional] 
-**ScheduleOption** | Pointer to [**[]ScheduleOption**](ScheduleOption.md) |  | [optional] 
-**KycDetails** | Pointer to [**[]KycDetails**](KycDetails.md) |  | [optional] 
+**ScheduleOption** | Pointer to [**NullableScheduleOption**](ScheduleOption.md) |  | [optional] 
+**KycDetails** | Pointer to [**NullableKycDetails**](KycDetails.md) |  | [optional] 
 **DashboardAccess** | Pointer to **bool** |  | [optional] 
 **BankDetails** | Pointer to **string** |  | [optional] 
 
@@ -87,20 +87,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetBank
 
-`func (o *CreateVendorResponse) GetBank() []BankDetails`
+`func (o *CreateVendorResponse) GetBank() BankDetails`
 
 GetBank returns the Bank field if non-nil, zero value otherwise.
 
 ### GetBankOk
 
-`func (o *CreateVendorResponse) GetBankOk() (*[]BankDetails, bool)`
+`func (o *CreateVendorResponse) GetBankOk() (*BankDetails, bool)`
 
 GetBankOk returns a tuple with the Bank field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBank
 
-`func (o *CreateVendorResponse) SetBank(v []BankDetails)`
+`func (o *CreateVendorResponse) SetBank(v BankDetails)`
 
 SetBank sets Bank field to given value.
 
@@ -110,6 +110,16 @@ SetBank sets Bank field to given value.
 
 HasBank returns a boolean if a field has been set.
 
+### SetBankNil
+
+`func (o *CreateVendorResponse) SetBankNil(b bool)`
+
+ SetBankNil sets the value for Bank to be an explicit nil
+
+### UnsetBank
+`func (o *CreateVendorResponse) UnsetBank()`
+
+UnsetBank ensures that no value is present for Bank, not even an explicit nil
 ### GetUpi
 
 `func (o *CreateVendorResponse) GetUpi() string`
@@ -212,20 +222,20 @@ HasVendorId returns a boolean if a field has been set.
 
 ### GetScheduleOption
 
-`func (o *CreateVendorResponse) GetScheduleOption() []ScheduleOption`
+`func (o *CreateVendorResponse) GetScheduleOption() ScheduleOption`
 
 GetScheduleOption returns the ScheduleOption field if non-nil, zero value otherwise.
 
 ### GetScheduleOptionOk
 
-`func (o *CreateVendorResponse) GetScheduleOptionOk() (*[]ScheduleOption, bool)`
+`func (o *CreateVendorResponse) GetScheduleOptionOk() (*ScheduleOption, bool)`
 
 GetScheduleOptionOk returns a tuple with the ScheduleOption field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScheduleOption
 
-`func (o *CreateVendorResponse) SetScheduleOption(v []ScheduleOption)`
+`func (o *CreateVendorResponse) SetScheduleOption(v ScheduleOption)`
 
 SetScheduleOption sets ScheduleOption field to given value.
 
@@ -235,22 +245,32 @@ SetScheduleOption sets ScheduleOption field to given value.
 
 HasScheduleOption returns a boolean if a field has been set.
 
+### SetScheduleOptionNil
+
+`func (o *CreateVendorResponse) SetScheduleOptionNil(b bool)`
+
+ SetScheduleOptionNil sets the value for ScheduleOption to be an explicit nil
+
+### UnsetScheduleOption
+`func (o *CreateVendorResponse) UnsetScheduleOption()`
+
+UnsetScheduleOption ensures that no value is present for ScheduleOption, not even an explicit nil
 ### GetKycDetails
 
-`func (o *CreateVendorResponse) GetKycDetails() []KycDetails`
+`func (o *CreateVendorResponse) GetKycDetails() KycDetails`
 
 GetKycDetails returns the KycDetails field if non-nil, zero value otherwise.
 
 ### GetKycDetailsOk
 
-`func (o *CreateVendorResponse) GetKycDetailsOk() (*[]KycDetails, bool)`
+`func (o *CreateVendorResponse) GetKycDetailsOk() (*KycDetails, bool)`
 
 GetKycDetailsOk returns a tuple with the KycDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetKycDetails
 
-`func (o *CreateVendorResponse) SetKycDetails(v []KycDetails)`
+`func (o *CreateVendorResponse) SetKycDetails(v KycDetails)`
 
 SetKycDetails sets KycDetails field to given value.
 
@@ -260,6 +280,16 @@ SetKycDetails sets KycDetails field to given value.
 
 HasKycDetails returns a boolean if a field has been set.
 
+### SetKycDetailsNil
+
+`func (o *CreateVendorResponse) SetKycDetailsNil(b bool)`
+
+ SetKycDetailsNil sets the value for KycDetails to be an explicit nil
+
+### UnsetKycDetails
+`func (o *CreateVendorResponse) UnsetKycDetails()`
+
+UnsetKycDetails ensures that no value is present for KycDetails, not even an explicit nil
 ### GetDashboardAccess
 
 `func (o *CreateVendorResponse) GetDashboardAccess() bool`

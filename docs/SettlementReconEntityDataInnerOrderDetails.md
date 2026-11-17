@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **OrderId** | Pointer to **string** | Unique order ID. Alphanumeric and only &#39;-&#39; and &#39;_&#39; allowed. | [optional] 
 **OrderAmount** | Pointer to **float32** | The amount which was passed at the order creation time. | [optional] 
-**OrderCurrency** | Pointer to **string** | Order Curreny type - INR. | [optional] 
-**OrderTags** | Pointer to **map[string]interface{}** | The order tags provided during order creation | [optional] 
+**OrderCurrency** | Pointer to **string** | Order Currency type - INR. | [optional] 
+**OrderTags** | Pointer to **map[string]interface{}** | The order tags provided during order creation. | [optional] 
 
 ## Methods
 

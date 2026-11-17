@@ -25,8 +25,8 @@ var _ MappedNullable = &CardDowntimeCard{}
 // CardDowntimeCard struct for CardDowntimeCard
 type CardDowntimeCard struct {
 	CardIssuer []string `json:"card_issuer,omitempty"`
-	CardType []string `json:"card_type,omitempty"`
-	CardNetwork []string `json:"card_network,omitempty"`
+	CardType []CardDowntimeCardTypeEnum `json:"card_type,omitempty"`
+	CardNetwork []CardDowntimeCardNetworkEnum `json:"card_network,omitempty"`
 }
 
 

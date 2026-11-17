@@ -51,6 +51,8 @@ docs/BanktransferPaymentMethod.md
 docs/Card.md
 docs/CardDowntime.md
 docs/CardDowntimeCard.md
+docs/CardDowntimeCardNetworkEnum.md
+docs/CardDowntimeCardTypeEnum.md
 docs/CardEMI.md
 docs/CardEMIPaymentMethod.md
 docs/CardOffer.md
@@ -147,6 +149,8 @@ docs/FetchSettlementsRequest.md
 docs/FetchSettlementsRequestFilters.md
 docs/FetchSettlementsRequestPagination.md
 docs/FetchTerminalQRCodesEntity.md
+docs/GetAllSettlementsResponse.md
+docs/GetAllSettlementsResponseDataInner.md
 docs/GetAllTerminalPaymentEntity.md
 docs/GetAllTerminalTransactionRequest.md
 docs/GetCardBinRequest.md
@@ -173,6 +177,8 @@ docs/ManageSubscriptionPaymentRequest.md
 docs/ManageSubscriptionPaymentRequestActionDetails.md
 docs/ManageSubscriptionRequest.md
 docs/ManageSubscriptionRequestActionDetails.md
+docs/MarkOrderSettlementResponse.md
+docs/MarkOrderSettlementResponseMetaData.md
 docs/NetBankingDowntime.md
 docs/NetBankingDowntimeNetBanking.md
 docs/NetBankingPaymentMethod.md
@@ -216,6 +222,11 @@ docs/OrderMetaPaymentMethodsFilters.md
 docs/OrderMetaPaymentMethodsFiltersMethods.md
 docs/OrderPayData.md
 docs/OrderPaymentMethodFilters.md
+docs/OrderSettlementEntity.md
+docs/OrderSettlementEntityCustomerDetails.md
+docs/OrderSettlementEntityOrderDetails.md
+docs/OrderSettlementEntityPaymentDetails.md
+docs/OrderSettlementEntitySettlementDetails.md
 docs/OrderUpdateRefundRequest.md
 docs/OrdersAPI.md
 docs/PARRequest.md
@@ -249,6 +260,7 @@ docs/PaymentMethodCardInPaymentsEntityCard.md
 docs/PaymentMethodCardlessEMIInPaymentsEntity.md
 docs/PaymentMethodNetBankingInPaymentsEntity.md
 docs/PaymentMethodNetBankingInPaymentsEntityNetbanking.md
+docs/PaymentMethodOthersInPaymentsEntity.md
 docs/PaymentMethodPaylaterInPaymentsEntity.md
 docs/PaymentMethodUPIInPaymentsEntity.md
 docs/PaymentMethodUPIInPaymentsEntityUpi.md
@@ -292,7 +304,12 @@ docs/SettlementFetchReconRequest.md
 docs/SettlementFetchReconRequestFilters.md
 docs/SettlementReconEntity.md
 docs/SettlementReconEntityDataInner.md
+docs/SettlementReconEntityDataInnerCustomerDetails.md
+docs/SettlementReconEntityDataInnerDisputeDetailsInner.md
+docs/SettlementReconEntityDataInnerEventDetails.md
+docs/SettlementReconEntityDataInnerOrderDetails.md
 docs/SettlementReconEntityDataInnerPaymentDetails.md
+docs/SettlementReconEntityDataInnerSettlementDetails.md
 docs/SettlementReconciliationAPI.md
 docs/SettlementSimulationResponse.md
 docs/SettlementWebhook.md
@@ -410,6 +427,8 @@ model_banktransfer_payment_method.go
 model_card.go
 model_card_downtime.go
 model_card_downtime_card.go
+model_card_downtime_card_network_enum.go
+model_card_downtime_card_type_enum.go
 model_card_emi.go
 model_card_emi_payment_method.go
 model_card_offer.go
@@ -493,7 +512,7 @@ model_evidence.go
 model_evidences_to_contest_dispute.go
 model_extended_cart_details.go
 model_extended_customer_details.go
-model_fetch_active_ecosystem_downtimes_200_response.go
+model_fetch_active_ecosystem_downtimes200_response.go
 model_fetch_recon_request.go
 model_fetch_recon_request_filters.go
 model_fetch_recon_request_pagination.go
@@ -501,6 +520,8 @@ model_fetch_settlements_request.go
 model_fetch_settlements_request_filters.go
 model_fetch_settlements_request_pagination.go
 model_fetch_terminal_qr_codes_entity.go
+model_get_all_settlements_response.go
+model_get_all_settlements_response_data_inner.go
 model_get_all_terminal_payment_entity.go
 model_get_all_terminal_transaction_request.go
 model_get_card_bin_request.go
@@ -526,6 +547,8 @@ model_manage_subscription_payment_request.go
 model_manage_subscription_payment_request_action_details.go
 model_manage_subscription_request.go
 model_manage_subscription_request_action_details.go
+model_mark_order_settlement_response.go
+model_mark_order_settlement_response_meta_data.go
 model_net_banking_downtime.go
 model_net_banking_downtime_net_banking.go
 model_net_banking_payment_method.go
@@ -568,6 +591,11 @@ model_order_meta_payment_methods_filters.go
 model_order_meta_payment_methods_filters_methods.go
 model_order_pay_data.go
 model_order_payment_method_filters.go
+model_order_settlement_entity.go
+model_order_settlement_entity_customer_details.go
+model_order_settlement_entity_order_details.go
+model_order_settlement_entity_payment_details.go
+model_order_settlement_entity_settlement_details.go
 model_order_update_refund_request.go
 model_par_request.go
 model_pay_order_authorize_only_request.go
@@ -597,6 +625,7 @@ model_payment_method_card_in_payments_entity_card.go
 model_payment_method_cardless_emiin_payments_entity.go
 model_payment_method_net_banking_in_payments_entity.go
 model_payment_method_net_banking_in_payments_entity_netbanking.go
+model_payment_method_others_in_payments_entity.go
 model_payment_method_paylater_in_payments_entity.go
 model_payment_method_upiin_payments_entity.go
 model_payment_method_upiin_payments_entity_upi.go
@@ -609,7 +638,7 @@ model_payment_webhook_data_entity.go
 model_payment_webhook_error_entity.go
 model_payment_webhook_gateway_details_entity.go
 model_payment_webhook_order_entity.go
-model_pg_create_par_200_response.go
+model_pg_create_par200_response.go
 model_plan_entity.go
 model_product_conditions.go
 model_product_conditions_entity.go
@@ -638,7 +667,12 @@ model_settlement_fetch_recon_request.go
 model_settlement_fetch_recon_request_filters.go
 model_settlement_recon_entity.go
 model_settlement_recon_entity_data_inner.go
+model_settlement_recon_entity_data_inner_customer_details.go
+model_settlement_recon_entity_data_inner_dispute_details_inner.go
+model_settlement_recon_entity_data_inner_event_details.go
+model_settlement_recon_entity_data_inner_order_details.go
 model_settlement_recon_entity_data_inner_payment_details.go
+model_settlement_recon_entity_data_inner_settlement_details.go
 model_settlement_simulation_response.go
 model_settlement_webhook.go
 model_settlement_webhook_data_entity.go
