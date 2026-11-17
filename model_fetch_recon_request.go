@@ -47,4 +47,39 @@ func (o FetchReconRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableFetchReconRequest struct {
+	value *FetchReconRequest
+	isSet bool
+}
+
+func (v NullableFetchReconRequest) Get() *FetchReconRequest {
+	return v.value
+}
+
+func (v *NullableFetchReconRequest) Set(val *FetchReconRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableFetchReconRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableFetchReconRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableFetchReconRequest(val *FetchReconRequest) *NullableFetchReconRequest {
+	return &NullableFetchReconRequest{value: val, isSet: true}
+}
+
+func (v NullableFetchReconRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableFetchReconRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

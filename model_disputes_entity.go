@@ -111,4 +111,39 @@ func (o DisputesEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableDisputesEntity struct {
+	value *DisputesEntity
+	isSet bool
+}
+
+func (v NullableDisputesEntity) Get() *DisputesEntity {
+	return v.value
+}
+
+func (v *NullableDisputesEntity) Set(val *DisputesEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableDisputesEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableDisputesEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableDisputesEntity(val *DisputesEntity) *NullableDisputesEntity {
+	return &NullableDisputesEntity{value: val, isSet: true}
+}
+
+func (v NullableDisputesEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableDisputesEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

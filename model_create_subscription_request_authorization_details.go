@@ -56,4 +56,39 @@ func (o CreateSubscriptionRequestAuthorizationDetails) ToMap() (map[string]inter
 	return toSerialize, nil
 }
 
+type NullableCreateSubscriptionRequestAuthorizationDetails struct {
+	value *CreateSubscriptionRequestAuthorizationDetails
+	isSet bool
+}
+
+func (v NullableCreateSubscriptionRequestAuthorizationDetails) Get() *CreateSubscriptionRequestAuthorizationDetails {
+	return v.value
+}
+
+func (v *NullableCreateSubscriptionRequestAuthorizationDetails) Set(val *CreateSubscriptionRequestAuthorizationDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateSubscriptionRequestAuthorizationDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateSubscriptionRequestAuthorizationDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateSubscriptionRequestAuthorizationDetails(val *CreateSubscriptionRequestAuthorizationDetails) *NullableCreateSubscriptionRequestAuthorizationDetails {
+	return &NullableCreateSubscriptionRequestAuthorizationDetails{value: val, isSet: true}
+}
+
+func (v NullableCreateSubscriptionRequestAuthorizationDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateSubscriptionRequestAuthorizationDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

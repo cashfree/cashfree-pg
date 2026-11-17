@@ -107,4 +107,39 @@ func (o SubscriptionEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableSubscriptionEntity struct {
+	value *SubscriptionEntity
+	isSet bool
+}
+
+func (v NullableSubscriptionEntity) Get() *SubscriptionEntity {
+	return v.value
+}
+
+func (v *NullableSubscriptionEntity) Set(val *SubscriptionEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSubscriptionEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSubscriptionEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSubscriptionEntity(val *SubscriptionEntity) *NullableSubscriptionEntity {
+	return &NullableSubscriptionEntity{value: val, isSet: true}
+}
+
+func (v NullableSubscriptionEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSubscriptionEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

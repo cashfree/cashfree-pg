@@ -60,4 +60,39 @@ func (o LinkSubscriptionEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableLinkSubscriptionEntity struct {
+	value *LinkSubscriptionEntity
+	isSet bool
+}
+
+func (v NullableLinkSubscriptionEntity) Get() *LinkSubscriptionEntity {
+	return v.value
+}
+
+func (v *NullableLinkSubscriptionEntity) Set(val *LinkSubscriptionEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableLinkSubscriptionEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableLinkSubscriptionEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableLinkSubscriptionEntity(val *LinkSubscriptionEntity) *NullableLinkSubscriptionEntity {
+	return &NullableLinkSubscriptionEntity{value: val, isSet: true}
+}
+
+func (v NullableLinkSubscriptionEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableLinkSubscriptionEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

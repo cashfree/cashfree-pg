@@ -69,4 +69,39 @@ func (o CartAddress) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCartAddress struct {
+	value *CartAddress
+	isSet bool
+}
+
+func (v NullableCartAddress) Get() *CartAddress {
+	return v.value
+}
+
+func (v *NullableCartAddress) Set(val *CartAddress) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCartAddress) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCartAddress) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCartAddress(val *CartAddress) *NullableCartAddress {
+	return &NullableCartAddress{value: val, isSet: true}
+}
+
+func (v NullableCartAddress) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCartAddress) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

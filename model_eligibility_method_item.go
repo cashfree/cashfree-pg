@@ -60,4 +60,39 @@ func (o EligibilityMethodItem) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableEligibilityMethodItem struct {
+	value *EligibilityMethodItem
+	isSet bool
+}
+
+func (v NullableEligibilityMethodItem) Get() *EligibilityMethodItem {
+	return v.value
+}
+
+func (v *NullableEligibilityMethodItem) Set(val *EligibilityMethodItem) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEligibilityMethodItem) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEligibilityMethodItem) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEligibilityMethodItem(val *EligibilityMethodItem) *NullableEligibilityMethodItem {
+	return &NullableEligibilityMethodItem{value: val, isSet: true}
+}
+
+func (v NullableEligibilityMethodItem) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEligibilityMethodItem) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

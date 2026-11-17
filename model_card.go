@@ -154,4 +154,39 @@ func (o Card) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCard struct {
+	value *Card
+	isSet bool
+}
+
+func (v NullableCard) Get() *Card {
+	return v.value
+}
+
+func (v *NullableCard) Set(val *Card) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCard) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCard) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCard(val *Card) *NullableCard {
+	return &NullableCard{value: val, isSet: true}
+}
+
+func (v NullableCard) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCard) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -44,4 +44,39 @@ func (o OfferAll) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOfferAll struct {
+	value *OfferAll
+	isSet bool
+}
+
+func (v NullableOfferAll) Get() *OfferAll {
+	return v.value
+}
+
+func (v *NullableOfferAll) Set(val *OfferAll) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOfferAll) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOfferAll) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOfferAll(val *OfferAll) *NullableOfferAll {
+	return &NullableOfferAll{value: val, isSet: true}
+}
+
+func (v NullableOfferAll) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOfferAll) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

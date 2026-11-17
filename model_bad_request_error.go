@@ -57,4 +57,39 @@ func (o BadRequestError) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableBadRequestError struct {
+	value *BadRequestError
+	isSet bool
+}
+
+func (v NullableBadRequestError) Get() *BadRequestError {
+	return v.value
+}
+
+func (v *NullableBadRequestError) Set(val *BadRequestError) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableBadRequestError) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableBadRequestError) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableBadRequestError(val *BadRequestError) *NullableBadRequestError {
+	return &NullableBadRequestError{value: val, isSet: true}
+}
+
+func (v NullableBadRequestError) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableBadRequestError) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

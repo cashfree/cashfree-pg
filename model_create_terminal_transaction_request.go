@@ -64,4 +64,39 @@ func (o CreateTerminalTransactionRequest) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
+type NullableCreateTerminalTransactionRequest struct {
+	value *CreateTerminalTransactionRequest
+	isSet bool
+}
+
+func (v NullableCreateTerminalTransactionRequest) Get() *CreateTerminalTransactionRequest {
+	return v.value
+}
+
+func (v *NullableCreateTerminalTransactionRequest) Set(val *CreateTerminalTransactionRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateTerminalTransactionRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateTerminalTransactionRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateTerminalTransactionRequest(val *CreateTerminalTransactionRequest) *NullableCreateTerminalTransactionRequest {
+	return &NullableCreateTerminalTransactionRequest{value: val, isSet: true}
+}
+
+func (v NullableCreateTerminalTransactionRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateTerminalTransactionRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -47,4 +47,39 @@ func (o EligibilityFetchOffersRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableEligibilityFetchOffersRequest struct {
+	value *EligibilityFetchOffersRequest
+	isSet bool
+}
+
+func (v NullableEligibilityFetchOffersRequest) Get() *EligibilityFetchOffersRequest {
+	return v.value
+}
+
+func (v *NullableEligibilityFetchOffersRequest) Set(val *EligibilityFetchOffersRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEligibilityFetchOffersRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEligibilityFetchOffersRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEligibilityFetchOffersRequest(val *EligibilityFetchOffersRequest) *NullableEligibilityFetchOffersRequest {
+	return &NullableEligibilityFetchOffersRequest{value: val, isSet: true}
+}
+
+func (v NullableEligibilityFetchOffersRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEligibilityFetchOffersRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

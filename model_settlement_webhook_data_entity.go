@@ -45,4 +45,39 @@ func (o SettlementWebhookDataEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableSettlementWebhookDataEntity struct {
+	value *SettlementWebhookDataEntity
+	isSet bool
+}
+
+func (v NullableSettlementWebhookDataEntity) Get() *SettlementWebhookDataEntity {
+	return v.value
+}
+
+func (v *NullableSettlementWebhookDataEntity) Set(val *SettlementWebhookDataEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementWebhookDataEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementWebhookDataEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementWebhookDataEntity(val *SettlementWebhookDataEntity) *NullableSettlementWebhookDataEntity {
+	return &NullableSettlementWebhookDataEntity{value: val, isSet: true}
+}
+
+func (v NullableSettlementWebhookDataEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementWebhookDataEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

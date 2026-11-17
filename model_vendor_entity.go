@@ -31,9 +31,9 @@ type VendorEntity struct {
 	VendorId *string `json:"vendor_id,omitempty"`
 	AddedOn *string `json:"added_on,omitempty"`
 	UpdatedOn *string `json:"updated_on,omitempty"`
-	Bank []BankDetails `json:"bank,omitempty"`
+	Bank NullableBankDetails `json:"bank,omitempty"`
 	Upi *string `json:"upi,omitempty"`
-	ScheduleOption []ScheduleOption `json:"schedule_option,omitempty"`
+	ScheduleOption NullableScheduleOption `json:"schedule_option,omitempty"`
 	VendorType *string `json:"vendor_type,omitempty"`
 	AccountType *string `json:"account_type,omitempty"`
 	BusinessType *string `json:"business_type,omitempty"`
@@ -74,14 +74,14 @@ func (o VendorEntity) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.UpdatedOn) {
 		toSerialize["updated_on"] = o.UpdatedOn
 	}
-	if !IsNil(o.Bank) {
-		toSerialize["bank"] = o.Bank
+	if o.Bank.IsSet() {
+		toSerialize["bank"] = o.Bank.Get()
 	}
 	if !IsNil(o.Upi) {
 		toSerialize["upi"] = o.Upi
 	}
-	if !IsNil(o.ScheduleOption) {
-		toSerialize["schedule_option"] = o.ScheduleOption
+	if o.ScheduleOption.IsSet() {
+		toSerialize["schedule_option"] = o.ScheduleOption.Get()
 	}
 	if !IsNil(o.VendorType) {
 		toSerialize["vendor_type"] = o.VendorType
@@ -101,4 +101,39 @@ func (o VendorEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableVendorEntity struct {
+	value *VendorEntity
+	isSet bool
+}
+
+func (v NullableVendorEntity) Get() *VendorEntity {
+	return v.value
+}
+
+func (v *NullableVendorEntity) Set(val *VendorEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableVendorEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableVendorEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableVendorEntity(val *VendorEntity) *NullableVendorEntity {
+	return &NullableVendorEntity{value: val, isSet: true}
+}
+
+func (v NullableVendorEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableVendorEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -28,9 +28,9 @@ type SettlementReconEntityDataInnerOrderDetails struct {
 	OrderId *string `json:"order_id,omitempty"`
 	// The amount which was passed at the order creation time.
 	OrderAmount *float32 `json:"order_amount,omitempty"`
-	// Order Curreny type - INR.
+	// Order Currency type - INR.
 	OrderCurrency *string `json:"order_currency,omitempty"`
-	// The order tags provided during order creation
+	// The order tags provided during order creation.
 	OrderTags map[string]interface{} `json:"order_tags,omitempty"`
 }
 
@@ -61,4 +61,39 @@ func (o SettlementReconEntityDataInnerOrderDetails) ToMap() (map[string]interfac
 	return toSerialize, nil
 }
 
+type NullableSettlementReconEntityDataInnerOrderDetails struct {
+	value *SettlementReconEntityDataInnerOrderDetails
+	isSet bool
+}
+
+func (v NullableSettlementReconEntityDataInnerOrderDetails) Get() *SettlementReconEntityDataInnerOrderDetails {
+	return v.value
+}
+
+func (v *NullableSettlementReconEntityDataInnerOrderDetails) Set(val *SettlementReconEntityDataInnerOrderDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementReconEntityDataInnerOrderDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementReconEntityDataInnerOrderDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementReconEntityDataInnerOrderDetails(val *SettlementReconEntityDataInnerOrderDetails) *NullableSettlementReconEntityDataInnerOrderDetails {
+	return &NullableSettlementReconEntityDataInnerOrderDetails{value: val, isSet: true}
+}
+
+func (v NullableSettlementReconEntityDataInnerOrderDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementReconEntityDataInnerOrderDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

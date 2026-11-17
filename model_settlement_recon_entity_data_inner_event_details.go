@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -36,18 +36,18 @@ type SettlementReconEntityDataInnerEventDetails struct {
 	SaleType *string `json:"sale_type,omitempty"`
 	// Status of the event. Example - SUCCESS, FAILED, PENDING, CANCELLED.
 	EventStatus *string `json:"event_status,omitempty"`
-	// Recon
+	// Recon.
 	Entity *string `json:"entity,omitempty"`
-	// Time associated with the event. Example, transaction time, dispute initiation time
+	// Time associated with the event. Example, transaction time, dispute initiation time.
 	EventTime *string `json:"event_time,omitempty"`
-	// Curreny type - INR.
+	// Currency type - INR.
 	EventCurrency *string `json:"event_currency,omitempty"`
 	// Service charge for above event_type.
 	EventServiceCharge *float32 `json:"event_service_charge,omitempty"`
 	// Service tax for above event_type.
 	EventServiceTax *float32 `json:"event_service_tax,omitempty"`
 	// Remarks for above event_type.
-	EventRemarks *float32 `json:"event_remarks,omitempty"`
+	EventRemarks *string `json:"event_remarks,omitempty"`
 }
 
 
@@ -101,4 +101,39 @@ func (o SettlementReconEntityDataInnerEventDetails) ToMap() (map[string]interfac
 	return toSerialize, nil
 }
 
+type NullableSettlementReconEntityDataInnerEventDetails struct {
+	value *SettlementReconEntityDataInnerEventDetails
+	isSet bool
+}
+
+func (v NullableSettlementReconEntityDataInnerEventDetails) Get() *SettlementReconEntityDataInnerEventDetails {
+	return v.value
+}
+
+func (v *NullableSettlementReconEntityDataInnerEventDetails) Set(val *SettlementReconEntityDataInnerEventDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementReconEntityDataInnerEventDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementReconEntityDataInnerEventDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementReconEntityDataInnerEventDetails(val *SettlementReconEntityDataInnerEventDetails) *NullableSettlementReconEntityDataInnerEventDetails {
+	return &NullableSettlementReconEntityDataInnerEventDetails{value: val, isSet: true}
+}
+
+func (v NullableSettlementReconEntityDataInnerEventDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementReconEntityDataInnerEventDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

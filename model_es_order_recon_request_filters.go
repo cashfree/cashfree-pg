@@ -56,4 +56,39 @@ func (o ESOrderReconRequestFilters) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableESOrderReconRequestFilters struct {
+	value *ESOrderReconRequestFilters
+	isSet bool
+}
+
+func (v NullableESOrderReconRequestFilters) Get() *ESOrderReconRequestFilters {
+	return v.value
+}
+
+func (v *NullableESOrderReconRequestFilters) Set(val *ESOrderReconRequestFilters) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableESOrderReconRequestFilters) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableESOrderReconRequestFilters) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableESOrderReconRequestFilters(val *ESOrderReconRequestFilters) *NullableESOrderReconRequestFilters {
+	return &NullableESOrderReconRequestFilters{value: val, isSet: true}
+}
+
+func (v NullableESOrderReconRequestFilters) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableESOrderReconRequestFilters) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

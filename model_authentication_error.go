@@ -54,4 +54,39 @@ func (o AuthenticationError) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableAuthenticationError struct {
+	value *AuthenticationError
+	isSet bool
+}
+
+func (v NullableAuthenticationError) Get() *AuthenticationError {
+	return v.value
+}
+
+func (v *NullableAuthenticationError) Set(val *AuthenticationError) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableAuthenticationError) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableAuthenticationError) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableAuthenticationError(val *AuthenticationError) *NullableAuthenticationError {
+	return &NullableAuthenticationError{value: val, isSet: true}
+}
+
+func (v NullableAuthenticationError) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableAuthenticationError) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

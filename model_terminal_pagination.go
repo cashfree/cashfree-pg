@@ -51,4 +51,39 @@ func (o TerminalPagination) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableTerminalPagination struct {
+	value *TerminalPagination
+	isSet bool
+}
+
+func (v NullableTerminalPagination) Get() *TerminalPagination {
+	return v.value
+}
+
+func (v *NullableTerminalPagination) Set(val *TerminalPagination) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableTerminalPagination) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableTerminalPagination) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableTerminalPagination(val *TerminalPagination) *NullableTerminalPagination {
+	return &NullableTerminalPagination{value: val, isSet: true}
+}
+
+func (v NullableTerminalPagination) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableTerminalPagination) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

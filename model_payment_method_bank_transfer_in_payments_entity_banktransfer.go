@@ -57,4 +57,39 @@ func (o PaymentMethodBankTransferInPaymentsEntityBanktransfer) ToMap() (map[stri
 	return toSerialize, nil
 }
 
+type NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer struct {
+	value *PaymentMethodBankTransferInPaymentsEntityBanktransfer
+	isSet bool
+}
+
+func (v NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer) Get() *PaymentMethodBankTransferInPaymentsEntityBanktransfer {
+	return v.value
+}
+
+func (v *NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer) Set(val *PaymentMethodBankTransferInPaymentsEntityBanktransfer) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePaymentMethodBankTransferInPaymentsEntityBanktransfer(val *PaymentMethodBankTransferInPaymentsEntityBanktransfer) *NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer {
+	return &NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer{value: val, isSet: true}
+}
+
+func (v NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePaymentMethodBankTransferInPaymentsEntityBanktransfer) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

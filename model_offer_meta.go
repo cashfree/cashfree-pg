@@ -56,4 +56,39 @@ func (o OfferMeta) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOfferMeta struct {
+	value *OfferMeta
+	isSet bool
+}
+
+func (v NullableOfferMeta) Get() *OfferMeta {
+	return v.value
+}
+
+func (v *NullableOfferMeta) Set(val *OfferMeta) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOfferMeta) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOfferMeta) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOfferMeta(val *OfferMeta) *NullableOfferMeta {
+	return &NullableOfferMeta{value: val, isSet: true}
+}
+
+func (v NullableOfferMeta) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOfferMeta) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

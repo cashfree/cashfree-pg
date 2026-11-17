@@ -80,4 +80,39 @@ func (o AuthorizationDetails) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableAuthorizationDetails struct {
+	value *AuthorizationDetails
+	isSet bool
+}
+
+func (v NullableAuthorizationDetails) Get() *AuthorizationDetails {
+	return v.value
+}
+
+func (v *NullableAuthorizationDetails) Set(val *AuthorizationDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableAuthorizationDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableAuthorizationDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableAuthorizationDetails(val *AuthorizationDetails) *NullableAuthorizationDetails {
+	return &NullableAuthorizationDetails{value: val, isSet: true}
+}
+
+func (v NullableAuthorizationDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableAuthorizationDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -81,4 +81,39 @@ func (o AuthResponsePnach) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableAuthResponsePnach struct {
+	value *AuthResponsePnach
+	isSet bool
+}
+
+func (v NullableAuthResponsePnach) Get() *AuthResponsePnach {
+	return v.value
+}
+
+func (v *NullableAuthResponsePnach) Set(val *AuthResponsePnach) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableAuthResponsePnach) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableAuthResponsePnach) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableAuthResponsePnach(val *AuthResponsePnach) *NullableAuthResponsePnach {
+	return &NullableAuthResponsePnach{value: val, isSet: true}
+}
+
+func (v NullableAuthResponsePnach) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableAuthResponsePnach) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

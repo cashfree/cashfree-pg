@@ -61,4 +61,39 @@ func (o VendorBalanceTransferCharges) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableVendorBalanceTransferCharges struct {
+	value *VendorBalanceTransferCharges
+	isSet bool
+}
+
+func (v NullableVendorBalanceTransferCharges) Get() *VendorBalanceTransferCharges {
+	return v.value
+}
+
+func (v *NullableVendorBalanceTransferCharges) Set(val *VendorBalanceTransferCharges) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableVendorBalanceTransferCharges) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableVendorBalanceTransferCharges) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableVendorBalanceTransferCharges(val *VendorBalanceTransferCharges) *NullableVendorBalanceTransferCharges {
+	return &NullableVendorBalanceTransferCharges{value: val, isSet: true}
+}
+
+func (v NullableVendorBalanceTransferCharges) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableVendorBalanceTransferCharges) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

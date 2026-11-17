@@ -61,4 +61,39 @@ func (o RefundSpeed) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableRefundSpeed struct {
+	value *RefundSpeed
+	isSet bool
+}
+
+func (v NullableRefundSpeed) Get() *RefundSpeed {
+	return v.value
+}
+
+func (v *NullableRefundSpeed) Set(val *RefundSpeed) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableRefundSpeed) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableRefundSpeed) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableRefundSpeed(val *RefundSpeed) *NullableRefundSpeed {
+	return &NullableRefundSpeed{value: val, isSet: true}
+}
+
+func (v NullableRefundSpeed) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableRefundSpeed) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

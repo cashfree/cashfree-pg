@@ -66,4 +66,39 @@ func (o GetCardBinResponseSchema) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableGetCardBinResponseSchema struct {
+	value *GetCardBinResponseSchema
+	isSet bool
+}
+
+func (v NullableGetCardBinResponseSchema) Get() *GetCardBinResponseSchema {
+	return v.value
+}
+
+func (v *NullableGetCardBinResponseSchema) Set(val *GetCardBinResponseSchema) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableGetCardBinResponseSchema) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableGetCardBinResponseSchema) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableGetCardBinResponseSchema(val *GetCardBinResponseSchema) *NullableGetCardBinResponseSchema {
+	return &NullableGetCardBinResponseSchema{value: val, isSet: true}
+}
+
+func (v NullableGetCardBinResponseSchema) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableGetCardBinResponseSchema) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

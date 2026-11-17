@@ -46,4 +46,39 @@ func (o TerminateOrderRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableTerminateOrderRequest struct {
+	value *TerminateOrderRequest
+	isSet bool
+}
+
+func (v NullableTerminateOrderRequest) Get() *TerminateOrderRequest {
+	return v.value
+}
+
+func (v *NullableTerminateOrderRequest) Set(val *TerminateOrderRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableTerminateOrderRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableTerminateOrderRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableTerminateOrderRequest(val *TerminateOrderRequest) *NullableTerminateOrderRequest {
+	return &NullableTerminateOrderRequest{value: val, isSet: true}
+}
+
+func (v NullableTerminateOrderRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableTerminateOrderRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

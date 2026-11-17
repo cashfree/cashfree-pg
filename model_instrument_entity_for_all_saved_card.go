@@ -85,4 +85,39 @@ func (o InstrumentEntityForAllSavedCard) ToMap() (map[string]interface{}, error)
 	return toSerialize, nil
 }
 
+type NullableInstrumentEntityForAllSavedCard struct {
+	value *InstrumentEntityForAllSavedCard
+	isSet bool
+}
+
+func (v NullableInstrumentEntityForAllSavedCard) Get() *InstrumentEntityForAllSavedCard {
+	return v.value
+}
+
+func (v *NullableInstrumentEntityForAllSavedCard) Set(val *InstrumentEntityForAllSavedCard) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableInstrumentEntityForAllSavedCard) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableInstrumentEntityForAllSavedCard) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableInstrumentEntityForAllSavedCard(val *InstrumentEntityForAllSavedCard) *NullableInstrumentEntityForAllSavedCard {
+	return &NullableInstrumentEntityForAllSavedCard{value: val, isSet: true}
+}
+
+func (v NullableInstrumentEntityForAllSavedCard) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableInstrumentEntityForAllSavedCard) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

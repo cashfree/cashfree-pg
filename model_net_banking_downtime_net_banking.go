@@ -49,4 +49,39 @@ func (o NetBankingDowntimeNetBanking) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableNetBankingDowntimeNetBanking struct {
+	value *NetBankingDowntimeNetBanking
+	isSet bool
+}
+
+func (v NullableNetBankingDowntimeNetBanking) Get() *NetBankingDowntimeNetBanking {
+	return v.value
+}
+
+func (v *NullableNetBankingDowntimeNetBanking) Set(val *NetBankingDowntimeNetBanking) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableNetBankingDowntimeNetBanking) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableNetBankingDowntimeNetBanking) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableNetBankingDowntimeNetBanking(val *NetBankingDowntimeNetBanking) *NullableNetBankingDowntimeNetBanking {
+	return &NullableNetBankingDowntimeNetBanking{value: val, isSet: true}
+}
+
+func (v NullableNetBankingDowntimeNetBanking) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableNetBankingDowntimeNetBanking) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

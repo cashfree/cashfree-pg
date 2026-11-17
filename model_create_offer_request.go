@@ -49,4 +49,39 @@ func (o CreateOfferRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCreateOfferRequest struct {
+	value *CreateOfferRequest
+	isSet bool
+}
+
+func (v NullableCreateOfferRequest) Get() *CreateOfferRequest {
+	return v.value
+}
+
+func (v *NullableCreateOfferRequest) Set(val *CreateOfferRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateOfferRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateOfferRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateOfferRequest(val *CreateOfferRequest) *NullableCreateOfferRequest {
+	return &NullableCreateOfferRequest{value: val, isSet: true}
+}
+
+func (v NullableCreateOfferRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateOfferRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

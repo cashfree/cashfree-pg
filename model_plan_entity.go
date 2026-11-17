@@ -96,4 +96,39 @@ func (o PlanEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullablePlanEntity struct {
+	value *PlanEntity
+	isSet bool
+}
+
+func (v NullablePlanEntity) Get() *PlanEntity {
+	return v.value
+}
+
+func (v *NullablePlanEntity) Set(val *PlanEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePlanEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePlanEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePlanEntity(val *PlanEntity) *NullablePlanEntity {
+	return &NullablePlanEntity{value: val, isSet: true}
+}
+
+func (v NullablePlanEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePlanEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -66,4 +66,39 @@ func (o OrderPayData) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOrderPayData struct {
+	value *OrderPayData
+	isSet bool
+}
+
+func (v NullableOrderPayData) Get() *OrderPayData {
+	return v.value
+}
+
+func (v *NullableOrderPayData) Set(val *OrderPayData) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderPayData) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderPayData) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderPayData(val *OrderPayData) *NullableOrderPayData {
+	return &NullableOrderPayData{value: val, isSet: true}
+}
+
+func (v NullableOrderPayData) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderPayData) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

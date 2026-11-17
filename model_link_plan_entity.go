@@ -91,4 +91,39 @@ func (o LinkPlanEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableLinkPlanEntity struct {
+	value *LinkPlanEntity
+	isSet bool
+}
+
+func (v NullableLinkPlanEntity) Get() *LinkPlanEntity {
+	return v.value
+}
+
+func (v *NullableLinkPlanEntity) Set(val *LinkPlanEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableLinkPlanEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableLinkPlanEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableLinkPlanEntity(val *LinkPlanEntity) *NullableLinkPlanEntity {
+	return &NullableLinkPlanEntity{value: val, isSet: true}
+}
+
+func (v NullableLinkPlanEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableLinkPlanEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

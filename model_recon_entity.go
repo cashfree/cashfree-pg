@@ -55,4 +55,39 @@ func (o ReconEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableReconEntity struct {
+	value *ReconEntity
+	isSet bool
+}
+
+func (v NullableReconEntity) Get() *ReconEntity {
+	return v.value
+}
+
+func (v *NullableReconEntity) Set(val *ReconEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableReconEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableReconEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableReconEntity(val *ReconEntity) *NullableReconEntity {
+	return &NullableReconEntity{value: val, isSet: true}
+}
+
+func (v NullableReconEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableReconEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -149,4 +149,39 @@ func (o ESOrderReconResponseDataInner) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableESOrderReconResponseDataInner struct {
+	value *ESOrderReconResponseDataInner
+	isSet bool
+}
+
+func (v NullableESOrderReconResponseDataInner) Get() *ESOrderReconResponseDataInner {
+	return v.value
+}
+
+func (v *NullableESOrderReconResponseDataInner) Set(val *ESOrderReconResponseDataInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableESOrderReconResponseDataInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableESOrderReconResponseDataInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableESOrderReconResponseDataInner(val *ESOrderReconResponseDataInner) *NullableESOrderReconResponseDataInner {
+	return &NullableESOrderReconResponseDataInner{value: val, isSet: true}
+}
+
+func (v NullableESOrderReconResponseDataInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableESOrderReconResponseDataInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

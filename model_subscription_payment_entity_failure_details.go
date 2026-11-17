@@ -46,4 +46,39 @@ func (o SubscriptionPaymentEntityFailureDetails) ToMap() (map[string]interface{}
 	return toSerialize, nil
 }
 
+type NullableSubscriptionPaymentEntityFailureDetails struct {
+	value *SubscriptionPaymentEntityFailureDetails
+	isSet bool
+}
+
+func (v NullableSubscriptionPaymentEntityFailureDetails) Get() *SubscriptionPaymentEntityFailureDetails {
+	return v.value
+}
+
+func (v *NullableSubscriptionPaymentEntityFailureDetails) Set(val *SubscriptionPaymentEntityFailureDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSubscriptionPaymentEntityFailureDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSubscriptionPaymentEntityFailureDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSubscriptionPaymentEntityFailureDetails(val *SubscriptionPaymentEntityFailureDetails) *NullableSubscriptionPaymentEntityFailureDetails {
+	return &NullableSubscriptionPaymentEntityFailureDetails{value: val, isSet: true}
+}
+
+func (v NullableSubscriptionPaymentEntityFailureDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSubscriptionPaymentEntityFailureDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

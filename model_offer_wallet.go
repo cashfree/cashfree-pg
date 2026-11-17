@@ -43,4 +43,39 @@ func (o OfferWallet) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOfferWallet struct {
+	value *OfferWallet
+	isSet bool
+}
+
+func (v NullableOfferWallet) Get() *OfferWallet {
+	return v.value
+}
+
+func (v *NullableOfferWallet) Set(val *OfferWallet) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOfferWallet) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOfferWallet) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOfferWallet(val *OfferWallet) *NullableOfferWallet {
+	return &NullableOfferWallet{value: val, isSet: true}
+}
+
+func (v NullableOfferWallet) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOfferWallet) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

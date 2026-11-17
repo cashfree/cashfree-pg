@@ -49,4 +49,39 @@ func (o EMIOffer) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableEMIOffer struct {
+	value *EMIOffer
+	isSet bool
+}
+
+func (v NullableEMIOffer) Get() *EMIOffer {
+	return v.value
+}
+
+func (v *NullableEMIOffer) Set(val *EMIOffer) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEMIOffer) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEMIOffer) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEMIOffer(val *EMIOffer) *NullableEMIOffer {
+	return &NullableEMIOffer{value: val, isSet: true}
+}
+
+func (v NullableEMIOffer) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEMIOffer) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 
