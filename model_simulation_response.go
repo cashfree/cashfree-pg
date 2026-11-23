@@ -57,4 +57,39 @@ func (o SimulationResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableSimulationResponse struct {
+	value *SimulationResponse
+	isSet bool
+}
+
+func (v NullableSimulationResponse) Get() *SimulationResponse {
+	return v.value
+}
+
+func (v *NullableSimulationResponse) Set(val *SimulationResponse) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSimulationResponse) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSimulationResponse) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSimulationResponse(val *SimulationResponse) *NullableSimulationResponse {
+	return &NullableSimulationResponse{value: val, isSet: true}
+}
+
+func (v NullableSimulationResponse) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSimulationResponse) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

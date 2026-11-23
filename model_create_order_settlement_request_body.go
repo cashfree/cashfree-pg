@@ -46,4 +46,39 @@ func (o CreateOrderSettlementRequestBody) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
+type NullableCreateOrderSettlementRequestBody struct {
+	value *CreateOrderSettlementRequestBody
+	isSet bool
+}
+
+func (v NullableCreateOrderSettlementRequestBody) Get() *CreateOrderSettlementRequestBody {
+	return v.value
+}
+
+func (v *NullableCreateOrderSettlementRequestBody) Set(val *CreateOrderSettlementRequestBody) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateOrderSettlementRequestBody) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateOrderSettlementRequestBody) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateOrderSettlementRequestBody(val *CreateOrderSettlementRequestBody) *NullableCreateOrderSettlementRequestBody {
+	return &NullableCreateOrderSettlementRequestBody{value: val, isSet: true}
+}
+
+func (v NullableCreateOrderSettlementRequestBody) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateOrderSettlementRequestBody) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

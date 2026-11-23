@@ -61,4 +61,39 @@ func (o LinkMetaResponseEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableLinkMetaResponseEntity struct {
+	value *LinkMetaResponseEntity
+	isSet bool
+}
+
+func (v NullableLinkMetaResponseEntity) Get() *LinkMetaResponseEntity {
+	return v.value
+}
+
+func (v *NullableLinkMetaResponseEntity) Set(val *LinkMetaResponseEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableLinkMetaResponseEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableLinkMetaResponseEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableLinkMetaResponseEntity(val *LinkMetaResponseEntity) *NullableLinkMetaResponseEntity {
+	return &NullableLinkMetaResponseEntity{value: val, isSet: true}
+}
+
+func (v NullableLinkMetaResponseEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableLinkMetaResponseEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

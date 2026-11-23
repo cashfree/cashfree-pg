@@ -50,4 +50,39 @@ func (o UploadTerminalDocs) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUploadTerminalDocs struct {
+	value *UploadTerminalDocs
+	isSet bool
+}
+
+func (v NullableUploadTerminalDocs) Get() *UploadTerminalDocs {
+	return v.value
+}
+
+func (v *NullableUploadTerminalDocs) Set(val *UploadTerminalDocs) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUploadTerminalDocs) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUploadTerminalDocs) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUploadTerminalDocs(val *UploadTerminalDocs) *NullableUploadTerminalDocs {
+	return &NullableUploadTerminalDocs{value: val, isSet: true}
+}
+
+func (v NullableUploadTerminalDocs) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUploadTerminalDocs) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

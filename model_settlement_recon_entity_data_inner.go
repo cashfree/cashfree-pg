@@ -24,13 +24,15 @@ var _ MappedNullable = &SettlementReconEntityDataInner{}
 
 // SettlementReconEntityDataInner struct for SettlementReconEntityDataInner
 type SettlementReconEntityDataInner struct {
-	EventDetails *ReconEntityDataInnerEventDetails `json:"event_details,omitempty"`
-	OrderDetails *ReconEntityDataInnerOrderDetails `json:"order_details,omitempty"`
-	CustomerDetails *ReconEntityDataInnerCustomerDetails `json:"customer_details,omitempty"`
+	EventDetails *SettlementReconEntityDataInnerEventDetails `json:"event_details,omitempty"`
+	OrderDetails *SettlementReconEntityDataInnerOrderDetails `json:"order_details,omitempty"`
+	CustomerDetails *SettlementReconEntityDataInnerCustomerDetails `json:"customer_details,omitempty"`
 	PaymentDetails *SettlementReconEntityDataInnerPaymentDetails `json:"payment_details,omitempty"`
-	SettlementDetails *ReconEntityDataInnerSettlementDetails `json:"settlement_details,omitempty"`
-	DisputeDetails *ReconEntityDataInnerDisputeDetails `json:"dispute_details,omitempty"`
-	RefundDetails *ReconEntityDataInnerRefundDetails `json:"refund_details,omitempty"`
+	SettlementDetails *SettlementReconEntityDataInnerSettlementDetails `json:"settlement_details,omitempty"`
+	// List of disputes linked to this event.
+	DisputeDetails []SettlementReconEntityDataInnerDisputeDetailsInner `json:"dispute_details,omitempty"`
+	// List of refunds linked to this event.
+	RefundDetails []ReconEntityDataInnerRefundDetails `json:"refund_details,omitempty"`
 }
 
 
@@ -69,4 +71,39 @@ func (o SettlementReconEntityDataInner) ToMap() (map[string]interface{}, error) 
 	return toSerialize, nil
 }
 
+type NullableSettlementReconEntityDataInner struct {
+	value *SettlementReconEntityDataInner
+	isSet bool
+}
+
+func (v NullableSettlementReconEntityDataInner) Get() *SettlementReconEntityDataInner {
+	return v.value
+}
+
+func (v *NullableSettlementReconEntityDataInner) Set(val *SettlementReconEntityDataInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementReconEntityDataInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementReconEntityDataInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementReconEntityDataInner(val *SettlementReconEntityDataInner) *NullableSettlementReconEntityDataInner {
+	return &NullableSettlementReconEntityDataInner{value: val, isSet: true}
+}
+
+func (v NullableSettlementReconEntityDataInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementReconEntityDataInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

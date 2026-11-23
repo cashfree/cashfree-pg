@@ -65,4 +65,39 @@ func (o EMIPlansArray) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableEMIPlansArray struct {
+	value *EMIPlansArray
+	isSet bool
+}
+
+func (v NullableEMIPlansArray) Get() *EMIPlansArray {
+	return v.value
+}
+
+func (v *NullableEMIPlansArray) Set(val *EMIPlansArray) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEMIPlansArray) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEMIPlansArray) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEMIPlansArray(val *EMIPlansArray) *NullableEMIPlansArray {
+	return &NullableEMIPlansArray{value: val, isSet: true}
+}
+
+func (v NullableEMIPlansArray) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEMIPlansArray) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

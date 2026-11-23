@@ -7,3 +7,8 @@ require github.com/stretchr/testify v1.11.1
 
 require (
 )
+
+retract (
+	v6.0.8 // does not compile: duplicate model types, undefined Nullable* types
+	v6.0.9 // does not compile: duplicate model types
+)

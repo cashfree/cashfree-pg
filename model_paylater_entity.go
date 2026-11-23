@@ -45,4 +45,39 @@ func (o PaylaterEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullablePaylaterEntity struct {
+	value *PaylaterEntity
+	isSet bool
+}
+
+func (v NullablePaylaterEntity) Get() *PaylaterEntity {
+	return v.value
+}
+
+func (v *NullablePaylaterEntity) Set(val *PaylaterEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePaylaterEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePaylaterEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePaylaterEntity(val *PaylaterEntity) *NullablePaylaterEntity {
+	return &NullablePaylaterEntity{value: val, isSet: true}
+}
+
+func (v NullablePaylaterEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePaylaterEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -69,4 +69,39 @@ func (o OrderMeta) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOrderMeta struct {
+	value *OrderMeta
+	isSet bool
+}
+
+func (v NullableOrderMeta) Get() *OrderMeta {
+	return v.value
+}
+
+func (v *NullableOrderMeta) Set(val *OrderMeta) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderMeta) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderMeta) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderMeta(val *OrderMeta) *NullableOrderMeta {
+	return &NullableOrderMeta{value: val, isSet: true}
+}
+
+func (v NullableOrderMeta) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderMeta) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

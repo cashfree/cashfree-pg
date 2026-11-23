@@ -56,4 +56,39 @@ func (o ProductConditionsEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableProductConditionsEntity struct {
+	value *ProductConditionsEntity
+	isSet bool
+}
+
+func (v NullableProductConditionsEntity) Get() *ProductConditionsEntity {
+	return v.value
+}
+
+func (v *NullableProductConditionsEntity) Set(val *ProductConditionsEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableProductConditionsEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableProductConditionsEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableProductConditionsEntity(val *ProductConditionsEntity) *NullableProductConditionsEntity {
+	return &NullableProductConditionsEntity{value: val, isSet: true}
+}
+
+func (v NullableProductConditionsEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableProductConditionsEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

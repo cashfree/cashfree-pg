@@ -55,4 +55,39 @@ func (o CardlessEMIQueries) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCardlessEMIQueries struct {
+	value *CardlessEMIQueries
+	isSet bool
+}
+
+func (v NullableCardlessEMIQueries) Get() *CardlessEMIQueries {
+	return v.value
+}
+
+func (v *NullableCardlessEMIQueries) Set(val *CardlessEMIQueries) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCardlessEMIQueries) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCardlessEMIQueries) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCardlessEMIQueries(val *CardlessEMIQueries) *NullableCardlessEMIQueries {
+	return &NullableCardlessEMIQueries{value: val, isSet: true}
+}
+
+func (v NullableCardlessEMIQueries) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCardlessEMIQueries) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

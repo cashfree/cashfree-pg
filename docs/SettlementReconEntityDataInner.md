@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EventDetails** | Pointer to [**ReconEntityDataInnerEventDetails**](ReconEntityDataInnerEventDetails.md) |  | [optional] 
-**OrderDetails** | Pointer to [**ReconEntityDataInnerOrderDetails**](ReconEntityDataInnerOrderDetails.md) |  | [optional] 
-**CustomerDetails** | Pointer to [**ReconEntityDataInnerCustomerDetails**](ReconEntityDataInnerCustomerDetails.md) |  | [optional] 
+**EventDetails** | Pointer to [**SettlementReconEntityDataInnerEventDetails**](SettlementReconEntityDataInnerEventDetails.md) |  | [optional] 
+**OrderDetails** | Pointer to [**SettlementReconEntityDataInnerOrderDetails**](SettlementReconEntityDataInnerOrderDetails.md) |  | [optional] 
+**CustomerDetails** | Pointer to [**SettlementReconEntityDataInnerCustomerDetails**](SettlementReconEntityDataInnerCustomerDetails.md) |  | [optional] 
 **PaymentDetails** | Pointer to [**SettlementReconEntityDataInnerPaymentDetails**](SettlementReconEntityDataInnerPaymentDetails.md) |  | [optional] 
-**SettlementDetails** | Pointer to [**ReconEntityDataInnerSettlementDetails**](ReconEntityDataInnerSettlementDetails.md) |  | [optional] 
-**DisputeDetails** | Pointer to [**ReconEntityDataInnerDisputeDetails**](ReconEntityDataInnerDisputeDetails.md) |  | [optional] 
-**RefundDetails** | Pointer to [**ReconEntityDataInnerRefundDetails**](ReconEntityDataInnerRefundDetails.md) |  | [optional] 
+**SettlementDetails** | Pointer to [**SettlementReconEntityDataInnerSettlementDetails**](SettlementReconEntityDataInnerSettlementDetails.md) |  | [optional] 
+**DisputeDetails** | Pointer to [**[]SettlementReconEntityDataInnerDisputeDetailsInner**](SettlementReconEntityDataInnerDisputeDetailsInner.md) | List of disputes linked to this event. | [optional] 
+**RefundDetails** | Pointer to [**[]ReconEntityDataInnerRefundDetails**](ReconEntityDataInnerRefundDetails.md) | List of refunds linked to this event. | [optional] 
 
 ## Methods
 
@@ -33,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetEventDetails
 
-`func (o *SettlementReconEntityDataInner) GetEventDetails() ReconEntityDataInnerEventDetails`
+`func (o *SettlementReconEntityDataInner) GetEventDetails() SettlementReconEntityDataInnerEventDetails`
 
 GetEventDetails returns the EventDetails field if non-nil, zero value otherwise.
 
 ### GetEventDetailsOk
 
-`func (o *SettlementReconEntityDataInner) GetEventDetailsOk() (*ReconEntityDataInnerEventDetails, bool)`
+`func (o *SettlementReconEntityDataInner) GetEventDetailsOk() (*SettlementReconEntityDataInnerEventDetails, bool)`
 
 GetEventDetailsOk returns a tuple with the EventDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEventDetails
 
-`func (o *SettlementReconEntityDataInner) SetEventDetails(v ReconEntityDataInnerEventDetails)`
+`func (o *SettlementReconEntityDataInner) SetEventDetails(v SettlementReconEntityDataInnerEventDetails)`
 
 SetEventDetails sets EventDetails field to given value.
 
@@ -58,20 +58,20 @@ HasEventDetails returns a boolean if a field has been set.
 
 ### GetOrderDetails
 
-`func (o *SettlementReconEntityDataInner) GetOrderDetails() ReconEntityDataInnerOrderDetails`
+`func (o *SettlementReconEntityDataInner) GetOrderDetails() SettlementReconEntityDataInnerOrderDetails`
 
 GetOrderDetails returns the OrderDetails field if non-nil, zero value otherwise.
 
 ### GetOrderDetailsOk
 
-`func (o *SettlementReconEntityDataInner) GetOrderDetailsOk() (*ReconEntityDataInnerOrderDetails, bool)`
+`func (o *SettlementReconEntityDataInner) GetOrderDetailsOk() (*SettlementReconEntityDataInnerOrderDetails, bool)`
 
 GetOrderDetailsOk returns a tuple with the OrderDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOrderDetails
 
-`func (o *SettlementReconEntityDataInner) SetOrderDetails(v ReconEntityDataInnerOrderDetails)`
+`func (o *SettlementReconEntityDataInner) SetOrderDetails(v SettlementReconEntityDataInnerOrderDetails)`
 
 SetOrderDetails sets OrderDetails field to given value.
 
@@ -83,20 +83,20 @@ HasOrderDetails returns a boolean if a field has been set.
 
 ### GetCustomerDetails
 
-`func (o *SettlementReconEntityDataInner) GetCustomerDetails() ReconEntityDataInnerCustomerDetails`
+`func (o *SettlementReconEntityDataInner) GetCustomerDetails() SettlementReconEntityDataInnerCustomerDetails`
 
 GetCustomerDetails returns the CustomerDetails field if non-nil, zero value otherwise.
 
 ### GetCustomerDetailsOk
 
-`func (o *SettlementReconEntityDataInner) GetCustomerDetailsOk() (*ReconEntityDataInnerCustomerDetails, bool)`
+`func (o *SettlementReconEntityDataInner) GetCustomerDetailsOk() (*SettlementReconEntityDataInnerCustomerDetails, bool)`
 
 GetCustomerDetailsOk returns a tuple with the CustomerDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCustomerDetails
 
-`func (o *SettlementReconEntityDataInner) SetCustomerDetails(v ReconEntityDataInnerCustomerDetails)`
+`func (o *SettlementReconEntityDataInner) SetCustomerDetails(v SettlementReconEntityDataInnerCustomerDetails)`
 
 SetCustomerDetails sets CustomerDetails field to given value.
 
@@ -133,20 +133,20 @@ HasPaymentDetails returns a boolean if a field has been set.
 
 ### GetSettlementDetails
 
-`func (o *SettlementReconEntityDataInner) GetSettlementDetails() ReconEntityDataInnerSettlementDetails`
+`func (o *SettlementReconEntityDataInner) GetSettlementDetails() SettlementReconEntityDataInnerSettlementDetails`
 
 GetSettlementDetails returns the SettlementDetails field if non-nil, zero value otherwise.
 
 ### GetSettlementDetailsOk
 
-`func (o *SettlementReconEntityDataInner) GetSettlementDetailsOk() (*ReconEntityDataInnerSettlementDetails, bool)`
+`func (o *SettlementReconEntityDataInner) GetSettlementDetailsOk() (*SettlementReconEntityDataInnerSettlementDetails, bool)`
 
 GetSettlementDetailsOk returns a tuple with the SettlementDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSettlementDetails
 
-`func (o *SettlementReconEntityDataInner) SetSettlementDetails(v ReconEntityDataInnerSettlementDetails)`
+`func (o *SettlementReconEntityDataInner) SetSettlementDetails(v SettlementReconEntityDataInnerSettlementDetails)`
 
 SetSettlementDetails sets SettlementDetails field to given value.
 
@@ -158,20 +158,20 @@ HasSettlementDetails returns a boolean if a field has been set.
 
 ### GetDisputeDetails
 
-`func (o *SettlementReconEntityDataInner) GetDisputeDetails() ReconEntityDataInnerDisputeDetails`
+`func (o *SettlementReconEntityDataInner) GetDisputeDetails() []SettlementReconEntityDataInnerDisputeDetailsInner`
 
 GetDisputeDetails returns the DisputeDetails field if non-nil, zero value otherwise.
 
 ### GetDisputeDetailsOk
 
-`func (o *SettlementReconEntityDataInner) GetDisputeDetailsOk() (*ReconEntityDataInnerDisputeDetails, bool)`
+`func (o *SettlementReconEntityDataInner) GetDisputeDetailsOk() (*[]SettlementReconEntityDataInnerDisputeDetailsInner, bool)`
 
 GetDisputeDetailsOk returns a tuple with the DisputeDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDisputeDetails
 
-`func (o *SettlementReconEntityDataInner) SetDisputeDetails(v ReconEntityDataInnerDisputeDetails)`
+`func (o *SettlementReconEntityDataInner) SetDisputeDetails(v []SettlementReconEntityDataInnerDisputeDetailsInner)`
 
 SetDisputeDetails sets DisputeDetails field to given value.
 
@@ -183,20 +183,20 @@ HasDisputeDetails returns a boolean if a field has been set.
 
 ### GetRefundDetails
 
-`func (o *SettlementReconEntityDataInner) GetRefundDetails() ReconEntityDataInnerRefundDetails`
+`func (o *SettlementReconEntityDataInner) GetRefundDetails() []ReconEntityDataInnerRefundDetails`
 
 GetRefundDetails returns the RefundDetails field if non-nil, zero value otherwise.
 
 ### GetRefundDetailsOk
 
-`func (o *SettlementReconEntityDataInner) GetRefundDetailsOk() (*ReconEntityDataInnerRefundDetails, bool)`
+`func (o *SettlementReconEntityDataInner) GetRefundDetailsOk() (*[]ReconEntityDataInnerRefundDetails, bool)`
 
 GetRefundDetailsOk returns a tuple with the RefundDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRefundDetails
 
-`func (o *SettlementReconEntityDataInner) SetRefundDetails(v ReconEntityDataInnerRefundDetails)`
+`func (o *SettlementReconEntityDataInner) SetRefundDetails(v []ReconEntityDataInnerRefundDetails)`
 
 SetRefundDetails sets RefundDetails field to given value.
 

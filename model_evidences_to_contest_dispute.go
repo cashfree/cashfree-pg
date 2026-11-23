@@ -49,4 +49,39 @@ func (o EvidencesToContestDispute) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableEvidencesToContestDispute struct {
+	value *EvidencesToContestDispute
+	isSet bool
+}
+
+func (v NullableEvidencesToContestDispute) Get() *EvidencesToContestDispute {
+	return v.value
+}
+
+func (v *NullableEvidencesToContestDispute) Set(val *EvidencesToContestDispute) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEvidencesToContestDispute) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEvidencesToContestDispute) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEvidencesToContestDispute(val *EvidencesToContestDispute) *NullableEvidencesToContestDispute {
+	return &NullableEvidencesToContestDispute{value: val, isSet: true}
+}
+
+func (v NullableEvidencesToContestDispute) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEvidencesToContestDispute) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

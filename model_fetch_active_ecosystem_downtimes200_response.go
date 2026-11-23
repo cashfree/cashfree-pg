@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the FetchActiveEcosystemDowntimes200Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FetchActiveEcosystemDowntimes200Response{}
 
-// FetchActiveEcosystemDowntimes200Response struct for FetchActiveEcosystemDowntimes200Response
+// FetchActiveEcosystemDowntimes200Response Success response for Fetch All Downtimes.
 type FetchActiveEcosystemDowntimes200Response struct {
 	Count *int32 `json:"count,omitempty"`
 	Incidents []IncidentObject `json:"incidents,omitempty"`
@@ -49,4 +49,39 @@ func (o FetchActiveEcosystemDowntimes200Response) ToMap() (map[string]interface{
 	return toSerialize, nil
 }
 
+type NullableFetchActiveEcosystemDowntimes200Response struct {
+	value *FetchActiveEcosystemDowntimes200Response
+	isSet bool
+}
+
+func (v NullableFetchActiveEcosystemDowntimes200Response) Get() *FetchActiveEcosystemDowntimes200Response {
+	return v.value
+}
+
+func (v *NullableFetchActiveEcosystemDowntimes200Response) Set(val *FetchActiveEcosystemDowntimes200Response) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableFetchActiveEcosystemDowntimes200Response) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableFetchActiveEcosystemDowntimes200Response) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableFetchActiveEcosystemDowntimes200Response(val *FetchActiveEcosystemDowntimes200Response) *NullableFetchActiveEcosystemDowntimes200Response {
+	return &NullableFetchActiveEcosystemDowntimes200Response{value: val, isSet: true}
+}
+
+func (v NullableFetchActiveEcosystemDowntimes200Response) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableFetchActiveEcosystemDowntimes200Response) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

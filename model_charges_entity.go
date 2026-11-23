@@ -51,4 +51,39 @@ func (o ChargesEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableChargesEntity struct {
+	value *ChargesEntity
+	isSet bool
+}
+
+func (v NullableChargesEntity) Get() *ChargesEntity {
+	return v.value
+}
+
+func (v *NullableChargesEntity) Set(val *ChargesEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableChargesEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableChargesEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableChargesEntity(val *ChargesEntity) *NullableChargesEntity {
+	return &NullableChargesEntity{value: val, isSet: true}
+}
+
+func (v NullableChargesEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableChargesEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

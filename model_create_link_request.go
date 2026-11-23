@@ -106,4 +106,39 @@ func (o CreateLinkRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCreateLinkRequest struct {
+	value *CreateLinkRequest
+	isSet bool
+}
+
+func (v NullableCreateLinkRequest) Get() *CreateLinkRequest {
+	return v.value
+}
+
+func (v *NullableCreateLinkRequest) Set(val *CreateLinkRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateLinkRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateLinkRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateLinkRequest(val *CreateLinkRequest) *NullableCreateLinkRequest {
+	return &NullableCreateLinkRequest{value: val, isSet: true}
+}
+
+func (v NullableCreateLinkRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateLinkRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

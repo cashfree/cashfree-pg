@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## MarkForSettlement
 
-> map[string]interface{} MarkForSettlement(ctx).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).CreateOrderSettlementRequestBody(createOrderSettlementRequestBody).Execute()
+> MarkOrderSettlementResponse MarkForSettlement(ctx).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).CreateOrderSettlementRequestBody(createOrderSettlementRequestBody).Execute()
 
 Mark Order For Settlement
 
@@ -47,7 +47,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.MarkForSettlement``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `MarkForSettlement`: map[string]interface{}
+    // response from `MarkForSettlement`: MarkOrderSettlementResponse
     fmt.Fprintf(os.Stdout, "Response from `cashfree.MarkForSettlement`: %v\n", resp)
 }
 ```
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]interface{}**
+[**MarkOrderSettlementResponse**](MarkOrderSettlementResponse.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## PGOrderFetchSettlement
 
-> SettlementEntity PGOrderFetchSettlement(ctx, orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
+> OrderSettlementEntity PGOrderFetchSettlement(ctx, orderId).XApiVersion(xApiVersion).XRequestId(xRequestId).XIdempotencyKey(xIdempotencyKey).Execute()
 
 Get Settlements by Order ID
 
@@ -124,7 +124,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `cashfree.PGOrderFetchSettlement``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PGOrderFetchSettlement`: SettlementEntity
+    // response from `PGOrderFetchSettlement`: OrderSettlementEntity
     fmt.Fprintf(os.Stdout, "Response from `cashfree.PGOrderFetchSettlement`: %v\n", resp)
 }
 ```
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SettlementEntity**](SettlementEntity.md)
+[**OrderSettlementEntity**](OrderSettlementEntity.md)
 
 ### Authorization
 

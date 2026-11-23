@@ -26,14 +26,14 @@ var _ MappedNullable = &SettlementReconEntityDataInnerPaymentDetails{}
 type SettlementReconEntityDataInnerPaymentDetails struct {
 	// Payment amount captured.
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
-	// Payment Curreny type - INR.
+	// Payment Currency type - INR.
 	PaymentCurrency *string `json:"payment_currency,omitempty"`
 	// Unique transaction reference number of the payment.
 	BankReference *string `json:"bank_reference,omitempty"`
 	// Date and time when the payment was initiated.
 	PaymentTime *string `json:"payment_time,omitempty"`
-	// Mode of the payment.
-	PaymentMode *string `json:"payment_mode,omitempty"`
+	// Payment group/mode of the payment. Example - UPI, CREDIT_CARD.
+	PaymentGroup *string `json:"payment_group,omitempty"`
 	// Service charge applicable for the payment.
 	PaymentServiceCharge *float32 `json:"payment_service_charge,omitempty"`
 	// Service tax applicable on the payment.
@@ -43,10 +43,10 @@ type SettlementReconEntityDataInnerPaymentDetails struct {
 	// Status of the Payment.
 	Status *string `json:"status,omitempty"`
 	// Forex Conversion Service Charge.
-	ForexConversionHandlingCharge *string `json:"forex_conversion_handling_charge,omitempty"`
+	ForexConversionHandlingCharge *float32 `json:"forex_conversion_handling_charge,omitempty"`
 	// Forex Conversion Service Tax.
-	ForexConversionHandlingTax *string `json:"forex_conversion_handling_tax,omitempty"`
-	// Forex Charges Curreny type - INR.
+	ForexConversionHandlingTax *float32 `json:"forex_conversion_handling_tax,omitempty"`
+	// Forex Charges Currency type - INR.
 	ChargesCurrency *string `json:"charges_currency,omitempty"`
 }
 
@@ -74,8 +74,8 @@ func (o SettlementReconEntityDataInnerPaymentDetails) ToMap() (map[string]interf
 	if !IsNil(o.PaymentTime) {
 		toSerialize["payment_time"] = o.PaymentTime
 	}
-	if !IsNil(o.PaymentMode) {
-		toSerialize["payment_mode"] = o.PaymentMode
+	if !IsNil(o.PaymentGroup) {
+		toSerialize["payment_group"] = o.PaymentGroup
 	}
 	if !IsNil(o.PaymentServiceCharge) {
 		toSerialize["payment_service_charge"] = o.PaymentServiceCharge
@@ -101,4 +101,39 @@ func (o SettlementReconEntityDataInnerPaymentDetails) ToMap() (map[string]interf
 	return toSerialize, nil
 }
 
+type NullableSettlementReconEntityDataInnerPaymentDetails struct {
+	value *SettlementReconEntityDataInnerPaymentDetails
+	isSet bool
+}
+
+func (v NullableSettlementReconEntityDataInnerPaymentDetails) Get() *SettlementReconEntityDataInnerPaymentDetails {
+	return v.value
+}
+
+func (v *NullableSettlementReconEntityDataInnerPaymentDetails) Set(val *SettlementReconEntityDataInnerPaymentDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementReconEntityDataInnerPaymentDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementReconEntityDataInnerPaymentDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementReconEntityDataInnerPaymentDetails(val *SettlementReconEntityDataInnerPaymentDetails) *NullableSettlementReconEntityDataInnerPaymentDetails {
+	return &NullableSettlementReconEntityDataInnerPaymentDetails{value: val, isSet: true}
+}
+
+func (v NullableSettlementReconEntityDataInnerPaymentDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementReconEntityDataInnerPaymentDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

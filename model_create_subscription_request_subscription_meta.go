@@ -56,4 +56,39 @@ func (o CreateSubscriptionRequestSubscriptionMeta) ToMap() (map[string]interface
 	return toSerialize, nil
 }
 
+type NullableCreateSubscriptionRequestSubscriptionMeta struct {
+	value *CreateSubscriptionRequestSubscriptionMeta
+	isSet bool
+}
+
+func (v NullableCreateSubscriptionRequestSubscriptionMeta) Get() *CreateSubscriptionRequestSubscriptionMeta {
+	return v.value
+}
+
+func (v *NullableCreateSubscriptionRequestSubscriptionMeta) Set(val *CreateSubscriptionRequestSubscriptionMeta) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateSubscriptionRequestSubscriptionMeta) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateSubscriptionRequestSubscriptionMeta) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateSubscriptionRequestSubscriptionMeta(val *CreateSubscriptionRequestSubscriptionMeta) *NullableCreateSubscriptionRequestSubscriptionMeta {
+	return &NullableCreateSubscriptionRequestSubscriptionMeta{value: val, isSet: true}
+}
+
+func (v NullableCreateSubscriptionRequestSubscriptionMeta) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateSubscriptionRequestSubscriptionMeta) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

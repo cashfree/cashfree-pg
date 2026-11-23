@@ -32,7 +32,7 @@ type PaymentEntity struct {
 	IsCaptured *bool `json:"is_captured,omitempty"`
 	// Order amount can be different from payment amount if you collect service fee from the customer.
 	OrderAmount *float32 `json:"order_amount,omitempty"`
-	// Type of payment group. One of ['prepaid_card', 'upi_ppi_offline', 'cash', 'upi_credit_card', 'paypal', 'net_banking', 'cardless_emi', 'credit_card', 'bank_transfer', 'pay_later', 'debit_card_emi', 'debit_card', 'wallet', 'upi_ppi', 'upi', 'credit_card_emi'].
+	// Type of payment group. One of ['prepaid_card', 'upi_ppi_offline', 'cash', 'upi_credit_card', 'paypal', 'net_banking', 'cardless_emi', 'credit_card', 'bank_transfer', 'pay_later', 'debit_card_emi', 'debit_card', 'wallet', 'upi_ppi', 'upi', 'credit_card_emi', 'upi_credit_line'].
 	PaymentGroup *string `json:"payment_group,omitempty"`
 	PaymentCurrency *string `json:"payment_currency,omitempty"`
 	PaymentAmount *float32 `json:"payment_amount,omitempty"`
@@ -133,4 +133,39 @@ func (o PaymentEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullablePaymentEntity struct {
+	value *PaymentEntity
+	isSet bool
+}
+
+func (v NullablePaymentEntity) Get() *PaymentEntity {
+	return v.value
+}
+
+func (v *NullablePaymentEntity) Set(val *PaymentEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePaymentEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePaymentEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePaymentEntity(val *PaymentEntity) *NullablePaymentEntity {
+	return &NullablePaymentEntity{value: val, isSet: true}
+}
+
+func (v NullablePaymentEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePaymentEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

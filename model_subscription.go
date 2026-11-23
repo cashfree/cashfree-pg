@@ -70,4 +70,39 @@ func (o Subscription) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableSubscription struct {
+	value *Subscription
+	isSet bool
+}
+
+func (v NullableSubscription) Get() *Subscription {
+	return v.value
+}
+
+func (v *NullableSubscription) Set(val *Subscription) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSubscription) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSubscription) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSubscription(val *Subscription) *NullableSubscription {
+	return &NullableSubscription{value: val, isSet: true}
+}
+
+func (v NullableSubscription) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSubscription) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -81,4 +81,39 @@ func (o SubscriptionPaymentRefundEntity) ToMap() (map[string]interface{}, error)
 	return toSerialize, nil
 }
 
+type NullableSubscriptionPaymentRefundEntity struct {
+	value *SubscriptionPaymentRefundEntity
+	isSet bool
+}
+
+func (v NullableSubscriptionPaymentRefundEntity) Get() *SubscriptionPaymentRefundEntity {
+	return v.value
+}
+
+func (v *NullableSubscriptionPaymentRefundEntity) Set(val *SubscriptionPaymentRefundEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSubscriptionPaymentRefundEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSubscriptionPaymentRefundEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSubscriptionPaymentRefundEntity(val *SubscriptionPaymentRefundEntity) *NullableSubscriptionPaymentRefundEntity {
+	return &NullableSubscriptionPaymentRefundEntity{value: val, isSet: true}
+}
+
+func (v NullableSubscriptionPaymentRefundEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSubscriptionPaymentRefundEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

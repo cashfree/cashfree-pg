@@ -99,7 +99,7 @@ func (dst *OfferValidationsResponsePaymentMethod) UnmarshalJSON(data []byte) err
 
 		jsonOfferAll, _ := json.Marshal(dst.OfferAll)
 
-		if strings.Contains(string(jsonOfferAll), "{}") || strings.Contains(string(jsonOfferAll), "null") { // empty struct
+		if strings.Contains(string(jsonOfferAll), "{}") || string(jsonOfferAll) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.OfferAll = nil
 
@@ -124,7 +124,7 @@ func (dst *OfferValidationsResponsePaymentMethod) UnmarshalJSON(data []byte) err
 
 		jsonOfferCard, _ := json.Marshal(dst.OfferCard)
 
-		if strings.Contains(string(jsonOfferCard), "{}") || strings.Contains(string(jsonOfferCard), "null") { // empty struct
+		if strings.Contains(string(jsonOfferCard), "{}") || string(jsonOfferCard) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.OfferCard = nil
 
@@ -149,7 +149,7 @@ func (dst *OfferValidationsResponsePaymentMethod) UnmarshalJSON(data []byte) err
 
 		jsonOfferEMI, _ := json.Marshal(dst.OfferEMI)
 
-		if strings.Contains(string(jsonOfferEMI), "{}") || strings.Contains(string(jsonOfferEMI), "null") { // empty struct
+		if strings.Contains(string(jsonOfferEMI), "{}") || string(jsonOfferEMI) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.OfferEMI = nil
 
@@ -174,7 +174,7 @@ func (dst *OfferValidationsResponsePaymentMethod) UnmarshalJSON(data []byte) err
 
 		jsonOfferNB, _ := json.Marshal(dst.OfferNB)
 
-		if strings.Contains(string(jsonOfferNB), "{}") || strings.Contains(string(jsonOfferNB), "null") { // empty struct
+		if strings.Contains(string(jsonOfferNB), "{}") || string(jsonOfferNB) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.OfferNB = nil
 
@@ -199,7 +199,7 @@ func (dst *OfferValidationsResponsePaymentMethod) UnmarshalJSON(data []byte) err
 
 		jsonOfferPaylater, _ := json.Marshal(dst.OfferPaylater)
 
-		if strings.Contains(string(jsonOfferPaylater), "{}") || strings.Contains(string(jsonOfferPaylater), "null") { // empty struct
+		if strings.Contains(string(jsonOfferPaylater), "{}") || string(jsonOfferPaylater) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.OfferPaylater = nil
 
@@ -224,7 +224,7 @@ func (dst *OfferValidationsResponsePaymentMethod) UnmarshalJSON(data []byte) err
 
 		jsonOfferUPI, _ := json.Marshal(dst.OfferUPI)
 
-		if strings.Contains(string(jsonOfferUPI), "{}") || strings.Contains(string(jsonOfferUPI), "null") { // empty struct
+		if strings.Contains(string(jsonOfferUPI), "{}") || string(jsonOfferUPI) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.OfferUPI = nil
 
@@ -249,7 +249,7 @@ func (dst *OfferValidationsResponsePaymentMethod) UnmarshalJSON(data []byte) err
 
 		jsonOfferWallet, _ := json.Marshal(dst.OfferWallet)
 
-		if strings.Contains(string(jsonOfferWallet), "{}") || strings.Contains(string(jsonOfferWallet), "null") { // empty struct
+		if strings.Contains(string(jsonOfferWallet), "{}") || string(jsonOfferWallet) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.OfferWallet = nil
 
@@ -378,4 +378,39 @@ func (obj *OfferValidationsResponsePaymentMethod) GetActualInstance() (interface
 	return nil
 }
 
+type NullableOfferValidationsResponsePaymentMethod struct {
+	value *OfferValidationsResponsePaymentMethod
+	isSet bool
+}
+
+func (v NullableOfferValidationsResponsePaymentMethod) Get() *OfferValidationsResponsePaymentMethod {
+	return v.value
+}
+
+func (v *NullableOfferValidationsResponsePaymentMethod) Set(val *OfferValidationsResponsePaymentMethod) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOfferValidationsResponsePaymentMethod) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOfferValidationsResponsePaymentMethod) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOfferValidationsResponsePaymentMethod(val *OfferValidationsResponsePaymentMethod) *NullableOfferValidationsResponsePaymentMethod {
+	return &NullableOfferValidationsResponsePaymentMethod{value: val, isSet: true}
+}
+
+func (v NullableOfferValidationsResponsePaymentMethod) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOfferValidationsResponsePaymentMethod) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -61,4 +61,39 @@ func (o VendorEntityRelatedDocsInner) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableVendorEntityRelatedDocsInner struct {
+	value *VendorEntityRelatedDocsInner
+	isSet bool
+}
+
+func (v NullableVendorEntityRelatedDocsInner) Get() *VendorEntityRelatedDocsInner {
+	return v.value
+}
+
+func (v *NullableVendorEntityRelatedDocsInner) Set(val *VendorEntityRelatedDocsInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableVendorEntityRelatedDocsInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableVendorEntityRelatedDocsInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableVendorEntityRelatedDocsInner(val *VendorEntityRelatedDocsInner) *NullableVendorEntityRelatedDocsInner {
+	return &NullableVendorEntityRelatedDocsInner{value: val, isSet: true}
+}
+
+func (v NullableVendorEntityRelatedDocsInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableVendorEntityRelatedDocsInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

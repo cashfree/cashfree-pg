@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CfSettlementIds** | Pointer to **[]string** | List of settlement IDs for which you want the settlement reconciliation details. | [optional] 
 **SettlementUtrs** | Pointer to **[]string** | List of settlement UTRs for which you want the settlement reconciliation details. | [optional] 
+**SettlementStatus** | Pointer to **[]string** | List of settlement statuses to filter by. Possible values are SUCCESS, PENDING, PENDING_WITH_CASHFREE, PENDING_WITH_BANK, FAILED. | [optional] 
 **StartDate** | Pointer to **string** | Specify the start date from when you want the settlement reconciliation details. | [optional] 
 **EndDate** | Pointer to **string** | Specify the end date till when you want the settlement reconciliation details. | [optional] 
 
@@ -77,6 +78,31 @@ SetSettlementUtrs sets SettlementUtrs field to given value.
 `func (o *FetchSettlementsRequestFilters) HasSettlementUtrs() bool`
 
 HasSettlementUtrs returns a boolean if a field has been set.
+
+### GetSettlementStatus
+
+`func (o *FetchSettlementsRequestFilters) GetSettlementStatus() []string`
+
+GetSettlementStatus returns the SettlementStatus field if non-nil, zero value otherwise.
+
+### GetSettlementStatusOk
+
+`func (o *FetchSettlementsRequestFilters) GetSettlementStatusOk() (*[]string, bool)`
+
+GetSettlementStatusOk returns a tuple with the SettlementStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSettlementStatus
+
+`func (o *FetchSettlementsRequestFilters) SetSettlementStatus(v []string)`
+
+SetSettlementStatus sets SettlementStatus field to given value.
+
+### HasSettlementStatus
+
+`func (o *FetchSettlementsRequestFilters) HasSettlementStatus() bool`
+
+HasSettlementStatus returns a boolean if a field has been set.
 
 ### GetStartDate
 

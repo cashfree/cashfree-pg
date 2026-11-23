@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -29,7 +29,7 @@ type SettlementReconEntityDataInnerSettlementDetails struct {
 	// Date and time when the settlement was processed.
 	SettlementDate *string `json:"settlement_date,omitempty"`
 	// Unique transaction reference number of the settlement.
-	Utr *string `json:"utr,omitempty"`
+	SettlementUtr *string `json:"settlement_utr,omitempty"`
 	// Service charge that is applicable for splitting the payment.
 	SplitServiceCharge *float32 `json:"split_service_charge,omitempty"`
 	// Service tax applicable for splitting the amount to vendors.
@@ -76,8 +76,8 @@ func (o SettlementReconEntityDataInnerSettlementDetails) ToMap() (map[string]int
 	if !IsNil(o.SettlementDate) {
 		toSerialize["settlement_date"] = o.SettlementDate
 	}
-	if !IsNil(o.Utr) {
-		toSerialize["utr"] = o.Utr
+	if !IsNil(o.SettlementUtr) {
+		toSerialize["settlement_utr"] = o.SettlementUtr
 	}
 	if !IsNil(o.SplitServiceCharge) {
 		toSerialize["split_service_charge"] = o.SplitServiceCharge
@@ -121,4 +121,39 @@ func (o SettlementReconEntityDataInnerSettlementDetails) ToMap() (map[string]int
 	return toSerialize, nil
 }
 
+type NullableSettlementReconEntityDataInnerSettlementDetails struct {
+	value *SettlementReconEntityDataInnerSettlementDetails
+	isSet bool
+}
+
+func (v NullableSettlementReconEntityDataInnerSettlementDetails) Get() *SettlementReconEntityDataInnerSettlementDetails {
+	return v.value
+}
+
+func (v *NullableSettlementReconEntityDataInnerSettlementDetails) Set(val *SettlementReconEntityDataInnerSettlementDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementReconEntityDataInnerSettlementDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementReconEntityDataInnerSettlementDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementReconEntityDataInnerSettlementDetails(val *SettlementReconEntityDataInnerSettlementDetails) *NullableSettlementReconEntityDataInnerSettlementDetails {
+	return &NullableSettlementReconEntityDataInnerSettlementDetails{value: val, isSet: true}
+}
+
+func (v NullableSettlementReconEntityDataInnerSettlementDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementReconEntityDataInnerSettlementDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

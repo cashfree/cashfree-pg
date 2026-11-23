@@ -49,4 +49,39 @@ func (o EntitySimulationRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableEntitySimulationRequest struct {
+	value *EntitySimulationRequest
+	isSet bool
+}
+
+func (v NullableEntitySimulationRequest) Get() *EntitySimulationRequest {
+	return v.value
+}
+
+func (v *NullableEntitySimulationRequest) Set(val *EntitySimulationRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEntitySimulationRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEntitySimulationRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEntitySimulationRequest(val *EntitySimulationRequest) *NullableEntitySimulationRequest {
+	return &NullableEntitySimulationRequest{value: val, isSet: true}
+}
+
+func (v NullableEntitySimulationRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEntitySimulationRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

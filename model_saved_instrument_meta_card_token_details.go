@@ -56,4 +56,39 @@ func (o SavedInstrumentMetaCardTokenDetails) ToMap() (map[string]interface{}, er
 	return toSerialize, nil
 }
 
+type NullableSavedInstrumentMetaCardTokenDetails struct {
+	value *SavedInstrumentMetaCardTokenDetails
+	isSet bool
+}
+
+func (v NullableSavedInstrumentMetaCardTokenDetails) Get() *SavedInstrumentMetaCardTokenDetails {
+	return v.value
+}
+
+func (v *NullableSavedInstrumentMetaCardTokenDetails) Set(val *SavedInstrumentMetaCardTokenDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSavedInstrumentMetaCardTokenDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSavedInstrumentMetaCardTokenDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSavedInstrumentMetaCardTokenDetails(val *SavedInstrumentMetaCardTokenDetails) *NullableSavedInstrumentMetaCardTokenDetails {
+	return &NullableSavedInstrumentMetaCardTokenDetails{value: val, isSet: true}
+}
+
+func (v NullableSavedInstrumentMetaCardTokenDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSavedInstrumentMetaCardTokenDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -77,4 +77,39 @@ func (o KycDetails) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableKycDetails struct {
+	value *KycDetails
+	isSet bool
+}
+
+func (v NullableKycDetails) Get() *KycDetails {
+	return v.value
+}
+
+func (v *NullableKycDetails) Set(val *KycDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableKycDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableKycDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableKycDetails(val *KycDetails) *NullableKycDetails {
+	return &NullableKycDetails{value: val, isSet: true}
+}
+
+func (v NullableKycDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableKycDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

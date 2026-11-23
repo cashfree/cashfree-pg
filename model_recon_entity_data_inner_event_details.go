@@ -101,4 +101,39 @@ func (o ReconEntityDataInnerEventDetails) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
+type NullableReconEntityDataInnerEventDetails struct {
+	value *ReconEntityDataInnerEventDetails
+	isSet bool
+}
+
+func (v NullableReconEntityDataInnerEventDetails) Get() *ReconEntityDataInnerEventDetails {
+	return v.value
+}
+
+func (v *NullableReconEntityDataInnerEventDetails) Set(val *ReconEntityDataInnerEventDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableReconEntityDataInnerEventDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableReconEntityDataInnerEventDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableReconEntityDataInnerEventDetails(val *ReconEntityDataInnerEventDetails) *NullableReconEntityDataInnerEventDetails {
+	return &NullableReconEntityDataInnerEventDetails{value: val, isSet: true}
+}
+
+func (v NullableReconEntityDataInnerEventDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableReconEntityDataInnerEventDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

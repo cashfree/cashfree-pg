@@ -62,4 +62,39 @@ func (o VBASimulationRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableVBASimulationRequest struct {
+	value *VBASimulationRequest
+	isSet bool
+}
+
+func (v NullableVBASimulationRequest) Get() *VBASimulationRequest {
+	return v.value
+}
+
+func (v *NullableVBASimulationRequest) Set(val *VBASimulationRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableVBASimulationRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableVBASimulationRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableVBASimulationRequest(val *VBASimulationRequest) *NullableVBASimulationRequest {
+	return &NullableVBASimulationRequest{value: val, isSet: true}
+}
+
+func (v NullableVBASimulationRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableVBASimulationRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

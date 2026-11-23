@@ -57,4 +57,39 @@ func (o BalanceDetails) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableBalanceDetails struct {
+	value *BalanceDetails
+	isSet bool
+}
+
+func (v NullableBalanceDetails) Get() *BalanceDetails {
+	return v.value
+}
+
+func (v *NullableBalanceDetails) Set(val *BalanceDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableBalanceDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableBalanceDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableBalanceDetails(val *BalanceDetails) *NullableBalanceDetails {
+	return &NullableBalanceDetails{value: val, isSet: true}
+}
+
+func (v NullableBalanceDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableBalanceDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

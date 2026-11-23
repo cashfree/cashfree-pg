@@ -57,4 +57,39 @@ func (o SimulateRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableSimulateRequest struct {
+	value *SimulateRequest
+	isSet bool
+}
+
+func (v NullableSimulateRequest) Get() *SimulateRequest {
+	return v.value
+}
+
+func (v *NullableSimulateRequest) Set(val *SimulateRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSimulateRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSimulateRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSimulateRequest(val *SimulateRequest) *NullableSimulateRequest {
+	return &NullableSimulateRequest{value: val, isSet: true}
+}
+
+func (v NullableSimulateRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSimulateRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

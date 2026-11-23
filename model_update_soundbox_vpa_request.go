@@ -57,4 +57,39 @@ func (o UpdateSoundboxVpaRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUpdateSoundboxVpaRequest struct {
+	value *UpdateSoundboxVpaRequest
+	isSet bool
+}
+
+func (v NullableUpdateSoundboxVpaRequest) Get() *UpdateSoundboxVpaRequest {
+	return v.value
+}
+
+func (v *NullableUpdateSoundboxVpaRequest) Set(val *UpdateSoundboxVpaRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUpdateSoundboxVpaRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUpdateSoundboxVpaRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUpdateSoundboxVpaRequest(val *UpdateSoundboxVpaRequest) *NullableUpdateSoundboxVpaRequest {
+	return &NullableUpdateSoundboxVpaRequest{value: val, isSet: true}
+}
+
+func (v NullableUpdateSoundboxVpaRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUpdateSoundboxVpaRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

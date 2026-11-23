@@ -111,4 +111,39 @@ func (o SplitOrderReconSuccessResponseSettlement) ToMap() (map[string]interface{
 	return toSerialize, nil
 }
 
+type NullableSplitOrderReconSuccessResponseSettlement struct {
+	value *SplitOrderReconSuccessResponseSettlement
+	isSet bool
+}
+
+func (v NullableSplitOrderReconSuccessResponseSettlement) Get() *SplitOrderReconSuccessResponseSettlement {
+	return v.value
+}
+
+func (v *NullableSplitOrderReconSuccessResponseSettlement) Set(val *SplitOrderReconSuccessResponseSettlement) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSplitOrderReconSuccessResponseSettlement) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSplitOrderReconSuccessResponseSettlement) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSplitOrderReconSuccessResponseSettlement(val *SplitOrderReconSuccessResponseSettlement) *NullableSplitOrderReconSuccessResponseSettlement {
+	return &NullableSplitOrderReconSuccessResponseSettlement{value: val, isSet: true}
+}
+
+func (v NullableSplitOrderReconSuccessResponseSettlement) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSplitOrderReconSuccessResponseSettlement) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

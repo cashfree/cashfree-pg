@@ -53,4 +53,39 @@ func (o InstrumentWebhookData) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableInstrumentWebhookData struct {
+	value *InstrumentWebhookData
+	isSet bool
+}
+
+func (v NullableInstrumentWebhookData) Get() *InstrumentWebhookData {
+	return v.value
+}
+
+func (v *NullableInstrumentWebhookData) Set(val *InstrumentWebhookData) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableInstrumentWebhookData) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableInstrumentWebhookData) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableInstrumentWebhookData(val *InstrumentWebhookData) *NullableInstrumentWebhookData {
+	return &NullableInstrumentWebhookData{value: val, isSet: true}
+}
+
+func (v NullableInstrumentWebhookData) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableInstrumentWebhookData) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

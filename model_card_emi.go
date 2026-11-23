@@ -72,4 +72,39 @@ func (o CardEMI) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCardEMI struct {
+	value *CardEMI
+	isSet bool
+}
+
+func (v NullableCardEMI) Get() *CardEMI {
+	return v.value
+}
+
+func (v *NullableCardEMI) Set(val *CardEMI) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCardEMI) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCardEMI) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCardEMI(val *CardEMI) *NullableCardEMI {
+	return &NullableCardEMI{value: val, isSet: true}
+}
+
+func (v NullableCardEMI) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCardEMI) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

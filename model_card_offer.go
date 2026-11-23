@@ -48,4 +48,39 @@ func (o CardOffer) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableCardOffer struct {
+	value *CardOffer
+	isSet bool
+}
+
+func (v NullableCardOffer) Get() *CardOffer {
+	return v.value
+}
+
+func (v *NullableCardOffer) Set(val *CardOffer) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCardOffer) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCardOffer) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCardOffer(val *CardOffer) *NullableCardOffer {
+	return &NullableCardOffer{value: val, isSet: true}
+}
+
+func (v NullableCardOffer) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCardOffer) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 
