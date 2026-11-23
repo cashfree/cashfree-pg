@@ -54,4 +54,39 @@ func (o OrderCreateRefundRequestRefundSplitsInner) ToMap() (map[string]interface
 	return toSerialize, nil
 }
 
+type NullableOrderCreateRefundRequestRefundSplitsInner struct {
+	value *OrderCreateRefundRequestRefundSplitsInner
+	isSet bool
+}
+
+func (v NullableOrderCreateRefundRequestRefundSplitsInner) Get() *OrderCreateRefundRequestRefundSplitsInner {
+	return v.value
+}
+
+func (v *NullableOrderCreateRefundRequestRefundSplitsInner) Set(val *OrderCreateRefundRequestRefundSplitsInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderCreateRefundRequestRefundSplitsInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderCreateRefundRequestRefundSplitsInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderCreateRefundRequestRefundSplitsInner(val *OrderCreateRefundRequestRefundSplitsInner) *NullableOrderCreateRefundRequestRefundSplitsInner {
+	return &NullableOrderCreateRefundRequestRefundSplitsInner{value: val, isSet: true}
+}
+
+func (v NullableOrderCreateRefundRequestRefundSplitsInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderCreateRefundRequestRefundSplitsInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

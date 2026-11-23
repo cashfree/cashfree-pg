@@ -5,17 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PaymentAmount** | Pointer to **float32** | Payment amount captured. | [optional] 
-**PaymentCurrency** | Pointer to **string** | Payment Curreny type - INR. | [optional] 
+**PaymentCurrency** | Pointer to **string** | Payment Currency type - INR. | [optional] 
 **BankReference** | Pointer to **string** | Unique transaction reference number of the payment. | [optional] 
 **PaymentTime** | Pointer to **string** | Date and time when the payment was initiated. | [optional] 
-**PaymentMode** | Pointer to **string** | Mode of the payment. | [optional] 
+**PaymentGroup** | Pointer to **string** | Payment group/mode of the payment. Example - UPI, CREDIT_CARD. | [optional] 
 **PaymentServiceCharge** | Pointer to **float32** | Service charge applicable for the payment. | [optional] 
 **PaymentServiceTax** | Pointer to **float32** | Service tax applicable on the payment. | [optional] 
 **CfPaymentId** | Pointer to **string** | Cashfree Payments unique ID to identify a payment. | [optional] 
 **Status** | Pointer to **string** | Status of the Payment. | [optional] 
-**ForexConversionHandlingCharge** | Pointer to **string** | Forex Conversion Service Charge. | [optional] 
-**ForexConversionHandlingTax** | Pointer to **string** | Forex Conversion Service Tax. | [optional] 
-**ChargesCurrency** | Pointer to **string** | Forex Charges Curreny type - INR. | [optional] 
+**ForexConversionHandlingCharge** | Pointer to **float32** | Forex Conversion Service Charge. | [optional] 
+**ForexConversionHandlingTax** | Pointer to **float32** | Forex Conversion Service Tax. | [optional] 
+**ChargesCurrency** | Pointer to **string** | Forex Charges Currency type - INR. | [optional] 
 
 ## Methods
 
@@ -136,30 +136,30 @@ SetPaymentTime sets PaymentTime field to given value.
 
 HasPaymentTime returns a boolean if a field has been set.
 
-### GetPaymentMode
+### GetPaymentGroup
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) GetPaymentMode() string`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) GetPaymentGroup() string`
 
-GetPaymentMode returns the PaymentMode field if non-nil, zero value otherwise.
+GetPaymentGroup returns the PaymentGroup field if non-nil, zero value otherwise.
 
-### GetPaymentModeOk
+### GetPaymentGroupOk
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) GetPaymentModeOk() (*string, bool)`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) GetPaymentGroupOk() (*string, bool)`
 
-GetPaymentModeOk returns a tuple with the PaymentMode field if it's non-nil, zero value otherwise
+GetPaymentGroupOk returns a tuple with the PaymentGroup field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetPaymentMode
+### SetPaymentGroup
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) SetPaymentMode(v string)`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) SetPaymentGroup(v string)`
 
-SetPaymentMode sets PaymentMode field to given value.
+SetPaymentGroup sets PaymentGroup field to given value.
 
-### HasPaymentMode
+### HasPaymentGroup
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) HasPaymentMode() bool`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) HasPaymentGroup() bool`
 
-HasPaymentMode returns a boolean if a field has been set.
+HasPaymentGroup returns a boolean if a field has been set.
 
 ### GetPaymentServiceCharge
 
@@ -263,20 +263,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetForexConversionHandlingCharge
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) GetForexConversionHandlingCharge() string`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) GetForexConversionHandlingCharge() float32`
 
 GetForexConversionHandlingCharge returns the ForexConversionHandlingCharge field if non-nil, zero value otherwise.
 
 ### GetForexConversionHandlingChargeOk
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) GetForexConversionHandlingChargeOk() (*string, bool)`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) GetForexConversionHandlingChargeOk() (*float32, bool)`
 
 GetForexConversionHandlingChargeOk returns a tuple with the ForexConversionHandlingCharge field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetForexConversionHandlingCharge
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) SetForexConversionHandlingCharge(v string)`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) SetForexConversionHandlingCharge(v float32)`
 
 SetForexConversionHandlingCharge sets ForexConversionHandlingCharge field to given value.
 
@@ -288,20 +288,20 @@ HasForexConversionHandlingCharge returns a boolean if a field has been set.
 
 ### GetForexConversionHandlingTax
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) GetForexConversionHandlingTax() string`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) GetForexConversionHandlingTax() float32`
 
 GetForexConversionHandlingTax returns the ForexConversionHandlingTax field if non-nil, zero value otherwise.
 
 ### GetForexConversionHandlingTaxOk
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) GetForexConversionHandlingTaxOk() (*string, bool)`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) GetForexConversionHandlingTaxOk() (*float32, bool)`
 
 GetForexConversionHandlingTaxOk returns a tuple with the ForexConversionHandlingTax field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetForexConversionHandlingTax
 
-`func (o *SettlementReconEntityDataInnerPaymentDetails) SetForexConversionHandlingTax(v string)`
+`func (o *SettlementReconEntityDataInnerPaymentDetails) SetForexConversionHandlingTax(v float32)`
 
 SetForexConversionHandlingTax sets ForexConversionHandlingTax field to given value.
 

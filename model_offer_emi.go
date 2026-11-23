@@ -45,4 +45,39 @@ func (o OfferEMI) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOfferEMI struct {
+	value *OfferEMI
+	isSet bool
+}
+
+func (v NullableOfferEMI) Get() *OfferEMI {
+	return v.value
+}
+
+func (v *NullableOfferEMI) Set(val *OfferEMI) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOfferEMI) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOfferEMI) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOfferEMI(val *OfferEMI) *NullableOfferEMI {
+	return &NullableOfferEMI{value: val, isSet: true}
+}
+
+func (v NullableOfferEMI) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOfferEMI) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

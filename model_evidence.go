@@ -53,4 +53,39 @@ func (o Evidence) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableEvidence struct {
+	value *Evidence
+	isSet bool
+}
+
+func (v NullableEvidence) Get() *Evidence {
+	return v.value
+}
+
+func (v *NullableEvidence) Set(val *Evidence) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEvidence) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEvidence) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEvidence(val *Evidence) *NullableEvidence {
+	return &NullableEvidence{value: val, isSet: true}
+}
+
+func (v NullableEvidence) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEvidence) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

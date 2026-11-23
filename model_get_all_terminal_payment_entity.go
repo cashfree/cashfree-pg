@@ -85,4 +85,39 @@ func (o GetAllTerminalPaymentEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableGetAllTerminalPaymentEntity struct {
+	value *GetAllTerminalPaymentEntity
+	isSet bool
+}
+
+func (v NullableGetAllTerminalPaymentEntity) Get() *GetAllTerminalPaymentEntity {
+	return v.value
+}
+
+func (v *NullableGetAllTerminalPaymentEntity) Set(val *GetAllTerminalPaymentEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableGetAllTerminalPaymentEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableGetAllTerminalPaymentEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableGetAllTerminalPaymentEntity(val *GetAllTerminalPaymentEntity) *NullableGetAllTerminalPaymentEntity {
+	return &NullableGetAllTerminalPaymentEntity{value: val, isSet: true}
+}
+
+func (v NullableGetAllTerminalPaymentEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableGetAllTerminalPaymentEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

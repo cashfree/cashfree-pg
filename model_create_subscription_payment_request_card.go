@@ -45,4 +45,39 @@ func (o CreateSubscriptionPaymentRequestCard) ToMap() (map[string]interface{}, e
 	return toSerialize, nil
 }
 
+type NullableCreateSubscriptionPaymentRequestCard struct {
+	value *CreateSubscriptionPaymentRequestCard
+	isSet bool
+}
+
+func (v NullableCreateSubscriptionPaymentRequestCard) Get() *CreateSubscriptionPaymentRequestCard {
+	return v.value
+}
+
+func (v *NullableCreateSubscriptionPaymentRequestCard) Set(val *CreateSubscriptionPaymentRequestCard) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableCreateSubscriptionPaymentRequestCard) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableCreateSubscriptionPaymentRequestCard) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableCreateSubscriptionPaymentRequestCard(val *CreateSubscriptionPaymentRequestCard) *NullableCreateSubscriptionPaymentRequestCard {
+	return &NullableCreateSubscriptionPaymentRequestCard{value: val, isSet: true}
+}
+
+func (v NullableCreateSubscriptionPaymentRequestCard) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableCreateSubscriptionPaymentRequestCard) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

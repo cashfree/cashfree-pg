@@ -55,4 +55,39 @@ func (o TransactionReturnSummary200Response) ToMap() (map[string]interface{}, er
 	return toSerialize, nil
 }
 
+type NullableTransactionReturnSummary200Response struct {
+	value *TransactionReturnSummary200Response
+	isSet bool
+}
+
+func (v NullableTransactionReturnSummary200Response) Get() *TransactionReturnSummary200Response {
+	return v.value
+}
+
+func (v *NullableTransactionReturnSummary200Response) Set(val *TransactionReturnSummary200Response) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableTransactionReturnSummary200Response) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableTransactionReturnSummary200Response) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableTransactionReturnSummary200Response(val *TransactionReturnSummary200Response) *NullableTransactionReturnSummary200Response {
+	return &NullableTransactionReturnSummary200Response{value: val, isSet: true}
+}
+
+func (v NullableTransactionReturnSummary200Response) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableTransactionReturnSummary200Response) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

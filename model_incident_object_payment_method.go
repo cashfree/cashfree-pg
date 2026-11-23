@@ -75,7 +75,7 @@ func (dst *IncidentObjectPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonCardDowntime, _ := json.Marshal(dst.CardDowntime)
 
-		if strings.Contains(string(jsonCardDowntime), "{}") || strings.Contains(string(jsonCardDowntime), "null") { // empty struct
+		if strings.Contains(string(jsonCardDowntime), "{}") || string(jsonCardDowntime) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.CardDowntime = nil
 
@@ -100,7 +100,7 @@ func (dst *IncidentObjectPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonNetBankingDowntime, _ := json.Marshal(dst.NetBankingDowntime)
 
-		if strings.Contains(string(jsonNetBankingDowntime), "{}") || strings.Contains(string(jsonNetBankingDowntime), "null") { // empty struct
+		if strings.Contains(string(jsonNetBankingDowntime), "{}") || string(jsonNetBankingDowntime) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.NetBankingDowntime = nil
 
@@ -125,7 +125,7 @@ func (dst *IncidentObjectPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonUPIDowntime, _ := json.Marshal(dst.UPIDowntime)
 
-		if strings.Contains(string(jsonUPIDowntime), "{}") || strings.Contains(string(jsonUPIDowntime), "null") { // empty struct
+		if strings.Contains(string(jsonUPIDowntime), "{}") || string(jsonUPIDowntime) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.UPIDowntime = nil
 
@@ -150,7 +150,7 @@ func (dst *IncidentObjectPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonWalletDowntime, _ := json.Marshal(dst.WalletDowntime)
 
-		if strings.Contains(string(jsonWalletDowntime), "{}") || strings.Contains(string(jsonWalletDowntime), "null") { // empty struct
+		if strings.Contains(string(jsonWalletDowntime), "{}") || string(jsonWalletDowntime) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.WalletDowntime = nil
 
@@ -246,4 +246,39 @@ func (obj *IncidentObjectPaymentMethod) GetActualInstance() (interface{}) {
 	return nil
 }
 
+type NullableIncidentObjectPaymentMethod struct {
+	value *IncidentObjectPaymentMethod
+	isSet bool
+}
+
+func (v NullableIncidentObjectPaymentMethod) Get() *IncidentObjectPaymentMethod {
+	return v.value
+}
+
+func (v *NullableIncidentObjectPaymentMethod) Set(val *IncidentObjectPaymentMethod) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableIncidentObjectPaymentMethod) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableIncidentObjectPaymentMethod) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableIncidentObjectPaymentMethod(val *IncidentObjectPaymentMethod) *NullableIncidentObjectPaymentMethod {
+	return &NullableIncidentObjectPaymentMethod{value: val, isSet: true}
+}
+
+func (v NullableIncidentObjectPaymentMethod) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableIncidentObjectPaymentMethod) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

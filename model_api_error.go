@@ -58,4 +58,39 @@ func (o ApiError) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableApiError struct {
+	value *ApiError
+	isSet bool
+}
+
+func (v NullableApiError) Get() *ApiError {
+	return v.value
+}
+
+func (v *NullableApiError) Set(val *ApiError) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableApiError) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableApiError) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableApiError(val *ApiError) *NullableApiError {
+	return &NullableApiError{value: val, isSet: true}
+}
+
+func (v NullableApiError) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableApiError) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

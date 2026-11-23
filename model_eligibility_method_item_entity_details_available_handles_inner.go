@@ -51,4 +51,39 @@ func (o EligibilityMethodItemEntityDetailsAvailableHandlesInner) ToMap() (map[st
 	return toSerialize, nil
 }
 
+type NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner struct {
+	value *EligibilityMethodItemEntityDetailsAvailableHandlesInner
+	isSet bool
+}
+
+func (v NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner) Get() *EligibilityMethodItemEntityDetailsAvailableHandlesInner {
+	return v.value
+}
+
+func (v *NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner) Set(val *EligibilityMethodItemEntityDetailsAvailableHandlesInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEligibilityMethodItemEntityDetailsAvailableHandlesInner(val *EligibilityMethodItemEntityDetailsAvailableHandlesInner) *NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner {
+	return &NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner{value: val, isSet: true}
+}
+
+func (v NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEligibilityMethodItemEntityDetailsAvailableHandlesInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

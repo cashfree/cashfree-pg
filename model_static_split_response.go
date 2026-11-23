@@ -65,4 +65,39 @@ func (o StaticSplitResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableStaticSplitResponse struct {
+	value *StaticSplitResponse
+	isSet bool
+}
+
+func (v NullableStaticSplitResponse) Get() *StaticSplitResponse {
+	return v.value
+}
+
+func (v *NullableStaticSplitResponse) Set(val *StaticSplitResponse) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableStaticSplitResponse) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableStaticSplitResponse) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableStaticSplitResponse(val *StaticSplitResponse) *NullableStaticSplitResponse {
+	return &NullableStaticSplitResponse{value: val, isSet: true}
+}
+
+func (v NullableStaticSplitResponse) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableStaticSplitResponse) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

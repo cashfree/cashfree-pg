@@ -70,4 +70,39 @@ func (o SavedInstrumentMeta) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableSavedInstrumentMeta struct {
+	value *SavedInstrumentMeta
+	isSet bool
+}
+
+func (v NullableSavedInstrumentMeta) Get() *SavedInstrumentMeta {
+	return v.value
+}
+
+func (v *NullableSavedInstrumentMeta) Set(val *SavedInstrumentMeta) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSavedInstrumentMeta) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSavedInstrumentMeta) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSavedInstrumentMeta(val *SavedInstrumentMeta) *NullableSavedInstrumentMeta {
+	return &NullableSavedInstrumentMeta{value: val, isSet: true}
+}
+
+func (v NullableSavedInstrumentMeta) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSavedInstrumentMeta) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

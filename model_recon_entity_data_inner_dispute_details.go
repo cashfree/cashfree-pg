@@ -61,4 +61,39 @@ func (o ReconEntityDataInnerDisputeDetails) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
+type NullableReconEntityDataInnerDisputeDetails struct {
+	value *ReconEntityDataInnerDisputeDetails
+	isSet bool
+}
+
+func (v NullableReconEntityDataInnerDisputeDetails) Get() *ReconEntityDataInnerDisputeDetails {
+	return v.value
+}
+
+func (v *NullableReconEntityDataInnerDisputeDetails) Set(val *ReconEntityDataInnerDisputeDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableReconEntityDataInnerDisputeDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableReconEntityDataInnerDisputeDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableReconEntityDataInnerDisputeDetails(val *ReconEntityDataInnerDisputeDetails) *NullableReconEntityDataInnerDisputeDetails {
+	return &NullableReconEntityDataInnerDisputeDetails{value: val, isSet: true}
+}
+
+func (v NullableReconEntityDataInnerDisputeDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableReconEntityDataInnerDisputeDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

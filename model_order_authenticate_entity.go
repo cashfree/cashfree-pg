@@ -61,4 +61,39 @@ func (o OrderAuthenticateEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOrderAuthenticateEntity struct {
+	value *OrderAuthenticateEntity
+	isSet bool
+}
+
+func (v NullableOrderAuthenticateEntity) Get() *OrderAuthenticateEntity {
+	return v.value
+}
+
+func (v *NullableOrderAuthenticateEntity) Set(val *OrderAuthenticateEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderAuthenticateEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderAuthenticateEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderAuthenticateEntity(val *OrderAuthenticateEntity) *NullableOrderAuthenticateEntity {
+	return &NullableOrderAuthenticateEntity{value: val, isSet: true}
+}
+
+func (v NullableOrderAuthenticateEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderAuthenticateEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

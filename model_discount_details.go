@@ -50,4 +50,39 @@ func (o DiscountDetails) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableDiscountDetails struct {
+	value *DiscountDetails
+	isSet bool
+}
+
+func (v NullableDiscountDetails) Get() *DiscountDetails {
+	return v.value
+}
+
+func (v *NullableDiscountDetails) Set(val *DiscountDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableDiscountDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableDiscountDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableDiscountDetails(val *DiscountDetails) *NullableDiscountDetails {
+	return &NullableDiscountDetails{value: val, isSet: true}
+}
+
+func (v NullableDiscountDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableDiscountDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -45,4 +45,39 @@ func (o OfferNBNetbanking) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOfferNBNetbanking struct {
+	value *OfferNBNetbanking
+	isSet bool
+}
+
+func (v NullableOfferNBNetbanking) Get() *OfferNBNetbanking {
+	return v.value
+}
+
+func (v *NullableOfferNBNetbanking) Set(val *OfferNBNetbanking) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOfferNBNetbanking) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOfferNBNetbanking) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOfferNBNetbanking(val *OfferNBNetbanking) *NullableOfferNBNetbanking {
+	return &NullableOfferNBNetbanking{value: val, isSet: true}
+}
+
+func (v NullableOfferNBNetbanking) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOfferNBNetbanking) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

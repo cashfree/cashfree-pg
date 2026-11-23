@@ -44,4 +44,39 @@ func (o UpdateTerminalStatusRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUpdateTerminalStatusRequest struct {
+	value *UpdateTerminalStatusRequest
+	isSet bool
+}
+
+func (v NullableUpdateTerminalStatusRequest) Get() *UpdateTerminalStatusRequest {
+	return v.value
+}
+
+func (v *NullableUpdateTerminalStatusRequest) Set(val *UpdateTerminalStatusRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUpdateTerminalStatusRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUpdateTerminalStatusRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUpdateTerminalStatusRequest(val *UpdateTerminalStatusRequest) *NullableUpdateTerminalStatusRequest {
+	return &NullableUpdateTerminalStatusRequest{value: val, isSet: true}
+}
+
+func (v NullableUpdateTerminalStatusRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUpdateTerminalStatusRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

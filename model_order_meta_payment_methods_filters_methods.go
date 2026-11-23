@@ -51,4 +51,39 @@ func (o OrderMetaPaymentMethodsFiltersMethods) ToMap() (map[string]interface{}, 
 	return toSerialize, nil
 }
 
+type NullableOrderMetaPaymentMethodsFiltersMethods struct {
+	value *OrderMetaPaymentMethodsFiltersMethods
+	isSet bool
+}
+
+func (v NullableOrderMetaPaymentMethodsFiltersMethods) Get() *OrderMetaPaymentMethodsFiltersMethods {
+	return v.value
+}
+
+func (v *NullableOrderMetaPaymentMethodsFiltersMethods) Set(val *OrderMetaPaymentMethodsFiltersMethods) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderMetaPaymentMethodsFiltersMethods) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderMetaPaymentMethodsFiltersMethods) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderMetaPaymentMethodsFiltersMethods(val *OrderMetaPaymentMethodsFiltersMethods) *NullableOrderMetaPaymentMethodsFiltersMethods {
+	return &NullableOrderMetaPaymentMethodsFiltersMethods{value: val, isSet: true}
+}
+
+func (v NullableOrderMetaPaymentMethodsFiltersMethods) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderMetaPaymentMethodsFiltersMethods) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

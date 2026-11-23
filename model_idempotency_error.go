@@ -58,4 +58,39 @@ func (o IdempotencyError) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableIdempotencyError struct {
+	value *IdempotencyError
+	isSet bool
+}
+
+func (v NullableIdempotencyError) Get() *IdempotencyError {
+	return v.value
+}
+
+func (v *NullableIdempotencyError) Set(val *IdempotencyError) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableIdempotencyError) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableIdempotencyError) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableIdempotencyError(val *IdempotencyError) *NullableIdempotencyError {
+	return &NullableIdempotencyError{value: val, isSet: true}
+}
+
+func (v NullableIdempotencyError) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableIdempotencyError) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -54,4 +54,39 @@ func (o OfferDetailsResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOfferDetailsResponse struct {
+	value *OfferDetailsResponse
+	isSet bool
+}
+
+func (v NullableOfferDetailsResponse) Get() *OfferDetailsResponse {
+	return v.value
+}
+
+func (v *NullableOfferDetailsResponse) Set(val *OfferDetailsResponse) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOfferDetailsResponse) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOfferDetailsResponse) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOfferDetailsResponse(val *OfferDetailsResponse) *NullableOfferDetailsResponse {
+	return &NullableOfferDetailsResponse{value: val, isSet: true}
+}
+
+func (v NullableOfferDetailsResponse) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOfferDetailsResponse) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

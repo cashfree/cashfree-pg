@@ -117,4 +117,39 @@ func (o SettlementEntity) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableSettlementEntity struct {
+	value *SettlementEntity
+	isSet bool
+}
+
+func (v NullableSettlementEntity) Get() *SettlementEntity {
+	return v.value
+}
+
+func (v *NullableSettlementEntity) Set(val *SettlementEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementEntity(val *SettlementEntity) *NullableSettlementEntity {
+	return &NullableSettlementEntity{value: val, isSet: true}
+}
+
+func (v NullableSettlementEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

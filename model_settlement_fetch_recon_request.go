@@ -25,7 +25,7 @@ var _ MappedNullable = &SettlementFetchReconRequest{}
 // SettlementFetchReconRequest Recon Request Object.
 type SettlementFetchReconRequest struct {
 	Pagination FetchSettlementsRequestPagination `json:"pagination"`
-	Filters *SettlementFetchReconRequestFilters `json:"filters,omitempty"`
+	Filters SettlementFetchReconRequestFilters `json:"filters"`
 }
 
 
@@ -41,10 +41,43 @@ func (o SettlementFetchReconRequest) ToMap() (map[string]interface{}, error) {
 	strings.HasPrefix("cf", "cf")
 	toSerialize := map[string]interface{}{}
 	toSerialize["pagination"] = o.Pagination
-	if !IsNil(o.Filters) {
-		toSerialize["filters"] = o.Filters
-	}
+	toSerialize["filters"] = o.Filters
 	return toSerialize, nil
 }
 
+type NullableSettlementFetchReconRequest struct {
+	value *SettlementFetchReconRequest
+	isSet bool
+}
+
+func (v NullableSettlementFetchReconRequest) Get() *SettlementFetchReconRequest {
+	return v.value
+}
+
+func (v *NullableSettlementFetchReconRequest) Set(val *SettlementFetchReconRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementFetchReconRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementFetchReconRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementFetchReconRequest(val *SettlementFetchReconRequest) *NullableSettlementFetchReconRequest {
+	return &NullableSettlementFetchReconRequest{value: val, isSet: true}
+}
+
+func (v NullableSettlementFetchReconRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementFetchReconRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

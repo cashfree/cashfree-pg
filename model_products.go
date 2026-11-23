@@ -49,4 +49,39 @@ func (o Products) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableProducts struct {
+	value *Products
+	isSet bool
+}
+
+func (v NullableProducts) Get() *Products {
+	return v.value
+}
+
+func (v *NullableProducts) Set(val *Products) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableProducts) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableProducts) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableProducts(val *Products) *NullableProducts {
+	return &NullableProducts{value: val, isSet: true}
+}
+
+func (v NullableProducts) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableProducts) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

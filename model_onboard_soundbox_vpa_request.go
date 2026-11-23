@@ -62,4 +62,39 @@ func (o OnboardSoundboxVpaRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOnboardSoundboxVpaRequest struct {
+	value *OnboardSoundboxVpaRequest
+	isSet bool
+}
+
+func (v NullableOnboardSoundboxVpaRequest) Get() *OnboardSoundboxVpaRequest {
+	return v.value
+}
+
+func (v *NullableOnboardSoundboxVpaRequest) Set(val *OnboardSoundboxVpaRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOnboardSoundboxVpaRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOnboardSoundboxVpaRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOnboardSoundboxVpaRequest(val *OnboardSoundboxVpaRequest) *NullableOnboardSoundboxVpaRequest {
+	return &NullableOnboardSoundboxVpaRequest{value: val, isSet: true}
+}
+
+func (v NullableOnboardSoundboxVpaRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOnboardSoundboxVpaRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

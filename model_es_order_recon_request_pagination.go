@@ -50,4 +50,39 @@ func (o ESOrderReconRequestPagination) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableESOrderReconRequestPagination struct {
+	value *ESOrderReconRequestPagination
+	isSet bool
+}
+
+func (v NullableESOrderReconRequestPagination) Get() *ESOrderReconRequestPagination {
+	return v.value
+}
+
+func (v *NullableESOrderReconRequestPagination) Set(val *ESOrderReconRequestPagination) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableESOrderReconRequestPagination) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableESOrderReconRequestPagination) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableESOrderReconRequestPagination(val *ESOrderReconRequestPagination) *NullableESOrderReconRequestPagination {
+	return &NullableESOrderReconRequestPagination{value: val, isSet: true}
+}
+
+func (v NullableESOrderReconRequestPagination) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableESOrderReconRequestPagination) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

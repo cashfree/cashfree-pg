@@ -53,4 +53,39 @@ func (o PaymentWebhook) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullablePaymentWebhook struct {
+	value *PaymentWebhook
+	isSet bool
+}
+
+func (v NullablePaymentWebhook) Get() *PaymentWebhook {
+	return v.value
+}
+
+func (v *NullablePaymentWebhook) Set(val *PaymentWebhook) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePaymentWebhook) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePaymentWebhook) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePaymentWebhook(val *PaymentWebhook) *NullablePaymentWebhook {
+	return &NullablePaymentWebhook{value: val, isSet: true}
+}
+
+func (v NullablePaymentWebhook) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePaymentWebhook) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -91,4 +91,39 @@ func (o UpdateVendorRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUpdateVendorRequest struct {
+	value *UpdateVendorRequest
+	isSet bool
+}
+
+func (v NullableUpdateVendorRequest) Get() *UpdateVendorRequest {
+	return v.value
+}
+
+func (v *NullableUpdateVendorRequest) Set(val *UpdateVendorRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUpdateVendorRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUpdateVendorRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUpdateVendorRequest(val *UpdateVendorRequest) *NullableUpdateVendorRequest {
+	return &NullableUpdateVendorRequest{value: val, isSet: true}
+}
+
+func (v NullableUpdateVendorRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUpdateVendorRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

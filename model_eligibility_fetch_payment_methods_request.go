@@ -47,4 +47,39 @@ func (o EligibilityFetchPaymentMethodsRequest) ToMap() (map[string]interface{}, 
 	return toSerialize, nil
 }
 
+type NullableEligibilityFetchPaymentMethodsRequest struct {
+	value *EligibilityFetchPaymentMethodsRequest
+	isSet bool
+}
+
+func (v NullableEligibilityFetchPaymentMethodsRequest) Get() *EligibilityFetchPaymentMethodsRequest {
+	return v.value
+}
+
+func (v *NullableEligibilityFetchPaymentMethodsRequest) Set(val *EligibilityFetchPaymentMethodsRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEligibilityFetchPaymentMethodsRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEligibilityFetchPaymentMethodsRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEligibilityFetchPaymentMethodsRequest(val *EligibilityFetchPaymentMethodsRequest) *NullableEligibilityFetchPaymentMethodsRequest {
+	return &NullableEligibilityFetchPaymentMethodsRequest{value: val, isSet: true}
+}
+
+func (v NullableEligibilityFetchPaymentMethodsRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEligibilityFetchPaymentMethodsRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

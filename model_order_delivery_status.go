@@ -51,4 +51,39 @@ func (o OrderDeliveryStatus) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOrderDeliveryStatus struct {
+	value *OrderDeliveryStatus
+	isSet bool
+}
+
+func (v NullableOrderDeliveryStatus) Get() *OrderDeliveryStatus {
+	return v.value
+}
+
+func (v *NullableOrderDeliveryStatus) Set(val *OrderDeliveryStatus) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderDeliveryStatus) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderDeliveryStatus) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderDeliveryStatus(val *OrderDeliveryStatus) *NullableOrderDeliveryStatus {
+	return &NullableOrderDeliveryStatus{value: val, isSet: true}
+}
+
+func (v NullableOrderDeliveryStatus) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderDeliveryStatus) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

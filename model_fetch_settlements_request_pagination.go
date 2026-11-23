@@ -49,4 +49,39 @@ func (o FetchSettlementsRequestPagination) ToMap() (map[string]interface{}, erro
 	return toSerialize, nil
 }
 
+type NullableFetchSettlementsRequestPagination struct {
+	value *FetchSettlementsRequestPagination
+	isSet bool
+}
+
+func (v NullableFetchSettlementsRequestPagination) Get() *FetchSettlementsRequestPagination {
+	return v.value
+}
+
+func (v *NullableFetchSettlementsRequestPagination) Set(val *FetchSettlementsRequestPagination) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableFetchSettlementsRequestPagination) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableFetchSettlementsRequestPagination) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableFetchSettlementsRequestPagination(val *FetchSettlementsRequestPagination) *NullableFetchSettlementsRequestPagination {
+	return &NullableFetchSettlementsRequestPagination{value: val, isSet: true}
+}
+
+func (v NullableFetchSettlementsRequestPagination) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableFetchSettlementsRequestPagination) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

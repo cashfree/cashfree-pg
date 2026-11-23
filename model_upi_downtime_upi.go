@@ -57,4 +57,39 @@ func (o UPIDowntimeUpi) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUPIDowntimeUpi struct {
+	value *UPIDowntimeUpi
+	isSet bool
+}
+
+func (v NullableUPIDowntimeUpi) Get() *UPIDowntimeUpi {
+	return v.value
+}
+
+func (v *NullableUPIDowntimeUpi) Set(val *UPIDowntimeUpi) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUPIDowntimeUpi) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUPIDowntimeUpi) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUPIDowntimeUpi(val *UPIDowntimeUpi) *NullableUPIDowntimeUpi {
+	return &NullableUPIDowntimeUpi{value: val, isSet: true}
+}
+
+func (v NullableUPIDowntimeUpi) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUPIDowntimeUpi) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -113,4 +113,39 @@ func (o VendorRecon200ResponseDataInner) ToMap() (map[string]interface{}, error)
 	return toSerialize, nil
 }
 
+type NullableVendorRecon200ResponseDataInner struct {
+	value *VendorRecon200ResponseDataInner
+	isSet bool
+}
+
+func (v NullableVendorRecon200ResponseDataInner) Get() *VendorRecon200ResponseDataInner {
+	return v.value
+}
+
+func (v *NullableVendorRecon200ResponseDataInner) Set(val *VendorRecon200ResponseDataInner) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableVendorRecon200ResponseDataInner) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableVendorRecon200ResponseDataInner) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableVendorRecon200ResponseDataInner(val *VendorRecon200ResponseDataInner) *NullableVendorRecon200ResponseDataInner {
+	return &NullableVendorRecon200ResponseDataInner{value: val, isSet: true}
+}
+
+func (v NullableVendorRecon200ResponseDataInner) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableVendorRecon200ResponseDataInner) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

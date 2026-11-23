@@ -45,4 +45,39 @@ func (o PaymentMethodUPIInPaymentsEntity) ToMap() (map[string]interface{}, error
 	return toSerialize, nil
 }
 
+type NullablePaymentMethodUPIInPaymentsEntity struct {
+	value *PaymentMethodUPIInPaymentsEntity
+	isSet bool
+}
+
+func (v NullablePaymentMethodUPIInPaymentsEntity) Get() *PaymentMethodUPIInPaymentsEntity {
+	return v.value
+}
+
+func (v *NullablePaymentMethodUPIInPaymentsEntity) Set(val *PaymentMethodUPIInPaymentsEntity) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePaymentMethodUPIInPaymentsEntity) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePaymentMethodUPIInPaymentsEntity) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePaymentMethodUPIInPaymentsEntity(val *PaymentMethodUPIInPaymentsEntity) *NullablePaymentMethodUPIInPaymentsEntity {
+	return &NullablePaymentMethodUPIInPaymentsEntity{value: val, isSet: true}
+}
+
+func (v NullablePaymentMethodUPIInPaymentsEntity) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePaymentMethodUPIInPaymentsEntity) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -50,4 +50,39 @@ func (o UpdateOrderExtendedRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUpdateOrderExtendedRequest struct {
+	value *UpdateOrderExtendedRequest
+	isSet bool
+}
+
+func (v NullableUpdateOrderExtendedRequest) Get() *UpdateOrderExtendedRequest {
+	return v.value
+}
+
+func (v *NullableUpdateOrderExtendedRequest) Set(val *UpdateOrderExtendedRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUpdateOrderExtendedRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUpdateOrderExtendedRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUpdateOrderExtendedRequest(val *UpdateOrderExtendedRequest) *NullableUpdateOrderExtendedRequest {
+	return &NullableUpdateOrderExtendedRequest{value: val, isSet: true}
+}
+
+func (v NullableUpdateOrderExtendedRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUpdateOrderExtendedRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

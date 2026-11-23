@@ -22,7 +22,7 @@ var _ = fmt.Errorf
 // checks if the PGCreatePAR200Response type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PGCreatePAR200Response{}
 
-// PGCreatePAR200Response struct for PGCreatePAR200Response
+// PGCreatePAR200Response Success response for PAR by providing plain card details.
 type PGCreatePAR200Response struct {
 	// PAR for plain card sent in request.
 	Par *string `json:"par,omitempty"`
@@ -46,4 +46,39 @@ func (o PGCreatePAR200Response) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullablePGCreatePAR200Response struct {
+	value *PGCreatePAR200Response
+	isSet bool
+}
+
+func (v NullablePGCreatePAR200Response) Get() *PGCreatePAR200Response {
+	return v.value
+}
+
+func (v *NullablePGCreatePAR200Response) Set(val *PGCreatePAR200Response) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePGCreatePAR200Response) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePGCreatePAR200Response) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePGCreatePAR200Response(val *PGCreatePAR200Response) *NullablePGCreatePAR200Response {
+	return &NullablePGCreatePAR200Response{value: val, isSet: true}
+}
+
+func (v NullablePGCreatePAR200Response) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePGCreatePAR200Response) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

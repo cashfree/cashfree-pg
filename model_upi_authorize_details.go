@@ -56,4 +56,39 @@ func (o UPIAuthorizeDetails) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUPIAuthorizeDetails struct {
+	value *UPIAuthorizeDetails
+	isSet bool
+}
+
+func (v NullableUPIAuthorizeDetails) Get() *UPIAuthorizeDetails {
+	return v.value
+}
+
+func (v *NullableUPIAuthorizeDetails) Set(val *UPIAuthorizeDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUPIAuthorizeDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUPIAuthorizeDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUPIAuthorizeDetails(val *UPIAuthorizeDetails) *NullableUPIAuthorizeDetails {
+	return &NullableUPIAuthorizeDetails{value: val, isSet: true}
+}
+
+func (v NullableUPIAuthorizeDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUPIAuthorizeDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

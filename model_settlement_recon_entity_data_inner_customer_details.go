@@ -3,7 +3,7 @@ Cashfree Payment Gateway APIs
 
 Cashfree's Payment Gateway APIs provide developers with a streamlined pathway to integrate advanced payment processing capabilities into their applications, platforms and websites.
 
-API version: 2025-01-01
+API version: 2026-01-01
 Contact: developers@cashfree.com
 */
 
@@ -36,7 +36,7 @@ type SettlementReconEntityDataInnerCustomerDetails struct {
 	CustomerBankAccountNumber *string `json:"customer_bank_account_number,omitempty"`
 	// Customer bank code.
 	CustomerBankCode *string `json:"customer_bank_code,omitempty"`
-	// Customer bank ifsc\"
+	// Customer bank IFSC.
 	CustomerBankIfsc *string `json:"customer_bank_ifsc,omitempty"`
 }
 
@@ -76,4 +76,39 @@ func (o SettlementReconEntityDataInnerCustomerDetails) ToMap() (map[string]inter
 	return toSerialize, nil
 }
 
+type NullableSettlementReconEntityDataInnerCustomerDetails struct {
+	value *SettlementReconEntityDataInnerCustomerDetails
+	isSet bool
+}
+
+func (v NullableSettlementReconEntityDataInnerCustomerDetails) Get() *SettlementReconEntityDataInnerCustomerDetails {
+	return v.value
+}
+
+func (v *NullableSettlementReconEntityDataInnerCustomerDetails) Set(val *SettlementReconEntityDataInnerCustomerDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementReconEntityDataInnerCustomerDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementReconEntityDataInnerCustomerDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementReconEntityDataInnerCustomerDetails(val *SettlementReconEntityDataInnerCustomerDetails) *NullableSettlementReconEntityDataInnerCustomerDetails {
+	return &NullableSettlementReconEntityDataInnerCustomerDetails{value: val, isSet: true}
+}
+
+func (v NullableSettlementReconEntityDataInnerCustomerDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementReconEntityDataInnerCustomerDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

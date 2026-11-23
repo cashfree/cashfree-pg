@@ -51,4 +51,39 @@ func (o ManageSubscriptionRequestActionDetails) ToMap() (map[string]interface{},
 	return toSerialize, nil
 }
 
+type NullableManageSubscriptionRequestActionDetails struct {
+	value *ManageSubscriptionRequestActionDetails
+	isSet bool
+}
+
+func (v NullableManageSubscriptionRequestActionDetails) Get() *ManageSubscriptionRequestActionDetails {
+	return v.value
+}
+
+func (v *NullableManageSubscriptionRequestActionDetails) Set(val *ManageSubscriptionRequestActionDetails) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableManageSubscriptionRequestActionDetails) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableManageSubscriptionRequestActionDetails) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableManageSubscriptionRequestActionDetails(val *ManageSubscriptionRequestActionDetails) *NullableManageSubscriptionRequestActionDetails {
+	return &NullableManageSubscriptionRequestActionDetails{value: val, isSet: true}
+}
+
+func (v NullableManageSubscriptionRequestActionDetails) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableManageSubscriptionRequestActionDetails) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

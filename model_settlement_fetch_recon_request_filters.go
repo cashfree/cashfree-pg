@@ -22,15 +22,25 @@ var _ = fmt.Errorf
 // checks if the SettlementFetchReconRequestFilters type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &SettlementFetchReconRequestFilters{}
 
-// SettlementFetchReconRequestFilters Specify either the Settlement ID, Settlement UTR, or start date and end date to fetch the settlement details.
+// SettlementFetchReconRequestFilters Specify either the Settlement ID, Settlement UTR, or date range filters to fetch the settlement details.
 type SettlementFetchReconRequestFilters struct {
 	// List of settlement IDs for which you want the settlement reconciliation details.
 	CfSettlementIds []int32 `json:"cf_settlement_ids,omitempty"`
 	// List of settlement UTRs for which you want the settlement reconciliation details.
 	SettlementUtrs []string `json:"settlement_utrs,omitempty"`
-	// Specify the start date from when you want the settlement reconciliation details.
+	// Filter events by settlement initiation start date. Use ISO8601 format.
+	StartDateInitiatedOn *string `json:"start_date_initiated_on,omitempty"`
+	// Filter events by settlement initiation end date. Use ISO8601 format.
+	EndDateInitiatedOn *string `json:"end_date_initiated_on,omitempty"`
+	// Filter events by settlement processed start date. Use ISO8601 format.
+	StartDateProcessedOn *string `json:"start_date_processed_on,omitempty"`
+	// Filter events by settlement processed end date. Use ISO8601 format.
+	EndDateProcessedOn *string `json:"end_date_processed_on,omitempty"`
+	// Deprecated: Use start_date_initiated_on or start_date_processed_on instead. Specify the start date from when you want the settlement reconciliation details.
+	// Deprecated
 	StartDate *string `json:"start_date,omitempty"`
-	// Specify the end date till when you want the settlement reconciliation details.
+	// Deprecated: Use end_date_initiated_on or end_date_processed_on instead. Specify the end date till when you want the settlement reconciliation details.
+	// Deprecated
 	EndDate *string `json:"end_date,omitempty"`
 }
 
@@ -52,6 +62,18 @@ func (o SettlementFetchReconRequestFilters) ToMap() (map[string]interface{}, err
 	if !IsNil(o.SettlementUtrs) {
 		toSerialize["settlement_utrs"] = o.SettlementUtrs
 	}
+	if !IsNil(o.StartDateInitiatedOn) {
+		toSerialize["start_date_initiated_on"] = o.StartDateInitiatedOn
+	}
+	if !IsNil(o.EndDateInitiatedOn) {
+		toSerialize["end_date_initiated_on"] = o.EndDateInitiatedOn
+	}
+	if !IsNil(o.StartDateProcessedOn) {
+		toSerialize["start_date_processed_on"] = o.StartDateProcessedOn
+	}
+	if !IsNil(o.EndDateProcessedOn) {
+		toSerialize["end_date_processed_on"] = o.EndDateProcessedOn
+	}
 	if !IsNil(o.StartDate) {
 		toSerialize["start_date"] = o.StartDate
 	}
@@ -61,4 +83,39 @@ func (o SettlementFetchReconRequestFilters) ToMap() (map[string]interface{}, err
 	return toSerialize, nil
 }
 
+type NullableSettlementFetchReconRequestFilters struct {
+	value *SettlementFetchReconRequestFilters
+	isSet bool
+}
+
+func (v NullableSettlementFetchReconRequestFilters) Get() *SettlementFetchReconRequestFilters {
+	return v.value
+}
+
+func (v *NullableSettlementFetchReconRequestFilters) Set(val *SettlementFetchReconRequestFilters) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableSettlementFetchReconRequestFilters) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableSettlementFetchReconRequestFilters) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableSettlementFetchReconRequestFilters(val *SettlementFetchReconRequestFilters) *NullableSettlementFetchReconRequestFilters {
+	return &NullableSettlementFetchReconRequestFilters{value: val, isSet: true}
+}
+
+func (v NullableSettlementFetchReconRequestFilters) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableSettlementFetchReconRequestFilters) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

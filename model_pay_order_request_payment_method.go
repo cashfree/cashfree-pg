@@ -107,7 +107,7 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonAppPaymentMethod, _ := json.Marshal(dst.AppPaymentMethod)
 
-		if strings.Contains(string(jsonAppPaymentMethod), "{}") || strings.Contains(string(jsonAppPaymentMethod), "null") { // empty struct
+		if strings.Contains(string(jsonAppPaymentMethod), "{}") || string(jsonAppPaymentMethod) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.AppPaymentMethod = nil
 
@@ -132,7 +132,7 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonBanktransferPaymentMethod, _ := json.Marshal(dst.BanktransferPaymentMethod)
 
-		if strings.Contains(string(jsonBanktransferPaymentMethod), "{}") || strings.Contains(string(jsonBanktransferPaymentMethod), "null") { // empty struct
+		if strings.Contains(string(jsonBanktransferPaymentMethod), "{}") || string(jsonBanktransferPaymentMethod) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.BanktransferPaymentMethod = nil
 
@@ -157,7 +157,7 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonCardEMIPaymentMethod, _ := json.Marshal(dst.CardEMIPaymentMethod)
 
-		if strings.Contains(string(jsonCardEMIPaymentMethod), "{}") || strings.Contains(string(jsonCardEMIPaymentMethod), "null") { // empty struct
+		if strings.Contains(string(jsonCardEMIPaymentMethod), "{}") || string(jsonCardEMIPaymentMethod) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.CardEMIPaymentMethod = nil
 
@@ -182,7 +182,7 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonCardPaymentMethod, _ := json.Marshal(dst.CardPaymentMethod)
 
-		if strings.Contains(string(jsonCardPaymentMethod), "{}") || strings.Contains(string(jsonCardPaymentMethod), "null") { // empty struct
+		if strings.Contains(string(jsonCardPaymentMethod), "{}") || string(jsonCardPaymentMethod) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.CardPaymentMethod = nil
 
@@ -207,7 +207,7 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonCardlessEMIPaymentMethod, _ := json.Marshal(dst.CardlessEMIPaymentMethod)
 
-		if strings.Contains(string(jsonCardlessEMIPaymentMethod), "{}") || strings.Contains(string(jsonCardlessEMIPaymentMethod), "null") { // empty struct
+		if strings.Contains(string(jsonCardlessEMIPaymentMethod), "{}") || string(jsonCardlessEMIPaymentMethod) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.CardlessEMIPaymentMethod = nil
 
@@ -232,7 +232,7 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonNetBankingPaymentMethod, _ := json.Marshal(dst.NetBankingPaymentMethod)
 
-		if strings.Contains(string(jsonNetBankingPaymentMethod), "{}") || strings.Contains(string(jsonNetBankingPaymentMethod), "null") { // empty struct
+		if strings.Contains(string(jsonNetBankingPaymentMethod), "{}") || string(jsonNetBankingPaymentMethod) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.NetBankingPaymentMethod = nil
 
@@ -257,7 +257,7 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonPaylaterPaymentMethod, _ := json.Marshal(dst.PaylaterPaymentMethod)
 
-		if strings.Contains(string(jsonPaylaterPaymentMethod), "{}") || strings.Contains(string(jsonPaylaterPaymentMethod), "null") { // empty struct
+		if strings.Contains(string(jsonPaylaterPaymentMethod), "{}") || string(jsonPaylaterPaymentMethod) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.PaylaterPaymentMethod = nil
 
@@ -282,7 +282,7 @@ func (dst *PayOrderRequestPaymentMethod) UnmarshalJSON(data []byte) error {
 
 		jsonUPIPaymentMethod, _ := json.Marshal(dst.UPIPaymentMethod)
 
-		if strings.Contains(string(jsonUPIPaymentMethod), "{}") || strings.Contains(string(jsonUPIPaymentMethod), "null") { // empty struct
+		if strings.Contains(string(jsonUPIPaymentMethod), "{}") || string(jsonUPIPaymentMethod) == "null" { // empty struct, or JSON null (null values inside a non-empty object are allowed)
 
 			dst.UPIPaymentMethod = nil
 
@@ -422,4 +422,39 @@ func (obj *PayOrderRequestPaymentMethod) GetActualInstance() (interface{}) {
 	return nil
 }
 
+type NullablePayOrderRequestPaymentMethod struct {
+	value *PayOrderRequestPaymentMethod
+	isSet bool
+}
+
+func (v NullablePayOrderRequestPaymentMethod) Get() *PayOrderRequestPaymentMethod {
+	return v.value
+}
+
+func (v *NullablePayOrderRequestPaymentMethod) Set(val *PayOrderRequestPaymentMethod) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePayOrderRequestPaymentMethod) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePayOrderRequestPaymentMethod) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePayOrderRequestPaymentMethod(val *PayOrderRequestPaymentMethod) *NullablePayOrderRequestPaymentMethod {
+	return &NullablePayOrderRequestPaymentMethod{value: val, isSet: true}
+}
+
+func (v NullablePayOrderRequestPaymentMethod) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePayOrderRequestPaymentMethod) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

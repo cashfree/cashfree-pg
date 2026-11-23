@@ -49,4 +49,39 @@ func (o OrderUpdateRefundRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableOrderUpdateRefundRequest struct {
+	value *OrderUpdateRefundRequest
+	isSet bool
+}
+
+func (v NullableOrderUpdateRefundRequest) Get() *OrderUpdateRefundRequest {
+	return v.value
+}
+
+func (v *NullableOrderUpdateRefundRequest) Set(val *OrderUpdateRefundRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableOrderUpdateRefundRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableOrderUpdateRefundRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableOrderUpdateRefundRequest(val *OrderUpdateRefundRequest) *NullableOrderUpdateRefundRequest {
+	return &NullableOrderUpdateRefundRequest{value: val, isSet: true}
+}
+
+func (v NullableOrderUpdateRefundRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableOrderUpdateRefundRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

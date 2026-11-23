@@ -58,4 +58,39 @@ func (o VendorAdjustmentRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableVendorAdjustmentRequest struct {
+	value *VendorAdjustmentRequest
+	isSet bool
+}
+
+func (v NullableVendorAdjustmentRequest) Get() *VendorAdjustmentRequest {
+	return v.value
+}
+
+func (v *NullableVendorAdjustmentRequest) Set(val *VendorAdjustmentRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableVendorAdjustmentRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableVendorAdjustmentRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableVendorAdjustmentRequest(val *VendorAdjustmentRequest) *NullableVendorAdjustmentRequest {
+	return &NullableVendorAdjustmentRequest{value: val, isSet: true}
+}
+
+func (v NullableVendorAdjustmentRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableVendorAdjustmentRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

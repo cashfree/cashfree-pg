@@ -78,4 +78,39 @@ func (o PayOrderAuthorizeOnlyRequestAuthorizationData) ToMap() (map[string]inter
 	return toSerialize, nil
 }
 
+type NullablePayOrderAuthorizeOnlyRequestAuthorizationData struct {
+	value *PayOrderAuthorizeOnlyRequestAuthorizationData
+	isSet bool
+}
+
+func (v NullablePayOrderAuthorizeOnlyRequestAuthorizationData) Get() *PayOrderAuthorizeOnlyRequestAuthorizationData {
+	return v.value
+}
+
+func (v *NullablePayOrderAuthorizeOnlyRequestAuthorizationData) Set(val *PayOrderAuthorizeOnlyRequestAuthorizationData) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePayOrderAuthorizeOnlyRequestAuthorizationData) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePayOrderAuthorizeOnlyRequestAuthorizationData) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePayOrderAuthorizeOnlyRequestAuthorizationData(val *PayOrderAuthorizeOnlyRequestAuthorizationData) *NullablePayOrderAuthorizeOnlyRequestAuthorizationData {
+	return &NullablePayOrderAuthorizeOnlyRequestAuthorizationData{value: val, isSet: true}
+}
+
+func (v NullablePayOrderAuthorizeOnlyRequestAuthorizationData) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePayOrderAuthorizeOnlyRequestAuthorizationData) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

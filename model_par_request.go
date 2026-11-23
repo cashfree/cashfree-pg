@@ -58,4 +58,39 @@ func (o PARRequest) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullablePARRequest struct {
+	value *PARRequest
+	isSet bool
+}
+
+func (v NullablePARRequest) Get() *PARRequest {
+	return v.value
+}
+
+func (v *NullablePARRequest) Set(val *PARRequest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullablePARRequest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullablePARRequest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullablePARRequest(val *PARRequest) *NullablePARRequest {
+	return &NullablePARRequest{value: val, isSet: true}
+}
+
+func (v NullablePARRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullablePARRequest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

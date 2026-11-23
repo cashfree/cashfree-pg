@@ -106,4 +106,39 @@ func (o DisputesEntityMerchantAccepted) ToMap() (map[string]interface{}, error) 
 	return toSerialize, nil
 }
 
+type NullableDisputesEntityMerchantAccepted struct {
+	value *DisputesEntityMerchantAccepted
+	isSet bool
+}
+
+func (v NullableDisputesEntityMerchantAccepted) Get() *DisputesEntityMerchantAccepted {
+	return v.value
+}
+
+func (v *NullableDisputesEntityMerchantAccepted) Set(val *DisputesEntityMerchantAccepted) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableDisputesEntityMerchantAccepted) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableDisputesEntityMerchantAccepted) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableDisputesEntityMerchantAccepted(val *DisputesEntityMerchantAccepted) *NullableDisputesEntityMerchantAccepted {
+	return &NullableDisputesEntityMerchantAccepted{value: val, isSet: true}
+}
+
+func (v NullableDisputesEntityMerchantAccepted) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableDisputesEntityMerchantAccepted) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

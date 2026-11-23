@@ -26,7 +26,7 @@ var _ MappedNullable = &UpdateVendorResponse{}
 type UpdateVendorResponse struct {
 	Email *string `json:"email,omitempty"`
 	Status *string `json:"status,omitempty"`
-	Bank []BankDetails `json:"bank,omitempty"`
+	Bank NullableBankDetails `json:"bank,omitempty"`
 	Upi *string `json:"upi,omitempty"`
 	AddedOn *string `json:"added_on,omitempty"`
 	UpdatedOn *string `json:"updated_on,omitempty"`
@@ -36,8 +36,8 @@ type UpdateVendorResponse struct {
 	Phone *float32 `json:"phone,omitempty"`
 	Name *string `json:"name,omitempty"`
 	VendorId *string `json:"vendor_id,omitempty"`
-	ScheduleOption []ScheduleOption `json:"schedule_option,omitempty"`
-	KycDetails []KycDetails `json:"kyc_details,omitempty"`
+	ScheduleOption NullableScheduleOption `json:"schedule_option,omitempty"`
+	KycDetails NullableKycDetails `json:"kyc_details,omitempty"`
 	DashboardAccess *bool `json:"dashboard_access,omitempty"`
 	BankDetails *string `json:"bank_details,omitempty"`
 	RelatedDocs []VendorEntityRelatedDocsInner `json:"related_docs,omitempty"`
@@ -61,8 +61,8 @@ func (o UpdateVendorResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Status) {
 		toSerialize["status"] = o.Status
 	}
-	if !IsNil(o.Bank) {
-		toSerialize["bank"] = o.Bank
+	if o.Bank.IsSet() {
+		toSerialize["bank"] = o.Bank.Get()
 	}
 	if !IsNil(o.Upi) {
 		toSerialize["upi"] = o.Upi
@@ -91,11 +91,11 @@ func (o UpdateVendorResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.VendorId) {
 		toSerialize["vendor_id"] = o.VendorId
 	}
-	if !IsNil(o.ScheduleOption) {
-		toSerialize["schedule_option"] = o.ScheduleOption
+	if o.ScheduleOption.IsSet() {
+		toSerialize["schedule_option"] = o.ScheduleOption.Get()
 	}
-	if !IsNil(o.KycDetails) {
-		toSerialize["kyc_details"] = o.KycDetails
+	if o.KycDetails.IsSet() {
+		toSerialize["kyc_details"] = o.KycDetails.Get()
 	}
 	if !IsNil(o.DashboardAccess) {
 		toSerialize["dashboard_access"] = o.DashboardAccess
@@ -109,4 +109,39 @@ func (o UpdateVendorResponse) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableUpdateVendorResponse struct {
+	value *UpdateVendorResponse
+	isSet bool
+}
+
+func (v NullableUpdateVendorResponse) Get() *UpdateVendorResponse {
+	return v.value
+}
+
+func (v *NullableUpdateVendorResponse) Set(val *UpdateVendorResponse) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableUpdateVendorResponse) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableUpdateVendorResponse) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableUpdateVendorResponse(val *UpdateVendorResponse) *NullableUpdateVendorResponse {
+	return &NullableUpdateVendorResponse{value: val, isSet: true}
+}
+
+func (v NullableUpdateVendorResponse) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableUpdateVendorResponse) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 

@@ -21,13 +21,13 @@ import (
 )
 
 // Execute executes the request
-//  @return map[string]interface{}
-func (_this *Cashfree) MarkForSettlement( xRequestId *string, xIdempotencyKey *string, createOrderSettlementRequestBody *CreateOrderSettlementRequestBody, httpClient *http.Client) (map[string]interface{}, *http.Response, error) {
+//  @return MarkOrderSettlementResponse
+func (_this *Cashfree) MarkForSettlement( xRequestId *string, xIdempotencyKey *string, createOrderSettlementRequestBody *CreateOrderSettlementRequestBody, httpClient *http.Client) (*MarkOrderSettlementResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *MarkOrderSettlementResponse
 	)
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
@@ -199,13 +199,13 @@ if _this.XPartnerApiKey != nil {
 
 // With Context
 // Execute executes the request
-//  @return map[string]interface{}
-func (_this *Cashfree) MarkForSettlementWithContext(ctx context.Context,  xRequestId *string, xIdempotencyKey *string, createOrderSettlementRequestBody *CreateOrderSettlementRequestBody, httpClient *http.Client) (map[string]interface{}, *http.Response, error) {
+//  @return MarkOrderSettlementResponse
+func (_this *Cashfree) MarkForSettlementWithContext(ctx context.Context,  xRequestId *string, xIdempotencyKey *string, createOrderSettlementRequestBody *CreateOrderSettlementRequestBody, httpClient *http.Client) (*MarkOrderSettlementResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  *MarkOrderSettlementResponse
 	)
 
 	if _this.XEnableErrorAnalytics == nil {
@@ -279,7 +279,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.5"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.10"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -380,13 +380,13 @@ if _this.XPartnerApiKey != nil {
 
 
 // Execute executes the request
-//  @return SettlementEntity
-func (_this *Cashfree) PGOrderFetchSettlement(orderId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SettlementEntity, *http.Response, error) {
+//  @return OrderSettlementEntity
+func (_this *Cashfree) PGOrderFetchSettlement(orderId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*OrderSettlementEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SettlementEntity
+		localVarReturnValue  *OrderSettlementEntity
 	)
 	if _this.XEnableErrorAnalytics == nil {
 		flag := false
@@ -617,13 +617,13 @@ if _this.XPartnerApiKey != nil {
 
 // With Context
 // Execute executes the request
-//  @return SettlementEntity
-func (_this *Cashfree) PGOrderFetchSettlementWithContext(ctx context.Context, orderId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*SettlementEntity, *http.Response, error) {
+//  @return OrderSettlementEntity
+func (_this *Cashfree) PGOrderFetchSettlementWithContext(ctx context.Context, orderId string,  xRequestId *string, xIdempotencyKey *string, httpClient *http.Client) (*OrderSettlementEntity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SettlementEntity
+		localVarReturnValue  *OrderSettlementEntity
 	)
 
 	if _this.XEnableErrorAnalytics == nil {
@@ -696,7 +696,7 @@ if _this.XPartnerApiKey != nil {
 	localVarHeaderParams["x-partner-apikey"] = *_this.XPartnerApiKey
 }
 
-	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.5"
+	localVarHeaderParams["x-sdk-platform"] = "gosdk-6.0.10"
 	req, err := client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

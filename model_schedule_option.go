@@ -53,4 +53,39 @@ func (o ScheduleOption) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
+type NullableScheduleOption struct {
+	value *ScheduleOption
+	isSet bool
+}
+
+func (v NullableScheduleOption) Get() *ScheduleOption {
+	return v.value
+}
+
+func (v *NullableScheduleOption) Set(val *ScheduleOption) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableScheduleOption) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableScheduleOption) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableScheduleOption(val *ScheduleOption) *NullableScheduleOption {
+	return &NullableScheduleOption{value: val, isSet: true}
+}
+
+func (v NullableScheduleOption) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableScheduleOption) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
+}
 
